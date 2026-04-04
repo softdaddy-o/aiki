@@ -1,0 +1,99 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+    title: string;
+    summary: string;
+    date: string;
+    category: string;
+    factCheckStatus?: string;
+    factCheckSourceCount?: number;
+    slug: string;
+    side: 'left' | 'right';
+    lang: string;
+}
+
+const { title, summary, date, category, factCheckStatus, factCheckSourceCount, slug, side, lang } = Astro.props;
+
+const categoryColors: Record<string, string> = {
+    news: 'var(--color-news)',
+    wiki: 'var(--color-wiki)',
+    model: 'var(--color-model)',
+    tutorial: 'var(--color-tutorial)',
+    skill: 'var(--color-skill)',
+};
+
+const categoryLabels: Record<string, string> = {
+    news: t(lang, 'filter.news'),
+    wiki: t(lang, 'filter.wiki'),
+    model: t(lang, 'filter.model'),
+    tutorial: t(lang, 'filter.tutorial'),
+    skill: t(lang, 'filter.skill'),
+};
+
+const color = categoryColors[category] ?? 'var(--color-news)';
+const time = date.split('T')[1]?.substring(0, 5) ?? '';
+---
+
+<div class={`timeline-item timeline-${side}`}>
+    <div class="connector" style={`background: ${color}`}></div>
+    <div class="dot" style={`background: ${color}`}></div>
+    <a href={`/${lang}/news/${slug}/`} class="card" style={`border-color: ${color}`}>
+        <div class="card-header">
+            <span class="badge" style={`background: ${color}`}>{categoryLabels[category]}</span>
+            {time && <span class="time">{time}</span>}
+        </div>
+        <h3 class="card-title">{title}</h3>
+        <p class="card-summary">{summary}</p>
+        {factCheckStatus === 'passed' && (
+            <div class="card-fc">
+                <span class="fc-pass">✅ {t(lang, 'factcheck.status.passed')}</span>
+                {factCheckSourceCount && <span class="fc-sources">· 출처 {factCheckSourceCount}건</span>}
+            </div>
+        )}
+    </a>
+</div>
+
+<style>
+    .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        margin-bottom: -12px;
+    }
+    .timeline-right { flex-direction: row; }
+    .timeline-left { flex-direction: row-reverse; }
+    .timeline-right .card { margin-left: 12px; border-left: 3px solid; border-right: none; }
+    .timeline-left .card { margin-right: 12px; border-right: 3px solid; border-left: none; text-align: right; }
+    .timeline-left .card-header { flex-direction: row-reverse; }
+    .timeline-left .card-fc { justify-content: flex-end; }
+    .dot {
+        width: 12px; height: 12px; border-radius: 50%;
+        border: 2px solid var(--color-bg); flex-shrink: 0;
+        margin-top: 16px; position: relative; z-index: 2;
+    }
+    .connector {
+        width: 20px; height: 2px; opacity: 0.5;
+        flex-shrink: 0; margin-top: 21px;
+    }
+    .card {
+        flex: 1; background: var(--color-surface); border-radius: 8px;
+        padding: 12px; text-decoration: none; color: inherit;
+        transition: background 0.15s;
+    }
+    .card:hover { background: var(--color-surface-alt); }
+    .card-header {
+        display: flex; justify-content: space-between;
+        align-items: center; margin-bottom: 6px;
+    }
+    .badge {
+        color: #000; padding: 2px 8px; border-radius: 4px;
+        font-size: 10px; font-weight: bold;
+    }
+    .time { color: var(--color-text-muted); font-size: 11px; }
+    .card-title { font-size: 14px; font-weight: bold; margin-bottom: 4px; }
+    .card-summary { font-size: 12px; color: var(--color-text-muted); }
+    .card-fc { display: flex; gap: 6px; margin-top: 6px; font-size: 10px; }
+    .fc-pass { color: var(--color-pass); }
+    .fc-sources { color: var(--color-text-muted); }
+</style>

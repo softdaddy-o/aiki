@@ -1,0 +1,101 @@
+---
+import { t } from '../i18n/utils';
+
+interface Check {
+    type: string;
+    result: string;
+    sources?: number;
+    findings?: string[];
+}
+
+interface Source {
+    url: string;
+    title: string;
+}
+
+interface Props {
+    status: string;
+    date: string;
+    checks: Check[];
+    sources: Source[];
+    lang: string;
+}
+
+const { status, date, checks, sources, lang } = Astro.props;
+const adversarial = checks.find(c => c.type === 'adversarial');
+const statusIcon = status === 'passed' ? '✅' : status === 'failed' ? '❌' : '⏳';
+---
+
+<section class="factcheck">
+    <h4 class="fc-title">🔍 {t(lang, 'factcheck.title')}</h4>
+    <div class="fc-meta">
+        <span>{t(lang, 'factcheck.generated')}: AI (Claude) · {date}</span>
+        <span>팩트체크: {statusIcon} {t(lang, `factcheck.status.${status}`)}</span>
+    </div>
+    <div class="fc-checks">
+        {checks.map(check => (
+            <div class="fc-check">
+                <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
+                    {check.result === 'pass' ? '✓' : check.result === 'skip' ? '—' : '✗'}
+                </span>
+                <span>{t(lang, `factcheck.${check.type}`)}</span>
+                {check.sources && <span class="check-detail">— 독립 출처 {check.sources}건</span>}
+            </div>
+        ))}
+    </div>
+    {adversarial?.findings && adversarial.findings.length > 0 && (
+        <div class="fc-adversarial">
+            <h5>💬 {t(lang, 'factcheck.critical_view')}</h5>
+            <ul>
+                {adversarial.findings.map(finding => (
+                    <li>{finding}</li>
+                ))}
+            </ul>
+        </div>
+    )}
+    {sources.length > 0 && (
+        <div class="fc-sources-list">
+            출처: {sources.map((s, i) => (
+                <>{i > 0 && ', '}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>
+            ))}
+        </div>
+    )}
+    <div class="fc-footer">
+        마지막 검증: {date} KST ·
+        <a href="https://github.com/softdaddy-o/aiki/issues/new">
+            ⚠️ {t(lang, 'factcheck.report_error')}
+        </a>
+    </div>
+</section>
+
+<style>
+    .factcheck {
+        margin-top: 32px; padding: 16px; background: var(--color-surface);
+        border-radius: 8px; border: 1px solid #333; font-size: 13px;
+    }
+    .fc-title { font-size: 14px; margin-bottom: 12px; }
+    .fc-meta {
+        display: flex; flex-direction: column; gap: 4px;
+        color: var(--color-text-muted); margin-bottom: 12px; font-size: 12px;
+    }
+    .fc-checks { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+    .fc-check { display: flex; gap: 8px; align-items: center; }
+    .check-pass { color: var(--color-pass); font-weight: bold; }
+    .check-fail { color: var(--color-fail); font-weight: bold; }
+    .check-skip { color: var(--color-text-muted); }
+    .check-detail { color: var(--color-text-muted); font-size: 12px; }
+    .fc-adversarial {
+        background: var(--color-surface-alt); padding: 12px;
+        border-radius: 6px; margin-bottom: 12px;
+    }
+    .fc-adversarial h5 { margin-bottom: 8px; font-size: 13px; }
+    .fc-adversarial ul { padding-left: 16px; font-size: 12px; color: var(--color-text-muted); }
+    .fc-adversarial li { margin-bottom: 4px; }
+    .fc-sources-list { font-size: 12px; color: var(--color-text-muted); margin-bottom: 8px; }
+    .fc-sources-list a { color: var(--color-news); }
+    .fc-footer {
+        font-size: 11px; color: var(--color-text-muted);
+        padding-top: 8px; border-top: 1px solid #333;
+    }
+    .fc-footer a { color: var(--color-news); }
+</style>

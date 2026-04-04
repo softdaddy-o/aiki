@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Timeline from '../../components/Timeline.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+
+const lang = 'ko';
+const allNews = await getCollection('news', ({ data }) => data.lang === lang && !data.draft);
+const sorted = allNews.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const items = sorted.map(entry => ({
+    title: entry.data.title,
+    summary: entry.data.summary,
+    date: entry.data.date,
+    category: entry.data.category,
+    factCheckStatus: entry.data.factCheck?.status,
+    factCheckSourceCount: entry.data.factCheck?.sources?.length,
+    slug: entry.id.replace(/^ko\//, ''),
+}));
+---
+
+<BaseLayout>
+    <h1 style="text-align:center;margin-bottom:8px;font-size:24px;">AIKI</h1>
+    <p style="text-align:center;color:var(--color-text-muted);margin-bottom:24px;font-size:14px;">
+        AI 뉴스, 용어, 모델 비교를 한 곳에서
+    </p>
+    <Timeline items={items} lang={lang} />
+    <NewsletterSignup lang={lang} />
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FactCheck from '../../../components/FactCheck.astro';
+
+export async function getStaticPaths() {
+    const entries = await getCollection('news', ({ data }) => data.lang === 'ko' && !data.draft);
+    return entries.map(entry => ({
+        params: { slug: entry.id.replace(/^ko\//, '') },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const lang = 'ko';
+const fc = entry.data.factCheck;
+---
+
+<BaseLayout title={entry.data.title}>
+    <article class="news-article">
+        <div class="article-meta">
+            <span class="article-date">{entry.data.date.split('T')[0]}</span>
+            {entry.data.sourceUrl && (
+                <a href={entry.data.sourceUrl} target="_blank" rel="noopener" class="article-source">
+                    📎 {entry.data.sourceTitle ?? '원문'}
+                </a>
+            )}
+        </div>
+        <h1>{entry.data.title}</h1>
+        <div class="article-body">
+            <Content />
+        </div>
+        {entry.data.tags.length > 0 && (
+            <div class="article-tags">
+                {entry.data.tags.map(tag => (
+                    <span class="tag">#{tag}</span>
+                ))}
+            </div>
+        )}
+        {fc && (
+            <FactCheck
+                status={fc.status}
+                date={fc.date}
+                checks={fc.checks}
+                sources={fc.sources}
+                lang={lang}
+            />
+        )}
+    </article>
+</BaseLayout>
+
+<style>
+    .news-article { max-width: 680px; margin: 0 auto; }
+    .article-meta {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 12px; font-size: 13px; color: var(--color-text-muted);
+    }
+    .article-source { color: var(--color-news); text-decoration: none; }
+    h1 { font-size: 24px; margin-bottom: 20px; line-height: 1.4; }
+    .article-body { font-size: 15px; line-height: 1.8; }
+    .article-body :global(p) { margin-bottom: 12px; }
+    .article-body :global(ul) { padding-left: 20px; margin-bottom: 12px; }
+    .article-body :global(li) { margin-bottom: 4px; }
+    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 20px; }
+    .tag {
+        background: var(--color-surface-alt); padding: 4px 8px;
+        border-radius: 4px; font-size: 12px; color: var(--color-text-muted);
+    }
+</style>

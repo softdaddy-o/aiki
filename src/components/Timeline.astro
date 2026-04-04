@@ -1,0 +1,40 @@
+---
+import NewsCard from './NewsCard.astro';
+
+interface NewsItem {
+    title: string;
+    summary: string;
+    date: string;
+    category: string;
+    factCheckStatus?: string;
+    factCheckSourceCount?: number;
+    slug: string;
+}
+
+interface Props {
+    items: NewsItem[];
+    lang: string;
+}
+
+const { items, lang } = Astro.props;
+---
+
+<div class="timeline">
+    <div class="timeline-line"></div>
+    {items.map((item, i) => (
+        <NewsCard {...item} side={i % 2 === 0 ? 'right' : 'left'} lang={lang} />
+    ))}
+</div>
+
+<style>
+    .timeline { position: relative; padding: 20px 0; }
+    .timeline-line {
+        position: absolute; left: 50%; top: 0; bottom: 0;
+        width: 2px; transform: translateX(-50%);
+        background: linear-gradient(to bottom, var(--color-news), var(--color-wiki), var(--color-tutorial), var(--color-model), var(--color-news));
+        opacity: 0.4;
+    }
+    @media (max-width: 640px) {
+        .timeline-line { left: 16px; }
+    }
+</style>
