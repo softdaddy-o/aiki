@@ -5,6 +5,15 @@ const path = require('path');
 const SCRAPER_OUTPUT = process.env.SCRAPER_OUTPUT
     || 'F:/src3/Docs/social-scraper/accounts/softdaddy/output';
 const NEWS_OUTPUT = path.resolve(__dirname, '../src/content/news/ko');
+const TRENDING_THEMES = process.env.TRENDING_THEMES
+    || 'F:/src3/Docs/social-scraper/accounts/softdaddy/trending-themes.json';
+
+// Official/authoritative domains get priority
+const OFFICIAL_DOMAINS = [
+    'anthropic.com', 'openai.com', 'deepmind.google', 'ai.meta.com',
+    'mistral.ai', 'arxiv.org', 'blog.google', 'research.google',
+    'huggingface.co', 'github.blog', 'microsoft.com/en-us/research',
+];
 
 // KST date helpers
 function getKSTDate() {
@@ -49,6 +58,7 @@ function readScraperOutput() {
                     ...post,
                     platform: data.platform,
                     sourceAccount: data.username,
+                    _file: file,
                 });
             }
         } catch (e) {
@@ -59,62 +69,172 @@ function readScraperOutput() {
     return allPosts;
 }
 
-// Filter AI-related posts from recent days
-function filterAIPosts(posts, daysBack = 1) {
+// Load trending themes
+function loadTrendingThemes() {
+    try {
+        if (!fs.existsSync(TRENDING_THEMES)) return [];
+        const raw = fs.readFileSync(TRENDING_THEMES, 'utf-8');
+        const data = JSON.parse(raw);
+        return (data.themes || []).map(t => ({
+            name: t.name,
+            keywords: t.keywords || [],
+            frequency: t.frequency?.last7days || 0,
+        }));
+    } catch {
+        return [];
+    }
+}
+
+// Load existing articles for dedup
+function loadExistingArticles() {
+    if (!fs.existsSync(NEWS_OUTPUT)) return { urls: new Set(), titles: [] };
+    const files = fs.readdirSync(NEWS_OUTPUT).filter(f => f.endsWith('.md'));
+    const urls = new Set();
+    const titles = [];
+
+    for (const file of files) {
+        try {
+            const content = fs.readFileSync(path.join(NEWS_OUTPUT, file), 'utf-8');
+            const urlMatch = content.match(/sourceUrl:\s*"([^"]+)"/);
+            const titleMatch = content.match(/title:\s*"([^"]+)"/);
+            if (urlMatch) urls.add(urlMatch[1]);
+            if (titleMatch) titles.push(titleMatch[1].toLowerCase());
+        } catch { /* skip */ }
+    }
+
+    return { urls, titles };
+}
+
+// Simple title similarity (word overlap ratio)
+function titleSimilarity(a, b) {
+    const wordsA = new Set(a.toLowerCase().split(/\s+/).filter(w => w.length > 2));
+    const wordsB = new Set(b.toLowerCase().split(/\s+/).filter(w => w.length > 2));
+    if (wordsA.size === 0 || wordsB.size === 0) return 0;
+    let overlap = 0;
+    for (const w of wordsA) {
+        if (wordsB.has(w)) overlap++;
+    }
+    return overlap / Math.min(wordsA.size, wordsB.size);
+}
+
+// AI keyword filter
+const AI_KEYWORDS = [
+    'ai', 'llm', 'gpt', 'claude', 'gemini', 'anthropic', 'openai',
+    'machine learning', 'deep learning', 'transformer', 'neural',
+    'rag', 'agent', 'mcp', 'fine-tuning', 'prompt', 'embedding',
+    'mistral', 'llama', 'diffusion', 'multimodal', 'reasoning',
+    'vibe coding', 'cursor', 'copilot', 'langchain', 'llamaindex',
+    'deepseek', 'qwen', 'phi-4', 'grok', 'perplexity', 'windsurf',
+];
+
+function filterAndScorePosts(posts, daysBack, themes, existing) {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - daysBack);
     const cutoffStr = cutoff.toISOString().split('T')[0];
 
-    const aiKeywords = [
-        'ai', 'llm', 'gpt', 'claude', 'gemini', 'anthropic', 'openai',
-        'machine learning', 'deep learning', 'transformer', 'neural',
-        'rag', 'agent', 'mcp', 'fine-tuning', 'prompt', 'embedding',
-        'mistral', 'llama', 'diffusion', 'multimodal', 'reasoning',
-        'vibe coding', 'cursor', 'copilot', 'langchain', 'llamaindex',
-    ];
+    const trendingKeywords = themes.flatMap(t => t.keywords.map(k => k.toLowerCase()));
 
-    return posts.filter(post => {
-        const text = (post.text || '').toLowerCase();
-        const hasAIKeyword = aiKeywords.some(kw => text.includes(kw));
-        const publishedDate = post.publishedAt ? post.publishedAt.split('T')[0] : '';
-        const isRecent = publishedDate >= cutoffStr || !publishedDate;
-        return hasAIKeyword && isRecent;
-    });
+    // Dedup within candidates by URL
+    const seenUrls = new Set();
+
+    return posts
+        .map(post => {
+            const text = (post.text || '').toLowerCase();
+            const url = post.threadUrl || post.sourceUrls?.[0] || post.articleUrl || post.postUrl || '';
+
+            // Must be AI-related
+            const matchedKeywords = AI_KEYWORDS.filter(kw => text.includes(kw));
+            if (matchedKeywords.length === 0) return null;
+
+            // Must be recent
+            const publishedDate = post.publishedAt ? post.publishedAt.split('T')[0] : '';
+            if (publishedDate && publishedDate < cutoffStr) return null;
+
+            // Dedup: skip if URL already exists in AIKI or in this batch
+            if (url && existing.urls.has(url)) return null;
+            if (url && seenUrls.has(url)) return null;
+            if (url) seenUrls.add(url);
+
+            // Dedup: skip if title too similar
+            const firstLine = (post.text || '').split('\n')[0].substring(0, 80);
+            const isDuplicate = existing.titles.some(t => titleSimilarity(firstLine, t) > 0.7);
+            if (isDuplicate) return null;
+
+            // Scoring
+            let score = 0;
+
+            // Official source bonus
+            const isOfficial = OFFICIAL_DOMAINS.some(d => url.includes(d));
+            if (isOfficial) score += 30;
+
+            // Trending theme bonus
+            const trendMatch = trendingKeywords.filter(k => text.includes(k));
+            if (trendMatch.length > 0) score += Math.min(trendMatch.length * 10, 20);
+
+            // Engagement
+            const engagement = (post.likeCount || 0) + (post.replyCount || 0);
+            if (engagement > 100) score += 15;
+            else if (engagement > 20) score += 10;
+            else if (engagement > 5) score += 5;
+
+            // Blog posts with full articles are better
+            if (post.platform === 'blog' && post.articleUrl) score += 10;
+
+            // Content richness bonus — posts with actual text content
+            const textLen = (post.text || '').length + (post.contentSnippet || '').length;
+            if (textLen > 500) score += 15;
+            else if (textLen > 200) score += 10;
+            else if (textLen > 50) score += 5;
+            else score -= 20; // Penalize empty/title-only posts (e.g. HF model cards)
+
+            // Recency bonus (today = +10, yesterday = +5)
+            const today = getKSTDate();
+            if (publishedDate === today) score += 10;
+            else if (publishedDate >= cutoffStr) score += 5;
+
+            // Age penalty
+            if (publishedDate) {
+                const ageMs = Date.now() - new Date(publishedDate).getTime();
+                const ageDays = ageMs / (1000 * 60 * 60 * 24);
+                if (ageDays > 3) score -= 30;
+            }
+
+            return {
+                ...post,
+                _score: score,
+                _matchedKeywords: matchedKeywords,
+                _isOfficial: isOfficial,
+                _url: url,
+                _firstLine: firstLine,
+            };
+        })
+        .filter(Boolean)
+        .sort((a, b) => b._score - a._score);
 }
 
-// Generate markdown frontmatter + body for a post
-function generateMarkdown(post, index) {
-    const date = getKSTTimestamp();
-    const today = getKSTDate();
-    const firstLine = (post.text || '').split('\n')[0].substring(0, 80);
-    const title = firstLine || `AI News ${index + 1}`;
-    const summary = (post.text || '').substring(0, 200).replace(/\n/g, ' ').replace(/"/g, '\\"');
-    const slug = `${today}-${index + 1}-${slugify(firstLine)}`;
+// Output candidate JSON for the skill to consume
+function outputCandidates(candidates, maxPosts) {
+    const top = candidates.slice(0, maxPosts);
+    const output = top.map((c, i) => ({
+        rank: i + 1,
+        score: c._score,
+        platform: c.platform,
+        sourceAccount: c.sourceAccount,
+        title: c._firstLine,
+        url: c._url,
+        text: (c.text || '').substring(0, 500),
+        contentSnippet: (c.contentSnippet || '').substring(0, 300),
+        engagement: {
+            likes: c.likeCount || 0,
+            replies: c.replyCount || 0,
+        },
+        publishedAt: c.publishedAt || '',
+        isOfficial: c._isOfficial,
+        matchedKeywords: c._matchedKeywords,
+        _file: c._file,
+    }));
 
-    const sourceUrl = post.threadUrl || post.sourceUrls?.[0] || '';
-    const sourceTitle = `${post.sourceAccount} (${post.platform})`;
-
-    const md = `---
-title: "${title.replace(/"/g, '\\"')}"
-date: "${date}"
-lang: ko
-category: news
-summary: "${summary}"
-sourceUrl: "${sourceUrl}"
-sourceTitle: "${sourceTitle}"
-draft: true
-factCheck:
-  status: pending
-  date: "${today}"
-  sources: []
-  checks: []
-tags: []
----
-
-${post.text || ''}
-`;
-
-    return { slug, content: md };
+    return output;
 }
 
 // Main
@@ -122,51 +242,47 @@ function main() {
     const args = process.argv.slice(2);
     const daysBack = args.includes('--days') ? parseInt(args[args.indexOf('--days') + 1]) : 1;
     const maxPosts = args.includes('--max') ? parseInt(args[args.indexOf('--max') + 1]) : 10;
+    const jsonOutput = args.includes('--json');
 
-    console.log(`🚀 AIKI Generate — Reading from ${SCRAPER_OUTPUT}`);
-    console.log(`   Days back: ${daysBack}, Max posts: ${maxPosts}`);
-
-    // Ensure output directory
-    if (!fs.existsSync(NEWS_OUTPUT)) {
-        fs.mkdirSync(NEWS_OUTPUT, { recursive: true });
-    }
+    console.error(`🚀 AIKI Generate — Reading from ${SCRAPER_OUTPUT}`);
+    console.error(`   Days back: ${daysBack}, Max posts: ${maxPosts}`);
 
     const posts = readScraperOutput();
-    console.log(`📥 Read ${posts.length} posts from scraper output`);
+    console.error(`📥 Read ${posts.length} posts from scraper output`);
 
-    const aiPosts = filterAIPosts(posts, daysBack);
-    console.log(`🤖 Filtered ${aiPosts.length} AI-related posts`);
+    const themes = loadTrendingThemes();
+    console.error(`📈 Loaded ${themes.length} trending themes`);
 
-    if (aiPosts.length === 0) {
-        console.log('ℹ️ No AI posts found for the given period.');
+    const existing = loadExistingArticles();
+    console.error(`📄 Found ${existing.urls.size} existing articles (dedup)`);
+
+    const candidates = filterAndScorePosts(posts, daysBack, themes, existing);
+    console.error(`🤖 Filtered ${candidates.length} AI-related candidates`);
+
+    if (candidates.length === 0) {
+        console.error('ℹ️ No AI posts found for the given period.');
+        if (jsonOutput) console.log('[]');
         return;
     }
 
-    // Sort by engagement
-    aiPosts.sort((a, b) =>
-        ((b.likeCount || 0) + (b.replyCount || 0)) -
-        ((a.likeCount || 0) + (a.replyCount || 0))
-    );
+    const output = outputCandidates(candidates, maxPosts);
 
-    const topPosts = aiPosts.slice(0, maxPosts);
-
-    let created = 0;
-    for (let i = 0; i < topPosts.length; i++) {
-        const { slug, content } = generateMarkdown(topPosts[i], i);
-        const filePath = path.join(NEWS_OUTPUT, `${slug}.md`);
-
-        if (fs.existsSync(filePath)) {
-            console.log(`⏭️ Skipped (exists): ${slug}.md`);
-            continue;
+    if (jsonOutput) {
+        // JSON mode: output to stdout for skill consumption
+        console.log(JSON.stringify(output, null, 2));
+    } else {
+        // Human-readable mode
+        console.log(`\n📋 Top ${output.length} candidates:\n`);
+        for (const c of output) {
+            const officialBadge = c.isOfficial ? ' 🏛️' : '';
+            console.log(`  ${c.rank}. [${c.score}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
+            console.log(`     ${c.title}`);
+            console.log(`     ❤️ ${c.engagement.likes} 💬 ${c.engagement.replies} | ${c.publishedAt}`);
+            console.log(`     🔗 ${c.url}`);
+            console.log(`     🏷️ ${c.matchedKeywords.join(', ')}`);
+            console.log('');
         }
-
-        fs.writeFileSync(filePath, content, 'utf-8');
-        console.log(`✓ Created: ${slug}.md (draft)`);
-        created++;
     }
-
-    console.log(`\n✅ Done. Created ${created} new draft files in ${NEWS_OUTPUT}`);
-    console.log(`   Review drafts and set 'draft: false' to publish.`);
 }
 
 main();
