@@ -212,12 +212,94 @@ function filterAndScorePosts(posts, daysBack, themes, existing) {
         .sort((a, b) => b._score - a._score);
 }
 
+// Grade classification
+// A: 필수 발행 — 공식 블로그 + (트렌딩 OR 다중 플랫폼)
+// B: 발행 권장 — 공식 소스 OR engagement 높음 OR 트렌딩
+// C: 검토 후 결정 — 키워드 매칭만
+function classifyGrade(candidate) {
+    const isOfficial = candidate._isOfficial;
+    const isTrending = candidate._matchedKeywords.length >= 2;
+    const hasEngagement = (candidate.likeCount || 0) + (candidate.replyCount || 0) > 20;
+    const hasRichContent = ((candidate.text || '').length + (candidate.contentSnippet || '').length) > 200;
+
+    if (isOfficial && (isTrending || hasEngagement)) return 'A';
+    if (isOfficial || hasEngagement || isTrending) return 'B';
+    return 'C';
+}
+
+// Apply daily budget with grade-based selection + diversity
+// Rules:
+//   - Score cutoff: 40 미만 무조건 제외
+//   - A등급: 전부 발행 (최대 7)
+//   - B등급: 최대 3건
+//   - C등급: 드래프트만 (draft: true)
+//   - 같은 주제 (키워드 50%+ 겹침) 최대 2건
+//   - 일일 최소 1건, 최대 7건 (발행 기준)
+function applyBudget(candidates) {
+    const SCORE_CUTOFF = 40;
+    const MAX_DAILY = 7;
+    const MAX_B = 3;
+    const MAX_SAME_TOPIC = 2;
+
+    // Score cutoff
+    const viable = candidates.filter(c => c._score >= SCORE_CUTOFF);
+
+    // Classify grades
+    const graded = viable.map(c => ({ ...c, _grade: classifyGrade(c) }));
+
+    // Topic diversity check
+    function keywordOverlap(a, b) {
+        const setA = new Set(a._matchedKeywords);
+        const setB = new Set(b._matchedKeywords);
+        if (setA.size === 0 || setB.size === 0) return 0;
+        let overlap = 0;
+        for (const k of setA) { if (setB.has(k)) overlap++; }
+        return overlap / Math.min(setA.size, setB.size);
+    }
+
+    const publish = [];  // draft: false
+    const drafts = [];   // draft: true
+    let bCount = 0;
+    const topicGroups = {}; // keyword → count
+
+    for (const c of graded) {
+        // Check topic diversity
+        const topicKey = c._matchedKeywords.sort().join(',');
+        const topicCount = topicGroups[topicKey] || 0;
+        const isSameTopicOverflow = topicCount >= MAX_SAME_TOPIC;
+
+        // Also check overlap with already selected
+        const hasSimilarSelected = publish.some(p => keywordOverlap(p, c) > 0.5);
+        const similarCount = publish.filter(p => keywordOverlap(p, c) > 0.5).length;
+
+        if (c._grade === 'A' && publish.length < MAX_DAILY && similarCount < MAX_SAME_TOPIC) {
+            publish.push(c);
+            topicGroups[topicKey] = topicCount + 1;
+        } else if (c._grade === 'B' && bCount < MAX_B && publish.length < MAX_DAILY && similarCount < MAX_SAME_TOPIC) {
+            publish.push(c);
+            bCount++;
+            topicGroups[topicKey] = topicCount + 1;
+        } else if (c._grade === 'C' || isSameTopicOverflow || publish.length >= MAX_DAILY) {
+            drafts.push(c);
+        } else {
+            drafts.push(c);
+        }
+    }
+
+    return { publish, drafts };
+}
+
 // Output candidate JSON for the skill to consume
 function outputCandidates(candidates, maxPosts) {
-    const top = candidates.slice(0, maxPosts);
-    const output = top.map((c, i) => ({
+    const { publish, drafts } = applyBudget(candidates);
+    const topPublish = publish.slice(0, maxPosts);
+    const topDrafts = drafts.slice(0, 5);
+
+    const formatCandidate = (c, i, isDraft) => ({
         rank: i + 1,
         score: c._score,
+        grade: c._grade,
+        draft: isDraft,
         platform: c.platform,
         sourceAccount: c.sourceAccount,
         title: c._firstLine,
@@ -232,9 +314,21 @@ function outputCandidates(candidates, maxPosts) {
         isOfficial: c._isOfficial,
         matchedKeywords: c._matchedKeywords,
         _file: c._file,
-    }));
+    });
 
-    return output;
+    return {
+        publish: topPublish.map((c, i) => formatCandidate(c, i, false)),
+        drafts: topDrafts.map((c, i) => formatCandidate(c, i, true)),
+        stats: {
+            totalCandidates: candidates.length,
+            gradeA: candidates.filter(c => classifyGrade(c) === 'A').length,
+            gradeB: candidates.filter(c => classifyGrade(c) === 'B').length,
+            gradeC: candidates.filter(c => classifyGrade(c) === 'C').length,
+            belowCutoff: candidates.filter(c => c._score < 40).length,
+            toPublish: topPublish.length,
+            toDraft: topDrafts.length,
+        },
+    };
 }
 
 // Main
@@ -272,15 +366,29 @@ function main() {
         console.log(JSON.stringify(output, null, 2));
     } else {
         // Human-readable mode
-        console.log(`\n📋 Top ${output.length} candidates:\n`);
-        for (const c of output) {
-            const officialBadge = c.isOfficial ? ' 🏛️' : '';
-            console.log(`  ${c.rank}. [${c.score}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
-            console.log(`     ${c.title}`);
-            console.log(`     ❤️ ${c.engagement.likes} 💬 ${c.engagement.replies} | ${c.publishedAt}`);
-            console.log(`     🔗 ${c.url}`);
-            console.log(`     🏷️ ${c.matchedKeywords.join(', ')}`);
-            console.log('');
+        const { stats } = output;
+        console.log(`\n📊 등급 분포: A=${stats.gradeA} B=${stats.gradeB} C=${stats.gradeC} (컷오프 미달=${stats.belowCutoff})`);
+        console.log(`📰 발행 예정: ${stats.toPublish}건 | 드래프트: ${stats.toDraft}건\n`);
+
+        if (output.publish.length > 0) {
+            console.log(`── 🟢 발행 (draft: false) ──`);
+            for (const c of output.publish) {
+                const officialBadge = c.isOfficial ? ' 🏛️' : '';
+                console.log(`  ${c.rank}. [${c.score}|${c.grade}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
+                console.log(`     ${c.title}`);
+                console.log(`     ❤️ ${c.engagement.likes} 💬 ${c.engagement.replies} | 🏷️ ${c.matchedKeywords.join(', ')}`);
+                console.log('');
+            }
+        }
+
+        if (output.drafts.length > 0) {
+            console.log(`── 🟡 드래프트 (draft: true) ──`);
+            for (const c of output.drafts) {
+                const officialBadge = c.isOfficial ? ' 🏛️' : '';
+                console.log(`  ${c.rank}. [${c.score}|${c.grade}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
+                console.log(`     ${c.title}`);
+                console.log('');
+            }
         }
     }
 }
