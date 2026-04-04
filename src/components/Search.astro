@@ -1,0 +1,30 @@
+---
+---
+<div class="search-container">
+    <div id="search"></div>
+</div>
+
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+<script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+        new PagefindUI({
+            element: '#search',
+            showSubResults: true,
+            showImages: false,
+        });
+    });
+</script>
+
+<style>
+    .search-container { margin-bottom: 20px; }
+    :global(.pagefind-ui) {
+        --pagefind-ui-primary: #4fc3f7;
+        --pagefind-ui-text: #e0e0e0;
+        --pagefind-ui-background: #1e1e2e;
+        --pagefind-ui-border: #333;
+        --pagefind-ui-tag: #2a2a3e;
+        --pagefind-ui-border-width: 1px;
+        --pagefind-ui-border-radius: 8px;
+        --pagefind-ui-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+</style>

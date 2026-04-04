@@ -1,5 +1,6 @@
 ---
 import { t, getLocaleFromUrl } from '../i18n/utils';
+import Search from '../components/Search.astro';
 
 interface Props {
     title?: string;
@@ -39,6 +40,7 @@ const navItems = [
                 <a href={item.href}>{t(lang, item.key)}</a>
             ))}
         </div>
+        <Search />
         <a href={otherPath} class="lang-switch">{otherLang.toUpperCase()}</a>
     </nav>
     <main>
