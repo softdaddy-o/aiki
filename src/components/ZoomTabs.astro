@@ -1,0 +1,52 @@
+---
+interface Props {
+    lang: string;
+}
+
+const { lang } = Astro.props;
+
+const tabs = [
+    { key: 'daily', label: '일간' },
+    { key: 'weekly', label: '주간' },
+    { key: 'monthly', label: '월간' },
+    { key: 'yearly', label: '연간' },
+];
+---
+
+<div class="zoom-tabs">
+    {tabs.map(tab => (
+        <button
+            class={`zoom-tab ${tab.key === 'daily' ? 'active' : ''}`}
+            data-zoom={tab.key}
+        >
+            {tab.label}
+        </button>
+    ))}
+</div>
+
+<style>
+    .zoom-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .zoom-tab {
+        padding: 6px 16px;
+        border: none;
+        border-radius: 20px;
+        background: var(--color-surface);
+        color: var(--color-text-muted);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+    }
+    .zoom-tab:hover {
+        background: var(--color-surface-alt);
+    }
+    .zoom-tab.active {
+        background: #4fc3f7;
+        color: #000;
+    }
+</style>

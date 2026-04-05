@@ -14,9 +14,10 @@ interface Props {
     slug: string;
     side: 'left' | 'right';
     lang: string;
+    zoomLevel?: string;
 }
 
-const { title, summary, date, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang } = Astro.props;
+const { title, summary, date, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang, zoomLevel } = Astro.props;
 
 const categoryColors: Record<string, string> = {
     news: 'var(--color-news)',
@@ -38,7 +39,7 @@ const color = categoryColors[category] ?? 'var(--color-news)';
 const time = date.split('T')[1]?.substring(0, 5) ?? '';
 ---
 
-<div class={`timeline-item timeline-${side}`}>
+<div class={`timeline-item timeline-${side}`} data-zoom-level={zoomLevel || 'daily'}>
     <div class="connector" style={`background: ${color}`}></div>
     <div class="dot" style={`background: ${color}`}></div>
     <a href={`/${lang}/news/${slug}/`} class="card" style={`border-color: ${color}`}>

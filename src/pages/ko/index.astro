@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Timeline from '../../components/Timeline.astro';
+import ZoomTabs from '../../components/ZoomTabs.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 
 const lang = 'ko';
@@ -16,9 +17,69 @@ const items = sorted.map(entry => ({
     factCheckStatus: entry.data.factCheck?.status,
     factCheckSourceCount: entry.data.factCheck?.sources?.length,
     slug: entry.id.replace(/^ko\//, ''),
-    score: entry.data.score,
+    score: entry.data.score ?? 0,
     sourceCount: entry.data.sourceCount,
 }));
+
+// --- Zoom-level grouping ---
+
+// Helper: ISO week number
+function getISOWeek(dateStr: string): string {
+    const d = new Date(dateStr);
+    const tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    tmp.setUTCDate(tmp.getUTCDate() + 4 - (tmp.getUTCDay() || 7));
+    const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+    const weekNo = Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+    return `${tmp.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+}
+
+// Weekly: highest score per day
+const dailyGroups = new Map<string, typeof items>();
+for (const item of items) {
+    const day = item.date.split('T')[0];
+    if (!dailyGroups.has(day)) dailyGroups.set(day, []);
+    dailyGroups.get(day)!.push(item);
+}
+const weeklySet = new Set<string>();
+for (const [, group] of dailyGroups) {
+    const best = group.reduce((a, b) => (a.score >= b.score ? a : b));
+    weeklySet.add(best.slug);
+}
+
+// Monthly: top 3 per ISO week
+const weeklyGroups = new Map<string, typeof items>();
+for (const item of items) {
+    const week = getISOWeek(item.date);
+    if (!weeklyGroups.has(week)) weeklyGroups.set(week, []);
+    weeklyGroups.get(week)!.push(item);
+}
+const monthlySet = new Set<string>();
+for (const [, group] of weeklyGroups) {
+    const top3 = [...group].sort((a, b) => b.score - a.score).slice(0, 3);
+    for (const t of top3) monthlySet.add(t.slug);
+}
+
+// Yearly: top 1 per month
+const monthGroups = new Map<string, typeof items>();
+for (const item of items) {
+    const month = item.date.substring(0, 7);
+    if (!monthGroups.has(month)) monthGroups.set(month, []);
+    monthGroups.get(month)!.push(item);
+}
+const yearlySet = new Set<string>();
+for (const [, group] of monthGroups) {
+    const best = group.reduce((a, b) => (a.score >= b.score ? a : b));
+    yearlySet.add(best.slug);
+}
+
+// Assign zoom levels
+const itemsWithZoom = items.map(item => {
+    const levels = ['daily'];
+    if (weeklySet.has(item.slug)) levels.push('weekly');
+    if (monthlySet.has(item.slug)) levels.push('monthly');
+    if (yearlySet.has(item.slug)) levels.push('yearly');
+    return { ...item, zoomLevel: levels.join(',') };
+});
 ---
 
 <BaseLayout>
@@ -26,6 +87,21 @@ const items = sorted.map(entry => ({
     <p style="text-align:center;color:var(--color-text-muted);margin-bottom:24px;font-size:14px;">
         AI 뉴스, 용어, 모델 비교를 한 곳에서
     </p>
-    <Timeline items={items} lang={lang} />
+    <ZoomTabs lang={lang} />
+    <Timeline items={itemsWithZoom} lang={lang} />
     <NewsletterSignup lang={lang} />
 </BaseLayout>
+
+<script>
+    document.querySelectorAll('.zoom-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const level = (tab as HTMLElement).dataset.zoom;
+            document.querySelectorAll('.zoom-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                const levels = ((item as HTMLElement).dataset.zoomLevel || 'daily').split(',');
+                (item as HTMLElement).style.display = levels.includes(level!) ? '' : 'none';
+            });
+        });
+    });
+</script>
