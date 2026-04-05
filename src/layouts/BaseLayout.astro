@@ -57,9 +57,31 @@ const navItems = [
     <footer class="site-footer">
         <p>AIKI — AI-curated, human-verified.</p>
     </footer>
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+        <a href={`/${lang}/`} class="bottom-tab" data-path={`/${lang}/`}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>홈</span>
+        </a>
+        <a href={`/${lang}/wiki/`} class="bottom-tab" data-path={`/${lang}/wiki/`}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>위키</span>
+        </a>
+        <a href={otherPath} class="bottom-tab">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>{otherLang.toUpperCase()}</span>
+        </a>
+    </nav>
     <script is:inline>
         document.querySelector('.nav-toggle')?.addEventListener('click', () => {
             document.querySelector('.nav-links')?.classList.toggle('open');
+        });
+        // Highlight active bottom tab
+        const path = window.location.pathname;
+        document.querySelectorAll('.bottom-tab').forEach(tab => {
+            const tabPath = tab.getAttribute('data-path');
+            if (tabPath && path === tabPath) {
+                tab.classList.add('active');
+            }
         });
     </script>
 </body>
@@ -207,4 +229,44 @@ const navItems = [
         border-top: 1px solid var(--color-border);
     }
     .site-footer a { color: var(--color-text-muted); }
+    /* Bottom tab bar — mobile only */
+    .bottom-nav { display: none; }
+    @media (max-width: 640px) {
+        .bottom-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--color-border);
+            padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0px));
+            justify-content: space-around;
+        }
+        .bottom-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            padding: 6px 16px;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 600;
+            transition: color 0.15s ease;
+            min-width: 64px;
+        }
+        .bottom-tab.active { color: var(--color-news); }
+        .bottom-tab:active { color: var(--color-text); }
+        /* Hide hamburger and top nav links on mobile — bottom nav replaces them */
+        .nav-toggle { display: none !important; }
+        .nav-links { display: none !important; }
+        .lang-switch { display: none; }
+        .site-nav { justify-content: space-between; }
+        /* Add bottom padding so content doesn't hide behind bottom nav */
+        body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+        .site-footer { margin-bottom: 0; padding-bottom: 24px; }
+    }
 </style>
