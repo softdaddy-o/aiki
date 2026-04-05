@@ -100,11 +100,19 @@ let globalIndex = 0;
         box-shadow: 0 0 12px rgba(79, 195, 247, 0.1);
     }
     @media (max-width: 640px) {
-        .timeline-line { display: none; }
+        .timeline-line {
+            left: 13px;
+            width: 2px;
+            opacity: 0.4;
+        }
         .timeline { padding: 16px 0; }
-        .date-marker { display: none; }
+        .date-marker {
+            left: 13px;
+            width: 12px; height: 12px;
+        }
         .date-header {
             justify-content: flex-start;
+            padding-left: 32px;
             margin: 20px 0 10px;
         }
         .date-label {
