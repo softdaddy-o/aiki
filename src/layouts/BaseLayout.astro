@@ -16,11 +16,11 @@ const otherPath = Astro.url.pathname.replace(`/${lang}/`, `/${otherLang}/`);
 
 const navItems = [
     { key: 'nav.home', href: `/${lang}/` },
-    { key: 'nav.news', href: `/${lang}/news/` },
+    { key: 'nav.news', href: `/${lang}/` },
     { key: 'nav.wiki', href: `/${lang}/wiki/` },
-    { key: 'nav.models', href: `/${lang}/models/` },
-    { key: 'nav.tutorials', href: `/${lang}/tutorials/` },
-    { key: 'nav.about', href: `/${lang}/about/` },
+    // { key: 'nav.models', href: `/${lang}/models/` },
+    // { key: 'nav.tutorials', href: `/${lang}/tutorials/` },
+    // { key: 'nav.about', href: `/${lang}/about/` },
 ];
 ---
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ const navItems = [
         <slot />
     </main>
     <footer class="site-footer">
-        <p>AIKI — AI-curated, human-verified. <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a></p>
+        <p>AIKI — AI-curated, human-verified.</p>
     </footer>
     <script is:inline>
         document.querySelector('.nav-toggle')?.addEventListener('click', () => {
