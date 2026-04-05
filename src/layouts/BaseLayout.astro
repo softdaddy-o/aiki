@@ -181,8 +181,11 @@ const navItems = [
             gap: 12px;
         }
         .nav-links.open { display: flex; }
-        .nav-links a { font-size: 16px; padding: 8px 0; }
+        .nav-links a { font-size: 16px; padding: 12px 0; }
         .site-nav { flex-wrap: wrap; position: relative; }
+    }
+    @media (max-width: 640px) {
+        main { padding: 20px 12px; }
     }
     .lang-switch {
         color: var(--color-text-muted);

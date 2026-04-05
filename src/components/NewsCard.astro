@@ -137,13 +137,21 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
         width: 16px; height: 16px;
     }
     @media (max-width: 640px) {
-        .timeline-item { flex-direction: row !important; }
+        .timeline-item {
+            display: block !important;
+            margin-bottom: 12px;
+        }
+        .dot, .connector { display: none; }
         .timeline-left .card, .timeline-right .card {
-            margin-left: 12px; margin-right: 0;
-            border-left: 3px solid; border-right: none; text-align: left;
+            margin: 0;
+            border-left: none; border-right: none;
+            text-align: left;
+            border-radius: 8px;
+            padding: 14px 16px;
         }
         .timeline-left .card-header { flex-direction: row; }
         .timeline-left .card-fc { justify-content: flex-start; }
-        .dot { margin-left: 10px; }
+        .card-title { font-size: 16px; }
+        .card-summary { font-size: 13px; -webkit-line-clamp: 2; }
     }
 </style>
