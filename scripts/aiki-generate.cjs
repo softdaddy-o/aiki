@@ -212,6 +212,108 @@ function filterAndScorePosts(posts, daysBack, themes, existing) {
         .sort((a, b) => b._score - a._score);
 }
 
+// Cluster posts about the same topic from multiple sources
+function clusterPosts(candidates) {
+    const MAX_BONUS = 45;
+    const BONUS_PER_SOURCE = 15;
+    const TITLE_SIM_THRESHOLD = 0.5;
+    const KEYWORD_OVERLAP_THRESHOLD = 0.7;
+
+    function keywordOverlap(a, b) {
+        const setA = new Set(a._matchedKeywords);
+        const setB = new Set(b._matchedKeywords);
+        if (setA.size === 0 || setB.size === 0) return 0;
+        let overlap = 0;
+        for (const k of setA) { if (setB.has(k)) overlap++; }
+        return overlap / Math.min(setA.size, setB.size);
+    }
+
+    function isSameTopic(a, b) {
+        if (titleSimilarity(a._firstLine, b._firstLine) > TITLE_SIM_THRESHOLD) return true;
+        if (keywordOverlap(a, b) > KEYWORD_OVERLAP_THRESHOLD) return true;
+        return false;
+    }
+
+    // Build clusters using greedy grouping
+    const used = new Set();
+    const clusters = [];
+
+    for (let i = 0; i < candidates.length; i++) {
+        if (used.has(i)) continue;
+        const cluster = [candidates[i]];
+        used.add(i);
+
+        for (let j = i + 1; j < candidates.length; j++) {
+            if (used.has(j)) continue;
+            if (isSameTopic(candidates[i], candidates[j])) {
+                cluster.push(candidates[j]);
+                used.add(j);
+            }
+        }
+        clusters.push(cluster);
+    }
+
+    // Merge each cluster into a single primary candidate
+    const results = clusters.map(sources => {
+        // Pick highest-scored as primary
+        sources.sort((a, b) => b._score - a._score);
+        const primary = { ...sources[0] };
+
+        // Multi-source bonus
+        const bonus = Math.min((sources.length - 1) * BONUS_PER_SOURCE, MAX_BONUS);
+        primary._score += bonus;
+
+        // Cluster metadata
+        primary._sourceCount = sources.length;
+        primary._allUrls = sources.map(s => s._url).filter(Boolean);
+        primary._allPlatforms = [...new Set(sources.map(s => s.platform))];
+
+        // Merge keywords from all sources
+        const mergedKeywords = new Set(primary._matchedKeywords);
+        for (const s of sources) {
+            for (const k of s._matchedKeywords) mergedKeywords.add(k);
+        }
+        primary._matchedKeywords = [...mergedKeywords];
+
+        // Take richest contentSnippet (longest)
+        let richest = primary.contentSnippet || '';
+        for (const s of sources) {
+            if ((s.contentSnippet || '').length > richest.length) {
+                richest = s.contentSnippet;
+            }
+        }
+        primary.contentSnippet = richest;
+
+        return primary;
+    });
+
+    // Sort by score DESC
+    results.sort((a, b) => b._score - a._score);
+    return results;
+}
+
+// Detect wiki terms in text
+function detectWikiTerms(text) {
+    const wikiTermsPath = path.resolve(__dirname, '../data/wiki-terms.json');
+    try {
+        if (!fs.existsSync(wikiTermsPath)) return [];
+        const raw = fs.readFileSync(wikiTermsPath, 'utf-8');
+        const terms = JSON.parse(raw);
+        const lower = text.toLowerCase();
+        const matched = [];
+
+        for (const entry of terms) {
+            const namesToCheck = [entry.term, ...(entry.aliases || [])];
+            const found = namesToCheck.some(name => lower.includes(name.toLowerCase()));
+            if (found) matched.push(entry.term);
+        }
+
+        return matched;
+    } catch {
+        return [];
+    }
+}
+
 // Grade classification
 // A: 필수 발행 — 공식 블로그 + (트렌딩 OR 다중 플랫폼)
 // B: 발행 권장 — 공식 소스 OR engagement 높음 OR 트렌딩
@@ -313,6 +415,10 @@ function outputCandidates(candidates, maxPosts) {
         publishedAt: c.publishedAt || '',
         isOfficial: c._isOfficial,
         matchedKeywords: c._matchedKeywords,
+        sourceCount: c._sourceCount || 1,
+        allPlatforms: c._allPlatforms || [c.platform],
+        allUrls: c._allUrls || [c._url],
+        wikiTerms: c._wikiTerms || [],
         _file: c._file,
     });
 
@@ -321,6 +427,7 @@ function outputCandidates(candidates, maxPosts) {
         drafts: topDrafts.map((c, i) => formatCandidate(c, i, true)),
         stats: {
             totalCandidates: candidates.length,
+            clusteredFrom: candidates.reduce((sum, c) => sum + (c._sourceCount || 1), 0),
             gradeA: candidates.filter(c => classifyGrade(c) === 'A').length,
             gradeB: candidates.filter(c => classifyGrade(c) === 'B').length,
             gradeC: candidates.filter(c => classifyGrade(c) === 'C').length,
@@ -359,7 +466,14 @@ function main() {
         return;
     }
 
-    const output = outputCandidates(candidates, maxPosts);
+    const clustered = clusterPosts(candidates);
+    console.error(`🔗 Clustered into ${clustered.length} topics (from ${candidates.length} candidates)`);
+
+    for (const c of clustered) {
+        c._wikiTerms = detectWikiTerms((c.text || '') + ' ' + (c.contentSnippet || ''));
+    }
+
+    const output = outputCandidates(clustered, maxPosts);
 
     if (jsonOutput) {
         // JSON mode: output to stdout for skill consumption
@@ -374,9 +488,11 @@ function main() {
             console.log(`── 🟢 발행 (draft: false) ──`);
             for (const c of output.publish) {
                 const officialBadge = c.isOfficial ? ' 🏛️' : '';
-                console.log(`  ${c.rank}. [${c.score}|${c.grade}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
+                const srcBadge = c.sourceCount > 1 ? ` ×${c.sourceCount}` : '';
+                const wikiLine = c.wikiTerms.length > 0 ? `\n     📖 ${c.wikiTerms.join(', ')}` : '';
+                console.log(`  ${c.rank}. [${c.score}${srcBadge}|${c.grade}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
                 console.log(`     ${c.title}`);
-                console.log(`     ❤️ ${c.engagement.likes} 💬 ${c.engagement.replies} | 🏷️ ${c.matchedKeywords.join(', ')}`);
+                console.log(`     ❤️ ${c.engagement.likes} 💬 ${c.engagement.replies} | 🏷️ ${c.matchedKeywords.join(', ')}${wikiLine}`);
                 console.log('');
             }
         }
@@ -385,8 +501,10 @@ function main() {
             console.log(`── 🟡 드래프트 (draft: true) ──`);
             for (const c of output.drafts) {
                 const officialBadge = c.isOfficial ? ' 🏛️' : '';
-                console.log(`  ${c.rank}. [${c.score}|${c.grade}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
-                console.log(`     ${c.title}`);
+                const srcBadge = c.sourceCount > 1 ? ` ×${c.sourceCount}` : '';
+                const wikiLine = c.wikiTerms.length > 0 ? `\n     📖 ${c.wikiTerms.join(', ')}` : '';
+                console.log(`  ${c.rank}. [${c.score}${srcBadge}|${c.grade}] ${c.platform}/${c.sourceAccount}${officialBadge}`);
+                console.log(`     ${c.title}${wikiLine}`);
                 console.log('');
             }
         }
