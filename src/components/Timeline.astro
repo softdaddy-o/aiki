@@ -25,7 +25,7 @@ const { items, lang } = Astro.props;
 <div class="timeline">
     <div class="timeline-line"></div>
     {items.map((item, i) => (
-        <NewsCard {...item} side={i % 2 === 0 ? 'right' : 'left'} lang={lang} />
+        <NewsCard {...item} side={i % 2 === 0 ? 'right' : 'left'} lang={lang} featured={i === 0} />
     ))}
 </div>
 

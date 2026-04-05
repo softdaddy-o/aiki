@@ -15,9 +15,10 @@ interface Props {
     side: 'left' | 'right';
     lang: string;
     zoomLevel?: string;
+    featured?: boolean;
 }
 
-const { title, summary, date, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang, zoomLevel } = Astro.props;
+const { title, summary, date, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang, zoomLevel, featured } = Astro.props;
 
 const categoryColors: Record<string, string> = {
     news: 'var(--color-news)',
@@ -39,7 +40,7 @@ const color = categoryColors[category] ?? 'var(--color-news)';
 const time = date.split('T')[1]?.substring(0, 5) ?? '';
 ---
 
-<div class={`timeline-item timeline-${side}`} data-zoom-level={zoomLevel || 'daily'}>
+<div class={`timeline-item timeline-${side}${featured ? ' featured' : ''}`} data-zoom-level={zoomLevel || 'daily'}>
     <div class="connector" style={`background: ${color}`}></div>
     <div class="dot" style={`background: ${color}`}></div>
     <a href={`/${lang}/news/${slug}/`} class="card" style={`border-color: ${color}`}>
@@ -114,6 +115,18 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
     .card-fc { display: flex; gap: 6px; margin-top: 6px; font-size: 10px; }
     .fc-pass { color: var(--color-pass); }
     .fc-sources { color: var(--color-text-muted); }
+    .featured .card {
+        background: linear-gradient(135deg, rgba(79, 195, 247, 0.08), rgba(206, 147, 216, 0.06));
+        border-color: var(--color-news);
+    }
+    .featured .card-title { font-size: 22px; }
+    .featured .card-summary {
+        -webkit-line-clamp: 5;
+        font-size: 14px;
+    }
+    .featured .dot {
+        width: 16px; height: 16px;
+    }
     @media (max-width: 640px) {
         .timeline-item { flex-direction: row !important; }
         .timeline-left .card, .timeline-right .card {
