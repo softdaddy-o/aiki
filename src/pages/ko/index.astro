@@ -16,6 +16,8 @@ const items = sorted.map(entry => ({
     factCheckStatus: entry.data.factCheck?.status,
     factCheckSourceCount: entry.data.factCheck?.sources?.length,
     slug: entry.id.replace(/^ko\//, ''),
+    score: entry.data.score,
+    sourceCount: entry.data.sourceCount,
 }));
 ---
 

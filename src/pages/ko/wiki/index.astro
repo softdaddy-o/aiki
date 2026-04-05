@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const lang = 'ko';
+const allWiki = await getCollection('wiki', ({ data }) => data.lang === lang && !data.draft);
+
+const categoryLabels: Record<string, string> = {
+    concept: '개념',
+    technique: '기법',
+    framework: '프레임워크',
+    tool: '도구',
+    model: '모델',
+};
+
+const categoryOrder = ['concept', 'model', 'technique', 'tool', 'framework'];
+
+const grouped: Record<string, typeof allWiki> = {};
+for (const entry of allWiki) {
+    const cat = entry.data.category;
+    if (!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(entry);
+}
+
+for (const cat of Object.keys(grouped)) {
+    grouped[cat].sort((a, b) => b.data.mentionCount - a.data.mentionCount);
+}
+---
+
+<BaseLayout title="AI 용어 사전">
+    <h1 class="page-title">AI 용어 사전</h1>
+    <p class="page-desc">AI 뉴스에서 자주 등장하는 용어를 쉽게 풀어놓았습니다.</p>
+
+    {categoryOrder.filter(cat => grouped[cat]?.length).map(cat => (
+        <section class="wiki-section">
+            <h2 class="section-title">
+                <span class="section-badge">{categoryLabels[cat]}</span>
+            </h2>
+            <div class="wiki-grid">
+                {grouped[cat].map(entry => {
+                    const slug = entry.id.replace(/^ko\//, '');
+                    return (
+                        <a href={`/ko/wiki/${slug}/`} class="wiki-card">
+                            <h3 class="wiki-card-title">{entry.data.title}</h3>
+                            <p class="wiki-card-summary">{entry.data.summary}</p>
+                            {entry.data.mentionCount > 0 && (
+                                <span class="mention-count">{entry.data.mentionCount}회 언급</span>
+                            )}
+                        </a>
+                    );
+                })}
+            </div>
+        </section>
+    ))}
+</BaseLayout>
+
+<style>
+    .page-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    .page-desc {
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+    .wiki-section {
+        margin-bottom: 32px;
+    }
+    .section-title {
+        margin-bottom: 12px;
+    }
+    .section-badge {
+        background: var(--color-wiki);
+        color: #000;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .wiki-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+    }
+    .wiki-card {
+        background: var(--color-surface);
+        border: 1px solid #333;
+        border-left: 3px solid var(--color-wiki);
+        border-radius: 8px;
+        padding: 14px;
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.15s;
+    }
+    .wiki-card:hover {
+        background: var(--color-surface-alt);
+    }
+    .wiki-card-title {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+    .wiki-card-summary {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        line-height: 1.5;
+        margin-bottom: 6px;
+    }
+    .mention-count {
+        font-size: 11px;
+        color: var(--color-wiki);
+    }
+</style>

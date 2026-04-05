@@ -32,5 +32,10 @@
     "newsletter.title": "Newsletter",
     "newsletter.coming_soon": "Coming Soon — Pre-register",
     "newsletter.placeholder": "your@email.com",
-    "newsletter.submit": "Pre-register"
+    "newsletter.submit": "Pre-register",
+    "wiki.title": "AI Glossary",
+    "wiki.mentions": "mentions",
+    "wiki.related": "Related Terms",
+    "wiki.backlinks": "Related Articles",
+    "score.label": "Score"
 }

@@ -1,5 +1,6 @@
 ---
 import { t } from '../i18n/utils';
+import ScoreBadge from './ScoreBadge.astro';
 
 interface Props {
     title: string;
@@ -8,12 +9,14 @@ interface Props {
     category: string;
     factCheckStatus?: string;
     factCheckSourceCount?: number;
+    score?: number;
+    sourceCount?: number;
     slug: string;
     side: 'left' | 'right';
     lang: string;
 }
 
-const { title, summary, date, category, factCheckStatus, factCheckSourceCount, slug, side, lang } = Astro.props;
+const { title, summary, date, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang } = Astro.props;
 
 const categoryColors: Record<string, string> = {
     news: 'var(--color-news)',
@@ -42,6 +45,7 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
         <div class="card-header">
             <span class="badge" style={`background: ${color}`}>{categoryLabels[category]}</span>
             {time && <span class="time">{time}</span>}
+            {score && <ScoreBadge score={score} sourceCount={sourceCount} />}
         </div>
         <h3 class="card-title">{title}</h3>
         <p class="card-summary">{summary}</p>

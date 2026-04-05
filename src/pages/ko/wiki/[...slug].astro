@@ -1,0 +1,140 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BackLinks from '../../../components/BackLinks.astro';
+
+const categoryLabels: Record<string, string> = {
+    concept: '개념',
+    technique: '기법',
+    framework: '프레임워크',
+    tool: '도구',
+    model: '모델',
+};
+
+export async function getStaticPaths() {
+    const entries = await getCollection('wiki', ({ data }) => data.lang === 'ko' && !data.draft);
+    return entries.map(entry => ({
+        params: { slug: entry.id.replace(/^ko\//, '') },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title}>
+    <article class="wiki-article">
+        <div class="article-meta">
+            <span class="category-badge">{categoryLabels[entry.data.category]}</span>
+            {entry.data.mentionCount > 0 && (
+                <span class="mention-count">{entry.data.mentionCount}회 언급</span>
+            )}
+        </div>
+        <h1>{entry.data.title}</h1>
+        <p class="wiki-summary">{entry.data.summary}</p>
+
+        {entry.data.aliases.length > 0 && (
+            <div class="aliases">
+                <span class="aliases-label">다른 이름:</span>
+                {entry.data.aliases.map(alias => (
+                    <span class="alias">{alias}</span>
+                ))}
+            </div>
+        )}
+
+        <div class="article-body">
+            <Content />
+        </div>
+
+        {entry.data.relatedTerms.length > 0 && (
+            <div class="related-terms">
+                <h3>관련 용어</h3>
+                <div class="related-list">
+                    {entry.data.relatedTerms.map(term => (
+                        <a href={`/ko/wiki/${term}/`} class="related-link">{term}</a>
+                    ))}
+                </div>
+            </div>
+        )}
+
+        <BackLinks term={entry.data.term.toLowerCase()} minScore={40} />
+    </article>
+</BaseLayout>
+
+<style>
+    .wiki-article { max-width: 680px; margin: 0 auto; }
+    .article-meta {
+        display: flex; gap: 10px; align-items: center;
+        margin-bottom: 12px;
+    }
+    .category-badge {
+        background: var(--color-wiki);
+        color: #000;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .mention-count {
+        color: var(--color-text-muted);
+        font-size: 12px;
+    }
+    h1 { font-size: 24px; margin-bottom: 12px; line-height: 1.4; }
+    .wiki-summary {
+        font-size: 15px;
+        color: var(--color-text-muted);
+        margin-bottom: 16px;
+        line-height: 1.6;
+    }
+    .aliases {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .aliases-label {
+        font-size: 12px;
+        color: var(--color-text-muted);
+    }
+    .alias {
+        background: var(--color-surface-alt);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: var(--color-text-muted);
+    }
+    .article-body { font-size: 15px; line-height: 1.8; }
+    .article-body :global(p) { margin-bottom: 12px; }
+    .article-body :global(ul), .article-body :global(ol) { padding-left: 20px; margin-bottom: 12px; }
+    .article-body :global(li) { margin-bottom: 4px; }
+    .article-body :global(h2) { font-size: 18px; margin: 24px 0 12px; }
+    .article-body :global(h3) { font-size: 16px; margin: 20px 0 8px; }
+    .related-terms {
+        border-top: 1px solid #333;
+        margin-top: 32px;
+        padding-top: 20px;
+    }
+    .related-terms h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .related-list {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .related-link {
+        background: var(--color-surface);
+        border: 1px solid var(--color-wiki);
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: var(--color-wiki);
+        text-decoration: none;
+    }
+    .related-link:hover {
+        background: var(--color-surface-alt);
+    }
+</style>

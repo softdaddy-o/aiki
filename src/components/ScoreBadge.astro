@@ -1,0 +1,25 @@
+---
+interface Props {
+    score: number;
+    sourceCount?: number;
+}
+
+const { score, sourceCount } = Astro.props;
+
+const color = score >= 70 ? '#ef5350' : score >= 50 ? '#fff176' : '#888';
+const icon = score >= 70 ? '🔥' : score >= 50 ? '⚡' : '';
+---
+
+{score > 0 && (
+    <span class="score-badge" style={`color: ${color}`}>
+        {icon}{score}{sourceCount && sourceCount > 1 ? `×${sourceCount}` : ''}
+    </span>
+)}
+
+<style>
+    .score-badge {
+        font-size: 11px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+    }
+</style>

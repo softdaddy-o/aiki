@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import ScoreBadge from './ScoreBadge.astro';
+
+interface Props {
+    term: string;
+    minScore?: number;
+}
+
+const { term, minScore = 40 } = Astro.props;
+
+const allNews = await getCollection('news', ({ data }) =>
+    !data.draft && data.tags.includes(term) && data.score >= minScore
+);
+
+const sorted = allNews
+    .sort((a, b) => b.data.score - a.data.score)
+    .slice(0, 10);
+---
+
+{sorted.length > 0 && (
+    <section class="backlinks">
+        <h3>📰 관련 기사 ({sorted.length})</h3>
+        <ul>
+            {sorted.map(entry => {
+                const slug = entry.id.replace(/^ko\//, '');
+                const dateStr = entry.data.date.split('T')[0];
+                return (
+                    <li>
+                        <a href={`/ko/news/${slug}/`}>{entry.data.title}</a>
+                        <span class="bl-meta">
+                            <span class="bl-date">{dateStr}</span>
+                            <ScoreBadge score={entry.data.score} sourceCount={entry.data.sourceCount} />
+                        </span>
+                    </li>
+                );
+            })}
+        </ul>
+    </section>
+)}
+
+<style>
+    .backlinks {
+        border-top: 1px solid #333;
+        margin-top: 32px;
+        padding-top: 20px;
+    }
+    .backlinks h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    .backlinks ul {
+        list-style: none;
+        padding: 0;
+    }
+    .backlinks li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        border-bottom: 1px solid #1e1e2e;
+    }
+    .backlinks a {
+        color: var(--color-news);
+        text-decoration: none;
+        font-size: 14px;
+        flex: 1;
+        margin-right: 12px;
+    }
+    .backlinks a:hover {
+        text-decoration: underline;
+    }
+    .bl-meta {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .bl-date {
+        color: var(--color-text-muted);
+        font-size: 12px;
+    }
+</style>

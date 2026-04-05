@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FactCheck from '../../../components/FactCheck.astro';
+import ScoreBadge from '../../../components/ScoreBadge.astro';
 
 export async function getStaticPaths() {
     const entries = await getCollection('news', ({ data }) => data.lang === 'ko' && !data.draft);
@@ -21,6 +22,7 @@ const fc = entry.data.factCheck;
     <article class="news-article">
         <div class="article-meta">
             <span class="article-date">{entry.data.date.split('T')[0]}</span>
+            <ScoreBadge score={entry.data.score} sourceCount={entry.data.sourceCount} />
             {entry.data.sourceUrl && (
                 <a href={entry.data.sourceUrl} target="_blank" rel="noopener" class="article-source">
                     📎 {entry.data.sourceTitle ?? '원문'}

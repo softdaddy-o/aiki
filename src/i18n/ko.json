@@ -32,5 +32,10 @@
     "newsletter.title": "뉴스레터 구독",
     "newsletter.coming_soon": "Coming Soon — 사전등록하세요",
     "newsletter.placeholder": "your@email.com",
-    "newsletter.submit": "사전등록"
+    "newsletter.submit": "사전등록",
+    "wiki.title": "AI 용어 사전",
+    "wiki.mentions": "회 언급",
+    "wiki.related": "관련 용어",
+    "wiki.backlinks": "관련 기사",
+    "score.label": "스코어"
 }
