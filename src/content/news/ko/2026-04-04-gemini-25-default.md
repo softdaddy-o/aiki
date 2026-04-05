@@ -1,9 +1,9 @@
 ---
-title: "Google, Gemini 2.5 Pro를 기본 모델로 전환"
+title: "Google, Gemini 2.5 Pro를 기본 모델로 바꿨어"
 date: "2026-04-04T14:00:00+09:00"
 lang: ko
 category: news
-summary: "Google AI Studio와 API에서 Gemini 2.5 Pro가 기본 모델로 설정됨."
+summary: "Google AI Studio랑 API에서 Gemini 2.5 Pro가 기본 모델로 설정됐어."
 sourceUrl: "https://blog.google/technology/ai/gemini-25-pro"
 sourceTitle: "Google Blog"
 factCheck:
@@ -27,6 +27,6 @@ factCheck:
 tags: ["google", "gemini", "llm"]
 ---
 
-Google이 AI Studio와 Gemini API에서 Gemini 2.5 Pro를 기본 모델로 전환했다.
+Google이 AI Studio랑 Gemini API에서 Gemini 2.5 Pro를 기본 모델로 바꿨어.
 
-기존 Gemini 2.0 Flash 대비 추론과 코딩 성능이 향상되었으며, 100만 토큰 컨텍스트 윈도우를 지원한다.
+기존 Gemini 2.0 Flash 대비 추론이랑 코딩 성능이 올라갔고, 100만 토큰 컨텍스트 윈도우를 지원해. 별도 설정 없이도 자동으로 적용돼.
