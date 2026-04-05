@@ -2,6 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BackLinks from '../../../components/BackLinks.astro';
+import TechStackMap from '../../../components/TechStackMap.tsx';
+import wikiTermsJson from '../../../../data/wiki-terms.json';
 
 const categoryLabels: Record<string, string> = {
     concept: '개념',
@@ -21,6 +23,12 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const techStackTerms = wikiTermsJson.map((t: any) => ({
+    slug: t.term,
+    title: t.title,
+    category: t.category,
+}));
 ---
 
 <BaseLayout title={entry.data.title}>
@@ -42,6 +50,15 @@ const { Content } = await render(entry);
                 ))}
             </div>
         )}
+
+        <div class="tech-stack-section">
+            <h3 style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 8px;">📍 AI 기술 맵에서의 위치</h3>
+            <TechStackMap
+                client:visible
+                activeTerm={entry.data.term.toLowerCase()}
+                terms={techStackTerms}
+            />
+        </div>
 
         <div class="article-body">
             <Content />
@@ -104,6 +121,9 @@ const { Content } = await render(entry);
         border-radius: 4px;
         font-size: 12px;
         color: var(--color-text-muted);
+    }
+    .tech-stack-section {
+        margin-bottom: 24px;
     }
     .article-body { font-size: 15px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }
