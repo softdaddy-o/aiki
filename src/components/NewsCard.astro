@@ -140,20 +140,24 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
     @media (max-width: 640px) {
         .timeline-item {
             flex-direction: row !important;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            padding-left: 4px;
         }
         .dot {
-            width: 10px; height: 10px;
-            margin-left: 4px;
+            width: 12px !important; height: 12px !important;
+            margin-left: 6px;
             margin-top: 18px;
+            border-width: 2px !important;
+            box-shadow: 0 0 8px currentColor !important;
         }
         .connector {
-            width: 12px;
+            width: 16px;
             margin-top: 23px;
+            opacity: 0.7;
         }
         .timeline-left .card, .timeline-right .card {
             margin-left: 8px; margin-right: 0;
-            border-left: 2px solid; border-right: none;
+            border-left: 3px solid; border-right: none;
             text-align: left;
             border-radius: 8px;
             padding: 14px 16px;
@@ -162,6 +166,6 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
         .timeline-left .card-fc { justify-content: flex-start; }
         .card-title { font-size: 16px; }
         .card-summary { font-size: 13px; -webkit-line-clamp: 2; }
-        .featured .dot { width: 14px; height: 14px; }
+        .featured .dot { width: 16px !important; height: 16px !important; }
     }
 </style>
