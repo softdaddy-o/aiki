@@ -25,6 +25,11 @@ factCheck:
       sources: 3
     - type: number_verify
       result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "'50배 비용 증가'는 HN 사용자 추정치 — Anthropic 공식 확인 아님"
+        - "Anthropic 입장(보안 우려, ToS 위반)은 기사에 미반영 — 한쪽 시각 위주"
 tags: ["anthropic", "claude", "openclaw", "pricing"]
 ---
 

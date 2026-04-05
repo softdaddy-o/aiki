@@ -25,6 +25,11 @@ factCheck:
       sources: 3
     - type: number_verify
       result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "벤치마크(MMLU Pro, Codeforces ELO)는 Google 자체 측정 — 독립 재현 결과 대기 중"
+        - "'오픈 모델 3위'는 Arena AI 리더보드 기준 — 리더보드 순위는 투표 편향에 영향받음"
 tags: ["google", "gemma-4", "open-model", "deepmind"]
 ---
 

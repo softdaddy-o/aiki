@@ -23,6 +23,11 @@ factCheck:
       sources: 3
     - type: number_verify
       result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "50% 할인은 Google 자체 발표 수치 — 실사용 시 지연 시간(latency) 트레이드오프 미공개"
+        - "Priority 75-100% 프리미엄의 구체적 SLA(응답 시간 보장) 미명시"
 tags: ["gemini", "google", "api", "pricing"]
 ---
 

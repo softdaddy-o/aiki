@@ -25,6 +25,11 @@ factCheck:
       sources: 3
     - type: number_verify
       result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "실험 환경(MTurk/Prolific)과 실제 업무 환경의 차이 — 전문가 집단에서도 동일할지 미확인"
+        - "79.8% 수용률이 AI 없는 기존 권위(상사, 교과서) 수용률과 비교되지 않음"
 tags: ["research", "cognitive-surrender", "wharton", "ai-safety"]
 ---
 

@@ -25,6 +25,11 @@ factCheck:
       sources: 3
     - type: number_verify
       result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "'63% 인증 미설정'은 SecurityScorecard STRIKE 팀 조사 — 조사 방법론(스캔 범위, 시점) 미공개"
+        - "ARMO가 보안 솔루션 기업이라 자사 제품 홍보 맥락에서 심각성을 강조할 유인이 있음"
 tags: ["openclaw", "security", "cve", "vulnerability"]
 ---
 

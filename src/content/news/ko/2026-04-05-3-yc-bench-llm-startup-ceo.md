@@ -23,6 +23,11 @@ factCheck:
       sources: 2
     - type: number_verify
       result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "시뮬레이션 경영과 실제 경영은 근본적으로 다름 — 인간 관계, 불확실성, 감정 요소 부재"
+        - "벤치마크 설계자가 '함정 클라이언트 35%' 등 규칙을 정했으므로 결과가 설계에 의존"
 tags: ["benchmark", "llm", "claude", "glm-5", "startup"]
 ---
 
