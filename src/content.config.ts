@@ -27,7 +27,28 @@ const news = defineCollection({
         draft: z.boolean().default(false),
         factCheck: factCheckSchema.optional(),
         tags: z.array(z.string()).default([]),
+        score: z.number().default(0),
+        sourceCount: z.number().default(1),
+        backfilled: z.boolean().default(false),
+        backfilledAt: z.string().optional(),
     }),
 });
 
-export const collections = { news };
+const wiki = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: './src/content/wiki' }),
+    schema: z.object({
+        term: z.string(),
+        title: z.string(),
+        lang: z.enum(['ko', 'en']).default('ko'),
+        summary: z.string(),
+        category: z.enum(['concept', 'model', 'tool', 'technique', 'framework']).default('concept'),
+        aliases: z.array(z.string()).default([]),
+        relatedTerms: z.array(z.string()).default([]),
+        firstMentioned: z.string().optional(),
+        mentionCount: z.number().default(0),
+        draft: z.boolean().default(false),
+        tags: z.array(z.string()).default([]),
+    }),
+});
+
+export const collections = { news, wiki };

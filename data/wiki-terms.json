@@ -1,0 +1,122 @@
+[
+    {
+        "term": "rag",
+        "title": "RAG (검색 증강 생성)",
+        "category": "technique",
+        "aliases": ["retrieval-augmented generation", "검색 증강 생성"]
+    },
+    {
+        "term": "transformer",
+        "title": "트랜스포머",
+        "category": "concept",
+        "aliases": ["transformer architecture"]
+    },
+    {
+        "term": "llm",
+        "title": "LLM (대규모 언어 모델)",
+        "category": "concept",
+        "aliases": ["large language model", "대규모 언어 모델"]
+    },
+    {
+        "term": "fine-tuning",
+        "title": "파인튜닝",
+        "category": "technique",
+        "aliases": ["fine tuning", "미세 조정"]
+    },
+    {
+        "term": "mcp",
+        "title": "MCP (Model Context Protocol)",
+        "category": "framework",
+        "aliases": ["model context protocol"]
+    },
+    {
+        "term": "prompt-engineering",
+        "title": "프롬프트 엔지니어링",
+        "category": "technique",
+        "aliases": ["prompt engineering", "프롬프팅"]
+    },
+    {
+        "term": "embedding",
+        "title": "임베딩",
+        "category": "concept",
+        "aliases": ["벡터 임베딩", "vector embedding"]
+    },
+    {
+        "term": "attention",
+        "title": "어텐션 메커니즘",
+        "category": "concept",
+        "aliases": ["attention mechanism", "self-attention"]
+    },
+    {
+        "term": "rlhf",
+        "title": "RLHF (인간 피드백 강화학습)",
+        "category": "technique",
+        "aliases": ["reinforcement learning from human feedback", "인간 피드백 강화학습"]
+    },
+    {
+        "term": "diffusion",
+        "title": "디퓨전 모델",
+        "category": "concept",
+        "aliases": ["diffusion model", "확산 모델"]
+    },
+    {
+        "term": "multimodal",
+        "title": "멀티모달",
+        "category": "concept",
+        "aliases": ["multimodal ai", "멀티모달 AI"]
+    },
+    {
+        "term": "agent",
+        "title": "AI 에이전트",
+        "category": "concept",
+        "aliases": ["ai agent", "autonomous agent"]
+    },
+    {
+        "term": "vibe-coding",
+        "title": "바이브 코딩",
+        "category": "technique",
+        "aliases": ["vibe coding"]
+    },
+    {
+        "term": "langchain",
+        "title": "랭체인",
+        "category": "framework",
+        "aliases": ["LangChain"]
+    },
+    {
+        "term": "vector-db",
+        "title": "벡터 데이터베이스",
+        "category": "tool",
+        "aliases": ["vector database", "벡터 DB"]
+    },
+    {
+        "term": "tokenizer",
+        "title": "토크나이저",
+        "category": "tool",
+        "aliases": ["토큰화"]
+    },
+    {
+        "term": "context-window",
+        "title": "컨텍스트 윈도우",
+        "category": "concept",
+        "aliases": ["context length", "컨텍스트 길이"]
+    },
+    {
+        "term": "hallucination",
+        "title": "할루시네이션",
+        "category": "concept",
+        "aliases": ["환각", "AI 환각"]
+    },
+    {
+        "term": "inference",
+        "title": "추론 (인퍼런스)",
+        "category": "concept",
+        "aliases": ["model inference", "모델 추론"]
+    },
+    {
+        "term": "reasoning",
+        "title": "추론 (리즈닝)",
+        "category": "concept",
+        "aliases": ["chain-of-thought", "사고 연쇄"]
+    }
+]
