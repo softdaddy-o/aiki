@@ -93,15 +93,31 @@ const itemsWithZoom = items.map(item => {
 </BaseLayout>
 
 <script>
+    function applyZoom(level: string) {
+        document.querySelectorAll('.zoom-tab').forEach(t => t.classList.remove('active'));
+        document.querySelector(`.zoom-tab[data-zoom="${level}"]`)?.classList.add('active');
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            const levels = ((item as HTMLElement).dataset.zoomLevel || 'daily').split(',');
+            (item as HTMLElement).style.display = levels.includes(level) ? '' : 'none';
+        });
+    }
+
+    // Read initial state from URL
+    const params = new URLSearchParams(window.location.search);
+    const initialZoom = params.get('period') || 'daily';
+    applyZoom(initialZoom);
+
     document.querySelectorAll('.zoom-tab').forEach(tab => {
         tab.addEventListener('click', () => {
-            const level = (tab as HTMLElement).dataset.zoom;
-            document.querySelectorAll('.zoom-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                const levels = ((item as HTMLElement).dataset.zoomLevel || 'daily').split(',');
-                (item as HTMLElement).style.display = levels.includes(level!) ? '' : 'none';
-            });
+            const level = (tab as HTMLElement).dataset.zoom!;
+            const url = new URL(window.location.href);
+            if (level === 'daily') {
+                url.searchParams.delete('period');
+            } else {
+                url.searchParams.set('period', level);
+            }
+            window.history.replaceState({}, '', url.toString());
+            applyZoom(level);
         });
     });
 </script>
