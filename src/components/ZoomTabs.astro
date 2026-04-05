@@ -40,7 +40,7 @@ const tabs = [
         font-size: 13px;
         font-weight: 600;
         cursor: pointer;
-        transition: background 0.15s, color 0.15s;
+        transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
     }
     .zoom-tab:hover {
         background: var(--color-surface-alt);
@@ -48,5 +48,6 @@ const tabs = [
     .zoom-tab.active {
         background: #4fc3f7;
         color: #000;
+        box-shadow: 0 0 12px rgba(79, 195, 247, 0.4);
     }
 </style>

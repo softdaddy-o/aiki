@@ -83,20 +83,25 @@ for (const cat of Object.keys(grouped)) {
     .wiki-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 12px;
+        gap: 16px;
     }
     .wiki-card {
         background: var(--color-surface);
         border: 1px solid #333;
         border-left: 3px solid var(--color-wiki);
         border-radius: 8px;
-        padding: 14px;
+        padding: 18px 20px;
         text-decoration: none;
         color: inherit;
-        transition: background 0.15s;
+        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
     .wiki-card:hover {
         background: var(--color-surface-alt);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+    @media (max-width: 640px) {
+        .wiki-grid { grid-template-columns: 1fr; }
     }
     .wiki-card-title {
         font-size: 15px;

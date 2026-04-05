@@ -53,13 +53,14 @@ const fc = entry.data.factCheck;
 </BaseLayout>
 
 <style>
-    .news-article { max-width: 680px; margin: 0 auto; }
+    .news-article { max-width: 680px; margin: 0 auto; padding-top: 16px; }
     .article-meta {
         display: flex; justify-content: space-between; align-items: center;
-        margin-bottom: 12px; font-size: 13px; color: var(--color-text-muted);
+        flex-wrap: wrap; gap: 8px;
+        margin-bottom: 16px; font-size: 13px; color: var(--color-text-muted);
     }
     .article-source { color: var(--color-news); text-decoration: none; }
-    h1 { font-size: 24px; margin-bottom: 20px; line-height: 1.4; }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 24px; line-height: 1.35; letter-spacing: -0.01em; }
     .article-body { font-size: 15px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }
     .article-body :global(ul) { padding-left: 20px; margin-bottom: 12px; }
