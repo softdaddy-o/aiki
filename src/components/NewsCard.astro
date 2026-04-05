@@ -66,6 +66,13 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
         align-items: flex-start;
         position: relative;
         margin-bottom: 16px;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
     .timeline-right { flex-direction: row; }
     .timeline-left { flex-direction: row-reverse; }
