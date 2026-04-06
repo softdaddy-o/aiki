@@ -33,18 +33,18 @@ factCheck:
 tags: ["데이터센터", "AI-인프라", "전력", "중국-부품", "공급망"]
 ---
 
-## AI 투자 6500억 달러인데, 절반이 막혔다
+## 6500억 달러 투자인데 절반이 막혔대
 
-Alphabet, Amazon, Meta, Microsoft가 2026년 AI 인프라에 6,500억 달러 이상을 투입할 계획이다. 그런데 [Sightline Climate 분석](https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)에 따르면, 미국에서 올해 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다.
+Alphabet, Amazon, Meta, Microsoft가 2026년 AI 인프라에 6,500억 달러 이상을 투입할 계획이거든. 근데 [Sightline Climate 분석](https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)에 따르면, 미국에서 올해 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이래.
 
-[Bloomberg](https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports), [TechSpot](https://www.techspot.com/news/111947-nearly-half-us-data-centers-planned-2026-facing.html), [Futurism](https://futurism.com/science-energy/data-centers-construction-supply) 등 다수 매체가 보도했다.
+[Bloomberg](https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports), [TechSpot](https://www.techspot.com/news/111947-nearly-half-us-data-centers-planned-2026-facing.html), [Futurism](https://futurism.com/science-energy/data-centers-construction-supply) 등에서 꽤 크게 다뤘어.
 
-## 병목은 칩이 아니라 전력 인프라
+## 병목이 GPU가 아니라 전력 인프라래
 
-문제는 GPU가 아니다. 변압기, 배전반, 배터리 같은 전기 부품이 부족하다. 고용량 변압기의 미국 내 리드타임은 최대 5년까지 늘어났는데, AI 데이터센터의 배포 주기는 18개월 이하다. 시간 격차가 크다.
+변압기, 배전반, 배터리 같은 전기 부품이 부족한 거야. 고용량 변압기 납기가 미국 내에서 최대 5년까지 늘어났는데, AI 데이터센터 배포 주기는 18개월 이하거든. 격차가 너무 커.
 
-2026년 미국에서 약 12GW의 데이터센터 용량이 가동 예정이지만, 실제로 착공 중인 건 그 3분의 1 수준이다.
+2026년 미국에서 약 12GW의 데이터센터 용량이 가동 예정인데, 실제로 착공 중인 건 3분의 1 수준이래.
 
-## 중국산 부품 의존도
+## 근데 그 부품이 중국산이야
 
-핵심 전기 장비의 상당 부분이 중국산이다. 변압기, 배전반, 배터리 모두 중국이 세계 최대 생산국이다. 미·중 무역 갈등 속에서 이 의존 구조가 AI 인프라 확장의 또 다른 리스크가 되고 있다.
+핵심 전기 장비 상당 부분이 중국산이거든. 변압기, 배전반, 배터리 모두 중국이 세계 최대 생산국이야. 미·중 무역 갈등 속에서 이 의존 구조가 AI 인프라 확장의 또 다른 리스크가 되고 있어.

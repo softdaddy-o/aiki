@@ -32,22 +32,20 @@ factCheck:
 tags: ["karpathy", "지식관리", "RAG", "Obsidian", "LLM"]
 ---
 
-## RAG도 벡터 DB도 필요 없다?
+## RAG도 벡터 DB도 안 쓴대
 
-Andrej Karpathy가 4월 3일 GitHub Gist에 ['LLM Knowledge Bases'](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)라는 글을 올렸다. 핵심은 단순하다. 원본 문서를 LLM한테 주고, 구조화된 마크다운 위키로 컴파일시키는 것이다. 백링크도 자동 생성된다. 프론트엔드는 [Obsidian](https://obsidian.md/).
+Andrej Karpathy가 4월 3일 GitHub Gist에 ['LLM Knowledge Bases'](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)라는 글을 올렸어. 방법이 생각보다 단순해. 원본 문서를 LLM한테 주고, 구조화된 마크다운 위키로 컴파일시키는 거야. 백링크도 자동 생성되고. 프론트엔드는 [Obsidian](https://obsidian.md/).
 
-[VentureBeat](https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an/)를 비롯한 다수 매체가 보도했다.
+[VentureBeat](https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an/) 등 여러 매체에서 다뤘어.
 
-## 3개 레이어 구조
+## 3개 레이어로 돼 있어
 
-시스템은 세 레이어로 구성된다.
+- **Raw Layer**: 기사, 논문, 이미지 등 원본 문서. LLM이 읽기만 하고 수정은 안 해.
+- **Wiki Layer**: LLM이 원본을 요약하고, 핵심 개념을 추출해서 백과사전 스타일 글을 써. 관련 개념 간 백링크도 자동으로 연결해줘.
+- **Health Check**: LLM이 위키를 스캔하면서 불일치, 누락 데이터, 새로운 연결을 찾아.
 
-- **Raw Layer**: 기사, 논문, 이미지 등 원본 문서. LLM이 읽기만 하고 수정하지 않는다.
-- **Wiki Layer**: LLM이 원본을 요약하고, 핵심 개념을 추출하고, 백과사전 스타일 글을 작성한다. 관련 개념 간 백링크를 자동으로 연결한다.
-- **Health Check**: LLM이 위키를 스캔하며 불일치, 누락 데이터, 새로운 연결을 찾는다.
+기사 약 100개, 40만 단어 규모에서 RAG 파이프라인 없이 복잡한 Q&A가 가능하대.
 
-기사 약 100개, 40만 단어 규모에서 RAG 파이프라인 없이 복잡한 Q&A가 된다고 한다.
+## 토큰을 코딩 대신 지식에 쓰겠다는 거지
 
-## "토큰 사용량이 코드에서 지식으로 이동"
-
-Karpathy 본인이 "내 토큰 사용량의 큰 비중이 이제 코드가 아니라 지식 쪽으로 가고 있다"고 했다. Tesla AI 디렉터 출신이자 OpenAI 공동창립자가 코딩 대신 지식 관리에 AI를 집중 투입하겠다는 선언이다. 벡터 DB 세팅에 시간을 쓰기 전에, Obsidian이나 Logseq 같은 도구에 LLM을 붙여보는 것도 방법이다.
+Karpathy 본인이 "내 토큰 사용량의 큰 비중이 이제 코드가 아니라 지식 쪽으로 가고 있다"고 했어. Tesla AI 디렉터 출신이자 OpenAI 공동창립자가 코딩 대신 지식 관리에 AI를 집중 투입하겠다는 건데. 벡터 DB 세팅에 시간 쓰기 전에, Obsidian이나 Logseq 같은 도구에 LLM을 붙여보는 것도 방법이야.
