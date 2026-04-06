@@ -7,6 +7,7 @@ summary: "MiniMax, 지혜AI(GLM), Qwen, Mimo 등 중국 주요 AI 랩들이 최�
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/"
 sourceTitle: "r/LocalLLaMA"
 draft: false
+score: 58
 factCheck:
   status: passed
   date: "2026-04-06"

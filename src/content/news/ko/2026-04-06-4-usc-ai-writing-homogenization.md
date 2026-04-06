@@ -7,6 +7,7 @@ summary: "USC Dornsife의 Morteza Dehghani 교수 팀이 Trends in Cognitive Sci
 sourceUrl: "https://www.cnn.com/2026/04/04/health/ai-impact-college-student-thinking-wellness"
 sourceTitle: "CNN"
 draft: false
+score: 55
 factCheck:
   status: passed
   date: "2026-04-06"

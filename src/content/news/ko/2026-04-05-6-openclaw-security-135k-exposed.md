@@ -7,6 +7,7 @@ summary: "OpenClaw에서 CVE-2026-25253(CVSS 8.8) 등 심각한 보안 취약점
 sourceUrl: "https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security/"
 sourceTitle: "ARMO Security"
 draft: false
+score: 55
 factCheck:
   status: passed
   date: "2026-04-05"

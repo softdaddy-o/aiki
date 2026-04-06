@@ -7,6 +7,7 @@ summary: "Anthropic의 AI 코딩 도구 Claude Code에서 명령어가 50개를 
 sourceUrl: "https://adversa.ai/claude-code-security-bypass-deny-rules-disabled/"
 sourceTitle: "Adversa AI"
 draft: false
+score: 72
 factCheck:
   status: passed
   date: "2026-04-06"

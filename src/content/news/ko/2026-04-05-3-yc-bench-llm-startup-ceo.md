@@ -7,6 +7,7 @@ summary: "12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동
 sourceUrl: "https://arxiv.org/abs/2604.01212"
 sourceTitle: "arXiv"
 draft: false
+score: 55
 factCheck:
   status: passed
   date: "2026-04-05"

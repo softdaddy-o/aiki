@@ -7,6 +7,7 @@ summary: "2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지
 sourceUrl: "https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers"
 sourceTitle: "Tom's Hardware"
 draft: false
+score: 65
 factCheck:
   status: passed
   date: "2026-04-06"

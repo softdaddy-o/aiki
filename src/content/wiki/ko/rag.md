@@ -11,7 +11,7 @@ relatedTerms:
     - llm
     - embedding
     - vector-db
-mentionCount: 0
+mentionCount: 6
 draft: false
 tags:
     - retrieval

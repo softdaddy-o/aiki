@@ -10,7 +10,7 @@ relatedTerms:
     - agent
     - llm
     - langchain
-mentionCount: 0
+mentionCount: 3
 draft: false
 tags:
     - protocol

@@ -7,6 +7,7 @@ summary: "와튼스쿨 연구팀이 1,372명 대상 실험에서 AI가 오답을
 sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646"
 sourceTitle: "SSRN — Wharton School"
 draft: false
+score: 50
 factCheck:
   status: passed
   date: "2026-04-05"

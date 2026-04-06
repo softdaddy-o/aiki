@@ -6,6 +6,8 @@ category: news
 summary: "Google AI Studio랑 API에서 Gemini 2.5 Pro가 기본 모델로 설정됐어."
 sourceUrl: "https://blog.google/technology/ai/gemini-25-pro"
 sourceTitle: "Google Blog"
+draft: false
+score: 70
 factCheck:
   status: passed
   date: "2026-04-04"

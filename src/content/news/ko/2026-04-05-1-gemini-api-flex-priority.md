@@ -7,6 +7,7 @@ summary: "Google이 Gemini API에 Flex(50% 할인)랑 Priority(75-100% 프리미
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/"
 sourceTitle: "Google Blog"
 draft: false
+score: 65
 factCheck:
   status: passed
   date: "2026-04-05"

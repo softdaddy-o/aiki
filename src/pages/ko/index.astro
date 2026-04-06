@@ -152,6 +152,87 @@ for (const item of itemsWithZoom) {
         });
     });
 
+    // ── Infinite scroll: show BATCH_SIZE items initially, load more on scroll ──
+    const BATCH_SIZE = 10;
+    const MAX_BEFORE_PAGINATE = 50;
+    const allItems = document.querySelectorAll('.timeline-item, .date-header');
+    let visibleCount = 0;
+    let loadMoreBtn: HTMLElement | null = null;
+
+    function hideAllInitially() {
+        allItems.forEach((el, i) => {
+            const htmlEl = el as HTMLElement;
+            if (i >= BATCH_SIZE) {
+                htmlEl.style.display = 'none';
+                htmlEl.dataset.lazyHidden = 'true';
+            }
+        });
+        visibleCount = Math.min(BATCH_SIZE, allItems.length);
+    }
+
+    function showNextBatch() {
+        let shown = 0;
+        for (let i = 0; i < allItems.length && shown < BATCH_SIZE; i++) {
+            const el = allItems[i] as HTMLElement;
+            if (el.dataset.lazyHidden === 'true') {
+                el.style.display = '';
+                el.dataset.lazyHidden = 'false';
+                el.classList.add('visible');
+                shown++;
+                visibleCount++;
+            }
+        }
+        updateLoadMoreBtn();
+        return shown > 0;
+    }
+
+    function getHiddenCount() {
+        let count = 0;
+        allItems.forEach(el => {
+            if ((el as HTMLElement).dataset.lazyHidden === 'true') count++;
+        });
+        return count;
+    }
+
+    function updateLoadMoreBtn() {
+        const hidden = getHiddenCount();
+        if (hidden === 0 && loadMoreBtn) {
+            loadMoreBtn.remove();
+            loadMoreBtn = null;
+        }
+        if (hidden > 0 && visibleCount >= MAX_BEFORE_PAGINATE && !loadMoreBtn) {
+            // Switch from infinite scroll to "load more" button
+            loadMoreBtn = document.createElement('div');
+            loadMoreBtn.className = 'load-more-container';
+            loadMoreBtn.innerHTML = `<button class="load-more-btn">더보기 (${hidden}건 남음)</button>`;
+            document.querySelector('.timeline')?.appendChild(loadMoreBtn);
+            loadMoreBtn.querySelector('button')?.addEventListener('click', () => {
+                showNextBatch();
+            });
+        }
+        if (loadMoreBtn) {
+            const btn = loadMoreBtn.querySelector('button');
+            const remaining = getHiddenCount();
+            if (btn && remaining > 0) {
+                btn.textContent = `더보기 (${remaining}건 남음)`;
+            }
+        }
+    }
+
+    // Infinite scroll trigger
+    const scrollSentinel = document.createElement('div');
+    scrollSentinel.className = 'scroll-sentinel';
+    document.querySelector('.timeline')?.appendChild(scrollSentinel);
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && visibleCount < MAX_BEFORE_PAGINATE) {
+            showNextBatch();
+        }
+    }, { rootMargin: '200px' });
+
+    hideAllInitially();
+    scrollObserver.observe(scrollSentinel);
+
     // Scroll-triggered entrance animations with stagger (respects prefers-reduced-motion)
     const animTargets = '.timeline-item, .date-header';
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -166,7 +247,21 @@ for (const item of itemsWithZoom) {
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll(animTargets).forEach(item => observer.observe(item));
+        document.querySelectorAll(animTargets).forEach(item => {
+            if ((item as HTMLElement).dataset.lazyHidden !== 'true') {
+                observer.observe(item);
+            }
+        });
+        // Re-observe newly shown items on scroll
+        const mutObserver = new MutationObserver(() => {
+            document.querySelectorAll(animTargets).forEach(item => {
+                const el = item as HTMLElement;
+                if (el.dataset.lazyHidden === 'false' && !el.classList.contains('visible')) {
+                    observer.observe(el);
+                }
+            });
+        });
+        mutObserver.observe(document.querySelector('.timeline')!, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-lazy-hidden'] });
     } else {
         document.querySelectorAll(animTargets).forEach(item => item.classList.add('visible'));
     }
@@ -196,6 +291,33 @@ for (const item of itemsWithZoom) {
         font-size: var(--text-lg);
         color: var(--color-text-muted);
         line-height: 1.5;
+    }
+    .load-more-container {
+        text-align: center;
+        padding: 32px 0;
+        position: relative;
+        z-index: 5;
+    }
+    .load-more-btn {
+        background: var(--color-surface);
+        color: var(--color-news);
+        border: 1px solid rgba(79, 195, 247, 0.3);
+        padding: 12px 32px;
+        border-radius: 24px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .load-more-btn:hover {
+        background: var(--color-surface-alt);
+        box-shadow: 0 4px 16px rgba(79, 195, 247, 0.2);
+        transform: translateY(-1px);
+    }
+    .scroll-sentinel {
+        height: 1px;
+        visibility: hidden;
     }
     @media (max-width: 640px) {
         .hero { padding: 32px 0 24px; }

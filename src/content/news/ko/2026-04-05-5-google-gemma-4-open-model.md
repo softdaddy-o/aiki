@@ -7,6 +7,7 @@ summary: "Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
 sourceTitle: "Google Blog"
 draft: false
+score: 70
 factCheck:
   status: passed
   date: "2026-04-05"
