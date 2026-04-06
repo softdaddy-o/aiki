@@ -53,21 +53,23 @@ let globalIndex = 0;
 </div>
 
 <style>
-    .timeline { position: relative; padding: 32px 0; }
+    /* Always single-column with left-aligned timeline */
+    .timeline { position: relative; padding: 16px 0; }
     .timeline-line {
-        position: absolute; left: 50%; top: 0; bottom: 0;
-        width: 3px; transform: translateX(-50%);
+        position: absolute; left: 16px; top: 0; bottom: 0;
+        width: 3px;
         background: linear-gradient(to bottom, var(--color-news), var(--color-wiki), var(--color-tutorial), var(--color-model), var(--color-news));
-        opacity: 0.5;
-        box-shadow: 0 0 8px rgba(79, 195, 247, 0.15);
+        opacity: 0.6;
+        box-shadow: 0 0 6px rgba(79, 195, 247, 0.2);
     }
     .date-header {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-left: 40px;
         position: relative;
         z-index: 3;
-        margin: 32px 0 20px;
+        margin: 24px 0 12px;
         opacity: 0;
         transform: translateY(8px);
         transition: opacity 0.3s ease-out, transform 0.3s ease-out;
@@ -78,49 +80,25 @@ let globalIndex = 0;
         transform: translateY(0);
     }
     .date-marker {
-        width: 18px; height: 18px;
+        width: 16px; height: 16px;
         border-radius: 50%;
         background: var(--color-news);
         border: 3px solid var(--color-bg);
-        box-shadow: 0 0 16px rgba(79, 195, 247, 0.5);
+        box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
         position: absolute;
-        left: 50%;
+        left: 16px;
         transform: translateX(-50%);
     }
     .date-label {
         background: var(--color-surface);
-        padding: 6px 20px;
+        padding: 6px 14px;
         border: 1px solid rgba(79, 195, 247, 0.25);
         border-radius: 20px;
-        font-size: 14px;
-        font-weight: 600;
+        font-size: 13px;
+        font-weight: 700;
         color: var(--color-news);
         letter-spacing: 0.02em;
         font-family: var(--font-heading);
         box-shadow: 0 0 12px rgba(79, 195, 247, 0.1);
-    }
-    @media (max-width: 900px) {
-        .timeline-line {
-            left: 16px;
-            width: 3px;
-            opacity: 0.6;
-            box-shadow: 0 0 6px rgba(79, 195, 247, 0.2);
-        }
-        .timeline { padding: 16px 0; }
-        .date-marker {
-            left: 16px;
-            width: 16px; height: 16px;
-            box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
-        }
-        .date-header {
-            justify-content: flex-start;
-            padding-left: 40px;
-            margin: 24px 0 12px;
-        }
-        .date-label {
-            font-size: 13px;
-            font-weight: 700;
-            padding: 6px 14px;
-        }
     }
 </style>
