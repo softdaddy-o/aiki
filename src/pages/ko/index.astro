@@ -91,6 +91,27 @@ function formatDateHeader(dateStr: string): string {
     return `${month}월 ${day}일 ${dow}요일`;
 }
 
+// Format helpers for zoom levels
+function formatWeekHeader(weekStr: string): string {
+    // "2026-W14" → "4월 1주차"
+    const [yearStr, wStr] = weekStr.split('-W');
+    const weekNum = parseInt(wStr);
+    // Approximate: week 1 = Jan, week 14 = Apr
+    const approxMonth = Math.min(12, Math.ceil(weekNum * 7 / 30.44));
+    const weekInMonth = Math.ceil((weekNum - Math.floor((approxMonth - 1) * 30.44 / 7)) );
+    return `${approxMonth}월 ${Math.max(1, weekInMonth)}주차`;
+}
+
+function formatMonthHeader(monthStr: string): string {
+    // "2026-04" → "2026년 4월"
+    const [y, m] = monthStr.split('-');
+    return `${y}년 ${parseInt(m)}월`;
+}
+
+function formatYearHeader(yearStr: string): string {
+    return `${yearStr}년`;
+}
+
 // Group items by date for date headers
 const dateGroups: { date: string; label: string; items: typeof itemsWithZoom }[] = [];
 let currentDate = '';
@@ -102,6 +123,28 @@ for (const item of itemsWithZoom) {
     }
     dateGroups[dateGroups.length - 1].items.push(item);
 }
+
+// Build period headers for weekly/monthly/yearly zoom levels
+// These are rendered hidden and shown by JS based on zoom level
+const weeklyHeaders = new Map<string, string>();
+const monthlyHeaders = new Map<string, string>();
+const yearlyHeaders = new Map<string, string>();
+for (const item of itemsWithZoom) {
+    const week = getISOWeek(item.date);
+    if (!weeklyHeaders.has(week)) weeklyHeaders.set(week, formatWeekHeader(week));
+    const month = item.date.substring(0, 7);
+    if (!monthlyHeaders.has(month)) monthlyHeaders.set(month, formatMonthHeader(month));
+    const year = item.date.substring(0, 4);
+    if (!yearlyHeaders.has(year)) yearlyHeaders.set(year, formatYearHeader(year));
+}
+
+// Assign period keys to items for JS matching
+const itemsWithPeriods = itemsWithZoom.map(item => ({
+    ...item,
+    weekKey: getISOWeek(item.date),
+    monthKey: item.date.substring(0, 7),
+    yearKey: item.date.substring(0, 4),
+}));
 ---
 
 <BaseLayout>
@@ -111,15 +154,62 @@ for (const item of itemsWithZoom) {
     </div>
     <ZoomTabs lang={lang} />
     <Timeline items={itemsWithZoom} lang={lang} dateGroups={dateGroups} />
+    {/* Period headers for zoom levels — hidden by default, shown by JS */}
+    <div id="period-headers" style="display:none">
+        {[...weeklyHeaders.entries()].map(([key, label]) => (
+            <div data-period-type="weekly" data-period-key={key} data-period-label={label}></div>
+        ))}
+        {[...monthlyHeaders.entries()].map(([key, label]) => (
+            <div data-period-type="monthly" data-period-key={key} data-period-label={label}></div>
+        ))}
+        {[...yearlyHeaders.entries()].map(([key, label]) => (
+            <div data-period-type="yearly" data-period-key={key} data-period-label={label}></div>
+        ))}
+    </div>
     <NewsletterSignup lang={lang} />
 </BaseLayout>
 
 <script>
+    // ISO week helper (client-side)
+    function getISOWeekClient(dateStr: string): string {
+        const d = new Date(dateStr);
+        const tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+        tmp.setUTCDate(tmp.getUTCDate() + 4 - (tmp.getUTCDay() || 7));
+        const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+        const weekNo = Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+        return `${tmp.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+    }
+
+    // Load period headers from hidden data
+    function getPeriodHeaders(): Map<string, Map<string, string>> {
+        const result = new Map<string, Map<string, string>>();
+        document.querySelectorAll('#period-headers [data-period-type]').forEach(el => {
+            const htmlEl = el as HTMLElement;
+            const type = htmlEl.dataset.periodType!;
+            const key = htmlEl.dataset.periodKey!;
+            const label = htmlEl.dataset.periodLabel!;
+            if (!result.has(type)) result.set(type, new Map());
+            result.get(type)!.set(key, label);
+        });
+        return result;
+    }
+
+    const periodHeaders = getPeriodHeaders();
+
     function applyZoom(level: string) {
         document.querySelectorAll('.zoom-tab').forEach(t => t.classList.remove('active'));
         document.querySelector(`.zoom-tab[data-zoom="${level}"]`)?.classList.add('active');
-        // Filter with fade transition
-        document.querySelectorAll('[data-zoom-level]').forEach(item => {
+
+        // Remove old period headers
+        document.querySelectorAll('.period-header').forEach(el => el.remove());
+
+        // Show/hide date-headers (daily only)
+        document.querySelectorAll('.date-header').forEach(el => {
+            (el as HTMLElement).style.display = level === 'daily' ? '' : 'none';
+        });
+
+        // Filter items
+        document.querySelectorAll('.timeline-item').forEach(item => {
             const el = item as HTMLElement;
             const levels = (el.dataset.zoomLevel || 'daily').split(',');
             const shouldShow = levels.includes(level);
@@ -131,6 +221,46 @@ for (const item of itemsWithZoom) {
                 el.style.display = 'none';
             }
         });
+
+        // Insert period headers for non-daily zoom levels
+        if (level !== 'daily') {
+            const headers = periodHeaders.get(level);
+            if (!headers) return;
+
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+
+            // Find visible items and group by period key
+            const visibleItems = Array.from(document.querySelectorAll('.timeline-item')) as HTMLElement[];
+            let lastPeriodKey = '';
+
+            for (const item of visibleItems) {
+                if (item.style.display === 'none') continue;
+
+                // Extract date from the card's time element or zoom-level context
+                const timeEl = item.querySelector('.time');
+                const cardLink = item.querySelector('a.card') as HTMLAnchorElement;
+                // Get date from slug pattern: /ko/news/2026-04-06-1-xxx/
+                const href = cardLink?.getAttribute('href') || '';
+                const dateMatch = href.match(/(\d{4}-\d{2}-\d{2})/);
+                if (!dateMatch) continue;
+                const dateStr = dateMatch[1];
+
+                let periodKey = '';
+                if (level === 'weekly') periodKey = getISOWeekClient(dateStr);
+                else if (level === 'monthly') periodKey = dateStr.substring(0, 7);
+                else if (level === 'yearly') periodKey = dateStr.substring(0, 4);
+
+                if (periodKey !== lastPeriodKey) {
+                    lastPeriodKey = periodKey;
+                    const label = headers.get(periodKey) || periodKey;
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'date-header period-header visible';
+                    headerDiv.innerHTML = `<div class="date-marker"></div><span class="date-label">${label}</span>`;
+                    item.parentNode?.insertBefore(headerDiv, item);
+                }
+            }
+        }
     }
 
     // Read initial state from URL
