@@ -12,16 +12,22 @@ const { title, description } = Astro.props;
 const siteTitle = title ? `${title} | ${t(lang, 'site.title')}` : t(lang, 'site.title');
 const siteDesc = description ?? t(lang, 'site.description');
 const otherLang = lang === 'ko' ? 'en' : 'ko';
-const otherPath = Astro.url.pathname.replace(`/${lang}/`, `/${otherLang}/`);
+const otherPath = lang === 'ko' ? '/en/' : '/ko/';
 
-const navItems = [
-    { key: 'nav.home', href: `/${lang}/` },
-    { key: 'nav.news', href: `/${lang}/` },
-    { key: 'nav.wiki', href: `/${lang}/wiki/` },
-    // { key: 'nav.models', href: `/${lang}/models/` },
-    // { key: 'nav.tutorials', href: `/${lang}/tutorials/` },
-    // { key: 'nav.about', href: `/${lang}/about/` },
-];
+const navItems = lang === 'en'
+    ? [
+        { key: 'nav.home', href: '/en/' },
+        { key: 'nav.news', href: '/en/' },
+        { key: 'nav.wiki', href: '/en/' },
+    ]
+    : [
+        { key: 'nav.home', href: '/ko/' },
+        { key: 'nav.news', href: '/ko/' },
+        { key: 'nav.wiki', href: '/ko/wiki/' },
+        // { key: 'nav.models', href: `/${lang}/models/` },
+        // { key: 'nav.tutorials', href: `/${lang}/tutorials/` },
+        // { key: 'nav.about', href: `/${lang}/about/` },
+    ];
 ---
 <!DOCTYPE html>
 <html lang={lang}>

@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title="English Pages Coming Soon"
+    description="English pages for AIKI are not available yet."
+>
+    <section class="coming-soon">
+        <p class="eyebrow">EN</p>
+        <h1>English pages will be available soon.</h1>
+        <p class="body">
+            AIKI is currently published in Korean first. The English section is being prepared.
+        </p>
+        <div class="actions">
+            <a href="/ko/" class="primary">Go to Korean home</a>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    .coming-soon {
+        min-height: calc(100vh - 240px);
+        display: grid;
+        align-content: center;
+        gap: 16px;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 48px 0;
+    }
+
+    .eyebrow {
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        color: var(--color-news);
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+    }
+
+    .body {
+        font-size: 1.05rem;
+        color: var(--color-text-muted);
+        max-width: 52ch;
+    }
+
+    .actions {
+        padding-top: 8px;
+    }
+
+    .primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: var(--color-news);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .primary:hover {
+        opacity: 0.92;
+    }
+</style>
