@@ -1,47 +1,48 @@
 ---
 term: rag
-title: "RAG — AI가 헛소리 안 하게 만드는 방법"
+title: "RAG"
 lang: ko
-summary: "ChatGPT가 '몰라요'라고 안 하고 자신 있게 거짓말하는 거 본 적 있지? RAG는 답변 전에 자료부터 찾아보게 만드는 기법이야. 오픈북 시험이라고 생각하면 돼."
+summary: "RAG(검색 증강 생성)는 LLM(대형 언어 모델)이 외부 데이터 소스에서 새로운 정보를 검색하고 통합할 수 있도록 하는 기술입니다."
 category: technique
 aliases:
-    - retrieval-augmented generation
-    - 검색 증강 생성
+  - "retrieval augmented generation"
 relatedTerms:
-    - llm
-    - embedding
-    - vector-db
-mentionCount: 6
+  - llamaindex
+  - embedding
+  - vector-db
+  - pinecone
+firstMentioned: "2026-02-16"
+mentionCount: 14
 draft: false
 tags:
-    - retrieval
-    - generation
-    - search
+  - retrieval
+  - generation
+factCheck:
+  status: passed
+  date: "2026-04-07"
+  sources:
+    - url: "https://en.wikipedia.org/wiki/Retrieval-augmented_generation"
+      title: "Retrieval-augmented generation"
+    - url: "https://www.ibm.com/think/topics/retrieval-augmented-generation"
+      title: "What is RAG (Retrieval Augmented Generation)? | IBM"
+  checks:
+    - type: source_match
+      result: pass
+    - type: web_cross_check
+      result: pass
+      sources: 2
+    - type: adversarial
+      result: pass
+      findings: []
 ---
-
 ## 한 줄 정의
-
-RAG(Retrieval-Augmented Generation)는 AI한테 오픈북 시험을 치르게 하는 거야. 답변하기 전에 관련 자료부터 찾아보고, 그걸 보면서 대답하게 만드는 기법이거든.
-
-## 작동 원리
-
-도서관에서 레포트 쓴다고 생각해봐. 머릿속 기억만으로 쓰면 틀린 내용이 섞이잖아. 그래서 도서관 가서 관련 책 먼저 찾고, 그걸 펼쳐놓고 쓰는 거지. RAG가 딱 이거야.
-
-1. **검색(Retrieval)**: 사용자가 질문하면, 그 질문을 벡터(숫자 배열)로 바꿔서 벡터 데이터베이스에서 비슷한 문서 조각들을 가져와. 도서관에서 관련 책 뽑아오는 단계인 셈이지.
-2. **생성(Generation)**: 찾아온 문서 조각들을 프롬프트에 붙여서 LLM한테 넘겨. LLM은 이 자료를 옆에 펼쳐놓고 답변을 만들어.
-
-여기서 중요한 건 뭐냐면, LLM이 자기 머릿속(파라미터)에 든 것만 쓰는 게 아니라 실시간으로 외부 자료를 참고한다는 거야. 회사 내부 문서, 오늘 나온 뉴스, 기술 매뉴얼 같은 걸 모델 재학습 없이 바로 쓸 수 있어.
-
-## 왜 중요한가
-
-LLM의 치명적인 약점이 두 가지 있거든. 학습 데이터 이후 정보를 모른다는 것(GPT-4의 학습 데이터 컷오프는 2023년 12월이야), 그리고 모르는 걸 자신 있게 지어낸다는 것. RAG는 이 두 문제를 동시에 줄여줘.
-
-파인튜닝이랑 비교하면 비용 차이가 꽤 커. 파인튜닝은 모델을 다시 학습시켜야 하니까 GPU 비용이 수백~수천 달러 드는데, RAG는 검색 대상 문서만 업데이트하면 끝이거든. 그래서 기업용 챗봇이나 사내 지식 검색에서 사실상 표준 패턴이 됐어. 2024년 기준 엔터프라이즈 AI 프로젝트의 약 80%가 RAG를 쓰고 있다는 조사도 있고.
-
-근데 "쓰레기가 들어가면 쓰레기가 나온다"는 건 여기서도 마찬가지야. 검색이 엉뚱한 문서를 가져오면? 답변도 엉뚱해져. 임베딩 모델 선택, 문서를 어떻게 자르느냐(청킹 전략), 검색 결과 순서를 다시 매기느냐(리랭킹) 같은 세부 설계가 실제 성능을 좌우해.
-
+RAG는 RAG(검색 증강 생성)는 LLM(대형 언어 모델)이 외부 데이터 소스에서 새로운 정보를 검색하고 통합할 수 있도록 하는 기술입니다. RAG를 사용하면 LLM은 먼저 지정된 문서 세트를 참조한 다음 사용자 쿼리에 응답합니다. 이 문서는 LLM의 기존 교육 데이터 정보를 보완합니다. 이를 통해 LLM은 교육 데이터에서 사용할 수 없는 도메인별 및/또는 업데이트된 정보를 사용할 수 있습니다. 예를 들어, 이는 LLM 기반 챗봇이 내부 회사 데이터에 액세스하거나 신뢰할 수 있는 소스를 기반으…
+## 어떻게 작동하나
+검색 증강 생성(RAG)은 인공지능(AI) 모델을 외부 지식 베이스와 연결하여 성능을 최적화하기 위한 아키텍처입니다라는 설명을 함께 보면, RAG가 실제 제품과 연구 흐름에서 어떻게 쓰이는지 감이 잡힌다.
+## 왜 지금 중요하나
+AIKI 기사 기준으로 RAG는 14번 이상 함께 언급됐다. 그만큼 최근 AI 뉴스에서 맥락을 이해할 때 반복해서 마주치는 용어다.
 ## 관련 용어
-
-- [LLM](/wiki/ko/llm) — RAG가 답변 만들 때 쓰는 기반 모델. 오픈북 시험의 "학생" 역할이야.
-- [임베딩](/wiki/ko/embedding) — 문서와 질문을 숫자 벡터로 바꾸는 과정. 도서관의 "분류 체계"라고 보면 돼.
-- [벡터 데이터베이스](/wiki/ko/vector-db) — 임베딩된 문서를 저장하고 유사도 검색을 하는 저장소. 도서관 서가인 셈이지.
+- [llamaindex](/ko/wiki/llamaindex/)
+- [embedding](/ko/wiki/embedding/)
+- [vector-db](/ko/wiki/vector-db/)
+- [pinecone](/ko/wiki/pinecone/)

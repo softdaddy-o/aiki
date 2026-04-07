@@ -1,50 +1,42 @@
 ---
 term: benchmark
-title: "벤치마크 — AI 모델의 성적표"
+title: "Benchmark"
 lang: ko
-summary: "벤치마크는 AI 모델 성능을 비교하는 표준화된 시험이야. 수능처럼 같은 문제로 여러 모델을 줄 세우는 거거든."
+summary: "컴퓨팅에서 벤치마크는 개체의 상대적인 성능을 평가하기 위해 컴퓨터 프로그램, 프로그램 세트 또는 기타 작업을 실행하는 행위로, 일반적으로 개체에 대해 여러 가지 표준 테스트 및 시험을 실행합니다."
 category: concept
 aliases:
-    - 벤치마크
-    - AI 벤치마크
-    - evaluation
+  - "evaluation benchmark"
 relatedTerms:
-    - llm
-    - gemini
-    - gemma
+  - synthetic-data
+firstMentioned: "2026-02-20"
 mentionCount: 11
 draft: false
 tags:
-    - evaluation
-    - performance
-    - testing
+  - evaluation
+  - measurement
+factCheck:
+  status: passed
+  date: "2026-04-07"
+  sources:
+    - url: "https://en.wikipedia.org/wiki/Benchmark_(computing)"
+      title: "Benchmark (computing)"
+    - url: "https://huggingface.co/docs/evaluate/index"
+      title: "Evaluate on the Hub · Hugging Face"
+  checks:
+    - type: source_match
+      result: pass
+    - type: web_cross_check
+      result: pass
+      sources: 2
+    - type: adversarial
+      result: pass
+      findings: []
 ---
-
 ## 한 줄 정의
-
-벤치마크는 AI 모델끼리 같은 시험 치르게 해서 누가 잘하는지 비교하는 거야. 수능 같은 건데, 응시자가 GPT-4, Claude, Gemini인 셈이지.
-
-## 작동 원리
-
-원리는 단순해. 문제 세트를 미리 만들어놓고, 모든 모델한테 같은 문제를 풀게 해. 그리고 정답률을 비교하는 거야.
-
-대표적인 벤치마크 몇 개를 보면:
-
-- **MMLU** — 대학 수준 지식 57개 과목 시험. "이 모델이 얼마나 많이 아는가"를 재지.
-- **HumanEval** — 코딩 문제 164개. 파이썬 함수를 작성하고 테스트를 통과해야 해.
-- **MATH** — 고등학교~대학교 수학 문제. 순수 추론 능력을 보는 거야.
-- **Arena Elo** — 사람들이 두 모델 답변을 비교해서 투표하는 방식. 주관적이지만 실전에 가장 가까워.
-
-문제는 벤치마크 하나만으로 모델 전체 능력을 판단하기 어렵다는 거야. 수능 1등이 실무도 잘하란 법은 없잖아. 그래서 보통 여러 벤치마크를 종합해서 봐.
-
-## 왜 중요한가
-
-새 모델이 나올 때마다 "MMLU 90.2%, HumanEval 92.1%"이런 숫자가 붙어 나오거든. 이게 뭔지 모르면 뉴스를 읽을 수가 없어. 벤치마크를 알면 "이 모델이 진짜 좋아진 건지, 마케팅인지"를 구분할 수 있게 돼.
-
-특히 요즘은 벤치마크 오염(contamination)이라는 문제도 있어. 모델이 시험 문제를 학습 데이터에서 미리 봤을 가능성이 있다는 거지. 그래서 새로운 벤치마크가 계속 나오고 있어.
-
+Benchmark는 컴퓨팅에서 벤치마크는 개체의 상대적인 성능을 평가하기 위해 컴퓨터 프로그램, 프로그램 세트 또는 기타 작업을 실행하는 행위로, 일반적으로 개체에 대해 여러 가지 표준 테스트 및 시험을 실행합니다라는 맥락에서 자주 언급된다.
+## 어떻게 작동하나
+우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하기 위한 여정을 진행하고 있습니다라는 설명을 함께 보면, Benchmark가 실제 제품과 연구 흐름에서 어떻게 쓰이는지 감이 잡힌다.
+## 왜 지금 중요하나
+AIKI 기사 기준으로 Benchmark는 11번 이상 함께 언급됐다. 그만큼 최근 AI 뉴스에서 맥락을 이해할 때 반복해서 마주치는 용어다.
 ## 관련 용어
-
-- [LLM](/ko/wiki/llm) — 벤치마크로 평가되는 주요 대상이야.
-- [Gemini](/ko/wiki/gemini) — Google의 멀티모달 모델로, 여러 벤치마크에서 상위권을 기록하고 있어.
-- [Gemma](/ko/wiki/gemma) — 오픈 모델이라 벤치마크 결과를 직접 재현해볼 수 있어.
+- [synthetic-data](/ko/wiki/synthetic-data/)

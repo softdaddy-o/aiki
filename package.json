@@ -9,7 +9,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "validate:content": "node scripts/aiki-pre-publish-check.cjs --all",
+    "generate:wiki": "node scripts/aiki-generate-wiki.cjs",
+    "backfill:range": "node scripts/aiki-backfill-range.cjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.2",

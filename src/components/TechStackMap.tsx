@@ -40,11 +40,12 @@ const styles: Record<string, CSSProperties> = {
     },
     layer: {
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         borderRadius: '4px',
         padding: '8px 10px',
         gap: '8px',
-        flexWrap: 'wrap',
+        flexWrap: 'nowrap',
+        overflowX: 'auto',
     },
     layerLabel: {
         fontSize: '10px',
@@ -57,10 +58,12 @@ const styles: Record<string, CSSProperties> = {
     termsContainer: {
         display: 'flex',
         gap: '4px',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
         flex: '1 1 260px',
         minWidth: 0,
+        overflowX: 'auto',
+        scrollbarWidth: 'thin',
     },
     pill: {
         padding: '2px 10px',
@@ -73,6 +76,7 @@ const styles: Record<string, CSSProperties> = {
         position: 'relative' as const,
         whiteSpace: 'nowrap',
         lineHeight: 1.5,
+        flexShrink: 0,
     },
 };
 

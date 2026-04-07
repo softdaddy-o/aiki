@@ -1,51 +1,49 @@
 ---
 term: agent
-title: "AI 에이전트 — 스스로 판단하고 실행하는 AI"
+title: "AI Agent"
 lang: ko
-summary: "AI 에이전트는 사람이 일일이 지시하지 않아도 스스로 계획 세우고, 도구 쓰고, 결과 확인까지 하는 AI 프로그램이야. 챗봇의 다음 단계거든."
+summary: "인공지능에서 지능형 에이전트는 환경을 인식하고 목표를 달성하기 위해 자율적으로 조치를 취하며 기계 학습이나 지식 획득을 통해 성능을 향상시킬 수 있는 개체입니다."
 category: concept
 aliases:
-    - AI agent
-    - AI 에이전트
-    - agentic AI
+  - "ai agent"
+  - "intelligent agent"
 relatedTerms:
-    - llm
-    - mcp
-    - api
-    - rag
-mentionCount: 13
+  - langchain
+  - langgraph
+  - n8n
+  - vibe-coding
+firstMentioned: "2021-06-29"
+mentionCount: 44
 draft: false
 tags:
-    - autonomy
-    - workflow
-    - tool-use
+  - autonomy
+  - workflow
+factCheck:
+  status: passed
+  date: "2026-04-07"
+  sources:
+    - url: "https://en.wikipedia.org/wiki/Intelligent_agent"
+      title: "Intelligent agent"
+    - url: "https://www.ibm.com/think/topics/ai-agents"
+      title: "What Are AI Agents? | IBM"
+  checks:
+    - type: source_match
+      result: pass
+    - type: web_cross_check
+      result: pass
+      sources: 2
+    - type: adversarial
+      result: pass
+      findings: []
 ---
-
 ## 한 줄 정의
-
-AI 에이전트는 "알아서 해주는 AI"야. 목표를 주면 스스로 계획 세우고, 필요한 도구 쓰고, 결과 확인하고, 안 되면 다시 시도하는 프로그램이거든.
-
-## 작동 원리
-
-일반 챗봇은 질문하면 답변하고 끝이야. 탁구처럼 공 하나 치면 하나 돌아오는 거지. 에이전트는 달라. "이번 달 마케팅 리포트 만들어줘"라고 하면 혼자서 데이터 가져오고, 분석하고, 차트 그리고, 문서까지 만들어.
-
-핵심은 루프야. 에이전트는 이런 사이클을 반복해:
-
-1. **관찰** — 지금 상황이 어떤지 파악해
-2. **계획** — 다음에 뭘 해야 할지 결정해
-3. **실행** — [API](/ko/wiki/api)를 호출하거나 도구를 써서 행동해
-4. **평가** — 결과가 목표에 맞는지 확인해
-
-이 루프를 목표 달성할 때까지 반복하는 거야. [LLM](/ko/wiki/llm)이 두뇌 역할을 하고, 외부 도구들이 손발이 되는 구조지.
-
-## 왜 중요한가
-
-2024-2025년 AI 업계에서 가장 뜨거운 키워드가 에이전트야. 왜냐면 챗봇은 결국 "대화"밖에 못 하거든. 에이전트는 실제로 일을 해. 코드를 짜고, 이메일을 보내고, 데이터베이스를 검색해.
-
-[Claude Code](/ko/wiki/claude-code)가 코드 에이전트의 대표적인 예시야. "이 버그 고쳐줘"라고 하면 파일 찾고, 코드 읽고, 수정하고, 테스트까지 돌려봐. 사람이 중간에 개입할 필요가 거의 없어.
-
+AI Agent는 인공지능에서 지능형 에이전트는 환경을 인식하고 목표를 달성하기 위해 자율적으로 조치를 취하며 기계 학습이나 지식 획득을 통해 성능을 향상시킬 수 있는 개체입니다. AI 교과서는 인공지능을 '지능형 에이전트의 연구 및 설계'로 정의하며, 목표 지향적 행동이 지능의 핵심임을 강조합니다라는 맥락에서 자주 언급된다.
+## 어떻게 작동하나
+인공지능(AI) 에이전트란 ​​사용자나 다른 시스템을 대신해 자율적으로 작업을 수행할 수 있는 시스템이나 프로그램을 말한다라는 설명을 함께 보면, AI Agent가 실제 제품과 연구 흐름에서 어떻게 쓰이는지 감이 잡힌다.
+## 왜 지금 중요하나
+AIKI 기사 기준으로 AI Agent는 44번 이상 함께 언급됐다. 그만큼 최근 AI 뉴스에서 맥락을 이해할 때 반복해서 마주치는 용어다.
 ## 관련 용어
-
-- [LLM](/ko/wiki/llm) — 에이전트의 두뇌 역할을 하는 거대 언어 모델이야.
-- [MCP](/ko/wiki/mcp) — 에이전트가 외부 도구를 호출할 때 쓰는 표준 프로토콜이야.
-- [RAG](/ko/wiki/rag) — 에이전트가 최신 정보를 가져올 때 자주 쓰는 검색 기법이야.
+- [langchain](/ko/wiki/langchain/)
+- [langgraph](/ko/wiki/langgraph/)
+- [n8n](/ko/wiki/n8n/)
+- [vibe-coding](/ko/wiki/vibe-coding/)

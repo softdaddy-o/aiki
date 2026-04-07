@@ -1,122 +1,797 @@
 [
     {
         "term": "rag",
-        "title": "RAG (검색 증강 생성)",
+        "title": "RAG",
         "category": "technique",
-        "aliases": ["retrieval-augmented generation", "검색 증강 생성"]
-    },
-    {
-        "term": "transformer",
-        "title": "트랜스포머",
-        "category": "concept",
-        "aliases": ["transformer architecture"]
+        "aliases": [
+            "retrieval augmented generation"
+        ]
     },
     {
         "term": "llm",
-        "title": "LLM (대규모 언어 모델)",
+        "title": "LLM",
         "category": "concept",
-        "aliases": ["large language model", "대규모 언어 모델"]
-    },
-    {
-        "term": "fine-tuning",
-        "title": "파인튜닝",
-        "category": "technique",
-        "aliases": ["fine tuning", "미세 조정"]
+        "aliases": [
+            "large language model"
+        ]
     },
     {
         "term": "mcp",
-        "title": "MCP (Model Context Protocol)",
+        "title": "MCP",
         "category": "framework",
-        "aliases": ["model context protocol"]
-    },
-    {
-        "term": "prompt-engineering",
-        "title": "프롬프트 엔지니어링",
-        "category": "technique",
-        "aliases": ["prompt engineering", "프롬프팅"]
-    },
-    {
-        "term": "embedding",
-        "title": "임베딩",
-        "category": "concept",
-        "aliases": ["벡터 임베딩", "vector embedding"]
-    },
-    {
-        "term": "attention",
-        "title": "어텐션 메커니즘",
-        "category": "concept",
-        "aliases": ["attention mechanism", "self-attention"]
-    },
-    {
-        "term": "rlhf",
-        "title": "RLHF (인간 피드백 강화학습)",
-        "category": "technique",
-        "aliases": ["reinforcement learning from human feedback", "인간 피드백 강화학습"]
-    },
-    {
-        "term": "diffusion",
-        "title": "디퓨전 모델",
-        "category": "concept",
-        "aliases": ["diffusion model", "확산 모델"]
-    },
-    {
-        "term": "multimodal",
-        "title": "멀티모달",
-        "category": "concept",
-        "aliases": ["multimodal ai", "멀티모달 AI"]
+        "aliases": [
+            "model context protocol"
+        ]
     },
     {
         "term": "agent",
-        "title": "AI 에이전트",
+        "title": "AI Agent",
         "category": "concept",
-        "aliases": ["ai agent", "autonomous agent"]
+        "aliases": [
+            "ai agent",
+            "intelligent agent"
+        ]
+    },
+    {
+        "term": "api",
+        "title": "API",
+        "category": "concept",
+        "aliases": [
+            "application programming interface"
+        ]
+    },
+    {
+        "term": "benchmark",
+        "title": "Benchmark",
+        "category": "concept",
+        "aliases": [
+            "evaluation benchmark"
+        ]
+    },
+    {
+        "term": "claude-code",
+        "title": "Claude Code",
+        "category": "tool",
+        "aliases": [
+            "claude code"
+        ]
+    },
+    {
+        "term": "gemini",
+        "title": "Gemini",
+        "category": "model",
+        "aliases": [
+            "google gemini"
+        ]
+    },
+    {
+        "term": "gemma",
+        "title": "Gemma",
+        "category": "model",
+        "aliases": [
+            "google gemma"
+        ]
+    },
+    {
+        "term": "token",
+        "title": "Token",
+        "category": "concept",
+        "aliases": [
+            "tokenization"
+        ]
+    },
+    {
+        "term": "transformer",
+        "title": "Transformer",
+        "category": "concept",
+        "aliases": []
+    },
+    {
+        "term": "fine-tuning",
+        "title": "Fine-tuning",
+        "category": "technique",
+        "aliases": [
+            "fine tuning"
+        ]
+    },
+    {
+        "term": "prompt-engineering",
+        "title": "Prompt Engineering",
+        "category": "technique",
+        "aliases": [
+            "prompt engineering"
+        ]
+    },
+    {
+        "term": "embedding",
+        "title": "Embedding",
+        "category": "concept",
+        "aliases": [
+            "vector embedding"
+        ]
+    },
+    {
+        "term": "attention",
+        "title": "Attention",
+        "category": "concept",
+        "aliases": []
+    },
+    {
+        "term": "rlhf",
+        "title": "RLHF",
+        "category": "technique",
+        "aliases": [
+            "reinforcement learning from human feedback"
+        ]
+    },
+    {
+        "term": "diffusion",
+        "title": "Diffusion Model",
+        "category": "concept",
+        "aliases": [
+            "diffusion model"
+        ]
+    },
+    {
+        "term": "multimodal",
+        "title": "Multimodal AI",
+        "category": "concept",
+        "aliases": [
+            "multimodal ai"
+        ]
     },
     {
         "term": "vibe-coding",
-        "title": "바이브 코딩",
+        "title": "Vibe Coding",
         "category": "technique",
-        "aliases": ["vibe coding"]
-    },
-    {
-        "term": "langchain",
-        "title": "랭체인",
-        "category": "framework",
-        "aliases": ["LangChain"]
+        "aliases": [
+            "vibe coding"
+        ]
     },
     {
         "term": "vector-db",
-        "title": "벡터 데이터베이스",
+        "title": "Vector Database",
         "category": "tool",
-        "aliases": ["vector database", "벡터 DB"]
+        "aliases": [
+            "vector database"
+        ]
     },
     {
         "term": "tokenizer",
-        "title": "토크나이저",
+        "title": "Tokenizer",
         "category": "tool",
-        "aliases": ["토큰화"]
+        "aliases": [
+            "tokenizer"
+        ]
     },
     {
         "term": "context-window",
-        "title": "컨텍스트 윈도우",
+        "title": "Context Window",
         "category": "concept",
-        "aliases": ["context length", "컨텍스트 길이"]
+        "aliases": [
+            "context length"
+        ]
     },
     {
         "term": "hallucination",
-        "title": "할루시네이션",
+        "title": "Hallucination",
         "category": "concept",
-        "aliases": ["환각", "AI 환각"]
+        "aliases": [
+            "ai hallucination"
+        ]
     },
     {
         "term": "inference",
-        "title": "추론 (인퍼런스)",
+        "title": "Inference",
         "category": "concept",
-        "aliases": ["model inference", "모델 추론"]
+        "aliases": [
+            "model inference"
+        ]
     },
     {
         "term": "reasoning",
-        "title": "추론 (리즈닝)",
+        "title": "Reasoning Model",
         "category": "concept",
-        "aliases": ["chain-of-thought", "사고 연쇄"]
+        "aliases": [
+            "reasoning model"
+        ]
+    },
+    {
+        "term": "distillation",
+        "title": "Distillation",
+        "category": "technique",
+        "aliases": [
+            "knowledge distillation"
+        ]
+    },
+    {
+        "term": "quantization",
+        "title": "Quantization",
+        "category": "technique",
+        "aliases": [
+            "model quantization"
+        ]
+    },
+    {
+        "term": "synthetic-data",
+        "title": "Synthetic Data",
+        "category": "technique",
+        "aliases": [
+            "synthetic data"
+        ]
+    },
+    {
+        "term": "mixture-of-experts",
+        "title": "Mixture of Experts",
+        "category": "concept",
+        "aliases": [
+            "moe"
+        ]
+    },
+    {
+        "term": "alignment",
+        "title": "Alignment",
+        "category": "concept",
+        "aliases": [
+            "ai alignment"
+        ]
+    },
+    {
+        "term": "guardrail",
+        "title": "Guardrail",
+        "category": "technique",
+        "aliases": [
+            "guardrails"
+        ]
+    },
+    {
+        "term": "eval",
+        "title": "Eval",
+        "category": "technique",
+        "aliases": [
+            "evaluation"
+        ]
+    },
+    {
+        "term": "red-teaming",
+        "title": "Red Teaming",
+        "category": "technique",
+        "aliases": [
+            "red teaming"
+        ]
+    },
+    {
+        "term": "function-calling",
+        "title": "Function Calling",
+        "category": "technique",
+        "aliases": [
+            "tool calling"
+        ]
+    },
+    {
+        "term": "tool-use",
+        "title": "Tool Use",
+        "category": "technique",
+        "aliases": [
+            "tool use"
+        ]
+    },
+    {
+        "term": "long-context",
+        "title": "Long Context",
+        "category": "concept",
+        "aliases": [
+            "long context"
+        ]
+    },
+    {
+        "term": "chain-of-thought",
+        "title": "Chain-of-Thought",
+        "category": "technique",
+        "aliases": [
+            "cot"
+        ]
+    },
+    {
+        "term": "prompt-caching",
+        "title": "Prompt Caching",
+        "category": "technique",
+        "aliases": [
+            "cache reuse"
+        ]
+    },
+    {
+        "term": "speech-to-text",
+        "title": "Speech to Text",
+        "category": "technique",
+        "aliases": [
+            "asr"
+        ]
+    },
+    {
+        "term": "text-to-speech",
+        "title": "Text to Speech",
+        "category": "technique",
+        "aliases": [
+            "tts"
+        ]
+    },
+    {
+        "term": "grounding",
+        "title": "Grounding",
+        "category": "technique",
+        "aliases": [
+            "retrieval grounding"
+        ]
+    },
+    {
+        "term": "memory",
+        "title": "Agent Memory",
+        "category": "concept",
+        "aliases": [
+            "agent memory"
+        ]
+    },
+    {
+        "term": "vision-language-model",
+        "title": "Vision-Language Model",
+        "category": "concept",
+        "aliases": [
+            "vlm"
+        ]
+    },
+    {
+        "term": "small-language-model",
+        "title": "Small Language Model",
+        "category": "concept",
+        "aliases": [
+            "slm"
+        ]
+    },
+    {
+        "term": "langchain",
+        "title": "LangChain",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "llamaindex",
+        "title": "LlamaIndex",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "vllm",
+        "title": "vLLM",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "ollama",
+        "title": "Ollama",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "llama.cpp",
+        "title": "llama.cpp",
+        "category": "tool",
+        "aliases": [
+            "llamacpp"
+        ]
+    },
+    {
+        "term": "gguf",
+        "title": "GGUF",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "openrouter",
+        "title": "OpenRouter",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "cursor",
+        "title": "Cursor",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "windsurf",
+        "title": "Windsurf",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "aider",
+        "title": "Aider",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "cline",
+        "title": "Cline",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "continue",
+        "title": "Continue",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "lm-studio",
+        "title": "LM Studio",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "comfyui",
+        "title": "ComfyUI",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "gradio",
+        "title": "Gradio",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "streamlit",
+        "title": "Streamlit",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "pytorch",
+        "title": "PyTorch",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "tensorflow",
+        "title": "TensorFlow",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "jax",
+        "title": "JAX",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "onnx",
+        "title": "ONNX",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "triton",
+        "title": "Triton Inference Server",
+        "category": "tool",
+        "aliases": [
+            "triton inference server"
+        ]
+    },
+    {
+        "term": "ray",
+        "title": "Ray",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "kubeflow",
+        "title": "Kubeflow",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "mlflow",
+        "title": "MLflow",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "bentoml",
+        "title": "BentoML",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "weights-and-biases",
+        "title": "Weights & Biases",
+        "category": "tool",
+        "aliases": [
+            "wandb"
+        ]
+    },
+    {
+        "term": "modal",
+        "title": "Modal",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "replicate",
+        "title": "Replicate",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "vercel-ai-sdk",
+        "title": "Vercel AI SDK",
+        "category": "framework",
+        "aliases": [
+            "ai sdk"
+        ]
+    },
+    {
+        "term": "openai-api",
+        "title": "OpenAI API",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "anthropic-api",
+        "title": "Anthropic API",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "google-ai-studio",
+        "title": "Google AI Studio",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "hugging-face",
+        "title": "Hugging Face",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "sglang",
+        "title": "SGLang",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "deepspeed",
+        "title": "DeepSpeed",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "langgraph",
+        "title": "LangGraph",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "autogen",
+        "title": "AutoGen",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "crewai",
+        "title": "CrewAI",
+        "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "n8n",
+        "title": "n8n",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "supabase",
+        "title": "Supabase",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "pinecone",
+        "title": "Pinecone",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "weaviate",
+        "title": "Weaviate",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "chroma",
+        "title": "Chroma",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "faiss",
+        "title": "FAISS",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "qdrant",
+        "title": "Qdrant",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "gpt-4o",
+        "title": "GPT-4o",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "o1",
+        "title": "o1",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "o3",
+        "title": "o3",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "claude",
+        "title": "Claude",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "claude-opus",
+        "title": "Claude Opus",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "claude-sonnet",
+        "title": "Claude Sonnet",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "deepseek-r1",
+        "title": "DeepSeek R1",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "qwen",
+        "title": "Qwen",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "llama",
+        "title": "Llama",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "mistral",
+        "title": "Mistral",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "mixtral",
+        "title": "Mixtral",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "phi",
+        "title": "Phi",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "grok",
+        "title": "Grok",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "sora",
+        "title": "Sora",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "whisper",
+        "title": "Whisper",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "dall-e",
+        "title": "DALL-E",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "stable-diffusion",
+        "title": "Stable Diffusion",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "flux",
+        "title": "FLUX.1",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "veo",
+        "title": "Veo",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "lyria",
+        "title": "Lyria",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "imagen",
+        "title": "Imagen",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "gemini-2.5",
+        "title": "Gemini 2.5",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "gemma-3",
+        "title": "Gemma 3",
+        "category": "model",
+        "aliases": []
+    },
+    {
+        "term": "openai",
+        "title": "OpenAI",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "anthropic",
+        "title": "Anthropic",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "google-deepmind",
+        "title": "Google DeepMind",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "copilot",
+        "title": "GitHub Copilot",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "perplexity",
+        "title": "Perplexity",
+        "category": "tool",
+        "aliases": []
     }
 ]

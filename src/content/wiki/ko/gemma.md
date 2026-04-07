@@ -1,53 +1,48 @@
 ---
 term: gemma
-title: "Gemma — Google의 오픈 LLM"
+title: "Gemma"
 lang: ko
-summary: "Gemma는 Google이 Gemini 기술로 만든 오픈소스 LLM 시리즈야. Apache 2.0 라이선스라 누구나 무료로 쓸 수 있고, 노트북에서도 돌릴 수 있을 만큼 가벼워."
+summary: "Gemma는 Google DeepMind에서 개발한 일련의 소스 사용 가능 대규모 언어 모델입니다."
 category: model
 aliases:
-    - Gemma 2
-    - Gemma 3
-    - Google Gemma
+  - "google gemma"
 relatedTerms:
-    - llm
-    - gemini
-    - benchmark
-    - token
-mentionCount: 8
+  - gemma-3
+  - gemini
+  - deepseek-r1
+  - llama
+firstMentioned: "2026-03-19"
+mentionCount: 5
 draft: false
 tags:
-    - google
-    - open-source
-    - small-model
+  - open-model
+  - google
+factCheck:
+  status: passed
+  date: "2026-04-07"
+  sources:
+    - url: "https://en.wikipedia.org/wiki/Gemma_(language_model)"
+      title: "Gemma (language model)"
+    - url: "https://ai.google.dev/gemma"
+      title: "Gemma — Google DeepMind"
+  checks:
+    - type: source_match
+      result: pass
+    - type: web_cross_check
+      result: pass
+      sources: 2
+    - type: adversarial
+      result: pass
+      findings: []
 ---
-
 ## 한 줄 정의
-
-Gemma는 Google이 [Gemini](/ko/wiki/gemini) 기술을 바탕으로 만든 "작고 공개된" [LLM](/ko/wiki/llm)이야. 대기업 AI를 내 컴퓨터에서 직접 돌려볼 수 있게 풀어놓은 거거든.
-
-## 작동 원리
-
-Gemini가 레스토랑 풀코스 요리라면, Gemma는 같은 셰프가 만든 도시락이야. 핵심 레시피(학습 기법, 아키텍처)는 같은데, 크기를 줄여서 누구나 접근할 수 있게 만든 거지.
-
-라인업은 파라미터 크기별로 나뉘어:
-
-- **Gemma 2B/7B** — 초기 버전. 가볍지만 기본기가 탄탄해.
-- **Gemma 2 9B/27B** — 같은 크기 대비 성능이 크게 올라간 2세대.
-- **Gemma 3** — 멀티모달 지원이 추가된 최신 버전. 이미지도 이해해.
-
-Apache 2.0 라이선스라는 게 핵심이야. 상업적으로 써도 되고, 수정해도 되고, 재배포해도 돼. 제약이 거의 없어.
-
-## 왜 중요한가
-
-GPT-4나 Claude 같은 모델은 [API](/ko/wiki/api)로만 쓸 수 있잖아. 데이터가 외부 서버로 나가니까 보안이 민감한 기업은 쓰기 어려워. Gemma는 내 서버에서 직접 돌릴 수 있으니까 데이터가 밖으로 안 나가.
-
-[벤치마크](/ko/wiki/benchmark)에서도 같은 크기 오픈 모델 중 상위권을 꾸준히 찍고 있어. 특히 Gemma 2 27B는 크기 대비 성능이 인상적이라서, 오픈소스 LLM 커뮤니티에서 기준 모델처럼 쓰이고 있어.
-
-파인튜닝도 쉬워서, 특정 도메인(의료, 법률, 코딩)에 맞게 커스터마이징하는 사례가 많아.
-
+Gemma는 Gemma는 Google DeepMind에서 개발한 일련의 소스 사용 가능 대규모 언어 모델입니다. Gemini와 유사한 기술을 기반으로 합니다. 첫 번째 버전은 2024년 2월에 출시되었으며, 이어 2024년 6월 Gemma 2, 2025년 3월 Gemma 3, 2026년 4월 무료 오픈 소스 Gemma 4가 출시되었습니다. 비전 언어 모델 PaliGemma 및 의료 상담 주제용 모델 MedGemma와 같은 Gemma의 변형도 개발되었습니다라는 맥락에서 자주 언급된다.
+## 어떻게 작동하나
+우리의 가장 진보된 개방형 모델은 개발자가 클라우드 서버부터 노트북, 심지어 휴대폰까지 사용자가 필요로 하는 곳 어디에서나 실행되는 AI 애플리케이션을 만드는 데 도움이 됩니다라는 설명을 함께 보면, Gemma가 실제 제품과 연구 흐름에서 어떻게 쓰이는지 감이 잡힌다.
+## 왜 지금 중요하나
+AIKI 기사 기준으로 Gemma는 5번 이상 함께 언급됐다. 그만큼 최근 AI 뉴스에서 맥락을 이해할 때 반복해서 마주치는 용어다.
 ## 관련 용어
-
-- [Gemini](/ko/wiki/gemini) — Gemma의 모태가 된 Google의 대형 멀티모달 모델이야.
-- [LLM](/ko/wiki/llm) — Gemma가 속하는 거대 언어 모델 카테고리야.
-- [벤치마크](/ko/wiki/benchmark) — Gemma 성능을 다른 오픈 모델과 비교하는 표준 시험이야.
-- [토큰](/ko/wiki/token) — Gemma도 텍스트를 토큰 단위로 처리해. Gemini와 토크나이저가 유사해.
+- [gemma-3](/ko/wiki/gemma-3/)
+- [gemini](/ko/wiki/gemini/)
+- [deepseek-r1](/ko/wiki/deepseek-r1/)
+- [llama](/ko/wiki/llama/)

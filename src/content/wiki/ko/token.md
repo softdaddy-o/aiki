@@ -1,48 +1,46 @@
 ---
 term: token
-title: "토큰 — LLM이 글을 읽는 단위"
+title: "Token"
 lang: ko
-summary: "토큰은 LLM이 텍스트를 쪼개서 처리하는 기본 단위야. 단어도 아니고 글자도 아닌, AI만의 독특한 텍스트 조각이거든."
+summary: "어휘 토큰화는 텍스트를 \"어휘 분석기\" 프로그램에 의해 정의된 범주에 속하는 의미 있는 어휘 토큰으로 변환하는 것입니다."
 category: concept
 aliases:
-    - 토큰
-    - tokenization
-    - 토크나이제이션
+  - "tokenization"
 relatedTerms:
-    - llm
-    - gemini
-    - gemma
-mentionCount: 9
+  - llm
+  - long-context
+  - memory
+firstMentioned: "2026-02-23"
+mentionCount: 8
 draft: false
 tags:
-    - nlp
-    - tokenization
-    - cost
+  - language-model
+  - context-window
+factCheck:
+  status: passed
+  date: "2026-04-07"
+  sources:
+    - url: "https://en.wikipedia.org/wiki/Lexical_analysis"
+      title: "Lexical analysis"
+    - url: "https://platform.openai.com/tokenizer"
+      title: "https://platform.openai.com/tokenizer"
+  checks:
+    - type: source_match
+      result: pass
+    - type: web_cross_check
+      result: pass
+      sources: 2
+    - type: adversarial
+      result: pass
+      findings: []
 ---
-
 ## 한 줄 정의
-
-토큰은 [LLM](/ko/wiki/llm)이 텍스트를 읽고 쓸 때 사용하는 조각이야. 레고 블록 하나하나라고 생각하면 돼 — AI는 문장을 이 블록 단위로 분해해서 처리하거든.
-
-## 작동 원리
-
-사람은 글을 "단어" 단위로 읽잖아. AI는 좀 달라. "토크나이저"라는 프로그램이 텍스트를 토큰으로 쪼개는데, 이게 단어와 정확히 일치하지 않아.
-
-영어는 대략 단어 하나가 토큰 하나야. "Hello"는 1토큰. 근데 긴 단어는 쪼개져. "unbelievable"은 "un", "believ", "able" 이렇게 3토큰이 돼. 한국어는 더 많이 쪼개져서, 같은 의미라도 영어보다 토큰을 2-3배 더 쓰는 경우가 많아.
-
-토큰 수가 중요한 이유는 두 가지야:
-
-1. **비용** — API 요금이 토큰 단위로 매겨져. GPT-4 기준 입력 100만 토큰에 몇 달러 이런 식이야. 같은 내용이라도 토큰을 적게 쓰면 돈을 아끼는 거지.
-2. **컨텍스트 윈도우** — 모델이 한 번에 처리할 수 있는 토큰 수에 한계가 있어. Claude 3.5 Sonnet은 20만 토큰, [Gemini](/ko/wiki/gemini) 2.5 Pro는 100만 토큰까지 넣을 수 있어.
-
-## 왜 중요한가
-
-AI 서비스를 쓸 때 "토큰 한도 초과"라는 에러를 만나거나, 요금 청구서에 토큰 사용량이 찍혀 나오거든. 토큰이 뭔지 모르면 왜 갑자기 대화가 끊기는지, 비용이 왜 이만큼 나오는지 이해가 안 돼.
-
-개발자라면 더 중요해. 프롬프트 최적화의 핵심이 "같은 의미를 더 적은 토큰으로 전달하기"거든.
-
+Token는 어휘 토큰화는 텍스트를 "어휘 분석기" 프로그램에 의해 정의된 범주에 속하는 의미 있는 어휘 토큰으로 변환하는 것입니다. 자연어의 경우 이러한 범주에는 명사, 동사, 형용사, 구두점 등이 포함됩니다. 프로그래밍 언어의 경우 범주에는 식별자, 연산자, 그룹화 기호, 데이터 유형 및 언어 키워드가 포함됩니다. 어휘 토큰화는 LLM(대형 언어 모델)에 사용되는 토큰화 유형과 관련이 있지만 두 가지 차이점이 있습니다. 첫째, 어휘 토큰화는 일반적으로 어휘 문법을 기반으로 하는 반면, LLM…
+## 어떻게 작동하나
+https://platform.openai.com/tokenizer라는 설명을 함께 보면, Token가 실제 제품과 연구 흐름에서 어떻게 쓰이는지 감이 잡힌다.
+## 왜 지금 중요하나
+AIKI 기사 기준으로 Token는 8번 이상 함께 언급됐다. 그만큼 최근 AI 뉴스에서 맥락을 이해할 때 반복해서 마주치는 용어다.
 ## 관련 용어
-
-- [LLM](/ko/wiki/llm) — 토큰을 입력받아 다음 토큰을 예측하는 방식으로 작동하는 모델이야.
-- [Gemini](/ko/wiki/gemini) — 100만 토큰 컨텍스트 윈도우로 업계 최대 수준을 자랑하는 모델이야.
-- [Gemma](/ko/wiki/gemma) — 오픈소스라서 토크나이저 구조를 직접 확인해볼 수 있어.
+- [llm](/ko/wiki/llm/)
+- [long-context](/ko/wiki/long-context/)
+- [memory](/ko/wiki/memory/)

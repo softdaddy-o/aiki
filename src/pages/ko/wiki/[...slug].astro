@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BackLinks from '../../../components/BackLinks.astro';
+import FactCheck from '../../../components/FactCheck.astro';
 import TechStackMap from '../../../components/TechStackMap.tsx';
 import wikiTermsJson from '../../../../data/wiki-terms.json';
 
@@ -23,6 +24,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const fc = entry.data.factCheck;
 
 const techStackTerms = wikiTermsJson.map((t: any) => ({
     slug: t.term,
@@ -76,6 +78,15 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
         )}
 
         <BackLinks term={entry.data.term.toLowerCase()} minScore={40} />
+        {fc && (
+            <FactCheck
+                status={fc.status}
+                date={fc.date}
+                checks={fc.checks}
+                sources={fc.sources}
+                lang="ko"
+            />
+        )}
     </article>
 </BaseLayout>
 

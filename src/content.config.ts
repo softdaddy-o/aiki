@@ -48,6 +48,7 @@ const wiki = defineCollection({
         mentionCount: z.number().default(0),
         draft: z.boolean().default(false),
         tags: z.array(z.string()).default([]),
+        factCheck: factCheckSchema.optional(),
     }),
 });
 
