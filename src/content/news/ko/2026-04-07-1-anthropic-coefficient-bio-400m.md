@@ -1,17 +1,35 @@
 ---
 title: "Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수"
-date: "2026-04-03T12:00:00+09:00"
+date: "2026-04-07T10:00:00+09:00"
 lang: ko
 category: news
 summary: "Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어. 직원 10명 미만의 스텔스 스타트업이지만, Genentech 출신 창업자들이 만든 신약 파이프라인 AI 플랫폼이 타깃이었어."
 sourceUrl: "https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/"
 sourceTitle: "TechCrunch"
 draft: false
+score: 78
 factCheck:
-  status: pending
+  status: passed
   date: "2026-04-07"
-  sources: []
-  checks: []
+  sources:
+    - url: "https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/"
+      title: "TechCrunch — Anthropic buys Coefficient Bio"
+    - url: "https://thenextweb.com/news/anthropic-just-paid-400-million-for-a-startup-with-fewer-than-10-people"
+      title: "The Next Web — Anthropic acquires Coefficient Bio"
+    - url: "https://www.anthropic.com/news/claude-for-life-sciences"
+      title: "Anthropic — Claude for Life Sciences"
+  checks:
+    - type: source_match
+      result: pass
+    - type: web_cross_check
+      result: pass
+      sources: 10
+    - type: number_verify
+      result: pass
+    - type: adversarial
+      result: pass
+      findings:
+        - "Nathan Frey의 Prescient Design 직책은 Group Leader & Principal Scientist로 기사보다 더 시니어한 포지션이었음"
 tags: ["anthropic", "biotech", "acquisition", "healthcare-ai"]
 ---
 
