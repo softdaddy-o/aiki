@@ -37,7 +37,6 @@ const categoryLabels: Record<string, string> = {
 };
 
 const color = categoryColors[category] ?? 'var(--color-news)';
-const time = date.split('T')[1]?.substring(0, 5) ?? '';
 ---
 
 <div class={`timeline-item timeline-${side}${featured ? ' featured' : ''}`} data-zoom-level={zoomLevel || 'daily'}>
@@ -46,8 +45,7 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
     <a href={`/${lang}/news/${slug}/`} class="card" style={`border-color: ${color}`}>
         <div class="card-header">
             <span class="badge" style={`background: ${color}`}>{categoryLabels[category]}</span>
-            {time && <span class="time">{time}</span>}
-            {score && <ScoreBadge score={score} sourceCount={sourceCount} />}
+                    {score > 0 && <ScoreBadge score={score} sourceCount={sourceCount} />}
         </div>
         <h3 class="card-title">{title}</h3>
         <p class="card-summary">{summary}</p>
@@ -138,7 +136,7 @@ const time = date.split('T')[1]?.substring(0, 5) ?? '';
         font-size: 14px;
     }
     .featured .dot {
-        width: 16px; height: 16px;
+        transform: scale(1.35);
         box-shadow: 0 0 16px currentColor;
     }
     @media (max-width: 640px) {

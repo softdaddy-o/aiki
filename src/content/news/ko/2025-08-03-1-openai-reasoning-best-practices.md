@@ -9,6 +9,7 @@ sourceTitle: "OpenAI Platform"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
+score: 72
 factCheck:
   status: passed
   date: "2026-04-07"

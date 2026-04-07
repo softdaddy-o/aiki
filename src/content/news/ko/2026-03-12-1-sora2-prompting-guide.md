@@ -9,6 +9,7 @@ sourceTitle: "OpenAI Cookbook"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
+score: 75
 factCheck:
   status: passed
   date: "2026-04-07"
