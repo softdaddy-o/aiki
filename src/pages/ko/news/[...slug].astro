@@ -30,12 +30,6 @@ const fc = entry.data.factCheck;
             )}
         </div>
         <h1>{entry.data.title}</h1>
-        {entry.data.readerValue && (
-            <aside class="reader-value">
-                <span class="reader-value-label">이 글이 해결해주는 문제</span>
-                <p>{entry.data.readerValue}</p>
-            </aside>
-        )}
         <div class="article-body">
             <Content />
         </div>
@@ -67,28 +61,6 @@ const fc = entry.data.factCheck;
     }
     .article-source { color: var(--color-news); text-decoration: none; }
     h1 { font-size: 28px; font-weight: 800; margin-bottom: 24px; line-height: 1.35; letter-spacing: -0.01em; }
-    .reader-value {
-        margin-bottom: 22px;
-        padding: 14px 16px;
-        border: 1px solid color-mix(in srgb, var(--color-news) 34%, transparent);
-        border-radius: 10px;
-        background: color-mix(in srgb, var(--color-news) 10%, var(--color-surface));
-    }
-    .reader-value-label {
-        display: inline-block;
-        margin-bottom: 6px;
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--color-news);
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-    }
-    .reader-value p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.7;
-        color: var(--color-text);
-    }
     .article-body { font-size: 16px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }
     .article-body :global(ul) { padding-left: 20px; margin-bottom: 12px; }

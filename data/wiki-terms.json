@@ -62,7 +62,8 @@
         "category": "model",
         "aliases": [
             "google gemini"
-        ]
+        ],
+        "modelType": "family"
     },
     {
         "term": "gemma",
@@ -70,7 +71,8 @@
         "category": "model",
         "aliases": [
             "google gemma"
-        ]
+        ],
+        "modelType": "family"
     },
     {
         "term": "token",
@@ -631,139 +633,171 @@
         "term": "gpt-4o",
         "title": "GPT-4o",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "o1",
         "title": "o1",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "o3",
         "title": "o3",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "claude",
         "title": "Claude",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "claude-opus",
         "title": "Claude Opus",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "claude-sonnet",
         "title": "Claude Sonnet",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
+    },
+    {
+        "term": "claude-sonnet-4-5",
+        "title": "Claude Sonnet 4.5",
+        "category": "model",
+        "aliases": [
+            "claude sonnet 4.5"
+        ],
+        "modelType": "version"
     },
     {
         "term": "deepseek-r1",
         "title": "DeepSeek R1",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "qwen",
         "title": "Qwen",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "llama",
         "title": "Llama",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "mistral",
         "title": "Mistral",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "mixtral",
         "title": "Mixtral",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "phi",
         "title": "Phi",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "grok",
         "title": "Grok",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "sora",
         "title": "Sora",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "whisper",
         "title": "Whisper",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "dall-e",
         "title": "DALL-E",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "stable-diffusion",
         "title": "Stable Diffusion",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "flux",
         "title": "FLUX.1",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "veo",
         "title": "Veo",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "lyria",
         "title": "Lyria",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "imagen",
         "title": "Imagen",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "family"
     },
     {
         "term": "gemini-2.5",
         "title": "Gemini 2.5",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "gemma-3",
         "title": "Gemma 3",
         "category": "model",
-        "aliases": []
+        "aliases": [],
+        "modelType": "version"
     },
     {
         "term": "openai",

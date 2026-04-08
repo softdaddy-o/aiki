@@ -5,6 +5,7 @@ lang: ko
 summary: "DeepSeek R1는 추론 성능과 의사결정 흐름 맥락에서 반복해서 등장하는 AI 모델다."
 readerValue: "DeepSeek R1가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다."
 category: model
+modelType: version
 modelProfile:
   memoryUsage: "직접 배포하는 경우 메모리 사용량은 총 파라미터 수, 정밀도, KV 캐시 설정을 같이 봐야 한다."
   implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요하다."

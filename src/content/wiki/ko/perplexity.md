@@ -24,7 +24,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Perplexity_AI"
       title: "Perplexity AI"
     - url: "https://www.perplexity.ai/hub"
-      title: "https://www.perplexity.ai/hub"
+      title: "Perplexity Blog"
   checks:
     - type: source_match
       result: pass
@@ -38,7 +38,7 @@ factCheck:
 ## 먼저 감 잡기
 Perplexity는 개발자나 팀이 바로 써보는 도구에 가깝다. 기능 목록보다 중요한 건 이 도구가 모델 성능, 제품 전략, 개발 흐름 쪽의 병목을 얼마나 줄여 주는지다. 그래서 도구 뉴스는 신기능 소개보다 기존 워크플로를 어떻게 바꾸는지로 읽는 편이 맞다.
 ## 뉴스에서 왜 자주 나오나
-Perplexity는 AIKI 기사에서 2번 이상 언급됐고, 가장 이른 기록도 2026-03-18까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 모델 성능, 제품 전략, 개발 흐름 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 Perplexity AI, https://www.perplexity.ai/hub 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라진다.
+Perplexity는 AIKI 기사에서 2번 이상 언급됐고, 가장 이른 기록도 2026-03-18까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 모델 성능, 제품 전략, 개발 흐름 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 Perplexity AI, Perplexity Blog 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라진다.
 ## 읽을 때 체크포인트
 1. 먼저 Perplexity가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.
 

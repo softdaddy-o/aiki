@@ -21,7 +21,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Lexical_analysis"
       title: "Lexical analysis"
     - url: "https://platform.openai.com/tokenizer"
-      title: "https://platform.openai.com/tokenizer"
+      title: "OpenAI Platform"
   checks:
     - type: source_match
       result: pass

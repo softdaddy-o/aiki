@@ -26,12 +26,30 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const fc = entry.data.factCheck;
+const allWikiEntries = await getCollection('wiki', ({ data }) => data.lang === 'ko' && !data.draft);
 
 const techStackTerms = wikiTermsJson.map((t: any) => ({
     slug: t.term,
     title: t.title,
     category: t.category,
 }));
+
+const parentEntry = entry.data.parentModel
+    ? allWikiEntries.find((candidate) => candidate.data.term === entry.data.parentModel)
+    : null;
+
+const childEntries = allWikiEntries
+    .filter((candidate) => candidate.data.parentModel === entry.data.term)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title, 'en'));
+
+const wikiBacklinks = allWikiEntries
+    .filter((candidate) =>
+        candidate.data.term !== entry.data.term
+        && (
+            candidate.data.relatedTerms.includes(entry.data.term)
+            || candidate.data.parentModel === entry.data.term
+        ))
+    .sort((a, b) => b.data.mentionCount - a.data.mentionCount || a.data.title.localeCompare(b.data.title, 'en'));
 ---
 
 <BaseLayout title={entry.data.title}>
@@ -44,15 +62,29 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
         </div>
         <h1>{entry.data.title}</h1>
         <p class="wiki-summary">{entry.data.summary}</p>
-        {entry.data.readerValue && (
-            <aside class="reader-value">
-                <span class="reader-value-label">이 글이 해결해주는 문제</span>
-                <p>{entry.data.readerValue}</p>
-            </aside>
+
+        {entry.data.category === 'model' && entry.data.modelType === 'version' && entry.data.modelProfile && (
+            <ModelProfile profile={entry.data.modelProfile} />
         )}
 
-        {entry.data.category === 'model' && entry.data.modelProfile && (
-            <ModelProfile profile={entry.data.modelProfile} />
+        {entry.data.category === 'model' && parentEntry && (
+            <div class="model-hierarchy">
+                <h3>상위 모델</h3>
+                <div class="related-list">
+                    <a href={`/ko/wiki/${parentEntry.data.term}/`} class="related-link">{parentEntry.data.title}</a>
+                </div>
+            </div>
+        )}
+
+        {entry.data.category === 'model' && childEntries.length > 0 && (
+            <div class="model-hierarchy">
+                <h3>버전 페이지</h3>
+                <div class="related-list">
+                    {childEntries.map((child) => (
+                        <a href={`/ko/wiki/${child.data.term}/`} class="related-link">{child.data.title}</a>
+                    ))}
+                </div>
+            </div>
         )}
 
         {entry.data.aliases.length > 0 && (
@@ -83,6 +115,17 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
                 <div class="related-list">
                     {entry.data.relatedTerms.map(term => (
                         <a href={`/ko/wiki/${term}/`} class="related-link">{term}</a>
+                    ))}
+                </div>
+            </div>
+        )}
+
+        {wikiBacklinks.length > 0 && (
+            <div class="related-terms">
+                <h3>이 항목을 참조하는 위키</h3>
+                <div class="related-list">
+                    {wikiBacklinks.map((refEntry) => (
+                        <a href={`/ko/wiki/${refEntry.data.term}/`} class="related-link">{refEntry.data.title}</a>
                     ))}
                 </div>
             </div>
@@ -126,34 +169,19 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
         margin-bottom: 16px;
         line-height: 1.6;
     }
-    .reader-value {
-        margin-bottom: 20px;
-        padding: 14px 16px;
-        border: 1px solid color-mix(in srgb, var(--color-wiki) 36%, transparent);
-        border-radius: 10px;
-        background: color-mix(in srgb, var(--color-wiki) 10%, var(--color-surface));
-    }
-    .reader-value-label {
-        display: inline-block;
-        margin-bottom: 6px;
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--color-wiki);
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-    }
-    .reader-value p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.7;
-        color: var(--color-text);
-    }
     .aliases {
         display: flex;
         gap: 6px;
         align-items: center;
         flex-wrap: wrap;
         margin-bottom: 20px;
+    }
+    .model-hierarchy {
+        margin: 20px 0 24px;
+    }
+    .model-hierarchy h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     .aliases-label {
         font-size: 12px;

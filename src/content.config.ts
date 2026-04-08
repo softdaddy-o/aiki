@@ -61,6 +61,8 @@ const wiki = defineCollection({
         mentionCount: z.number().default(0),
         draft: z.boolean().default(false),
         tags: z.array(z.string()).default([]),
+        modelType: z.enum(['family', 'version']).optional(),
+        parentModel: z.string().optional(),
         modelProfile: modelProfileSchema.optional(),
         factCheck: factCheckSchema.optional(),
     }),

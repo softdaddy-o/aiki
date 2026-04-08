@@ -113,6 +113,33 @@ function buildReaderValue(entry) {
     return buildWikiReaderValue(entry);
 }
 
+function buildRelatedTerms(entry, relatedTerms, entries) {
+    const ordered = [];
+    const seen = new Set();
+
+    function pushTerm(term) {
+        if (!term || term === entry.term || seen.has(term)) {
+            return;
+        }
+        seen.add(term);
+        ordered.push(term);
+    }
+
+    if (entry.parentModel) {
+        pushTerm(entry.parentModel);
+    }
+
+    if (entry.modelType === 'family') {
+        entries
+            .filter((candidate) => candidate.parentModel === entry.term)
+            .sort((a, b) => (b.priority || 0) - (a.priority || 0) || a.term.localeCompare(b.term))
+            .forEach((candidate) => pushTerm(candidate.term));
+    }
+
+    relatedTerms.forEach((term) => pushTerm(term));
+    return ordered.slice(0, 6);
+}
+
 function computeMentions(entries) {
     const newsFiles = loadNewsFiles();
     const stats = new Map();
@@ -204,7 +231,9 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
     const definition = definitionByCategory(entry);
     const whyNow = buildWhyNow(entry, mentionStats, sourceDetails);
     const checkpoints = buildCheckpoints(entry);
-    const modelProfile = entry.category === 'model' ? buildModelProfile(entry) : null;
+    const modelProfile = entry.category === 'model' && entry.modelType === 'version'
+        ? buildModelProfile(entry)
+        : null;
     const relatedLine = relatedTerms.length > 0
         ? relatedTerms.map((term) => `- [${term}](/ko/wiki/${term}/)`).join('\n')
         : '- [llm](/ko/wiki/llm/)';
@@ -217,6 +246,8 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
         `summary: ${yamlQuote(summary)}`,
         `readerValue: ${yamlQuote(readerValue)}`,
         `category: ${entry.category}`,
+        ...(entry.modelType ? [`modelType: ${entry.modelType}`] : []),
+        ...(entry.parentModel ? [`parentModel: ${entry.parentModel}`] : []),
         ...(modelProfile ? [
             'modelProfile:',
             `  memoryUsage: ${yamlQuote(modelProfile.memoryUsage)}`,
@@ -280,7 +311,7 @@ async function main() {
     const documents = [];
 
     for (const entry of catalog) {
-        const relatedTerms = pickRelatedTerms(entry, catalog);
+        const relatedTerms = buildRelatedTerms(entry, pickRelatedTerms(entry, catalog), catalog);
         const sources = await buildSourceDetails(entry);
         if (sources.length === 0) {
             console.warn(`Skipping ${entry.term}: no sources`);
@@ -300,6 +331,7 @@ async function main() {
             title: entry.title,
             category: entry.category,
             aliases: entry.aliases,
+            modelType: entry.modelType,
         });
     }
 

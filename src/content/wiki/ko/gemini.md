@@ -5,21 +5,13 @@ lang: ko
 summary: "Gemini는 멀티모달 입력과 출력 경험 맥락에서 반복해서 등장하는 AI 모델다."
 readerValue: "Gemini가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다."
 category: model
-modelProfile:
-  memoryUsage: "서비스형 모델이면 서버 메모리 요구량이 공개되지 않을 수 있어, 배포 메모리 대신 컨텍스트와 출력 한도를 같이 보는 편이 낫다."
-  implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요하다."
-  activeParameters: "공개 자료 기준 활성 파라미터 수 확인 필요"
-  multimodalSupport: "멀티모달 지원으로 보면 된다. 다만 입력 전용인지 출력까지 되는지는 API 문서를 함께 봐야 한다."
-  access: "무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전하다."
-  pricing: "유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋다."
-  weightsOpen: "비공개 또는 서비스/API 제공 중심"
-  vendor: "Google DeepMind"
+modelType: family
 aliases:
   - "google gemini"
 relatedTerms:
+  - gemini-2.5
   - gpt-4o
   - gemma
-  - gemini-2.5
   - imagen
 firstMentioned: "2026-02-18"
 mentionCount: 18
@@ -56,7 +48,7 @@ Gemini는 AIKI 기사에서 18번 이상 언급됐고, 가장 이른 기록도 2
 
 3. 마지막으로 기사에서 google gemini 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 된다. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있다.
 ## 같이 봐야 할 용어
+- [gemini-2.5](/ko/wiki/gemini-2.5/)
 - [gpt-4o](/ko/wiki/gpt-4o/)
 - [gemma](/ko/wiki/gemma/)
-- [gemini-2.5](/ko/wiki/gemini-2.5/)
 - [imagen](/ko/wiki/imagen/)
