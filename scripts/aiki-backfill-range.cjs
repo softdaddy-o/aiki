@@ -122,10 +122,30 @@ function chooseCandidate(candidates) {
     return (candidates.publish || []).find((candidate) => candidate.score >= 70 || candidate.sourceCount >= 2) || null;
 }
 
+function buildHeadline(title, summary) {
+    const cleanTitle = String(title || '').trim() || 'AI update';
+    const cleanSummary = String(summary || '')
+        .replace(/\s+/g, ' ')
+        .replace(/[.!?]+$/g, '')
+        .trim();
+
+    if (!cleanSummary) {
+        return cleanTitle;
+    }
+
+    const focused = cleanSummary
+        .replace(/^최근 작업에서는\s*/u, '')
+        .replace(/^최근\s*/u, '')
+        .trim();
+
+    return clip(`${cleanTitle} 발표, ${focused}`, 64);
+}
+
 async function buildArticleMarkdown(date, title, sourceUrl, secondaryUrl, score, tags, bodySeed) {
     const translated = await translateToKorean(bodySeed);
     const sentences = sentenceSplit(translated);
     const summary = clip(sentences[0] || translated, 180);
+    const headline = buildHeadline(title, summary);
     const paragraphOne = clip(translated, 340);
     const paragraphTwo = clip(
         `${title} 관련 1차 출처와 보조 출처를 함께 보면, ${summary.replace(/\.$/, '')}가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.`,
@@ -138,7 +158,7 @@ async function buildArticleMarkdown(date, title, sourceUrl, secondaryUrl, score,
 
     return [
         '---',
-        `title: ${yamlQuote(summary.replace(/\.$/, ''))}`,
+        `title: ${yamlQuote(headline)}`,
         `date: "${date}T12:00:00+09:00"`,
         'lang: ko',
         'category: news',

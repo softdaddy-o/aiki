@@ -109,6 +109,22 @@ function extractBody(content) {
     return match ? match[1] : '';
 }
 
+function normalizeComparableText(text) {
+    return String(text || '')
+        .replace(/\s+/g, ' ')
+        .replace(/[.!?]+$/g, '')
+        .trim()
+        .toLowerCase();
+}
+
+function extractFirstSentence(body) {
+    const compact = String(body || '').replace(/\s+/g, ' ').trim();
+    if (!compact) return '';
+
+    const parts = compact.split(/(?<=[.!?])\s+/);
+    return (parts[0] || compact).trim();
+}
+
 let errors = [];
 let warnings = [];
 let checked = 0;
@@ -193,6 +209,22 @@ for (const filename of files) {
 
         if (isClearlyOffTopic(signalText, sourceUrl)) {
             errors.push(`${filename}: AIKI 범위를 벗어난 기사로 보임 — 오프토픽 키워드 감지`);
+        }
+    }
+
+    // CHECK 8: title must not collapse into summary/body sentence
+    if (!isDraft) {
+        const body = extractBody(content);
+        const normalizedTitle = normalizeComparableText(fm.title);
+        const normalizedSummary = normalizeComparableText(fm.summary);
+        const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
+
+        if (normalizedTitle && normalizedTitle === normalizedSummary) {
+            errors.push(`${filename}: title matches summary exactly`);
+        }
+
+        if (normalizedTitle && normalizedTitle === normalizedFirstSentence) {
+            errors.push(`${filename}: title matches first sentence exactly`);
         }
     }
 }
