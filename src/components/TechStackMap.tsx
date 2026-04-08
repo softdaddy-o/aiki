@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 
 interface Term {
     slug: string;
@@ -100,6 +100,8 @@ const styles: Record<string, CSSProperties> = {
 
 export default function TechStackMap({ activeTerm, terms }: Props) {
     const [hoveredTerm, setHoveredTerm] = useState<string | null>(null);
+    const scrollAreaRef = useRef<HTMLDivElement | null>(null);
+    const activePillRef = useRef<HTMLAnchorElement | null>(null);
 
     const termsByCategory = new Map<string, Term[]>();
     for (const layer of layers) {
@@ -111,6 +113,21 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
             list.push(term);
         }
     }
+
+    useEffect(() => {
+        const scrollArea = scrollAreaRef.current;
+        const activePill = activePillRef.current;
+        if (!scrollArea || !activePill) {
+            return;
+        }
+
+        const pillCenter = activePill.offsetLeft + activePill.offsetWidth / 2;
+        const targetScrollLeft = Math.max(pillCenter - scrollArea.clientWidth / 2, 0);
+        scrollArea.scrollTo({
+            left: targetScrollLeft,
+            behavior: 'smooth',
+        });
+    }, [activeTerm]);
 
     return (
         <div style={styles.container}>
@@ -128,7 +145,7 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
                         </div>
                     ))}
                 </div>
-                <div style={styles.scrollArea}>
+                <div style={styles.scrollArea} ref={scrollAreaRef}>
                     <div style={styles.rows}>
                         {layers.map((layer) => {
                             const layerTerms = termsByCategory.get(layer.key) || [];
@@ -168,6 +185,8 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
                                                     href={`/ko/wiki/${term.slug}/`}
                                                     style={pillStyle}
                                                     title={term.title}
+                                                    ref={isActive ? activePillRef : undefined}
+                                                    data-term-slug={term.slug}
                                                     onMouseEnter={() => setHoveredTerm(term.slug)}
                                                     onMouseLeave={() => setHoveredTerm(null)}
                                                 >
