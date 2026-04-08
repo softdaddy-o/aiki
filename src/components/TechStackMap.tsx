@@ -31,14 +31,15 @@ const styles: Record<string, CSSProperties> = {
     container: {
         background: '#0a0a1a',
         borderRadius: '8px',
-        padding: '16px',
         width: '100%',
+        overflow: 'hidden',
     },
     layout: {
         display: 'grid',
         gridTemplateColumns: '110px minmax(0, 1fr)',
         gap: '8px',
         alignItems: 'start',
+        padding: '16px',
     },
     labelsColumn: {
         display: 'flex',
@@ -62,6 +63,7 @@ const styles: Record<string, CSSProperties> = {
         overflowX: 'auto',
         overflowY: 'hidden',
         borderRadius: '4px',
+        paddingBottom: '2px',
     },
     rows: {
         display: 'flex',
