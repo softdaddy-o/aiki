@@ -3,9 +3,8 @@ title: "cs.AI ??, 안녕하세요 여러분,"
 date: "2026-03-15T12:00:00+09:00"
 lang: ko
 category: news
-summary: "안녕하세요 여러분,
-
-Prometech의 실험적 릴리스인 Cicikus v3 Prometheus 4.4B를 공유하게 되어 기쁘게 생각합니다."
+summary: "Cicikus v3 Prometheus 4.4B 실험 릴리스와 함께 소형 모델 확장 방식이 어디까지 통하는지 보여 준 사례다."
+readerValue: "이 뉴스의 값은 작은 모델도 확장 전략에 따라 경쟁력을 만들 수 있다는 신호를 빠르게 읽게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.12249v1"
 sourceTitle: "cs.AI"
 draft: false

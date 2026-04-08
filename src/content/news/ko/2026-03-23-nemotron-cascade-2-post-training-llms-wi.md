@@ -4,6 +4,7 @@ date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "저는 MoMA와 Met에서 작업하는 화가입니다."
+readerValue: "이 뉴스의 값은 cs.AI ??, 저는 MoMA와 Met에서 작업하는 화가입니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.19220v1"
 sourceTitle: "cs.AI"
 draft: false

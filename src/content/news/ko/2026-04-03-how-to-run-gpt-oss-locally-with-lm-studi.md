@@ -4,6 +4,7 @@ date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 LM Studio 기반 `gpt-oss` 로컬 실행 가이드를 공개했다. `gpt-oss-20b`는 최소 16GB VRAM, `gpt-oss-120b`는 60GB 이상을 권장하고, 기존 OpenAI SDK 코드도 `base_url`만 바꿔 거의 그대로 붙일 수 있다."
+readerValue: "이 뉴스의 값은 OpenAI가 LM Studio 기반 `gpt-oss` 로컬 실행 가이드를 공개했다. `gpt-oss-20b`는 최소 16GB VRAM, `gpt-oss-120b`는 60GB 이상을 권장하고, 기존 OpenAI SDK 코드도 `base_url`만 바꿔 거의 그대로 붙일 수 있다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/"
 sourceTitle: "developers.openai.com"
 draft: false

@@ -3,9 +3,8 @@ title: "artificial ??, 600개 이상의 별, 4000개 이상의 GitHub 트래픽 
 date: "2026-03-20T12:00:00+09:00"
 lang: ko
 category: news
-summary: "600개 이상의 별, 4000개 이상의 GitHub 트래픽 및 피드백을 통해 기술이 계속 향상되고 있습니다 🙏
-
-이 기능을 찾는 모든 사람을 위해 프롬프트 마스터는 사용 중인 AI 도구에 관계없이 **구체적으로** 정확한 프롬프트를 작성하는 무료 Claude 기술입니다."
+summary: "프롬프트 작성 도구와 사용자 피드백 사례를 통해 AI 도구 사용성이 어떻게 개선되고 있는지 보여 주는 내용이다."
+readerValue: "이 뉴스의 값은 프롬프트 설계 도구가 모델 성능 못지않게 실제 사용 경험과 생산성을 바꾸는 축이라는 점을 빠르게 읽게 해준다는 데 있다."
 sourceUrl: "https://arxiv.org/abs/2603.15381"
 sourceTitle: "artificial"
 draft: false

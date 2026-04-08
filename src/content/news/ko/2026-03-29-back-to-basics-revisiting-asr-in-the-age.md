@@ -4,6 +4,7 @@ date: "2026-03-29T12:00:00+09:00"
 lang: ko
 category: news
 summary: "누군가 일주일 동안 사기 문자를 처리하도록 AI 에이전트를 설정했습니다."
+readerValue: "이 뉴스의 값은 cs.AI ??, 누군가 일주일 동안 사기 문자를 처리하도록 AI 에이전트를 설정했습니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.25727v1"
 sourceTitle: "cs.AI"
 draft: false

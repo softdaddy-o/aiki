@@ -4,6 +4,7 @@ date: "2026-02-21T12:00:00+09:00"
 lang: ko
 category: news
 summary: "**서버 미리보기:** 이제 Claude는 개발 서버를 시작하고 데스크톱 인터페이스에서 바로 실행 중인 앱을 미리 볼 수 있습니다."
+readerValue: "이 뉴스의 값은 **서버 미리보기:** 이제 Claude는 개발 서버를 시작하고 데스크톱 인터페이스에서 바로 실행 중인 앱을 미리 볼 수 있습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://www.anthropic.com/news/claude-code-security"
 sourceTitle: "ClaudeAI"
 draft: false

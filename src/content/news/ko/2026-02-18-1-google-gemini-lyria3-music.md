@@ -4,6 +4,7 @@ date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 모델을 탑재했다. 텍스트나 이미지 프롬프트로 30초짜리 음악 트랙을 만들 수 있고, 생성된 모든 음원에는 AI 워터마크 SynthID가 자동 삽입된다. 18세 이상 전 세계 제미나이 사용자 대상으로 8개 언어를 지원하며 베타로 출시됐다."
+readerValue: "이 뉴스의 값은 구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 모델을 탑재했다. 텍스트나 이미지 프롬프트로 30초짜리 음악 트랙을 만들 수 있고, 생성된 모든 음원에는 AI 워터마크 SynthID가 자동 삽입된다. 18세 이상 전 세계 제미나이 사용자 대상으로 8개 언어를 지원하며 베타로 출시됐다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/"
 sourceTitle: "TechCrunch"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: "LocalLLaMA의 한 실험자가 4chan 데이터로 튜닝한 `8B`와 `70B` 모델이 모두 베이스 모델보다 낫다고 주장했다. 합성 데이터 비중이 커진 시대에 편집되지 않은 인간 대화가 창의성과 비판성을 되살릴 수 있다는 논의가 붙었다."
+readerValue: "이 뉴스의 값은 LocalLLaMA의 한 실험자가 4chan 데이터로 튜닝한 `8B`와 `70B` 모델이 모두 베이스 모델보다 낫다고 주장했다. 합성 데이터 비중이 커진 시대에 편집되지 않은 인간 대화가 창의성과 비판성을 되살릴 수 있다는 논의가 붙었다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1se2kna/4chan_data_can_almost_certainly_improve_model/"
 sourceTitle: "LocalLLaMA"
 draft: false

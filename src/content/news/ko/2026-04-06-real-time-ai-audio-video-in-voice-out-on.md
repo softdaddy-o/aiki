@@ -4,6 +4,7 @@ date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "개발자 fikrikarim이 M3 Pro 맥북에서 Gemma E2B와 Kokoro를 조합해 오디오·비디오 입력, 음성 출력이 이어지는 온디바이스 데모를 공개했다. 코드베이스는 `parlor`로 올라왔고, 추가 이미지 프레임을 넣을 때 지연이 약 `0.5초` 늘어난다고 설명했다."
+readerValue: "이 뉴스의 값은 개발자 fikrikarim이 M3 Pro 맥북에서 Gemma E2B와 Kokoro를 조합해 오디오·비디오 입력, 음성 출력이 이어지는 온디바이스 데모를 공개했다. 코드베이스는 `parlor`로 올라왔고, 추가 이미지 프레임을 넣을 때 지연이 약 `0.5초` 늘어난다고 설명했다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://v.redd.it/jdurdr0ysetg1"
 sourceTitle: "LocalLLaMA"
 draft: false

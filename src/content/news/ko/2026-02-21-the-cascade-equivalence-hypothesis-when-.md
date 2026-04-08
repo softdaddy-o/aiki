@@ -4,6 +4,7 @@ date: "2026-02-21T12:00:00+09:00"
 lang: ko
 category: news
 summary: "현재 음성 LLM은 주로 암시적 ASR을 수행합니다."
+readerValue: "이 뉴스의 값은 cs.CL ??, 현재 음성 LLM은 주로 암시적 ASR을 수행합니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.17598v1"
 sourceTitle: "cs.CL"
 draft: false

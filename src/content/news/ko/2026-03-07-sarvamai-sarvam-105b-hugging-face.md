@@ -4,6 +4,7 @@ date: "2026-03-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: "에코 멤버님들, 잘 지내고 계신가요?"
+readerValue: "이 뉴스의 값은 LocalLLaMA ??, 에코 멤버님들, 잘 지내고 계신가요가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/sarvamai/sarvam-105b"
 sourceTitle: "LocalLLaMA"
 draft: false

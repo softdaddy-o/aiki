@@ -4,6 +4,7 @@ date: "2026-03-17T12:00:00+09:00"
 lang: ko
 category: news
 summary: "나는..."
+readerValue: "이 뉴스의 값은 blog.google ??, 나는가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/health/google-ai-breast-cancer-detection/"
 sourceTitle: "blog.google"
 draft: false

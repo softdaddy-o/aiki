@@ -4,6 +4,7 @@ date: "2026-03-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: "알리바바 Qwen 팀이 0.8B·2B·4B·9B 네 가지 소형 모델을 Apache 2.0 오픈소스로 공개했어. Qwen3.5-9B는 GPQA Diamond에서 81.7점을 기록해 13.5배 더 큰 GPT-OSS-120B(71.5점)를 앞질렀고, 멀티모달 학습을 처음부터 통합해 온디바이스 추론도 가능한 수준이야."
+readerValue: "이 뉴스의 값은 알리바바 Qwen 팀이 0.8B·2B·4B·9B 네 가지 소형 모델을 Apache 2.0 오픈소스로 공개했어. Qwen3.5-9B는 GPQA Diamond에서 81.7점을 기록해 13.5배 더 큰 GPT-OSS-120B(71.5점)를 앞질렀고, 멀티모달 학습을 처음부터 통합해 온디바이스 추론도 가능한 수준이야가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/Qwen/Qwen3.5-9B"
 sourceTitle: "Hugging Face — Qwen"
 draft: false

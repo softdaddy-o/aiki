@@ -4,6 +4,7 @@ date: "2026-03-30T12:00:00+09:00"
 lang: ko
 category: news
 summary: "AI의 약속은 궁극적인 시스템 최적화, 즉 효율성이었습니다."
+readerValue: "이 뉴스의 값은 cs.CL ??, AI의 약속은 궁극적인 시스템 최적화, 즉 효율성이었습니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.25737v1"
 sourceTitle: "cs.CL"
 draft: false

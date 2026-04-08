@@ -4,6 +4,7 @@ date: "2026-03-28T12:00:00+09:00"
 lang: ko
 category: news
 summary: "\"인간의 뇌가 주변 세계를 어떻게 처리하는지 이해하는 것은 신경과학 분야의 가장 큰 공개 과제 중 하나입니다."
+readerValue: "이 뉴스의 값은 \\\"인간의 뇌가 주변 세계를 어떻게 처리하는지 이해하는 것은 신경과학 분야의 가장 큰 공개 과제 중 하나입니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.25728v1"
 sourceTitle: "cs.AI"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "LocalLLaMA 벤치 공유에 따르면 Gemma 4 31B가 에이전트형 테스트에서 `5/5` 수익 달성과 `+1,144%` 중앙 ROI를 기록했다. 실행 비용은 `run당 0.20달러`였고, 더 높은 점수를 낸 건 Opus 4.6뿐이라는 주장이다."
+readerValue: "이 뉴스의 값은 LocalLLaMA 벤치 공유에 따르면 Gemma 4 31B가 에이전트형 테스트에서 `5/5` 수익 달성과 `+1,144%` 중앙 ROI를 기록했다. 실행 비용은 `run당 0.20달러`였고, 더 높은 점수를 낸 건 Opus 4.6뿐이라는 주장이다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://i.redd.it/cg0ej8ee9ftg1.png"
 sourceTitle: "LocalLLaMA"
 draft: false

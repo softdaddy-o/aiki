@@ -4,6 +4,7 @@ date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했다. 뉴욕 공립학교 현장 사례와 함께, `1억5천만 달러` 이상 투자와 `5월` 시작 예정인 AI Educator Series를 묶어 발표했다."
+readerValue: "이 뉴스의 값은 Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했다. 뉴욕 공립학교 현장 사례와 함께, `1억5천만 달러` 이상 투자와 `5월` 시작 예정인 AI Educator Series를 묶어 발표했다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/"
 sourceTitle: "blog.google"
 draft: false

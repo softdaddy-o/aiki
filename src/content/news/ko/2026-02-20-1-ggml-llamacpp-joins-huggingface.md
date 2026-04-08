@@ -4,6 +4,7 @@ date: "2026-02-20T12:00:00+09:00"
 lang: ko
 category: news
 summary: "llama.cpp와 GGML의 창시자 Georgi Gerganov가 2026년 2월 20일 Hugging Face에 전일제 직원으로 합류했다. 100만 개 이상의 모델 허브와 로컬 추론 엔진이 결합해 단일 클릭 통합, 양자화 모델 빠른 지원 등 로컬 AI 생태계 장기 지속성을 노린다."
+readerValue: "이 뉴스의 값은 llama.cpp와 GGML의 창시자 Georgi Gerganov가 2026년 2월 20일 Hugging Face에 전일제 직원으로 합류했다. 100만 개 이상의 모델 허브와 로컬 추론 엔진이 결합해 단일 클릭 통합, 양자화 모델 빠른 지원 등 로컬 AI 생태계 장기 지속성을 노린다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/blog/ggml-joins-hf"
 sourceTitle: "Hugging Face Blog"
 draft: false

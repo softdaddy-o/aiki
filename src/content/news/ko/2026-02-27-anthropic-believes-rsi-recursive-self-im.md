@@ -4,6 +4,7 @@ date: "2026-02-27T12:00:00+09:00"
 lang: ko
 category: news
 summary: "**주요 내용:** 자동 메모리 규칙을 사용하면 지속적인 교차 세션 메모리가 가능합니다."
+readerValue: "이 뉴스의 값은 **주요 내용:** 자동 메모리 규칙을 사용하면 지속적인 교차 세션 메모리가 가능합니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://www.anthropic.com/responsible-scaling-policy/roadmap"
 sourceTitle: "artificial"
 draft: false

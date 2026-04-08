@@ -4,6 +4,7 @@ date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 2026년 3월 AI 업데이트를 한 장으로 묶었다. Search Live를 200개 이상 국가로 확장하고, Workspace·Maps·Gemini 앱·헬스케어까지 AI를 생활형 인터페이스로 엮은 한 달이었다."
+readerValue: "이 뉴스의 값은 Google이 2026년 3월 AI 업데이트를 한 장으로 묶었다. Search Live를 200개 이상 국가로 확장하고, Workspace·Maps·Gemini 앱·헬스케어까지 AI를 생활형 인터페이스로 엮은 한 달이었다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/"
 sourceTitle: "blog.google"
 draft: false

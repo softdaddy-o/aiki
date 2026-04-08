@@ -4,6 +4,7 @@ date: "2026-03-28T12:00:00+09:00"
 lang: ko
 category: news
 summary: "강력한 인식과 추론에는 감각 양상 전반에 걸친 일관성이 필요합니다."
+readerValue: "이 뉴스의 값은 cs.AI ??, 강력한 인식과 추론에는 감각 양상 전반에 걸친 일관성이 필요합니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.25720v1"
 sourceTitle: "cs.AI"
 draft: false

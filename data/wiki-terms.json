@@ -24,15 +24,6 @@
         ]
     },
     {
-        "term": "memory",
-        "title": "Memory",
-        "category": "concept",
-        "aliases": [
-            "agent memory",
-            "ai memory"
-        ]
-    },
-    {
         "term": "agent",
         "title": "AI Agent",
         "category": "concept",
@@ -331,6 +322,15 @@
         "category": "technique",
         "aliases": [
             "retrieval grounding"
+        ]
+    },
+    {
+        "term": "memory",
+        "title": "Memory",
+        "category": "concept",
+        "aliases": [
+            "agent memory",
+            "ai memory"
         ]
     },
     {

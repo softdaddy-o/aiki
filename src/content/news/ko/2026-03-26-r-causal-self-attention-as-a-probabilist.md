@@ -4,6 +4,7 @@ date: "2026-03-26T12:00:00+09:00"
 lang: ko
 category: news
 summary: "우리는 토큰 임베딩이 잠재 변수로 처리되는 인과적 self-attention에 대한 확률론적 해석을 위해 노력해 왔습니다."
+readerValue: "이 뉴스의 값은 우리는 토큰 임베딩이 잠재 변수로 처리되는 인과적 self-attention에 대한 확률론적 해석을 위해 노력해 왔습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.22271"
 sourceTitle: "MachineLearning"
 draft: false

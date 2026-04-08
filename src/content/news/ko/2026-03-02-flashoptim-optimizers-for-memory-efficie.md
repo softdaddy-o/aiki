@@ -4,6 +4,7 @@ date: "2026-03-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: "신경망의 표준 혼합 정밀도 훈련에는 각 모델 매개변수에 대해 많은 바이트의 가속기 메모리가 필요합니다."
+readerValue: "이 뉴스의 값은 신경망의 표준 혼합 정밀도 훈련에는 각 모델 매개변수에 대해 많은 바이트의 가속기 메모리가 필요합니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.23349v1"
 sourceTitle: "cs.AI"
 draft: false

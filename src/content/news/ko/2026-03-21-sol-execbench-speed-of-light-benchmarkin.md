@@ -4,6 +4,7 @@ date: "2026-03-21T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Suno는 11월 Warner Music Group과 계약을 맺고 무면허 음악에 대해 교육을 받은 기존 모델을 모두 은퇴하기로 합의했습니다."
+readerValue: "이 뉴스의 값은 Suno는 11월 Warner Music Group과 계약을 맺고 무면허 음악에 대해 교육을 받은 기존 모델을 모두 은퇴하기로 합의했습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.19173v1"
 sourceTitle: "cs.AI"
 draft: false

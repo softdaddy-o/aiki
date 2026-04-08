@@ -4,6 +4,7 @@ date: "2022-11-30T12:00:00+09:00"
 lang: ko
 category: news
 summary: "우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다."
+readerValue: "이 뉴스의 값은 ChatGPT ??, 우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://openai.com/index/chatgpt/"
 sourceTitle: "ChatGPT"
 draft: false

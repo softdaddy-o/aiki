@@ -4,6 +4,7 @@ date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "2026년 3월 기준 중국 AI 모델 시장이 빠르게 재편되고 있다. ByteDance의 Doubao가 주간 활성 사용자 1억 5,500만 명으로 소비자 시장을 장악한 가운데, 개발자 생태계에서는 Qwen과 DeepSeek이 글로벌 오픈소스 LLM 시장을 이끌고 있어 중국 AI의 양면 구도가 뚜렷해졌다."
+readerValue: "이 뉴스의 값은 2026년 3월 기준 중국 AI 모델 시장이 빠르게 재편되고 있다. ByteDance의 Doubao가 주간 활성 사용자 1억 5,500만 명으로 소비자 시장을 장악한 가운데, 개발자 생태계에서는 Qwen과 DeepSeek이 글로벌 오픈소스 LLM 시장을 이끌고 있어 중국 AI의 양면 구도가 뚜렷해졌다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1s1gm9z/the_current_state_of_the_chinese_llms_scene/"
 sourceTitle: "r/LocalLLaMA — The current state of the Chinese LLMs scene"
 draft: false

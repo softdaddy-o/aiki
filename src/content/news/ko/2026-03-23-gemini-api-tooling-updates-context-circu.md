@@ -4,6 +4,7 @@ date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "마침내 Gemini Nano는 모든 Chrome 사용자를 위해 거의 여기에 있습니다(원래 Chrome 138에 있다는 사실을 잘못 알고 있었지만 사실을 확인했고 Chrome 137+ 이후 제한된 상황에서 플래그가 지정되지 않은 상태로 배송되기 시작했습니다)."
+readerValue: "이 뉴스의 값은 마침내 Gemini Nano는 모든 Chrome 사용자를 위해 거의 여기에 있습니다(원래 Chrome 138에 있다는 사실을 잘못 알고 있었지만 사실을 확인했고 Chrome 137+ 이후 제한된 상황에서 플래그가 지정되지 않은 상태로 배송되기 시작했습니다)가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tooling-updates/"
 sourceTitle: "blog.google"
 draft: false

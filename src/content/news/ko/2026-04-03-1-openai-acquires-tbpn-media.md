@@ -4,6 +4,7 @@ date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 실리콘밸리 대표 테크 토크쇼 TBPN을 수억 달러에 인수했다. 창업자 출신 두 호스트가 하루 3시간씩 생방송하는 이 쇼는 2025년 매출 500만 달러에서 2026년 3,000만 달러 목표를 앞두고 있었다. OpenAI 최초의 미디어 인수다."
+readerValue: "이 뉴스의 값은 OpenAI가 실리콘밸리 대표 테크 토크쇼 TBPN을 수억 달러에 인수했다. 창업자 출신 두 호스트가 하루 3시간씩 생방송하는 이 쇼는 2025년 매출 500만 달러에서 2026년 3,000만 달러 목표를 앞두고 있었다. OpenAI 최초의 미디어 인수다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://openai.com/index/openai-acquires-tbpn/"
 sourceTitle: "OpenAI"
 draft: false

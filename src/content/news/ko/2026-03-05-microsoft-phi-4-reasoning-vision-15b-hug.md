@@ -3,9 +3,8 @@ title: "LocalLLaMA ??, #"
 date: "2026-03-05T12:00:00+09:00"
 lang: ko
 category: news
-summary: "# 
-
-Phi-4-Reasoning-Vision-15B는 중간 융합 아키텍처를 사용하여 Phi-4-Reasoning 언어 모델 백본과 SigLIP-2 비전 인코더를 기반으로 구축된 소형 개방형 다중 모달 추론 모델입니다."
+summary: "Phi-4-Reasoning-Vision-15B는 Phi-4-Reasoning 백본과 SigLIP-2 비전 인코더를 결합한 소형 개방형 멀티모달 추론 모델이다."
+readerValue: "이 뉴스의 값은 소형 멀티모달 추론 모델이 어디까지 올라왔는지, 그리고 Phi 계열이 실사용 후보로 얼마나 가까워졌는지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B"
 sourceTitle: "LocalLLaMA"
 draft: false

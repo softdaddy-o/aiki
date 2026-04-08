@@ -4,6 +4,7 @@ date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
 summary: "다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요."
+readerValue: "이 뉴스의 값은 다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"
 sourceTitle: "blog.google"
 draft: false

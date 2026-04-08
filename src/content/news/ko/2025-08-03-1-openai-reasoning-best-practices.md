@@ -4,6 +4,7 @@ date: "2025-08-03T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 o1, o3 같은 추론 모델을 제대로 쓰는 방법을 담은 공식 가이드를 공개했어. 언제 추론 모델을 써야 하는지, 시스템 프롬프트는 어떻게 써야 하는지 핵심 원칙을 정리했어."
+readerValue: "이 뉴스의 값은 OpenAI가 o1, o3 같은 추론 모델을 제대로 쓰는 방법을 담은 공식 가이드를 공개했어. 언제 추론 모델을 써야 하는지, 시스템 프롬프트는 어떻게 써야 하는지 핵심 원칙을 정리했어가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://platform.openai.com/docs/guides/reasoning-best-practices"
 sourceTitle: "OpenAI Platform"
 draft: false

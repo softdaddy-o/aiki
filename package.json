@@ -7,12 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/aiki-pre-publish-check.cjs --all",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "validate:content": "node scripts/aiki-pre-publish-check.cjs --all",
     "generate:wiki": "node scripts/aiki-generate-wiki.cjs",
-    "backfill:range": "node scripts/aiki-backfill-range.cjs"
+    "backfill:range": "node scripts/aiki-backfill-range.cjs",
+    "backfill:reader-value": "node scripts/aiki-backfill-reader-value.cjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.2",

@@ -4,6 +4,7 @@ date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 Gemini API Docs MCP 서버와 Agent Skills를 공개했어. 코딩 에이전트가 구버전 API 코드를 생성하는 문제를 해결하는 도구야. 실험 결과 정답률 96.3%, 토큰 사용량은 63% 절감됐어."
+readerValue: "이 뉴스의 값은 Google이 Gemini API Docs MCP 서버와 Agent Skills를 공개했어. 코딩 에이전트가 구버전 API 코드를 생성하는 문제를 해결하는 도구야. 실험 결과 정답률 96.3%, 토큰 사용량은 63% 절감됐어가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/"
 sourceTitle: "Google Blog"
 draft: false

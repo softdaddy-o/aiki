@@ -4,6 +4,7 @@ date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "그래서 저는 실제 작업을 위해 이 세 가지 사이를 오가며(fizzbuzz 작성을 요청하는 것이 아니라) 대부분의 온라인 비교가 표면 수준의 쓰레기이기 때문에 제가 찾은 내용을 공유하고 싶었습니다."
+readerValue: "이 뉴스의 값은 그래서 저는 실제 작업을 위해 이 세 가지 사이를 오가며(fizzbuzz 작성을 요청하는 것이 아니라) 대부분의 온라인 비교가 표면 수준의 쓰레기이기 때문에 제가 찾은 내용을 공유하고 싶었습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/"
 sourceTitle: "blog.google"
 draft: false

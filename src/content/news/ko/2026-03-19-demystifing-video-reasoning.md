@@ -3,9 +3,8 @@ title: "cs.AI ??, 안녕하세요 여러분,"
 date: "2026-03-19T12:00:00+09:00"
 lang: ko
 category: news
-summary: "안녕하세요 여러분,
-
-빠른 공유: 우리는 최종 답변만으로 모델의 등급을 매기는 것을 중단하고 실제로 문제를 통해 추론하는지 살펴보기 시작하는 논문([https://arxiv.org/abs/2603.13099](https://arxiv.org/abs/2603.13099))을 발표했습니다."
+summary: "최종 답만 보는 평가 대신 실제 추론 과정을 함께 보자는 연구 흐름과 그에 맞춘 시각 추론 벤치마크를 소개한 내용이다."
+readerValue: "이 뉴스의 값은 비디오와 시각 추론 평가가 결과 점수보다 과정 검증 쪽으로 이동하고 있다는 점을 빠르게 파악하게 해준다는 데 있다."
 sourceUrl: "https://arxiv.org/abs/2603.16870v1"
 sourceTitle: "cs.AI"
 draft: false

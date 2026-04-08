@@ -4,6 +4,7 @@ date: "2026-03-27T12:00:00+09:00"
 lang: ko
 category: news
 summary: "gpt-oss-puzzle-88B는 [OpenAI의 gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b)에서 파생되어 NVIDIA가 개발한 배포에 최적화된 대규모 언어 모델입니다."
+readerValue: "이 뉴스의 값은 gpt-oss-puzzle-88B는 [OpenAI의 gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b)에서 파생되어 NVIDIA가 개발한 배포에 최적화된 대규모 언어 모델입니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/nvidia/gpt-oss-puzzle-88B"
 sourceTitle: "LocalLLaMA"
 draft: false

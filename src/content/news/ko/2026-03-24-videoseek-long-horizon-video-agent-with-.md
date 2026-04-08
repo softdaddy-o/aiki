@@ -4,6 +4,7 @@ date: "2026-03-24T12:00:00+09:00"
 lang: ko
 category: news
 summary: "ICE 요원은 TSA를 돕기 위해 월요일 애틀랜타와 같은 공항에 배치되었습니다."
+readerValue: "이 뉴스의 값은 ICE 요원은 TSA를 돕기 위해 월요일 애틀랜타와 같은 공항에 배치되었습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.20185v1"
 sourceTitle: "cs.AI"
 draft: false

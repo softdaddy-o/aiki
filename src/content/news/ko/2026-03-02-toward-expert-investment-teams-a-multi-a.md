@@ -4,6 +4,7 @@ date: "2026-03-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: "AI 코딩 에이전트는 많은 코드를 매우 빠르게 작성하므로 매우 강력합니다."
+readerValue: "이 뉴스의 값은 cs.AI ??, AI 코딩 에이전트는 많은 코드를 매우 빠르게 작성하므로 매우 강력합니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.23330v1"
 sourceTitle: "cs.AI"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI와 Hugging Face가 `gpt-oss-20b`를 TRL과 LoRA로 미세조정하는 공식 예제를 공개했다. 1,000개 다국어 추론 데이터셋과 단일 H100 80GB 환경을 기준으로 reasoning language 제어법까지 보여준다."
+readerValue: "이 뉴스의 값은 OpenAI와 Hugging Face가 `gpt-oss-20b`를 TRL과 LoRA로 미세조정하는 공식 예제를 공개했다. 1,000개 다국어 추론 데이터셋과 단일 H100 80GB 환경을 기준으로 reasoning language 제어법까지 보여준다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://developers.openai.com/cookbook/articles/gpt-oss/fine-tune-transfomers/"
 sourceTitle: "developers.openai.com"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-03-29T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다."
+readerValue: "이 뉴스의 값은 Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.25730v1"
 sourceTitle: "cs.AI"
 draft: false

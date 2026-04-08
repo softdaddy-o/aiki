@@ -4,6 +4,7 @@ date: "2026-03-31T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 실시간 음성 대화용 모델 Gemini 3.1 Flash Live를 공개했다. 더 낮은 지연과 개선된 음성 이해, 그리고 오디오 벤치마크 리더보드 선두가 핵심이야."
+readerValue: "이 뉴스의 값은 Google이 실시간 음성 대화용 모델 Gemini 3.1 Flash Live를 공개했다. 더 낮은 지연과 개선된 음성 이해, 그리고 오디오 벤치마크 리더보드 선두가 핵심이야가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/"
 sourceTitle: "blog.google"
 draft: false

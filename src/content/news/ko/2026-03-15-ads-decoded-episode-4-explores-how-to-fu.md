@@ -4,6 +4,7 @@ date: "2026-03-15T12:00:00+09:00"
 lang: ko
 category: news
 summary: "대부분의 AI 에이전트 메모리는 벡터 DB + 의미 검색일 뿐입니다."
+readerValue: "이 뉴스의 값은 blog.google ??, 대부분의 AI 에이전트 메모리는 벡터 DB + 의미 검색일 뿐입니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/products/ads-commerce/bidding-and-budgeting-with-ai/"
 sourceTitle: "blog.google"
 draft: false

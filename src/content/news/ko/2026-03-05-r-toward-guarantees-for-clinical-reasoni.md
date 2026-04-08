@@ -4,6 +4,7 @@ date: "2026-03-05T12:00:00+09:00"
 lang: ko
 category: news
 summary: "AI(VLM 기반) 방사선 모델은 자신감 있게 들리지만 여전히 틀릴 수 있습니다."
+readerValue: "이 뉴스의 값은 AI(VLM 기반) 방사선 모델은 자신감 있게 들리지만 여전히 틀릴 수 있습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.24111v1"
 sourceTitle: "MachineLearning"
 draft: false

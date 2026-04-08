@@ -4,6 +4,7 @@ date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 GPT-5 계열용 [Codex Prompting Guide](https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)를 공개했다. 핵심은 화려한 지시문보다 `AGENTS.md`, `apply_patch`, 병렬 툴 호출, 최신 도구 구성을 먼저 맞추라는 데 있다."
+readerValue: "이 뉴스의 값은 OpenAI가 GPT-5 계열용 [Codex Prompting Guide](https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)를 공개했다. 핵심은 화려한 지시문보다 `AGENTS.md`, `apply_patch`, 병렬 툴 호출, 최신 도구 구성을 먼저 맞추라는 데 있다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/"
 sourceTitle: "developers.openai.com"
 draft: false

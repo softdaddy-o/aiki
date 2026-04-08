@@ -4,6 +4,7 @@ date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "이번 달에는 흥미로운 일이 일어났습니다."
+readerValue: "이 뉴스의 값은 blog.google ??, 이번 달에는 흥미로운 일이 일어났습니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/products/marketingplatform/360/googles-commerce-media-suite-where-retailer-insights-meet-the-power-of-youtube/"
 sourceTitle: "blog.google"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-02-28T12:00:00+09:00"
 lang: ko
 category: news
 summary: "최근 몇 년간 소프트웨어 엔지니어링에 LLM(대형 언어 모델)을 사용하는 모범 사례를 다루는 출판물이 점점 늘어나고 있습니다."
+readerValue: "이 뉴스의 값은 최근 몇 년간 소프트웨어 엔지니어링에 LLM(대형 언어 모델)을 사용하는 모범 사례를 다루는 출판물이 점점 늘어나고 있습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.23331v1"
 sourceTitle: "cs.AI"
 draft: false

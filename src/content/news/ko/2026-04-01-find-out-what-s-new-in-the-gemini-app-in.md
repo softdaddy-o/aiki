@@ -4,6 +4,7 @@ date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 3월 Gemini Drop에서 대화 기록 이전, Personal Intelligence 무료 확대, Gemini Live 3.1 개선, Lyria 3 Pro의 3분 음악 생성 기능을 함께 공개했다."
+readerValue: "이 뉴스의 값은 Google이 3월 Gemini Drop에서 대화 기록 이전, Personal Intelligence 무료 확대, Gemini Live 3.1 개선, Lyria 3 Pro의 3분 음악 생성 기능을 함께 공개했다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/"
 sourceTitle: "blog.google"
 draft: false

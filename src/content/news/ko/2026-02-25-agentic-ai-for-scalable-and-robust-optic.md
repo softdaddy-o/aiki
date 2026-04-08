@@ -4,6 +4,7 @@ date: "2026-02-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Coursera의 Google #AI 코스: https://imp.i384100.net/YVD5vq \"AI 사용\" 방법을 아는 것은 이제 (안타깝게도) 중요한 문제입니다."
+readerValue: "이 뉴스의 값은 Coursera의 Google #AI 코스: https://imp.i384100.net/YVD5vq \\\"AI 사용\\\" 방법을 아는 것은 이제 (안타깝게도) 중요한 문제입니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.20144v1"
 sourceTitle: "cs.AI"
 draft: false

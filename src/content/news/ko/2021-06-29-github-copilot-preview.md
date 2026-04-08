@@ -4,6 +4,7 @@ date: "2021-06-29T12:00:00+09:00"
 lang: ko
 category: news
 summary: "GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다."
+readerValue: "이 뉴스의 값은 GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/"
 sourceTitle: "GitHub Copilot"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 Sora 2 API를 위한 공식 프롬프팅 가이드를 업데이트했어. 캐릭터 제어, 카메라 워크, API 파라미터 설정까지 실전 가이드를 담았고, 올바른 프롬프트 구조로 원하는 영상을 더 정확하게 뽑을 수 있어."
+readerValue: "이 뉴스의 값은 OpenAI가 Sora 2 API를 위한 공식 프롬프팅 가이드를 업데이트했어. 캐릭터 제어, 카메라 워크, API 파라미터 설정까지 실전 가이드를 담았고, 올바른 프롬프트 구조로 원하는 영상을 더 정확하게 뽑을 수 있어가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://cookbook.openai.com/examples/sora/sora2_prompting_guide"
 sourceTitle: "OpenAI Cookbook"
 draft: false

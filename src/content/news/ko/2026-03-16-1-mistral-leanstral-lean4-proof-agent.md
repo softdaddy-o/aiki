@@ -4,6 +4,7 @@ date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Mistral AI가 Lean 4 전용 오픈소스 코드 에이전트 Leanstral을 공개했다. 119B 파라미터(활성 6.5B) 구조로 pass@2 기준 Claude Sonnet을 2.6점 앞서면서, 실행 비용은 $36 대 $549로 압도적으로 낮다. Apache 2.0 라이선스로 무료 API 엔드포인트도 제공한다."
+readerValue: "이 뉴스의 값은 Mistral AI가 Lean 4 전용 오픈소스 코드 에이전트 Leanstral을 공개했다. 119B 파라미터(활성 6.5B) 구조로 pass@2 기준 Claude Sonnet을 2.6점 앞서면서, 실행 비용은 $36 대 $549로 압도적으로 낮다. Apache 2.0 라이선스로 무료 API 엔드포인트도 제공한다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://mistral.ai/news/leanstral"
 sourceTitle: "Mistral AI"
 draft: false

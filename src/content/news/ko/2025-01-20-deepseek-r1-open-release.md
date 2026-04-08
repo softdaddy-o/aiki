@@ -4,6 +4,7 @@ date: "2025-01-20T12:00:00+09:00"
 lang: ko
 category: news
 summary: "* ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다."
+readerValue: "이 뉴스의 값은 * ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://api-docs.deepseek.com/news/news250120"
 sourceTitle: "DeepSeek R1"
 draft: false

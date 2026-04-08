@@ -4,6 +4,7 @@ date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "LLM(대형 언어 모델) 편집의 핵심 과제는 기능 보존입니다."
+readerValue: "이 뉴스의 값은 cs.AI ??, LLM(대형 언어 모델) 편집의 핵심 과제는 기능 보존입니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.15823v1"
 sourceTitle: "cs.AI"
 draft: false

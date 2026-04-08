@@ -4,6 +4,7 @@ date: "2026-02-26T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Claude Code, Cline, Aider, Codex CLI - 모든 최고의 AI 코딩 도구는 전통적인 RAG 및 임베딩을 포기했습니다."
+readerValue: "이 뉴스의 값은 Claude Code, Cline, Aider, Codex CLI - 모든 최고의 AI 코딩 도구는 전통적인 RAG 및 임베딩을 포기했습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.21204v1"
 sourceTitle: "cs.AI"
 draft: false

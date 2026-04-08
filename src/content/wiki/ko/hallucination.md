@@ -2,7 +2,8 @@
 term: hallucination
 title: "Hallucination"
 lang: ko
-summary: "인공지능(AI) 분야에서 환각 또는 인공환각은 AI가 허위 또는 오해의 소지가 있는 정보를 사실로 제시해 발생하는 반응을 말한다."
+summary: "Hallucination는 안전성, 제어, 정책 운영 맥락에서 반복해서 등장하는 AI 개념다."
+readerValue: "이 용어가 뉴스에 나오면 Hallucination가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
 category: concept
 aliases:
   - "ai hallucination"
@@ -18,7 +19,7 @@ tags:
   - safety
 factCheck:
   status: passed
-  date: "2026-04-07"
+  date: "2026-04-08"
   sources:
     - url: "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
       title: "Hallucination (artificial intelligence)"
@@ -34,13 +35,17 @@ factCheck:
       result: pass
       findings: []
 ---
-## 한 줄 정의
-Hallucination는 인공지능(AI) 분야에서 환각 또는 인공환각은 AI가 허위 또는 오해의 소지가 있는 정보를 사실로 제시해 발생하는 반응을 말한다. 이 용어는 환각이 일반적으로 잘못된 인식을 포함하는 인간 심리학과 느슨하게 비유됩니다. 그러나 중요한 차이점이 있습니다. AI 환각은 지각 경험보다는 잘못 구성된 반응(작화)과 관련이 있습니다라는 맥락에서 자주 언급된다.
-## 어떻게 작동하나
-AI 환각은 LLM(대형 언어 모델)이 존재하지 않는 패턴이나 개체를 인식하여 무의미하거나 부정확한 출력을 생성하는 경우입니다라는 설명을 함께 보면, Hallucination가 실제 제품과 연구 흐름에서 어떻게 쓰이는지 감이 잡힌다.
-## 왜 지금 중요하나
-Hallucination는 최근 AI 제품, 모델, 워크플로를 읽을 때 기본 맥락을 잡아주는 용어다.
-## 관련 용어
+## 먼저 감 잡기
+Hallucination는 제품 하나를 뜻하기보다 여러 발표에서 공통으로 쓰이는 개념어다. 이 단어를 잡아 두면 안전성, 제어, 정책 운영 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있다. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 된다.
+## 뉴스에서 왜 자주 나오나
+Hallucination는 아직 기사 수가 많지 않아도 앞으로 자주 붙을 가능성이 높은 단어다. 이유는 간단하다. 새 모델이나 제품이 나와도 결국 독자가 궁금한 건 안전성, 제어, 정책 운영 쪽 변화이기 때문이다. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼도 어디를 봐야 하는지 중심을 잃지 않는다.
+## 읽을 때 체크포인트
+1. 먼저 Hallucination가 모델 내부 이야기인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.
+
+2. 다음으로 이 용어가 안전성, 제어, 정책 운영 중 어디를 바꾸는지 봐야 한다. 성능 숫자를 밀어 올리는지, 비용을 줄이는지, 아니면 사용자 경험만 부드럽게 만드는지 나눠서 읽으면 과장을 덜 타게 된다.
+
+3. 마지막으로 기사에서 ai hallucination 같은 표현이 섞여 나오면 같은 범주인지 하위 변종인지 확인하면 된다. 이름만 다르고 실질은 비슷한 경우가 많아서, 여기서 한 번 걸러 두면 발표 내용을 훨씬 차분하게 정리할 수 있다.
+## 같이 봐야 할 용어
 - [alignment](/ko/wiki/alignment/)
 - [guardrail](/ko/wiki/guardrail/)
 - [grounding](/ko/wiki/grounding/)

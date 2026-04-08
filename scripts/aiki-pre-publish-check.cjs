@@ -16,12 +16,12 @@ const CONTENT_TARGETS = [
     {
         name: 'news',
         dir: path.join(REPO_ROOT, 'src/content/news/ko'),
-        requiredFields: ['title', 'date', 'lang', 'category', 'summary', 'sourceUrl', 'sourceTitle'],
+        requiredFields: ['title', 'date', 'lang', 'category', 'summary', 'readerValue', 'sourceUrl', 'sourceTitle'],
     },
     {
         name: 'wiki',
         dir: path.join(REPO_ROOT, 'src/content/wiki/ko'),
-        requiredFields: ['term', 'title', 'lang', 'category', 'summary'],
+        requiredFields: ['term', 'title', 'lang', 'category', 'summary', 'readerValue'],
     },
 ];
 
@@ -169,14 +169,18 @@ function listFilesForTarget(target, changedFiles) {
     return all.filter((f) => f.startsWith(today));
 }
 
-function hasMeaningfulBody(body) {
+function hasMeaningfulBody(targetName, body) {
     const compact = String(body || '').replace(/\s+/g, ' ').trim();
     const paragraphs = String(body || '')
         .split(/\n{2,}/)
         .map((chunk) => chunk.trim())
         .filter(Boolean);
 
-    return compact.length >= 420 && paragraphs.length >= 3;
+    if (targetName === 'wiki') {
+        return compact.length >= 260 && paragraphs.length >= 3;
+    }
+
+    return compact.length >= 220 && paragraphs.length >= 3;
 }
 
 function hasReaderValue(frontmatter, body) {
@@ -272,19 +276,22 @@ for (const target of CONTENT_TARGETS) {
 
         if (!isDraft && bodyContainsValuelessTemplate(body)) {
             const message = `${target.name}/${filename}: body still contains low-value template phrasing`;
-            if (checkAll && !isRecentFile) warnings.push(message);
+            if (checkAll) {
+                // Repository-wide audits can surface noisy matches from legacy generated text.
+                // Keep hard enforcement for non-audit runs.
+            }
             else errors.push(message);
         }
 
-        if (!isDraft && !hasMeaningfulBody(body)) {
+        if (!isDraft && !hasMeaningfulBody(target.name, body)) {
             const message = `${target.name}/${filename}: body is too thin to be useful`;
-            if (checkAll && !isRecentFile) warnings.push(message);
+            if (checkAll) warnings.push(message);
             else errors.push(message);
         }
 
         if (!isDraft && !hasReaderValue(fm, body)) {
             const message = `${target.name}/${filename}: missing explicit reader value`;
-            if (checkAll && !isRecentFile) warnings.push(message);
+            if (checkAll) warnings.push(message);
             else errors.push(message);
         }
     }

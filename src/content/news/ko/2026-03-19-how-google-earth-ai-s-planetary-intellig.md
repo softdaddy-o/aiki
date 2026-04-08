@@ -4,6 +4,7 @@ date: "2026-03-19T12:00:00+09:00"
 lang: ko
 category: news
 summary: "브리태니커(Britannica)와 메리암-웹스터(Merriam-Webster)는 OpenAI가 연구 콘텐츠를 바탕으로 7,300억 달러 규모의 회사를 설립했다고 주장하며 OpenAI를 상대로 소송을 제기했습니다."
+readerValue: "이 뉴스의 값은 브리태니커(Britannica)와 메리암-웹스터(Merriam-Webster)는 OpenAI가 연구 콘텐츠를 바탕으로 7,300억 달러 규모의 회사를 설립했다고 주장하며 OpenAI를 상대로 소송을 제기했습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/health/google-earth-ai-global-public-health/"
 sourceTitle: "blog.google"
 draft: false

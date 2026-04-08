@@ -4,6 +4,7 @@ date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 Gemini에 신규 전환 도구를 추가했다. 다른 AI 앱의 기억 정보는 복사해 붙여넣고, 전체 대화 기록은 ZIP 업로드로 가져올 수 있으며, 기존 'past chats' 명칭도 memory로 바뀐다."
+readerValue: "이 뉴스의 값은 Google이 Gemini에 신규 전환 도구를 추가했다. 다른 AI 앱의 기억 정보는 복사해 붙여넣고, 전체 대화 기록은 ZIP 업로드로 가져올 수 있으며, 기존 'past chats' 명칭도 memory로 바뀐다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/"
 sourceTitle: "blog.google"
 draft: false

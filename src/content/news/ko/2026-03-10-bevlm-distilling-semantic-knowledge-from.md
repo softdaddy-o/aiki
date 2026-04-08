@@ -3,9 +3,8 @@ title: "cs.AI ??, 안녕하세요 여러분,"
 date: "2026-03-10T12:00:00+09:00"
 lang: ko
 category: news
-summary: "안녕하세요 여러분,
-
-저는 [cs.AI](http://cs.AI)에서 LLM 에이전트를 위한 영구 메모리에 관한 논문에 대한 arXiv 보증을 찾고 있습니다."
+summary: "LLM 에이전트용 영구 메모리 연구를 다루면서 기존 RAG와 요약 방식의 한계를 어떻게 넘을지 짚은 내용이다."
+readerValue: "이 뉴스의 값은 에이전트 메모리 설계가 단순 저장이 아니라 장기 작업 성능과 직결된다는 점을 빠르게 읽게 해준다는 데 있다."
 sourceUrl: "https://arxiv.org/abs/2603.06576v1"
 sourceTitle: "cs.AI"
 draft: false

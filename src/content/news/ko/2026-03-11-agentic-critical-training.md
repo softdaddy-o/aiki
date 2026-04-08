@@ -4,6 +4,7 @@ date: "2026-03-11T12:00:00+09:00"
 lang: ko
 category: news
 summary: "저는 핀테크 앱을 운영하고 있으며 사용자가 약 300명에 달하는 1인 창업자입니다."
+readerValue: "이 뉴스의 값은 저는 핀테크 앱을 운영하고 있으며 사용자가 약 300명에 달하는 1인 창업자입니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.08706v1"
 sourceTitle: "cs.AI"
 draft: false

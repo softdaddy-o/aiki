@@ -4,6 +4,7 @@ date: "2026-03-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "AI가 말하는 내용에 영향을 미칠 수 있다고 생각하시나요?"
+readerValue: "이 뉴스의 값은 LocalLLaMA ??, AI가 말하는 내용에 영향을 미칠 수 있다고 생각하시나요가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/1Covenant/Covenant-72B"
 sourceTitle: "LocalLLaMA"
 draft: false

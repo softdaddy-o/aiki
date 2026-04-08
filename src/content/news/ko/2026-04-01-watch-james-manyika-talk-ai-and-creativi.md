@@ -4,6 +4,7 @@ date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google의 Dialogues on Technology and Society 최신 편에서 LL COOL J와 James Manyika가 40년 음악 기술 변화, 생성형 AI의 민주화 효과, 그리고 인간 창작의 'divine spark'를 어떻게 지킬지 이야기했다."
+readerValue: "이 뉴스의 값은 Google의 Dialogues on Technology and Society 최신 편에서 LL COOL J와 James Manyika가 40년 음악 기술 변화, 생성형 AI의 민주화 효과, 그리고 인간 창작의 'divine spark'를 어떻게 지킬지 이야기했다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/ai/ll-cool-j-dialogues/"
 sourceTitle: "blog.google"
 draft: false

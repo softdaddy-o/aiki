@@ -4,6 +4,7 @@ date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 [Sora 2 Prompting Guide](https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide/)를 공개했다. 핵심은 추상적인 묘사보다 샷 단위 설계다. 한 장면엔 카메라 이동 1개, 주체 행동 1개, 색상 앵커 3~5개를 넣는 식으로 지시하라는 내용이다."
+readerValue: "이 뉴스의 값은 OpenAI가 [Sora 2 Prompting Guide](https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide/)를 공개했다. 핵심은 추상적인 묘사보다 샷 단위 설계다. 한 장면엔 카메라 이동 1개, 주체 행동 1개, 색상 앵커 3~5개를 넣는 식으로 지시하라는 내용이다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide/"
 sourceTitle: "developers.openai.com"
 draft: false

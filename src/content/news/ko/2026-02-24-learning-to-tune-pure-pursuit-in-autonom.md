@@ -4,6 +4,7 @@ date: "2026-02-24T12:00:00+09:00"
 lang: ko
 category: news
 summary: "PP(Pure Pursuit)는 효율성과 기하학적 명확성으로 인해 실시간 경로 추적을 위해 자율 경주에서 널리 사용되지만, 성능은 주요 매개변수(예측 거리 및 조향 이득)가 선택되는 방식에 매우 민감합니다."
+readerValue: "이 뉴스의 값은 PP(Pure Pursuit)는 효율성과 기하학적 명확성으로 인해 실시간 경로 추적을 위해 자율 경주에서 널리 사용되지만, 성능은 주요 매개변수(예측 거리 및 조향 이득)가 선택되는 방식에 매우 민감합니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.18386v1"
 sourceTitle: "cs.AI"
 draft: false

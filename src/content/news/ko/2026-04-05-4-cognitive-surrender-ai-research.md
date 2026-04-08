@@ -4,6 +4,7 @@ date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news
 summary: "와튼스쿨 연구팀이 1,372명 대상 실험에서 AI가 오답을 줘도 79.8%가 그대로 수용한다는 결과를 발표했어. 연구팀은 이걸 '인지 항복(cognitive surrender)'이라고 불러."
+readerValue: "이 뉴스의 값은 와튼스쿨 연구팀이 1,372명 대상 실험에서 AI가 오답을 줘도 79.8%가 그대로 수용한다는 결과를 발표했어. 연구팀은 이걸 '인지 항복(cognitive surrender)'이라고 불러가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646"
 sourceTitle: "SSRN — Wharton School"
 draft: false

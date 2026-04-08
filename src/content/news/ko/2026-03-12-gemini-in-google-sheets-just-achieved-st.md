@@ -4,6 +4,7 @@ date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: "맥락상 저는 소프트웨어 엔지니어링 학생이므로 제 배경은 기술적으로 상당히 뛰어나고 많은 사이드 프로젝트를 시작했습니다(모두 실패했습니다)."
+readerValue: "이 뉴스의 값은 맥락상 저는 소프트웨어 엔지니어링 학생이므로 제 배경은 기술적으로 상당히 뛰어나고 많은 사이드 프로젝트를 시작했습니다(모두 실패했습니다)가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/"
 sourceTitle: "blog.google"
 draft: false

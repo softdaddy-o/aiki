@@ -4,6 +4,7 @@ date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news
 summary: "\"나는 내가 아닌 것을 증명하기 위해 CAPTCHA를 푼다."
+readerValue: "이 뉴스의 값은 blog.google ??, \\\"나는 내가 아닌 것을 증명하기 위해 CAPTCHA를 푼다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/company-news/outreach-and-initiatives/sustainability/speciesnet-open-source-ai-wildlife/"
 sourceTitle: "blog.google"
 draft: false

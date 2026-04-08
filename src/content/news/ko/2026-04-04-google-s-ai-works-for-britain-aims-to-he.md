@@ -4,6 +4,7 @@ date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 영국에서 `AI Works for Britain` 프로그램을 시작했다. 조사에선 영국인 76%가 커리어 정체를 느꼈고, Google은 약 200만 파운드에 가까운 Google.org 자금을 넣어 실전형 AI 업스킬링 거점을 도시별로 연다."
+readerValue: "이 뉴스의 값은 Google이 영국에서 `AI Works for Britain` 프로그램을 시작했다. 조사에선 영국인 76%가 커리어 정체를 느꼈고, Google은 약 200만 파운드에 가까운 Google.org 자금을 넣어 실전형 AI 업스킬링 거점을 도시별로 연다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/googles-ai-works-for-britain-aims-to-help-stuck-brits-unlock-progression/"
 sourceTitle: "blog.google"
 draft: false

@@ -4,6 +4,7 @@ date: "2026-02-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "DLM(확산 언어 모델)은 반복적인 노이즈 제거로 인해 높은 추론 비용이 발생하여 효율적인 가지치기에 동기를 부여합니다."
+readerValue: "이 뉴스의 값은 DLM(확산 언어 모델)은 반복적인 노이즈 제거로 인해 높은 추론 비용이 발생하여 효율적인 가지치기에 동기를 부여합니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2602.17664v1"
 sourceTitle: "cs.AI"
 draft: false

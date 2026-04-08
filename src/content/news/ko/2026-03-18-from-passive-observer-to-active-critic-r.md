@@ -4,6 +4,7 @@ date: "2026-03-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "정확한 프로세스 감독은 장거리 로봇 조작에 있어서 여전히 중요한 과제로 남아 있습니다."
+readerValue: "이 뉴스의 값은 정확한 프로세스 감독은 장거리 로봇 조작에 있어서 여전히 중요한 과제로 남아 있습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.15600v1"
 sourceTitle: "cs.AI"
 draft: false

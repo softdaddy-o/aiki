@@ -4,6 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: "LocalLLaMA에 1998년형 iMac G3에서 초소형 LLM을 구동한 실험이 올라왔다. 기기는 `233MHz` PowerPC 750과 `32MB` RAM, 모델은 약 `1MB`급 TinyStories 체크포인트였고, Retro68로 클래식 Mac OS용 바이너리를 크로스컴파일했다."
+readerValue: "이 뉴스의 값은 LocalLLaMA에 1998년형 iMac G3에서 초소형 LLM을 구동한 실험이 올라왔다. 기기는 `233MHz` PowerPC 750과 `32MB` RAM, 모델은 약 `1MB`급 TinyStories 체크포인트였고, Retro68로 클래식 Mac OS용 바이너리를 크로스컴파일했다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
 sourceUrl: "https://i.redd.it/p4vfca76qhtg1.jpeg"
 sourceTitle: "LocalLLaMA"
 draft: false
