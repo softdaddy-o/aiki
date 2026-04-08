@@ -4,7 +4,7 @@ date: "2026-04-04T09:00:00+09:00"
 lang: ko
 category: news
 summary: "Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API의 기본 선택지로 끌어올렸다. 공개 프리뷰와 더 높은 사용 한도를 함께 밀면서, 100만 토큰급 장문 맥락 수요를 정면으로 받겠다는 신호다."
-readerValue: "이 글이 해결해주는 문제는 Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API의 기본 선택지로 끌어올렸다. 공개 프리뷰와 더 높은 사용 한도를 함께 밀면서, 100만 토큰급 장문 맥락 수요를 정면으로 받겠다는 신호다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API의 기본 선택지로 끌어올렸다. 공개 프리뷰와 더 높은 사용 한도를 함께 밀면서, 100만 토큰급 장문 맥락 수요를 정면으로 받겠다는 신호다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/technology/ai/gemini-25-pro"
 sourceTitle: "Google Blog"
 draft: false

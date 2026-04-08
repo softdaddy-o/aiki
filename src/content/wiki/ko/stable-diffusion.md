@@ -5,6 +5,15 @@ lang: ko
 summary: "Stable Diffusion는 오픈 모델 전략과 생태계 경쟁 맥락에서 반복해서 등장하는 AI 모델다."
 readerValue: "이 용어가 뉴스에 나오면 Stable Diffusion가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
 category: model
+modelProfile:
+  memoryUsage: "직접 배포하는 경우 메모리 사용량은 총 파라미터 수, 정밀도, KV 캐시 설정을 같이 봐야 한다."
+  implementation: "생성 모델 계열로 보면 되고, 확산형인지 다른 구현인지 공식 문서 기준으로 구분하면 된다."
+  activeParameters: "공개 자료 기준 활성 파라미터 수 확인 필요"
+  multimodalSupport: "텍스트 외 시각/오디오 생성까지 포함하는 멀티모달 계열로 보면 된다."
+  access: "무료 실험 또는 자체 호스팅 가능성이 높다. 다만 호스팅 플랫폼에서는 별도 유료 과금이 붙을 수 있다."
+  pricing: "직접 호스팅이면 GPU/추론 비용이 핵심이고, API 재판매 채널을 쓸 경우 입력/출력 토큰 단가를 별도로 확인해야 한다."
+  weightsOpen: "오픈 모델 계열이지만 실제 웨이트 공개 범위와 라이선스 조건은 별도 확인이 필요하다."
+  vendor: "공식 문서 기준 제작사/배포 벤더 확인 필요"
 aliases:
   - "Stable Diffusion"
 relatedTerms:

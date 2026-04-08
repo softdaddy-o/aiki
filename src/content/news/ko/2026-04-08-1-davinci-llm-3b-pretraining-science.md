@@ -4,7 +4,7 @@ date: "2026-04-08T11:30:00+09:00"
 lang: ko
 category: news
 summary: "SII-GAIR가 daVinci-LLM-3B를 공개했다. 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공개했다."
-readerValue: "이 글이 해결해주는 문제는 SII-GAIR가 daVinci-LLM-3B를 공개했다. 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공개했다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "SII-GAIR가 daVinci-LLM-3B를 공개했다. 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공개했다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/SII-GAIR-NLP/davinci-llm-model"
 sourceTitle: "Hugging Face / arXiv"
 draft: false

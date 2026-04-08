@@ -22,7 +22,7 @@ factCheck:
   date: "2026-04-08"
   sources:
     - url: "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart"
-      title: "Краткое руководство по Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "গুগল এআই স্টুডিও দ্রুত শুরু &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://aistudio.google.com/"
       title: "Google AI Studio"
   checks:

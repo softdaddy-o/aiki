@@ -4,7 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Jackrong이 Qwen3.5-27B에 Claude 4.6 Opus의 CoT 추론 데이터를 SFT로 이식한 모델을 공개했어. RTX 3090(24GB) 한 장으로 로컬 실행 가능하고, GGUF·AWQ 양자화 버전도 커뮤니티에서 이미 나왔어."
-readerValue: "이 글이 해결해주는 문제는 Jackrong이 Qwen3.5-27B에 Claude 4.6 Opus의 CoT 추론 데이터를 SFT로 이식한 모델을 공개했어. RTX 3090(24GB) 한 장으로 로컬 실행 가능하고, GGUF·AWQ 양자화 버전도 커뮤니티에서 이미 나왔어가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "Jackrong이 Qwen3.5-27B에 Claude 4.6 Opus의 CoT 추론 데이터를 SFT로 이식한 모델을 공개했어. RTX 3090(24GB) 한 장으로 로컬 실행 가능하고, GGUF·AWQ 양자화 버전도 커뮤니티에서 이미 나왔어가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled"
 sourceTitle: "Hugging Face"
 draft: false

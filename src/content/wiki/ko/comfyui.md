@@ -21,8 +21,8 @@ factCheck:
   status: passed
   date: "2026-04-08"
   sources:
-    - url: "https://github.com/Comfy-Org/ComfyUI"
-      title: "Comfy-Org/ComfyUI"
+    - url: "https://github.com/comfyanonymous/ComfyUI"
+      title: "comfyanonymous/ComfyUI"
     - url: "https://www.comfy.org/"
       title: "ComfyUI | Generate video, images, 3D, audio with AI"
   checks:

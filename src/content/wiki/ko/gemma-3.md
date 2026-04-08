@@ -5,6 +5,15 @@ lang: ko
 summary: "Gemma 3는 오픈 모델 전략과 생태계 경쟁 맥락에서 반복해서 등장하는 AI 모델다."
 readerValue: "이 용어가 뉴스에 나오면 Gemma 3가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
 category: model
+modelProfile:
+  memoryUsage: "직접 배포하는 경우 메모리 사용량은 총 파라미터 수, 정밀도, KV 캐시 설정을 같이 봐야 한다."
+  implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요하다."
+  activeParameters: "공개 자료 기준 활성 파라미터 수 확인 필요"
+  multimodalSupport: "텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요"
+  access: "무료 실험 또는 자체 호스팅 가능성이 높다. 다만 호스팅 플랫폼에서는 별도 유료 과금이 붙을 수 있다."
+  pricing: "직접 호스팅이면 GPU/추론 비용이 핵심이고, API 재판매 채널을 쓸 경우 입력/출력 토큰 단가를 별도로 확인해야 한다."
+  weightsOpen: "오픈 모델 계열이지만 실제 웨이트 공개 범위와 라이선스 조건은 별도 확인이 필요하다."
+  vendor: "Google DeepMind"
 aliases:
   - "Gemma 3"
 relatedTerms:

@@ -12,7 +12,8 @@ relatedTerms:
   - openai-api
   - anthropic-api
   - openrouter
-mentionCount: 0
+firstMentioned: "2026-04-07"
+mentionCount: 1
 draft: false
 tags:
   - tool-use
@@ -38,7 +39,7 @@ factCheck:
 ## 먼저 감 잡기
 Function Calling는 특정 제품명이 아니라 일을 처리하는 방법에 가깝다. 결국 이 기법이 API 연결과 제품 기능 확장 가운데 무엇을 바꾸는지 봐야 한다. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라진다.
 ## 뉴스에서 왜 자주 나오나
-Function Calling는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어다. 이유는 간단하다. 독자가 결국 궁금해하는 건 API 연결과 제품 기능 확장 쪽 변화이기 때문이다. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워진다.
+Function Calling는 AIKI 기사에서 1번 이상 언급됐고, 가장 이른 기록도 2026-04-07까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 API 연결과 제품 기능 확장 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 Function calling | OpenAI API, Tool use with Claude 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라진다.
 ## 읽을 때 체크포인트
 1. 먼저 Function Calling가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.
 
