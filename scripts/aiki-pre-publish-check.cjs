@@ -64,6 +64,29 @@ const FORBIDDEN_COPY_PATTERNS = [
     /^이 글에서 해결하는 독자의 문제는\s*/u,
 ];
 
+const BAD_WIKI_MODEL_SUMMARY_PATTERNS = [
+    /반복해서 등장하는 AI 모델/u,
+    /맥락에서 반복해서 등장하는 AI 모델/u,
+];
+
+const BAD_WIKI_MODEL_BODY_PATTERNS = [
+    /특정 회사가 만든 단일 제품명이라기보다/u,
+    /아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어/u,
+    /이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도/u,
+];
+
+const VERSION_MODEL_CONTRADICTION_PATTERNS = [
+    /여러 버전을 묶어 부르는 상위 계열명/u,
+    /개별 버전 대신 묶음 이름/u,
+    /실제 도입 판단은 상위 이름이 아니라/u,
+    /상위 계열명인지, 실제로 바로 붙일 수 있는 개별 버전인지/u,
+];
+
+const FAMILY_MODEL_CONTRADICTION_PATTERNS = [
+    /버전형 모델/u,
+    /실제로 비교표에 올려놓고 고르는/u,
+];
+
 const MOJIBAKE_PATTERNS = [
     /\?\?/,
     /�/,
@@ -251,6 +274,47 @@ function bodyContainsValuelessTemplate(body) {
     return VALUELESS_PATTERNS.some((pattern) => pattern.test(body));
 }
 
+function hasGenericWikiModelCopy(frontmatter, body) {
+    if (String(frontmatter.category || '').toLowerCase() !== 'model') {
+        return false;
+    }
+
+    const summary = String(frontmatter.summary || '');
+    return BAD_WIKI_MODEL_SUMMARY_PATTERNS.some((pattern) => pattern.test(summary))
+        || BAD_WIKI_MODEL_BODY_PATTERNS.some((pattern) => pattern.test(String(body || '')));
+}
+
+function hasModelTypeContradiction(frontmatter, body) {
+    if (String(frontmatter.category || '').toLowerCase() !== 'model') {
+        return false;
+    }
+
+    const combined = `${String(frontmatter.summary || '')}\n${String(body || '')}`;
+    const modelType = String(frontmatter.modelType || '').toLowerCase();
+
+    if (modelType === 'version') {
+        return VERSION_MODEL_CONTRADICTION_PATTERNS.some((pattern) => pattern.test(combined));
+    }
+
+    if (modelType === 'family') {
+        return FAMILY_MODEL_CONTRADICTION_PATTERNS.some((pattern) => pattern.test(combined));
+    }
+
+    return false;
+}
+
+function hasWeakModelSpecificity(frontmatter, body) {
+    if (String(frontmatter.category || '').toLowerCase() !== 'model') {
+        return false;
+    }
+
+    const combined = `${String(frontmatter.summary || '')}\n${String(body || '')}`;
+    const hasVendor = /(OpenAI|Anthropic|Google DeepMind|Google|DeepSeek|Mistral AI|Black Forest Labs|Meta|xAI|Microsoft|Alibaba|Qwen|Stability AI)/.test(combined);
+    const hasOpsSignal = /(컨텍스트|가격|입력|출력|API|웨이트|호스팅|Batch|Realtime|토큰)/.test(combined);
+
+    return !hasVendor || !hasOpsSignal;
+}
+
 function countCjkIdeographs(text) {
     return (String(text || '').match(/[\u4E00-\u9FFF]/g) || []).length;
 }
@@ -380,6 +444,24 @@ for (const target of CONTENT_TARGETS) {
 
         if (!isDraft && target.name === 'news' && isBadNewsReaderValue(fm)) {
             errors.push(`${target.name}/${filename}: readerValue still uses template or copied source phrasing`);
+        }
+
+        if (!isDraft && target.name === 'wiki' && hasGenericWikiModelCopy(fm, body)) {
+            const message = `${target.name}/${filename}: model page still uses generic template copy`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki' && hasModelTypeContradiction(fm, body)) {
+            const message = `${target.name}/${filename}: model copy contradicts modelType`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki' && hasWeakModelSpecificity(fm, body)) {
+            const message = `${target.name}/${filename}: model page lacks vendor or operating-detail specificity`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
         }
 
         if (!isDraft && bodyContainsValuelessTemplate(body)) {

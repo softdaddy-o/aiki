@@ -55,11 +55,15 @@ function focusPhrase(entry) {
     return '모델 성능, 제품 전략, 개발 흐름';
 }
 
-function definitionByCategory(entry) {
+function definitionByCategory(entry, modelProfile = null) {
     const focus = focusPhrase(entry);
 
     if (entry.category === 'model') {
-        return `${entry.title}는 특정 회사가 만든 단일 제품명이라기보다, ${focus} 변화와 연결해 읽어야 하는 모델 계열 이름에 가깝다. 기사에서 이 단어가 나오면 벤치마크 점수만 볼 게 아니라 어떤 사용 시나리오를 밀고 있는지까지 같이 봐야 한다.`;
+        if (entry.modelType === 'family') {
+            return `${entry.title}는 ${modelProfile.vendor} 라인업 안에서 여러 버전을 묶어 부르는 상위 계열명이다. 기사 제목에는 상위 라인업만 남고 실제 차이는 하위 버전에서 벌어지는 경우가 많아서, 먼저 어떤 세부 버전을 가리키는지부터 확인해야 한다.`;
+        }
+
+        return `${entry.title}는 ${modelProfile.vendor}가 제공하는 버전형 모델이다. ${modelProfile.implementation} ${modelProfile.multimodalSupport} 그래서 기사에서 이 이름이 보이면 추상적인 성능 향상 문구보다 입력 범위, 컨텍스트 한도, 접근 채널이 어떻게 달라졌는지부터 확인하는 편이 정확하다.`;
     }
 
     if (entry.category === 'tool') {
@@ -75,6 +79,48 @@ function definitionByCategory(entry) {
     }
 
     return `${entry.title}는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어다. 이 단어를 잡아 두면 ${focus} 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있다. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 된다.`;
+}
+
+function buildModelSummary(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        return `${entry.title}는 ${modelProfile.vendor}가 운영하는 상위 AI 모델 계열로, 실제 뉴스에서는 개별 버전 대신 묶음 이름으로 자주 등장한다.`;
+    }
+
+    return `${entry.title}는 ${modelProfile.vendor}가 제공하는 버전형 AI 모델로, 실제 도입에서는 성능보다 접근 경로와 운영 조건까지 함께 비교해야 한다.`;
+}
+
+function buildModelWhyNow(entry, mentionStats, sourceDetails, modelProfile) {
+    const sourceNames = sourceDetails
+        .map((detail) => detail.title)
+        .filter((title) => title && !/^https?:\/\//i.test(title))
+        .slice(0, 2)
+        .join(', ');
+
+    if (entry.modelType === 'family') {
+        return `${entry.title} 같은 상위 계열명이 뉴스에서 자주 보이는 이유는 ${modelProfile.vendor} 발표가 개별 스냅샷보다 라인업 전체를 먼저 밀기 때문이다. 그래서 기사 제목에는 상위 이름만 남고, 실제 비교 포인트는 하위 버전과 가격표에서 갈리는 경우가 많다. 이 페이지는 그 차이를 놓치지 않게 기준점을 먼저 잡아준다.`;
+    }
+
+    if (mentionStats.mentionCount > 0 && mentionStats.firstMentioned) {
+        return `${entry.title}는 AIKI 기사에서 이미 ${mentionStats.mentionCount}번 이상 언급됐고, 기록도 ${mentionStats.firstMentioned}까지 올라간다. 이제는 이름만 익히는 단계가 아니라 ${sourceNames || '공식 문서'} 기준으로 ${modelProfile.access} ${modelProfile.pricing} 이 차이를 바로 읽어야 할 시점이다.`;
+    }
+
+    return `${entry.title}가 뉴스에 풀네임으로 등장하기 시작했다는 건 이제 실제 배포 판단에 써야 할 정보가 붙었다는 뜻에 가깝다. 상위 브랜드 이름만 나올 때와 달리, 이 단계부터는 ${modelProfile.multimodalSupport} ${modelProfile.pricing} 같은 운용 조건을 구체적으로 비교할 수 있다.`;
+}
+
+function buildModelCheckpoints(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        return [
+            `1. 먼저 ${entry.title}가 상위 계열명인지, 실제로 바로 붙일 수 있는 개별 버전인지부터 나눠서 읽어야 한다.`,
+            `2. 기사에 ${entry.title}만 적혀 있으면 하위 버전과 출시 시점을 같이 확인해야 한다. 같은 계열이어도 가격, 속도, 입력 범위가 크게 갈릴 수 있다.`,
+            `3. 실제 도입 판단은 상위 이름이 아니라 세부 버전 페이지에서 해야 한다. 그래서 이 페이지에서는 계열 구조와 버전 링크를 먼저 따라가는 편이 맞다.`,
+        ].join('\n\n');
+    }
+
+    return [
+        `1. 먼저 ${entry.title}가 어떤 입력을 받고 무엇을 출력하는지부터 확인하면 된다. 여기서 모델 포지션이 거의 정리된다.`,
+        `2. 다음으로 컨텍스트, 최대 출력, 툴 호출 지원처럼 운영 조건을 봐야 한다. 같은 성능 홍보라도 실제 제품 적합성은 여기서 갈린다.`,
+        `3. 마지막으로 ${modelProfile.access} ${modelProfile.pricing} 이 두 줄을 같이 읽으면 '당장 붙일 수 있는 모델인지'와 '비용이 감당되는지'를 빠르게 판단할 수 있다.`,
+    ].join('\n\n');
 }
 
 function buildWhyNow(entry, mentionStats, sourceDetails) {
@@ -228,12 +274,21 @@ async function buildSourceDetails(entry) {
 async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerms) {
     const summary = buildSummary(entry);
     const readerValue = buildReaderValue(entry);
-    const definition = definitionByCategory(entry);
-    const whyNow = buildWhyNow(entry, mentionStats, sourceDetails);
-    const checkpoints = buildCheckpoints(entry);
     const modelProfile = entry.category === 'model' && entry.modelType === 'version'
         ? buildModelProfile(entry)
         : null;
+    const effectiveSummary = entry.category === 'model'
+        ? buildModelSummary(entry, modelProfile || buildModelProfile(entry))
+        : summary;
+    const definition = entry.category === 'model'
+        ? definitionByCategory(entry, modelProfile || buildModelProfile(entry))
+        : definitionByCategory(entry);
+    const whyNow = entry.category === 'model'
+        ? buildModelWhyNow(entry, mentionStats, sourceDetails, modelProfile || buildModelProfile(entry))
+        : buildWhyNow(entry, mentionStats, sourceDetails);
+    const checkpoints = entry.category === 'model'
+        ? buildModelCheckpoints(entry, modelProfile || buildModelProfile(entry))
+        : buildCheckpoints(entry);
     const relatedLine = relatedTerms.length > 0
         ? relatedTerms.map((term) => `- [${term}](/ko/wiki/${term}/)`).join('\n')
         : '- [llm](/ko/wiki/llm/)';
@@ -243,7 +298,7 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
         `term: ${entry.term}`,
         `title: ${yamlQuote(entry.title)}`,
         'lang: ko',
-        `summary: ${yamlQuote(summary)}`,
+        `summary: ${yamlQuote(effectiveSummary)}`,
         `readerValue: ${yamlQuote(readerValue)}`,
         `category: ${entry.category}`,
         ...(entry.modelType ? [`modelType: ${entry.modelType}`] : []),

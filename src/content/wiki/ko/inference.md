@@ -25,7 +25,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "مسرد مصطلحات تعلُم الآلة
+      title: "Glossaire du machine learning
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
@@ -40,7 +40,7 @@ factCheck:
 ## 먼저 감 잡기
 Inference는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어다. 이 단어를 잡아 두면 배포 비용과 추론 처리량 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있다. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 된다.
 ## 뉴스에서 왜 자주 나오나
-Inference는 AIKI 기사에서 9번 이상 언급됐고, 가장 이른 기록도 2026-02-16까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 배포 비용과 추론 처리량 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 Statistical inference, مسرد مصطلحات تعلُم الآلة
+Inference는 AIKI 기사에서 9번 이상 언급됐고, 가장 이른 기록도 2026-02-16까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 배포 비용과 추론 처리량 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 Statistical inference, Glossaire du machine learning
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라진다.
 ## 읽을 때 체크포인트
 1. 먼저 Inference가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.

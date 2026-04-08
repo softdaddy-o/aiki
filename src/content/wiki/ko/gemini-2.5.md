@@ -2,19 +2,19 @@
 term: gemini-2.5
 title: "Gemini 2.5"
 lang: ko
-summary: "Gemini 2.5는 추론 성능과 의사결정 흐름 맥락에서 반복해서 등장하는 AI 모델다."
+summary: "Gemini 2.5는 Google DeepMind가 제공하는 버전형 AI 모델로, 실제 도입에서는 성능보다 접근 경로와 운영 조건까지 함께 비교해야 한다."
 readerValue: "Gemini 2.5가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다."
 category: model
 modelType: version
 parentModel: gemini
 modelProfile:
-  memoryUsage: "서비스형 모델이면 서버 메모리 요구량이 공개되지 않을 수 있어, 배포 메모리 대신 컨텍스트와 출력 한도를 같이 보는 편이 낫다."
-  implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요하다."
-  activeParameters: "공개 자료 기준 활성 파라미터 수 확인 필요"
-  multimodalSupport: "텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요"
-  access: "무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전하다."
-  pricing: "유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋다."
-  weightsOpen: "비공개 또는 서비스/API 제공 중심"
+  memoryUsage: "Gemini 2.5 Pro 기준 컨텍스트 1,048,576토큰이다. 서비스형 모델이라 GPU 메모리보다는 긴 입력을 실제로 감당할 예산이 더 중요하다."
+  implementation: "Google의 Gemini 2.5 계열은 Pro와 Flash로 갈리는 멀티모달 추론 라인업이다. 제품에서는 긴 컨텍스트와 멀티모달 입력 처리가 핵심 포인트다."
+  activeParameters: "활성 파라미터 수는 비공개다. 대신 Pro/Flash 라인업 구분과 컨텍스트 한도가 실사용 차이를 만든다."
+  multimodalSupport: "Gemini 2.5 Pro 기준 텍스트, 이미지, 비디오, 오디오 입력과 텍스트 출력을 지원한다."
+  access: "Gemini API와 Google AI Studio에서 접근하는 폐쇄형 모델 계열이다. 실제 도입은 Pro와 Flash 중 무엇을 쓰는지까지 확인해야 한다."
+  pricing: "Gemini 2.5 Pro paid tier 기준 1M 토큰당 입력 $1.25, 출력 $10.00(200K 이하), 200K 초과 구간은 입력 $2.50, 출력 $15.00이다."
+  weightsOpen: "오픈 웨이트 미공개, API 제공 중심"
   vendor: "Google DeepMind"
 aliases:
   - "Gemini 2.5"
@@ -35,7 +35,7 @@ factCheck:
     - url: "https://deepmind.google/technologies/gemini/"
       title: "Gemini 3 — Google DeepMind"
     - url: "https://ai.google.dev/gemini-api/docs/models"
-      title: "모델 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Modele &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass
@@ -47,15 +47,15 @@ factCheck:
       findings: []
 ---
 ## 먼저 감 잡기
-Gemini 2.5는 특정 회사가 만든 단일 제품명이라기보다, 추론 성능과 의사결정 흐름 변화와 연결해 읽어야 하는 모델 계열 이름에 가깝다. 기사에서 이 단어가 나오면 벤치마크 점수만 볼 게 아니라 어떤 사용 시나리오를 밀고 있는지까지 같이 봐야 한다.
+Gemini 2.5는 Google DeepMind가 제공하는 버전형 모델이다. Google의 Gemini 2.5 계열은 Pro와 Flash로 갈리는 멀티모달 추론 라인업이다. 제품에서는 긴 컨텍스트와 멀티모달 입력 처리가 핵심 포인트다. Gemini 2.5 Pro 기준 텍스트, 이미지, 비디오, 오디오 입력과 텍스트 출력을 지원한다. 그래서 기사에서 이 이름이 보이면 추상적인 성능 향상 문구보다 입력 범위, 컨텍스트 한도, 접근 채널이 어떻게 달라졌는지부터 확인하는 편이 정확하다.
 ## 뉴스에서 왜 자주 나오나
-Gemini 2.5는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어다. 이유는 간단하다. 독자가 결국 궁금해하는 건 추론 성능과 의사결정 흐름 쪽 변화이기 때문이다. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워진다.
+Gemini 2.5가 뉴스에 풀네임으로 등장하기 시작했다는 건 이제 실제 배포 판단에 써야 할 정보가 붙었다는 뜻에 가깝다. 상위 브랜드 이름만 나올 때와 달리, 이 단계부터는 Gemini 2.5 Pro 기준 텍스트, 이미지, 비디오, 오디오 입력과 텍스트 출력을 지원한다. Gemini 2.5 Pro paid tier 기준 1M 토큰당 입력 $1.25, 출력 $10.00(200K 이하), 200K 초과 구간은 입력 $2.50, 출력 $15.00이다. 같은 운용 조건을 구체적으로 비교할 수 있다.
 ## 읽을 때 체크포인트
-1. 먼저 Gemini 2.5가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.
+1. 먼저 Gemini 2.5가 어떤 입력을 받고 무엇을 출력하는지부터 확인하면 된다. 여기서 모델 포지션이 거의 정리된다.
 
-2. 다음으로 이 용어가 추론 성능과 의사결정 흐름 중 어디를 바꾸는지 봐야 한다. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있다.
+2. 다음으로 컨텍스트, 최대 출력, 툴 호출 지원처럼 운영 조건을 봐야 한다. 같은 성능 홍보라도 실제 제품 적합성은 여기서 갈린다.
 
-3. 마지막으로 기사에서 Gemini 2.5 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 된다. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있다.
+3. 마지막으로 Gemini API와 Google AI Studio에서 접근하는 폐쇄형 모델 계열이다. 실제 도입은 Pro와 Flash 중 무엇을 쓰는지까지 확인해야 한다. Gemini 2.5 Pro paid tier 기준 1M 토큰당 입력 $1.25, 출력 $10.00(200K 이하), 200K 초과 구간은 입력 $2.50, 출력 $15.00이다. 이 두 줄을 같이 읽으면 '당장 붙일 수 있는 모델인지'와 '비용이 감당되는지'를 빠르게 판단할 수 있다.
 ## 같이 봐야 할 용어
 - [gemini](/ko/wiki/gemini/)
 - [deepseek-r1](/ko/wiki/deepseek-r1/)
