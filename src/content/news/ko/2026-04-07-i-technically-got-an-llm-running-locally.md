@@ -1,12 +1,12 @@
 ---
-title: "확인을 기다려주세요, Reddit - 확인을 기다려주세요"
+title: "1998년 iMac G3 32MB RAM에서 LLM을 돌린 실험"
 date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Reddit - 확인을 기다려주세요"
-readerValue: "이 글이 해결해주는 문제는 Reddit - 확인을 기다려주세요가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
-sourceUrl: "https://i.redd.it/p4vfca76qhtg1.jpeg"
-sourceTitle: "Please wait for verification"
+summary: "1998년형 iMac G3와 32MB RAM 환경에서 260K TinyStories 모델을 실제로 구동한 실험이다. 로컬 AI의 하한선을 어디까지 낮출 수 있는지 보여준다."
+readerValue: "이 글이 해결해주는 문제는 로컬 AI가 최신 GPU 전용 흐름이 아니라는 점, 그리고 극단적으로 낮은 하드웨어 조건에서도 실험 가치가 생기는 지점을 빠르게 파악하게 해준다는 점이다."
+sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sdnw7l/i_technically_got_an_llm_running_locally_on_a/"
+sourceTitle: "Reddit r/LocalLLaMA"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -26,8 +26,10 @@ factCheck:
 tags: ["llm", "retro-computing", "tiny-model", "local-ai"]
 ---
 
-Reddit - 확인을 기다려주세요. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
+1998년형 iMac G3와 32MB RAM에서 LLM을 실제로 돌렸다는 보고다. Reddit에서 추천 1,352개, 댓글 91개를 모은 이유도 단순한 복고 감성이 아니라, "로컬 추론의 하한선이 어디까지 내려갈 수 있나"를 꽤 극단적으로 보여줬기 때문이다.
 
-Please wait for verification 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
+핵심은 결과 화면보다 구현 디테일이다. 작성자는 233MHz PowerPC 750, Mac OS 8.5, 무개조 상태의 iMac G3에 약 1MB 크기의 TinyStories 체크포인트를 올렸고, Mac mini에서 Retro68로 크로스 컴파일한 뒤 엔디언 변환과 FTP 전송까지 직접 처리했다. 여기에 메모리 파티션 제한, 콘솔 출력 불가, grouped-query attention 대응 같은 고전 환경 특유의 병목이 줄줄이 붙었다.
 
-읽을 때는 확인을 기다려주세요, Reddit - 확인을 기다려주세요가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.
+이 실험이 중요한 이유는 성능 자랑이 아니라 조건 적합성에 있다. 최신 모델을 빠르게 돌리는 이야기와 반대로, 아주 작은 모델과 극단적으로 오래된 하드웨어 조합으로도 추론 파이프라인을 성립시킬 수 있다는 점을 보여준다. 엣지 장치, 교육용 실험, 초저사양 배포를 고민하는 팀이라면 여기서 보는 건 FPS가 아니라 병목의 종류다.
+
+커뮤니티 상위 댓글도 "여기서 LLM의 첫 글자 L이 상당히 무리하고 있다"는 식으로 웃으면서도, 결국은 이 삽질이 실제로 어디에 쓸모가 있느냐를 묻고 있었다. 그래서 이 글은 재미있는 데모로 끝낼 게 아니라, 로컬 AI 실험이 어떤 제약을 넘기면 의미 있는 사례가 되는지 보여주는 기준점으로 보는 편이 맞다.

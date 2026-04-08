@@ -3,16 +3,27 @@ const path = require('path');
 
 const {
     clip,
-    extractDescription,
-    extractTitle,
-    fetchText,
     sentenceSplit,
     translateToKorean,
     writeUtf8,
     yamlQuote,
 } = require('./lib/content-utils.cjs');
+const { findPostByUrl, isRedditMediaUrl } = require('./lib/scraper-posts.cjs');
 
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
+const BLOCKED_SOURCE_PATTERNS = [
+    /please wait for verification/i,
+    /확인을 기다려주세요/,
+    /verify you are human/i,
+    /sorry, you have been blocked/i,
+    /access denied/i,
+    /cloudflare/i,
+];
+const FORBIDDEN_COPY_PATTERNS = [
+    /이 뉴스의 값은/,
+    /이 글의 값/,
+    /이 글이 주는 값/,
+];
 
 function parseFrontmatter(content) {
     const match = content.match(/^---\n([\s\S]*?)\n---\n?/);
@@ -47,16 +58,12 @@ function parseFrontmatter(content) {
         data[key] = rawValue.replace(/^["']|["']$/g, '').trim();
     }
 
-    return { block: match[1], bodyStart: match[0].length, data };
+    return { block: match[1], data };
 }
 
 function extractBody(content) {
     const match = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
     return match ? match[1] : '';
-}
-
-function hasHangul(text) {
-    return /[가-힣]/.test(String(text || ''));
 }
 
 function countCjkIdeographs(text) {
@@ -68,80 +75,22 @@ function containsBrokenCopy(text) {
     return /\?\?|�/.test(source) || countCjkIdeographs(source) >= 8;
 }
 
+function containsBlockedSourceText(text) {
+    return BLOCKED_SOURCE_PATTERNS.some((pattern) => pattern.test(String(text || '')));
+}
+
 function needsRepair(content, frontmatter) {
     return containsBrokenCopy(frontmatter.title)
         || containsBrokenCopy(frontmatter.summary)
         || containsBrokenCopy(frontmatter.readerValue)
+        || containsBrokenCopy(frontmatter.sourceTitle)
         || containsBrokenCopy(extractBody(content))
-        || /이 뉴스의 값은|이 글의 값|이 글이 주는 값/.test(String(frontmatter.readerValue || ''));
-}
-
-function normalizeTitleCandidate(title) {
-    const source = String(title || '').replace(/\s+/g, ' ').trim();
-    if (!source) return '';
-
-    const parts = source.split(/\s+[|—-]\s+/).map((part) => part.trim()).filter(Boolean);
-    if (parts.length === 0) return source;
-
-    const best = parts.find((part) => part.length >= 10 && !/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(part));
-    return best || parts[0];
-}
-
-async function localize(text) {
-    const source = String(text || '').replace(/\s+/g, ' ').trim();
-    if (!source) return '';
-    if (hasHangul(source)) return source;
-
-    try {
-        return await translateToKorean(source);
-    } catch {
-        return source;
-    }
-}
-
-function buildHeadline(title, summary) {
-    const cleanTitle = String(title || '').trim();
-    const cleanSummary = String(summary || '').replace(/\s+/g, ' ').replace(/[.!?]+$/g, '').trim();
-
-    if (!cleanTitle) {
-        return clip(cleanSummary, 64);
-    }
-
-    if (!cleanSummary) {
-        return clip(cleanTitle, 64);
-    }
-
-    if (cleanSummary.startsWith(cleanTitle)) {
-        return clip(cleanTitle, 64);
-    }
-
-    return clip(`${cleanTitle}, ${cleanSummary}`, 64);
-}
-
-function buildReaderValue(summary, title) {
-    const base = String(summary || title || '').replace(/\s+/g, ' ').replace(/[.!?]+$/g, '').trim();
-    return `이 글이 해결해주는 문제는 ${base}가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다.`;
-}
-
-function focusPhrase(tags) {
-    const joined = Array.isArray(tags) ? tags.join(' ') : '';
-    if (/reasoning|eval|benchmark/.test(joined)) return '성능 비교와 실전 적용 범위를';
-    if (/agent|workflow|automation/.test(joined)) return '에이전트 워크플로와 운영 비용을';
-    if (/model|open-model|llm/.test(joined)) return '모델 전략과 생태계 경쟁을';
-    if (/api|tool|developer/.test(joined)) return '개발자 도구와 배포 흐름을';
-    return '제품 전략과 실무 판단 포인트를';
-}
-
-function buildBody(title, summary, tags, sourceTitle) {
-    const focus = focusPhrase(tags);
-    const summaryLine = String(summary || '').replace(/[.!?]+$/g, '').trim();
-    const sourceName = String(sourceTitle || '원문').trim();
-
-    return [
-        `${summaryLine}. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, ${focus} 같이 보게 만든다.`,
-        `${sourceName} 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.`,
-        `읽을 때는 ${title}가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.`,
-    ].join('\n\n');
+        || containsBlockedSourceText(frontmatter.title)
+        || containsBlockedSourceText(frontmatter.summary)
+        || containsBlockedSourceText(frontmatter.readerValue)
+        || containsBlockedSourceText(frontmatter.sourceTitle)
+        || FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(String(frontmatter.readerValue || '')))
+        || isRedditMediaUrl(frontmatter.sourceUrl);
 }
 
 function replaceFrontmatterField(block, key, value) {
@@ -157,18 +106,69 @@ function replaceFrontmatterField(block, key, value) {
     return block;
 }
 
-async function fetchSourceMetadata(sourceUrl, fallbackTitle, fallbackSummary) {
+async function localize(text) {
+    const source = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!source) return '';
+
     try {
-        const html = await fetchText(sourceUrl);
-        const title = normalizeTitleCandidate(extractTitle(html) || fallbackTitle);
-        const description = extractDescription(html) || fallbackSummary;
-        return { title, description };
+        return await translateToKorean(source);
     } catch {
-        return {
-            title: fallbackTitle,
-            description: fallbackSummary,
-        };
+        return source;
     }
+}
+
+function cleanEnglish(text) {
+    return String(text || '')
+        .replace(/\?\?/g, '')
+        .replace(/\\n/g, '\n')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function pickComment(post) {
+    if (!post || !Array.isArray(post.topComments)) {
+        return '';
+    }
+
+    const candidate = post.topComments
+        .filter((item) => !item.isModerator && !item.isBot && Number(item.score || 0) >= 5)
+        .sort((a, b) => Number(b.score || 0) - Number(a.score || 0))[0];
+
+    return candidate ? cleanEnglish(candidate.text).split('…')[0] : '';
+}
+
+function buildReaderValue(summary) {
+    return `이 글이 해결해주는 문제는 ${summary}가 왜 실무 판단 포인트로 이어지는지 빠르게 읽게 해준다는 점이다.`;
+}
+
+function buildBody(post, summaryKo, commentKo) {
+    const snippet = cleanEnglish(post.contentSnippet);
+    const facts = snippet
+        .split(/\n+/)
+        .map((line) => line.replace(/^[-*•\s]+/, '').trim())
+        .filter((line) => line.length >= 16)
+        .slice(0, 3);
+
+    const likeCount = Number(post.likeCount || 0).toLocaleString('en-US');
+    const replyCount = Number(post.replyCount || 0).toLocaleString('en-US');
+
+    const paragraphs = [
+        `${summaryKo} 이 글은 Reddit에서 추천 ${likeCount}개, 댓글 ${replyCount}개를 모으면서 단순 화제성보다 실험 설계 자체로 주목받았다.`,
+    ];
+
+    if (facts.length > 0) {
+        paragraphs.push(`작성자가 남긴 단서는 ${facts.join(', ')} 쪽이다. 그래서 이 사례는 결과 이미지보다 어떤 제약을 우회했고 무엇이 병목이었는지를 읽어야 의미가 생긴다.`);
+    }
+
+    paragraphs.push('이런 글을 볼 때 핵심은 "최신 모델이 더 좋다"가 아니라, 제약이 심한 환경에서도 어디까지 동작 범위를 밀어낼 수 있느냐다. 로컬 추론, 엣지 배포, 교육용 실험처럼 성능보다 조건 적합성이 중요한 팀에는 이런 사례가 꽤 직접적인 힌트가 된다.');
+
+    if (commentKo) {
+        paragraphs.push(`커뮤니티 반응도 같은 지점을 짚었다. 상위 댓글은 "${commentKo}"라고 반응했는데, 신기함보다 실제 효용과 재현 가능성을 먼저 묻고 있다는 뜻이다. 그래서 이 글은 데모 감상이 아니라 "어떤 환경에서 이 접근이 먹히는가"를 가르는 사례로 보는 편이 맞다.`);
+    } else {
+        paragraphs.push('정리하면 이 포스트의 가치는 기술 과시에 있지 않다. 모델 크기, 하드웨어 제약, 툴체인 우회가 한 번에 얽힐 때 로컬 AI의 현실적인 하한선이 어디까지 내려오는지를 보여준다는 점이 더 중요하다.');
+    }
+
+    return paragraphs.join('\n\n');
 }
 
 async function repairFile(filePath) {
@@ -177,26 +177,24 @@ async function repairFile(filePath) {
     if (!parsed) return false;
     if (!needsRepair(original, parsed.data)) return false;
 
-    const sourceUrl = parsed.data.sourceUrl || '';
-    const sourceTitle = parsed.data.sourceTitle || parsed.data.title || '원문';
-    const sourceMeta = await fetchSourceMetadata(
-        sourceUrl,
-        sourceTitle,
-        parsed.data.summary || parsed.data.title || '',
-    );
+    const scraperPost = findPostByUrl(parsed.data.sourceUrl) || findPostByUrl(parsed.data.postUrl);
+    if (!scraperPost) {
+        return false;
+    }
 
-    const localizedTitle = await localize(sourceMeta.title || sourceTitle);
-    const localizedDescription = await localize(sourceMeta.description || parsed.data.summary || localizedTitle);
-    const summary = clip((sentenceSplit(localizedDescription)[0] || localizedDescription).trim(), 180);
-    const headline = buildHeadline(localizedTitle, summary);
-    const readerValue = buildReaderValue(summary, headline);
-    const body = buildBody(headline, summary, parsed.data.tags, sourceMeta.title || sourceTitle);
+    const titleKo = clip(await localize(cleanEnglish(scraperPost.text)), 64);
+    const summarySeed = cleanEnglish(scraperPost.contentSnippet) || cleanEnglish(scraperPost.text);
+    const summaryKo = clip(await localize(sentenceSplit(summarySeed)[0] || summarySeed), 180);
+    const commentKo = await localize(clip(pickComment(scraperPost), 120));
+    const readerValue = buildReaderValue(summaryKo);
+    const body = buildBody(scraperPost, summaryKo, commentKo);
 
     let nextBlock = parsed.block;
-    nextBlock = replaceFrontmatterField(nextBlock, 'title', headline);
-    nextBlock = replaceFrontmatterField(nextBlock, 'summary', summary);
+    nextBlock = replaceFrontmatterField(nextBlock, 'title', titleKo);
+    nextBlock = replaceFrontmatterField(nextBlock, 'summary', summaryKo);
     nextBlock = replaceFrontmatterField(nextBlock, 'readerValue', readerValue);
-    nextBlock = replaceFrontmatterField(nextBlock, 'sourceTitle', sourceMeta.title || sourceTitle);
+    nextBlock = replaceFrontmatterField(nextBlock, 'sourceUrl', scraperPost.postUrl || parsed.data.sourceUrl);
+    nextBlock = replaceFrontmatterField(nextBlock, 'sourceTitle', `Reddit r/${scraperPost.username || 'LocalLLaMA'}`);
 
     const nextContent = `---\n${nextBlock}\n---\n\n${body}\n`;
     writeUtf8(filePath, nextContent);

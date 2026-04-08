@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
 const { isClearlyOffTopic } = require('./lib/scoring.cjs');
+const { findPostByUrl, isRedditMediaUrl } = require('./lib/scraper-posts.cjs');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const CONTENT_TARGETS = [
@@ -34,7 +35,7 @@ const VALUE_SIGNAL_PATTERNS = [
     /해결해주는 문제/,
     /실무에서/,
     /판단하게/,
-    /구분해서/,
+    /구분하게/,
 ];
 
 const FORBIDDEN_COPY_PATTERNS = [
@@ -46,6 +47,15 @@ const FORBIDDEN_COPY_PATTERNS = [
 const MOJIBAKE_PATTERNS = [
     /\?\?/,
     /�/,
+];
+
+const BLOCKED_SOURCE_PATTERNS = [
+    /please wait for verification/i,
+    /확인을 기다려주세요/,
+    /verify you are human/i,
+    /sorry, you have been blocked/i,
+    /access denied/i,
+    /cloudflare/i,
 ];
 
 const args = process.argv.slice(2);
@@ -128,8 +138,8 @@ function extractFirstSentence(body) {
 }
 
 function extractDateFromFilename(filename) {
-    const m = filename.match(/^(\d{4}-\d{2}-\d{2})/);
-    return m ? m[1] : null;
+    const match = filename.match(/^(\d{4}-\d{2}-\d{2})/);
+    return match ? match[1] : null;
 }
 
 function extractFrontmatterDate(dateStr) {
@@ -138,8 +148,8 @@ function extractFrontmatterDate(dateStr) {
 }
 
 function getTodayString() {
-    const n = new Date();
-    return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
 function getChangedFiles() {
@@ -163,23 +173,23 @@ function getChangedFiles() {
 }
 
 function listFilesForTarget(target, changedFiles) {
-    const all = fs.readdirSync(target.dir).filter((f) => f.endsWith('.md'));
+    const all = fs.readdirSync(target.dir).filter((file) => file.endsWith('.md'));
 
     if (dateFilter) {
-        return all.filter((f) => f.startsWith(dateFilter));
+        return all.filter((file) => file.startsWith(dateFilter));
     }
 
     if (checkAll) {
         return all;
     }
 
-    const changed = all.filter((f) => changedFiles.has(path.normalize(path.join(target.dir, f))));
+    const changed = all.filter((file) => changedFiles.has(path.normalize(path.join(target.dir, file))));
     if (changed.length > 0) {
         return changed;
     }
 
     const today = getTodayString();
-    return all.filter((f) => f.startsWith(today));
+    return all.filter((file) => file.startsWith(today));
 }
 
 function hasMeaningfulBody(targetName, body) {
@@ -220,6 +230,10 @@ function containsBrokenCopy(text) {
     }
 
     return countCjkIdeographs(source) >= 8;
+}
+
+function containsBlockedSourceText(text) {
+    return BLOCKED_SOURCE_PATTERNS.some((pattern) => pattern.test(String(text || '')));
 }
 
 const changedFiles = getChangedFiles();
@@ -264,6 +278,7 @@ for (const target of CONTENT_TARGETS) {
             ['title', fm.title],
             ['summary', fm.summary],
             ['readerValue', fm.readerValue],
+            ['sourceTitle', fm.sourceTitle],
             ['body', body],
         ];
 
@@ -273,12 +288,18 @@ for (const target of CONTENT_TARGETS) {
                 if (checkAll) warnings.push(message);
                 else errors.push(message);
             }
+
+            if (containsBlockedSourceText(fieldValue)) {
+                errors.push(`${target.name}/${filename}: ${fieldName} contains blocked-page or verification text`);
+            }
         }
 
         if (FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(String(fm.readerValue || '')))) {
-            const message = `${target.name}/${filename}: readerValue uses forbidden "값" phrasing`;
-            if (checkAll) warnings.push(message);
-            else errors.push(message);
+            errors.push(`${target.name}/${filename}: readerValue uses forbidden "값" phrasing`);
+        }
+
+        if (target.name === 'news' && isRedditMediaUrl(fm.sourceUrl) && findPostByUrl(fm.sourceUrl)) {
+            errors.push(`${target.name}/${filename}: reddit media URL used as sourceUrl; use the scraper postUrl instead`);
         }
 
         if (!isDraft && target.name === 'news') {
