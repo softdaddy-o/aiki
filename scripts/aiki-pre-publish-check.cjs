@@ -9,6 +9,20 @@ const cp = require('child_process');
 const { isClearlyOffTopic } = require('./lib/scoring.cjs');
 const { findPostByUrl, isRedditMediaUrl } = require('./lib/scraper-posts.cjs');
 
+const TONE_RULES_PATH = path.resolve(__dirname, '../../src3/Docs/social-posting/lib/tone-rules.js');
+const ALT_TONE_RULES_PATH = 'F:/src3/Docs/social-posting/lib/tone-rules.js';
+
+let toneRules = null;
+try {
+    toneRules = require(TONE_RULES_PATH);
+} catch {
+    try {
+        toneRules = require(ALT_TONE_RULES_PATH);
+    } catch {
+        toneRules = null;
+    }
+}
+
 const REPO_ROOT = path.join(__dirname, '..');
 const CONTENT_TARGETS = [
     {
@@ -119,6 +133,18 @@ function parseFrontmatter(content) {
 function extractBody(content) {
     const match = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
     return match ? match[1] : '';
+}
+
+function getToneResults(body) {
+    if (!toneRules || typeof toneRules.checkTone !== 'function') {
+        return [];
+    }
+
+    try {
+        return toneRules.checkTone(body, 'blog');
+    } catch {
+        return [];
+    }
 }
 
 function normalizeComparableText(text) {
@@ -267,6 +293,7 @@ for (const target of CONTENT_TARGETS) {
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
+        const toneResults = getToneResults(body);
 
         for (const field of target.requiredFields) {
             if (!fm[field]) {
@@ -357,6 +384,18 @@ for (const target of CONTENT_TARGETS) {
             const message = `${target.name}/${filename}: missing explicit reader outcome`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'news' && toneResults.length > 0) {
+            for (const result of toneResults) {
+                const message = `${target.name}/${filename}: tone ${result.severity.toLowerCase()} [${result.id}] ${result.name} - ${result.msg}`;
+                if (result.severity === 'FAIL') {
+                    if (checkAll) warnings.push(message);
+                    else errors.push(message);
+                } else {
+                    warnings.push(message);
+                }
+            }
         }
     }
 }
