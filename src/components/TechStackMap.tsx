@@ -33,10 +33,16 @@ const styles: Record<string, CSSProperties> = {
         borderRadius: '8px',
         padding: '16px',
         width: '100%',
+        overflowX: 'auto',
+        overflowY: 'hidden',
+    },
+    inner: {
         display: 'flex',
         flexDirection: 'column',
         gap: '6px',
         fontFamily: 'inherit',
+        width: 'max-content',
+        minWidth: '100%',
     },
     layer: {
         display: 'flex',
@@ -45,7 +51,6 @@ const styles: Record<string, CSSProperties> = {
         padding: '8px 10px',
         gap: '8px',
         flexWrap: 'nowrap',
-        overflowX: 'auto',
     },
     layerLabel: {
         fontSize: '10px',
@@ -62,8 +67,6 @@ const styles: Record<string, CSSProperties> = {
         alignItems: 'center',
         flex: '1 1 260px',
         minWidth: 0,
-        overflowX: 'auto',
-        scrollbarWidth: 'thin',
     },
     pill: {
         padding: '2px 10px',
@@ -96,67 +99,69 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
 
     return (
         <div style={styles.container}>
-            {layers.map((layer) => {
-                const layerTerms = termsByCategory.get(layer.key) || [];
-                return (
-                    <div
-                        key={layer.key}
-                        style={{
-                            ...styles.layer,
-                            background: layer.color,
-                        }}
-                    >
-                        <span style={styles.layerLabel}>{layer.label}</span>
-                        <div style={styles.termsContainer}>
-                            {layerTerms.map((term) => {
-                                const isActive = term.slug === activeTerm;
-                                const isHovered = term.slug === hoveredTerm;
+            <div style={styles.inner}>
+                {layers.map((layer) => {
+                    const layerTerms = termsByCategory.get(layer.key) || [];
+                    return (
+                        <div
+                            key={layer.key}
+                            style={{
+                                ...styles.layer,
+                                background: layer.color,
+                            }}
+                        >
+                            <span style={styles.layerLabel}>{layer.label}</span>
+                            <div style={styles.termsContainer}>
+                                {layerTerms.map((term) => {
+                                    const isActive = term.slug === activeTerm;
+                                    const isHovered = term.slug === hoveredTerm;
 
-                                const pillStyle: CSSProperties = {
-                                    ...styles.pill,
-                                    background: isActive
-                                        ? `${layer.borderColor}`
-                                        : `${layer.color}`,
-                                    color: isActive ? '#fff' : '#ccc',
-                                    border: isActive
-                                        ? `1.5px solid ${layer.glowColor}`
-                                        : `1px solid ${layer.borderColor}`,
-                                    boxShadow: isActive
-                                        ? `0 0 8px ${layer.glowColor}40, 0 0 2px ${layer.glowColor}80`
-                                        : isHovered
-                                          ? `0 0 4px ${layer.glowColor}30`
-                                          : 'none',
-                                    transform: isHovered && !isActive ? 'translateY(-1px)' : 'none',
-                                };
+                                    const pillStyle: CSSProperties = {
+                                        ...styles.pill,
+                                        background: isActive
+                                            ? `${layer.borderColor}`
+                                            : `${layer.color}`,
+                                        color: isActive ? '#fff' : '#ccc',
+                                        border: isActive
+                                            ? `1.5px solid ${layer.glowColor}`
+                                            : `1px solid ${layer.borderColor}`,
+                                        boxShadow: isActive
+                                            ? `0 0 8px ${layer.glowColor}40, 0 0 2px ${layer.glowColor}80`
+                                            : isHovered
+                                              ? `0 0 4px ${layer.glowColor}30`
+                                              : 'none',
+                                        transform: isHovered && !isActive ? 'translateY(-1px)' : 'none',
+                                    };
 
-                                return (
-                                    <a
-                                        key={term.slug}
-                                        href={`/ko/wiki/${term.slug}/`}
-                                        style={pillStyle}
-                                        title={term.title}
-                                        onMouseEnter={() => setHoveredTerm(term.slug)}
-                                        onMouseLeave={() => setHoveredTerm(null)}
-                                    >
-                                        {isActive && (
-                                            <span style={{
-                                                display: 'inline-block',
-                                                width: '4px',
-                                                height: '4px',
-                                                borderRadius: '50%',
-                                                background: layer.glowColor,
-                                                marginRight: '4px',
-                                                verticalAlign: 'middle',
-                                            }} />
-                                        )}
-                                        {term.title}
-                                    </a>
-                                );
-                            })}
+                                    return (
+                                        <a
+                                            key={term.slug}
+                                            href={`/ko/wiki/${term.slug}/`}
+                                            style={pillStyle}
+                                            title={term.title}
+                                            onMouseEnter={() => setHoveredTerm(term.slug)}
+                                            onMouseLeave={() => setHoveredTerm(null)}
+                                        >
+                                            {isActive && (
+                                                <span style={{
+                                                    display: 'inline-block',
+                                                    width: '4px',
+                                                    height: '4px',
+                                                    borderRadius: '50%',
+                                                    background: layer.glowColor,
+                                                    marginRight: '4px',
+                                                    verticalAlign: 'middle',
+                                                }} />
+                                            )}
+                                            {term.title}
+                                        </a>
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 }

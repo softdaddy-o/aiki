@@ -35,16 +35,12 @@ factCheck:
 tags: ["qwen", "claude", "fine-tuning", "local-llm", "reasoning"]
 ---
 
-[Jackrong](https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled)이라는 개발자가 Qwen3.5-27B에 Claude 4.6 Opus의 추론 패턴을 이식한 모델을 HuggingFace에 공개했어.
+[Jackrong](https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled)이 Qwen3.5-27B에 Claude 4.6 Opus 스타일 추론을 입힌 모델을 공개했어. 핵심은 “프론티어 모델의 추론 감각을 로컬 오픈 모델로 얼마나 옮길 수 있냐”야.
 
-방법은 SFT(Supervised Fine-Tuning)야. Claude Opus가 생성한 고품질 CoT(Chain-of-Thought) 추론 데이터 약 3,950개를 필터링해서 Qwen3.5를 파인튜닝한 거야. 결과물은 `<think>` 태그 안에서 Opus 수준의 구조화된 추론을 보여주는 27B 모델. 코딩, 수학, 복잡한 로직 문제에서 특히 성능이 좋다고 해.
+방법은 SFT야. Claude Opus가 만든 CoT 추론 데이터 약 `3,950개`를 걸러서 Qwen3.5-27B를 다시 학습시켰고, 결과물은 `<think>` 블록 안에서 훨씬 구조화된 추론을 보인다는 주장이지. 공개 설명대로라면 수학, 코딩, 복합 로직에서 체감이 크고.
 
-실용적으로 왜 이게 관심받냐면: Claude Opus API를 직접 쓰려면 토큰당 비용이 나가는데, 이 모델은 RTX 3090(24GB VRAM) 한 장으로 로컬에서 돌릴 수 있어. GGUF, AWQ 양자화 버전도 커뮤니티에서 이미 만들어놨어. Ollama에서도 바로 쓸 수 있는 버전이 올라왔고.
+왜 바로 퍼졌냐면 실행 조건이 현실적이어서 그래. 이 모델은 `RTX 3090 24GB` 한 장으로도 로컬 구동이 가능하고, 커뮤니티가 GGUF와 AWQ 양자화 버전까지 붙였어. 프론티어 추론 스타일을 API 과금 없이 로컬에서 만져볼 수 있다는 점이 매력 포인트야.
 
-35B-A3B 버전도 따로 있어. NVIDIA DGX Spark/GB10에서 AWQ 버전 테스트 성공 사례도 포럼에 올라왔어.
+다만 이건 기술 뉴스인 동시에 정책 뉴스야. Anthropic은 Claude 출력물을 타 모델 훈련에 쓰는 걸 약관으로 금지하고 있어. 올해 초에도 비슷한 증류 문제를 공개적으로 문제 삼았고. 그래서 이 모델은 “재밌는 커뮤니티 실험”이면서 동시에 “정책적으로는 매우 위험한 사례”라는 두 얼굴을 갖고 있어.
 
-[LocalLLaMA 반응](https://www.reddit.com/r/LocalLLaMA/comments/1se4m16/qwen35397b_is_shockingly_useful_at_q2/)을 보면 "Qwen3.5 27B 일상적으로 쓰다가 이 모델 써봤는데 추론 깊이가 다르다"는 평이 나오고 있어. 물론 실제 Claude Opus를 대체할 수는 없고, 추론 스타일을 흉내 내는 거지만 — 비용 없이 로컬에서 이 수준을 만질 수 있다는 건 의미 있어.
-
-오픈소스 커뮤니티가 프론티어 모델의 추론 패턴을 빠르게 소형화하는 속도, 점점 빨라지고 있어.
-
-단, 이 모델은 논란이 있어. Anthropic은 Claude 출력물을 다른 AI 훈련에 쓰는 걸 ToS로 명시적으로 금지하고 있고, 올 초에는 DeepSeek 등 여러 중국 AI 기업들이 같은 방식으로 Claude를 무단 증류했다고 공개 발표했거든. Jackrong의 모델도 같은 방식이야 — 커뮤니티 관심은 높지만, 정책적으로는 회색지대 이상이야.
+정리하면 이거야. 오픈소스 커뮤니티는 프론티어 모델의 추론 패턴을 빠르게 압축하고 있고, 그 속도는 생각보다 훨씬 빠르다. 그런데 그 과정이 합법적이냐는 질문에는 아직 깔끔한 답이 없어.

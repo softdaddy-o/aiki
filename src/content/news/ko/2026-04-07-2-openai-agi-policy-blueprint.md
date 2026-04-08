@@ -36,16 +36,16 @@ factCheck:
 tags: ["openai", "policy", "agi", "economics", "regulation"]
 ---
 
-OpenAI가 "[Intelligence Age를 위한 산업 정책(Industrial Policy for the Intelligence Age)](https://openai.com/index/industrial-policy-for-the-intelligence-age/)"을 공개했어. 4월 6일 발표된 이 32페이지짜리 문서는 AI 경제에 대한 OpenAI의 첫 번째 공식 정책 제안이야.
+OpenAI가 "[Intelligence Age를 위한 산업 정책](https://openai.com/index/industrial-policy-for-the-intelligence-age/)"을 공개했어. 핵심은 한 줄이야. AI가 경제 구조를 바꿀 만큼 커질 테니, 그 충격을 시장에만 맡기지 말자는 거야.
 
-핵심 제안은 세 가지야.
+문서에서 밀고 있는 축은 세 개야. 발표일은 `4월 6일`, 분량은 `32페이지`고, 적어도 OpenAI가 이걸 임시 블로그 포스트가 아니라 정책 패키지로 다루고 있다는 건 분명해.
 
-**공공 자산 펀드**: AI 경제 이익으로 펀드를 조성해서 교육·인프라·사회 프로그램에 재투자. 쉽게 말하면 AI가 만들어내는 부를 국민에게 직접 분배하자는 이야기야.
+- 공공 자산 펀드: AI 경제 이익 일부를 국민 전체가 공유하자는 제안
+- 사회 안전망: 재교육, 소득 지원, 노동 전환 대책 강화
+- 인프라와 특구: 데이터센터, 전력망, 인허가를 국가 단위로 밀어주자는 그림
 
-**사회 안전망 강화**: AI 자동화로 일자리를 잃는 사람들을 위한 재교육·소득 지원 체계. Sam Altman은 "[AI의 임팩트가 너무 커서 뉴딜 수준의 새로운 사회 계약이 필요하다](https://sherwood.news/tech/openai-agi-world-plan-ai-center-benefits-risks-4-day-workweek/)"고 밝혔어. 4일 근무제도 장기 비전으로 언급했고.
+이게 왜 의미 있냐면, 지금까지 AI 기업들은 보통 “생산성 향상”만 말했지 “일자리 충격”은 흐렸거든. 그런데 이번엔 OpenAI가 그 부분을 정면으로 인정했어. Sam Altman이 뉴딜급 사회 계약을 언급한 것도 같은 맥락이고.
 
-**AI 경제 특구 + 인프라**: 데이터센터 인허가 패스트트랙, 전력 인프라 투자(National Transmission Highway Act), AI 특화 경제 구역 조성 등 정부가 직접 나서서 AI 인프라를 깔아야 한다는 주장이야.
+물론 비판도 바로 붙었어. [Fortune](https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/)과 다른 매체들은 “규제 완화는 원하면서 비용은 공공이 떠안게 하는 설계 아니냐”고 보고 있어. 실제로 문서는 방향 제시는 많지만, 펀드를 어떻게 조성하고 누구에게 얼마를 나눌지는 아직 비어 있어.
 
-근데 반응이 엇갈려. [Fortune](https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/)에서는 "OpenAI 정책 제안들이 결국 규제 무력화를 위한 PR 포장지"라는 비판이 나왔어. 공공 자산 펀드 제안도 구체적인 실행 방안 없이 방향만 제시한 수준이라는 지적이 있고.
-
-중요한 건 이거야: AI 1위 기업이 "우리가 일자리를 없앤다"는 걸 공개적으로 인정하고, 그 대안까지 제시했다는 것. 정책이 실제로 실행될지는 모르겠지만, AI 기업들이 경제 안전망 논의에 적극 뛰어들기 시작했다는 시그널로는 읽혀.
+그래도 시그널은 분명해. OpenAI가 이제 모델 회사가 아니라 산업정책 플레이어처럼 말하기 시작했다는 것. `32페이지`짜리 문서로 이 메시지를 낸 순간, AGI 경쟁은 기술만의 문제가 아니라 전력, 세금, 고용, 복지의 문제로 넘어갔다고 봐야 해.

@@ -18,6 +18,30 @@ const AI_KEYWORDS = [
     'deepseek', 'qwen', 'phi-4', 'grok', 'perplexity', 'windsurf',
 ];
 
+const AI_CORE_KEYWORDS = [
+    'llm', 'gpt', 'claude', 'gemini', 'anthropic', 'openai', 'transformer',
+    'rag', 'agent', 'mcp', 'fine-tuning', 'prompt', 'embedding', 'mistral',
+    'llama', 'diffusion', 'multimodal', 'reasoning', 'vibe coding',
+    'cursor', 'copilot', 'langchain', 'llamaindex', 'deepseek', 'qwen',
+    'grok', 'perplexity', 'model', 'inference', 'benchmark', 'distill',
+];
+
+const AI_EXCLUDE_KEYWORDS = [
+    'mlb', 'baseball', 'nba', 'nfl', 'nhl', 'premier league', 'soccer',
+    'football', 'cricket', 'fifa', 'no fap', 'nofap', 'porn',
+];
+
+const MAJOR_AI_COMPANY_DOMAINS = [
+    'openai.com',
+    'anthropic.com',
+    'blog.google',
+    'deepmind.google',
+    'ai.meta.com',
+    'meta.com',
+    'mistral.ai',
+    'x.ai',
+];
+
 // KST date helpers
 function getKSTDate() {
     const now = new Date();
@@ -53,6 +77,25 @@ function titleSimilarity(a, b) {
     return overlap / Math.min(wordsA.size, wordsB.size);
 }
 
+function countKeywordMatches(text, keywords) {
+    return keywords.filter(keyword => text.includes(keyword)).length;
+}
+
+function isClearlyOffTopic(text, url) {
+    const haystack = `${text} ${url}`.toLowerCase();
+    return AI_EXCLUDE_KEYWORDS.some(keyword => haystack.includes(keyword));
+}
+
+function hasStrongAISignal(text, url, matchedKeywords) {
+    const haystack = `${text} ${url}`.toLowerCase();
+    const coreMatches = countKeywordMatches(haystack, AI_CORE_KEYWORDS);
+    return coreMatches >= 1 || matchedKeywords.length >= 2;
+}
+
+function isMajorAICompanyOfficial(url) {
+    return MAJOR_AI_COMPANY_DOMAINS.some(domain => url.includes(domain));
+}
+
 function filterAndScorePosts(posts, daysBack, themes, existing) {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - daysBack);
@@ -65,12 +108,14 @@ function filterAndScorePosts(posts, daysBack, themes, existing) {
 
     return posts
         .map(post => {
-            const text = (post.text || '').toLowerCase();
+            const text = `${post.text || ''} ${post.contentSnippet || ''}`.toLowerCase();
             const url = post.threadUrl || post.sourceUrls?.[0] || post.articleUrl || post.postUrl || '';
 
             // Must be AI-related
             const matchedKeywords = AI_KEYWORDS.filter(kw => text.includes(kw));
             if (matchedKeywords.length === 0) return null;
+            if (isClearlyOffTopic(text, url)) return null;
+            if (!hasStrongAISignal(text, url, matchedKeywords)) return null;
 
             // Must be recent
             const publishedDate = post.publishedAt ? post.publishedAt.split('T')[0] : '';
@@ -130,6 +175,7 @@ function filterAndScorePosts(posts, daysBack, themes, existing) {
                 _score: score,
                 _matchedKeywords: matchedKeywords,
                 _isOfficial: isOfficial,
+                _isMajorAICompanyOfficial: isMajorAICompanyOfficial(url),
                 _url: url,
                 _firstLine: firstLine,
             };
@@ -312,10 +358,17 @@ function detectWikiTerms(text) {
 module.exports = {
     OFFICIAL_DOMAINS,
     AI_KEYWORDS,
+    AI_CORE_KEYWORDS,
+    AI_EXCLUDE_KEYWORDS,
+    MAJOR_AI_COMPANY_DOMAINS,
     getKSTDate,
     getKSTTimestamp,
     slugify,
     titleSimilarity,
+    countKeywordMatches,
+    isClearlyOffTopic,
+    hasStrongAISignal,
+    isMajorAICompanyOfficial,
     filterAndScorePosts,
     clusterPosts,
     classifyGrade,

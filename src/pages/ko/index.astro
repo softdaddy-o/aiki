@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Timeline from '../../components/Timeline.astro';
 import ZoomTabs from '../../components/ZoomTabs.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import { isMajorAICompanyOfficial } from '../../../scripts/lib/scoring.cjs';
 
 const lang = 'ko';
 const allNews = await getCollection('news', ({ data }) => data.lang === lang && !data.draft);
@@ -19,6 +20,7 @@ const items = sorted.map(entry => ({
     slug: entry.id.replace(/^ko\//, ''),
     score: entry.data.score ?? 0,
     sourceCount: entry.data.sourceCount,
+    isMajorOfficial: isMajorAICompanyOfficial(entry.data.sourceUrl || ''),
 }));
 
 // --- Zoom-level grouping ---
@@ -33,7 +35,7 @@ function getISOWeek(dateStr: string): string {
     return `${tmp.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
 }
 
-// Weekly: highest score per day
+// Weekly: highest score per day, only if score > 70
 const dailyGroups = new Map<string, typeof items>();
 for (const item of items) {
     const day = item.date.split('T')[0];
@@ -42,11 +44,13 @@ for (const item of items) {
 }
 const weeklySet = new Set<string>();
 for (const [, group] of dailyGroups) {
-    const best = group.reduce((a, b) => (a.score >= b.score ? a : b));
+    const eligible = group.filter(item => item.score > 70);
+    if (eligible.length === 0) continue;
+    const best = eligible.reduce((a, b) => (a.score >= b.score ? a : b));
     weeklySet.add(best.slug);
 }
 
-// Monthly: top 3 per ISO week
+// Monthly: only score >= 90
 const weeklyGroups = new Map<string, typeof items>();
 for (const item of items) {
     const week = getISOWeek(item.date);
@@ -55,11 +59,11 @@ for (const item of items) {
 }
 const monthlySet = new Set<string>();
 for (const [, group] of weeklyGroups) {
-    const top3 = [...group].sort((a, b) => b.score - a.score).slice(0, 3);
-    for (const t of top3) monthlySet.add(t.slug);
+    const eligible = group.filter(item => item.score >= 90);
+    for (const item of eligible) monthlySet.add(item.slug);
 }
 
-// Yearly: top 1 per month
+// Yearly: official announcements from major AI companies only
 const monthGroups = new Map<string, typeof items>();
 for (const item of items) {
     const month = item.date.substring(0, 7);
@@ -68,7 +72,9 @@ for (const item of items) {
 }
 const yearlySet = new Set<string>();
 for (const [, group] of monthGroups) {
-    const best = group.reduce((a, b) => (a.score >= b.score ? a : b));
+    const eligible = group.filter(item => item.isMajorOfficial);
+    if (eligible.length === 0) continue;
+    const best = eligible.reduce((a, b) => (a.score >= b.score ? a : b));
     yearlySet.add(best.slug);
 }
 

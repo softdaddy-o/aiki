@@ -36,14 +36,12 @@ factCheck:
 tags: ["vibe-coding", "apple", "app-store", "cursor", "lovable"]
 ---
 
-2026년 1분기에 애플 App Store에 신규 등록된 앱이 235,800개야. 전년 같은 기간 대비 84% 급증한 숫자. [The Information](https://www.theinformation.com/articles/vibe-coding-effect-apples-app-store-saw-84-jump-new-apps-quarter) 보도에 따르면 이 급증의 주범은 바이브코딩이야.
+App Store에서 무슨 일이 벌어졌냐면, `2026년 1분기` 신규 앱 등록이 `235,800개`로 전년 대비 `84%` 급증했어. [The Information](https://www.theinformation.com/articles/vibe-coding-effect-apples-app-store-saw-84-jump-new-apps-quarter)은 이 흐름의 중심에 바이브코딩이 있다고 봤고.
 
-바이브코딩 툴들이 어느 정도냐면: Cursor(Anysphere 개발)는 2026년 3월 기준 연간 반복 매출 20억 달러를 돌파했고, 기업가치는 293억 달러야. Lovable은 1년 만에 매출이 50배 늘어 연 2억 달러 규모에 도달했어.
+배경도 세. Cursor는 연간 반복 매출 `20억 달러`를 넘겼고 기업가치는 `293억 달러`까지 붙었어. Lovable 같은 툴도 매출이 급격히 커졌지. 앱을 “직접 코딩해서 만드는 일”이 아니라 “프롬프트로 조립하는 일”로 바뀌면서 공급량이 폭증한 거야.
 
-근데 애플은 조용히 역풍을 불기 시작했어.
+근데 바로 벽을 만났어. 애플은 Replit, Vibecode 계열 업데이트를 막고, Anything 앱을 [App Store에서 퇴출](https://9to5mac.com/2026/04/06/app-store-sees-84-surge-in-new-apps-as-ai-coding-tools-take-off/)시켰어. 이유로 거론된 건 가이드라인 `2.5.2`. 리뷰가 끝난 뒤 앱이 동적으로 코드를 내려받아 성격이 바뀌면 안 된다는 규칙이야.
 
-Replit, Vibecode 같은 바이브코딩 앱들의 업데이트를 차단하더니, 가장 주목받던 Anything 앱(자연어로 작은 도구를 만드는 앱)을 3월 30일에 아예 [App Store에서 퇴출](https://9to5mac.com/2026/04/06/app-store-sees-84-surge-in-new-apps-as-ai-coding-tools-take-off/)시켰어. 이유는 가이드라인 2.5.2 — "앱은 리뷰 통과 이후에 기능이 바뀌면 안 된다"는 규칙이야. 근데 바이브코딩 앱의 핵심 기능이 바로 리뷰 후에도 코드/기능을 동적으로 바꾸는 거거든. 구조적 충돌이야.
+문제는 바이브코딩 앱의 핵심이 바로 거기에 있다는 거야. 사용자가 자연어로 기능을 만들고, 앱이 그때그때 새 동작을 생성해버리면 “앱스토어 심사 기반 배포 모델”과 정면으로 부딪혀. 만들기는 쉬워졌는데, 공식 유통 채널에 싣기는 더 어려워진 셈이지.
 
-애플은 "바이브코딩 카테고리를 타깃으로 하는 게 아니라 가이드라인을 적용하는 것"이라고 했는데, 개발자들 입장에서는 "코딩도 못 하는 사람이 앱 만들 수 있는 시대가 왔다"는 환호 뒤에 "그 앱을 앱스토어에 올릴 수 없다"는 현실이 따라붙는 거야.
-
-만들기는 쉬워지는데 배포는 더 어려워지는 이 역설, 바이브코딩이 주류가 되려면 넘어야 할 벽 중 하나야.
+그래서 이 뉴스의 본질은 앱 수치보다 구조 충돌이야. AI 코딩은 이미 수요를 만들었고, 이제 병목은 모델이 아니라 플랫폼 정책으로 넘어갔어.

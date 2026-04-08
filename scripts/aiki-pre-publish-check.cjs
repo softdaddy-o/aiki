@@ -20,6 +20,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const {
+    isClearlyOffTopic,
+} = require('./lib/scoring.cjs');
 
 const CONTENT_DIR = path.join(__dirname, '../src/content/news/ko');
 const REQUIRED_FIELDS = ['title', 'date', 'lang', 'category', 'summary', 'sourceUrl', 'sourceTitle'];
@@ -101,6 +104,11 @@ function extractFrontmatterDate(dateStr) {
     return dateStr.substring(0, 10);
 }
 
+function extractBody(content) {
+    const match = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
+    return match ? match[1] : '';
+}
+
 let errors = [];
 let warnings = [];
 let checked = 0;
@@ -175,6 +183,17 @@ for (const filename of files) {
     // CHECK 6: score below minimum threshold warning
     if (!isDraft && fm.score && fm.score < 40) {
         warnings.push(`${filename}: 점수 낮음 (${fm.score}) — 발행 기준 40 이상 권장`);
+    }
+
+    // CHECK 7: obvious off-scope block
+    if (!isDraft) {
+        const body = extractBody(content).toLowerCase();
+        const sourceUrl = String(fm.sourceUrl || '').toLowerCase();
+        const signalText = `${String(fm.title || '').toLowerCase()} ${String(fm.summary || '').toLowerCase()} ${body}`;
+
+        if (isClearlyOffTopic(signalText, sourceUrl)) {
+            errors.push(`${filename}: AIKI 범위를 벗어난 기사로 보임 — 오프토픽 키워드 감지`);
+        }
     }
 }
 
