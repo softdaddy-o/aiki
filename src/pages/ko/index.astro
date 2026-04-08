@@ -305,43 +305,47 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
     // ── Infinite scroll: show BATCH_SIZE items initially, load more on scroll ──
     const BATCH_SIZE = 10;
     const MAX_BEFORE_PAGINATE = 50;
-    const allItems = document.querySelectorAll('.timeline-item, .date-header');
+    const lazyItems = Array.from(
+        document.querySelectorAll('.timeline > .timeline-item, .timeline > .date-header:not(.period-header)')
+    ) as HTMLElement[];
     let visibleCount = 0;
+    let nextLazyIndex = 0;
+    let isBatchLoading = false;
     let loadMoreBtn: HTMLElement | null = null;
 
     function hideAllInitially() {
-        allItems.forEach((el, i) => {
-            const htmlEl = el as HTMLElement;
-            if (i >= BATCH_SIZE) {
-                htmlEl.style.display = 'none';
-                htmlEl.dataset.lazyHidden = 'true';
-            }
+        lazyItems.forEach((el, i) => {
+            const shouldShow = i < BATCH_SIZE;
+            el.style.display = shouldShow ? '' : 'none';
+            el.dataset.lazyHidden = shouldShow ? 'false' : 'true';
         });
-        visibleCount = Math.min(BATCH_SIZE, allItems.length);
+        visibleCount = Math.min(BATCH_SIZE, lazyItems.length);
+        nextLazyIndex = visibleCount;
     }
 
     function showNextBatch() {
-        let shown = 0;
-        for (let i = 0; i < allItems.length && shown < BATCH_SIZE; i++) {
-            const el = allItems[i] as HTMLElement;
-            if (el.dataset.lazyHidden === 'true') {
-                el.style.display = '';
-                el.dataset.lazyHidden = 'false';
-                el.classList.add('visible');
-                shown++;
-                visibleCount++;
-            }
+        if (isBatchLoading || nextLazyIndex >= lazyItems.length) {
+            return false;
         }
+        isBatchLoading = true;
+        let shown = 0;
+        const endIndex = Math.min(nextLazyIndex + BATCH_SIZE, lazyItems.length);
+        for (let i = nextLazyIndex; i < endIndex; i++) {
+            const el = lazyItems[i];
+            el.style.display = '';
+            el.dataset.lazyHidden = 'false';
+            el.classList.add('visible');
+            shown++;
+        }
+        nextLazyIndex = endIndex;
+        visibleCount = nextLazyIndex;
+        isBatchLoading = false;
         updateLoadMoreBtn();
         return shown > 0;
     }
 
     function getHiddenCount() {
-        let count = 0;
-        allItems.forEach(el => {
-            if ((el as HTMLElement).dataset.lazyHidden === 'true') count++;
-        });
-        return count;
+        return Math.max(lazyItems.length - nextLazyIndex, 0);
     }
 
     function updateLoadMoreBtn() {
@@ -375,7 +379,7 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
     document.querySelector('.timeline')?.appendChild(scrollSentinel);
 
     const scrollObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && visibleCount < MAX_BEFORE_PAGINATE) {
+        if (entries[0].isIntersecting && visibleCount < MAX_BEFORE_PAGINATE && !isBatchLoading && !loadMoreBtn) {
             showNextBatch();
         }
     }, { rootMargin: '200px' });

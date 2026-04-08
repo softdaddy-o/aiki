@@ -1,9 +1,9 @@
 ---
-title: "저는 깨닫지 못했지만 1년 동안 ChatGPT에 지나치게 의존하여 코드를 작성하게 되었습니다"
+title: "4chan 데이터 튜닝, 8B·70B가 베이스를 넘겼다는 주장"
 date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
-summary: "저는 깨닫지 못했지만 1년 동안 ChatGPT에 지나치게 의존하여 코드를 작성하게 되었습니다."
+summary: "LocalLLaMA의 한 실험자가 4chan 데이터로 튜닝한 `8B`와 `70B` 모델이 모두 베이스 모델보다 낫다고 주장했다. 합성 데이터 비중이 커진 시대에 편집되지 않은 인간 대화가 창의성과 비판성을 되살릴 수 있다는 논의가 붙었다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1se2kna/4chan_data_can_almost_certainly_improve_model/"
 sourceTitle: "LocalLLaMA"
 draft: false
@@ -16,22 +16,20 @@ factCheck:
   sources:
     - url: "https://www.reddit.com/r/LocalLLaMA/comments/1se2kna/4chan_data_can_almost_certainly_improve_model/"
       title: "LocalLLaMA"
-    - url: "https://www.reddit.com/r/MachineLearning/comments/1sdmn97/d_how_to_break_free_from_llms_chains_as_a_phd/"
-      title: "Secondary source"
   checks:
     - type: source_match
       result: pass
-    - type: web_cross_check
-      result: pass
-      sources: 2
     - type: adversarial
       result: pass
-      findings: []
-tags: ["llm"]
+      findings:
+        - "주장 근거가 주로 UGI와 내부 테스트에 머물러 있어 범용 성능 개선으로 일반화하긴 아직 이르다."
+tags: ["llm", "training-data", "alignment", "open-model"]
 ---
 
-저는 깨닫지 못했지만 1년 동안 ChatGPT에 지나치게 의존하여 코드를 작성하게 되었습니다. 저는 박사 과정 2년차 학생이고 졸업 후 가짜 "코딩 기술"을 가진 사람이 되고 싶지 않습니다. 나는 사람들이 LLM을 사용하여 코드의 지루한 부분을 작성하는 것에 대해 항상 이야기하는 것을 듣습니다.
+LocalLLaMA에 올라온 [실험 글](https://www.reddit.com/r/LocalLLaMA/comments/1se2kna/4chan_data_can_almost_certainly_improve_model/)은 데이터셋 선택에 대한 꽤 불편한 질문을 던진다. 작성자는 4chan 데이터로 튜닝한 `8B(약 80억)` 모델과 `70B(약 700억)` 모델이 둘 다 베이스 모델보다 나은 결과를 냈다고 주장했다.
 
-LocalLLaMA 관련 1차 출처와 보조 출처를 함께 보면, 저는 깨닫지 못했지만 1년 동안 ChatGPT에 지나치게 의존하여 코드를 작성하게 되었습니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
+커뮤니티가 붙잡은 논점은 데이터 질보다 데이터 결이야. 최근 모델은 증류 데이터와 합성 데이터 비중이 지나치게 커지면서 말투는 매끈하지만 지나치게 순응적이거나 창의성이 마른다는 불만이 많다. 댓글에서도 편집되지 않은 인간 상호작용이 오히려 모델 응답을 더 살아 있게 만든다는 반응이 이어졌어.
 
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+작성자도 같은 지점을 짚어. 4chan 데이터를 고른 이유는 공격성 자체가 아니라, 과도한 맞장구와 무딘 비판 성향을 줄이는 데 도움이 된다고 봤기 때문이야. 게시글에는 모델이 더 논쟁적이고 덜 아첨하게 됐다는 식의 설명도 붙어 있다.
+
+물론 이 결과를 곧바로 일반화하긴 어렵다. 현재 근거는 `UGI`와 내부 평가에 크게 기대고 있고, 외부 벤치와 독립 재현도 더 필요하다. 그래도 이 실험은 한 가지 질문을 남긴다. 데이터셋을 지나치게 정제할수록 모델이 더 똑똑해지는 게 아니라, 오히려 인간 대화의 거친 롱테일을 잃으면서 사고의 폭까지 같이 줄어드는 것 아니냐는 질문이다.

@@ -1,45 +1,31 @@
 ---
-title: "[https://youtu.be/mJSnn0GZmls](https://youtu.be/mJSnn0GZmls)
-
-'우리 역사상 정말 중요한 일이 효과가 있거나 효과가 너무 좋아 다른 프로젝트를 중단해야 한다는 사실을 깨달은 적이 몇 번 있었습니다"
+title: "Google 3월 AI 총정리, Gemini를 일상 인터페이스로 밀었다"
 date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news
-summary: "[https://youtu.be/mJSnn0GZmls](https://youtu.be/mJSnn0GZmls)
-
-'우리 역사상 정말 중요한 일이 효과가 있거나 효과가 너무 좋아 다른 프로젝트를 중단해야 한다는 사실을 깨달은 적이 몇 번 있었습니다."
+summary: "Google이 2026년 3월 AI 업데이트를 한 장으로 묶었다. Search Live를 200개 이상 국가로 확장하고, Workspace·Maps·Gemini 앱·헬스케어까지 AI를 생활형 인터페이스로 엮은 한 달이었다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/"
 sourceTitle: "blog.google"
 draft: false
-backfilled: true
-backfilledAt: "2026-04-07"
-score: 65
+score: 71
 factCheck:
   status: passed
-  date: "2026-04-07"
+  date: "2026-04-04"
   sources:
     - url: "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/"
       title: "blog.google"
-    - url: "https://developers.openai.com/tracks/ai-application-development/"
-      title: "Secondary source"
   checks:
     - type: source_match
       result: pass
-    - type: web_cross_check
-      result: pass
-      sources: 2
-    - type: adversarial
-      result: pass
-      findings: []
-tags: ["agent"]
+tags: ["google", "gemini", "search", "workspace"]
+backfilled: true
+backfilledAt: "2026-04-07"
 ---
 
-[https://youtu.be/mJSnn0GZmls](https://youtu.be/mJSnn0GZmls)
+Google이 [3월 AI 업데이트 모음](https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/)을 올렸는데, 한 달치 발표를 한 줄로 요약하면 이거야. "Gemini를 앱 하나가 아니라 일상 인터페이스 전체에 심는다." 모델 자체보다 Search, Workspace, Maps, 건강 영역까지 생활 접점을 넓히는 데 무게가 실렸어.
 
-'우리 역사상 정말 중요한 일이 효과가 있거나 효과가 너무 좋아 다른 프로젝트를 중단해야 한다는 사실을 깨달은 적이 몇 번 있었습니다. 사실 이것은 GPT3에서 일어난 원래 일이었습니다. 우리는 전체 포를 가지고 있었다
+가장 큰 장면은 검색 쪽이야. `Search Live`를 `200개` 넘는 국가와 지역으로 넓히고, 음성과 카메라 피드를 섞은 대화형 검색을 전면으로 밀었어. 여행 중에 길을 묻거나, 현장에서 물건을 비추며 질문하거나, 즉석에서 문제 해결을 받는 식의 사용 흐름을 노린 거지.
 
-blog.google 관련 1차 출처와 보조 출처를 함께 보면, [https://youtu.be/mJSnn0GZmls](https://youtu.be/mJSnn0GZmls)
+업무 툴도 손봤어. Docs, Sheets, Slides, Drive에선 AI Ultra와 Pro 구독자를 대상으로 파일·이메일·웹 정보를 엮어주는 기능을 강화했고, Maps는 Gemini 기반 대화형 탐색으로 방향을 바꿨어. Gemini 앱 쪽에선 다른 AI 앱에서 대화 기록과 기억을 옮기는 전환 도구까지 넣었고.
 
-'우리 역사상 정말 중요한 일이 효과가 있거나 효과가 너무 좋아 다른 프로젝트를 중단해야 한다는 사실을 깨달은 적이 몇 번 있었습니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
-
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+왜 이 정리가 중요하냐면 Google AI 전략이 더 이상 "큰 모델 발표" 위주가 아니라는 걸 보여줘서야. 3월 한 달 동안 나온 것만 봐도 검색, 문서, 지도, 전환 도구, 헬스케어가 한 줄로 이어져 있어. 결국 Google은 AI를 별도 제품이 아니라 기본 사용 환경으로 녹여 넣는 쪽에 거의 올인하고 있는 셈이야.

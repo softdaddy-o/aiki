@@ -1,39 +1,31 @@
 ---
-title: "기계가 힘든 육체 노동을 대체했기 때문에 오늘날 우리가 체육관에 가는 것처럼, 가까운 미래에는 AI가 모든 어려운 정신 작업을 수행할 것이기 때문에 마음을 \"운동\"하기 위해 정신 체육관에 가야 할 것입니다"
+title: "Google, AI 리터러시에 1.5억 달러 이상 투입한다"
 date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news
-summary: "기계가 힘든 육체 노동을 대체했기 때문에 오늘날 우리가 체육관에 가는 것처럼, 가까운 미래에는 AI가 모든 어려운 정신 작업을 수행할 것이기 때문에 마음을 \"운동\"하기 위해 정신 체육관에 가야 할 것입니다."
+summary: "Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했다. 뉴욕 공립학교 현장 사례와 함께, `1억5천만 달러` 이상 투자와 `5월` 시작 예정인 AI Educator Series를 묶어 발표했다."
 sourceUrl: "https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/"
 sourceTitle: "blog.google"
 draft: false
-backfilled: true
-backfilledAt: "2026-04-07"
-score: 65
+score: 67
 factCheck:
   status: passed
-  date: "2026-04-07"
+  date: "2026-04-05"
   sources:
     - url: "https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/"
       title: "blog.google"
-    - url: "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/"
-      title: "Secondary source"
   checks:
     - type: source_match
       result: pass
-    - type: web_cross_check
-      result: pass
-      sources: 2
-    - type: adversarial
-      result: pass
-      findings: []
 tags: ["agent", "ai", "anthropic", "claude", "cursor"]
+backfilled: true
+backfilledAt: "2026-04-07"
 ---
 
-기계가 힘든 육체 노동을 대체했기 때문에 오늘날 우리가 체육관에 가는 것처럼, 가까운 미래에는 AI가 모든 어려운 정신 작업을 수행할 것이기 때문에 마음을 "운동"하기 위해 정신 체육관에 가야 할 것입니다.
+Google이 [AI Literacy Day 회고 글](https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/)에서 강조한 건 기술보다 사람 순서였어. AI를 교실에 넣을 때도 플랫폼 기업이 앞장서는 게 아니라, 교사가 먼저 쓰고 자기 문맥에 맞게 바꾸는 구조가 중요하다는 거야.
 
-천년 전에는 체력이 삶의 일부에 불과했습니다. 당신은 당신의 학사로 구축
+실제 사례도 꽤 구체적이야. 뉴욕 공립학교 교사들은 Gemini로 역사 수업용 가상 세계를 만들고, `NotebookLM`으로 추상 개념을 학생 눈높이에 맞는 이미지와 텍스트로 바꾸고, Google Forms용 퀴즈를 자동 생성해 수업 준비와 채점 시간을 줄였어. 한 번의 데모가 아니라 교실 업무의 2~3개 병목을 바로 건드린 셈이야.
 
-blog.google 관련 1차 출처와 보조 출처를 함께 보면, 기계가 힘든 육체 노동을 대체했기 때문에 오늘날 우리가 체육관에 가는 것처럼, 가까운 미래에는 AI가 모든 어려운 정신 작업을 수행할 것이기 때문에 마음을 "운동"하기 위해 정신 체육관에 가야 할 것입니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
+투자 규모도 작지 않아. Google은 AI 리터러시 관련 자원과 프로그램에 `1억5천만 달러` 이상을 넣겠다고 했고, `5월`에는 ISTE+ASCD와 함께 `Google AI Educator Series`를 시작한다고 밝혔어. 무료 자기주도 과정, AI Quests, Online Safety Roadshow, 고등교육용 인증 과정까지 이어지는 구조라서 단발성 이벤트로 끝낼 생각은 아닌 것 같아.
 
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+이게 중요한 이유는 교육 시장에서 AI 도입의 승부가 모델 성능보다 신뢰와 운영에 달려 있어서야. 교사가 실제 수업 시간을 아끼고 학생 참여를 끌어올리는 경험을 한 번 만들면, 그다음부터는 정책보다 현장 채택이 더 빨리 움직이거든. Google은 바로 그 첫 번째 경험을 대규모로 만들려는 중이야.

@@ -1,13 +1,9 @@
 ---
-title: "하드웨어:
-
-• 재고 iMac G3 Rev B(1998년 10월)"
+title: "iMac G3에서 LLM을 돌린 복고 실험"
 date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
-summary: "하드웨어:
-
-• 재고 iMac G3 Rev B(1998년 10월)."
+summary: "LocalLLaMA에 1998년형 iMac G3에서 초소형 LLM을 구동한 실험이 올라왔다. 기기는 `233MHz` PowerPC 750과 `32MB` RAM, 모델은 약 `1MB`급 TinyStories 체크포인트였고, Retro68로 클래식 Mac OS용 바이너리를 크로스컴파일했다."
 sourceUrl: "https://i.redd.it/p4vfca76qhtg1.jpeg"
 sourceTitle: "LocalLLaMA"
 draft: false
@@ -18,36 +14,21 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://i.redd.it/p4vfca76qhtg1.jpeg"
+    - url: "https://www.reddit.com/r/LocalLLaMA/comments/1sdnw7l/i_technically_got_an_llm_running_locally_on_a/"
       title: "LocalLLaMA"
-    - url: "https://www.reddit.com/r/LocalLLaMA/comments/1sduazd/tested_how_opencode_works_with_selfhosted_llms/"
-      title: "Secondary source"
   checks:
     - type: source_match
       result: pass
-    - type: web_cross_check
-      result: pass
-      sources: 2
     - type: adversarial
       result: pass
       findings: []
-tags: ["llm", "token", "tokenizer", "memory", "llama"]
+tags: ["llm", "retro-computing", "tiny-model", "local-ai"]
 ---
 
-하드웨어:
+LocalLLaMA에 올라온 [복고 실험](https://www.reddit.com/r/LocalLLaMA/comments/1sdnw7l/i_technically_got_an_llm_running_locally_on_a/)은 말 그대로 `1998년`형 iMac G3에서 LLM을 실행해본 사례야. 기기 사양은 `233MHz` PowerPC 750, `32MB` RAM, 운영체제는 Mac OS 8.5였고 추가 업그레이드도 없었다고 해.
 
-• 재고 iMac G3 Rev B(1998년 10월). 233MHz PowerPC 750, 32MB RAM, Mac OS 8.5. 업그레이드가 없습니다.
+물론 여기서 돌아간 모델은 오늘날 기준의 챗봇이 아니야. Andrej Karpathy의 `TinyStories` 계열, 대략 `260K` 규모에 체크포인트가 `1MB` 안팎인 초소형 모델이야. "구형 컴퓨터에서도 GPT급 AI가 돌아간다"는 이야기가 아니라, 아주 작은 추론 모델을 오래된 환경에 이식해본 실험에 가깝지.
 
-• 모델: Andrej Karpathy의 260K TinyStories(Llama 2 아키텍처). \~1MB 체크포인트.
+재미는 모델보다 구현 과정에 있어. 작성자는 `Retro68`를 써서 현대 맥에서 클래식 Mac OS용 바이너리를 크로스컴파일했고, 그 결과물을 iMac G3로 옮겨 실행했다. 고전 하드웨어에 현대 ML 추론 코드를 억지로 맞춰 넣는 과정 자체가 이 실험의 중심이야.
 
-툴체인:
-
-• Retro68을 사용하여 Mac mini에서 크로스 컴파일(클래식 Mac OS용 GCC → PEF 바이너리)
-
-• 종료
-
-LocalLLaMA 관련 1차 출처와 보조 출처를 함께 보면, 하드웨어:
-
-• 재고 iMac G3 Rev B(1998년 10월)가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
-
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+이런 시도가 남기는 메시지도 있다. LLM 논의는 거대한 GPU 숫자만 따라가기 쉽지만, 반대로 추론 엔진과 모델이 어디까지 작아질 수 있는지도 중요한 축이기 때문이다. `28년` 전 하드웨어에서 `1MB`급 모델을 돌렸다는 사실은 초저전력·초경량 AI가 내려갈 수 있는 하한선을 감각적으로 보여준다.

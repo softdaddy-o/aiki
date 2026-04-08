@@ -1,37 +1,31 @@
 ---
-title: "마침내 Gemini Nano는 모든 Chrome 사용자를 위해 거의 여기에 있습니다(원래 Chrome 138에 있다는 사실을 잘못 알고 있었지만 사실을 확인했고 Chrome 137+ 이후 제한된 상황에서 플래그가 지정되지 않은 상태로 배송되기 시작했습니다)"
+title: "Gemini 앱 3월 업데이트, 기억 이전과 라이브를 강화했다"
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
-summary: "마침내 Gemini Nano는 모든 Chrome 사용자를 위해 거의 여기에 있습니다(원래 Chrome 138에 있다는 사실을 잘못 알고 있었지만 사실을 확인했고 Chrome 137+ 이후 제한된 상황에서 플래그가 지정되지 않은 상태로 배송되기 시작했습니다)."
+summary: "Google이 3월 Gemini Drop에서 대화 기록 이전, Personal Intelligence 무료 확대, Gemini Live 3.1 개선, Lyria 3 Pro의 3분 음악 생성 기능을 함께 공개했다."
 sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/"
 sourceTitle: "blog.google"
 draft: false
-backfilled: true
-backfilledAt: "2026-04-07"
-score: 65
+score: 74
 factCheck:
   status: passed
-  date: "2026-04-07"
+  date: "2026-04-01"
   sources:
     - url: "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/"
       title: "blog.google"
-    - url: "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/"
-      title: "Secondary source"
   checks:
     - type: source_match
       result: pass
-    - type: web_cross_check
-      result: pass
-      sources: 2
-    - type: adversarial
-      result: pass
-      findings: []
-tags: ["gemini"]
+tags: ["gemini", "google", "consumer-ai", "personalization"]
+backfilled: true
+backfilledAt: "2026-04-07"
 ---
 
-마침내 Gemini Nano는 모든 Chrome 사용자를 위해 거의 여기에 있습니다(원래 Chrome 138에 있다는 사실을 잘못 알고 있었지만 사실을 확인했고 Chrome 137+ 이후 제한된 상황에서 플래그가 지정되지 않은 상태로 배송되기 시작했습니다). 이 HN 게시물을 보고 생각났습니다. 완전완전 배송되길 기대합니다
+Google이 3월 [Gemini Drop](https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/)에서 내세운 건 새 모델보다 사용 경험 쪽 변화였어. 특히 다른 AI 앱의 기억과 대화 맥락을 몇 번의 클릭으로 가져오는 기능이 들어간 점이 가장 먼저 보이는 변화야.
 
-blog.google 관련 1차 출처와 보조 출처를 함께 보면, 마침내 Gemini Nano는 모든 Chrome 사용자를 위해 거의 여기에 있습니다(원래 Chrome 138에 있다는 사실을 잘못 알고 있었지만 사실을 확인했고 Chrome 137+ 이후 제한된 상황에서 플래그가 지정되지 않은 상태로 배송되기 시작했습니다)가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
+개인화도 한 단계 더 밀었어. 공식 글 기준으로 미국 사용자에게는 `Personal Intelligence`가 무료로 열렸고, Gmail·Photos·YouTube 같은 Google 서비스 맥락을 답변에 반영할 수 있게 됐다. Gemini를 단순한 채팅창이 아니라 개인 데이터 위에서 움직이는 인터페이스로 키우겠다는 방향이 더 분명해진 셈이야.
 
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+라이브 기능 변화도 같이 붙었어. `Gemini Live 3.1`은 대화 흐름을 더 빠르게 만들고, 유지 가능한 컨텍스트 길이를 이전 대비 `2배`로 늘렸다고 설명한다. 창작 쪽에선 `Lyria 3 Pro`로 최대 `3분` 길이의 음악을 만들 수 있게 하면서 텍스트와 이미지를 결과물로 바로 잇는 흐름도 강화했다.
+
+중요한 건 경쟁의 축이 조금 달라졌다는 점이다. 이제 AI 앱 승부는 모델 점수보다 누가 사용자의 과거 맥락을 더 자연스럽게 이어받느냐에 가까워지고 있어. Google이 기억 이전, 메모리, 라이브 대화, 생성 기능을 한 번에 묶어낸 것도 그 흐름을 의식한 움직임이야.
