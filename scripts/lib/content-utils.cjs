@@ -38,7 +38,7 @@ async function fetchText(url, options = {}) {
 }
 
 function stripHtml(html) {
-    return html
+    return String(html || '')
         .replace(/<script[\s\S]*?<\/script>/gi, ' ')
         .replace(/<style[\s\S]*?<\/style>/gi, ' ')
         .replace(/<[^>]+>/g, ' ')
@@ -51,13 +51,13 @@ function stripHtml(html) {
 }
 
 function extractTitle(html) {
-    const og = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
+    const og = String(html || '').match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
     if (og) return og[1].trim();
 
-    const title = html.match(/<title>([\s\S]*?)<\/title>/i);
+    const title = String(html || '').match(/<title>([\s\S]*?)<\/title>/i);
     if (title) return stripHtml(title[1]);
 
-    const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+    const h1 = String(html || '').match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
     if (h1) return stripHtml(h1[1]);
 
     return null;
@@ -71,13 +71,13 @@ function extractDescription(html) {
     ];
 
     for (const pattern of patterns) {
-        const match = html.match(pattern);
+        const match = String(html || '').match(pattern);
         if (match) {
             return stripHtml(match[1]);
         }
     }
 
-    const paragraphs = html.match(/<p\b[^>]*>([\s\S]*?)<\/p>/gi) || [];
+    const paragraphs = String(html || '').match(/<p\b[^>]*>([\s\S]*?)<\/p>/gi) || [];
     for (const paragraph of paragraphs) {
         const text = stripHtml(paragraph);
         if (text.length >= 80) return text;
@@ -87,11 +87,11 @@ function extractDescription(html) {
 }
 
 async function translateToKorean(text) {
-    if (!text || !text.trim()) return '';
+    const source = String(text || '').trim();
+    if (!source) return '';
 
-    const url =
-        'https://translate.googleapis.com/translate_a/single'
-        + `?client=gtx&sl=auto&tl=ko&dt=t&q=${encodeURIComponent(text)}`;
+    const url = 'https://translate.googleapis.com/translate_a/single'
+        + `?client=gtx&sl=auto&tl=ko&dt=t&q=${encodeURIComponent(source)}`;
 
     const response = await fetch(url, {
         headers: {
@@ -144,17 +144,19 @@ async function summarizeSource(source) {
 }
 
 function sentenceSplit(text) {
-    return text
+    return String(text || '')
         .split(/(?<=[.!?])\s+/)
         .map((item) => item.trim())
         .filter(Boolean);
 }
 
 function clip(text, maxLength) {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
+    const source = String(text || '');
+    if (source.length <= maxLength) {
+        return source;
+    }
 
-    return `${text.slice(0, maxLength - 1).trim()}…`;
+    return `${source.slice(0, maxLength - 1).trim()}…`;
 }
 
 function yamlQuote(value) {
@@ -174,8 +176,11 @@ module.exports = {
     USER_AGENT,
     clip,
     extractDescription,
+    extractTitle,
+    fetchJson,
     fetchText,
     sentenceSplit,
+    stripHtml,
     summarizeSource,
     translateToKorean,
     writeUtf8,

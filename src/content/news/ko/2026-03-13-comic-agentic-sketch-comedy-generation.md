@@ -1,12 +1,12 @@
 ---
-title: "cs.AI ??, > 영어는 나의 모국어가 아닙니다"
+title: "COMIC: 에이전트틱 스케치 코미디 생성, arXiv 논문 2603.11048v1의 추상 페이지: COMIC:…"
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
-summary: "> 영어는 나의 모국어가 아닙니다."
-readerValue: "이 뉴스의 값은 cs.AI ??, > 영어는 나의 모국어가 아닙니다가 실제 제품과 모델 경쟁 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다."
+summary: "arXiv 논문 2603.11048v1의 추상 페이지: COMIC: Agentic Sketch Comedy Generation"
+readerValue: "이 글이 해결해주는 문제는 arXiv 논문 2603.11048v1의 추상 페이지: COMIC: Agentic Sketch Comedy Generation가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.11048v1"
-sourceTitle: "cs.AI"
+sourceTitle: "COMIC: Agentic Sketch Comedy Generation"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,10 +31,8 @@ factCheck:
 tags: ["agent"]
 ---
 
-> 영어는 나의 모국어가 아닙니다. 중국어로 쓰고 AI의 도움을 받아 번역했습니다. 글에는 AI의 풍미가 있을 수 있지만 디자인 결정, 생산 실패 및 이를 원칙으로 증류한 사고는 모두 내 것입니다.
+arXiv 논문 2603.11048v1의 추상 페이지: COMIC: Agentic Sketch Comedy Generation. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-나는 Meta ac 이전에 Manus에서 백엔드 리더였습니다.
+COMIC: Agentic Sketch Comedy Generation 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-cs.AI 관련 1차 출처와 보조 출처를 함께 보면, > 영어는 나의 모국어가 아닙니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
-
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 COMIC: 에이전트틱 스케치 코미디 생성, arXiv 논문 2603.11048v1의 추상 페이지: COMIC:…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

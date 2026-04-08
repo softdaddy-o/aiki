@@ -1,12 +1,12 @@
 ---
-title: "cs.AI ??, 안녕하세요 여러분,"
+title: "SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전, arXiv 논문 2603.12249v1의 초록 페이…"
 date: "2026-03-15T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Cicikus v3 Prometheus 4.4B 실험 릴리스와 함께 소형 모델 확장 방식이 어디까지 통하는지 보여 준 사례다."
-readerValue: "이 뉴스의 값은 작은 모델도 확장 전략에 따라 경쟁력을 만들 수 있다는 신호를 빠르게 읽게 해준다는 점이다."
+summary: "arXiv 논문 2603.12249v1의 초록 페이지: SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전"
+readerValue: "이 글이 해결해주는 문제는 arXiv 논문 2603.12249v1의 초록 페이지: SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.12249v1"
-sourceTitle: "cs.AI"
+sourceTitle: "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,14 +31,8 @@ factCheck:
 tags: ["benchmark", "token", "multimodal", "reasoning", "modal", "llama"]
 ---
 
-안녕하세요 여러분,
+arXiv 논문 2603.12249v1의 초록 페이지: SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-Prometech의 실험적 릴리스인 Cicikus v3 Prometheus 4.4B를 공유하게 되어 기쁘게 생각합니다.
+SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-이 모델은 Llama 3.2 3B 아키텍처의 타겟 패스스루 확장입니다. 기존 병합 대신 훈련된 어댑터의 L2 표준 분석을 통해 "핫 존"을 식별하여 확장합니다.
-
-cs.AI 관련 1차 출처와 보조 출처를 함께 보면, 안녕하세요 여러분,
-
-Prometech의 실험적 릴리스인 Cicikus v3 Prometheus 4.4B를 공유하게 되어 기쁘게 생각합니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
-
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전, arXiv 논문 2603.12249v1의 초록 페이…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

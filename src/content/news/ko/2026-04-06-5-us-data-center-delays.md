@@ -4,7 +4,7 @@ date: "2026-04-06T14:00:00+09:00"
 lang: ko
 category: news
 summary: "2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다. 변압기, 배전반 등 핵심 전기 부품의 리드타임이 최대 5년까지 늘어났고, 상당수가 중국산에 의존하고 있다."
-readerValue: "이 뉴스의 값은 2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다. 변압기, 배전반 등 핵심 전기 부품의 리드타임이 최대 5년까지 늘어났고, 상당수가 중국산에 의존하고 있다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+readerValue: "이 글이 해결해주는 문제는 2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다. 변압기, 배전반 등 핵심 전기 부품의 리드타임이 최대 5년까지 늘어났고, 상당수가 중국산에 의존하고 있다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers"
 sourceTitle: "Tom's Hardware"
 draft: false

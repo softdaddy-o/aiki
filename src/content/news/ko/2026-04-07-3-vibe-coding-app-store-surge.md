@@ -4,7 +4,7 @@ date: "2026-04-07T11:00:00+09:00"
 lang: ko
 category: news
 summary: "2026년 1분기 App Store 신규 앱이 235,800개로 전년 대비 84% 급증했어. 바이브코딩 툴 Cursor는 293억 달러 가치를 기록했지만, 애플은 가이드라인 2.5.2를 앞세워 Anything 앱을 퇴출시키며 정면 충돌 중이야."
-readerValue: "이 뉴스의 값은 2026년 1분기 App Store 신규 앱이 235,800개로 전년 대비 84% 급증했어. 바이브코딩 툴 Cursor는 293억 달러 가치를 기록했지만, 애플은 가이드라인 2.5.2를 앞세워 Anything 앱을 퇴출시키며 정면 충돌 중이야가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+readerValue: "이 글이 해결해주는 문제는 2026년 1분기 App Store 신규 앱이 235,800개로 전년 대비 84% 급증했어. 바이브코딩 툴 Cursor는 293억 달러 가치를 기록했지만, 애플은 가이드라인 2.5.2를 앞세워 Anything 앱을 퇴출시키며 정면 충돌 중이야가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://thenextweb.com/news/vibe-coding-apple-app-store-surge-crackdown"
 sourceTitle: "The Next Web"
 draft: false

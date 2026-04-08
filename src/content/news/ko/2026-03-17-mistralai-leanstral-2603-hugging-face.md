@@ -1,12 +1,12 @@
 ---
-title: "LocalLLaMA ??, Leanstral은 [완벽한 공간](https://xenaproject.wordpres..."
+title: "mistralai/Leanstral-2603 · 포옹하는 얼굴, 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지…"
 date: "2026-03-17T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Leanstral은 [완벽한 공간](https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/) 및 소프트웨어 사양과 같은 복잡한 수학적 객체를 표현할 수 있는 증명 도우미인 [Lean 4](https://github.com/leanprover/lean…"
-readerValue: "이 뉴스의 값은 Leanstral은 [완벽한 공간](https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/) 및 소프트웨어 사양과 같은 복잡한 수학적 객체를 표현할 수 있는 증명 도우미인 [Lean 4](https://github.com/leanprover/lean…가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하기 위한 여정을 진행하고 있습니다."
+readerValue: "이 글이 해결해주는 문제는 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하기 위한 여정을 진행하고 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://huggingface.co/mistralai/Leanstral-2603"
-sourceTitle: "LocalLLaMA"
+sourceTitle: "mistralai/Leanstral-2603 · Hugging Face"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,8 +31,8 @@ factCheck:
 tags: ["rag", "agent", "multimodal", "modal", "mistral"]
 ---
 
-Leanstral은 [완벽한 공간](https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/) 및 소프트웨어 사양과 같은 복잡한 수학적 객체를 표현할 수 있는 증명 도우미인 [Lean 4](https://github.com/leanprover/lean4)용으로 설계된 최초의 오픈 소스 코드 에이전트입니다.
+우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하기 위한 여정을 진행하고 있습니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-LocalLLaMA 관련 1차 출처와 보조 출처를 함께 보면, Leanstral은 [완벽한 공간](https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/) 및 소프트웨어 사양과 같은 복잡한 수학적 객체를 표현할 수 있는 증명 도우미인 [Lean 4](https://github.com/leanprover/lean…가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
+mistralai/Leanstral-2603 · Hugging Face 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 mistralai/Leanstral-2603 · 포옹하는 얼굴, 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

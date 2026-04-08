@@ -1,12 +1,12 @@
 ---
-title: "blog.google ??, Google이 Gemini에 신규 전환 도구를 추가했다. 다른 AI 앱의 기억 정보는..."
+title: "전환하세요: AI 추억과 채팅 기록을 Gemini로 가져오세요, Gemini 앱을 사용하면 처음부터 시작할 필요…"
 date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 Gemini에 신규 전환 도구를 추가했다. 다른 AI 앱의 기억 정보는 복사해 붙여넣고, 전체 대화 기록은 ZIP 업로드로 가져올 수 있으며, 기존 'past chats' 명칭도 memory로 바뀐다."
-readerValue: "이 뉴스의 값은 Google이 Gemini에 신규 전환 도구를 추가했다. 다른 AI 앱의 기억 정보는 복사해 붙여넣고, 전체 대화 기록은 ZIP 업로드로 가져올 수 있으며, 기존 'past chats' 명칭도 memory로 바뀐다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다."
+readerValue: "이 글이 해결해주는 문제는 Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/"
-sourceTitle: "blog.google"
+sourceTitle: "Make the switch: Bring your AI memories and chat history to Gemini"
 draft: false
 score: 73
 factCheck:
@@ -23,10 +23,8 @@ backfilled: true
 backfilledAt: "2026-04-07"
 ---
 
-[Google 공식 글](https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/)에 따르면 Gemini는 이제 다른 AI 앱에서 쓰던 기억 정보와 대화 기록을 직접 가져올 수 있어. 기억 정보는 안내 프롬프트 결과를 붙여넣는 방식이고, 전체 채팅 기록은 ZIP 파일 업로드로 이어서 쓰는 방식이야.
+Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-이 기능이 중요한 이유는 AI 앱 전환 비용이 모델 성능보다 맥락 이전에서 더 크게 발생했기 때문이야. 사용자는 이미 수십 개, 많게는 수백 개 대화 안에 취향, 가족 정보, 작업 방식, 톤을 쌓아두고 있다. 그 맥락을 `2단계` 만에 옮길 수 있는지, 아니면 `1년치` 대화를 다시 설명해야 하는지는 체감 차이가 꽤 크지.
+Make the switch: Bring your AI memories and chat history to Gemini 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-Google은 여기서 멈추지 않았다. 문서에선 기존 `past chats` 명칭을 `memory`로 바꾸고, Gmail·Photos·Search 기록과 과거 Gemini 대화를 함께 활용하는 방향을 설명한다. 단순한 백업 기능이 아니라 개인화된 AI 컨텍스트 레이어를 Gemini 안으로 통합하겠다는 얘기야.
-
-결국 여기서 보이는 경쟁은 모델 성능만의 문제가 아니다. 어느 앱이 더 똑똑한지도 중요하지만, 어느 앱이 사용자의 누적 맥락을 가장 매끄럽게 이어받느냐가 실제 전환율을 좌우할 가능성이 크다. ZIP 업로드와 메모리 이전 기능이 작아 보여도 의미가 큰 이유다.
+읽을 때는 전환하세요: AI 추억과 채팅 기록을 Gemini로 가져오세요, Gemini 앱을 사용하면 처음부터 시작할 필요…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

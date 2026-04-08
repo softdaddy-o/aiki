@@ -4,7 +4,7 @@ date: "2026-04-06T13:00:00+09:00"
 lang: ko
 category: news
 summary: "USC Dornsife의 Morteza Dehghani 교수 팀이 Trends in Cognitive Sciences에 발표한 연구에 따르면, LLM이 생성한 텍스트는 사람 글보다 변이가 적고, AI를 사용한 그룹이 AI 없는 집단 지성보다 창의적 아이디어를 덜 낸다."
-readerValue: "이 뉴스의 값은 USC Dornsife의 Morteza Dehghani 교수 팀이 Trends in Cognitive Sciences에 발표한 연구에 따르면, LLM이 생성한 텍스트는 사람 글보다 변이가 적고, AI를 사용한 그룹이 AI 없는 집단 지성보다 창의적 아이디어를 덜 낸다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+readerValue: "이 글이 해결해주는 문제는 USC Dornsife의 Morteza Dehghani 교수 팀이 Trends in Cognitive Sciences에 발표한 연구에 따르면, LLM이 생성한 텍스트는 사람 글보다 변이가 적고, AI를 사용한 그룹이 AI 없는 집단 지성보다 창의적 아이디어를 덜 낸다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://www.cnn.com/2026/04/04/health/ai-impact-college-student-thinking-wellness"
 sourceTitle: "CNN"
 draft: false

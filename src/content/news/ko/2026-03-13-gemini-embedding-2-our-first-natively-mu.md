@@ -1,12 +1,12 @@
 ---
-title: "blog.google ??, 다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 Deep..."
+title: "Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델, 텍스트, 이미지, 비디오, 오디오 및 문…"
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
-summary: "다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요."
-readerValue: "이 뉴스의 값은 다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "텍스트, 이미지, 비디오, 오디오 및 문서를 단일 공간에 매핑하는 최초의 완전 다중 모드 임베딩 모델인 Gemini Embedding 2에 대한 개요입니다."
+readerValue: "이 글이 해결해주는 문제는 텍스트, 이미지, 비디오, 오디오 및 문서를 단일 공간에 매핑하는 최초의 완전 다중 모드 임베딩 모델인 Gemini Embedding 2에 대한 개요입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"
-sourceTitle: "blog.google"
+sourceTitle: "Gemini Embedding 2: Our first natively multimodal embedding model"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,14 +31,8 @@ factCheck:
 tags: ["agent", "gemini", "embedding", "multimodal", "alignment", "modal"]
 ---
 
-다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요. 결과를 받으면 여기에 붙여넣으세요. 내부에서 무슨 일이 일어나고 있는지 이해하고 진단하는 데 도움이 될 것입니다.
+텍스트, 이미지, 비디오, 오디오 및 문서를 단일 공간에 매핑하는 최초의 완전 다중 모드 임베딩 모델인 Gemini Embedding 2에 대한 개요입니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-미리 도움을 주셔서 감사합니다.
+Gemini Embedding 2: Our first natively multimodal embedding model 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-테스트 프롬프트:
-
-정렬 유지를 위한 두 가지 가상 프레임워크 분석
-
-blog.google 관련 1차 출처와 보조 출처를 함께 보면, 다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
-
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델, 텍스트, 이미지, 비디오, 오디오 및 문…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

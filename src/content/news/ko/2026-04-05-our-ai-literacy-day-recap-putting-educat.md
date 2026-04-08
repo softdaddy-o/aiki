@@ -1,12 +1,12 @@
 ---
-title: "blog.google ??, Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했..."
+title: "AI 문해력의 날 요약: 교육자를 선두에 두기, Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI…"
 date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했다. 뉴욕 공립학교 현장 사례와 함께, `1억5천만 달러` 이상 투자와 `5월` 시작 예정인 AI Educator Series를 묶어 발표했다."
-readerValue: "이 뉴스의 값은 Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했다. 뉴욕 공립학교 현장 사례와 함께, `1억5천만 달러` 이상 투자와 `5월` 시작 예정인 AI Educator Series를 묶어 발표했다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI 활용 리소스 업데이트를 포함한 AI 활용 능력의 날 요약입니다."
+readerValue: "이 글이 해결해주는 문제는 Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI 활용 리소스 업데이트를 포함한 AI 활용 능력의 날 요약입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/"
-sourceTitle: "blog.google"
+sourceTitle: "Our AI Literacy Day recap: putting educators in the lead"
 draft: false
 score: 67
 factCheck:
@@ -23,10 +23,8 @@ backfilled: true
 backfilledAt: "2026-04-07"
 ---
 
-Google이 [AI Literacy Day 회고 글](https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/)에서 강조한 건 기술보다 사람 순서였어. AI를 교실에 넣을 때도 플랫폼 기업이 앞장서는 게 아니라, 교사가 먼저 쓰고 자기 문맥에 맞게 바꾸는 구조가 중요하다는 거야.
+Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI 활용 리소스 업데이트를 포함한 AI 활용 능력의 날 요약입니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-실제 사례도 꽤 구체적이야. 뉴욕 공립학교 교사들은 Gemini로 역사 수업용 가상 세계를 만들고, `NotebookLM`으로 추상 개념을 학생 눈높이에 맞는 이미지와 텍스트로 바꾸고, Google Forms용 퀴즈를 자동 생성해 수업 준비와 채점 시간을 줄였어. 한 번의 데모가 아니라 교실 업무의 2~3개 병목을 바로 건드린 셈이야.
+Our AI Literacy Day recap: putting educators in the lead 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-투자 규모도 작지 않아. Google은 AI 리터러시 관련 자원과 프로그램에 `1억5천만 달러` 이상을 넣겠다고 했고, `5월`에는 ISTE+ASCD와 함께 `Google AI Educator Series`를 시작한다고 밝혔어. 무료 자기주도 과정, AI Quests, Online Safety Roadshow, 고등교육용 인증 과정까지 이어지는 구조라서 단발성 이벤트로 끝낼 생각은 아닌 것 같아.
-
-이게 중요한 이유는 교육 시장에서 AI 도입의 승부가 모델 성능보다 신뢰와 운영에 달려 있어서야. 교사가 실제 수업 시간을 아끼고 학생 참여를 끌어올리는 경험을 한 번 만들면, 그다음부터는 정책보다 현장 채택이 더 빨리 움직이거든. Google은 바로 그 첫 번째 경험을 대규모로 만들려는 중이야.
+읽을 때는 AI 문해력의 날 요약: 교육자를 선두에 두기, Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

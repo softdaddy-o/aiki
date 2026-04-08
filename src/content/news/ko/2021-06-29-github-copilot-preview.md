@@ -1,10 +1,10 @@
 ---
-title: "GitHub Copilot ??, GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및..."
+title: "GitHub 코파일럿, GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발…"
 date: "2021-06-29T12:00:00+09:00"
 lang: ko
 category: news
 summary: "GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다."
-readerValue: "이 뉴스의 값은 GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+readerValue: "이 글이 해결해주는 문제는 GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/"
 sourceTitle: "GitHub Copilot"
 draft: false
@@ -31,8 +31,8 @@ factCheck:
 tags: ["copilot", "coding-agent", "github"]
 ---
 
-GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다. [ 1 ] 현재 개인 개발자와 기업이 구독을 통해 사용할 수 있는 생성 인공 지능 소프트웨어는 2021년 6월 29일 GitHub에서 처음 발표되었습니다. [ 2 ] 사용자는 생성에 사용되는 대규모 언어 모델을 선택할 수 있습니다. [ 3 ]
+GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-GitHub Copilot 관련 1차 출처와 보조 출처를 함께 보면, GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
+GitHub Copilot 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 GitHub 코파일럿, GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

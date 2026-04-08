@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 /**
  * Enforced pre-publish validation for AIKI content.
- *
- * Hard errors are intended for newly created or recently edited content.
- * Legacy repository-wide debt is surfaced as warnings when running `--all`.
  */
 
 const fs = require('fs');
@@ -26,23 +23,29 @@ const CONTENT_TARGETS = [
 ];
 
 const VALUELESS_PATTERNS = [
-    /라는 맥락에서 자주 언급된다/,
-    /라는 설명을 함께 보면/,
-    /최근 ai 뉴스에서 맥락/,
-    /aiki 기사 기준/,
     /페이지를 찾을 수 없습니다/,
+    /aiki 기사 기준/,
+    /최근 ai 뉴스에서/,
 ];
 
 const VALUE_SIGNAL_PATTERNS = [
-    /왜 중요한가/,
-    /뉴스에서 어떻게 읽으면 되나/,
+    /중요한지/,
+    /읽어야 하는 이유/,
+    /해결해주는 문제/,
     /실무에서/,
-    /사용자/,
-    /독자/,
-    /의미/,
-    /가치/,
-    /핵심/,
-    /구분/,
+    /판단하게/,
+    /구분해서/,
+];
+
+const FORBIDDEN_COPY_PATTERNS = [
+    /이 뉴스의 값은/,
+    /이 글의 값/,
+    /이 글이 주는 값/,
+];
+
+const MOJIBAKE_PATTERNS = [
+    /\?\?/,
+    /�/,
 ];
 
 const args = process.argv.slice(2);
@@ -52,6 +55,7 @@ const checkAll = args.includes('--all');
 function parseFrontmatter(content) {
     const match = content.match(/^---\n([\s\S]*?)\n---/);
     if (!match) return null;
+
     const yaml = match[1];
     const result = {};
     const lines = yaml.split('\n');
@@ -70,15 +74,23 @@ function parseFrontmatter(content) {
 
         if (val === '' && i + 1 < lines.length && lines[i + 1].startsWith('  ')) {
             const obj = {};
+            const list = [];
             i++;
+
             while (i < lines.length && lines[i].startsWith('  ')) {
-                const nested = lines[i].trim().match(/^(\w[\w-]*):\s*(.*)$/);
+                const trimmed = lines[i].trim();
+                const nested = trimmed.match(/^(\w[\w-]*):\s*(.*)$/);
+                const listItem = trimmed.match(/^-\s+(.*)$/);
+
                 if (nested) {
                     obj[nested[1]] = nested[2].trim().replace(/^["']|["']$/g, '');
+                } else if (listItem) {
+                    list.push(listItem[1].trim().replace(/^["']|["']$/g, ''));
                 }
                 i++;
             }
-            result[key] = obj;
+
+            result[key] = Object.keys(obj).length > 0 ? obj : list;
             continue;
         }
 
@@ -137,12 +149,13 @@ function getChangedFiles() {
             encoding: 'utf8',
             stdio: ['ignore', 'pipe', 'ignore'],
         });
+
         return new Set(
             output
                 .split(/\r?\n/)
                 .map((line) => line.trim())
                 .filter(Boolean)
-                .map((line) => path.normalize(path.join(REPO_ROOT, line)))
+                .map((line) => path.normalize(path.join(REPO_ROOT, line))),
         );
     } catch {
         return new Set();
@@ -185,7 +198,7 @@ function hasMeaningfulBody(targetName, body) {
 
 function hasReaderValue(frontmatter, body) {
     const readerValue = String(frontmatter.readerValue || '').trim();
-    if (readerValue.length >= 28) {
+    if (readerValue.length >= 28 && !FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(readerValue))) {
         return true;
     }
 
@@ -194,6 +207,19 @@ function hasReaderValue(frontmatter, body) {
 
 function bodyContainsValuelessTemplate(body) {
     return VALUELESS_PATTERNS.some((pattern) => pattern.test(body));
+}
+
+function countCjkIdeographs(text) {
+    return (String(text || '').match(/[\u4E00-\u9FFF]/g) || []).length;
+}
+
+function containsBrokenCopy(text) {
+    const source = String(text || '');
+    if (MOJIBAKE_PATTERNS.some((pattern) => pattern.test(source))) {
+        return true;
+    }
+
+    return countCjkIdeographs(source) >= 8;
 }
 
 const changedFiles = getChangedFiles();
@@ -227,12 +253,32 @@ for (const target of CONTENT_TARGETS) {
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-        const isRecentFile = changedFiles.has(path.normalize(filepath));
 
         for (const field of target.requiredFields) {
             if (!fm[field]) {
                 errors.push(`${target.name}/${filename}: missing required field "${field}"`);
             }
+        }
+
+        const brokenFieldSamples = [
+            ['title', fm.title],
+            ['summary', fm.summary],
+            ['readerValue', fm.readerValue],
+            ['body', body],
+        ];
+
+        for (const [fieldName, fieldValue] of brokenFieldSamples) {
+            if (containsBrokenCopy(fieldValue)) {
+                const message = `${target.name}/${filename}: ${fieldName} contains broken or mojibake text`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
+        }
+
+        if (FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(String(fm.readerValue || '')))) {
+            const message = `${target.name}/${filename}: readerValue uses forbidden "값" phrasing`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
         }
 
         if (!isDraft && target.name === 'news') {
@@ -276,10 +322,7 @@ for (const target of CONTENT_TARGETS) {
 
         if (!isDraft && bodyContainsValuelessTemplate(body)) {
             const message = `${target.name}/${filename}: body still contains low-value template phrasing`;
-            if (checkAll) {
-                // Repository-wide audits can surface noisy matches from legacy generated text.
-                // Keep hard enforcement for non-audit runs.
-            }
+            if (checkAll) warnings.push(message);
             else errors.push(message);
         }
 
@@ -290,7 +333,7 @@ for (const target of CONTENT_TARGETS) {
         }
 
         if (!isDraft && !hasReaderValue(fm, body)) {
-            const message = `${target.name}/${filename}: missing explicit reader value`;
+            const message = `${target.name}/${filename}: missing explicit reader outcome`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
         }

@@ -1,12 +1,12 @@
 ---
-title: "cs.AI ??, \"reg\", \"uncensored\"(Heretic) 및 \"Rough House\"로 제공됩니다"
+title: "Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론, arXiv 논문 2603.18002…"
 date: "2026-03-20T12:00:00+09:00"
 lang: ko
 category: news
-summary: "\"reg\", \"uncensored\"(Heretic) 및 \"Rough House\"로 제공됩니다."
-readerValue: "이 뉴스의 값은 \\\"reg\\\", \\\"uncensored\\\"(Heretic) 및 \\\"Rough House\\\"로 제공됩니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론"
+readerValue: "이 글이 해결해주는 문제는 arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.18002v1"
-sourceTitle: "cs.AI"
+sourceTitle: "Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,14 +31,8 @@ factCheck:
 tags: ["reasoning", "vision-language-model", "gguf", "claude", "qwen"]
 ---
 
-"reg", "uncensored"(Heretic) 및 "Rough House"로 제공됩니다.
+arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-40B 매개변수, 1275개의 텐서 - 모두 Qwen 3.5.
+Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-확장 및 조정:
-
-[https://huggingface.co/DavidAU/Qwen3.5-40B-Claude-4.5-Opus-High-Reasoning-Thinking](https://huggingface.co/DavidAU/Qwen3.5-40B-Claude-4.5-Opus-High-Reasoning-Thinking)
-
-cs.AI 관련 1차 출처와 보조 출처를 함께 보면, "reg", "uncensored"(Heretic) 및 "Rough House"로 제공됩니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
-
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론, arXiv 논문 2603.18002…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

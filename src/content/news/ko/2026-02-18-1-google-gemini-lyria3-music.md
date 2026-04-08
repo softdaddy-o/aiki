@@ -1,12 +1,12 @@
 ---
-title: "TechCrunch ??, 구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 모델을 탑..."
+title: "Google, Gemini 앱에 음악 생성 기능 추가, 사용자는 텍스트, 이미지, 비디오를 참조 자료로 사용하여…"
 date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news
-summary: "구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 모델을 탑재했다. 텍스트나 이미지 프롬프트로 30초짜리 음악 트랙을 만들 수 있고, 생성된 모든 음원에는 AI 워터마크 SynthID가 자동 삽입된다. 18세 이상 전 세계 제미나이 사용자 대상으로 8개 언어를 지원하며 베타로 출시됐다."
-readerValue: "이 뉴스의 값은 구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 모델을 탑재했다. 텍스트나 이미지 프롬프트로 30초짜리 음악 트랙을 만들 수 있고, 생성된 모든 음원에는 AI 워터마크 SynthID가 자동 삽입된다. 18세 이상 전 세계 제미나이 사용자 대상으로 8개 언어를 지원하며 베타로 출시됐다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "사용자는 텍스트, 이미지, 비디오를 참조 자료로 사용하여 음악을 생성할 수 있습니다."
+readerValue: "이 글이 해결해주는 문제는 사용자는 텍스트, 이미지, 비디오를 참조 자료로 사용하여 음악을 생성할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/"
-sourceTitle: "TechCrunch"
+sourceTitle: "Google adds music-generation capabilities to the Gemini app"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -35,10 +35,8 @@ factCheck:
 tags: ["google", "gemini", "deepmind", "lyria", "music-generation", "AI음악"]
 ---
 
-구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 기능을 베타로 탑재했다. 텍스트 설명이나 이미지 하나로 30초짜리 트랙을 만들 수 있고, 가사 포함 여부·스타일·템포·보컬 톤도 프롬프트로 조절할 수 있어. 이전 세대 모델보다 음악적 복잡도가 높아졌고, 커버 아트도 자동으로 함께 생성된다.
+사용자는 텍스트, 이미지, 비디오를 참조 자료로 사용하여 음악을 생성할 수 있습니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-안전장치도 같이 달려 나왔다. 생성되는 모든 음원에는 구글의 AI 워터마크 기술 [SynthID](https://deepmind.google/models/lyria/)가 자동 삽입되거든. 사람 귀에는 안 들리지만 검출 가능한 방식이고, 제미나이 앱 내에서 음원을 업로드하면 AI 생성 여부도 확인할 수 있게 됐다.
+Google adds music-generation capabilities to the Gemini app 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-출시 범위는 꽤 넓다. 18세 이상 제미나이 사용자라면 전 세계 어디서든 쓸 수 있고, 지원 언어는 영어·독일어·스페인어·프랑스어·힌디어·일본어·한국어·포르투갈어 8개다. 아직 베타이지만 무료로 열려 있다는 점이 포인트다.
-
-AI 음악 생성 시장에서 Suno, Udio 같은 스타트업이 이미 자리를 잡고 있는데, 구글이 제미나이라는 수억 명 규모의 앱에 직접 통합하는 방식으로 들어온 거다. [TechCrunch](https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/)는 이 발표를 "AI 음악 생성의 주류화 신호"로 평가했다.
+읽을 때는 Google, Gemini 앱에 음악 생성 기능 추가, 사용자는 텍스트, 이미지, 비디오를 참조 자료로 사용하여…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

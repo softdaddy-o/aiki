@@ -1,12 +1,12 @@
 ---
-title: "cs.AI ??, Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다"
+title: "PackForcing: 긴 비디오 샘플링 및 긴 컨텍스트 추론을 위해서는 짧은 비디오 교육으로 충분합니다., ar…"
 date: "2026-03-29T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다."
-readerValue: "이 뉴스의 값은 Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "arXiv 논문 2603.25730v1의 요약 페이지: PackForcing: 긴 비디오 샘플링 및 긴 컨텍스트 추론을 위한 짧은 비디오 교육으로 충분함"
+readerValue: "이 글이 해결해주는 문제는 arXiv 논문 2603.25730v1의 요약 페이지: PackForcing: 긴 비디오 샘플링 및 긴 컨텍스트 추론을 위한 짧은 비디오 교육으로 충분함가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://arxiv.org/abs/2603.25730v1"
-sourceTitle: "cs.AI"
+sourceTitle: "PackForcing: Short Video Training Suffices for Long Video Sampling and Long Context Inference"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,8 +31,8 @@ factCheck:
 tags: ["inference", "long-context", "claude", "openai"]
 ---
 
-Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다. 이제는 단 34개의 텍스트 메시지(주로 두세 문장 길이)가 내 5시간 제한의 94%를 소모합니다. 설상가상으로, 그 메시지 중 6개는 내용을 반복해야 했기 때문에 낭비되었습니다.
+arXiv 논문 2603.25730v1의 요약 페이지: PackForcing: 긴 비디오 샘플링 및 긴 컨텍스트 추론을 위한 짧은 비디오 교육으로 충분함. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-cs.AI 관련 1차 출처와 보조 출처를 함께 보면, Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.
+PackForcing: Short Video Training Suffices for Long Video Sampling and Long Context Inference 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-AIKI 기준으로 이 이슈는 주간 타임라인에 올릴 만한 고득점 이벤트다. 기술 흐름을 볼 때는 발표 자체보다 이후에 어떤 제품, 비용 구조, 개발 습관을 바꾸는지가 더 중요하다.
+읽을 때는 PackForcing: 긴 비디오 샘플링 및 긴 컨텍스트 추론을 위해서는 짧은 비디오 교육으로 충분합니다., ar…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

@@ -54,54 +54,58 @@ function summarizeTags(tags) {
 
 function buildReaderValue(frontmatter, kind) {
     const title = frontmatter.title || frontmatter.term || '이 글';
-    const summary = String(frontmatter.summary || '').replace(/\s+/g, ' ').trim();
+    const summary = String(frontmatter.summary || '').replace(/\s+/g, ' ').trim().replace(/[.!?]+$/g, '');
     const tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
     const tagPhrase = summarizeTags(tags);
 
     if (kind === 'wiki') {
-        return `이 용어가 뉴스에 나오면 ${title}가 ${tagPhrase} 맥락에서 왜 중요한지 빠르게 연결해서 읽게 해준다.`;
+        return `이 용어가 뉴스에 나오면 ${title}가 ${tagPhrase} 맥락에서 무엇을 바꾸는 개념인지 빠르게 구분해서 읽게 해준다.`;
     }
 
-    const compactSummary = summary.replace(/\.$/, '');
-    if (compactSummary.length > 40) {
-        return `이 뉴스의 값은 ${compactSummary}가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다.`;
+    if (summary.length > 40) {
+        return `이 글이 해결해주는 문제는 ${summary}가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다.`;
     }
 
-    return `이 뉴스의 값은 ${title}가 ${tagPhrase} 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다.`;
+    return `이 글이 해결해주는 문제는 ${title}가 ${tagPhrase} 맥락에서 왜 중요한 변화인지 빠르게 파악하게 해준다는 점이다.`;
+}
+
+function targetHasKey(frontmatterBlock, key) {
+    return new RegExp(`^${key}:`, 'm').test(frontmatterBlock);
 }
 
 function updateFile(filePath, kind) {
     const original = fs.readFileSync(filePath, 'utf8');
     const parsed = parseFrontmatter(original);
     if (!parsed) return false;
-    if (parsed.data.readerValue) return false;
 
-    const readerValue = buildReaderValue(parsed.data, kind);
-    let frontmatterWithReaderValue = parsed.block;
+    const currentReaderValue = String(parsed.data.readerValue || '').trim();
+    const nextReaderValue = buildReaderValue(parsed.data, kind);
+    let frontmatterBlock = parsed.block;
 
-    if (targetHasKey(parsed.block, 'sourceUrl')) {
-        frontmatterWithReaderValue = parsed.block.replace(
+    if (currentReaderValue) {
+        frontmatterBlock = frontmatterBlock.replace(
+            /^readerValue:\s*.*$/m,
+            `readerValue: ${escapeYaml(nextReaderValue)}`,
+        );
+    } else if (targetHasKey(frontmatterBlock, 'sourceUrl')) {
+        frontmatterBlock = frontmatterBlock.replace(
             /\nsourceUrl:/,
-            `\nreaderValue: ${escapeYaml(readerValue)}\nsourceUrl:`,
+            `\nreaderValue: ${escapeYaml(nextReaderValue)}\nsourceUrl:`,
         );
     } else {
-        frontmatterWithReaderValue = parsed.block.replace(
+        frontmatterBlock = frontmatterBlock.replace(
             /\ncategory:/,
-            `\nreaderValue: ${escapeYaml(readerValue)}\ncategory:`,
+            `\nreaderValue: ${escapeYaml(nextReaderValue)}\ncategory:`,
         );
     }
 
-    if (frontmatterWithReaderValue === parsed.block) {
+    if (frontmatterBlock === parsed.block) {
         return false;
     }
 
-    const nextContent = `---\n${frontmatterWithReaderValue}\n---\n${original.slice(parsed.bodyStart)}`;
+    const nextContent = `---\n${frontmatterBlock}\n---\n${original.slice(parsed.bodyStart)}`;
     fs.writeFileSync(filePath, nextContent, 'utf8');
     return true;
-}
-
-function targetHasKey(frontmatterBlock, key) {
-    return new RegExp(`^${key}:`, 'm').test(frontmatterBlock);
 }
 
 let updated = 0;
@@ -115,4 +119,4 @@ for (const target of TARGETS) {
     }
 }
 
-console.log(`Added readerValue to ${updated} content file(s).`);
+console.log(`Updated readerValue in ${updated} content file(s).`);

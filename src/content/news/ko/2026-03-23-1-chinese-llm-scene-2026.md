@@ -1,12 +1,12 @@
 ---
-title: "r/LocalLLaMA — The current state of the Chinese LLMs scene ??,..."
+title: "확인을 기다려주세요, Reddit - 확인을 기다려주세요"
 date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
-summary: "2026년 3월 기준 중국 AI 모델 시장이 빠르게 재편되고 있다. ByteDance의 Doubao가 주간 활성 사용자 1억 5,500만 명으로 소비자 시장을 장악한 가운데, 개발자 생태계에서는 Qwen과 DeepSeek이 글로벌 오픈소스 LLM 시장을 이끌고 있어 중국 AI의 양면 구도가 뚜렷해졌다."
-readerValue: "이 뉴스의 값은 2026년 3월 기준 중국 AI 모델 시장이 빠르게 재편되고 있다. ByteDance의 Doubao가 주간 활성 사용자 1억 5,500만 명으로 소비자 시장을 장악한 가운데, 개발자 생태계에서는 Qwen과 DeepSeek이 글로벌 오픈소스 LLM 시장을 이끌고 있어 중국 AI의 양면 구도가 뚜렷해졌다가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "Reddit - 확인을 기다려주세요"
+readerValue: "이 글이 해결해주는 문제는 Reddit - 확인을 기다려주세요가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1s1gm9z/the_current_state_of_the_chinese_llms_scene/"
-sourceTitle: "r/LocalLLaMA — The current state of the Chinese LLMs scene"
+sourceTitle: "Please wait for verification"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -35,10 +35,8 @@ factCheck:
 tags: ["china-ai", "llm", "bytedance", "doubao", "deepseek", "qwen", "open-source"]
 ---
 
-2026년 3월 기준, 중국 AI 모델 시장은 레이어마다 완전히 다른 그림이야. 요약하면 "어디서 보느냐에 따라 전혀 다른 시장이 보인다"는 거거든.
+Reddit - 확인을 기다려주세요. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-소비자 앱으로 보면 [ByteDance의 Doubao](https://team.doubao.com/)가 압도적이야. 2026년 2월 기준 주간 활성 사용자 1억 5,520만 명으로 중국 내 AI 앱 1위야. Douyin(틱톡 중국판), CapCut 등 ByteDance 배포망 위에서 굴러가는 구조라 모델 경쟁력보다 유통 파워가 훨씬 크게 작용해.
+Please wait for verification 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-개발자·오픈소스 생태계는 판이 달라. [Alibaba의 Qwen](https://huggingface.co/Qwen)과 DeepSeek이 글로벌 오픈 가중치 시장의 양대 산맥이고, Kimi·MiniMax·GLM·StepFun까지 2~3주 간격으로 업데이트를 쏟아내고 있어. 2026년 2월에만 Qwen 3.5, Seed 2.0, MiniMax M2.5, GLM-5 등 12건 이상의 주요 업데이트가 나왔거든.
-
-스타트업이 낄 틈도 있긴 해. 다만 "범용 채팅 모델 만들기" 전략은 이미 끝났고, 에이전트·코딩·장문 컨텍스트·멀티모달·수직 산업 특화로 차별화해야 살아남는 구도로 재편됐어. 중국 LLM 생태계는 단순 순위표가 아니라, 여러 레이어가 동시에 빠르게 재그려지는 지도에 가까워.
+읽을 때는 확인을 기다려주세요, Reddit - 확인을 기다려주세요가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.

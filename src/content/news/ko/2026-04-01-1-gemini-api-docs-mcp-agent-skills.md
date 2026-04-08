@@ -1,12 +1,12 @@
 ---
-title: "Google Blog ??, Google이 Gemini API Docs MCP 서버와 Agent Skills를 공..."
+title: "Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요., 학습…"
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 Gemini API Docs MCP 서버와 Agent Skills를 공개했어. 코딩 에이전트가 구버전 API 코드를 생성하는 문제를 해결하는 도구야. 실험 결과 정답률 96.3%, 토큰 사용량은 63% 절감됐어."
-readerValue: "이 뉴스의 값은 Google이 Gemini API Docs MCP 서버와 Agent Skills를 공개했어. 코딩 에이전트가 구버전 API 코드를 생성하는 문제를 해결하는 도구야. 실험 결과 정답률 96.3%, 토큰 사용량은 63% 절감됐어가 실제 시장과 개발 흐름에 어떤 신호인지 빠르게 판단하게 해준다는 점이다."
+summary: "학습 데이터에 마감 날짜가 있으므로 에이전트는 오래된 Gemini API 코드를 생성할 수 있습니다."
+readerValue: "이 글이 해결해주는 문제는 학습 데이터에 마감 날짜가 있으므로 에이전트는 오래된 Gemini API 코드를 생성할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/"
-sourceTitle: "Google Blog"
+sourceTitle: "Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills."
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -31,12 +31,8 @@ factCheck:
 tags: ["google", "gemini", "mcp", "coding-agent", "developer-tools"]
 ---
 
-AI 코딩 에이전트의 고질적 문제 중 하나가 뭐냐면, 학습 데이터 컷오프 이후 업데이트된 API를 모른다는 거야. Gemini API 코드를 생성하는데 6개월 전 버전으로 써주는 식이거든.
+학습 데이터에 마감 날짜가 있으므로 에이전트는 오래된 Gemini API 코드를 생성할 수 있습니다. 이 소식은 한 줄 뉴스로 끝낼 내용이 아니라, 제품 전략과 실무 판단 포인트를 같이 보게 만든다.
 
-Google이 이 문제를 해결하려고 [Gemini API Docs MCP 서버](https://ai.google.dev/gemini-api/docs/coding-agents)를 공개했어. `https://gemini-api-docs-mcp.dev`에 호스팅된 공개 MCP 서버로, 에이전트가 `search_documentation` 함수를 호출하면 실시간으로 현재 Gemini API 문서를 참조할 수 있어.
+Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills. 기준으로 보면 핵심은 기능 소개 자체보다 어떤 팀이 이 변화를 먼저 가져다 쓸 수 있는지에 있다. 숫자, 공개 범위, 적용 대상이 함께 움직이면 그때부터는 단순 데모가 아니라 실제 시장 신호로 읽어야 한다.
 
-함께 나온 **Agent Skills**도 있어. 올바른 SDK 버전, 최신 모델명 같은 베스트 프랙티스를 에이전트 컨텍스트에 직접 주입하는 방식이야.
-
-둘을 함께 쓰면 Google 자체 평가셋에서 정답률 96.3%, 동일 작업에서 토큰 사용량은 63% 줄었다고 해. (단, Google 자체 벤치마크라 독립 검증은 아직 없어.)
-
-Cursor, Windsurf, Claude Code 같은 코딩 에이전트를 Gemini API 개발에 쓴다면 이 MCP 서버 붙이는 게 아직 흔한 API 오류를 줄이는 가장 빠른 방법이야.
+읽을 때는 Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요., 학습…가 바꾸는 지점이 성능인지, 비용인지, 배포 방식인지부터 나눠 보면 된다. 그렇게 읽으면 발표 문구가 과장돼 있어도 실무적으로 남는 포인트를 빠르게 추릴 수 있다.
