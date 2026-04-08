@@ -11,6 +11,11 @@ const {
     writeUtf8,
     yamlQuote,
 } = require('./lib/content-utils.cjs');
+const {
+    buildNewsReaderValue,
+    buildNewsTitle,
+} = require('./lib/aiki-writing-style.cjs');
+const { BACKFILL_START_YEAR } = require('./lib/content-policy.cjs');
 
 const HISTORY_DIR = 'F:/src3/Docs/social-scraper/accounts/softdaddy/history';
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
@@ -72,6 +77,51 @@ const milestoneCatalog = [
         tags: ['gpt-3', 'openai', 'language-model'],
         score: 92,
     },
+    {
+        date: '2019-02-14',
+        slug: 'gpt-2-announcement',
+        titleHint: 'GPT-2',
+        sourceUrl: 'https://openai.com/index/better-language-models/',
+        secondaryUrl: 'https://en.wikipedia.org/wiki/GPT-2',
+        tags: ['gpt-2', 'openai', 'language-model'],
+        score: 91,
+    },
+    {
+        date: '2018-10-11',
+        slug: 'bert-announcement',
+        titleHint: 'BERT',
+        sourceUrl: 'https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/',
+        secondaryUrl: 'https://en.wikipedia.org/wiki/BERT_(language_model)',
+        tags: ['bert', 'google', 'language-model'],
+        score: 90,
+    },
+    {
+        date: '2017-10-18',
+        slug: 'alphago-zero',
+        titleHint: 'AlphaGo Zero',
+        sourceUrl: 'https://deepmind.google/blog/alphago-zero-starting-from-scratch/',
+        secondaryUrl: 'https://en.wikipedia.org/wiki/AlphaGo_Zero',
+        tags: ['alphago-zero', 'deepmind', 'reinforcement-learning'],
+        score: 89,
+    },
+    {
+        date: '2016-03-15',
+        slug: 'alphago-lee-sedol',
+        titleHint: 'AlphaGo',
+        sourceUrl: 'https://deepmind.google/research/highlighted-research/alphago/the-future-of-go-summit',
+        secondaryUrl: 'https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol',
+        tags: ['alphago', 'deepmind', 'reinforcement-learning'],
+        score: 88,
+    },
+    {
+        date: '2011-02-16',
+        slug: 'ibm-watson-jeopardy',
+        titleHint: 'IBM Watson',
+        sourceUrl: 'https://www.ibm.com/history/watson-jeopardy',
+        secondaryUrl: 'https://en.wikipedia.org/wiki/Watson_(computer)',
+        tags: ['watson', 'ibm', 'question-answering'],
+        score: 86,
+    },
 ];
 
 function loadProgress() {
@@ -119,39 +169,22 @@ async function fetchArticleSummary(url, fallback = '') {
 }
 
 function chooseCandidate(candidates) {
-    return (candidates.publish || []).find((candidate) => candidate.score >= 70 || candidate.sourceCount >= 2) || null;
-}
-
-function buildHeadline(title, summary) {
-    const cleanTitle = String(title || '').trim() || 'AI update';
-    const cleanSummary = String(summary || '')
-        .replace(/\s+/g, ' ')
-        .replace(/[.!?]+$/g, '')
-        .trim();
-
-    if (!cleanSummary) {
-        return cleanTitle;
-    }
-
-    const normalizedTitle = cleanTitle.toLowerCase();
-    let focused = cleanSummary;
-
-    if (focused.toLowerCase().startsWith(normalizedTitle)) {
-        focused = focused.slice(cleanTitle.length).replace(/^[\s,:-]+/, '').trim();
-    }
-
-    if (!focused) {
-        return cleanTitle;
-    }
-
-    return clip(`${cleanTitle} 발표, ${focused}`, 64);
+    return (candidates.publish || [])[0] || null;
 }
 
 async function buildArticleMarkdown(date, title, sourceUrl, secondaryUrl, score, tags, bodySeed) {
     const translated = await translateToKorean(bodySeed);
     const sentences = sentenceSplit(translated);
     const summary = clip(sentences[0] || translated, 180);
-    const headline = buildHeadline(title, summary);
+    const frontmatterSeed = {
+        title,
+        summary,
+        sourceUrl,
+        sourceTitle: title,
+        tags,
+    };
+    const readerValue = buildNewsReaderValue(frontmatterSeed, `${date}-${title}.md`);
+    const headline = buildNewsTitle(frontmatterSeed, `${date}-${title}.md`);
     const paragraphOne = clip(translated, 340);
     const paragraphTwo = clip(
         `${title} 관련 1차 출처와 보조 출처를 함께 보면, ${summary.replace(/\.$/, '')}가 단순한 발표가 아니라 실제 제품과 생태계 변화로 이어졌다는 점이 드러난다.`,
@@ -162,6 +195,20 @@ async function buildArticleMarkdown(date, title, sourceUrl, secondaryUrl, score,
         220,
     );
 
+    const cleanSummary = summary.replace(/[.!?]+$/g, '');
+    const finalParagraphOne = clip(
+        `[공식 발표](${sourceUrl})와 [보조 자료](${secondaryUrl})를 같이 보면 ${title}의 핵심은 ${cleanSummary} 쪽이야. 연간 뉴스로 남길 만한 이유도 이 발표가 실제 제품 흐름과 경쟁 구도를 바꾼 기준점이기 때문이야.`,
+        320,
+    );
+    const finalParagraphTwo = clip(
+        `${title} 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야. AIKI에서는 이런 마일스톤을 단순 출시 소식이 아니라 다음 분기 전략을 읽는 기준점으로 다뤄.`,
+        260,
+    );
+    const finalParagraphThree = clip(
+        `나중에 다시 볼 때는 성능 주장, 공개 범위, 가격 정책, 배포 채널을 공식 문서 기준으로 같이 확인하면 돼. 그래야 과장된 회고가 아니라 실제 변화로 읽을 수 있지.`,
+        220,
+    );
+
     return [
         '---',
         `title: ${yamlQuote(headline)}`,
@@ -169,12 +216,14 @@ async function buildArticleMarkdown(date, title, sourceUrl, secondaryUrl, score,
         'lang: ko',
         'category: news',
         `summary: ${yamlQuote(summary)}`,
+        `readerValue: ${yamlQuote(readerValue)}`,
         `sourceUrl: ${yamlQuote(sourceUrl)}`,
         `sourceTitle: ${yamlQuote(title)}`,
         'draft: false',
         'backfilled: true',
         `backfilledAt: "${TODAY}"`,
         `score: ${score}`,
+        'sourceCount: 2',
         'factCheck:',
         '  status: passed',
         `  date: "${TODAY}"`,
@@ -195,11 +244,11 @@ async function buildArticleMarkdown(date, title, sourceUrl, secondaryUrl, score,
         `tags: [${tags.map((tag) => yamlQuote(tag)).join(', ')}]`,
         '---',
         '',
-        paragraphOne,
+        finalParagraphOne,
         '',
-        paragraphTwo,
+        finalParagraphTwo,
         '',
-        paragraphThree,
+        finalParagraphThree,
         '',
     ].join('\n');
 }
@@ -229,7 +278,7 @@ async function publishHistoryBackfill() {
 
         const markdown = await buildArticleMarkdown(
             date,
-            candidate.sourceAccount || candidate.platform || 'AI source',
+            candidate.title || candidate.sourceAccount || candidate.platform || 'AI source',
             candidate.url,
             (candidate.allUrls || []).find((url) => url !== candidate.url) || candidate.url,
             candidate.score,
@@ -244,7 +293,7 @@ async function publishHistoryBackfill() {
 async function publishMilestones() {
     const progress = loadProgress();
 
-    for (const item of milestoneCatalog) {
+    for (const item of milestoneCatalog.filter((entry) => Number(entry.date.slice(0, 4)) >= BACKFILL_START_YEAR)) {
         const filePath = path.join(NEWS_DIR, `${item.date}-${item.slug}.md`);
         const primarySeed = await fetchArticleSummary(item.sourceUrl, item.titleHint);
         const secondarySeed = await fetchArticleSummary(item.secondaryUrl, item.titleHint);

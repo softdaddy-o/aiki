@@ -1,10 +1,10 @@
 ---
-title: "Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM,…"
+title: "Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM"
 date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.19220v1에 대한 추상 페이지: Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM."
-readerValue: "arXiv 논문 2603.19220v1에 대한 추상 페이지: Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.19220v1"
 sourceTitle: "Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and Multi-Domain On-Policy Distillation"
 draft: false

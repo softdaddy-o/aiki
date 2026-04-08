@@ -1,10 +1,10 @@
 ---
-title: "오픈 소스 AI 모델 SpeciesNet이 야생 동물 보호를 촉진하는 데 어떻게 도움이 되는지, 전 세계 사람들이…"
+title: "오픈 소스 AI 모델 SpeciesNet이 야생 동물 보호를 촉진하는 데 어떻게 도움이 되는지"
 date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news
 summary: "AI 모델인 SpeciesNet에 대한 개요입니다."
-readerValue: "전 세계 사람들이 야생 동물을 보호하고 보존하는 데 도움을 주는 오픈 소스 AI 모델인 SpeciesNet에 대한 개요입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/company-news/outreach-and-initiatives/sustainability/speciesnet-open-source-ai-wildlife/"
 sourceTitle: "How our open-source AI model SpeciesNet is helping to promote wildlife conservation"
 draft: false

@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BackLinks from '../../../components/BackLinks.astro';
 import FactCheck from '../../../components/FactCheck.astro';
+import ModelProfile from '../../../components/ModelProfile.astro';
 import TechStackMap from '../../../components/TechStackMap.tsx';
 import wikiTermsJson from '../../../../data/wiki-terms.json';
 
@@ -48,6 +49,10 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
                 <span class="reader-value-label">이 글이 해결해주는 문제</span>
                 <p>{entry.data.readerValue}</p>
             </aside>
+        )}
+
+        {entry.data.category === 'model' && entry.data.modelProfile && (
+            <ModelProfile profile={entry.data.modelProfile} />
         )}
 
         {entry.data.aliases.length > 0 && (

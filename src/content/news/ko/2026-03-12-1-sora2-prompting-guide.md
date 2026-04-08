@@ -1,10 +1,10 @@
 ---
-title: "Sora 2 프롬프트 가이드, 이 가이드는 다음을 포함한 최신 Sora API 기능을 반영하도록 업데이트되었습니다"
+title: "Sora 2 프롬프트 가이드"
 date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Sora API 기능을 반영하도록 업데이트되었습니다."
-readerValue: "이 가이드는 다음을 포함한 최신 Sora API 기능을 반영하도록 업데이트되었습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://cookbook.openai.com/examples/sora/sora2_prompting_guide"
 sourceTitle: "Sora 2 Prompting Guide"
 draft: false

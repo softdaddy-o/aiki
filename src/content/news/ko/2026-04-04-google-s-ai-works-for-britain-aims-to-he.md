@@ -4,7 +4,7 @@ date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google은 대중이 기본 프롬프트에서 AI 응용 프로그램의 발전을 촉진할 수 있도록 돕기 위해 영국의 AI Works 기술 향상 이니셔티브를 시작합니다."
-readerValue: "Google은 대중이 기본 프롬프트에서 AI 응용 프로그램의 발전을 촉진할 수 있도록 돕기 위해 영국의 AI Works 기술 향상 이니셔티브를 시작합니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/googles-ai-works-for-britain-aims-to-help-stuck-brits-unlock-progression/"
 sourceTitle: "Google’s ‘AI Works for Britain’ aims to help stuck Brits unlock progression"
 draft: false

@@ -1,10 +1,10 @@
 ---
-title: "Groundsource: AI를 사용하여 지역 사회가 자연 재해를 더 잘 예측할 수 있도록 지원, Groundso…"
+title: "Groundsource: AI를 사용하여 지역 사회가 자연 재해를 더 잘 예측할 수 있도록 지원"
 date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Groundsource는 수백만 개의 공개 기록을 실행 가능한 데이터로 변환하는 Google Research의 새로운 AI 기반 방법론입니다."
-readerValue: "Groundsource는 수백만 개의 공개 기록을 실행 가능한 데이터로 변환하는 Google Research의 새로운 AI 기반 방법론입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/research/gemini-help-communities-predict-crisis/"
 sourceTitle: "Groundsource: using AI to help communities better predict natural disasters"
 draft: false

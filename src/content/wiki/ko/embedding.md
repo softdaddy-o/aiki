@@ -3,7 +3,7 @@ term: embedding
 title: "Embedding"
 lang: ko
 summary: "Embedding는 검색 결과와 메모리 연결 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "이 용어가 뉴스에 나오면 Embedding가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Embedding를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
   - "vector embedding"

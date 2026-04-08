@@ -1,10 +1,10 @@
 ---
-title: "Claude Opus 4.6의 BrowseComp 성능에 대한 평가 인식, Anthropic은 신뢰할 수 있고 해…"
+title: "Claude Opus 4.6의 BrowseComp 성능에 대한 평가 인식"
 date: "2026-03-08T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Anthropic은 신뢰할 수 있고 해석 가능하며 조종 가능한 AI 시스템을 구축하기 위해 노력하는 AI 안전 및 연구 회사입니다."
-readerValue: "Anthropic은 신뢰할 수 있고 해석 가능하며 조종 가능한 AI 시스템을 구축하기 위해 노력하는 AI 안전 및 연구 회사입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.anthropic.com/engineering/eval-awareness-browsecomp"
 sourceTitle: "Eval awareness in Claude Opus 4.6’s BrowseComp performance"
 draft: false

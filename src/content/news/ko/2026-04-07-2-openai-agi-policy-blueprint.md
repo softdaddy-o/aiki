@@ -4,7 +4,7 @@ date: "2026-04-07T10:30:00+09:00"
 lang: ko
 category: news
 summary: "OpenAI가 'Intelligence Age를 위한 산업 정책'을 발표했어. 공공 자산 펀드, 사회 안전망 강화, AI 경제 특구 등 3가지 정책 제안이 핵심이야. 일자리 자동화를 공개 인정하면서 뉴딜 수준의 새로운 사회 계약이 필요하다는 주장."
-readerValue: "OpenAI가 'Intelligence Age를 위한 산업 정책'을 발표했어. 공공 자산 펀드, 사회 안전망 강화, AI 경제 특구 등 3가지 정책 제안이 핵심이야. 일자리 자동화를 공개 인정하면서 뉴딜 수준의 새로운 사회 계약이 필요하다는 주장가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://openai.com/index/industrial-policy-for-the-intelligence-age/"
 sourceTitle: "OpenAI"
 draft: false

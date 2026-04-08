@@ -1,10 +1,10 @@
 ---
-title: "Google Sheets의 Gemini가 방금 최고 수준의 성능을 달성했습니다., 오늘 우리는 기본 작업부터 복잡…"
+title: "Google Sheets의 Gemini가 방금 최고 수준의 성능을 달성했습니다."
 date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemini in Sheets의 새로운 베타 기능을 발표했습니다."
-readerValue: "오늘 우리는 기본 작업부터 복잡한 데이터 분석에 이르기까지 전체 시트를 생성, 구성 및 편집하는 데 도움이 되는 Gemini in Sheets의 새로운 베타 기능을 발표했습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/"
 sourceTitle: "Gemini in Google Sheets just achieved state-of-the-art performance."
 draft: false

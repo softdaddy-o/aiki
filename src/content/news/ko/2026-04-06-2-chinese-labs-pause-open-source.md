@@ -4,7 +4,7 @@ date: "2026-04-06T11:00:00+09:00"
 lang: ko
 category: news
 summary: "MiniMax, 지혜AI(GLM), Qwen, Mimo 등 중국 주요 AI 랩들이 최신 모델을 오픈소스로 공개하지 않고 있다. MiniMax-m2.7은 발표 후 14일째 웨이트 미공개. r/LocalLLaMA에서 이례적 동시 중단에 의문이 제기됐다."
-readerValue: "MiniMax, 지혜AI(GLM), Qwen, Mimo 등 중국 주요 AI 랩들이 최신 모델을 오픈소스로 공개하지 않고 있다. MiniMax-m2.7은 발표 후 14일째 웨이트 미공개. r/LocalLLaMA에서 이례적 동시 중단에 의문이 제기됐다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/"
 sourceTitle: "r/LocalLLaMA"
 draft: false

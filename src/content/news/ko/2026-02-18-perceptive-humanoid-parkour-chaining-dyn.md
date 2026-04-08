@@ -1,10 +1,10 @@
 ---
-title: "지각형 휴머노이드 파쿠르: 모션 매칭을 통해 역동적인 인간 기술 연결, arXiv 논문 2602.15827v1의…"
+title: "지각형 휴머노이드 파쿠르: 모션 매칭을 통해 역동적인 인간 기술 연결"
 date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.15827v1의 추상 페이지: 지각형 휴머노이드 파쿠르: 모션 매칭을 통한 동적 인간 기술 연결."
-readerValue: "arXiv 논문 2602.15827v1의 추상 페이지: 지각형 휴머노이드 파쿠르: 모션 매칭을 통한 동적 인간 기술 연결가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.15827v1"
 sourceTitle: "Perceptive Humanoid Parkour: Chaining Dynamic Human Skills via Motion Matching"
 draft: false

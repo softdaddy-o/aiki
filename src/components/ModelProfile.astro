@@ -1,0 +1,65 @@
+---
+const { profile } = Astro.props;
+
+const rows = [
+    { label: '메모리 및 구현 방식', value: `${profile.memoryUsage} ${profile.implementation}`.trim() },
+    { label: '활성 파라미터', value: profile.activeParameters },
+    { label: '멀티모달 지원', value: profile.multimodalSupport },
+    { label: '무료 및 유료', value: profile.access },
+    { label: '토큰 비용', value: profile.pricing },
+    { label: '웨이트 오픈', value: profile.weightsOpen },
+    { label: '제작자 및 벤더', value: profile.vendor },
+];
+---
+
+<section class="model-profile">
+    <h3>모델 프로필</h3>
+    <div class="model-profile-grid">
+        {rows.map((row) => (
+            <div class="model-profile-card">
+                <span class="model-profile-label">{row.label}</span>
+                <p>{row.value}</p>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .model-profile {
+        margin: 24px 0;
+        padding: 18px;
+        border: 1px solid color-mix(in srgb, var(--color-wiki) 24%, transparent);
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--color-wiki) 6%, var(--color-surface));
+    }
+    .model-profile h3 {
+        margin: 0 0 14px;
+        font-size: 16px;
+    }
+    .model-profile-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+    }
+    .model-profile-card {
+        padding: 12px;
+        border-radius: 10px;
+        background: var(--color-surface);
+        border: 1px solid color-mix(in srgb, var(--color-wiki) 14%, transparent);
+    }
+    .model-profile-label {
+        display: inline-block;
+        margin-bottom: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-wiki);
+    }
+    .model-profile-card p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.65;
+        color: var(--color-text);
+    }
+</style>

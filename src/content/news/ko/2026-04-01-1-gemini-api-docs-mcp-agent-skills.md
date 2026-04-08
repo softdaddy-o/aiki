@@ -1,10 +1,10 @@
 ---
-title: "Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요., 학습…"
+title: "Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요."
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemini API 코드를 생성할 수 있습니다."
-readerValue: "학습 데이터에 마감 날짜가 있으므로 에이전트는 오래된 Gemini API 코드를 생성할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/"
 sourceTitle: "Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills."
 draft: false

@@ -3,7 +3,7 @@ term: openai-api
 title: "OpenAI API"
 lang: ko
 summary: "OpenAI API는 API 연결과 제품 기능 확장 맥락에서 반복해서 등장하는 AI 도구다."
-readerValue: "이 용어가 뉴스에 나오면 OpenAI API가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "OpenAI API가 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다."
 category: tool
 aliases:
   - "OpenAI API"
@@ -22,9 +22,9 @@ factCheck:
   date: "2026-04-08"
   sources:
     - url: "https://platform.openai.com/docs/overview"
-      title: "OpenAI Platform"
+      title: "https://platform.openai.com/docs/overview"
     - url: "https://platform.openai.com/docs/api-reference"
-      title: "API Overview"
+      title: "https://platform.openai.com/docs/api-reference"
   checks:
     - type: source_match
       result: pass

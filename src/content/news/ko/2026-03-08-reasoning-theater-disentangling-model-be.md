@@ -1,10 +1,10 @@
 ---
-title: "추론 극장: 사고의 사슬에서 모델의 신념을 분리, arXiv 논문 2603.05488v1의 추상 페이지: 추론 극…"
+title: "추론 극장: 사고의 사슬에서 모델의 신념을 분리"
 date: "2026-03-08T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.05488v1의 추상 페이지: 추론 극장: 사고 사슬에서 모델 신념 분리."
-readerValue: "arXiv 논문 2603.05488v1의 추상 페이지: 추론 극장: 사고 사슬에서 모델 신념 분리가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.05488v1"
 sourceTitle: "Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought"
 draft: false

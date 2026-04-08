@@ -1,10 +1,10 @@
 ---
-title: "3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다, Google TV의 새로운 Gemini 기능…"
+title: "3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다"
 date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다."
-readerValue: "Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/"
 sourceTitle: "3 new Gemini features are coming to Google TV"
 draft: false

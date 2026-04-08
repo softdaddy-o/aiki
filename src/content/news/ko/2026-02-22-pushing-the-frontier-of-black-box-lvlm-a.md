@@ -1,10 +1,10 @@
 ---
-title: "세밀한 세부 타겟팅을 통해 블랙박스 LVLM 공격의 한계를 뛰어넘다, arXiv 논문 2602.17645v1의 추…"
+title: "세밀한 세부 타겟팅을 통해 블랙박스 LVLM 공격의 한계를 뛰어넘다"
 date: "2026-02-22T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.17645v1의 추상 페이지: 세분화된 세부 타겟팅을 통해 블랙박스 LVLM 공격의 최전선 진출."
-readerValue: "arXiv 논문 2602.17645v1의 추상 페이지: 세분화된 세부 타겟팅을 통해 블랙박스 LVLM 공격의 최전선 진출가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.17645v1"
 sourceTitle: "Pushing the Frontier of Black-Box LVLM Attacks via Fine-Grained Detail Targeting"
 draft: false

@@ -1,10 +1,10 @@
 ---
-title: "DeepSeek R1 발표, * ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공…"
+title: "DeepSeek R1 공개, 오픈 추론 모델 경쟁 가속"
 date: "2025-01-20T12:00:00+09:00"
 lang: ko
 category: news
 summary: "* ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다."
-readerValue: "DeepSeek R1 발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다. * ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://api-docs.deepseek.com/news/news250120"
 sourceTitle: "DeepSeek R1"
 draft: false

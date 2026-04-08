@@ -1,10 +1,10 @@
 ---
-title: "확장 가능하고 강력한 광학 시스템 제어를 위한 Agentic AI, arXiv 논문 2602.20144v1의 요약…"
+title: "확장 가능하고 강력한 광학 시스템 제어를 위한 Agentic AI"
 date: "2026-02-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.20144v1의 요약 페이지: 확장 가능하고 강력한 광학 시스템 제어를 위한 Agentic AI."
-readerValue: "arXiv 논문 2602.20144v1의 요약 페이지: 확장 가능하고 강력한 광학 시스템 제어를 위한 Agentic AI가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.20144v1"
 sourceTitle: "Agentic AI for Scalable and Robust Optical Systems Control"
 draft: false

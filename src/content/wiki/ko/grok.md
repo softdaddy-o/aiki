@@ -3,7 +3,7 @@ term: grok
 title: "Grok"
 lang: ko
 summary: "Grok는 모델 성능, 제품 전략, 개발 흐름 맥락에서 반복해서 등장하는 AI 모델다."
-readerValue: "이 용어가 뉴스에 나오면 Grok가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Grok가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다."
 category: model
 modelProfile:
   memoryUsage: "서비스형 모델이면 서버 메모리 요구량이 공개되지 않을 수 있어, 배포 메모리 대신 컨텍스트와 출력 한도를 같이 보는 편이 낫다."

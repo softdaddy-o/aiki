@@ -1,10 +1,10 @@
 ---
-title: "전문 투자 팀을 향하여: 세분화된 거래 작업을 갖춘 다중 에이전트 LLM 시스템, arXiv 논문 2602.233…"
+title: "전문 투자 팀을 향하여: 세분화된 거래 작업을 갖춘 다중 에이전트 LLM 시스템"
 date: "2026-03-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.23330v1의 요약 페이지: 전문 투자 팀을 향하여: 세분화된 거래 작업을 갖춘 다중 에이전트 LLM 시스템."
-readerValue: "arXiv 논문 2602.23330v1의 요약 페이지: 전문 투자 팀을 향하여: 세분화된 거래 작업을 갖춘 다중 에이전트 LLM 시스템가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.23330v1"
 sourceTitle: "Toward Expert Investment Teams:A Multi-Agent LLM System with Fine-Grained Trading Tasks"
 draft: false

@@ -8,6 +8,10 @@ const {
     writeUtf8,
     yamlQuote,
 } = require('./lib/content-utils.cjs');
+const {
+    buildNewsReaderValue,
+    buildNewsTitle,
+} = require('./lib/aiki-writing-style.cjs');
 const { findPostByUrl, isRedditMediaUrl } = require('./lib/scraper-posts.cjs');
 
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
@@ -137,10 +141,6 @@ function pickComment(post) {
     return candidate ? cleanEnglish(candidate.text).split('…')[0] : '';
 }
 
-function buildReaderValue(summary) {
-    return `이 글이 해결해주는 문제는 ${summary}가 왜 실무 판단 포인트로 이어지는지 빠르게 읽게 해준다는 점이다.`;
-}
-
 function buildBody(post, summaryKo, commentKo) {
     const snippet = cleanEnglish(post.contentSnippet);
     const facts = snippet
@@ -186,11 +186,19 @@ async function repairFile(filePath) {
     const summarySeed = cleanEnglish(scraperPost.contentSnippet) || cleanEnglish(scraperPost.text);
     const summaryKo = clip(await localize(sentenceSplit(summarySeed)[0] || summarySeed), 180);
     const commentKo = await localize(clip(pickComment(scraperPost), 120));
-    const readerValue = buildReaderValue(summaryKo);
+    const nextFrontmatter = {
+        ...parsed.data,
+        title: titleKo,
+        summary: summaryKo,
+        sourceUrl: scraperPost.postUrl || parsed.data.sourceUrl,
+        sourceTitle: `Reddit r/${scraperPost.username || 'LocalLLaMA'}`,
+    };
+    const readerValue = buildNewsReaderValue(nextFrontmatter, path.basename(filePath));
+    const nextTitle = buildNewsTitle(nextFrontmatter, path.basename(filePath));
     const body = buildBody(scraperPost, summaryKo, commentKo);
 
     let nextBlock = parsed.block;
-    nextBlock = replaceFrontmatterField(nextBlock, 'title', titleKo);
+    nextBlock = replaceFrontmatterField(nextBlock, 'title', nextTitle);
     nextBlock = replaceFrontmatterField(nextBlock, 'summary', summaryKo);
     nextBlock = replaceFrontmatterField(nextBlock, 'readerValue', readerValue);
     nextBlock = replaceFrontmatterField(nextBlock, 'sourceUrl', scraperPost.postUrl || parsed.data.sourceUrl);

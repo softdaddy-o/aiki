@@ -1,10 +1,10 @@
 ---
-title: "방어자에게 최첨단 사이버 보안 기능 제공, Claude Code Security는 업계 전반에 걸쳐 보다 안전한…"
+title: "방어자에게 최첨단 사이버 보안 기능 제공"
 date: "2026-02-21T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Claude Code Security는 업계 전반에 걸쳐 보다 안전한 코드베이스와 더 높은 보안 기준을 향한 우리의 목표를 향한 한 걸음입니다."
-readerValue: "Claude Code Security는 업계 전반에 걸쳐 보다 안전한 코드베이스와 더 높은 보안 기준을 향한 우리의 목표를 향한 한 걸음입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 이슈가 기능 소개보다 운영 리스크에 가까운지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.anthropic.com/news/claude-code-security"
 sourceTitle: "Making frontier cybersecurity capabilities available to defenders"
 draft: false

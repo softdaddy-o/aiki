@@ -1,10 +1,10 @@
 ---
-title: "매우 큰 비디오 추론 제품군, arXiv 논문 2602.20159v1의 초록 페이지: 매우 큰 비디오 추론 모음"
+title: "매우 큰 비디오 추론 제품군"
 date: "2026-02-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.20159v1의 초록 페이지: 매우 큰 비디오 추론 모음."
-readerValue: "arXiv 논문 2602.20159v1의 초록 페이지: 매우 큰 비디오 추론 모음가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.20159v1"
 sourceTitle: "A Very Big Video Reasoning Suite"
 draft: false

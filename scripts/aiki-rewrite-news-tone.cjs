@@ -3,6 +3,14 @@ const path = require('path');
 
 const { writeUtf8, yamlQuote } = require('./lib/content-utils.cjs');
 const { checkTone } = require('F:/src3/Docs/social-posting/lib/tone-rules.js');
+const {
+    buildNewsReaderValue,
+    buildNewsTitle,
+    isBadNewsReaderValue,
+    isBadNewsTitle,
+    normalizeText,
+    trimSentence,
+} = require('./lib/aiki-writing-style.cjs');
 
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
 
@@ -63,51 +71,20 @@ function replaceFrontmatterField(block, key, value) {
     return block;
 }
 
-function normalizeText(text) {
-    return String(text || '')
-        .replace(/\s+/g, ' ')
-        .replace(/^\W+/, '')
-        .trim();
-}
-
-function trimTrailingPeriod(text) {
-    return normalizeText(text).replace(/[.!?]+$/g, '').trim();
-}
-
-function titleWithoutSuffix(title) {
-    return trimTrailingPeriod(title).replace(/\s*-\s*AIKI$/i, '').trim();
-}
-
-function problemFromReaderValue(readerValue) {
-    const source = normalizeText(readerValue)
-        .replace(/^이 글이 해결해주는 문제는\s*/u, '')
-        .replace(/^이 글에서 해결하는 독자의 문제는\s*/u, '')
-        .replace(/^(이 글은|이 글이)\s*/u, '')
-        .replace(/라는 점이다\.?$/u, '')
-        .replace(/다는 점이다\.?$/u, '')
-        .replace(/라는 데 있다\.?$/u, '')
-        .replace(/라는 데 있다$/u, '')
-        .replace(/라는 점이야\.?$/u, '')
-        .replace(/다는 점이야\.?$/u, '')
-        .trim();
-
-    return source || '이 변화가 어디에 직접 영향을 주는지 빠르게 구분하는 거야';
-}
-
 function focusFromTags(tags) {
     const joined = new Set(tags || []);
 
     if (joined.has('security') || joined.has('보안') || joined.has('취약점')) {
-        return '권한 통제와 운영 리스크';
+        return '운영 리스크와 권한 통제';
     }
     if (joined.has('claude-code') || joined.has('coding-agent') || joined.has('developer-tools')) {
-        return '개발 생산성과 도구 신뢰도';
+        return '개발 생산성과 도구 흐름';
     }
     if (joined.has('local-ai') || joined.has('tiny-model') || joined.has('retro-computing')) {
-        return '로컬 추론 한계와 초저사양 배포';
+        return '로컬 배포 한계와 초저사양 실험';
     }
     if (joined.has('openai') || joined.has('anthropic') || joined.has('google') || joined.has('gemini')) {
-        return '모델 전략과 제품 우선순위';
+        return '모델 로드맵과 제품 우선순위';
     }
     if (joined.has('multimodal') || joined.has('video-generation') || joined.has('audio')) {
         return '입출력 경험과 실제 사용 시나리오';
@@ -122,23 +99,23 @@ function focusFromTags(tags) {
     return '실무 우선순위와 적용 범위';
 }
 
-function buildBody(frontmatter) {
-    const title = titleWithoutSuffix(frontmatter.title);
-    const summary = trimTrailingPeriod(frontmatter.summary);
+function buildBody(frontmatter, fileName) {
+    const title = buildNewsTitle(frontmatter, fileName);
+    const summary = trimSentence(frontmatter.summary);
     const sourceUrl = normalizeText(frontmatter.sourceUrl);
-    const sourceTitle = trimTrailingPeriod(frontmatter.sourceTitle) || title;
+    const sourceTitle = trimSentence(frontmatter.sourceTitle) || title;
     const tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
     const focus = focusFromTags(tags);
-    const problem = problemFromReaderValue(frontmatter.readerValue);
+    const problem = buildNewsReaderValue(frontmatter, fileName);
 
-    const paragraphOne = `${summary} [원문](${sourceUrl})은 ${sourceTitle} 기준으로 확인한 내용이야. 이 이슈는 ${problem} 쪽에서 읽어야 맥락이 빨리 잡혀.`;
-    const paragraphTwo = `${title}에서 진짜 봐야 하는 건 이름 자체보다 ${focus}가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.`;
-    const paragraphThree = `실무에서는 이 업데이트를 바로 도입할지보다 먼저 지금 쓰는 모델, 도구, 배포 흐름과 붙일 수 있는지를 체크하면 돼. 그렇게 봐야 이 변화가 단순 화제인지, 다음 분기 우선순위를 바꿀 수준인지 판단하기 쉬워져.`;
+    const paragraphOne = `${summary} [원문](${sourceUrl})은 ${sourceTitle} 기준으로 다시 확인한 내용이야. 독자 입장에선 ${problem}`;
+    const paragraphTwo = `${title}에서 봐야 하는 포인트는 발표 문장 자체보다 ${focus} 쪽 변화야. 공개 범위, 숫자, 가격, 실제 적용 조건을 같이 봐야 과장된 문구와 실질 신호를 구분할 수 있어.`;
+    const paragraphThree = '바로 도입할지보다 먼저 체크할 건 이 변화가 지금 쓰는 모델, 도구, 배포 흐름에 어떤 마찰이나 기회를 만들었는지야. 그렇게 읽어야 이 뉴스가 단순 화제가 아니라 다음 우선순위를 바꾸는 신호인지 판단이 쉬워져.';
 
     return [paragraphOne, paragraphTwo, paragraphThree].join('\n\n');
 }
 
-function shouldRewrite(body) {
+function shouldRewriteBody(body) {
     const results = checkTone(body, 'blog');
     return results.some((result) => result.severity === 'FAIL');
 }
@@ -159,13 +136,25 @@ function rewriteFile(fileName) {
     }
 
     const body = extractBody(content);
-    if (!shouldRewrite(body)) {
+    const rewriteBody = shouldRewriteBody(body);
+    const rewriteTitle = isBadNewsTitle(parsed.data, fileName, body);
+    const rewriteReaderValue = isBadNewsReaderValue(parsed.data);
+
+    if (!rewriteBody && !rewriteTitle && !rewriteReaderValue) {
         return false;
     }
 
-    const nextBody = buildBody(parsed.data);
+    const nextBody = rewriteBody ? buildBody(parsed.data, fileName) : body;
     let nextBlock = parsed.block;
-    nextBlock = replaceFrontmatterField(nextBlock, 'summary', trimTrailingPeriod(parsed.data.summary) + '.');
+    nextBlock = replaceFrontmatterField(nextBlock, 'summary', `${trimSentence(parsed.data.summary)}.`);
+
+    if (rewriteTitle) {
+        nextBlock = replaceFrontmatterField(nextBlock, 'title', buildNewsTitle(parsed.data, fileName));
+    }
+
+    if (rewriteReaderValue) {
+        nextBlock = replaceFrontmatterField(nextBlock, 'readerValue', buildNewsReaderValue(parsed.data, fileName));
+    }
 
     const nextContent = `---\n${nextBlock}\n---\n\n${nextBody}\n`;
     writeUtf8(filePath, nextContent);

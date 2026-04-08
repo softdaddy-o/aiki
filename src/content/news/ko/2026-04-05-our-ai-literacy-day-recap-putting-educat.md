@@ -1,10 +1,10 @@
 ---
-title: "AI 문해력의 날 요약: 교육자를 선두에 두기, Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI…"
+title: "AI 문해력의 날 요약: 교육자를 선두에 두기"
 date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI 활용 리소스 업데이트를 포함한 AI 활용 능력의 날 요약입니다."
-readerValue: "Google에서 주최한 뉴욕시 공립학교 이벤트와 Google AI 활용 리소스 업데이트를 포함한 AI 활용 능력의 날 요약입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/"
 sourceTitle: "Our AI Literacy Day recap: putting educators in the lead"
 draft: false

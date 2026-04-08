@@ -14,6 +14,17 @@ const factCheckSchema = z.object({
     })).default([]),
 });
 
+const modelProfileSchema = z.object({
+    memoryUsage: z.string(),
+    implementation: z.string(),
+    activeParameters: z.string(),
+    multimodalSupport: z.string(),
+    access: z.string(),
+    pricing: z.string(),
+    weightsOpen: z.string(),
+    vendor: z.string(),
+});
+
 const news = defineCollection({
     loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
     schema: z.object({
@@ -50,6 +61,7 @@ const wiki = defineCollection({
         mentionCount: z.number().default(0),
         draft: z.boolean().default(false),
         tags: z.array(z.string()).default([]),
+        modelProfile: modelProfileSchema.optional(),
         factCheck: factCheckSchema.optional(),
     }),
 });

@@ -1,10 +1,10 @@
 ---
-title: "Leanstral: 신뢰할 수 있는 바이브 코딩을 위한 오픈 소스 기반, Lean 4를 위한 최초의 오픈 소스 코…"
+title: "Leanstral: 신뢰할 수 있는 바이브 코딩을 위한 오픈 소스 기반"
 date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Lean 4를 위한 최초의 오픈 소스 코드 에이전트."
-readerValue: "Lean 4를 위한 최초의 오픈 소스 코드 에이전트가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://mistral.ai/news/leanstral"
 sourceTitle: "Leanstral: Open-Source foundation for trustworthy vibe-coding"
 draft: false

@@ -1,10 +1,10 @@
 ---
-title: "ChatGPT 발표, 우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다"
+title: "ChatGPT 출시, 대화형 AI 대중화의 출발점"
 date: "2022-11-30T12:00:00+09:00"
 lang: ko
 category: news
 summary: "우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다."
-readerValue: "ChatGPT 발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다. 우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://openai.com/index/chatgpt/"
 sourceTitle: "ChatGPT"
 draft: false

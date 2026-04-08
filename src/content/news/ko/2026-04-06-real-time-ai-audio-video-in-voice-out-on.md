@@ -4,7 +4,7 @@ date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemma E2B를 M3 Pro에서 실시간 음성·영상 입력, 음성 출력 형태로 묶은 데모다. 언어 학습 같은 개인용 온디바이스 AI 경험이 어디까지 왔는지 가늠하게 해준다."
-readerValue: "실시간 멀티모달 AI가 아직 거대한 클라우드 모델 전용이 아니라는 점, 그리고 개인 기기에서 먼저 유효한 사용처가 어디인지 빠르게 읽게 해준다는 점이다."
+readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sda3r6/realtime_ai_audiovideo_in_voice_out_on_an_m3_pro/"
 sourceTitle: "Reddit r/LocalLLaMA"
 draft: false

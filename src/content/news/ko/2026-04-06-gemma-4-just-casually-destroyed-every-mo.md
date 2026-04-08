@@ -4,7 +4,7 @@ date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemma 4 31B가 실행당 0.20달러 비용으로 GPT-5.2, Gemini 3 Pro, Sonnet 4.6보다 높은 수익률을 냈다는 보고다."
-readerValue: "오픈 모델 성능을 볼 때 순위표만이 아니라 비용 대비 효율을 같이 봐야 한다는 점, 그리고 커뮤니티 벤치마크를 어디까지 신뢰할지 판단 포인트를 빠르게 짚게 해준다는 점이다."
+readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sdcotc/gemma_4_just_casually_destroyed_every_model_on/"
 sourceTitle: "Reddit r/LocalLLaMA"
 draft: false

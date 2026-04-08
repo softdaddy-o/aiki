@@ -4,7 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: "1998년형 iMac G3와 32MB RAM 환경에서 260K TinyStories 모델을 실제로 구동한 실험이다. 로컬 AI의 하한선을 어디까지 낮출 수 있는지 보여준다."
-readerValue: "로컬 AI가 최신 GPU 전용 흐름이 아니라는 점, 그리고 극단적으로 낮은 하드웨어 조건에서도 실험 가치가 생기는 지점을 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sdnw7l/i_technically_got_an_llm_running_locally_on_a/"
 sourceTitle: "Reddit r/LocalLLaMA"
 draft: false

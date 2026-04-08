@@ -4,7 +4,7 @@ date: "2025-08-03T12:00:00+09:00"
 lang: ko
 category: news
 summary: "o1 및 o3-mini와 같은 o 시리즈 추론 모델과 GPT 모델을 사용하는 모범 사례를 살펴보세요."
-readerValue: "사용 사례, 모델 선택 방법, 프롬프트 지침을 포함하여 o1 및 o3-mini와 같은 o 시리즈 추론 모델과 GPT 모델을 사용하는 모범 사례를 살펴보세요가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://platform.openai.com/docs/guides/reasoning-best-practices"
 sourceTitle: "Reasoning best practices"
 draft: false

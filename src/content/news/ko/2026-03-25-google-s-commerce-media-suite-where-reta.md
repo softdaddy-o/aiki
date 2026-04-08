@@ -1,10 +1,10 @@
 ---
-title: "Google의 상거래 미디어 제품군: 소매업체의 통찰력과 YouTube의 힘이 만나는 곳, Kroger의 쇼핑객…"
+title: "Google의 상거래 미디어 제품군: 소매업체의 통찰력과 YouTube의 힘이 만나는 곳"
 date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Kroger의 쇼핑객 통계를 Google의 AI 및 규모와 연결하여 전체 고객 여정 전반에 걸쳐 성과를 극대화하세요."
-readerValue: "Kroger의 쇼핑객 통계를 Google의 AI 및 규모와 연결하여 전체 고객 여정 전반에 걸쳐 성과를 극대화하세요가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/products/marketingplatform/360/googles-commerce-media-suite-where-retailer-insights-meet-the-power-of-youtube/"
 sourceTitle: "Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube"
 draft: false

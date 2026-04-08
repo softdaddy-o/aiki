@@ -2,18 +2,16 @@ const fs = require('fs');
 const path = require('path');
 
 const {
-    AI_KEYWORDS,
-    OFFICIAL_DOMAINS,
-    getKSTDate,
-    getKSTTimestamp,
-    slugify,
-    titleSimilarity,
     filterAndScorePosts,
     clusterPosts,
     classifyGrade,
     applyBudget,
     detectWikiTerms,
 } = require('./lib/scoring.cjs');
+const {
+    BACKFILL_START_YEAR,
+    isYearlyMilestoneCandidate,
+} = require('./lib/content-policy.cjs');
 
 // Paths
 const HISTORY_BASE = 'F:/src3/Docs/social-scraper/accounts/softdaddy/history';
@@ -145,8 +143,27 @@ function runHistoryMode(dateStr, maxPosts) {
         c._wikiTerms = detectWikiTerms((c.text || '') + ' ' + (c.contentSnippet || ''));
     }
 
+    const milestoneCandidates = clustered.filter((candidate) => isYearlyMilestoneCandidate({
+        title: candidate._firstLine,
+        summary: candidate.contentSnippet,
+        text: candidate.text,
+        url: candidate._url,
+        tags: candidate.tags,
+        matchedKeywords: candidate._matchedKeywords,
+        wikiTerms: candidate._wikiTerms,
+        score: candidate._score,
+        sourceCount: candidate._sourceCount,
+    }));
+    console.error(`Filtered to ${milestoneCandidates.length} milestone-class candidates`);
+
+    if (milestoneCandidates.length === 0) {
+        console.error('No major official or model-release candidates found for this date.');
+        console.log(JSON.stringify({ publish: [], drafts: [], stats: { totalCandidates: 0 } }, null, 2));
+        return;
+    }
+
     // Apply budget
-    const { publish, drafts } = applyBudget(clustered);
+    const { publish, drafts } = applyBudget(milestoneCandidates);
     const topPublish = publish.slice(0, maxPosts);
     const topDrafts = drafts.slice(0, 5);
 
@@ -185,12 +202,13 @@ function runHistoryMode(dateStr, maxPosts) {
         publish: topPublish.map((c, i) => formatCandidate(c, i, false)),
         drafts: topDrafts.map((c, i) => formatCandidate(c, i, true)),
         stats: {
-            totalCandidates: clustered.length,
+            totalCandidates: milestoneCandidates.length,
             clusteredFrom: clustered.reduce((sum, c) => sum + (c._sourceCount || 1), 0),
-            gradeA: clustered.filter(c => classifyGrade(c) === 'A').length,
-            gradeB: clustered.filter(c => classifyGrade(c) === 'B').length,
-            gradeC: clustered.filter(c => classifyGrade(c) === 'C').length,
-            belowCutoff: clustered.filter(c => c._score < 40).length,
+            milestoneCandidates: milestoneCandidates.length,
+            gradeA: milestoneCandidates.filter(c => classifyGrade(c) === 'A').length,
+            gradeB: milestoneCandidates.filter(c => classifyGrade(c) === 'B').length,
+            gradeC: milestoneCandidates.filter(c => classifyGrade(c) === 'C').length,
+            belowCutoff: milestoneCandidates.filter(c => c._score < 40).length,
             toPublish: topPublish.length,
             toDraft: topDrafts.length,
             skippedNoDate: skipped,
@@ -215,11 +233,16 @@ function runHistoryMode(dateStr, maxPosts) {
 function runMilestoneMode(year) {
     console.error(`🏛️ AIKI Backfill — Milestone mode for ${year}`);
 
+    if (year < BACKFILL_START_YEAR) {
+        console.error(`Milestone backfill starts at ${BACKFILL_START_YEAR}.`);
+        process.exit(1);
+    }
+
     const queries = [
-        { query: `major AI announcements ${year} Q1 January February March`, year: year, quarter: 'Q1' },
-        { query: `major AI announcements ${year} Q2 April May June`, year: year, quarter: 'Q2' },
-        { query: `major AI announcements ${year} Q3 July August September`, year: year, quarter: 'Q3' },
-        { query: `major AI announcements ${year} Q4 October November December`, year: year, quarter: 'Q4' },
+        { query: `official AI model release ${year} OpenAI Google DeepMind Anthropic Meta Mistral DeepSeek`, year: year, bucket: 'major-vendors' },
+        { query: `official AI launch ${year} GPT Claude Gemini Llama Qwen DeepSeek Mixtral Gemma`, year: year, bucket: 'flagship-models' },
+        { query: `official AI reasoning model multimodal model release ${year}`, year: year, bucket: 'model-capabilities' },
+        { query: `official AI announcement ${year} product launch foundation model release`, year: year, bucket: 'official-announcements' },
     ];
 
     console.log(JSON.stringify(queries, null, 2));

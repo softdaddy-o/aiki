@@ -1,10 +1,10 @@
 ---
-title: "AlphaGo 발표, 는 고대 바둑 게임을 마스터하고 바둑 세계 챔피언을 물리치고 AI 시스템의 새로운 시대를 열…"
+title: "AlphaGo, AI 경쟁의 기준을 바꾼 대국"
 date: "2016-03-15T12:00:00+09:00"
 lang: ko
 category: news
 summary: "AlphaGo는 고대 바둑 게임을 마스터하고 바둑 세계 챔피언을 물리치고 AI 시스템의 새로운 시대를 열었습니다."
-readerValue: "AlphaGo 발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다. AlphaGo는 고대 바둑 게임을 마스터하고 바둑 세계 챔피언을 물리치고 AI 시스템의 새로운 시대를 열었습니다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://deepmind.google/research/highlighted-research/alphago/the-future-of-go-summit"
 sourceTitle: "AlphaGo"
 draft: false

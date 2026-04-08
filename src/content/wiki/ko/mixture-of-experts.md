@@ -3,7 +3,7 @@ term: mixture-of-experts
 title: "Mixture of Experts"
 lang: ko
 summary: "Mixture of Experts는 모델 성능, 제품 전략, 개발 흐름 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "이 용어가 뉴스에 나오면 Mixture of Experts가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Mixture of Experts를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
   - "moe"

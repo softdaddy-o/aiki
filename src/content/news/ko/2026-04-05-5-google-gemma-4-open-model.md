@@ -4,7 +4,7 @@ date: "2026-04-05T13:00:00+09:00"
 lang: ko
 category: news
 summary: "Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0으로 공개했어. 31B Dense 모델이 Arena AI 텍스트 리더보드 오픈 모델 3위, MMLU Pro 85.2%, Codeforces ELO 2150을 기록했어."
-readerValue: "Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0으로 공개했어. 31B Dense 모델이 Arena AI 텍스트 리더보드 오픈 모델 3위, MMLU Pro 85.2%, Codeforces ELO 2150을 기록했어가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
 sourceTitle: "Google Blog"
 draft: false

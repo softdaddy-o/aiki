@@ -4,7 +4,7 @@ date: "2026-04-05T14:00:00+09:00"
 lang: ko
 category: news
 summary: "OpenClaw에서 CVE-2026-25253(CVSS 8.8) 등 심각한 보안 취약점이 연달아 터졌어. 공개 노출된 13.5만 인스턴스 중 63%가 인증 없이 돌아가고 있고, 관리자 권한 탈취가 가능해."
-readerValue: "OpenClaw에서 CVE-2026-25253(CVSS 8.8) 등 심각한 보안 취약점이 연달아 터졌어. 공개 노출된 13.5만 인스턴스 중 63%가 인증 없이 돌아가고 있고, 관리자 권한 탈취가 가능해가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 이슈가 기능 소개보다 운영 리스크에 가까운지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security/"
 sourceTitle: "ARMO Security"
 draft: false

@@ -4,7 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: "4chan 데이터를 추가 학습한 8B, 70B 모델이 모두 베이스 모델보다 좋아졌다고 주장했다. 합성 데이터 일변도 흐름에 대한 반론으로 읽힌다."
-readerValue: "데이터 품질 논의가 정제된 합성 데이터로만 흘러갈 때 놓치기 쉬운 지점을 짚어준다는 점, 그리고 인간 대화 데이터의 거친 특성이 왜 다시 주목받는지 빠르게 읽게 해준다는 점이다."
+readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1se2kna/4chan_data_can_almost_certainly_improve_model/"
 sourceTitle: "Reddit r/LocalLLaMA"
 draft: false

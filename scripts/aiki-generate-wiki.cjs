@@ -2,11 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 const { catalog } = require('./lib/wiki-catalog.cjs');
+const { buildModelProfile } = require('./lib/model-profile.cjs');
 const {
     summarizeSource,
     writeUtf8,
     yamlQuote,
 } = require('./lib/content-utils.cjs');
+const { buildWikiReaderValue } = require('./lib/aiki-writing-style.cjs');
 
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
 const WIKI_DIR = path.resolve(__dirname, '../src/content/wiki/ko');
@@ -108,7 +110,7 @@ function buildSummary(entry) {
 }
 
 function buildReaderValue(entry) {
-    return `이 용어가 뉴스에 나오면 ${entry.title}가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다.`;
+    return buildWikiReaderValue(entry);
 }
 
 function computeMentions(entries) {
@@ -202,6 +204,7 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
     const definition = definitionByCategory(entry);
     const whyNow = buildWhyNow(entry, mentionStats, sourceDetails);
     const checkpoints = buildCheckpoints(entry);
+    const modelProfile = entry.category === 'model' ? buildModelProfile(entry) : null;
     const relatedLine = relatedTerms.length > 0
         ? relatedTerms.map((term) => `- [${term}](/ko/wiki/${term}/)`).join('\n')
         : '- [llm](/ko/wiki/llm/)';
@@ -214,6 +217,17 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
         `summary: ${yamlQuote(summary)}`,
         `readerValue: ${yamlQuote(readerValue)}`,
         `category: ${entry.category}`,
+        ...(modelProfile ? [
+            'modelProfile:',
+            `  memoryUsage: ${yamlQuote(modelProfile.memoryUsage)}`,
+            `  implementation: ${yamlQuote(modelProfile.implementation)}`,
+            `  activeParameters: ${yamlQuote(modelProfile.activeParameters)}`,
+            `  multimodalSupport: ${yamlQuote(modelProfile.multimodalSupport)}`,
+            `  access: ${yamlQuote(modelProfile.access)}`,
+            `  pricing: ${yamlQuote(modelProfile.pricing)}`,
+            `  weightsOpen: ${yamlQuote(modelProfile.weightsOpen)}`,
+            `  vendor: ${yamlQuote(modelProfile.vendor)}`,
+        ] : []),
         'aliases:',
         ...(entry.aliases.length > 0 ? entry.aliases.map((alias) => `  - ${yamlQuote(alias)}`) : [`  - ${yamlQuote(entry.title)}`]),
         'relatedTerms:',

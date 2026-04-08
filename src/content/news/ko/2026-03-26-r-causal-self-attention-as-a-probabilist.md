@@ -1,10 +1,10 @@
 ---
-title: "강력한 LLM을 위한 지원 토큰, 안정성 마진 및 새로운 기반, arXiv 논문 2602.22271의 요약 페이지…"
+title: "강력한 LLM을 위한 지원 토큰, 안정성 마진 및 새로운 기반"
 date: "2026-03-26T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.22271의 요약 페이지: 지원 토큰, 안정성 마진 및 강력한 LLM을 위한 새로운 기반."
-readerValue: "arXiv 논문 2602.22271의 요약 페이지: 지원 토큰, 안정성 마진 및 강력한 LLM을 위한 새로운 기반가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.22271"
 sourceTitle: "Support Tokens, Stability Margins, and a New Foundation for Robust LLMs"
 draft: false

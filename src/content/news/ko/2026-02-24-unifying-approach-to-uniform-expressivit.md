@@ -1,10 +1,10 @@
 ---
-title: "그래프 신경망의 균일한 표현에 대한 통합 접근 방식, arXiv 논문 2602.18409v1의 추상 페이지: 그래…"
+title: "그래프 신경망의 균일한 표현에 대한 통합 접근 방식"
 date: "2026-02-24T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.18409v1의 추상 페이지: 그래프 신경망의 균일한 표현성에 대한 통합 접근 방식."
-readerValue: "arXiv 논문 2602.18409v1의 추상 페이지: 그래프 신경망의 균일한 표현성에 대한 통합 접근 방식가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.18409v1"
 sourceTitle: "Unifying approach to uniform expressivity of graph neural networks"
 draft: false

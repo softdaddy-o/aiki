@@ -1,10 +1,10 @@
 ---
-title: "Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론, arXiv 논문 2603.18002…"
+title: "Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론"
 date: "2026-03-20T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론."
-readerValue: "arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.18002v1"
 sourceTitle: "Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models"
 draft: false

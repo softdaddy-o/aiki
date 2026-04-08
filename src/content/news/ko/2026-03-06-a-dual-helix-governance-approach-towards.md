@@ -1,10 +1,10 @@
 ---
-title: "WebGIS 개발을 위한 신뢰할 수 있는 Agentic AI를 향한 이중 나선 거버넌스 접근 방식, arXiv 논…"
+title: "WebGIS 개발을 위한 신뢰할 수 있는 Agentic AI를 향한 이중 나선 거버넌스 접근 방식"
 date: "2026-03-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 에이전트 AI를 향한 이중 나선 거버넌스 접근 방식."
-readerValue: "arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 에이전트 AI를 향한 이중 나선 거버넌스 접근 방식가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.04390v1"
 sourceTitle: "A Dual-Helix Governance Approach Towards Reliable Agentic AI for WebGIS Development"
 draft: false

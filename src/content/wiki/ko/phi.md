@@ -3,7 +3,7 @@ term: phi
 title: "Phi"
 lang: ko
 summary: "Phi는 모델 성능, 제품 전략, 개발 흐름 맥락에서 반복해서 등장하는 AI 모델다."
-readerValue: "이 용어가 뉴스에 나오면 Phi가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Phi가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다."
 category: model
 modelProfile:
   memoryUsage: "소형 또는 온디바이스 지향으로 읽으면 되고, 실제 메모리 요구량은 양자화 방식과 컨텍스트 길이에 따라 달라진다."

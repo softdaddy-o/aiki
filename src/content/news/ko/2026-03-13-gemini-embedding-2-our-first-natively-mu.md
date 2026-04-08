@@ -1,10 +1,10 @@
 ---
-title: "Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델, 텍스트, 이미지, 비디오, 오디오 및 문…"
+title: "Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델"
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemini Embedding 2에 대한 개요입니다."
-readerValue: "텍스트, 이미지, 비디오, 오디오 및 문서를 단일 공간에 매핑하는 최초의 완전 다중 모드 임베딩 모델인 Gemini Embedding 2에 대한 개요입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"
 sourceTitle: "Gemini Embedding 2: Our first natively multimodal embedding model"
 draft: false

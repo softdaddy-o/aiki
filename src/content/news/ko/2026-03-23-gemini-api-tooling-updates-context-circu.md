@@ -1,10 +1,10 @@
 ---
-title: "Gemini API 도구 업데이트: Gemini 3에 대한 컨텍스트 순환, 도구 콤보 및 지도 기반, 이제 개발자…"
+title: "Gemini API 도구 업데이트: Gemini 3에 대한 컨텍스트 순환"
 date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemini API 호출로 Google 검색과 같은 내장 도구와 함수 호출을 결합하여 에이전트적이고 복잡한 도구 사용 애플리케이션을 구축할 수 있습니다."
-readerValue: "이제 개발자는 단일 Gemini API 호출로 Google 검색과 같은 내장 도구와 함수 호출을 결합하여 에이전트적이고 복잡한 도구 사용 애플리케이션을 구축할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tooling-updates/"
 sourceTitle: "Gemini API tooling updates: context circulation, tool combos and Maps grounding for Gemini 3"
 draft: false

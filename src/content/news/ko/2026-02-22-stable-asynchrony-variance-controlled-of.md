@@ -1,10 +1,10 @@
 ---
-title: "안정적인 비동기: LLM을 위한 분산 제어 오프 정책 RL, arXiv 논문 2602.17616v1에 대한 추상…"
+title: "안정적인 비동기: LLM을 위한 분산 제어 오프 정책 RL"
 date: "2026-02-22T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.17616v1에 대한 추상 페이지: 안정적인 비동기: LLM에 대한 분산 제어 오프 정책 RL."
-readerValue: "arXiv 논문 2602.17616v1에 대한 추상 페이지: 안정적인 비동기: LLM에 대한 분산 제어 오프 정책 RL가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.17616v1"
 sourceTitle: "Stable Asynchrony: Variance-Controlled Off-Policy RL for LLMs"
 draft: false

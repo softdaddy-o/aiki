@@ -1,10 +1,10 @@
 ---
-title: "이중 용도, In Silico 생물학 작업에 대한 LLM 초보자 향상, arXiv 논문 2602.23329v1의…"
+title: "이중 용도, In Silico 생물학 작업에 대한 LLM 초보자 향상"
 date: "2026-03-01T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.23329v1의 요약 페이지: LLM Novice Uplift on Dual-Use, In Silico Biology Tasks."
-readerValue: "arXiv 논문 2602.23329v1의 요약 페이지: LLM Novice Uplift on Dual-Use, In Silico Biology Tasks가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.23329v1"
 sourceTitle: "LLM Novice Uplift on Dual-Use, In Silico Biology Tasks"
 draft: false

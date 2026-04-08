@@ -1,10 +1,10 @@
 ---
-title: "OpenAI Sora 발표, 우리는 사람들이 실제 상호 작용이 필요한 문제를 해결하는 데 도움이 되는 모델 훈련을…"
+title: "Sora 공개, 생성형 비디오 경쟁의 개막"
 date: "2024-02-15T12:00:00+09:00"
 lang: ko
 category: news
 summary: "우리는 사람들이 실제 상호 작용이 필요한 문제를 해결하는 데 도움이 되는 모델 훈련을 목표로 AI가 움직이는 물리적 세계를 이해하고 시뮬레이션하도록 가르치고 있습니다."
-readerValue: "OpenAI Sora 발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다. 우리는 사람들이 실제 상호 작용이 필요한 문제를 해결하는 데 도움이 되는 모델 훈련을 목표로 AI가 움직이는 물리적 세계를 이해하고 시뮬레이션하도록 가르치고 있습니다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://openai.com/index/sora/"
 sourceTitle: "OpenAI Sora"
 draft: false

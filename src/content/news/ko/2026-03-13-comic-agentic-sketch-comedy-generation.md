@@ -1,10 +1,10 @@
 ---
-title: "COMIC: 에이전트틱 스케치 코미디 생성, arXiv 논문 2603.11048v1의 추상 페이지: COMIC:…"
+title: "COMIC: 에이전트틱 스케치 코미디 생성"
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.11048v1의 추상 페이지: COMIC: Agentic Sketch Comedy Generation."
-readerValue: "arXiv 논문 2603.11048v1의 추상 페이지: COMIC: Agentic Sketch Comedy Generation가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.11048v1"
 sourceTitle: "COMIC: Agentic Sketch Comedy Generation"
 draft: false

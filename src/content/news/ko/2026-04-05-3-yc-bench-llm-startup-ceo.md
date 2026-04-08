@@ -4,7 +4,7 @@ date: "2026-04-05T11:00:00+09:00"
 lang: ko
 category: news
 summary: "12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동안 수행하는 벤치마크 YC-Bench가 나왔어. Claude Opus 4.6이 평균 127만 달러로 1위, GLM-5는 11분의 1 비용으로 거의 같은 성과를 냈어."
-readerValue: "12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동안 수행하는 벤치마크 YC-Bench가 나왔어. Claude Opus 4.6이 평균 127만 달러로 1위, GLM-5는 11분의 1 비용으로 거의 같은 성과를 냈어가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2604.01212"
 sourceTitle: "arXiv"
 draft: false

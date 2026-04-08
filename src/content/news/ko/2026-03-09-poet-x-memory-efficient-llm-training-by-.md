@@ -1,10 +1,10 @@
 ---
-title: "POET-X: 직교 변환을 확장하여 메모리 효율적인 LLM 교육, arXiv 논문 2603.05500v1의 요약…"
+title: "POET-X: 직교 변환을 확장하여 메모리 효율적인 LLM 교육"
 date: "2026-03-09T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.05500v1의 요약 페이지: POET-X: 직교 변환 확장을 통한 메모리 효율적인 LLM 교육."
-readerValue: "arXiv 논문 2603.05500v1의 요약 페이지: POET-X: 직교 변환 확장을 통한 메모리 효율적인 LLM 교육가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.05500v1"
 sourceTitle: "POET-X: Memory-efficient LLM Training by Scaling Orthogonal Transformation"
 draft: false

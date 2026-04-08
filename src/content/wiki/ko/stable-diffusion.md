@@ -3,7 +3,7 @@ term: stable-diffusion
 title: "Stable Diffusion"
 lang: ko
 summary: "Stable Diffusion는 오픈 모델 전략과 생태계 경쟁 맥락에서 반복해서 등장하는 AI 모델다."
-readerValue: "이 용어가 뉴스에 나오면 Stable Diffusion가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Stable Diffusion가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다."
 category: model
 modelProfile:
   memoryUsage: "직접 배포하는 경우 메모리 사용량은 총 파라미터 수, 정밀도, KV 캐시 설정을 같이 봐야 한다."

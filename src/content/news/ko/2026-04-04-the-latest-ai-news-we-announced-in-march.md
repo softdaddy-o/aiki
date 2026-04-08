@@ -1,10 +1,10 @@
 ---
-title: "2026년 3월 발표한 최신 AI 소식, 2026년 3월 Google의 최신 AI 업데이트는 다음과 같습니다"
+title: "2026년 3월 발표한 최신 AI 소식"
 date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news
 summary: "2026년 3월 Google의 최신 AI 업데이트는 다음과 같습니다."
-readerValue: "2026년 3월 Google의 최신 AI 업데이트는 다음과 같습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/"
 sourceTitle: "The latest AI news we announced in March 2026"
 draft: false

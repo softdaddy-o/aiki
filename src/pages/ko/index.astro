@@ -4,7 +4,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Timeline from '../../components/Timeline.astro';
 import ZoomTabs from '../../components/ZoomTabs.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
-import { isMajorAICompanyOfficial } from '../../../scripts/lib/scoring.cjs';
+import {
+    DAILY_RETENTION_DAYS,
+    WEEKLY_RETENTION_DAYS,
+    MONTHLY_RETENTION_DAYS,
+    isWithinRetention,
+    isYearlyMilestoneCandidate,
+} from '../../../scripts/lib/content-policy.cjs';
 
 const lang = 'ko';
 const allNews = await getCollection('news', ({ data }) => data.lang === lang && !data.draft);
@@ -20,7 +26,8 @@ const items = sorted.map(entry => ({
     slug: entry.id.replace(/^ko\//, ''),
     score: entry.data.score ?? 0,
     sourceCount: entry.data.sourceCount,
-    isMajorOfficial: isMajorAICompanyOfficial(entry.data.sourceUrl || ''),
+    sourceUrl: entry.data.sourceUrl || '',
+    tags: entry.data.tags || [],
 }));
 
 // --- Zoom-level grouping ---
@@ -35,9 +42,17 @@ function getISOWeek(dateStr: string): string {
     return `${tmp.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
 }
 
+const dailyCandidates = items.filter(item => isWithinRetention(item.date, DAILY_RETENTION_DAYS));
+const weeklyCandidates = items.filter(item => isWithinRetention(item.date, WEEKLY_RETENTION_DAYS));
+const monthlyCandidates = items.filter(item => isWithinRetention(item.date, MONTHLY_RETENTION_DAYS));
+const yearlyCandidates = items.filter(item =>
+    isWithinRetention(item.date, MONTHLY_RETENTION_DAYS) && isYearlyMilestoneCandidate(item)
+);
+const dailySet = new Set(dailyCandidates.map(item => item.slug));
+
 // Weekly: highest score per day, only if score > 70
 const dailyGroups = new Map<string, typeof items>();
-for (const item of items) {
+for (const item of dailyCandidates) {
     const day = item.date.split('T')[0];
     if (!dailyGroups.has(day)) dailyGroups.set(day, []);
     dailyGroups.get(day)!.push(item);
@@ -52,7 +67,7 @@ for (const [, group] of dailyGroups) {
 
 // Monthly: only score >= 90
 const weeklyGroups = new Map<string, typeof items>();
-for (const item of items) {
+for (const item of monthlyCandidates) {
     const week = getISOWeek(item.date);
     if (!weeklyGroups.has(week)) weeklyGroups.set(week, []);
     weeklyGroups.get(week)!.push(item);
@@ -63,28 +78,27 @@ for (const [, group] of weeklyGroups) {
     for (const item of eligible) monthlySet.add(item.slug);
 }
 
-// Yearly: official announcements from major AI companies only
+// Yearly: milestone-class official/model-release items across the full archive
 const monthGroups = new Map<string, typeof items>();
-for (const item of items) {
+for (const item of yearlyCandidates) {
     const month = item.date.substring(0, 7);
     if (!monthGroups.has(month)) monthGroups.set(month, []);
     monthGroups.get(month)!.push(item);
 }
 const yearlySet = new Set<string>();
 for (const [, group] of monthGroups) {
-    const eligible = group.filter(item => item.isMajorOfficial);
-    if (eligible.length === 0) continue;
-    const best = eligible.reduce((a, b) => (a.score >= b.score ? a : b));
-    yearlySet.add(best.slug);
+    for (const item of group) yearlySet.add(item.slug);
 }
 
 // Assign zoom levels
-const itemsWithZoom = items.map(item => {
-    const levels = ['daily'];
+const itemsWithZoom = items.flatMap(item => {
+    const levels: string[] = [];
+    if (dailySet.has(item.slug)) levels.push('daily');
     if (weeklySet.has(item.slug)) levels.push('weekly');
     if (monthlySet.has(item.slug)) levels.push('monthly');
     if (yearlySet.has(item.slug)) levels.push('yearly');
-    return { ...item, zoomLevel: levels.join(',') };
+    if (levels.length === 0) return [];
+    return [{ ...item, zoomLevel: levels.join(',') }];
 });
 
 // Date formatting helpers
@@ -305,21 +319,24 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
             }
             window.history.replaceState({}, '', url.toString());
             applyZoom(level);
+            hideAllInitially();
         });
     });
 
     // ── Infinite scroll: show BATCH_SIZE items initially, load more on scroll ──
     const BATCH_SIZE = 10;
     const MAX_BEFORE_PAGINATE = 50;
-    const lazyItems = Array.from(
-        document.querySelectorAll('.timeline > .timeline-item, .timeline > .date-header:not(.period-header)')
-    ) as HTMLElement[];
+    let lazyItems = [] as HTMLElement[];
     let visibleCount = 0;
     let nextLazyIndex = 0;
     let isBatchLoading = false;
     let loadMoreBtn: HTMLElement | null = null;
 
     function hideAllInitially() {
+        lazyItems = Array.from(
+            document.querySelectorAll('.timeline > .timeline-item, .timeline > .date-header:not(.period-header)')
+        ).filter((el) => (el as HTMLElement).style.display !== 'none') as HTMLElement[];
+
         lazyItems.forEach((el, i) => {
             const shouldShow = i < BATCH_SIZE;
             el.style.display = shouldShow ? '' : 'none';
@@ -327,6 +344,7 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
         });
         visibleCount = Math.min(BATCH_SIZE, lazyItems.length);
         nextLazyIndex = visibleCount;
+        updateLoadMoreBtn();
     }
 
     function showNextBatch() {

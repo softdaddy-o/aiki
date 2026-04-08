@@ -1,10 +1,10 @@
 ---
-title: "CrispEdit: 확장 가능한 비파괴 LLM 편집을 위한 저곡률 투영, arXiv 논문 2602.15823v1의…"
+title: "CrispEdit: 확장 가능한 비파괴 LLM 편집을 위한 저곡률 투영"
 date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.15823v1의 추상 페이지: CrispEdit: 확장 가능한 비파괴 LLM 편집을 위한 저곡률 투영."
-readerValue: "arXiv 논문 2602.15823v1의 추상 페이지: CrispEdit: 확장 가능한 비파괴 LLM 편집을 위한 저곡률 투영가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.15823v1"
 sourceTitle: "CrispEdit: Low-Curvature Projections for Scalable Non-Destructive LLM Editing"
 draft: false

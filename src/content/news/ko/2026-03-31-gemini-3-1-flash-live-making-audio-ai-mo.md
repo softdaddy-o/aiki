@@ -1,10 +1,10 @@
 ---
-title: "Gemini 3.1 Flash Live: 오디오 AI를 더욱 자연스럽고 안정적으로 만들기, 이제 Gemini 3.…"
+title: "Gemini 3.1 Flash Live: 오디오 AI를 더욱 자연스럽고 안정적으로 만들기"
 date: "2026-03-31T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Gemini 3.1 Flash Live를 Google 제품 전체에서 사용할 수 있습니다."
-readerValue: "이제 Gemini 3.1 Flash Live를 Google 제품 전체에서 사용할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/"
 sourceTitle: "Gemini 3.1 Flash Live: Making audio AI more natural and reliable"
 draft: false

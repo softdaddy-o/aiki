@@ -1,10 +1,10 @@
 ---
-title: "캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 작동합니까?, arX…"
+title: "캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\\\\\\\rightarrow$LLM 파이프라인처럼 작동합니까?"
 date: "2026-02-21T12:00:00+09:00"
 lang: ko
 category: news
-summary: "arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\\\rightarrow$LLM 파이프라인처럼 동작합니까."
-readerValue: "arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 동작합니까가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+summary: "arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\\\\\\\\\\\\\\\rightarrow$LLM 파이프라인처럼 동작합니까."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.17598v1"
 sourceTitle: "The Cascade Equivalence Hypothesis: When Do Speech LLMs Behave Like ASR$\\rightarrow$LLM Pipelines?"
 draft: false

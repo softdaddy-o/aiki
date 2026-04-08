@@ -3,7 +3,7 @@ term: memory
 title: "Memory"
 lang: ko
 summary: "Memory는 에이전트가 작업을 이어 가는 방식 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "이 용어가 뉴스에 나오면 Memory가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Memory를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
   - "agent memory"

@@ -4,7 +4,7 @@ date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Reddit 작성자가 자체 조사 기반으로 중국 LLM 진영의 구도를 정리한 글이다. ByteDance, Alibaba, Tencent, Baidu 등 주요 플레이어의 위치를 한 번에 훑게 해준다."
-readerValue: "중국 LLM 경쟁을 단일 회사 뉴스가 아니라 시장 구도 관점에서 읽게 해준다는 점, 그리고 누가 폐쇄형·오픈웨이트 축을 각각 주도하는지 빠르게 구분하게 해준다는 점이다."
+readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
 sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1s1gm9z/the_current_state_of_the_chinese_llms_scene/"
 sourceTitle: "Reddit r/LocalLLaMA"
 draft: false

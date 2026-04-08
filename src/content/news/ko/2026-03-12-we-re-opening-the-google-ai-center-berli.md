@@ -1,10 +1,10 @@
 ---
-title: "연구자, 개발자, 리더를 위한 허브로 Google AI 센터 베를린을 개장합니다., 오늘 우리는 베를린에 Goog…"
+title: "Google AI 센터 베를린 개소"
 date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Google AI 센터를 오픈합니다."
-readerValue: "오늘 우리는 베를린에 Google AI 센터를 오픈합니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://blog.google/company-news/inside-google/around-the-globe/google-europe/google-ai-center-berlin/"
 sourceTitle: "We’re opening the Google AI Center Berlin as a hub for researchers, developers and leaders."
 draft: false

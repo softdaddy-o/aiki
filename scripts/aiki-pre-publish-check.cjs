@@ -8,6 +8,10 @@ const path = require('path');
 const cp = require('child_process');
 const { isClearlyOffTopic } = require('./lib/scoring.cjs');
 const { findPostByUrl, isRedditMediaUrl } = require('./lib/scraper-posts.cjs');
+const {
+    isBadNewsReaderValue,
+    isBadNewsTitle,
+} = require('./lib/aiki-writing-style.cjs');
 
 const TONE_RULES_PATH = path.resolve(__dirname, '../../src3/Docs/social-posting/lib/tone-rules.js');
 const ALT_TONE_RULES_PATH = 'F:/src3/Docs/social-posting/lib/tone-rules.js';
@@ -56,6 +60,8 @@ const FORBIDDEN_COPY_PATTERNS = [
     /이 뉴스의 값은/,
     /이 글의 값/,
     /이 글이 주는 값/,
+    /^이 글이 해결해주는 문제는\s*/u,
+    /^이 글에서 해결하는 독자의 문제는\s*/u,
 ];
 
 const MOJIBAKE_PATTERNS = [
@@ -366,6 +372,14 @@ for (const target of CONTENT_TARGETS) {
 
         if (!isDraft && normalizedTitle && normalizedTitle === normalizedFirstSentence) {
             errors.push(`${target.name}/${filename}: title matches first sentence exactly`);
+        }
+
+        if (!isDraft && target.name === 'news' && isBadNewsTitle(fm, filename, body)) {
+            errors.push(`${target.name}/${filename}: title still looks like copied source copy`);
+        }
+
+        if (!isDraft && target.name === 'news' && isBadNewsReaderValue(fm)) {
+            errors.push(`${target.name}/${filename}: readerValue still uses template or copied source phrasing`);
         }
 
         if (!isDraft && bodyContainsValuelessTemplate(body)) {

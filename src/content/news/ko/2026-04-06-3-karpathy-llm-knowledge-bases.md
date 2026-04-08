@@ -4,7 +4,7 @@ date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "Andrej Karpathy가 GitHub Gist에 'LLM Knowledge Bases'를 공개했다. RAG나 벡터 DB 없이, LLM이 원본 문서를 마크다운 위키로 컴파일하고 Obsidian으로 탐색하는 구조다. 기사 100개, 40만 단어 규모에서 복잡한 Q&A가 가능하다고 한다."
-readerValue: "Andrej Karpathy가 GitHub Gist에 'LLM Knowledge Bases'를 공개했다. RAG나 벡터 DB 없이, LLM이 원본 문서를 마크다운 위키로 컴파일하고 Obsidian으로 탐색하는 구조다. 기사 100개, 40만 단어 규모에서 복잡한 Q&A가 가능하다고 한다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
 sourceTitle: "Karpathy GitHub Gist"
 draft: false

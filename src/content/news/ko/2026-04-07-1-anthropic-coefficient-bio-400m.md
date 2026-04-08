@@ -4,7 +4,7 @@ date: "2026-04-07T10:00:00+09:00"
 lang: ko
 category: news
 summary: "Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어. 직원 10명 미만의 스텔스 스타트업이지만, Genentech 출신 창업자들이 만든 신약 파이프라인 AI 플랫폼이 타깃이었어."
-readerValue: "Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어. 직원 10명 미만의 스텔스 스타트업이지만, Genentech 출신 창업자들이 만든 신약 파이프라인 AI 플랫폼이 타깃이었어가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/"
 sourceTitle: "TechCrunch"
 draft: false

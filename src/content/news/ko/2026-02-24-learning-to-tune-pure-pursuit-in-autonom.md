@@ -1,10 +1,10 @@
 ---
-title: "자율 경주에서 순수 추격을 조정하는 방법 학습: PPO를 통한 공동 예측 및 조향 이득 제어, arXiv 논문 2…"
+title: "자율 경주에서 순수 추격을 조정하는 방법 학습: PPO를 통한 공동 예측 및 조향 이득 제어"
 date: "2026-02-24T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.18386v1의 추상 페이지: 자율 경주에서 순수 추격을 조정하는 방법 학습: PPO를 통한 공동 예측 및 조향 이득 제어."
-readerValue: "arXiv 논문 2602.18386v1의 추상 페이지: 자율 경주에서 순수 추격을 조정하는 방법 학습: PPO를 통한 공동 예측 및 조향 이득 제어가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.18386v1"
 sourceTitle: "Learning to Tune Pure Pursuit in Autonomous Racing: Joint Lookahead and Steering-Gain Control with PPO"
 draft: false

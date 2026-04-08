@@ -1,10 +1,10 @@
 ---
-title: "AlphaGo Zero 발표, 인공지능 연구는 음성 인식, 이미지 분류부터 유전체학, 신약 발견에 이르기까지 다양…"
+title: "AlphaGo Zero, 자기학습 강화학습의 분기점"
 date: "2017-10-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: "인공지능 연구는 음성 인식, 이미지 분류부터 유전체학, 신약 발견에 이르기까지 다양한 영역에서 급속한 발전을 이루었습니다."
-readerValue: "AlphaGo Zero 발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다. 인공지능 연구는 음성 인식, 이미지 분류부터 유전체학, 신약 발견에 이르기까지 다양한 영역에서 급속한 발전을 이루었습니다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://deepmind.google/blog/alphago-zero-starting-from-scratch/"
 sourceTitle: "AlphaGo Zero"
 draft: false

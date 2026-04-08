@@ -1,10 +1,10 @@
 ---
-title: "SOL-ExecBench: 하드웨어 제한에 대한 실제 GPU 커널에 대한 빛의 속도 벤치마킹, arXiv 문서 2…"
+title: "SOL-ExecBench: 하드웨어 제한에 대한 실제 GPU 커널에 대한 빛의 속도 벤치마킹"
 date: "2026-03-21T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 문서 2603.19173v1의 요약 페이지: SOL-ExecBench: 하드웨어 제한에 대한 실제 GPU 커널에 대한 빛의 속도 벤치마킹."
-readerValue: "arXiv 문서 2603.19173v1의 요약 페이지: SOL-ExecBench: 하드웨어 제한에 대한 실제 GPU 커널에 대한 빛의 속도 벤치마킹가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.19173v1"
 sourceTitle: "SOL-ExecBench: Speed-of-Light Benchmarking for Real-World GPU Kernels Against Hardware Limits"
 draft: false

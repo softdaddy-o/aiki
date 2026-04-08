@@ -1,10 +1,10 @@
 ---
-title: "BEVLM: LLM의 의미론적 지식을 조감도 표현으로 추출, arXiv 논문 2603.06576v1의 추상 페이지…"
+title: "BEVLM: LLM의 의미론적 지식을 조감도 표현으로 추출"
 date: "2026-03-10T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.06576v1의 추상 페이지: BEVLM: LLM의 의미론적 지식을 조감도 표현으로 증류."
-readerValue: "arXiv 논문 2603.06576v1의 추상 페이지: BEVLM: LLM의 의미론적 지식을 조감도 표현으로 증류가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.06576v1"
 sourceTitle: "BEVLM: Distilling Semantic Knowledge from LLMs into Bird&#39;s-Eye View Representations"
 draft: false

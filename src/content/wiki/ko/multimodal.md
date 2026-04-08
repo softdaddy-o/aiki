@@ -3,7 +3,7 @@ term: multimodal
 title: "Multimodal AI"
 lang: ko
 summary: "Multimodal AI는 멀티모달 입력과 출력 경험 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "이 용어가 뉴스에 나오면 Multimodal AI가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Multimodal AI를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
   - "multimodal ai"

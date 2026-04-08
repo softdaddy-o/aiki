@@ -4,7 +4,7 @@ date: "2026-04-06T10:00:00+09:00"
 lang: ko
 category: news
 summary: "Anthropic의 AI 코딩 도구 Claude Code에서 명령어가 50개를 넘으면 사용자가 설정한 deny 규칙을 건너뛰는 취약점이 발견됐다. 보안 회사 Adversa AI가 npm 소스맵 유출 후 분석해 밝혀냈고, v2.1.90에서 패치됐다."
-readerValue: "Anthropic의 AI 코딩 도구 Claude Code에서 명령어가 50개를 넘으면 사용자가 설정한 deny 규칙을 건너뛰는 취약점이 발견됐다. 보안 회사 Adversa AI가 npm 소스맵 유출 후 분석해 밝혀냈고, v2.1.90에서 패치됐다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://adversa.ai/claude-code-security-bypass-deny-rules-disabled/"
 sourceTitle: "Adversa AI"
 draft: false

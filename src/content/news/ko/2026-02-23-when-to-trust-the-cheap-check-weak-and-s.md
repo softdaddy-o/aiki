@@ -1,10 +1,10 @@
 ---
-title: "저렴한 수표를 신뢰할 때: 추론을 위한 약한 검증과 강력한 검증, arXiv 논문 2602.17633v1의 요약…"
+title: "저렴한 수표를 신뢰할 때: 추론을 위한 약한 검증과 강력한 검증"
 date: "2026-02-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2602.17633v1의 요약 페이지: 저렴한 수표를 신뢰해야 하는 경우: 추론을 위한 약하고 강력한 검증."
-readerValue: "arXiv 논문 2602.17633v1의 요약 페이지: 저렴한 수표를 신뢰해야 하는 경우: 추론을 위한 약하고 강력한 검증가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2602.17633v1"
 sourceTitle: "When to Trust the Cheap Check: Weak and Strong Verification for Reasoning"
 draft: false

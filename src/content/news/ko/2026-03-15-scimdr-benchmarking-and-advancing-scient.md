@@ -1,10 +1,10 @@
 ---
-title: "SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전, arXiv 논문 2603.12249v1의 초록 페이…"
+title: "SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전"
 date: "2026-03-15T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.12249v1의 초록 페이지: SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전."
-readerValue: "arXiv 논문 2603.12249v1의 초록 페이지: SciMDR: 과학적 다중 모드 문서 추론 벤치마킹 및 발전가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다."
+readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
 sourceUrl: "https://arxiv.org/abs/2603.12249v1"
 sourceTitle: "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning"
 draft: false

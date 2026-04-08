@@ -3,7 +3,7 @@ term: replicate
 title: "Replicate"
 lang: ko
 summary: "Replicate는 배포 비용과 추론 처리량 맥락에서 반복해서 등장하는 AI 도구다."
-readerValue: "이 용어가 뉴스에 나오면 Replicate가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Replicate가 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다."
 category: tool
 aliases:
   - "Replicate"

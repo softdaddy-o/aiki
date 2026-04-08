@@ -1,10 +1,10 @@
 ---
-title: "BERT 발표, 우리는 다양한 기간과 위험 수준에 걸쳐 다양한 유형의 연구에 도움이 되는 환경을 조성하기 위해 노…"
+title: "BERT 공개, 검색과 NLP 해석 방식의 전환점"
 date: "2018-10-11T12:00:00+09:00"
 lang: ko
 category: news
 summary: "우리는 다양한 기간과 위험 수준에 걸쳐 다양한 유형의 연구에 도움이 되는 환경을 조성하기 위해 노력합니다."
-readerValue: "BERT 발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다. 우리는 다양한 기간과 위험 수준에 걸쳐 다양한 유형의 연구에 도움이 되는 환경을 조성하기 위해 노력합니다."
+readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
 sourceUrl: "https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/"
 sourceTitle: "BERT"
 draft: false

@@ -3,7 +3,7 @@ term: vibe-coding
 title: "Vibe Coding"
 lang: ko
 summary: "Vibe Coding는 개발 생산성과 코딩 워크플로 맥락에서 반복해서 등장하는 AI 기법다."
-readerValue: "이 용어가 뉴스에 나오면 Vibe Coding가 단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지 빠르게 구분해서 읽게 해준다."
+readerValue: "Vibe Coding가 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다."
 category: technique
 aliases:
   - "vibe coding"
