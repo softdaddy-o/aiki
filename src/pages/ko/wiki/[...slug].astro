@@ -43,6 +43,12 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
         </div>
         <h1>{entry.data.title}</h1>
         <p class="wiki-summary">{entry.data.summary}</p>
+        {entry.data.readerValue && (
+            <aside class="reader-value">
+                <span class="reader-value-label">이 글이 주는 값</span>
+                <p>{entry.data.readerValue}</p>
+            </aside>
+        )}
 
         {entry.data.aliases.length > 0 && (
             <div class="aliases">
@@ -114,6 +120,28 @@ const techStackTerms = wikiTermsJson.map((t: any) => ({
         color: var(--color-text-muted);
         margin-bottom: 16px;
         line-height: 1.6;
+    }
+    .reader-value {
+        margin-bottom: 20px;
+        padding: 14px 16px;
+        border: 1px solid color-mix(in srgb, var(--color-wiki) 36%, transparent);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--color-wiki) 10%, var(--color-surface));
+    }
+    .reader-value-label {
+        display: inline-block;
+        margin-bottom: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--color-wiki);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+    .reader-value p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--color-text);
     }
     .aliases {
         display: flex;

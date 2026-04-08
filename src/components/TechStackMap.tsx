@@ -34,73 +34,67 @@ const styles: Record<string, CSSProperties> = {
         padding: '16px',
         width: '100%',
     },
-    layout: {
-        display: 'grid',
-        gridTemplateColumns: '110px minmax(0, 1fr)',
-        gap: '8px',
-        alignItems: 'start',
-        fontFamily: 'inherit',
-    },
-    labelsColumn: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '6px',
-    },
-    scrollArea: {
-        overflowX: 'auto',
-        overflowY: 'hidden',
-    },
     rows: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '6px',
-        width: 'max-content',
-        minWidth: '100%',
+        gap: '8px',
+    },
+    row: {
+        display: 'grid',
+        gridTemplateColumns: '110px minmax(0, 1fr)',
+        gap: '8px',
+        alignItems: 'stretch',
     },
     labelRow: {
         display: 'flex',
         alignItems: 'center',
         borderRadius: '4px',
         padding: '8px 10px',
-        minHeight: '35px',
+        minHeight: '42px',
+    },
+    layerLabel: {
+        fontSize: '10px',
+        color: '#9ca3af',
+        whiteSpace: 'nowrap',
+        lineHeight: 1.9,
+    },
+    rowScrollArea: {
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        borderRadius: '4px',
     },
     termsRow: {
         display: 'flex',
         alignItems: 'center',
         borderRadius: '4px',
         padding: '8px 10px',
-        minHeight: '35px',
-    },
-    termsContainer: {
-        display: 'flex',
+        minHeight: '42px',
+        minWidth: '100%',
         gap: '4px',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
+        width: 'max-content',
     },
-    layerLabel: {
-        fontSize: '10px',
-        color: '#888',
-        whiteSpace: 'nowrap',
-        lineHeight: 1.9,
+    emptyState: {
+        fontSize: '11px',
+        color: '#94a3b8',
+        opacity: 0.85,
     },
     pill: {
-        padding: '2px 10px',
-        borderRadius: '12px',
+        padding: '4px 11px',
+        borderRadius: '999px',
         fontSize: '11px',
         cursor: 'pointer',
         textDecoration: 'none',
-        transition: 'all 0.2s ease',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
         border: '1px solid transparent',
-        position: 'relative' as const,
+        position: 'relative',
         whiteSpace: 'nowrap',
-        lineHeight: 1.5,
+        lineHeight: 1.4,
         flexShrink: 0,
     },
 };
 
 export default function TechStackMap({ activeTerm, terms }: Props) {
     const [hoveredTerm, setHoveredTerm] = useState<string | null>(null);
-    const scrollAreaRef = useRef<HTMLDivElement | null>(null);
     const activePillRef = useRef<HTMLAnchorElement | null>(null);
 
     const termsByCategory = new Map<string, Term[]>();
@@ -115,102 +109,124 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
     }
 
     useEffect(() => {
-        const scrollArea = scrollAreaRef.current;
         const activePill = activePillRef.current;
-        if (!scrollArea || !activePill) {
+        if (!activePill) {
             return;
         }
 
-        const pillCenter = activePill.offsetLeft + activePill.offsetWidth / 2;
-        const targetScrollLeft = Math.max(pillCenter - scrollArea.clientWidth / 2, 0);
-        scrollArea.scrollTo({
-            left: targetScrollLeft,
-            behavior: 'smooth',
+        let timeoutId: ReturnType<typeof setTimeout> | null = null;
+        let frameId = 0;
+
+        const centerActivePill = () => {
+            const scrollArea = activePill.closest('[data-map-scroll-row="true"]');
+            if (!(scrollArea instanceof HTMLElement)) {
+                return;
+            }
+
+            const pillRect = activePill.getBoundingClientRect();
+            const areaRect = scrollArea.getBoundingClientRect();
+            const nextLeft = scrollArea.scrollLeft + (pillRect.left - areaRect.left) - ((areaRect.width - pillRect.width) / 2);
+
+            scrollArea.scrollTo({
+                left: Math.max(0, nextLeft),
+                behavior: 'smooth',
+            });
+        };
+
+        frameId = requestAnimationFrame(() => {
+            centerActivePill();
+            timeoutId = setTimeout(centerActivePill, 140);
         });
-    }, [activeTerm]);
+
+        return () => {
+            cancelAnimationFrame(frameId);
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+        };
+    }, [activeTerm, terms.length]);
 
     return (
         <div style={styles.container}>
-            <div style={styles.layout}>
-                <div style={styles.labelsColumn}>
-                    {layers.map((layer) => (
-                        <div
-                            key={`${layer.key}-label`}
-                            style={{
-                                ...styles.labelRow,
-                                background: layer.color,
-                            }}
-                        >
-                            <span style={styles.layerLabel}>{layer.label}</span>
-                        </div>
-                    ))}
-                </div>
-                <div style={styles.scrollArea} ref={scrollAreaRef}>
-                    <div style={styles.rows}>
-                        {layers.map((layer) => {
-                            const layerTerms = termsByCategory.get(layer.key) || [];
-                            return (
+            <div style={styles.rows}>
+                {layers.map((layer) => {
+                    const layerTerms = termsByCategory.get(layer.key) || [];
+                    return (
+                        <div key={layer.key} style={styles.row}>
+                            <div
+                                style={{
+                                    ...styles.labelRow,
+                                    background: layer.color,
+                                }}
+                            >
+                                <span style={styles.layerLabel}>{layer.label}</span>
+                            </div>
+                            <div
+                                style={styles.rowScrollArea}
+                                data-map-scroll-row="true"
+                            >
                                 <div
-                                    key={layer.key}
                                     style={{
                                         ...styles.termsRow,
                                         background: layer.color,
                                     }}
                                 >
-                                    <div style={styles.termsContainer}>
-                                        {layerTerms.map((term) => {
-                                            const isActive = term.slug === activeTerm;
-                                            const isHovered = term.slug === hoveredTerm;
+                                    {layerTerms.length === 0 && (
+                                        <span style={styles.emptyState}>아직 연결된 키워드가 없습니다.</span>
+                                    )}
+                                    {layerTerms.map((term) => {
+                                        const isActive = term.slug === activeTerm;
+                                        const isHovered = term.slug === hoveredTerm;
 
-                                            const pillStyle: CSSProperties = {
-                                                ...styles.pill,
-                                                background: isActive
-                                                    ? `${layer.borderColor}`
-                                                    : `${layer.color}`,
-                                                color: isActive ? '#fff' : '#ccc',
-                                                border: isActive
-                                                    ? `1.5px solid ${layer.glowColor}`
-                                                    : `1px solid ${layer.borderColor}`,
-                                                boxShadow: isActive
-                                                    ? `0 0 8px ${layer.glowColor}40, 0 0 2px ${layer.glowColor}80`
-                                                    : isHovered
-                                                      ? `0 0 4px ${layer.glowColor}30`
-                                                      : 'none',
-                                                transform: isHovered && !isActive ? 'translateY(-1px)' : 'none',
-                                            };
+                                        const pillStyle: CSSProperties = {
+                                            ...styles.pill,
+                                            background: isActive ? layer.borderColor : layer.color,
+                                            color: isActive ? '#ffffff' : '#d1d5db',
+                                            border: isActive
+                                                ? `1.5px solid ${layer.glowColor}`
+                                                : `1px solid ${layer.borderColor}`,
+                                            boxShadow: isActive
+                                                ? `0 0 0 1px ${layer.glowColor}33, 0 0 12px ${layer.glowColor}30`
+                                                : isHovered
+                                                    ? `0 0 6px ${layer.glowColor}22`
+                                                    : 'none',
+                                            transform: isHovered && !isActive ? 'translateY(-1px)' : 'none',
+                                        };
 
-                                            return (
-                                                <a
-                                                    key={term.slug}
-                                                    href={`/ko/wiki/${term.slug}/`}
-                                                    style={pillStyle}
-                                                    title={term.title}
-                                                    ref={isActive ? activePillRef : undefined}
-                                                    data-term-slug={term.slug}
-                                                    onMouseEnter={() => setHoveredTerm(term.slug)}
-                                                    onMouseLeave={() => setHoveredTerm(null)}
-                                                >
-                                                    {isActive && (
-                                                        <span style={{
+                                        return (
+                                            <a
+                                                key={term.slug}
+                                                href={`/ko/wiki/${term.slug}/`}
+                                                style={pillStyle}
+                                                title={term.title}
+                                                ref={isActive ? activePillRef : undefined}
+                                                data-term-slug={term.slug}
+                                                onMouseEnter={() => setHoveredTerm(term.slug)}
+                                                onMouseLeave={() => setHoveredTerm(null)}
+                                                aria-current={isActive ? 'page' : undefined}
+                                            >
+                                                {isActive && (
+                                                    <span
+                                                        style={{
                                                             display: 'inline-block',
-                                                            width: '4px',
-                                                            height: '4px',
+                                                            width: '5px',
+                                                            height: '5px',
                                                             borderRadius: '50%',
                                                             background: layer.glowColor,
-                                                            marginRight: '4px',
+                                                            marginRight: '6px',
                                                             verticalAlign: 'middle',
-                                                        }} />
-                                                    )}
-                                                    {term.title}
-                                                </a>
-                                            );
-                                        })}
-                                    </div>
+                                                        }}
+                                                    />
+                                                )}
+                                                {term.title}
+                                            </a>
+                                        );
+                                    })}
                                 </div>
-                            );
-                        })}
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

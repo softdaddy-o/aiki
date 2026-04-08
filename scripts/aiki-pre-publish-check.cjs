@@ -1,33 +1,50 @@
 #!/usr/bin/env node
 /**
- * aiki-pre-publish-check.cjs
+ * Enforced pre-publish validation for AIKI content.
  *
- * Enforced pre-publish validation for AIKI articles.
- * Blocks git push if violations are found.
- *
- * Checks:
- *   1. No article with factCheck.status: pending (unless draft: true)
- *   2. No published article with score: 0 or missing score
- *   3. Filename date matches frontmatter date (non-backfill only)
- *   4. No future dates on non-backfill articles
- *   5. Required frontmatter fields present
- *
- * Usage:
- *   node scripts/aiki-pre-publish-check.cjs
- *   node scripts/aiki-pre-publish-check.cjs --date 2026-04-07   # check specific date only
- *   node scripts/aiki-pre-publish-check.cjs --all               # check all articles
+ * Hard errors are intended for newly created or recently edited content.
+ * Legacy repository-wide debt is surfaced as warnings when running `--all`.
  */
 
 const fs = require('fs');
 const path = require('path');
-const {
-    isClearlyOffTopic,
-} = require('./lib/scoring.cjs');
+const cp = require('child_process');
+const { isClearlyOffTopic } = require('./lib/scoring.cjs');
 
-const CONTENT_DIR = path.join(__dirname, '../src/content/news/ko');
-const REQUIRED_FIELDS = ['title', 'date', 'lang', 'category', 'summary', 'sourceUrl', 'sourceTitle'];
+const REPO_ROOT = path.join(__dirname, '..');
+const CONTENT_TARGETS = [
+    {
+        name: 'news',
+        dir: path.join(REPO_ROOT, 'src/content/news/ko'),
+        requiredFields: ['title', 'date', 'lang', 'category', 'summary', 'sourceUrl', 'sourceTitle'],
+    },
+    {
+        name: 'wiki',
+        dir: path.join(REPO_ROOT, 'src/content/wiki/ko'),
+        requiredFields: ['term', 'title', 'lang', 'category', 'summary'],
+    },
+];
 
-// Parse CLI args
+const VALUELESS_PATTERNS = [
+    /라는 맥락에서 자주 언급된다/,
+    /라는 설명을 함께 보면/,
+    /최근 ai 뉴스에서 맥락/,
+    /aiki 기사 기준/,
+    /페이지를 찾을 수 없습니다/,
+];
+
+const VALUE_SIGNAL_PATTERNS = [
+    /왜 중요한가/,
+    /뉴스에서 어떻게 읽으면 되나/,
+    /실무에서/,
+    /사용자/,
+    /독자/,
+    /의미/,
+    /가치/,
+    /핵심/,
+    /구분/,
+];
+
 const args = process.argv.slice(2);
 const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
 const checkAll = args.includes('--all');
@@ -37,71 +54,44 @@ function parseFrontmatter(content) {
     if (!match) return null;
     const yaml = match[1];
     const result = {};
-
-    // Simple YAML parser for our known fields
     const lines = yaml.split('\n');
     let i = 0;
+
     while (i < lines.length) {
         const line = lines[i];
         const kv = line.match(/^(\w[\w-]*):\s*(.*)$/);
-        if (!kv) { i++; continue; }
+        if (!kv) {
+            i++;
+            continue;
+        }
+
         const key = kv[1];
         let val = kv[2].trim();
 
-        // Handle nested object (factCheck)
         if (val === '' && i + 1 < lines.length && lines[i + 1].startsWith('  ')) {
             const obj = {};
             i++;
             while (i < lines.length && lines[i].startsWith('  ')) {
                 const nested = lines[i].trim().match(/^(\w[\w-]*):\s*(.*)$/);
-                if (nested) obj[nested[1]] = nested[2].trim().replace(/^["']|["']$/g, '');
+                if (nested) {
+                    obj[nested[1]] = nested[2].trim().replace(/^["']|["']$/g, '');
+                }
                 i++;
             }
             result[key] = obj;
             continue;
         }
 
-        // Boolean
         if (val === 'true') val = true;
         else if (val === 'false') val = false;
-        // Number
         else if (/^\d+$/.test(val)) val = parseInt(val, 10);
-        // Strip quotes
         else val = val.replace(/^["']|["']$/g, '');
 
         result[key] = val;
         i++;
     }
+
     return result;
-}
-
-function getFilesToCheck() {
-    const all = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
-
-    if (dateFilter) {
-        return all.filter(f => f.startsWith(dateFilter));
-    }
-
-    if (checkAll) {
-        return all;
-    }
-
-    // Default: only check today's files (based on git staged or today's date)
-    const today = (() => {
-        const n = new Date();
-        return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
-    })();
-    return all.filter(f => f.startsWith(today));
-}
-
-function extractDateFromFilename(filename) {
-    const m = filename.match(/^(\d{4}-\d{2}-\d{2})/);
-    return m ? m[1] : null;
-}
-
-function extractFrontmatterDate(dateStr) {
-    if (!dateStr) return null;
-    return dateStr.substring(0, 10);
 }
 
 function extractBody(content) {
@@ -125,131 +115,201 @@ function extractFirstSentence(body) {
     return (parts[0] || compact).trim();
 }
 
-let errors = [];
-let warnings = [];
-let checked = 0;
-
-const files = getFilesToCheck();
-
-if (files.length === 0) {
-    console.log('✅ aiki-pre-publish-check: no articles to check');
-    process.exit(0);
+function extractDateFromFilename(filename) {
+    const m = filename.match(/^(\d{4}-\d{2}-\d{2})/);
+    return m ? m[1] : null;
 }
 
-for (const filename of files) {
-    const filepath = path.join(CONTENT_DIR, filename);
-    const content = fs.readFileSync(filepath, 'utf8');
-    const fm = parseFrontmatter(content);
+function extractFrontmatterDate(dateStr) {
+    if (!dateStr) return null;
+    return dateStr.substring(0, 10);
+}
 
-    if (!fm) {
-        errors.push(`${filename}: frontmatter 파싱 실패`);
-        continue;
+function getTodayString() {
+    const n = new Date();
+    return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
+}
+
+function getChangedFiles() {
+    try {
+        const output = cp.execSync('git diff --name-only --diff-filter=ACM HEAD', {
+            cwd: REPO_ROOT,
+            encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'ignore'],
+        });
+        return new Set(
+            output
+                .split(/\r?\n/)
+                .map((line) => line.trim())
+                .filter(Boolean)
+                .map((line) => path.normalize(path.join(REPO_ROOT, line)))
+        );
+    } catch {
+        return new Set();
+    }
+}
+
+function listFilesForTarget(target, changedFiles) {
+    const all = fs.readdirSync(target.dir).filter((f) => f.endsWith('.md'));
+
+    if (dateFilter) {
+        return all.filter((f) => f.startsWith(dateFilter));
     }
 
-    checked++;
+    if (checkAll) {
+        return all;
+    }
 
-    // Skip draft articles for most checks
-    const isDraft = fm.draft === true;
-    const isBackfill = fm.backfilled === true;
+    const changed = all.filter((f) => changedFiles.has(path.normalize(path.join(target.dir, f))));
+    if (changed.length > 0) {
+        return changed;
+    }
 
-    // CHECK 1: Required fields
-    for (const field of REQUIRED_FIELDS) {
-        if (!fm[field]) {
-            errors.push(`${filename}: 필수 필드 누락 — ${field}`);
+    const today = getTodayString();
+    return all.filter((f) => f.startsWith(today));
+}
+
+function hasMeaningfulBody(body) {
+    const compact = String(body || '').replace(/\s+/g, ' ').trim();
+    const paragraphs = String(body || '')
+        .split(/\n{2,}/)
+        .map((chunk) => chunk.trim())
+        .filter(Boolean);
+
+    return compact.length >= 420 && paragraphs.length >= 3;
+}
+
+function hasReaderValue(frontmatter, body) {
+    const readerValue = String(frontmatter.readerValue || '').trim();
+    if (readerValue.length >= 28) {
+        return true;
+    }
+
+    return VALUE_SIGNAL_PATTERNS.some((pattern) => pattern.test(body));
+}
+
+function bodyContainsValuelessTemplate(body) {
+    return VALUELESS_PATTERNS.some((pattern) => pattern.test(body));
+}
+
+const changedFiles = getChangedFiles();
+const today = getTodayString();
+const errors = [];
+const warnings = [];
+let checked = 0;
+
+for (const target of CONTENT_TARGETS) {
+    const files = listFilesForTarget(target, changedFiles);
+
+    for (const filename of files) {
+        const filepath = path.join(target.dir, filename);
+        const content = fs.readFileSync(filepath, 'utf8');
+        const fm = parseFrontmatter(content);
+
+        if (!fm) {
+            errors.push(`${target.name}/${filename}: frontmatter parse failed`);
+            continue;
         }
-    }
 
-    // CHECK 2: factCheck.status must not be pending for published articles
-    if (!isDraft) {
-        const fcStatus = fm.factCheck && fm.factCheck.status;
-        if (!fcStatus || fcStatus === 'pending') {
-            errors.push(`${filename}: 팩트체크 미완료 (status: ${fcStatus || 'missing'}) — draft: true로 변경하거나 팩트체크 완료 필요`);
-        }
-    }
+        checked++;
 
-    // CHECK 3: Score must be > 0 for published articles
-    if (!isDraft) {
-        const score = fm.score;
-        if (score === undefined || score === null || score === 0 || score === '') {
-            errors.push(`${filename}: 점수(score) 없음 — 발행 전 score 입력 필요 (1-100)`);
-        }
-    }
-
-    // CHECK 4: Filename date must match frontmatter date (non-backfill only)
-    if (!isBackfill) {
+        const isDraft = fm.draft === true;
+        const isBackfill = fm.backfilled === true;
+        const body = extractBody(content);
+        const signalText = `${String(fm.title || '').toLowerCase()} ${String(fm.summary || '').toLowerCase()} ${body.toLowerCase()}`;
+        const sourceUrl = String(fm.sourceUrl || '').toLowerCase();
         const filenameDate = extractDateFromFilename(filename);
         const fmDate = extractFrontmatterDate(fm.date);
-        if (filenameDate && fmDate && filenameDate !== fmDate) {
-            errors.push(`${filename}: 날짜 불일치 — 파일명 날짜(${filenameDate}) ≠ frontmatter date(${fmDate})`);
-        }
-    }
-
-    // CHECK 5: No future dates on non-backfill articles
-    if (!isBackfill && fm.date) {
-        const today = (() => {
-            const n = new Date();
-            return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
-        })();
-        const articleDate = fm.date.substring(0, 10);
-        if (articleDate > today) {
-            warnings.push(`${filename}: 미래 날짜 (${articleDate}) — backfill이 아닌데 오늘(${today})보다 미래`);
-        }
-    }
-
-    // CHECK 6: score below minimum threshold warning
-    if (!isDraft && fm.score && fm.score < 40) {
-        warnings.push(`${filename}: 점수 낮음 (${fm.score}) — 발행 기준 40 이상 권장`);
-    }
-
-    // CHECK 7: obvious off-scope block
-    if (!isDraft) {
-        const body = extractBody(content).toLowerCase();
-        const sourceUrl = String(fm.sourceUrl || '').toLowerCase();
-        const signalText = `${String(fm.title || '').toLowerCase()} ${String(fm.summary || '').toLowerCase()} ${body}`;
-
-        if (isClearlyOffTopic(signalText, sourceUrl)) {
-            errors.push(`${filename}: AIKI 범위를 벗어난 기사로 보임 — 오프토픽 키워드 감지`);
-        }
-    }
-
-    // CHECK 8: title must not collapse into summary/body sentence
-    if (!isDraft) {
-        const body = extractBody(content);
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
+        const isRecentFile = changedFiles.has(path.normalize(filepath));
 
-        if (normalizedTitle && normalizedTitle === normalizedSummary) {
-            errors.push(`${filename}: title matches summary exactly`);
+        for (const field of target.requiredFields) {
+            if (!fm[field]) {
+                errors.push(`${target.name}/${filename}: missing required field "${field}"`);
+            }
         }
 
-        if (normalizedTitle && normalizedTitle === normalizedFirstSentence) {
-            errors.push(`${filename}: title matches first sentence exactly`);
+        if (!isDraft && target.name === 'news') {
+            const fcStatus = fm.factCheck && fm.factCheck.status;
+            if (!fcStatus || fcStatus === 'pending') {
+                errors.push(`${target.name}/${filename}: factCheck.status missing or pending`);
+            }
+
+            const score = fm.score;
+            if (score === undefined || score === null || score === 0 || score === '') {
+                errors.push(`${target.name}/${filename}: missing publishable score`);
+            }
+
+            if (score && score < 40) {
+                warnings.push(`${target.name}/${filename}: low score ${score} (recommended 40+)`);
+            }
+
+            if (isClearlyOffTopic(signalText, sourceUrl)) {
+                errors.push(`${target.name}/${filename}: appears off-topic for AIKI scope`);
+            }
+        }
+
+        if (!isBackfill && filenameDate && fmDate && filenameDate !== fmDate) {
+            errors.push(`${target.name}/${filename}: filename date ${filenameDate} does not match frontmatter date ${fmDate}`);
+        }
+
+        if (!isBackfill && fm.date) {
+            const articleDate = fm.date.substring(0, 10);
+            if (articleDate > today) {
+                warnings.push(`${target.name}/${filename}: future date ${articleDate}`);
+            }
+        }
+
+        if (!isDraft && normalizedTitle && normalizedTitle === normalizedSummary) {
+            errors.push(`${target.name}/${filename}: title matches summary exactly`);
+        }
+
+        if (!isDraft && normalizedTitle && normalizedTitle === normalizedFirstSentence) {
+            errors.push(`${target.name}/${filename}: title matches first sentence exactly`);
+        }
+
+        if (!isDraft && bodyContainsValuelessTemplate(body)) {
+            const message = `${target.name}/${filename}: body still contains low-value template phrasing`;
+            if (checkAll && !isRecentFile) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && !hasMeaningfulBody(body)) {
+            const message = `${target.name}/${filename}: body is too thin to be useful`;
+            if (checkAll && !isRecentFile) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && !hasReaderValue(fm, body)) {
+            const message = `${target.name}/${filename}: missing explicit reader value`;
+            if (checkAll && !isRecentFile) warnings.push(message);
+            else errors.push(message);
         }
     }
 }
 
-// Report
-console.log(`\n📋 aiki-pre-publish-check — ${checked}개 기사 검사\n`);
+if (checked === 0) {
+    console.log('aiki-pre-publish-check: no content selected');
+    process.exit(0);
+}
+
+console.log(`\nAiki pre-publish check: ${checked} file(s) inspected\n`);
 
 if (errors.length > 0) {
-    console.log(`❌ ERROR (${errors.length}건) — 발행 불가:`);
-    errors.forEach(e => console.log(`   • ${e}`));
+    console.log(`ERROR (${errors.length})`);
+    errors.forEach((entry) => console.log(` - ${entry}`));
 }
 
 if (warnings.length > 0) {
-    console.log(`\n⚠️  WARNING (${warnings.length}건):`);
-    warnings.forEach(w => console.log(`   • ${w}`));
+    console.log(`\nWARNING (${warnings.length})`);
+    warnings.forEach((entry) => console.log(` - ${entry}`));
 }
 
 if (errors.length === 0 && warnings.length === 0) {
-    console.log(`✅ 모든 검사 통과 — 발행 준비 완료`);
+    console.log('OK: all checks passed');
 }
 
-if (errors.length > 0) {
-    console.log(`\n🚫 ${errors.length}개 오류 해결 후 발행하세요.\n`);
-    process.exit(1);
-} else {
-    console.log('');
-    process.exit(0);
-}
+console.log('');
+process.exit(errors.length > 0 ? 1 : 0);
