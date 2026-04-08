@@ -1,5 +1,5 @@
 ---
-title: "\"reg\", \"uncensored\"(Heretic) 및 \"Rough House\"로 제공됩니다"
+title: "cs.AI ??, \"reg\", \"uncensored\"(Heretic) 및 \"Rough House\"로 제공됩니다"
 date: "2026-03-20T12:00:00+09:00"
 lang: ko
 category: news

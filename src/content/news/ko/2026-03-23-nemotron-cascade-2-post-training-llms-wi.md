@@ -1,5 +1,5 @@
 ---
-title: "저는 MoMA와 Met에서 작업하는 화가입니다"
+title: "cs.AI ??, 저는 MoMA와 Met에서 작업하는 화가입니다"
 date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news

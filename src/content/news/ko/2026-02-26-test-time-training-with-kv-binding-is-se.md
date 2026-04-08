@@ -1,5 +1,5 @@
 ---
-title: "Claude Code, Cline, Aider, Codex CLI - 모든 최고의 AI 코딩 도구는 전통적인 RAG 및 임베딩을 포기했습니다"
+title: "cs.AI ??, Claude Code, Cline, Aider, Codex CLI - 모든 최고의 AI 코딩 도..."
 date: "2026-02-26T12:00:00+09:00"
 lang: ko
 category: news

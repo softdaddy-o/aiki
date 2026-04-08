@@ -1,5 +1,5 @@
 ---
-title: "Mistral, 수학 증명 AI 에이전트 Leanstral 오픈소스 공개"
+title: "Mistral AI ??, 가 Lean 4 전용 오픈소스 코드 에이전트 Leanstral을 공개했다. 119B 파..."
 date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news

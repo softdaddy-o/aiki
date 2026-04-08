@@ -1,5 +1,5 @@
 ---
-title: "LM Studio로 gpt-oss 로컬 실행, 20B는 16GB VRAM부터"
+title: "developers.openai.com ??, OpenAI가 LM Studio 기반 `gpt-oss` 로컬 실행..."
 date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "브리태니커(Britannica)와 메리암-웹스터(Merriam-Webster)는 OpenAI가 연구 콘텐츠를 바탕으로 7,300억 달러 규모의 회사를 설립했다고 주장하며 OpenAI를 상대로 소송을 제기했습니다"
+title: "blog.google ??, 브리태니커(Britannica)와 메리암-웹스터(Merriam-Webster)는 Op..."
 date: "2026-03-19T12:00:00+09:00"
 lang: ko
 category: news

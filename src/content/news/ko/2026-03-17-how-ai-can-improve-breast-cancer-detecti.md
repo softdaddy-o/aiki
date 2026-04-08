@@ -1,5 +1,5 @@
 ---
-title: "나는.."
+title: "blog.google ??, 나는"
 date: "2026-03-17T12:00:00+09:00"
 lang: ko
 category: news

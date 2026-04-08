@@ -1,5 +1,5 @@
 ---
-title: "구글 제미나이에 AI 음악 생성 추가 — Lyria 3 베타 공개"
+title: "TechCrunch ??, 구글이 2월 18일 제미나이 앱에 DeepMind의 Lyria 3 음악 생성 모델을 탑..."
 date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news

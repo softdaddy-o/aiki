@@ -1,5 +1,5 @@
 ---
-title: "우리는 토큰 임베딩이 잠재 변수로 처리되는 인과적 self-attention에 대한 확률론적 해석을 위해 노력해 왔습니다"
+title: "MachineLearning ??, 우리는 토큰 임베딩이 잠재 변수로 처리되는 인과적 self-attention에..."
 date: "2026-03-26T12:00:00+09:00"
 lang: ko
 category: news

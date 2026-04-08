@@ -1,5 +1,5 @@
 ---
-title: "AI(VLM 기반) 방사선 모델은 자신감 있게 들리지만 여전히 틀릴 수 있습니다"
+title: "MachineLearning ??, AI(VLM 기반) 방사선 모델은 자신감 있게 들리지만 여전히 틀릴 수 있습니다"
 date: "2026-03-05T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "gpt-oss-20b 튜닝 가이드 공개, 다국어 추론이 핵심"
+title: "developers.openai.com ??, OpenAI와 Hugging Face가 `gpt-oss-20b`를..."
 date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "ICE 요원은 TSA를 돕기 위해 월요일 애틀랜타와 같은 공항에 배치되었습니다"
+title: "cs.AI ??, ICE 요원은 TSA를 돕기 위해 월요일 애틀랜타와 같은 공항에 배치되었습니다"
 date: "2026-03-24T12:00:00+09:00"
 lang: ko
 category: news

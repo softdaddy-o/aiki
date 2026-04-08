@@ -1,5 +1,5 @@
 ---
-title: "Gemini 앱 3월 업데이트, 기억 이전과 라이브를 강화했다"
+title: "blog.google ??, Google이 3월 Gemini Drop에서 대화 기록 이전, Personal Int..."
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news

@@ -133,10 +133,16 @@ function buildHeadline(title, summary) {
         return cleanTitle;
     }
 
-    const focused = cleanSummary
-        .replace(/^최근 작업에서는\s*/u, '')
-        .replace(/^최근\s*/u, '')
-        .trim();
+    const normalizedTitle = cleanTitle.toLowerCase();
+    let focused = cleanSummary;
+
+    if (focused.toLowerCase().startsWith(normalizedTitle)) {
+        focused = focused.slice(cleanTitle.length).replace(/^[\s,:-]+/, '').trim();
+    }
+
+    if (!focused) {
+        return cleanTitle;
+    }
 
     return clip(`${cleanTitle} 발표, ${focused}`, 64);
 }

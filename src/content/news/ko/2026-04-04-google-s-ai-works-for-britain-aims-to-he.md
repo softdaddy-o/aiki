@@ -1,5 +1,5 @@
 ---
-title: "Google, 영국 대상 AI 재교육 캠페인에 200만 파운드 투입"
+title: "blog.google ??, Google이 영국에서 `AI Works for Britain` 프로그램을 시작했다...."
 date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news

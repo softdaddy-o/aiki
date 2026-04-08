@@ -1,5 +1,5 @@
 ---
-title: "Gemini, 다른 AI 앱 기억과 대화 기록을 가져온다"
+title: "blog.google ??, Google이 Gemini에 신규 전환 도구를 추가했다. 다른 AI 앱의 기억 정보는..."
 date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news

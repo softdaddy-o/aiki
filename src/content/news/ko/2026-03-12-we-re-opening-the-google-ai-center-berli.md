@@ -1,5 +1,5 @@
 ---
-title: "오늘 아침에 Microsoft의 발표를 보았는데 이는 실제로 중요합니다"
+title: "blog.google ??, 오늘 아침에 Microsoft의 발표를 보았는데 이는 실제로 중요합니다"
 date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,7 +1,5 @@
 ---
-title: "안녕하세요 여러분,
-
-저는 [cs.AI](http://cs.AI)에서 LLM 에이전트를 위한 영구 메모리에 관한 논문에 대한 arXiv 보증을 찾고 있습니다"
+title: "cs.AI ??, 안녕하세요 여러분,"
 date: "2026-03-10T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 DeepThink에서만 사용하세요"
+title: "blog.google ??, 다음 프롬프트는 Gemini 3.1 Pro, Thinking, Fast 또는 Deep..."
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news

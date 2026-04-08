@@ -1,5 +1,5 @@
 ---
-title: "\"나는 내가 아닌 것을 증명하기 위해 CAPTCHA를 푼다"
+title: "blog.google ??, \"나는 내가 아닌 것을 증명하기 위해 CAPTCHA를 푼다"
 date: "2026-03-16T12:00:00+09:00"
 lang: ko
 category: news

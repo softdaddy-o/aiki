@@ -1,5 +1,5 @@
 ---
-title: "Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다"
+title: "cs.AI ??, Claude는 제가 연간 Pro 구독을 선택하기 전까지 월별 결제를 할 때 정말 환상적이었습니다"
 date: "2026-03-29T12:00:00+09:00"
 lang: ko
 category: news

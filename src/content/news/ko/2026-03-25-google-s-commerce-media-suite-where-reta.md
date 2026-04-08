@@ -1,5 +1,5 @@
 ---
-title: "이번 달에는 흥미로운 일이 일어났습니다"
+title: "blog.google ??, 이번 달에는 흥미로운 일이 일어났습니다"
 date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "Google, AI 리터러시에 1.5억 달러 이상 투입한다"
+title: "blog.google ??, Google이 AI Literacy Day를 맞아 교사 중심 교육 전략을 다시 강조했..."
 date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "LVLM(Large Vision-Language Model)에 대한 블랙박스 적대 공격은 누락된 그라데이션과 복잡한 다중 모드 경계로 인해 어렵습니다"
+title: "cs.AI ??, LVLM(Large Vision-Language Model)에 대한 블랙박스 적대 공격은 누락된..."
 date: "2026-02-22T12:00:00+09:00"
 lang: ko
 category: news

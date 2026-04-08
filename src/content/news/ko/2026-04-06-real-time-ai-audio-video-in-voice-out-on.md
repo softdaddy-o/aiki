@@ -1,5 +1,5 @@
 ---
-title: "M3 Pro에서 실시간 멀티모달 AI, Gemma E2B로 돌렸다"
+title: "LocalLLaMA ??, 개발자 fikrikarim이 M3 Pro 맥북에서 Gemma E2B와 Kokoro를 조..."
 date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news

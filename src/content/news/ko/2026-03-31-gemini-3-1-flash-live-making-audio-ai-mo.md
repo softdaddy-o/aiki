@@ -1,5 +1,5 @@
 ---
-title: "Gemini 3.1 Flash Live, 오디오 AI를 더 자연스럽고 빠르게 만든다"
+title: "blog.google ??, Google이 실시간 음성 대화용 모델 Gemini 3.1 Flash Live를 공개..."
 date: "2026-03-31T12:00:00+09:00"
 lang: ko
 category: news

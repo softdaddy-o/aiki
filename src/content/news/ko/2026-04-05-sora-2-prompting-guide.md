@@ -1,5 +1,5 @@
 ---
-title: "Sora 2 프롬프팅 가이드, 영상은 문장보다 샷 설계가 중요하다"
+title: "developers.openai.com ??, OpenAI가 [Sora 2 Prompting Guide](http..."
 date: "2026-04-05T12:00:00+09:00"
 lang: ko
 category: news

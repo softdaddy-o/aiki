@@ -1,5 +1,5 @@
 ---
-title: "우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다"
+title: "ChatGPT ??, 우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다"
 date: "2022-11-30T12:00:00+09:00"
 lang: ko
 category: news

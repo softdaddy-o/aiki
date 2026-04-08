@@ -1,5 +1,5 @@
 ---
-title: "Google, 코딩 에이전트용 Gemini Docs MCP 공개 — 오래된 API 코드 문제 해결"
+title: "Google Blog ??, Google이 Gemini API Docs MCP 서버와 Agent Skills를 공..."
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news

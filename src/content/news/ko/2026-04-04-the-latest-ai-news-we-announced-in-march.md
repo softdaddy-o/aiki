@@ -1,5 +1,5 @@
 ---
-title: "Google 3월 AI 총정리, Gemini를 일상 인터페이스로 밀었다"
+title: "blog.google ??, Google이 2026년 3월 AI 업데이트를 한 장으로 묶었다. Search Liv..."
 date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news

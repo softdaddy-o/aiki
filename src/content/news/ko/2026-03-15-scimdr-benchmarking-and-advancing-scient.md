@@ -1,7 +1,5 @@
 ---
-title: "안녕하세요 여러분,
-
-Prometech의 실험적 릴리스인 Cicikus v3 Prometheus 4.4B를 공유하게 되어 기쁘게 생각합니다"
+title: "cs.AI ??, 안녕하세요 여러분,"
 date: "2026-03-15T12:00:00+09:00"
 lang: ko
 category: news

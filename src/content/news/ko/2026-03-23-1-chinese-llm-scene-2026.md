@@ -1,5 +1,5 @@
 ---
-title: "2026년 중국 LLM 판도: Doubao·Qwen·DeepSeek 3파전"
+title: "r/LocalLLaMA — The current state of the Chinese LLMs scene ??,..."
 date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news

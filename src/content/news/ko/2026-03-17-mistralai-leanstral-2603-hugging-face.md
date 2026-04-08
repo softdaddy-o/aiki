@@ -1,5 +1,5 @@
 ---
-title: "Leanstral은 [완벽한 공간](https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/) 및 소프트웨어 사양과 같은 복잡한 수학적 객체를 표현할 수 있는 증명 도우미인 [Lean 4](https://github.com/leanprover/lean…"
+title: "LocalLLaMA ??, Leanstral은 [완벽한 공간](https://xenaproject.wordpres..."
 date: "2026-03-17T12:00:00+09:00"
 lang: ko
 category: news

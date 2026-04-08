@@ -1,5 +1,5 @@
 ---
-title: "Codex 가이드, 프롬프트보다 운영 설계를 강조했다"
+title: "developers.openai.com ??, OpenAI가 GPT-5 계열용 [Codex Prompting Gu..."
 date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "멋진 것을 위해 감자 설정을 준비하세요!"
+title: "LocalLLaMA ??, 멋진 것을 위해 감자 설정을 준비하세요"
 date: "2026-03-03T12:00:00+09:00"
 lang: ko
 category: news

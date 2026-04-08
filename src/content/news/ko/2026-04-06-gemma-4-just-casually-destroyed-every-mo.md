@@ -1,5 +1,5 @@
 ---
-title: "Gemma 4 31B, 로컬 벤치에서 비용 대비 성능이 부각됐다"
+title: "LocalLLaMA ??, 벤치 공유에 따르면 Gemma 4 31B가 에이전트형 테스트에서 `5/5` 수익 달성과..."
 date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news

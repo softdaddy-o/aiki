@@ -1,5 +1,5 @@
 ---
-title: "OpenAI, 추론 모델 활용 베스트 프랙티스 공식 가이드 공개"
+title: "OpenAI Platform ??, OpenAI가 o1, o3 같은 추론 모델을 제대로 쓰는 방법을 담은 공식 가..."
 date: "2025-08-03T12:00:00+09:00"
 lang: ko
 category: news

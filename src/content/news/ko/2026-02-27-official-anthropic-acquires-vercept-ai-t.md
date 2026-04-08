@@ -1,5 +1,5 @@
 ---
-title: "Coursera의 Google #AI 코스: https://imp.i384100.net/YVD5vq \"AI 사용\" 방법을 아는 것은 이제 (안타깝게도) 중요한 문제입니다"
+title: "ClaudeAI ??, Coursera의 Google #AI 코스: https://imp.i384100.net/Y..."
 date: "2026-02-27T12:00:00+09:00"
 lang: ko
 category: news

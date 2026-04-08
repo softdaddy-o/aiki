@@ -1,5 +1,5 @@
 ---
-title: "Qwen 397B를 로컬에서 실행하기 위해 Apple의 \"LLM in a Flash\" 자동 조사 다음은 48GB MacBook Pro M3 Max 모델이 209GB(120GB 양자화"
+title: "LocalLLaMA ??, Qwen 397B를 로컬에서 실행하기 위해 Apple의 \"LLM in a Flash\"..."
 date: "2026-03-24T12:00:00+09:00"
 lang: ko
 category: news

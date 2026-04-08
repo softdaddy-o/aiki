@@ -1,5 +1,5 @@
 ---
-title: "LL COOL J와 James Manyika, AI 시대 창작자의 몫을 짚었다"
+title: "blog.google ??, Google의 Dialogues on Technology and Society 최신..."
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "AI가 말하는 내용에 영향을 미칠 수 있다고 생각하시나요?"
+title: "LocalLLaMA ??, AI가 말하는 내용에 영향을 미칠 수 있다고 생각하시나요"
 date: "2026-03-18T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,5 +1,5 @@
 ---
-title: "OpenAI, 테크 토크쇼 TBPN 인수 — AI 기업의 첫 미디어 M&A"
+title: "OpenAI ??, 가 실리콘밸리 대표 테크 토크쇼 TBPN을 수억 달러에 인수했다. 창업자 출신 두 호스트가 하..."
 date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news

@@ -1,7 +1,5 @@
 ---
-title: "# 
-
-Phi-4-Reasoning-Vision-15B는 중간 융합 아키텍처를 사용하여 Phi-4-Reasoning 언어 모델 백본과 SigLIP-2 비전 인코더를 기반으로 구축된 소형 개방형 다중 모달 추론 모델입니다"
+title: "LocalLLaMA ??, #"
 date: "2026-03-05T12:00:00+09:00"
 lang: ko
 category: news

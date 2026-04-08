@@ -1,5 +1,5 @@
 ---
-title: "llama.cpp 만든 팀, Hugging Face 합류로 로컬 AI 미래 확보"
+title: "Hugging Face Blog ??, llama.cpp와 GGML의 창시자 Georgi Gerganov가 202..."
 date: "2026-02-20T12:00:00+09:00"
 lang: ko
 category: news

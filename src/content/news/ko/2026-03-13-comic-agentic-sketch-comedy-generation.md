@@ -1,5 +1,5 @@
 ---
-title: "> 영어는 나의 모국어가 아닙니다"
+title: "cs.AI ??, > 영어는 나의 모국어가 아닙니다"
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news

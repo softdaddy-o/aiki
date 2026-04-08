@@ -1,5 +1,5 @@
 ---
-title: "TLDR: 성인 스타들은 빠르게 직장을 그만두고 있습니다"
+title: "cs.AI ??, TLDR: 성인 스타들은 빠르게 직장을 그만두고 있습니다"
 date: "2026-03-09T12:00:00+09:00"
 lang: ko
 category: news

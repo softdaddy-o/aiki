@@ -1,5 +1,5 @@
 ---
-title: "알리바바 Qwen 3.5 스몰 시리즈 출시 — 9B가 120B를 이겼다"
+title: "Hugging Face — Qwen ??, 알리바바 Qwen 팀이 0.8B·2B·4B·9B 네 가지 소형 모델을..."
 date: "2026-03-02T12:00:00+09:00"
 lang: ko
 category: news

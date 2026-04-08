@@ -1,5 +1,5 @@
 ---
-title: "4chan 데이터 튜닝, 8B·70B가 베이스를 넘겼다는 주장"
+title: "LocalLLaMA ??, 의 한 실험자가 4chan 데이터로 튜닝한 `8B`와 `70B` 모델이 모두 베이스 모..."
 date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news

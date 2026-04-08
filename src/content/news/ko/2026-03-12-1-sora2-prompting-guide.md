@@ -1,5 +1,5 @@
 ---
-title: "OpenAI, Sora 2 공식 프롬프팅 가이드 업데이트 — 영상 제작자를 위한 실전 팁"
+title: "OpenAI Cookbook ??, OpenAI가 Sora 2 API를 위한 공식 프롬프팅 가이드를 업데이트했어...."
 date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news

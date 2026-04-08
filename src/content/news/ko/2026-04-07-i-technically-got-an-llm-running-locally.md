@@ -1,5 +1,5 @@
 ---
-title: "iMac G3에서 LLM을 돌린 복고 실험"
+title: "LocalLLaMA ??, 에 1998년형 iMac G3에서 초소형 LLM을 구동한 실험이 올라왔다. 기기는 `2..."
 date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news

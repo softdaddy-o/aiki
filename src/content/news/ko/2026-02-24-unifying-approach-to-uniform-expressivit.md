@@ -1,5 +1,5 @@
 ---
-title: "그래프 신경망(GNN)의 표현력은 종종 WL(Weisfeiler-Leman) 알고리즘 및 1차 논리 부분에 대한 대응을 통해 분석됩니다"
+title: "cs.AI ??, 그래프 신경망(GNN)의 표현력은 종종 WL(Weisfeiler-Leman) 알고리즘 및 1차..."
 date: "2026-02-24T12:00:00+09:00"
 lang: ko
 category: news

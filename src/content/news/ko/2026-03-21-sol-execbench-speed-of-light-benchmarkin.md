@@ -1,5 +1,5 @@
 ---
-title: "Suno는 11월 Warner Music Group과 계약을 맺고 무면허 음악에 대해 교육을 받은 기존 모델을 모두 은퇴하기로 합의했습니다"
+title: "cs.AI ??, Suno는 11월 Warner Music Group과 계약을 맺고 무면허 음악에 대해 교육을 받..."
 date: "2026-03-21T12:00:00+09:00"
 lang: ko
 category: news

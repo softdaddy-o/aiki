@@ -1,5 +1,5 @@
 ---
-title: "현재 음성 LLM은 주로 암시적 ASR을 수행합니다"
+title: "cs.CL ??, 현재 음성 LLM은 주로 암시적 ASR을 수행합니다"
 date: "2026-02-21T12:00:00+09:00"
 lang: ko
 category: news
