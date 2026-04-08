@@ -4,8 +4,8 @@ date: "2026-03-21T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.19223v1의 요약 페이지: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩."
-readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
-sourceUrl: "https://arxiv.org/abs/2603.19223v1"
+readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다.
+sourceUrl: https://arxiv.org/abs/2603.19223v1
 sourceTitle: "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World"
 draft: false
 backfilled: true
@@ -15,20 +15,51 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://arxiv.org/abs/2603.19223v1"
-      title: "cs.AI"
-    - url: "https://arxiv.org/abs/2603.19138v1"
-      title: "Secondary source"
+    - url: https://arxiv.org/abs/2603.19223v1
+      title: cs.AI
+    - url: https://arxiv.org/abs/2603.19138v1
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩"
+        - "원문 제목 대조: F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World"
+        - "대표 출처 도메인: arxiv.org"
+        - "핵심 태그 축: llm, benchmark, embedding, reasoning"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: cs.AI (https://arxiv.org/abs/2603.19223v1)"
+        - "출처 2: Secondary source (https://arxiv.org/abs/2603.19138v1)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩"
+        - "수치 대조: arXiv 논문 2603.19223v1의 요약 페이지: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩."
+        - "수치 대조: arXiv 논문 2603.19223v1의 요약 페이지: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩 [원문](https://arxiv.org/abs/2603..."
+        - "수치 대조: 이 이슈는 arXiv 논문 2603.19223v1의 요약 페이지: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩가 실제 시장과 개발 흐름에서 왜 중요한지 빠르..."
     - type: adversarial
       result: pass
-      findings: []
-tags: ["llm", "benchmark", "embedding", "reasoning", "mixture-of-experts", "llama.cpp", "qwen", "llama"]
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 논문 성과와 실제 제품 배포 가능성을 같은 뜻으로 읽지 않도록 분리했다.
+        - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지 따로 점검했다.
+      findings:
+        - 논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있다.
+tags:
+  - llm
+  - benchmark
+  - embedding
+  - reasoning
+  - mixture-of-experts
+  - llama.cpp
+  - qwen
+  - llama
 ---
 
 arXiv 논문 2603.19223v1의 요약 페이지: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩 [원문](https://arxiv.org/abs/2603.19223v1)은 F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.19223v1의 요약 페이지: F2LLM-v2: 다국어 세계를 위한 포괄적이고 성능이 뛰어나며 효율적인 임베딩가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.

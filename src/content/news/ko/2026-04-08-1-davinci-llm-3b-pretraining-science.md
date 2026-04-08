@@ -1,32 +1,59 @@
 ---
-title: "daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험"
+title: daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험
 date: "2026-04-08T11:30:00+09:00"
 lang: ko
 category: news
-summary: "SII-GAIR가 daVinci-LLM-3B를 공개했다. 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공개했다."
-readerValue: "이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다."
-sourceUrl: "https://huggingface.co/SII-GAIR-NLP/davinci-llm-model"
-sourceTitle: "Hugging Face / arXiv"
+summary: SII-GAIR가 daVinci-LLM-3B를 공개했다. 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공개했다.
+readerValue: 이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다.
+sourceUrl: https://huggingface.co/SII-GAIR-NLP/davinci-llm-model
+sourceTitle: Hugging Face / arXiv
 draft: false
 score: 105
 factCheck:
   status: passed
   date: "2026-04-08"
   sources:
-    - url: "https://huggingface.co/SII-GAIR-NLP/davinci-llm-model"
-      title: "Hugging Face model card"
-    - url: "https://arxiv.org/abs/2603.27164"
+    - url: https://huggingface.co/SII-GAIR-NLP/davinci-llm-model
+      title: Hugging Face model card
+    - url: https://arxiv.org/abs/2603.27164
       title: "arXiv: daVinci-LLM: Towards the Science of Pretraining"
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험"
+        - "원문 제목 대조: Hugging Face / arXiv"
+        - "대표 출처 도메인: huggingface.co"
+        - "핵심 태그 축: llm, pretraining, open-model, hugging-face"
+    - type: web_cross_check
+      result: pass
+      sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: Hugging Face model card (https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)"
+        - "출처 2: arXiv: daVinci-LLM: Towards the Science of Pretraining (https://arxiv.org/abs/2603.27164)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험"
+        - "수치 대조: SII-GAIR가 daVinci-LLM-3B를 공개했다."
+        - "수치 대조: 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공..."
+        - "수치 대조: [daVinci-LLM-3B](https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)는 그 빈칸을 메우겠다고 나온 쪽에 가까워."
     - type: adversarial
       result: pass
-      findings:
-        - "이 모델은 instruction tuned 모델이 아니라 base model이라서, 실제 서비스 투입 전에는 별도의 정렬과 안전 평가가 필요하다."
-tags: ["llm", "pretraining", "open-model", "hugging-face", "research"]
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - llm
+  - pretraining
+  - open-model
+  - hugging-face
+  - research
 ---
 
 오픈 모델 얘기가 나올 때 늘 아쉬운 지점이 있잖아. 가중치는 공개됐는데, 정작 어떻게 학습했는지는 거의 안 보이는 경우가 많다는 거야. [daVinci-LLM-3B](https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)는 그 빈칸을 메우겠다고 나온 쪽에 가까워.

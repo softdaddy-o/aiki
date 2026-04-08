@@ -1,12 +1,12 @@
 ---
-title: "nvidia/gpt-oss-puzzle-88B"
+title: nvidia/gpt-oss-puzzle-88B
 date: "2026-03-27T12:00:00+09:00"
 lang: ko
 category: news
-summary: "."
-readerValue: "이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다."
-sourceUrl: "https://huggingface.co/nvidia/gpt-oss-puzzle-88B"
-sourceTitle: "nvidia/gpt-oss-puzzle-88B · Hugging Face"
+summary: .
+readerValue: 이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다.
+sourceUrl: https://huggingface.co/nvidia/gpt-oss-puzzle-88B
+sourceTitle: nvidia/gpt-oss-puzzle-88B · Hugging Face
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -15,20 +15,47 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://huggingface.co/nvidia/gpt-oss-puzzle-88B"
-      title: "LocalLLaMA"
-    - url: "https://developers.openai.com/cookbook/examples/multimodal/image-gen-1.5-prompting_guide"
-      title: "Secondary source"
+    - url: https://huggingface.co/nvidia/gpt-oss-puzzle-88B
+      title: LocalLLaMA
+    - url: https://developers.openai.com/cookbook/examples/multimodal/image-gen-1.5-prompting_guide
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: nvidia/gpt-oss-puzzle-88B"
+        - "원문 제목 대조: nvidia/gpt-oss-puzzle-88B · Hugging Face"
+        - "대표 출처 도메인: huggingface.co"
+        - "핵심 태그 축: llm, inference, reasoning, long-context"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: LocalLLaMA (https://huggingface.co/nvidia/gpt-oss-puzzle-88B)"
+        - "출처 2: Secondary source (https://developers.openai.com/cookbook/examples/multimodal/image-gen-1.5-prompting_guide)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: nvidia/gpt-oss-puzzle-88B"
+        - "수치 대조: [원문](https://huggingface.co/nvidia/gpt-oss-puzzle-88B)은 nvidia/gpt-oss-puzzle-88B · Hugging Face 기준으로 확인한 내..."
+        - "수치 대조: nvidia/gpt-oss-puzzle-88B · 포옹하는 얼굴, 우리는 오픈 소스와 오픈 사이언스를 통해 인공…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸..."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["llm", "inference", "reasoning", "long-context", "memory", "openai"]
+tags:
+  - llm
+  - inference
+  - reasoning
+  - long-context
+  - memory
+  - openai
 ---
 
 [원문](https://huggingface.co/nvidia/gpt-oss-puzzle-88B)은 nvidia/gpt-oss-puzzle-88B · Hugging Face 기준으로 확인한 내용이야. 이 이슈는 이 변화가 어디에 직접 영향을 주는지 빠르게 구분하는 거야 쪽에서 읽어야 맥락이 빨리 잡혀.

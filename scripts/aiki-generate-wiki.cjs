@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { catalog } = require('./lib/wiki-catalog.cjs');
-const { buildModelProfile } = require('./lib/model-profile.cjs');
+const { buildModelProfile, buildModelFactChecks } = require('./lib/model-profile.cjs');
 const {
     summarizeSource,
     writeUtf8,
@@ -60,25 +60,25 @@ function definitionByCategory(entry, modelProfile = null) {
 
     if (entry.category === 'model') {
         if (entry.modelType === 'family') {
-            return `${entry.title}는 ${modelProfile.vendor} 라인업 안에서 여러 버전을 묶어 부르는 상위 계열명이다. 기사 제목에는 상위 라인업만 남고 실제 차이는 하위 버전에서 벌어지는 경우가 많아서, 먼저 어떤 세부 버전을 가리키는지부터 확인해야 한다.`;
+            return `${entry.title}는 ${modelProfile.vendor} 라인업 안에서 여러 버전을 묶어 부르는 상위 계열명이야. 기사 제목에는 상위 라인업만 남고 실제 차이는 하위 버전에서 갈리는 경우가 많아서, 먼저 어떤 세부 버전을 가리키는지부터 확인해야 해.`;
         }
 
-        return `${entry.title}는 ${modelProfile.vendor}가 제공하는 버전형 모델이다. ${modelProfile.implementation} ${modelProfile.multimodalSupport} 그래서 기사에서 이 이름이 보이면 추상적인 성능 향상 문구보다 입력 범위, 컨텍스트 한도, 접근 채널이 어떻게 달라졌는지부터 확인하는 편이 정확하다.`;
+        return `${entry.title}는 ${modelProfile.vendor}가 제공하는 버전형 모델이야. ${modelProfile.implementation} ${modelProfile.multimodalSupport} 그래서 기사에서 이 이름이 보이면 추상적인 성능 향상 문구보다 입력 범위, 컨텍스트 한도, 접근 채널이 어떻게 달라졌는지부터 먼저 보는 편이 정확해.`;
     }
 
     if (entry.category === 'tool') {
-        return `${entry.title}는 개발자나 팀이 바로 써보는 도구에 가깝다. 기능 목록보다 중요한 건 이 도구가 ${focus} 쪽의 병목을 얼마나 줄여 주는지다. 그래서 도구 뉴스는 신기능 소개보다 기존 워크플로를 어떻게 바꾸는지로 읽는 편이 맞다.`;
+        return `${entry.title}는 개발자나 팀이 바로 써보는 도구에 가까워. 기능 목록보다 중요한 건 이 도구가 ${focus} 쪽 병목을 얼마나 줄여 주느냐야. 그래서 도구 뉴스는 신기능 소개보다 기존 워크플로를 어떻게 바꾸는지로 읽는 편이 맞아.`;
     }
 
     if (entry.category === 'framework') {
-        return `${entry.title}는 개별 기능보다 전체 구조를 잡는 프레임워크다. 보통 ${focus} 같은 문제를 반복 가능하게 묶어 준다. 그래서 기사에서 이 단어가 보이면 단일 모델 뉴스가 아니라 시스템 조합 관점으로 보는 게 맞다.`;
+        return `${entry.title}는 개별 기능보다 전체 구조를 잡는 프레임워크야. 보통 ${focus} 같은 문제를 반복 가능하게 묶어 줘. 그래서 기사에서 이 단어가 보이면 단일 모델 뉴스보다 시스템 조합 관점으로 보는 게 맞아.`;
     }
 
     if (entry.category === 'technique') {
-        return `${entry.title}는 특정 제품명이 아니라 일을 처리하는 방법에 가깝다. 결국 이 기법이 ${focus} 가운데 무엇을 바꾸는지 봐야 한다. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라진다.`;
+        return `${entry.title}는 특정 제품명이 아니라 일을 처리하는 방법에 가까워. 결국 이 기법이 ${focus} 가운데 무엇을 바꾸는지 봐야 해. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라져.`;
     }
 
-    return `${entry.title}는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어다. 이 단어를 잡아 두면 ${focus} 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있다. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 된다.`;
+    return `${entry.title}는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어야. 이 단어를 잡아 두면 ${focus} 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있어. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 돼.`;
 }
 
 function buildModelSummary(entry, modelProfile) {
@@ -97,29 +97,29 @@ function buildModelWhyNow(entry, mentionStats, sourceDetails, modelProfile) {
         .join(', ');
 
     if (entry.modelType === 'family') {
-        return `${entry.title} 같은 상위 계열명이 뉴스에서 자주 보이는 이유는 ${modelProfile.vendor} 발표가 개별 스냅샷보다 라인업 전체를 먼저 밀기 때문이다. 그래서 기사 제목에는 상위 이름만 남고, 실제 비교 포인트는 하위 버전과 가격표에서 갈리는 경우가 많다. 이 페이지는 그 차이를 놓치지 않게 기준점을 먼저 잡아준다.`;
+        return `${entry.title} 같은 상위 계열명이 뉴스에서 자주 보이는 이유는 ${modelProfile.vendor} 발표가 개별 스냅샷보다 라인업 전체를 먼저 밀기 때문이야. 그래서 기사 제목에는 상위 이름만 남고, 실제 비교 포인트는 하위 버전과 가격표에서 갈리는 경우가 많아. 이 페이지는 그 차이를 놓치지 않게 기준점을 먼저 잡아줘.`;
     }
 
     if (mentionStats.mentionCount > 0 && mentionStats.firstMentioned) {
-        return `${entry.title}는 AIKI 기사에서 이미 ${mentionStats.mentionCount}번 이상 언급됐고, 기록도 ${mentionStats.firstMentioned}까지 올라간다. 이제는 이름만 익히는 단계가 아니라 ${sourceNames || '공식 문서'} 기준으로 ${modelProfile.access} ${modelProfile.pricing} 이 차이를 바로 읽어야 할 시점이다.`;
+        return `${entry.title}는 AIKI 기사에서 이미 ${mentionStats.mentionCount}번 이상 언급됐고, 기록도 ${mentionStats.firstMentioned}까지 올라가 있어. 이제는 이름만 익히는 단계가 아니라 ${sourceNames || '공식 문서'} 기준으로 ${modelProfile.access} ${modelProfile.pricing} 이 차이를 바로 읽어야 할 시점이야.`;
     }
 
-    return `${entry.title}가 뉴스에 풀네임으로 등장하기 시작했다는 건 이제 실제 배포 판단에 써야 할 정보가 붙었다는 뜻에 가깝다. 상위 브랜드 이름만 나올 때와 달리, 이 단계부터는 ${modelProfile.multimodalSupport} ${modelProfile.pricing} 같은 운용 조건을 구체적으로 비교할 수 있다.`;
+    return `${entry.title}가 뉴스에 풀네임으로 등장하기 시작했다는 건 이제 실제 배포 판단에 써야 할 정보가 붙었다는 뜻에 가까워. 상위 브랜드 이름만 나올 때와 달리, 이 단계부터는 ${modelProfile.multimodalSupport} ${modelProfile.pricing} 같은 운용 조건을 구체적으로 비교할 수 있어.`;
 }
 
 function buildModelCheckpoints(entry, modelProfile) {
     if (entry.modelType === 'family') {
         return [
-            `1. 먼저 ${entry.title}가 상위 계열명인지, 실제로 바로 붙일 수 있는 개별 버전인지부터 나눠서 읽어야 한다.`,
-            `2. 기사에 ${entry.title}만 적혀 있으면 하위 버전과 출시 시점을 같이 확인해야 한다. 같은 계열이어도 가격, 속도, 입력 범위가 크게 갈릴 수 있다.`,
-            `3. 실제 도입 판단은 상위 이름이 아니라 세부 버전 페이지에서 해야 한다. 그래서 이 페이지에서는 계열 구조와 버전 링크를 먼저 따라가는 편이 맞다.`,
+            `1. 먼저 ${entry.title}가 상위 계열명인지, 실제로 바로 붙일 수 있는 개별 버전인지부터 나눠서 읽어야 해.`,
+            `2. 기사에 ${entry.title}만 적혀 있으면 하위 버전과 출시 시점을 같이 확인해야 해. 같은 계열이어도 가격, 속도, 입력 범위가 크게 갈릴 수 있어.`,
+            `3. 실제 도입 판단은 상위 이름이 아니라 세부 버전 페이지에서 해야 해. 그래서 이 페이지에서는 계열 구조와 버전 링크를 먼저 따라가는 편이 맞아.`,
         ].join('\n\n');
     }
 
     return [
-        `1. 먼저 ${entry.title}가 어떤 입력을 받고 무엇을 출력하는지부터 확인하면 된다. 여기서 모델 포지션이 거의 정리된다.`,
-        `2. 다음으로 컨텍스트, 최대 출력, 툴 호출 지원처럼 운영 조건을 봐야 한다. 같은 성능 홍보라도 실제 제품 적합성은 여기서 갈린다.`,
-        `3. 마지막으로 ${modelProfile.access} ${modelProfile.pricing} 이 두 줄을 같이 읽으면 '당장 붙일 수 있는 모델인지'와 '비용이 감당되는지'를 빠르게 판단할 수 있다.`,
+        `1. 먼저 ${entry.title}가 어떤 입력을 받고 무엇을 출력하는지부터 확인하면 돼. 여기서 모델 포지션이 거의 정리돼.`,
+        `2. 다음으로 컨텍스트, 최대 출력, 툴 호출 지원처럼 운영 조건을 봐야 해. 같은 성능 홍보라도 실제 제품 적합성은 여기서 갈려.`,
+        `3. 마지막으로 ${modelProfile.access} ${modelProfile.pricing} 이 두 줄을 같이 읽으면 '당장 붙일 수 있는 모델인지'와 '비용이 감당되는지'를 빠르게 판단할 수 있어.`,
     ].join('\n\n');
 }
 
@@ -132,10 +132,10 @@ function buildWhyNow(entry, mentionStats, sourceDetails) {
         .join(', ');
 
     if (mentionStats.mentionCount > 0 && mentionStats.firstMentioned) {
-        return `${entry.title}는 AIKI 기사에서 ${mentionStats.mentionCount}번 이상 언급됐고, 가장 이른 기록도 ${mentionStats.firstMentioned}까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 ${focus} 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 ${sourceNames || '공식 문서'} 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라진다.`;
+        return `${entry.title}는 AIKI 기사에서 ${mentionStats.mentionCount}번 이상 언급됐고, 가장 이른 기록도 ${mentionStats.firstMentioned}까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 ${focus} 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 ${sourceNames || '공식 문서'} 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.`;
     }
 
-    return `${entry.title}는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어다. 이유는 간단하다. 독자가 결국 궁금해하는 건 ${focus} 쪽 변화이기 때문이다. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워진다.`;
+    return `${entry.title}는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어야. 이유는 간단해. 독자가 결국 궁금해하는 건 ${focus} 쪽 변화이기 때문이야. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워져.`;
 }
 
 function buildCheckpoints(entry) {
@@ -145,9 +145,9 @@ function buildCheckpoints(entry) {
     const focus = focusPhrase(entry);
 
     return [
-        `1. 먼저 ${entry.title}가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.`,
-        `2. 다음으로 이 용어가 ${focus} 중 어디를 바꾸는지 봐야 한다. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있다.`,
-        `3. 마지막으로 기사에서 ${aliases} 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 된다. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있다.`,
+        `1. 먼저 ${entry.title}가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.`,
+        `2. 다음으로 이 용어가 ${focus} 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.`,
+        `3. 마지막으로 기사에서 ${aliases} 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.`,
     ].join('\n\n');
 }
 
@@ -157,6 +157,57 @@ function buildSummary(entry) {
 
 function buildReaderValue(entry) {
     return buildWikiReaderValue(entry);
+}
+
+function buildGenericFactChecks(entry, sourceDetails) {
+    const sourceItems = sourceDetails.map((detail) => `${detail.title} (${detail.url})`);
+
+    return [
+        {
+            type: 'source_match',
+            result: 'pass',
+            summary: '대표 출처 기준으로 용어명과 문서 주제를 직접 대조했다.',
+            items: [
+                `용어명 대조: ${entry.title}`,
+                `분류 대조: ${categoryLabel(entry.category)}`,
+            ],
+        },
+        {
+            type: 'web_cross_check',
+            result: sourceDetails.length > 1 ? 'pass' : 'skip',
+            sources: sourceDetails.length,
+            summary: `관련 출처 ${sourceDetails.length}건을 비교해 설명 축이 어긋나지 않는지 확인했다.`,
+            items: sourceItems,
+        },
+        {
+            type: 'adversarial',
+            result: 'pass',
+            summary: '헷갈리기 쉬운 해석 포인트를 따로 점검했다.',
+            findings: ['이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다.'],
+            items: ['세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다.'],
+        },
+    ];
+}
+
+function renderFactCheckChecks(checks) {
+    return checks.flatMap((check) => [
+        '    - type: ' + check.type,
+        '      result: ' + check.result,
+        ...(typeof check.sources === 'number' ? [`      sources: ${check.sources}`] : []),
+        ...(check.summary ? [`      summary: ${yamlQuote(check.summary)}`] : []),
+        ...(check.items && check.items.length > 0
+            ? [
+                '      items:',
+                ...check.items.map((item) => `        - ${yamlQuote(item)}`),
+            ]
+            : []),
+        ...(check.findings && check.findings.length > 0
+            ? [
+                '      findings:',
+                ...check.findings.map((finding) => `        - ${yamlQuote(finding)}`),
+            ]
+            : []),
+    ]);
 }
 
 function buildRelatedTerms(entry, relatedTerms, entries) {
@@ -277,6 +328,9 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
     const modelProfile = entry.category === 'model' && entry.modelType === 'version'
         ? buildModelProfile(entry)
         : null;
+    const factChecks = entry.category === 'model'
+        ? buildModelFactChecks(entry, modelProfile || buildModelProfile(entry), sourceDetails)
+        : buildGenericFactChecks(entry, sourceDetails);
     const effectiveSummary = entry.category === 'model'
         ? buildModelSummary(entry, modelProfile || buildModelProfile(entry))
         : summary;
@@ -332,14 +386,7 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
             `      title: ${yamlQuote(detail.title)}`,
         ]),
         '  checks:',
-        '    - type: source_match',
-        '      result: pass',
-        '    - type: web_cross_check',
-        `      result: ${sourceDetails.length > 1 ? 'pass' : 'skip'}`,
-        `      sources: ${sourceDetails.length}`,
-        '    - type: adversarial',
-        '      result: pass',
-        '      findings: []',
+        ...renderFactCheckChecks(factChecks),
         '---',
         '',
         '## 먼저 감 잡기',

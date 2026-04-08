@@ -1,12 +1,12 @@
 ---
-title: "unsloth/Qwen3.5-4B-GGUF"
+title: unsloth/Qwen3.5-4B-GGUF
 date: "2026-03-03T12:00:00+09:00"
 lang: ko
 category: news
-summary: "."
-readerValue: "이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다."
-sourceUrl: "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF"
-sourceTitle: "unsloth/Qwen3.5-4B-GGUF · Hugging Face"
+summary: .
+readerValue: 이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다.
+sourceUrl: https://huggingface.co/unsloth/Qwen3.5-4B-GGUF
+sourceTitle: unsloth/Qwen3.5-4B-GGUF · Hugging Face
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -15,20 +15,46 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF"
-      title: "LocalLLaMA"
-    - url: "https://huggingface.co/blog/unsloth-jobs"
-      title: "Secondary source"
+    - url: https://huggingface.co/unsloth/Qwen3.5-4B-GGUF
+      title: LocalLLaMA
+    - url: https://huggingface.co/blog/unsloth-jobs
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: unsloth/Qwen3.5-4B-GGUF"
+        - "원문 제목 대조: unsloth/Qwen3.5-4B-GGUF · Hugging Face"
+        - "대표 출처 도메인: huggingface.co"
+        - "핵심 태그 축: token, embedding, attention, gguf"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: LocalLLaMA (https://huggingface.co/unsloth/Qwen3.5-4B-GGUF)"
+        - "출처 2: Secondary source (https://huggingface.co/blog/unsloth-jobs)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: unsloth/Qwen3.5-4B-GGUF"
+        - "수치 대조: [원문](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF)은 unsloth/Qwen3.5-4B-GGUF · Hugging Face 기준으로 확인한 내용이야."
+        - "수치 대조: unsloth/Qwen3.5-4B-GGUF · 포옹하는 얼굴, 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바..."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["token", "embedding", "attention", "gguf", "qwen"]
+tags:
+  - token
+  - embedding
+  - attention
+  - gguf
+  - qwen
 ---
 
 [원문](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF)은 unsloth/Qwen3.5-4B-GGUF · Hugging Face 기준으로 확인한 내용이야. 이 이슈는 이 변화가 어디에 직접 영향을 주는지 빠르게 구분하는 거야 쪽에서 읽어야 맥락이 빨리 잡혀.

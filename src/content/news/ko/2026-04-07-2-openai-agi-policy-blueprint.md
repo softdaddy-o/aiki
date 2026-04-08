@@ -1,40 +1,66 @@
 ---
-title: "OpenAI, AGI 시대 정책 청사진 공개 — 공공 자산 펀드·4일 근무제 제안"
+title: OpenAI, AGI 시대 정책 청사진 공개 — 공공 자산 펀드·4일 근무제 제안
 date: "2026-04-07T10:30:00+09:00"
 lang: ko
 category: news
-summary: "OpenAI가 'Intelligence Age를 위한 산업 정책'을 발표했어. 공공 자산 펀드, 사회 안전망 강화, AI 경제 특구 등 3가지 정책 제안이 핵심이야. 일자리 자동화를 공개 인정하면서 뉴딜 수준의 새로운 사회 계약이 필요하다는 주장."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://openai.com/index/industrial-policy-for-the-intelligence-age/"
-sourceTitle: "OpenAI"
+summary: OpenAI가 'Intelligence Age를 위한 산업 정책'을 발표했어. 공공 자산 펀드, 사회 안전망 강화, AI 경제 특구 등 3가지 정책 제안이 핵심이야. 일자리 자동화를 공개 인정하면서 뉴딜 수준의 새로운 사회 계약이 필요하다는 주장.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://openai.com/index/industrial-policy-for-the-intelligence-age/
+sourceTitle: OpenAI
 draft: false
 score: 68
 factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://openai.com/index/industrial-policy-for-the-intelligence-age/"
-      title: "OpenAI — Industrial Policy for the Intelligence Age"
-    - url: "https://www.axios.com/2026/04/06/behind-the-curtain-sams-superintelligence-new-deal"
-      title: "Axios — Sam Altman New Deal interview"
-    - url: "https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/"
+    - url: https://openai.com/index/industrial-policy-for-the-intelligence-age/
+      title: OpenAI — Industrial Policy for the Intelligence Age
+    - url: https://www.axios.com/2026/04/06/behind-the-curtain-sams-superintelligence-new-deal
+      title: Axios — Sam Altman New Deal interview
+    - url: https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/
       title: "Fortune — Critics: regulatory nihilism"
-    - url: "https://techcrunch.com/2026/04/06/openais-vision-for-the-ai-economy-public-wealth-funds-robot-taxes-and-a-four-day-work-week/"
-      title: "TechCrunch — OpenAI AI economy vision"
+    - url: https://techcrunch.com/2026/04/06/openais-vision-for-the-ai-economy-public-wealth-funds-robot-taxes-and-a-four-day-work-week/
+      title: TechCrunch — OpenAI AI economy vision
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: OpenAI, AGI 시대 정책 청사진 공개 — 공공 자산 펀드·4일 근무제 제안"
+        - "원문 제목 대조: OpenAI"
+        - "대표 출처 도메인: openai.com"
+        - "핵심 태그 축: openai, policy, agi, economics"
     - type: web_cross_check
       result: pass
-      sources: 7
+      sources: 4
+      summary: 출처 4건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: OpenAI — Industrial Policy for the Intelligence Age (https://openai.com/index/industrial-policy-for-the-intelligence-age/)"
+        - "출처 2: Axios — Sam Altman New Deal interview (https://www.axios.com/2026/04/06/behind-the-curtain-sams-superintelligence-new-deal)"
+        - "출처 3: Fortune — Critics: regulatory nihilism (https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/)"
+        - "출처 4: TechCrunch — OpenAI AI economy vision (https://techcrunch.com/2026/04/06/openais-vision-for-the-ai-economy-public-wealth-funds-robot-taxes-and-a-four-day-work-week/)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: OpenAI, AGI 시대 정책 청사진 공개 — 공공 자산 펀드·4일 근무제 제안"
+        - "수치 대조: 공공 자산 펀드, 사회 안전망 강화, AI 경제 특구 등 3가지 정책 제안이 핵심이야."
+        - "수치 대조: 발표일은 `4월 6일`, 분량은 `32페이지`고, 적어도 OpenAI가 이걸 임시 블로그 포스트가 아니라 정책 패키지로 다루고 있다는 건 분명해."
+        - "수치 대조: [Fortune](https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-..."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.
       findings:
-        - "Sam Altman의 'New Deal' 발언은 문서 본문이 아닌 Axios 인터뷰 출처"
-        - "AI 경제 구역은 개념만 제시, 구체적 구역 수는 문서에 명시 없음 (원문 수정 완료)"
-tags: ["openai", "policy", "agi", "economics", "regulation"]
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.
+tags:
+  - openai
+  - policy
+  - agi
+  - economics
+  - regulation
 ---
 
 OpenAI가 "[Intelligence Age를 위한 산업 정책](https://openai.com/index/industrial-policy-for-the-intelligence-age/)"을 공개했어. 핵심은 한 줄이야. AI가 경제 구조를 바꿀 만큼 커질 테니, 그 충격을 시장에만 맡기지 말자는 거야.

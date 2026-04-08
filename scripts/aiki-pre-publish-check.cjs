@@ -6,8 +6,10 @@
 const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
+const yaml = require('js-yaml');
 const { isClearlyOffTopic } = require('./lib/scoring.cjs');
 const { findPostByUrl, isRedditMediaUrl } = require('./lib/scraper-posts.cjs');
+const { hasDetailedItems } = require('./lib/fact-check-details.cjs');
 const {
     isBadNewsReaderValue,
     isBadNewsTitle,
@@ -108,55 +110,7 @@ const checkAll = args.includes('--all');
 function parseFrontmatter(content) {
     const match = content.match(/^---\n([\s\S]*?)\n---/);
     if (!match) return null;
-
-    const yaml = match[1];
-    const result = {};
-    const lines = yaml.split('\n');
-    let i = 0;
-
-    while (i < lines.length) {
-        const line = lines[i];
-        const kv = line.match(/^(\w[\w-]*):\s*(.*)$/);
-        if (!kv) {
-            i++;
-            continue;
-        }
-
-        const key = kv[1];
-        let val = kv[2].trim();
-
-        if (val === '' && i + 1 < lines.length && lines[i + 1].startsWith('  ')) {
-            const obj = {};
-            const list = [];
-            i++;
-
-            while (i < lines.length && lines[i].startsWith('  ')) {
-                const trimmed = lines[i].trim();
-                const nested = trimmed.match(/^(\w[\w-]*):\s*(.*)$/);
-                const listItem = trimmed.match(/^-\s+(.*)$/);
-
-                if (nested) {
-                    obj[nested[1]] = nested[2].trim().replace(/^["']|["']$/g, '');
-                } else if (listItem) {
-                    list.push(listItem[1].trim().replace(/^["']|["']$/g, ''));
-                }
-                i++;
-            }
-
-            result[key] = Object.keys(obj).length > 0 ? obj : list;
-            continue;
-        }
-
-        if (val === 'true') val = true;
-        else if (val === 'false') val = false;
-        else if (/^\d+$/.test(val)) val = parseInt(val, 10);
-        else val = val.replace(/^["']|["']$/g, '');
-
-        result[key] = val;
-        i++;
-    }
-
-    return result;
+    return yaml.load(match[1], { schema: yaml.FAILSAFE_SCHEMA }) || null;
 }
 
 function extractBody(content) {
@@ -332,6 +286,68 @@ function containsBlockedSourceText(text) {
     return BLOCKED_SOURCE_PATTERNS.some((pattern) => pattern.test(String(text || '')));
 }
 
+function splitBodySentences(body) {
+    return String(body || '')
+        .replace(/^#{1,6}\s+.+$/gm, '')
+        .split(/(?<=[.!?])\s+|\n+/)
+        .map((entry) => entry.trim())
+        .filter((entry) => entry.length > 4);
+}
+
+function validateWikiTone(body) {
+    const sentences = splitBodySentences(body);
+    if (sentences.length < 3) {
+        return ['wiki tone too thin to evaluate'];
+    }
+
+    const colloquial = sentences.filter((sentence) => /(이야|거야|해야 해|보면 돼|맞아|갈려|쉬워져|가까워|봐야 해|읽어야 해|잡아줘)\s*[.!?]?\s*$/u.test(sentence));
+    const formal = sentences.filter((sentence) => /(이다|다|한다|된다|맞다|갈린다|정확하다|가깝다|설명한다)\s*[.!?]?\s*$/u.test(sentence));
+    const failures = [];
+
+    if (colloquial.length < 2) {
+        failures.push('wiki tone lacks conversational guide cues');
+    }
+
+    if (formal.length > Math.ceil(sentences.length * 0.55)) {
+        failures.push('wiki tone still reads too formally');
+    }
+
+    return failures;
+}
+
+function validateFactCheckDetails(targetName, frontmatter) {
+    const factCheck = frontmatter.factCheck || {};
+    const checks = Array.isArray(factCheck.checks) ? factCheck.checks : [];
+    const checkMap = new Map(checks.map((check) => [String(check && check.type || ''), check]));
+    const requiredTypes = targetName === 'news'
+        ? ['source_match', 'web_cross_check', 'number_verify', 'adversarial']
+        : ['source_match', 'web_cross_check', 'adversarial'];
+
+    if (String(frontmatter.modelType || '').toLowerCase() === 'version' && !requiredTypes.includes('number_verify')) {
+        requiredTypes.push('number_verify');
+    }
+
+    const failures = [];
+
+    if (!Array.isArray(factCheck.sources) || factCheck.sources.length === 0) {
+        failures.push('factCheck.sources missing');
+    }
+
+    for (const type of requiredTypes) {
+        const check = checkMap.get(type);
+        if (!check) {
+            failures.push(`factCheck.${type} missing`);
+            continue;
+        }
+
+        if (!hasDetailedItems(check)) {
+            failures.push(`factCheck.${type} lacks summary or items`);
+        }
+    }
+
+    return failures;
+}
+
 const changedFiles = getChangedFiles();
 const today = getTodayString();
 const errors = [];
@@ -419,6 +435,14 @@ for (const target of CONTENT_TARGETS) {
             }
         }
 
+        if (!isDraft) {
+            for (const failure of validateFactCheckDetails(target.name, fm)) {
+                const message = `${target.name}/${filename}: ${failure}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
+        }
+
         if (!isBackfill && filenameDate && fmDate && filenameDate !== fmDate) {
             errors.push(`${target.name}/${filename}: filename date ${filenameDate} does not match frontmatter date ${fmDate}`);
         }
@@ -480,6 +504,14 @@ for (const target of CONTENT_TARGETS) {
             const message = `${target.name}/${filename}: missing explicit reader outcome`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki') {
+            for (const failure of validateWikiTone(body)) {
+                const message = `${target.name}/${filename}: ${failure}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
         }
 
         if (!isDraft && target.name === 'news' && toneResults.length > 0) {

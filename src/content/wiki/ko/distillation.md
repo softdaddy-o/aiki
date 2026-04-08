@@ -25,27 +25,39 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Knowledge_distillation"
       title: "Knowledge distillation"
     - url: "https://platform.openai.com/docs/guides/distillation"
-      title: "https://platform.openai.com/docs/guides/distillation"
+      title: "Supervised fine-tuning | OpenAI API"
   checks:
     - type: source_match
       result: pass
+      summary: "대표 출처 기준으로 용어명과 문서 주제를 직접 대조했다."
+      items:
+        - "용어명 대조: Distillation"
+        - "분류 대조: 기법"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: "관련 출처 2건을 비교해 설명 축이 어긋나지 않는지 확인했다."
+      items:
+        - "Knowledge distillation (https://en.wikipedia.org/wiki/Knowledge_distillation)"
+        - "Supervised fine-tuning | OpenAI API (https://platform.openai.com/docs/guides/distillation)"
     - type: adversarial
       result: pass
-      findings: []
+      summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
+      items:
+        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+      findings:
+        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
 ---
 ## 먼저 감 잡기
-Distillation는 특정 제품명이 아니라 일을 처리하는 방법에 가깝다. 결국 이 기법이 학습 전략과 모델 개선 루프 가운데 무엇을 바꾸는지 봐야 한다. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라진다.
+Distillation는 특정 제품명이 아니라 일을 처리하는 방법에 가까워. 결국 이 기법이 학습 전략과 모델 개선 루프 가운데 무엇을 바꾸는지 봐야 해. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라져.
 ## 뉴스에서 왜 자주 나오나
-Distillation는 AIKI 기사에서 3번 이상 언급됐고, 가장 이른 기록도 2026-03-23까지 올라간다. 그만큼 이 용어는 반짝 유행어라기보다 학습 전략과 모델 개선 루프 문제를 설명할 때 계속 재등장하는 기준 단어다. 참고 소스도 Knowledge distillation, https://platform.openai.com/docs/guides/distillation 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라진다.
+Distillation는 AIKI 기사에서 3번 이상 언급됐고, 가장 이른 기록도 2026-03-23까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 학습 전략과 모델 개선 루프 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 Knowledge distillation, Supervised fine-tuning | OpenAI API 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.
 ## 읽을 때 체크포인트
-1. 먼저 Distillation가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.
+1. 먼저 Distillation가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
 
-2. 다음으로 이 용어가 학습 전략과 모델 개선 루프 중 어디를 바꾸는지 봐야 한다. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있다.
+2. 다음으로 이 용어가 학습 전략과 모델 개선 루프 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
 
-3. 마지막으로 기사에서 knowledge distillation 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 된다. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있다.
+3. 마지막으로 기사에서 knowledge distillation 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
 ## 같이 봐야 할 용어
 - [pytorch](/ko/wiki/pytorch/)
 - [quantization](/ko/wiki/quantization/)

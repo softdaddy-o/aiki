@@ -1,12 +1,12 @@
 ---
-title: "M3 Pro에서 Gemma E2B로 실시간 음성·영상 대화를 돌린 사례"
+title: M3 Pro에서 Gemma E2B로 실시간 음성·영상 대화를 돌린 사례
 date: "2026-04-06T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Gemma E2B를 M3 Pro에서 실시간 음성·영상 입력, 음성 출력 형태로 묶은 데모다. 언어 학습 같은 개인용 온디바이스 AI 경험이 어디까지 왔는지 가늠하게 해준다."
-readerValue: "이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다."
-sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sda3r6/realtime_ai_audiovideo_in_voice_out_on_an_m3_pro/"
-sourceTitle: "Reddit r/LocalLLaMA"
+summary: Gemma E2B를 M3 Pro에서 실시간 음성·영상 입력, 음성 출력 형태로 묶은 데모다. 언어 학습 같은 개인용 온디바이스 AI 경험이 어디까지 왔는지 가늠하게 해준다.
+readerValue: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다.
+sourceUrl: https://www.reddit.com/r/LocalLLaMA/comments/1sda3r6/realtime_ai_audiovideo_in_voice_out_on_an_m3_pro/
+sourceTitle: Reddit r/LocalLLaMA
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -15,18 +15,47 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://news.ycombinator.com/item?id=47652561"
-      title: "Hacker News discussion"
-    - url: "https://github.com/fikrikarim/parlor"
-      title: "parlor GitHub repo"
+    - url: https://news.ycombinator.com/item?id=47652561
+      title: Hacker News discussion
+    - url: https://github.com/fikrikarim/parlor
+      title: parlor GitHub repo
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: M3 Pro에서 Gemma E2B로 실시간 음성·영상 대화를 돌린 사례"
+        - "원문 제목 대조: Reddit r/LocalLLaMA"
+        - "대표 출처 도메인: reddit.com"
+        - "핵심 태그 축: gemma, on-device, multimodal, voice"
+    - type: web_cross_check
+      result: pass
+      sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: Hacker News discussion (https://news.ycombinator.com/item?id=47652561)"
+        - "출처 2: parlor GitHub repo (https://github.com/fikrikarim/parlor)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: M3 Pro에서 Gemma E2B로 실시간 음성·영상 대화를 돌린 사례"
+        - "수치 대조: Gemma E2B를 M3 Pro에서 실시간 음성·영상 입력, 음성 출력 형태로 묶은 데모다."
+        - "수치 대조: Gemma E2B를 M3 Pro에서 실시간 음성·영상 입력, 음성 출력 형태로 묶은 데모야."
+        - "수치 대조: 언어 학습 같은 개인용 온디바이스 AI 경험이 어디까지 왔는지 가늠하게 해준다 [원문](https://www.reddit.com/r/LocalLLaMA/comments/1sda3r6/realt..."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 커뮤니티 반응 수치와 실제 제품 영향력을 분리해서 읽었다.
+        - 개인 실험·후기 성격의 글이라 재현 가능성과 대표성을 따로 판단했다.
       findings:
-        - "완전한 연속 비디오 스트림보다는 저빈도 이미지 스냅샷에 가까워서 '실시간 영상' 표현은 다소 넓게 봐야 한다."
-tags: ["gemma", "on-device", "multimodal", "voice"]
+        - Reddit 반응은 관심 신호일 뿐 제품 준비도나 시장 검증을 직접 뜻하지 않는다.
+tags:
+  - gemma
+  - on-device
+  - multimodal
+  - voice
 ---
 
 Gemma E2B를 M3 Pro에서 실시간 음성·영상 입력, 음성 출력 형태로 묶은 데모야. 언어 학습 같은 개인용 온디바이스 AI 경험이 어디까지 왔는지 가늠하게 해준다 [원문](https://www.reddit.com/r/LocalLLaMA/comments/1sda3r6/realtime_ai_audiovideo_in_voice_out_on_an_m3_pro/)은 Reddit r/LocalLLaMA 기준으로 확인한 내용이야. 이 이슈는 AI가 아직 거대한 클라우드 모델 전용이 아니라는 점, 그리고 개인 기기에서 먼저 유효한 사용처가 어디인지 빠르게 읽게 해준 쪽에서 읽어야 해. 이걸 그렇게 봐야 온디바이스 AI가 먼저 먹히는 자리가 어디인지 선명해지거든.

@@ -1,37 +1,61 @@
 ---
-title: "Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수"
+title: Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수
 date: "2026-04-07T10:00:00+09:00"
 lang: ko
 category: news
-summary: "Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어. 직원 10명 미만의 스텔스 스타트업이지만, Genentech 출신 창업자들이 만든 신약 파이프라인 AI 플랫폼이 타깃이었어."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/"
-sourceTitle: "TechCrunch"
+summary: Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어. 직원 10명 미만의 스텔스 스타트업이지만, Genentech 출신 창업자들이 만든 신약 파이프라인 AI 플랫폼이 타깃이었어.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/
+sourceTitle: TechCrunch
 draft: false
 score: 78
 factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/"
-      title: "TechCrunch — Anthropic buys Coefficient Bio"
-    - url: "https://thenextweb.com/news/anthropic-just-paid-400-million-for-a-startup-with-fewer-than-10-people"
-      title: "The Next Web — Anthropic acquires Coefficient Bio"
-    - url: "https://www.anthropic.com/news/claude-for-life-sciences"
-      title: "Anthropic — Claude for Life Sciences"
+    - url: https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/
+      title: TechCrunch — Anthropic buys Coefficient Bio
+    - url: https://thenextweb.com/news/anthropic-just-paid-400-million-for-a-startup-with-fewer-than-10-people
+      title: The Next Web — Anthropic acquires Coefficient Bio
+    - url: https://www.anthropic.com/news/claude-for-life-sciences
+      title: Anthropic — Claude for Life Sciences
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수"
+        - "원문 제목 대조: TechCrunch"
+        - "대표 출처 도메인: techcrunch.com"
+        - "핵심 태그 축: anthropic, biotech, acquisition, healthcare-ai"
     - type: web_cross_check
       result: pass
-      sources: 10
+      sources: 3
+      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: TechCrunch — Anthropic buys Coefficient Bio (https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/)"
+        - "출처 2: The Next Web — Anthropic acquires Coefficient Bio (https://thenextweb.com/news/anthropic-just-paid-400-million-for-a-startup-with-fewer-than-10-people)"
+        - "출처 3: Anthropic — Claude for Life Sciences (https://www.anthropic.com/news/claude-for-life-sciences)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수"
+        - "수치 대조: Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어."
+        - "수치 대조: 직원 10명 미만의 스텔스 스타트업이지만, Genentech 출신 창업자들이 만든 신약 파이프라인 AI 플랫폼이 타깃이었어."
+        - "수치 대조: Anthropic이 Coefficient Bio를 약 [4억 달러 규모 주식 거래](https://techcrunch.com/2026/04/03/anthropic-buys-biotech-sta..."
     - type: adversarial
       result: pass
-      findings:
-        - "Nathan Frey의 Prescient Design 직책은 Group Leader & Principal Scientist로 기사보다 더 시니어한 포지션이었음"
-tags: ["anthropic", "biotech", "acquisition", "healthcare-ai"]
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - anthropic
+  - biotech
+  - acquisition
+  - healthcare-ai
 ---
 
 Anthropic이 Coefficient Bio를 약 [4억 달러 규모 주식 거래](https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/)로 인수했어. 직원이 10명도 안 되는 스텔스 스타트업인데 가격이 세게 붙었지.

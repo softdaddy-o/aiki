@@ -3,9 +3,9 @@ title: "Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델"
 date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Gemini Embedding 2에 대한 개요입니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"
+summary: Gemini Embedding 2에 대한 개요입니다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/
 sourceTitle: "Gemini Embedding 2: Our first natively multimodal embedding model"
 draft: false
 backfilled: true
@@ -15,20 +15,48 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"
-      title: "blog.google"
-    - url: "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/"
-      title: "Secondary source"
+    - url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/
+      title: blog.google
+    - url: https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델"
+        - "원문 제목 대조: Gemini Embedding 2: Our first natively multimodal embedding model"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: agent, gemini, embedding, multimodal"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: blog.google (https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/)"
+        - "출처 2: Secondary source (https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: Gemini Embedding 2: 최초의 기본 다중 모드 임베딩 모델"
+        - "수치 대조: Gemini Embedding 2에 대한 개요입니다."
+        - "수치 대조: Gemini Embedding 2에 대한 개요입니다 [원문](https://blog.google/innovation-and-ai/models-and-research/gemini-models/g..."
+        - "수치 대조: 이 이슈는 Gemini Embedding 2에 대한 개요입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["agent", "gemini", "embedding", "multimodal", "alignment", "modal"]
+tags:
+  - agent
+  - gemini
+  - embedding
+  - multimodal
+  - alignment
+  - modal
 ---
 
 Gemini Embedding 2에 대한 개요입니다 [원문](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/)은 Gemini Embedding 2: Our first natively multimodal embedding model 기준으로 확인한 내용이야. 이 이슈는 Gemini Embedding 2에 대한 개요입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.

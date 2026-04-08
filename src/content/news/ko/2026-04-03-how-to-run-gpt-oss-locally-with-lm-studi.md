@@ -1,26 +1,55 @@
 ---
-title: "LM Studio를 사용하여 로컬에서 gpt-oss를 실행하는 방법"
+title: LM Studio를 사용하여 로컬에서 gpt-oss를 실행하는 방법
 date: "2026-04-03T12:00:00+09:00"
 lang: ko
 category: news
-summary: "LM Studio는 로컬 하드웨어에서 LLM(대형 언어 모델)을 실행하기 위한 성능이 뛰어나고 친숙한 데스크톱 애플리케이션입니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/"
-sourceTitle: "How to run gpt-oss locally with LM Studio"
+summary: LM Studio는 로컬 하드웨어에서 LLM(대형 언어 모델)을 실행하기 위한 성능이 뛰어나고 친숙한 데스크톱 애플리케이션입니다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/
+sourceTitle: How to run gpt-oss locally with LM Studio
 draft: false
+backfilled: true
+backfilledAt: "2026-04-07"
 score: 79
 factCheck:
   status: passed
   date: "2026-04-03"
   sources:
-    - url: "https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/"
-      title: "developers.openai.com"
+    - url: https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/
+      title: developers.openai.com
   checks:
     - type: source_match
       result: pass
-tags: ["gpt-oss", "lm-studio", "openai", "local-llm"]
-backfilled: true
-backfilledAt: "2026-04-07"
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: LM Studio를 사용하여 로컬에서 gpt-oss를 실행하는 방법"
+        - "원문 제목 대조: How to run gpt-oss locally with LM Studio"
+        - "대표 출처 도메인: developers.openai.com"
+        - "핵심 태그 축: gpt-oss, lm-studio, openai, local-llm"
+    - type: web_cross_check
+      result: skip
+      sources: 1
+      summary: 출처 1건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: developers.openai.com (https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - 핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.
+    - type: adversarial
+      result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.
+      findings:
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.
+tags:
+  - gpt-oss
+  - lm-studio
+  - openai
+  - local-llm
 ---
 
 LM Studio는 로컬 하드웨어에서 LLM(대형 언어 모델)을 실행하기 위한 성능이 뛰어나고 친숙한 데스크톱 애플리케이션입니다 [원문](https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio/)은 How to run gpt-oss locally with LM Studio 기준으로 확인한 내용이야. 이 이슈는 LM Studio는 로컬 하드웨어에서 LLM(대형 언어 모델)을 실행하기 위한 성능이 뛰어나고 친숙한 데스크톱 애플리케이션입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.

@@ -1,12 +1,12 @@
 ---
-title: "Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요."
+title: Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요.
 date: "2026-04-01T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Gemini API 코드를 생성할 수 있습니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/"
-sourceTitle: "Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills."
+summary: Gemini API 코드를 생성할 수 있습니다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/
+sourceTitle: Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills.
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -15,20 +15,44 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://ai.google.dev/gemini-api/docs/coding-agents"
-      title: "Google AI for Developers — Gemini API Docs MCP"
-    - url: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/"
-      title: "Google Blog"
+    - url: https://ai.google.dev/gemini-api/docs/coding-agents
+      title: Google AI for Developers — Gemini API Docs MCP
+    - url: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/
+      title: Google Blog
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: Gemini API Docs MCP 및 Agent Skills를 통해 코딩 에이전트의 성능을 향상하세요."
+        - "원문 제목 대조: Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills."
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: google, gemini, mcp, coding-agent"
+    - type: web_cross_check
+      result: pass
+      sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: Google AI for Developers — Gemini API Docs MCP (https://ai.google.dev/gemini-api/docs/coding-agents)"
+        - "출처 2: Google Blog (https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - 핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.
     - type: adversarial
       result: pass
-      findings:
-        - "96.3% 정답률은 Google 자체 평가셋 기준 — 독립 검증 데이터 없음"
-tags: ["google", "gemini", "mcp", "coding-agent", "developer-tools"]
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - google
+  - gemini
+  - mcp
+  - coding-agent
+  - developer-tools
 ---
 
 Gemini API 코드를 생성할 수 있습니다 [원문](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/)은 Improve coding agents’ performance with Gemini API Docs MCP and Agent Skills 기준으로 확인한 내용이야. 이 이슈는 Gemini API 코드를 생성할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.

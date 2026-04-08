@@ -3,24 +3,52 @@ title: "전환하세요: AI 추억과 채팅 기록을 Gemini로 가져오세요
 date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/"
+summary: Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/
 sourceTitle: "Make the switch: Bring your AI memories and chat history to Gemini"
 draft: false
+backfilled: true
+backfilledAt: "2026-04-07"
 score: 73
 factCheck:
   status: passed
   date: "2026-04-02"
   sources:
-    - url: "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/"
-      title: "blog.google"
+    - url: https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/
+      title: blog.google
   checks:
     - type: source_match
       result: pass
-tags: ["gemini", "google", "memory", "migration"]
-backfilled: true
-backfilledAt: "2026-04-07"
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: 전환하세요: AI 추억과 채팅 기록을 Gemini로 가져오세요"
+        - "원문 제목 대조: Make the switch: Bring your AI memories and chat history to Gemini"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: gemini, google, memory, migration"
+    - type: web_cross_check
+      result: skip
+      sources: 1
+      summary: 출처 1건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: blog.google (https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - 핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.
+    - type: adversarial
+      result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - gemini
+  - google
+  - memory
+  - migration
 ---
 
 Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다 [원문](https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/)은 Make the switch: Bring your AI memories and chat history to Gemini 기준으로 확인한 내용이야. 이 이슈는 Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.

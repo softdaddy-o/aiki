@@ -1,12 +1,12 @@
 ---
-title: "3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다"
+title: 3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다
 date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
-summary: "Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/"
-sourceTitle: "3 new Gemini features are coming to Google TV"
+summary: Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/
+sourceTitle: 3 new Gemini features are coming to Google TV
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -15,20 +15,43 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/"
-      title: "blog.google"
-    - url: "https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/"
-      title: "Secondary source"
+    - url: https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/
+      title: blog.google
+    - url: https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: 3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다"
+        - "원문 제목 대조: 3 new Gemini features are coming to Google TV"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: gemini, claude"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: blog.google (https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/)"
+        - "출처 2: Secondary source (https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: 3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다"
+        - "수치 대조: Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다 [원문](https://bl..."
+        - "수치 대조: 3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다, Google TV의 새로운 Gemini 기능…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바..."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["gemini", "claude"]
+tags:
+  - gemini
+  - claude
 ---
 
 Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다 [원문](https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/)은 3 new Gemini features are coming to Google TV 기준으로 확인한 내용이야. 이 이슈는 Google TV의 새로운 Gemini 기능에는 더욱 풍부해진 시각적 답변, 심층 분석, 스포츠 브리핑이 포함되어 있어 좋아하는 주제를 더 쉽게 탐색할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.

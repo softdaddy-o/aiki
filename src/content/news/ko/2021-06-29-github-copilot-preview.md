@@ -1,12 +1,12 @@
 ---
-title: "GitHub Copilot 공개, AI 코딩 보조의 시작"
+title: GitHub Copilot 공개, AI 코딩 보조의 시작
 date: "2021-06-29T12:00:00+09:00"
 lang: ko
 category: news
-summary: "GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/"
-sourceTitle: "GitHub Copilot"
+summary: GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및 JetBrains 통합 개발 환경(IDE) 사용자를 지원합니다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/
+sourceTitle: GitHub Copilot
 draft: false
 backfilled: true
 backfilledAt: "2026-04-08"
@@ -16,20 +16,42 @@ factCheck:
   status: passed
   date: "2026-04-08"
   sources:
-    - url: "https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/"
-      title: "GitHub Copilot"
-    - url: "https://en.wikipedia.org/wiki/GitHub_Copilot"
-      title: "Secondary source"
+    - url: https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/
+      title: GitHub Copilot
+    - url: https://en.wikipedia.org/wiki/GitHub_Copilot
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: GitHub Copilot 공개, AI 코딩 보조의 시작"
+        - "원문 제목 대조: GitHub Copilot"
+        - "대표 출처 도메인: github.blog"
+        - "핵심 태그 축: copilot, coding-agent, github"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: GitHub Copilot (https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/)"
+        - "출처 2: Secondary source (https://en.wikipedia.org/wiki/GitHub_Copilot)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - 핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["copilot", "coding-agent", "github"]
+tags:
+  - copilot
+  - coding-agent
+  - github
 ---
 
 [공식 발표](https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/)와 [보조 자료](https://en.wikipedia.org/wiki/GitHub_Copilot)를 같이 보면 GitHub Copilot의 핵심은 GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및…

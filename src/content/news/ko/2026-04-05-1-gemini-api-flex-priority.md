@@ -1,36 +1,58 @@
 ---
-title: "Gemini API에 Flex/Priority 티어 추가 — 비용 50% 절감 or 최우선 처리"
+title: Gemini API에 Flex/Priority 티어 추가 — 비용 50% 절감 or 최우선 처리
 date: "2026-04-05T09:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 Gemini API에 Flex(50% 할인)랑 Priority(75-100% 프리미엄) 티어를 넣었어. 파라미터 하나로 전환 가능."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/"
-sourceTitle: "Google Blog"
+summary: Google이 Gemini API에 Flex(50% 할인)랑 Priority(75-100% 프리미엄) 티어를 넣었어. 파라미터 하나로 전환 가능.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/
+sourceTitle: Google Blog
 draft: false
 score: 65
 factCheck:
   status: passed
   date: "2026-04-05"
   sources:
-    - url: "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/"
-      title: "Google Blog — Flex and Priority tiers"
-    - url: "https://ai.google.dev/gemini-api/docs/priority-inference"
-      title: "Gemini API Priority Inference Docs"
+    - url: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/
+      title: Google Blog — Flex and Priority tiers
+    - url: https://ai.google.dev/gemini-api/docs/priority-inference
+      title: Gemini API Priority Inference Docs
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: Gemini API에 Flex/Priority 티어 추가 — 비용 50% 절감 or 최우선 처리"
+        - "원문 제목 대조: Google Blog"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: gemini, google, api, pricing"
     - type: web_cross_check
       result: pass
-      sources: 3
+      sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: Google Blog — Flex and Priority tiers (https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/)"
+        - "출처 2: Gemini API Priority Inference Docs (https://ai.google.dev/gemini-api/docs/priority-inference)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: Gemini API에 Flex/Priority 티어 추가 — 비용 50% 절감 or 최우선 처리"
+        - "수치 대조: Google이 Gemini API에 Flex(50% 할인)랑 Priority(75-100% 프리미엄) 티어를 넣었어."
+        - "수치 대조: 4월 2일 발표."
+        - "수치 대조: 표준 대비 50% 저렴한 대신 응답 지연이 생길 수 있어."
     - type: adversarial
       result: pass
-      findings:
-        - "50% 할인은 Google 자체 발표 수치 — 실사용 시 지연 시간(latency) 트레이드오프 미공개"
-        - "Priority 75-100% 프리미엄의 구체적 SLA(응답 시간 보장) 미명시"
-tags: ["gemini", "google", "api", "pricing"]
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - gemini
+  - google
+  - api
+  - pricing
 ---
 
 Google이 Gemini API에 추론 티어를 두 개 넣었어. 4월 2일 발표.

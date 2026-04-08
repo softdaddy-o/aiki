@@ -27,23 +27,35 @@ factCheck:
   checks:
     - type: source_match
       result: pass
+      summary: "대표 출처 기준으로 용어명과 문서 주제를 직접 대조했다."
+      items:
+        - "용어명 대조: Small Language Model"
+        - "분류 대조: 개념"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: "관련 출처 2건을 비교해 설명 축이 어긋나지 않는지 확인했다."
+      items:
+        - "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model (https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model)"
+        - "SmolLM - blazingly fast and remarkably powerful (https://huggingface.co/blog/smollm)"
     - type: adversarial
       result: pass
-      findings: []
+      summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
+      items:
+        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+      findings:
+        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
 ---
 ## 먼저 감 잡기
-Small Language Model는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어다. 이 단어를 잡아 두면 모델 성능, 제품 전략, 개발 흐름 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있다. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 된다.
+Small Language Model는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어야. 이 단어를 잡아 두면 모델 성능, 제품 전략, 개발 흐름 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있어. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 돼.
 ## 뉴스에서 왜 자주 나오나
-Small Language Model는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어다. 이유는 간단하다. 독자가 결국 궁금해하는 건 모델 성능, 제품 전략, 개발 흐름 쪽 변화이기 때문이다. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워진다.
+Small Language Model는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어야. 이유는 간단해. 독자가 결국 궁금해하는 건 모델 성능, 제품 전략, 개발 흐름 쪽 변화이기 때문이야. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워져.
 ## 읽을 때 체크포인트
-1. 먼저 Small Language Model가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 된다. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라진다.
+1. 먼저 Small Language Model가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
 
-2. 다음으로 이 용어가 모델 성능, 제품 전략, 개발 흐름 중 어디를 바꾸는지 봐야 한다. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있다.
+2. 다음으로 이 용어가 모델 성능, 제품 전략, 개발 흐름 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
 
-3. 마지막으로 기사에서 slm 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 된다. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있다.
+3. 마지막으로 기사에서 slm 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
 ## 같이 봐야 할 용어
 - [quantization](/ko/wiki/quantization/)
 - [distillation](/ko/wiki/distillation/)

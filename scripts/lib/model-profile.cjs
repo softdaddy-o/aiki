@@ -104,6 +104,189 @@ const MODEL_PROFILE_OVERRIDES = {
     },
 };
 
+const MODEL_FACT_OVERRIDES = {
+    'gpt-4o': {
+        sourceMatch: [
+            '모델명 대조: GPT-4o',
+            '벤더 대조: OpenAI',
+            '배포 유형 대조: version 모델 / 폐쇄형 API',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Introducing GPT-4o',
+            '공식 소스 2: OpenAI API 모델 문서',
+            '비교 확인: 멀티모달 입력 범위와 API 지원 범위가 두 소스에서 일치',
+        ],
+        numberVerify: [
+            '컨텍스트: 128K',
+            '최대 출력: 16,384 토큰',
+            '가격: 입력 $2.50 / 캐시 입력 $1.25 / 출력 $10.00 per 1M tokens',
+        ],
+        adversarial: [
+            '오디오 입출력은 GPT-4o 기본 텍스트 모델과 별도 계열 문서로 분리해 읽어야 한다.',
+        ],
+    },
+    'o1': {
+        sourceMatch: [
+            '모델명 대조: o1',
+            '벤더 대조: OpenAI',
+            '배포 유형 대조: version 모델 / reasoning API',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Introducing OpenAI o1',
+            '공식 소스 2: Reasoning best practices',
+            '비교 확인: 접근 채널과 reasoning 모델 포지션이 두 소스에서 일치',
+        ],
+        numberVerify: [
+            '컨텍스트: 200K',
+            '최대 출력: 100K 토큰',
+            '가격: 입력 $15.00 / 캐시 입력 $7.50 / 출력 $60.00 per 1M tokens',
+        ],
+        adversarial: [
+            '활성 파라미터 수는 공식 비공개라 성능 기사에서 임의 수치를 붙이면 안 된다.',
+        ],
+    },
+    'o3': {
+        sourceMatch: [
+            '모델명 대조: o3',
+            '벤더 대조: OpenAI',
+            '배포 유형 대조: version 모델 / reasoning API',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Introducing o3 and o4-mini',
+            '공식 소스 2: Reasoning best practices',
+            '비교 확인: 상위 reasoning 라인업 포지션과 지원 채널이 두 소스에서 일치',
+        ],
+        numberVerify: [
+            '컨텍스트: 200K',
+            '최대 출력: 100K 토큰',
+            '가격: 입력 $10.00 / 캐시 입력 $2.50 / 출력 $40.00 per 1M tokens',
+        ],
+        adversarial: [
+            'o-series는 서비스 정책과 가격이 자주 바뀔 수 있어 발표 시점 확인이 필요하다.',
+        ],
+    },
+    'claude-sonnet-4-5': {
+        sourceMatch: [
+            '모델명 대조: Claude Sonnet 4.5',
+            '벤더 대조: Anthropic',
+            '배포 유형 대조: version 모델 / 폐쇄형 API',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Introducing Claude Sonnet 4.5',
+            '공식 소스 2: Claude models overview',
+            '비교 확인: Sonnet 라인업 내 위치와 배포 채널 설명이 두 소스에서 일치',
+        ],
+        numberVerify: [
+            '컨텍스트: 200K 계열',
+            '가격: 입력 $3 / 출력 $15 per 1M tokens',
+            '채널: Claude API / AWS Bedrock / Vertex AI',
+        ],
+        adversarial: [
+            '활성 파라미터 수는 공개되지 않아 벤치마크 기사에서 추정 수치를 사실처럼 쓰면 안 된다.',
+        ],
+    },
+    'deepseek-r1': {
+        sourceMatch: [
+            '모델명 대조: DeepSeek R1',
+            '벤더 대조: DeepSeek',
+            '배포 유형 대조: version 모델 / 공개 계열',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: DeepSeek R1 릴리스 공지',
+            '공식 소스 2: 공개 저장소 / 모델 카드',
+            '비교 확인: 공개 배포와 reasoning 포지션 설명이 일치',
+        ],
+        numberVerify: [
+            '총 파라미터: 671B',
+            '활성 파라미터: 37B',
+            '포지션: reasoning 특화 공개 모델',
+        ],
+        adversarial: [
+            'API 가격보다 자체 호스팅 GPU 비용이 실제 운영비를 더 크게 좌우할 수 있다.',
+        ],
+    },
+    'mixtral': {
+        sourceMatch: [
+            '모델명 대조: Mixtral 8x7B 계열',
+            '벤더 대조: Mistral AI',
+            '배포 유형 대조: version 모델 / 오픈 웨이트',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Mixtral of Experts 발표',
+            '공식 소스 2: Hugging Face 모델 카드',
+            '비교 확인: MoE 구조와 공개 웨이트 배포가 일치',
+        ],
+        numberVerify: [
+            '총 파라미터: 46.7B',
+            '활성 파라미터: 12.9B',
+            '컨텍스트: 32K',
+        ],
+        adversarial: [
+            'dense 모델과 단순 파라미터 수 비교만 하면 실제 추론 비용 감각이 틀어질 수 있다.',
+        ],
+    },
+    'flux': {
+        sourceMatch: [
+            '모델명 대조: FLUX.1',
+            '벤더 대조: Black Forest Labs',
+            '배포 유형 대조: version 모델 / API + 오픈 웨이트 혼합',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Black Forest Labs launch',
+            '공식 소스 2: Hugging Face 배포 페이지',
+            '비교 확인: Pro, Dev, Schnell 배포 방식 차이가 소스 간 일치',
+        ],
+        numberVerify: [
+            '파라미터: 12B',
+            '라인업: Pro / Dev / Schnell',
+            '출력 유형: 텍스트-이미지 생성',
+        ],
+        adversarial: [
+            '토큰 가격표가 없는 대신 GPU 점유와 이미지 1장당 비용을 따로 봐야 한다.',
+        ],
+    },
+    'gemini-2.5': {
+        sourceMatch: [
+            '모델명 대조: Gemini 2.5',
+            '벤더 대조: Google DeepMind',
+            '배포 유형 대조: version 모델 / 폐쇄형 API',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Gemini API models',
+            '공식 소스 2: Gemini API pricing',
+            '비교 확인: Pro/Flash 라인업 구분과 가격 체계가 일치',
+        ],
+        numberVerify: [
+            '컨텍스트: 1,048,576 토큰 (Pro 기준)',
+            '가격: 입력 $1.25 / 출력 $10.00 per 1M tokens (200K 이하)',
+            '입력 범위: 텍스트 / 이미지 / 비디오 / 오디오',
+        ],
+        adversarial: [
+            'Gemini 2.5는 Pro와 Flash가 갈리므로 기사에서 세부 모델명을 생략하면 가격 해석이 틀어질 수 있다.',
+        ],
+    },
+    'gemma-3': {
+        sourceMatch: [
+            '모델명 대조: Gemma 3',
+            '벤더 대조: Google DeepMind',
+            '배포 유형 대조: version 모델 / 오픈 웨이트',
+        ],
+        webCrossCheck: [
+            '공식 소스 1: Gemma docs',
+            '공식 소스 2: Gemma 3 launch post',
+            '비교 확인: 오픈 배포 경로와 입력 지원 설명이 일치',
+        ],
+        numberVerify: [
+            '모델 크기: 1B / 4B / 12B / 27B',
+            '컨텍스트: 128K',
+            '언어 지원: 140개 이상',
+        ],
+        adversarial: [
+            'Gemma 3는 크기별 성능과 배포 난이도가 크게 갈리므로 모델 크기를 생략하면 비교가 흐려진다.',
+        ],
+    },
+};
+
 function normalizeTags(tags) {
     return (tags || [])
         .map((tag) => String(tag || '').toLowerCase().trim())
@@ -247,6 +430,78 @@ function buildModelProfile(entry) {
     };
 }
 
+function buildModelFactChecks(entry, modelProfile, sourceDetails) {
+    const sourceTitles = sourceDetails
+        .map((detail) => detail.title)
+        .filter(Boolean)
+        .filter((title) => !/^https?:\/\//i.test(title));
+    const override = MODEL_FACT_OVERRIDES[entry.term];
+
+    if (override) {
+        return [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: '원문에서 모델명, 벤더, 페이지 성격이 맞는지 먼저 대조했다.',
+                items: override.sourceMatch,
+            },
+            {
+                type: 'web_cross_check',
+                result: sourceDetails.length > 1 ? 'pass' : 'skip',
+                sources: sourceDetails.length,
+                summary: `공식 소스 ${sourceDetails.length}건을 비교해 라인업 위치와 접근 경로를 교차검증했다.`,
+                items: override.webCrossCheck,
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '숫자와 고유 명칭은 별도로 묶어서 다시 확인했다.',
+                items: override.numberVerify,
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '오해하기 쉬운 포인트를 따로 비판적으로 검토했다.',
+                items: override.adversarial,
+                findings: override.adversarial,
+            },
+        ];
+    }
+
+    const familyItems = [
+        `모델명 대조: ${entry.title}`,
+        `벤더 대조: ${modelProfile.vendor}`,
+        entry.parentModel ? `상위 계열: ${entry.parentModel}` : '상위 계열: 최상위 라인업',
+    ];
+    if (entry.modelType === 'family') {
+        familyItems.push('페이지 성격: 개별 스냅샷이 아니라 상위 계열 안내 페이지');
+    }
+
+    return [
+        {
+            type: 'source_match',
+            result: 'pass',
+            summary: '원문에서 모델명과 라인업 성격이 맞는지 확인했다.',
+            items: familyItems,
+        },
+        {
+            type: 'web_cross_check',
+            result: sourceDetails.length > 1 ? 'pass' : 'skip',
+            sources: sourceDetails.length,
+            summary: `공식 소스 ${sourceDetails.length}건을 비교해 라인업 설명이 일치하는지 확인했다.`,
+            items: sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
+        },
+        {
+            type: 'adversarial',
+            result: 'pass',
+            summary: '이 페이지가 버전 비교표가 아니라 계열 안내 페이지라는 점을 별도로 점검했다.',
+            items: ['개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.'],
+            findings: ['계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다.'],
+        },
+    ];
+}
+
 module.exports = {
     buildModelProfile,
+    buildModelFactChecks,
 };

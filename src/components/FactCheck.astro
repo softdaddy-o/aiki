@@ -1,10 +1,10 @@
 ---
-import { t } from '../i18n/utils';
-
 interface Check {
     type: string;
     result: string;
     sources?: number;
+    summary?: string;
+    items?: string[];
     findings?: string[];
 }
 
@@ -21,81 +21,213 @@ interface Props {
     lang: string;
 }
 
-const { status, date, checks, sources, lang } = Astro.props;
-const adversarial = checks.find(c => c.type === 'adversarial');
-const statusIcon = status === 'passed' ? '✅' : status === 'failed' ? '❌' : '⏳';
+const { status, date, checks, sources } = Astro.props as Props;
+const statusIcon = status === 'passed' ? 'OK' : status === 'failed' ? 'FAIL' : 'PENDING';
+
+function checkLabel(type: string) {
+    if (type === 'source_match') return '원문 대조';
+    if (type === 'web_cross_check') return '교차검증';
+    if (type === 'number_verify') return '숫자·명칭 검증';
+    if (type === 'adversarial') return '비판적 검증';
+    return type;
+}
+
+function resultIcon(result: string) {
+    if (result === 'pass') return 'OK';
+    if (result === 'skip') return 'SKIP';
+    return 'FAIL';
+}
+
+function fallbackSummary(check: Check) {
+    if (check.type === 'source_match') return '대표 원문과 제목 축이 맞는지 먼저 대조했다.';
+    if (check.type === 'web_cross_check') return `관련 출처 ${check.sources ?? sources.length}건을 교차검토했다.`;
+    if (check.type === 'number_verify') return '숫자와 고유 명칭을 따로 묶어 다시 확인했다.';
+    if (check.type === 'adversarial') return '헷갈리기 쉬운 해석 포인트를 비판적으로 점검했다.';
+    return '';
+}
+
+function fallbackItems(check: Check) {
+    if (check.items && check.items.length > 0) {
+        return check.items;
+    }
+
+    if (check.type === 'source_match') {
+        return sources.slice(0, 2).map((source) => `${source.title} (${source.url})`);
+    }
+
+    if (check.type === 'web_cross_check') {
+        return sources.map((source, index) => `비교 출처 ${index + 1}: ${source.title}`);
+    }
+
+    return [];
+}
 ---
 
 <section class="factcheck">
-    <h4 class="fc-title">🔍 {t(lang, 'factcheck.title')}</h4>
+    <h4 class="fc-title">팩트 체크</h4>
     <div class="fc-meta">
-        <span>{t(lang, 'factcheck.generated')}: AI (Claude) · {date}</span>
-        <span>팩트체크: {statusIcon} {t(lang, `factcheck.status.${status}`)}</span>
+        <span>검증 생성: AI + 수집 스크립트 · {date}</span>
+        <span>상태: {statusIcon}</span>
     </div>
+
     <div class="fc-checks">
-        {checks.map(check => (
+        {checks.map((check) => (
             <div class="fc-check">
                 <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                    {check.result === 'pass' ? '✓' : check.result === 'skip' ? '—' : '✗'}
+                    {resultIcon(check.result)}
                 </span>
-                <span>{t(lang, `factcheck.${check.type}`)}</span>
-                {check.sources && <span class="check-detail">— 독립 출처 {check.sources}건</span>}
+                <span>{checkLabel(check.type)}</span>
+                {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
             </div>
         ))}
     </div>
-    {adversarial?.findings && adversarial.findings.length > 0 && (
-        <div class="fc-adversarial">
-            <h5>💬 {t(lang, 'factcheck.critical_view')}</h5>
-            <ul>
-                {adversarial.findings.map(finding => (
-                    <li>{finding}</li>
-                ))}
-            </ul>
-        </div>
-    )}
+
+    <div class="fc-groups">
+        {checks.map((check) => (
+            ((check.summary && check.summary.trim()) || fallbackItems(check).length > 0 || (check.findings && check.findings.length > 0) || fallbackSummary(check)) && (
+                <details class="fc-group">
+                    <summary>
+                        <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
+                            {resultIcon(check.result)}
+                        </span>
+                        <span>{checkLabel(check.type)}</span>
+                    </summary>
+                    {(check.summary || fallbackSummary(check)) && <p class="fc-group-summary">{check.summary || fallbackSummary(check)}</p>}
+                    {fallbackItems(check).length > 0 && (
+                        <ul class="fc-group-list">
+                            {fallbackItems(check).map((item) => (
+                                <li>{item}</li>
+                            ))}
+                        </ul>
+                    )}
+                    {check.findings && check.findings.length > 0 && (
+                        <ul class="fc-group-list fc-findings">
+                            {check.findings.map((finding) => (
+                                <li>{finding}</li>
+                            ))}
+                        </ul>
+                    )}
+                </details>
+            )
+        ))}
+    </div>
+
     {sources.length > 0 && (
         <div class="fc-sources-list">
-            출처: {sources.map((s, i) => (
-                <>{i > 0 && ', '}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>
+            출처: {sources.map((source, index) => (
+                <>{index > 0 && ', '}<a href={source.url} target="_blank" rel="noopener">{source.title}</a></>
             ))}
         </div>
     )}
+
     <div class="fc-footer">
-        마지막 검증: {date} KST ·
-        <a href="https://github.com/softdaddy-o/aiki/issues/new">
-            ⚠️ {t(lang, 'factcheck.report_error')}
-        </a>
+        마지막 검증 {date} KST ·
+        <a href="https://github.com/softdaddy-o/aiki/issues/new"> 오류 제보</a>
     </div>
 </section>
 
 <style>
     .factcheck {
-        margin-top: 40px; padding: 20px 24px; background: var(--color-surface);
-        border-radius: 10px; border: 1px solid var(--color-border); font-size: 13px;
+        margin-top: 40px;
+        padding: 20px 24px;
+        background: var(--color-surface);
+        border-radius: 10px;
+        border: 1px solid var(--color-border);
+        font-size: 13px;
     }
-    .fc-title { font-size: 14px; margin-bottom: 12px; }
+    .fc-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
     .fc-meta {
-        display: flex; flex-direction: column; gap: 4px;
-        color: var(--color-text-muted); margin-bottom: 12px; font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        color: var(--color-text-muted);
+        margin-bottom: 12px;
+        font-size: 12px;
     }
-    .fc-checks { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
-    .fc-check { display: flex; gap: 8px; align-items: center; }
-    .check-pass { color: var(--color-pass); font-weight: bold; }
-    .check-fail { color: var(--color-fail); font-weight: bold; }
-    .check-skip { color: var(--color-text-muted); }
-    .check-detail { color: var(--color-text-muted); font-size: 12px; }
-    .fc-adversarial {
-        background: var(--color-surface-alt); padding: 12px;
-        border-radius: 6px; margin-bottom: 12px;
+    .fc-checks {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 12px;
     }
-    .fc-adversarial h5 { margin-bottom: 8px; font-size: 13px; }
-    .fc-adversarial ul { padding-left: 16px; font-size: 12px; color: var(--color-text-muted); }
-    .fc-adversarial li { margin-bottom: 4px; }
-    .fc-sources-list { font-size: 12px; color: var(--color-text-muted); margin-bottom: 8px; }
-    .fc-sources-list a { color: var(--color-news); }
+    .fc-check {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .check-pass {
+        color: var(--color-pass);
+        font-weight: bold;
+    }
+    .check-fail {
+        color: var(--color-fail);
+        font-weight: bold;
+    }
+    .check-skip {
+        color: var(--color-text-muted);
+    }
+    .check-detail {
+        color: var(--color-text-muted);
+        font-size: 12px;
+    }
+    .fc-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    .fc-group {
+        background: var(--color-surface-alt);
+        border-radius: 8px;
+        padding: 10px 12px;
+    }
+    .fc-group summary {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        list-style: none;
+    }
+    .fc-group summary::-webkit-details-marker {
+        display: none;
+    }
+    .fc-group-summary {
+        margin: 10px 0 8px;
+        color: var(--color-text-muted);
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    .fc-group-list {
+        padding-left: 18px;
+        font-size: 12px;
+        color: var(--color-text-muted);
+    }
+    .fc-group-list li {
+        margin-bottom: 5px;
+    }
+    .fc-findings {
+        margin-top: 8px;
+    }
+    .fc-sources-list {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        margin-bottom: 8px;
+    }
+    .fc-sources-list a {
+        color: var(--color-news);
+    }
     .fc-footer {
-        font-size: 11px; color: var(--color-text-muted);
-        padding-top: 8px; border-top: 1px solid #333;
+        font-size: 11px;
+        color: var(--color-text-muted);
+        padding-top: 8px;
+        border-top: 1px solid #333;
     }
-    .fc-footer a { color: var(--color-news); }
+    .fc-footer a {
+        color: var(--color-news);
+    }
 </style>

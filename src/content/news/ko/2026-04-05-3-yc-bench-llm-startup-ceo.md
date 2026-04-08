@@ -1,36 +1,60 @@
 ---
-title: "YC-Bench — LLM에게 스타트업 1년 경영을 맡겨봤어"
+title: YC-Bench — LLM에게 스타트업 1년 경영을 맡겨봤어
 date: "2026-04-05T11:00:00+09:00"
 lang: ko
 category: news
-summary: "12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동안 수행하는 벤치마크 YC-Bench가 나왔어. Claude Opus 4.6이 평균 127만 달러로 1위, GLM-5는 11분의 1 비용으로 거의 같은 성과를 냈어."
-readerValue: "이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다."
-sourceUrl: "https://arxiv.org/abs/2604.01212"
-sourceTitle: "arXiv"
+summary: 12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동안 수행하는 벤치마크 YC-Bench가 나왔어. Claude Opus 4.6이 평균 127만 달러로 1위, GLM-5는 11분의 1 비용으로 거의 같은 성과를 냈어.
+readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다.
+sourceUrl: https://arxiv.org/abs/2604.01212
+sourceTitle: arXiv
 draft: false
 score: 55
 factCheck:
   status: passed
   date: "2026-04-05"
   sources:
-    - url: "https://arxiv.org/abs/2604.01212"
-      title: "arXiv — YC-Bench paper"
-    - url: "https://github.com/collinear-ai/yc-bench"
-      title: "GitHub — YC-Bench repository"
+    - url: https://arxiv.org/abs/2604.01212
+      title: arXiv — YC-Bench paper
+    - url: https://github.com/collinear-ai/yc-bench
+      title: GitHub — YC-Bench repository
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: YC-Bench — LLM에게 스타트업 1년 경영을 맡겨봤어"
+        - "원문 제목 대조: arXiv"
+        - "대표 출처 도메인: arxiv.org"
+        - "핵심 태그 축: benchmark, llm, claude, glm-5"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: arXiv — YC-Bench paper (https://arxiv.org/abs/2604.01212)"
+        - "출처 2: GitHub — YC-Bench repository (https://github.com/collinear-ai/yc-bench)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: YC-Bench — LLM에게 스타트업 1년 경영을 맡겨봤어"
+        - "수치 대조: 12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동안 수행하는 벤치마크 YC-Bench가 나왔어."
+        - "수치 대조: Claude Opus 4.6이 평균 127만 달러로 1위, GLM-5는 11분의 1 비용으로 거의 같은 성과를 냈어."
+        - "수치 대조: [YC-Bench](https://arxiv.org/abs/2604.01212)는 LLM 에이전트에게 시뮬레이션 스타트업의 1년 경영(수백 턴)을 맡기는 POMDP 기반 벤치마크야."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 논문 성과와 실제 제품 배포 가능성을 같은 뜻으로 읽지 않도록 분리했다.
+        - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지 따로 점검했다.
       findings:
-        - "시뮬레이션 경영과 실제 경영은 근본적으로 다름 — 인간 관계, 불확실성, 감정 요소 부재"
-        - "벤치마크 설계자가 '함정 클라이언트 35%' 등 규칙을 정했으므로 결과가 설계에 의존"
-tags: ["benchmark", "llm", "claude", "glm-5", "startup"]
+        - 논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있다.
+tags:
+  - benchmark
+  - llm
+  - claude
+  - glm-5
+  - startup
 ---
 
 LLM이 스타트업 CEO를 얼마나 잘 할 수 있을까? 이걸 진지하게 측정한 벤치마크가 나왔어. [YC-Bench](https://arxiv.org/abs/2604.01212)는 LLM 에이전트에게 시뮬레이션 스타트업의 1년 경영(수백 턴)을 맡기는 POMDP 기반 벤치마크야. 직원 관리, 계약 수주, 급여 지급까지 실제 경영 의사결정을 반복해야 하고, 클라이언트 중 약 35%는 계약 후 업무 요구량을 몰래 늘리는 함정도 있어.

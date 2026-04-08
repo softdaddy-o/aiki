@@ -1,12 +1,12 @@
 ---
-title: "Google, Gemini 앱에 음악 생성 기능 추가"
+title: Google, Gemini 앱에 음악 생성 기능 추가
 date: "2026-02-18T12:00:00+09:00"
 lang: ko
 category: news
-summary: "."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/"
-sourceTitle: "Google adds music-generation capabilities to the Gemini app"
+summary: .
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/
+sourceTitle: Google adds music-generation capabilities to the Gemini app
 draft: false
 backfilled: true
 backfilledAt: "2026-04-07"
@@ -15,24 +15,48 @@ factCheck:
   status: passed
   date: "2026-04-07"
   sources:
-    - url: "https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/"
-      title: "TechCrunch — Google adds music-generation capabilities to the Gemini app"
-    - url: "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/"
-      title: "Google Blog — Use Lyria 3 to create music tracks in the Gemini app"
-    - url: "https://deepmind.google/models/lyria/"
-      title: "Google DeepMind — Lyria 3"
+    - url: https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/
+      title: TechCrunch — Google adds music-generation capabilities to the Gemini app
+    - url: https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/
+      title: Google Blog — Use Lyria 3 to create music tracks in the Gemini app
+    - url: https://deepmind.google/models/lyria/
+      title: Google DeepMind — Lyria 3
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: Google, Gemini 앱에 음악 생성 기능 추가"
+        - "원문 제목 대조: Google adds music-generation capabilities to the Gemini app"
+        - "대표 출처 도메인: techcrunch.com"
+        - "핵심 태그 축: google, gemini, deepmind, lyria"
     - type: web_cross_check
       result: pass
       sources: 3
+      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: TechCrunch — Google adds music-generation capabilities to the Gemini app (https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/)"
+        - "출처 2: Google Blog — Use Lyria 3 to create music tracks in the Gemini app (https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/)"
+        - "출처 3: Google DeepMind — Lyria 3 (https://deepmind.google/models/lyria/)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: [원문](https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/)은 Googl..."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["google", "gemini", "deepmind", "lyria", "music-generation", "AI음악"]
+tags:
+  - google
+  - gemini
+  - deepmind
+  - lyria
+  - music-generation
+  - AI음악
 ---
 
 [원문](https://techcrunch.com/2026/02/18/google-adds-music-generation-capabilities-to-the-gemini-app/)은 Google adds music-generation capabilities to the Gemini app 기준으로 확인한 내용이야. 이 이슈는 이 변화가 어디에 직접 영향을 주는지 빠르게 구분하는 거야 쪽에서 읽어야 맥락이 빨리 잡혀.

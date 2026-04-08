@@ -10,6 +10,8 @@ const factCheckSchema = z.object({
         type: z.enum(['source_match', 'web_cross_check', 'number_verify', 'adversarial']),
         result: z.enum(['pass', 'fail', 'skip']),
         sources: z.number().optional(),
+        summary: z.string().optional(),
+        items: z.array(z.string()).default([]),
         findings: z.array(z.string()).optional(),
     })).default([]),
 });

@@ -1,12 +1,12 @@
 ---
-title: "DeepSeek R1 공개, 오픈 추론 모델 경쟁 가속"
+title: DeepSeek R1 공개, 오픈 추론 모델 경쟁 가속
 date: "2025-01-20T12:00:00+09:00"
 lang: ko
 category: news
 summary: "* ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://api-docs.deepseek.com/news/news250120"
-sourceTitle: "DeepSeek R1"
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://api-docs.deepseek.com/news/news250120
+sourceTitle: DeepSeek R1
 draft: false
 backfilled: true
 backfilledAt: "2026-04-08"
@@ -16,20 +16,45 @@ factCheck:
   status: passed
   date: "2026-04-08"
   sources:
-    - url: "https://api-docs.deepseek.com/news/news250120"
-      title: "DeepSeek R1"
-    - url: "https://huggingface.co/deepseek-ai/DeepSeek-R1"
-      title: "Secondary source"
+    - url: https://api-docs.deepseek.com/news/news250120
+      title: DeepSeek R1
+    - url: https://huggingface.co/deepseek-ai/DeepSeek-R1
+      title: Secondary source
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: DeepSeek R1 공개, 오픈 추론 모델 경쟁 가속"
+        - "원문 제목 대조: DeepSeek R1"
+        - "대표 출처 도메인: api-docs.deepseek.com"
+        - "핵심 태그 축: deepseek-r1, reasoning, open-model"
     - type: web_cross_check
       result: pass
       sources: 2
+      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: DeepSeek R1 (https://api-docs.deepseek.com/news/news250120)"
+        - "출처 2: Secondary source (https://huggingface.co/deepseek-ai/DeepSeek-R1)"
+    - type: number_verify
+      result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: DeepSeek R1 공개, 오픈 추론 모델 경쟁 가속"
+        - "수치 대조: * ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다."
+        - "수치 대조: [공식 발표](https://api-docs.deepseek.com/news/news250120)와 [보조 자료](https://huggingface.co/deepseek-ai/DeepSeek..."
+        - "수치 대조: DeepSeek R1 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야."
     - type: adversarial
       result: pass
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["deepseek-r1", "reasoning", "open-model"]
+tags:
+  - deepseek-r1
+  - reasoning
+  - open-model
 ---
 
 [공식 발표](https://api-docs.deepseek.com/news/news250120)와 [보조 자료](https://huggingface.co/deepseek-ai/DeepSeek-R1)를 같이 보면 DeepSeek R1의 핵심은 * ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다 쪽이야. 연간 뉴스로 남길 만한 이유도 이 발표가 실제 제품 흐름과 경쟁 구도를 바꾼 기준점이기 때문이야.

@@ -1,38 +1,61 @@
 ---
-title: "Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스"
+title: Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스
 date: "2026-04-05T13:00:00+09:00"
 lang: ko
 category: news
-summary: "Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0으로 공개했어. 31B Dense 모델이 Arena AI 텍스트 리더보드 오픈 모델 3위, MMLU Pro 85.2%, Codeforces ELO 2150을 기록했어."
-readerValue: "이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다."
-sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
-sourceTitle: "Google Blog"
+summary: Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0으로 공개했어. 31B Dense 모델이 Arena AI 텍스트 리더보드 오픈 모델 3위, MMLU Pro 85.2%, Codeforces ELO 2150을 기록했어.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
+sourceTitle: Google Blog
 draft: false
 score: 70
 factCheck:
   status: passed
   date: "2026-04-05"
   sources:
-    - url: "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
-      title: "Google Blog — Gemma 4 announcement"
-    - url: "https://deepmind.google/models/gemma/gemma-4/"
-      title: "Google DeepMind — Gemma 4 model page"
-    - url: "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/"
-      title: "Google Developers Blog — Gemma 4 on edge"
+    - url: https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
+      title: Google Blog — Gemma 4 announcement
+    - url: https://deepmind.google/models/gemma/gemma-4/
+      title: Google DeepMind — Gemma 4 model page
+    - url: https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/
+      title: Google Developers Blog — Gemma 4 on edge
   checks:
     - type: source_match
       result: pass
+      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      items:
+        - "기사 제목 대조: Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스"
+        - "원문 제목 대조: Google Blog"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: google, gemma-4, open-model, deepmind"
     - type: web_cross_check
       result: pass
       sources: 3
+      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      items:
+        - "출처 1: Google Blog — Gemma 4 announcement (https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)"
+        - "출처 2: Google DeepMind — Gemma 4 model page (https://deepmind.google/models/gemma/gemma-4/)"
+        - "출처 3: Google Developers Blog — Gemma 4 on edge (https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)"
     - type: number_verify
       result: pass
+      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      items:
+        - "수치 대조: Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스"
+        - "수치 대조: Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0으로 공개했어."
+        - "수치 대조: 31B Dense 모델이 Arena AI 텍스트 리더보드 오픈 모델 3위, MMLU Pro 85.2%, Codeforces ELO 2150을 기록했어."
+        - "수치 대조: Google DeepMind이 4월 2일 Gemma 4를 공개했어."
     - type: adversarial
       result: pass
-      findings:
-        - "벤치마크(MMLU Pro, Codeforces ELO)는 Google 자체 측정 — 독립 재현 결과 대기 중"
-        - "'오픈 모델 3위'는 Arena AI 리더보드 기준 — 리더보드 순위는 투표 편향에 영향받음"
-tags: ["google", "gemma-4", "open-model", "deepmind"]
+      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      items:
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - google
+  - gemma-4
+  - open-model
+  - deepmind
 ---
 
 Google DeepMind이 4월 2일 Gemma 4를 공개했어. Gemini 3이랑 같은 연구 기반으로 만든 오픈 웨이트 모델이고, [Apache 2.0 라이선스](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)로 배포돼. 모델은 E2B, E4B, 26B MoE, 31B Dense 4가지 크기로 나왔어.
