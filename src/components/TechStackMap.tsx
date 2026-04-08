@@ -34,16 +34,16 @@ const styles: Record<string, CSSProperties> = {
         padding: '16px',
         width: '100%',
     },
-    rows: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-    },
-    row: {
+    layout: {
         display: 'grid',
         gridTemplateColumns: '110px minmax(0, 1fr)',
         gap: '8px',
-        alignItems: 'stretch',
+        alignItems: 'start',
+    },
+    labelsColumn: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
     },
     labelRow: {
         display: 'flex',
@@ -58,10 +58,17 @@ const styles: Record<string, CSSProperties> = {
         whiteSpace: 'nowrap',
         lineHeight: 1.9,
     },
-    rowScrollArea: {
+    scrollArea: {
         overflowX: 'auto',
         overflowY: 'hidden',
         borderRadius: '4px',
+    },
+    rows: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        width: 'max-content',
+        minWidth: '100%',
     },
     termsRow: {
         display: 'flex',
@@ -118,7 +125,7 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
         let frameId = 0;
 
         const centerActivePill = () => {
-            const scrollArea = activePill.closest('[data-map-scroll-row="true"]');
+            const scrollArea = activePill.closest('[data-map-scroll-area="true"]');
             if (!(scrollArea instanceof HTMLElement)) {
                 return;
             }
@@ -148,24 +155,27 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
 
     return (
         <div style={styles.container}>
-            <div style={styles.rows}>
-                {layers.map((layer) => {
-                    const layerTerms = termsByCategory.get(layer.key) || [];
-                    return (
-                        <div key={layer.key} style={styles.row}>
-                            <div
-                                style={{
-                                    ...styles.labelRow,
-                                    background: layer.color,
-                                }}
-                            >
-                                <span style={styles.layerLabel}>{layer.label}</span>
-                            </div>
-                            <div
-                                style={styles.rowScrollArea}
-                                data-map-scroll-row="true"
-                            >
+            <div style={styles.layout}>
+                <div style={styles.labelsColumn}>
+                    {layers.map((layer) => (
+                        <div
+                            key={`${layer.key}-label`}
+                            style={{
+                                ...styles.labelRow,
+                                background: layer.color,
+                            }}
+                        >
+                            <span style={styles.layerLabel}>{layer.label}</span>
+                        </div>
+                    ))}
+                </div>
+                <div style={styles.scrollArea} data-map-scroll-area="true">
+                    <div style={styles.rows}>
+                        {layers.map((layer) => {
+                            const layerTerms = termsByCategory.get(layer.key) || [];
+                            return (
                                 <div
+                                    key={layer.key}
                                     style={{
                                         ...styles.termsRow,
                                         background: layer.color,
@@ -223,10 +233,10 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
                                         );
                                     })}
                                 </div>
-                            </div>
-                        </div>
-                    );
-                })}
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     );
