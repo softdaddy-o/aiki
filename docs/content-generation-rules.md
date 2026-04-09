@@ -73,3 +73,8 @@
 3. 새 생성기를 만들 때도 먼저 이 문서 기준으로 역할을 나눈다.
 4. 검증기는 톤, 차별점, 팩트체크 상세도, 독자 문제 반영 여부를 모두 검사해야 한다.
 5. 같은 문제가 반복되면 템플릿 문장만 고치지 말고 생성 파이프라인의 역할 분리부터 다시 점검한다.
+
+## 위키 전용 참조 문서
+
+1. 위키 생성용 LLM 가이드는 [wiki-page-writing-guide.md](/D:/srcp/aiki/docs/wiki-page-writing-guide.md)를 따른다.
+2. 위키 검수 기준은 [wiki-page-validation-guide.md](/D:/srcp/aiki/docs/wiki-page-validation-guide.md)를 따른다.

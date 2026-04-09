@@ -21,8 +21,8 @@ factCheck:
   status: passed
   date: "2026-04-09"
   sources:
-    - url: "https://github.com/comfyanonymous/ComfyUI"
-      title: "comfyanonymous/ComfyUI"
+    - url: "https://github.com/Comfy-Org/ComfyUI"
+      title: "Comfy-Org/ComfyUI"
     - url: "https://www.comfy.org/"
       title: "ComfyUI | Generate video, images, 3D, audio with AI"
   checks:
@@ -39,7 +39,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 멀티모달 생성과 해석에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "비교 기준: 멀티모달 생성과 해석에서 어떤 도구를 붙여야 하는지"
-        - "comfyanonymous/ComfyUI (https://github.com/comfyanonymous/ComfyUI)"
+        - "Comfy-Org/ComfyUI (https://github.com/Comfy-Org/ComfyUI)"
         - "ComfyUI | Generate video, images, 3D, audio with AI (https://www.comfy.org/)"
     - type: number_verify
       result: pass

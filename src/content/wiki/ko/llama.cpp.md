@@ -21,8 +21,8 @@ factCheck:
   status: passed
   date: "2026-04-09"
   sources:
-    - url: "https://github.com/ggerganov/llama.cpp"
-      title: "ggerganov/llama.cpp"
+    - url: "https://github.com/ggml-org/llama.cpp"
+      title: "ggml-org/llama.cpp"
     - url: "https://github.com/ggerganov/llama.cpp"
       title: "GitHub - ggml-org/llama.cpp: LLM inference in C/C++"
   checks:
@@ -39,7 +39,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "비교 기준: 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지"
-        - "ggerganov/llama.cpp (https://github.com/ggerganov/llama.cpp)"
+        - "ggml-org/llama.cpp (https://github.com/ggml-org/llama.cpp)"
         - "GitHub - ggml-org/llama.cpp: LLM inference in C/C++ (https://github.com/ggerganov/llama.cpp)"
     - type: number_verify
       result: pass

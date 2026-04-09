@@ -21,8 +21,8 @@ factCheck:
   sources:
     - url: "https://modelcontextprotocol.io/introduction"
       title: "What is the Model Context Protocol (MCP)? - Model Context Protocol"
-    - url: "https://github.com/modelcontextprotocol/specification"
-      title: "modelcontextprotocol/specification"
+    - url: "https://github.com/modelcontextprotocol/modelcontextprotocol"
+      title: "modelcontextprotocol/modelcontextprotocol"
   checks:
     - type: source_match
       result: pass
@@ -38,7 +38,7 @@ factCheck:
       items:
         - "비교 기준: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
         - "What is the Model Context Protocol (MCP)? - Model Context Protocol (https://modelcontextprotocol.io/introduction)"
-        - "modelcontextprotocol/specification (https://github.com/modelcontextprotocol/specification)"
+        - "modelcontextprotocol/modelcontextprotocol (https://github.com/modelcontextprotocol/modelcontextprotocol)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
