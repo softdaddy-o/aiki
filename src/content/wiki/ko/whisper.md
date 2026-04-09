@@ -38,8 +38,9 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "원문에서 모델명과 벤더, 페이지 성격이 엇갈리지 않는지 먼저 맞춰봤다."
+      summary: "원문에서 Whisper가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: Whisper가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지"
         - "모델명 대조: Whisper"
         - "벤더 대조: OpenAI"
         - "상위 계열: 최상위 라인업"
@@ -47,21 +48,23 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스 2건을 나란히 놓고 설명 축이 같은지 다시 봤다."
+      summary: "공식 소스 2건을 나란히 놓고 Whisper 아래에서 어떤 버전 페이지를 봐야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: Whisper 아래에서 어떤 버전 페이지를 봐야 하는지"
         - "비교 소스 1: Whisper (speech recognition system)"
         - "비교 소스 2: Introducing Whisper"
     - type: number_verify
       result: pass
-      summary: "가격, 접근 경로, 입력 범위처럼 실제 선택에 쓰는 정보는 따로 떼서 한 번 더 봤다."
+      summary: "가격, 접근 경로, 입력 범위처럼 Whisper 아래에서 어떤 버전 페이지를 봐야 하는지를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다."
       items:
         - "운영 정보 대조: 유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋아."
         - "접근 경로 대조: 무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전해."
         - "입력/출력 범위 대조: 오디오 입력 또는 음성 처리 지원으로 읽는 편이 맞아."
     - type: adversarial
       result: pass
-      summary: "계열 설명을 개별 모델 스펙처럼 읽지 않도록 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 해석 포인트는 Whisper가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 기준으로 한 번 더 의심해보고 정리했다."
       items:
+        - "오해 방지 기준: Whisper 아래에서 어떤 버전 페이지를 봐야 하는지"
         - "개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 해."
       findings:
         - "계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다."

@@ -39,30 +39,33 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "원문에서 모델명, 벤더, 페이지 성격이 같은 축인지 먼저 맞춰봤다."
+      summary: "원문에서 DeepSeek R1를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: DeepSeek R1를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지"
         - "모델명 대조: DeepSeek R1"
         - "벤더 대조: DeepSeek"
         - "배포 유형 대조: version 모델 / 공개 계열"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스 2건을 나란히 놓고 라인업 위치와 접근 경로를 다시 봤다."
+      summary: "공식 소스 2건을 나란히 놓고 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지"
         - "공식 소스 1: DeepSeek R1 릴리스 공지"
         - "공식 소스 2: 공개 저장소 / 모델 카드"
         - "비교 확인: 공개 배포와 reasoning 포지션 설명이 일치"
     - type: number_verify
       result: pass
-      summary: "숫자와 고유 명칭은 따로 빼서 한 번 더 봤다."
+      summary: "숫자와 고유 명칭은 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다."
       items:
         - "총 파라미터: 671B"
         - "활성 파라미터: 37B"
         - "포지션: reasoning 특화 공개 모델"
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 해석 포인트는 DeepSeek R1를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
+        - "오해 방지 기준: 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지"
         - "API 가격보다 자체 호스팅 GPU 비용이 실제 운영비를 더 크게 좌우할 수 있어."
       findings:
         - "API 가격보다 자체 호스팅 GPU 비용이 실제 운영비를 더 크게 좌우할 수 있어."

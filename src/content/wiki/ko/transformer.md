@@ -27,30 +27,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다."
+      summary: "이 페이지를 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지"
         - "용어명 대조: Transformer"
         - "분류 대조: 개념"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
+      summary: "관련 출처 2건을 나란히 놓고 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지"
         - "Transformer (deep learning) (https://en.wikipedia.org/wiki/Transformer_(deep_learning))"
         - "Attention is All You Need (https://research.google/pubs/attention-is-all-you-need/)"
     - type: number_verify
       result: pass
-      summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."
+      summary: "숫자가 적은 항목이라도 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
+        - "선택 기준 대조: 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지"
         - "명칭 대조: Transformer"
-        - "숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다."
+        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 선택 포인트는 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
+        - "오해 방지 기준: 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지"
+        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이 페이지는 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
 Transformer는 문장 안의 각 토큰이 다른 토큰과 어떤 관계를 맺는지 attention으로 계산하는 딥러닝 구조야.
@@ -61,5 +65,5 @@ Transformer는 문장 안의 각 토큰이 다른 토큰과 어떤 관계를 맺
 ## 왜 중요한가
 뉴스에서 새 모델이 나올 때 "트랜스포머를 넘었다"거나 "attention 병목을 줄였다"는 말이 붙으면, 그건 기능 추가보다 모델 내부 구조 변화 이야기일 가능성이 커. 이 구분을 해야 발표문을 과장 없이 읽을 수 있어.
 ## 관련 용어
-- [Attention](/ko/wiki/attention/) — 모델 내부 구조를 같이 읽을 때 이해가 쉬워진다.
-- [Mixture of Experts](/ko/wiki/mixture-of-experts/) — 모델 내부 구조를 같이 읽을 때 이해가 쉬워진다.
+- [Attention](/ko/wiki/attention/) — Transformer를 볼 때 비교 포인트는 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지다.
+- [Mixture of Experts](/ko/wiki/mixture-of-experts/) — Transformer를 볼 때 비교 포인트는 모델 내부 구조와 효율를 기사에서 어떤 판단 기준으로 읽어야 하는지다.

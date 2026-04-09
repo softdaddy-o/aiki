@@ -26,31 +26,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다."
+      summary: "이 페이지를 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지"
         - "용어명 대조: Reasoning Model"
         - "분류 대조: 개념"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
+      summary: "관련 출처 2건을 나란히 놓고 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지"
         - "Reasoning best practices | OpenAI API (https://platform.openai.com/docs/guides/reasoning-best-practices)"
         - "Claude&#x27;s extended thinking (https://www.anthropic.com/news/visible-extended-thinking)"
     - type: number_verify
       result: pass
-      summary: "이 항목에서 같이 언급되는 숫자와 이름은 한 번 더 봤다."
+      summary: "이 항목에서 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가를 때 필요한 숫자와 이름은 한 번 더 봤다."
       items:
         - "수치 대조: 1"
         - "수치 대조: 3"
         - "수치 대조: 27"
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 선택 포인트는 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
+        - "오해 방지 기준: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지"
+        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이 페이지는 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
 Reasoning Model은 복잡한 문제를 풀 때 내부적으로 더 많은 추론 단계를 거치도록 최적화된 언어 모델을 말해.

@@ -26,30 +26,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다."
+      summary: "이 페이지를 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
         - "용어명 대조: MCP"
         - "분류 대조: 프레임워크"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
+      summary: "관련 출처 2건을 나란히 놓고 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
         - "What is the Model Context Protocol (MCP)? - Model Context Protocol (https://modelcontextprotocol.io/introduction)"
         - "modelcontextprotocol/specification (https://github.com/modelcontextprotocol/specification)"
     - type: number_verify
       result: pass
-      summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."
+      summary: "숫자가 적은 항목이라도 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
+        - "선택 기준 대조: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
         - "명칭 대조: MCP"
-        - "숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다."
+        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 선택 포인트는 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
+        - "오해 방지 기준: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
+        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이 페이지는 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
 MCP(Model Context Protocol)는 AI 모델이 외부 도구, 파일 시스템, API 같은 자원에 접근하는 방식을 표준화한 오픈 프로토콜이야.

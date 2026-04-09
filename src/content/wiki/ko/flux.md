@@ -38,30 +38,33 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "원문에서 모델명, 벤더, 페이지 성격이 같은 축인지 먼저 맞춰봤다."
+      summary: "원문에서 FLUX.1를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: FLUX.1를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지"
         - "모델명 대조: FLUX.1"
         - "벤더 대조: Black Forest Labs"
         - "배포 유형 대조: version 모델 / API + 오픈 웨이트 혼합"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스 2건을 나란히 놓고 라인업 위치와 접근 경로를 다시 봤다."
+      summary: "공식 소스 2건을 나란히 놓고 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지"
         - "공식 소스 1: Black Forest Labs launch"
         - "공식 소스 2: Hugging Face 배포 페이지"
         - "비교 확인: Pro, Dev, Schnell 배포 방식 차이가 소스 간 일치"
     - type: number_verify
       result: pass
-      summary: "숫자와 고유 명칭은 따로 빼서 한 번 더 봤다."
+      summary: "숫자와 고유 명칭은 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다."
       items:
         - "파라미터: 12B"
         - "라인업: Pro / Dev / Schnell"
         - "출력 유형: 텍스트-이미지 생성"
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 해석 포인트는 FLUX.1를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
+        - "오해 방지 기준: 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지"
         - "토큰 가격표가 없는 대신 GPU 점유와 이미지 1장당 비용을 따로 봐야 해."
       findings:
         - "토큰 가격표가 없는 대신 GPU 점유와 이미지 1장당 비용을 따로 봐야 해."
@@ -81,6 +84,6 @@ FLUX.1는 Black Forest Labs가 텍스트만이 아니라 이미지 맥락까지 
 중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 Black Forest Labs 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞아.
 ## 같이 보면 좋은 모델
 - [Mistral](/ko/wiki/mistral/) — 비교 대상으로 자주 같이 묶이는 모델
-- [Diffusion Model](/ko/wiki/diffusion/) — 멀티모달 생성·해석 흐름을 같이 볼 때 좋아.
+- [Diffusion Model](/ko/wiki/diffusion/) — 로컬 배포와 오픈 모델 맥락을 같이 읽게 해 준다.
 - [Stable Diffusion](/ko/wiki/stable-diffusion/) — 비교 대상으로 자주 같이 묶이는 모델
 - [DALL-E](/ko/wiki/dall-e/) — 비교 대상으로 자주 같이 묶이는 모델

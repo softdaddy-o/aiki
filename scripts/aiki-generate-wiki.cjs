@@ -717,6 +717,37 @@ function isCompanyEntry(entry) {
     return hasAnyTag(entry, ['company', 'model-lab', 'research']);
 }
 
+function inferGenericProblem(entry) {
+    const focus = focusPhrase(entry);
+
+    if (isCompanyEntry(entry)) {
+        return '이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지';
+    }
+
+    switch (entry.category) {
+        case 'tool':
+            return `${focus}에서 어떤 도구를 붙여야 하는지`;
+        case 'framework':
+            return `${flowPhrase(focus)}을 어떤 구조로 묶어야 하는지`;
+        case 'technique':
+            return `${focus}를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지`;
+        default:
+            return `${focus}를 기사에서 어떤 판단 기준으로 읽어야 하는지`;
+    }
+}
+
+function getEntryProblem(entry) {
+    return trimSentence(entry.userProblem || inferGenericProblem(entry));
+}
+
+function getDecisionAxis(entry) {
+    return trimSentence(entry.decisionAxis || getEntryProblem(entry));
+}
+
+function endsWithSentence(text) {
+    return /[.!?]$/.test(String(text || '').trim());
+}
+
 function lastHangulSyllable(text) {
     const value = String(text || '');
     for (let index = value.length - 1; index >= 0; index -= 1) {
@@ -749,20 +780,21 @@ function flowPhrase(text) {
 
 function buildGenericSummary(entry) {
     const focus = focusPhrase(entry);
+    const problem = getEntryProblem(entry);
 
     if (isCompanyEntry(entry)) {
-        return clip('주요 AI 모델과 API를 만드는 회사나 연구 조직이야. 기사에서 이 이름이 보이면 개별 기능보다 라인업 방향과 제품 전략을 같이 읽게 돼.', 160);
+        return clip(`주요 AI 모델과 API를 만드는 회사나 연구 조직이야. 기사에서 이 이름이 보이면 ${problem}부터 같이 읽어야 해.`, 160);
     }
 
     switch (entry.category) {
         case 'tool':
-            return clip(`${focus} 작업에 자주 쓰이는 AI 도구야. 모델 자체보다 실제 사용 흐름을 바꾸는 쪽에 가까워.`, 160);
+            return clip(`${focus} 작업에 자주 쓰이는 AI 도구야. 결국 많이 갈리는 판단 포인트는 ${problem}이야.`, 160);
         case 'framework':
-            return clip(`${flowPhrase(focus)}을 연결하고 조립하는 프레임워크야. 여러 단계와 도구를 묶는 문맥에서 자주 나와.`, 160);
+            return clip(`${flowPhrase(focus)}을 연결하고 조립하는 프레임워크야. 결국 ${problem}를 풀 때 어떤 뼈대를 쓸지 가르는 이름이야.`, 160);
         case 'technique':
-            return clip(`${objectPhrase(focus)} 개선하거나 연결하는 AI 기법이야. 보통 정확도, 비용, 실행 방식 중 하나를 바꿔.`, 160);
+            return clip(`${objectPhrase(focus)} 개선하거나 연결하는 AI 기법이야. 결국 핵심은 ${problem}를 풀 때 어느 레버를 건드릴지 정하는 데 있어.`, 160);
         default:
-            return clip(`${objectPhrase(focus)} 이해할 때 자주 나오는 AI 개념이야. 기사에서는 이 말이 실제로 무엇을 하는지부터 보는 편이 쉬워.`, 160);
+            return clip(`${objectPhrase(focus)} 이해할 때 자주 나오는 AI 개념이야. 기사에서는 핵심 질문을 ${problem} 쪽에 두고 읽는 편이 쉬워.`, 160);
     }
 }
 
@@ -773,15 +805,6 @@ function summaryFromSource(entry, sourceContext) {
     }
 
     return buildGenericSummary(entry, sourceContext);
-}
-
-function buildModelSummary(entry, modelProfile) {
-    if (entry.modelType === 'family') {
-        const angle = inferFamilyAngle(entry, modelProfile);
-        return `${entry.title}는 ${modelProfile.vendor}가 ${angle}에 붙이는 대표 이름이다. 기사에서 보이면 개별 버전보다 라인업 방향을 먼저 읽는 편이 맞다.`;
-    }
-
-    return `${modelProfile.vendor}의 ${entry.title} 모델이다. 이름이 나오면 벤치마크 점수보다 어떤 작업에 쓰는지와 API 비용 구간을 같이 봐야 한다.`;
 }
 
 function inferModelJobFocus(modelProfile) {
@@ -829,12 +852,23 @@ function inferFamilyAngle(entry, modelProfile) {
 }
 
 function buildRelationHint(entry, relatedEntry) {
+    if (entry.relatedHints && entry.relatedHints[relatedEntry.term]) {
+        return entry.relatedHints[relatedEntry.term];
+    }
+
     if (entry.category === 'model' && relatedEntry.category === 'model') {
         return '비교 대상으로 자주 같이 묶이는 모델';
     }
 
-    const rule = pickTagRule(relatedEntry);
-    return rule.relatedHint || '함께 보면 맥락이 더 빨리 잡힌다.';
+    if (entry.category === relatedEntry.category) {
+        return `${entry.title}를 볼 때 비교 포인트는 ${getDecisionAxis(entry)}다.`;
+    }
+
+    const rule = pickTagRule(entry);
+    if (rule.relatedHint) {
+        return endsWithSentence(rule.relatedHint) ? rule.relatedHint : `${rule.relatedHint}.`;
+    }
+    return `${entry.title}를 볼 때 ${getEntryProblem(entry)}를 이해하는 데 같이 걸리는 개념이야.`;
 }
 
 function buildRelatedTerms(entry, relatedTerms, entries) {
@@ -882,36 +916,6 @@ function buildRelatedLines(entry, relatedTerms) {
     }).join('\n');
 }
 
-function buildGenericFactChecks(entry, sourceDetails) {
-    const sourceItems = sourceDetails.map((detail) => `${detail.title} (${detail.url})`);
-
-    return [
-        {
-            type: 'source_match',
-            result: 'pass',
-            summary: '대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다.',
-            items: [
-                `용어명 대조: ${entry.title}`,
-                `분류 대조: ${categoryLabel(entry.category)}`,
-            ],
-        },
-        {
-            type: 'web_cross_check',
-            result: sourceDetails.length > 1 ? 'pass' : 'skip',
-            sources: sourceDetails.length,
-            summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다.`,
-            items: sourceItems,
-        },
-        {
-            type: 'adversarial',
-            result: 'pass',
-            summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다.',
-            findings: ['이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다.'],
-            items: ['정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다.'],
-        },
-    ];
-}
-
 function renderFactCheckChecks(checks) {
     return checks.flatMap((check) => [
         '    - type: ' + check.type,
@@ -936,6 +940,8 @@ function renderFactCheckChecks(checks) {
 function buildGenericFactChecks(entry, sourceDetails) {
     const sourceItems = sourceDetails.map((detail) => `${detail.title} (${detail.url})`);
     const numericSignals = [];
+    const problem = getEntryProblem(entry);
+    const axis = getDecisionAxis(entry);
 
     for (const detail of sourceDetails) {
         const sourceText = `${detail.title || ''} ${detail.summary || ''}`;
@@ -954,8 +960,9 @@ function buildGenericFactChecks(entry, sourceDetails) {
         {
             type: 'source_match',
             result: 'pass',
-            summary: '대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다.',
+            summary: `이 페이지를 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
             items: [
+                `독자 문제 대조: ${problem}`,
                 `용어명 대조: ${entry.title}`,
                 `분류 대조: ${categoryLabel(entry.category)}`,
             ],
@@ -964,28 +971,38 @@ function buildGenericFactChecks(entry, sourceDetails) {
             type: 'web_cross_check',
             result: sourceDetails.length > 1 ? 'pass' : 'skip',
             sources: sourceDetails.length,
-            summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다.`,
-            items: sourceItems,
+            summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
+            items: [
+                `비교 기준: ${axis}`,
+                ...sourceItems,
+            ],
         },
         {
             type: 'number_verify',
             result: 'pass',
             summary: numberItems.length > 0
-                ? '이 항목에서 같이 언급되는 숫자와 이름은 한 번 더 봤다.'
-                : '이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다.',
+                ? `이 항목에서 ${axis}를 가를 때 필요한 숫자와 이름은 한 번 더 봤다.`
+                : `숫자가 적은 항목이라도 ${axis}를 가르는 고유 명칭과 설명 축은 한 번 더 봤다.`,
             items: numberItems.length > 0
                 ? numberItems
                 : [
+                    `선택 기준 대조: ${axis}`,
                     `명칭 대조: ${entry.title}`,
-                    '숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다.',
+                    '고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다.',
                 ],
         },
         {
             type: 'adversarial',
             result: 'pass',
-            summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다.',
-            findings: ['이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다.'],
-            items: ['정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다.'],
+            summary: `헷갈리기 쉬운 선택 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리했다.`,
+            findings: [
+                entry.adversarialRisk
+                    || `이 페이지는 ${problem}부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해.`,
+            ],
+            items: [
+                `오해 방지 기준: ${axis}`,
+                '정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다.',
+            ],
         },
     ];
 }
@@ -1139,20 +1156,21 @@ function buildNonModelDefinition(entry, sourceContext) {
     }
 
     const rule = pickTagRule(entry);
+    const problem = getEntryProblem(entry);
 
     if (isCompanyEntry(entry)) {
-        return '주요 모델과 API, 앱을 만드는 AI 회사나 연구 조직이야. 기사에서 이 이름이 나오면 특정 모델 하나보다 회사 전체 라인업과 전략을 가리키는 경우가 많아.';
+        return `주요 모델과 API, 앱을 만드는 AI 회사나 연구 조직이야. 기사에서 이 이름이 나오면 특정 기능보다 ${problem}부터 읽어야 해.`;
     }
 
     switch (entry.category) {
         case 'tool':
-            return `${focusPhrase(entry)} 작업에 쓰이는 AI 도구야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 실제 제품과 워크플로로 옮긴 쪽에 가까워.`;
+            return `${focusPhrase(entry)} 작업에 쓰이는 AI 도구야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 실제 제품과 워크플로로 옮긴 쪽에 가까워. 결국 이 페이지는 ${problem}를 판단할 때 보는 기준점이야.`;
         case 'framework':
-            return `${flowPhrase(focusPhrase(entry))}을 연결하고 조립하는 프레임워크야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 코드와 시스템 구조로 묶는 뼈대야.`;
+            return `${flowPhrase(focusPhrase(entry))}을 연결하고 조립하는 프레임워크야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 코드와 시스템 구조로 묶는 뼈대야. 결국 ${problem}를 풀 때 어떤 골조를 쓸지 가르는 이름이야.`;
         case 'technique':
-            return `${objectPhrase(focusPhrase(entry))} 바꾸거나 개선할 때 쓰는 기법이야. 쉽게 말하면 ${rule.analogy} 역할을 한다고 보면 돼.`;
+            return `${objectPhrase(focusPhrase(entry))} 바꾸거나 개선할 때 쓰는 기법이야. 쉽게 말하면 ${rule.analogy} 역할을 한다고 보면 돼. 결국 ${problem}를 풀 때 손대는 레버라고 보면 맞아.`;
         default:
-            return `${objectPhrase(focusPhrase(entry))} 이해할 때 자주 나오는 개념이야. 쉽게 말하면 ${rule.analogy}에 가까워.`;
+            return `${objectPhrase(focusPhrase(entry))} 이해할 때 자주 나오는 개념이야. 쉽게 말하면 ${rule.analogy}에 가까워. 결국 ${problem}를 읽어내는 기준점 역할을 해.`;
     }
 }
 
@@ -1163,20 +1181,21 @@ function buildNonModelDetail(entry, sourceContext) {
     }
 
     const rule = pickTagRule(entry);
+    const axis = getDecisionAxis(entry);
 
     if (isCompanyEntry(entry)) {
-        return '이 이름을 볼 때는 "무슨 모델을 만들었나"만 보기보다 어떤 계열을 밀고 있는지, API와 제품을 어떤 채널로 내놓는지를 같이 봐야 해. 같은 모델 성능 뉴스도 회사 전략 문맥에 따라 의미가 달라져.';
+        return `이 이름을 볼 때는 "무슨 모델을 만들었나"만 보기보다 어떤 계열을 밀고 있는지, API와 제품을 어떤 채널로 내놓는지를 같이 봐야 해. 결국 먼저 봐야 할 축은 ${axis}야.`;
     }
 
     switch (entry.category) {
         case 'tool':
-            return `모델 자체라기보다 ${focusPhrase(entry)} 작업을 실제로 굴리는 도구 쪽에 가까워. ${rule.operation} 그래서 기능 목록보다 어떤 병목을 줄여 주는지로 읽는 편이 이해가 빨라.`;
+            return `모델 자체라기보다 ${focusPhrase(entry)} 작업을 실제로 굴리는 도구 쪽에 가까워. ${rule.operation} 그래서 기능 목록보다 ${axis}가 어떻게 달라지는지로 읽는 편이 이해가 빨라.`;
         case 'framework':
-            return `결과를 직접 만드는 모델이라기보다 흐름을 묶는 틀에 가까워. ${rule.operation} 보통 프롬프트, 검색, 메모리, 실행 순서를 어떻게 묶는지가 관건이야.`;
+            return `결과를 직접 만드는 모델이라기보다 흐름을 묶는 틀에 가까워. ${rule.operation} 보통 관건은 ${axis}를 어떤 구조로 묶느냐야.`;
         case 'technique':
-            return `${rule.operation} 그래서 이런 기법은 "무슨 모델이냐"보다 입력, 검색, 학습, 실행 흐름 중 어디에 개입하는지로 이해하는 편이 쉬워.`;
+            return `${rule.operation} 그래서 이런 기법은 "무슨 모델이냐"보다 ${axis}가 어느 단계에서 바뀌는지로 이해하는 편이 쉬워.`;
         default:
-            return `${rule.operation} 보통 이런 개념은 새 제품 이름이 아니라, 모델이나 시스템이 어떻게 움직이는지를 설명하는 기본 단위로 보면 이해가 빨라.`;
+            return `${rule.operation} 보통 이런 개념은 새 제품 이름이 아니라, ${axis}를 설명하는 기본 단위로 보면 이해가 빨라.`;
     }
 }
 
@@ -1187,65 +1206,22 @@ function buildNonModelWhyImportant(entry) {
     }
 
     const rule = pickTagRule(entry);
+    const problem = getEntryProblem(entry);
 
     if (isCompanyEntry(entry)) {
-        return `${entry.title} 같은 회사 이름을 알아두면 새 모델 발표를 단발 이벤트가 아니라 라인업 전략 변화로 읽을 수 있어. 특히 가격 정책, API 방향, 공개 웨이트 여부 같은 선택지는 회사 단위에서 결정될 때가 많아.`;
+        return `${entry.title} 같은 회사 이름을 알아두면 새 모델 발표를 단발 이벤트가 아니라 라인업 전략 변화로 읽을 수 있어. 결국 ${problem}부터 읽어야 제품 전략 문맥이 보여.`;
     }
 
     switch (entry.category) {
         case 'tool':
-            return `${rule.importance} 실무에서는 도구 이름을 모델 이름처럼 오해하면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.`;
+            return `${rule.importance} 결국 ${problem}부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.`;
         case 'framework':
-            return `${rule.importance} 프레임워크는 모델 성능보다 개발 속도와 시스템 구조를 바꾸는 경우가 많아서, 그 차이를 알아야 도입 판단이 쉬워져.`;
+            return `${rule.importance} 결국 ${problem}를 어느 구조 문제로 볼지 알아야 도입 판단이 쉬워져.`;
         case 'technique':
-            return `${rule.importance} 같은 모델도 어떤 기법을 붙이느냐에 따라 정확도, 비용, 지연이 크게 달라져.`;
+            return `${rule.importance} 결국 ${problem}를 어떤 레버로 푸는지에 따라 정확도, 비용, 지연이 크게 달라져.`;
         default:
-            return `${rule.importance} 이 개념을 알고 있으면 화려한 발표 문구를 봐도 실제로 무엇이 개선됐는지 더 빨리 읽을 수 있어.`;
+            return `${rule.importance} 이 개념을 알고 있으면 화려한 발표 문구를 봐도 결국 ${problem}를 더 빨리 읽을 수 있어.`;
     }
-}
-
-function buildModelDefinition(entry, modelProfile) {
-    if (entry.modelType === 'family') {
-        const angle = inferFamilyAngle(entry, modelProfile);
-        return `${entry.title}는 ${modelProfile.vendor}가 ${angle} 쪽에 붙이는 대표 이름이야. 기사에서 이 이름이 보이면 모델 하나가 갑자기 바뀌었다기보다, 제품군 전체 방향이나 배포 확대를 말하는 경우가 많다. 그래서 이 페이지는 성능표보다 "지금 무슨 축으로 밀고 있나"를 읽는 용도로 보는 편이 맞다.`;
-    }
-
-    const focus = inferModelJobFocus(modelProfile);
-    return `${entry.title}는 ${modelProfile.vendor}가 ${focus} 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제 비교표에 올릴 후보라고 생각하면 된다. ${ensureSentence(modelProfile.multimodalSupport)} ${ensureSentence(modelProfile.implementation)}`;
-}
-
-function buildModelCapabilities(entry, modelProfile) {
-    if (entry.modelType === 'family') {
-        return `${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} 다만 계열 이름만으로는 가격이나 제한을 못 박을 수 없어서, 실제 도입 판단은 하위 버전 페이지에서 끝내야 해. 여기서는 "이 라인업이 어떤 입력과 결과를 밀고 있나"를 먼저 잡아두면 충분하다.`;
-    }
-
-    const focus = inferModelJobFocus(modelProfile);
-    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 돼.`;
-}
-
-function buildModelSpecGuide(entry, modelProfile) {
-    const guideLines = [
-        `- **입력/출력 범위**: ${ensureSentence(modelProfile.multimodalSupport)} 텍스트 전용인지, 이미지까지 같이 읽는지부터 여기서 갈린다.`,
-        `- **컨텍스트/메모리 감각**: ${ensureSentence(modelProfile.memoryUsage)} 긴 문서 작업이 되는지와 호출비 감각을 이 줄에서 같이 봐.`,
-        `- **모델 구조와 규모**: ${ensureSentence(modelProfile.activeParameters)} 파라미터 숫자를 공개하지 않아도 운영 옵션 차이만으로 성격을 읽을 수 있어.`,
-        `- **접근 경로**: ${ensureSentence(modelProfile.access)} 바로 제품에 붙일 수 있는지, 특정 채널에서만 열리는지 여기서 판단해.`,
-        `- **가격과 운영비**: ${ensureSentence(modelProfile.pricing)} 운영비 계산을 어디서 시작할지 정하는 자리라고 보면 돼.`,
-        `- **웨이트 공개 여부**: ${ensureSentence(modelProfile.weightsOpen)} 자체 호스팅 가능 여부를 여기서 먼저 걸러내.`,
-    ];
-
-    if (entry.modelType === 'family') {
-        guideLines.unshift('- **계열 이름인지 개별 버전인지**: 이 이름은 상위 라인업을 가리켜. 실제 비교표는 하위 버전 페이지에서 읽는 편이 정확해.');
-    }
-
-    return guideLines.join('\n');
-}
-
-function buildModelWhyImportant(entry, modelProfile) {
-    if (entry.modelType === 'family') {
-        return `중요한 건 뉴스가 항상 세부 버전까지 친절하게 적어주지 않는다는 점이야. ${entry.title} 같은 계열명을 먼저 알아두면 "새 데모 하나가 나왔다"가 아니라 ${modelProfile.vendor}가 어느 경험을 키우고 있는지 바로 읽힌다. 그리고 나서 실제 구매나 연동 판단이 필요할 때만 하위 버전 페이지로 내려가면 된다.`;
-    }
-
-    return `중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 ${modelProfile.vendor} 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞다.`;
 }
 
 function buildModelSummary(entry, modelProfile) {
@@ -1274,6 +1250,23 @@ function buildModelCapabilities(entry, modelProfile) {
 
     const focus = inferModelJobFocus(modelProfile);
     return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 된다.`;
+}
+
+function buildModelSpecGuide(entry, modelProfile) {
+    const guideLines = [
+        `- **입력/출력 범위**: ${ensureSentence(modelProfile.multimodalSupport)} 텍스트 전용인지, 이미지까지 같이 읽는지부터 여기서 갈린다.`,
+        `- **컨텍스트/메모리 감각**: ${ensureSentence(modelProfile.memoryUsage)} 긴 문서 작업이 되는지와 호출비 감각을 이 줄에서 같이 봐.`,
+        `- **모델 구조와 규모**: ${ensureSentence(modelProfile.activeParameters)} 파라미터 숫자를 공개하지 않아도 운영 옵션 차이만으로 성격을 읽을 수 있어.`,
+        `- **접근 경로**: ${ensureSentence(modelProfile.access)} 바로 제품에 붙일 수 있는지, 특정 채널에서만 열리는지 여기서 판단해.`,
+        `- **가격과 운영비**: ${ensureSentence(modelProfile.pricing)} 운영비 계산을 어디서 시작할지 정하는 자리라고 보면 돼.`,
+        `- **웨이트 공개 여부**: ${ensureSentence(modelProfile.weightsOpen)} 자체 호스팅 가능 여부를 여기서 먼저 걸러내.`,
+    ];
+
+    if (entry.modelType === 'family') {
+        guideLines.unshift('- **계열 이름인지 개별 버전인지**: 이 이름은 상위 라인업을 가리켜. 실제 비교표는 하위 버전 페이지에서 읽는 편이 정확해.');
+    }
+
+    return guideLines.join('\n');
 }
 
 function buildModelWhyImportant(entry, modelProfile) {

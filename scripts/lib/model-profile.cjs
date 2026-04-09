@@ -430,75 +430,44 @@ function buildModelProfile(entry) {
     };
 }
 
-function buildModelFactChecks(entry, modelProfile, sourceDetails) {
-    const sourceTitles = sourceDetails
-        .map((detail) => detail.title)
-        .filter(Boolean)
-        .filter((title) => !/^https?:\/\//i.test(title));
-    const override = MODEL_FACT_OVERRIDES[entry.term];
-
-    if (override) {
-        return [
-            {
-                type: 'source_match',
-                result: 'pass',
-                summary: '원문에서 모델명, 벤더, 페이지 성격이 같은 축인지 먼저 맞춰봤다.',
-                items: override.sourceMatch,
-            },
-            {
-                type: 'web_cross_check',
-                result: sourceDetails.length > 1 ? 'pass' : 'skip',
-                sources: sourceDetails.length,
-                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 라인업 위치와 접근 경로를 다시 봤다.`,
-                items: override.webCrossCheck,
-            },
-            {
-                type: 'number_verify',
-                result: 'pass',
-                summary: '숫자와 고유 명칭은 따로 빼서 한 번 더 확인해봤다.',
-                items: override.numberVerify,
-            },
-            {
-                type: 'adversarial',
-                result: 'pass',
-                summary: '오해하기 쉬운 포인트는 한 번 더 의심해보고 정리했다.',
-                items: override.adversarial,
-                findings: override.adversarial,
-            },
-        ];
-    }
-
-    const familyItems = [
-        `모델명 대조: ${entry.title}`,
-        `벤더 대조: ${modelProfile.vendor}`,
-        entry.parentModel ? `상위 계열: ${entry.parentModel}` : '상위 계열: 최상위 라인업',
-    ];
+function inferModelReaderProblem(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        familyItems.push('페이지 성격: 개별 스냅샷이 아니라 상위 계열 안내 페이지');
+        return `${entry.title}가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지`;
     }
 
-    return [
-        {
-            type: 'source_match',
-            result: 'pass',
-            summary: '원문에서 모델명과 라인업 성격이 같은 축인지 먼저 맞춰봤다.',
-            items: familyItems,
-        },
-        {
-            type: 'web_cross_check',
-            result: sourceDetails.length > 1 ? 'pass' : 'skip',
-            sources: sourceDetails.length,
-            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 라인업 설명이 같은지 다시 봤다.`,
-            items: sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
-        },
-        {
-            type: 'adversarial',
-            result: 'pass',
-            summary: '이 페이지가 버전 비교표가 아니라 계열 안내 페이지라는 점은 따로 의심해보고 확인했다.',
-            items: ['개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.'],
-            findings: ['계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다.'],
-        },
-    ];
+    if (/reasoning|추론/.test(modelProfile.implementation || '')) {
+        return `${entry.title}를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지`;
+    }
+
+    if (/코딩|agent|에이전트/.test(`${modelProfile.implementation} ${modelProfile.access}`)) {
+        return `${entry.title}를 코드 작업과 에이전트 자동화에 붙여도 되는지`;
+    }
+
+    if (/이미지|multimodal|비디오|오디오/.test(modelProfile.multimodalSupport || '')) {
+        return `${entry.title}를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지`;
+    }
+
+    return `${entry.title}를 실제 제품 후보 모델로 올려도 되는지`;
+}
+
+function inferModelDecisionAxis(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        return `${entry.title} 아래에서 어떤 버전 페이지를 봐야 하는지`;
+    }
+
+    if (/reasoning|추론/.test(modelProfile.implementation || '')) {
+        return '추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지';
+    }
+
+    if (/코딩|agent|에이전트/.test(`${modelProfile.implementation} ${modelProfile.access}`)) {
+        return '코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지';
+    }
+
+    if (/이미지|multimodal|비디오|오디오/.test(modelProfile.multimodalSupport || '')) {
+        return '입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지';
+    }
+
+    return '가격, 접근 채널, 입력 범위 중 무엇이 실제 선택 기준인지';
 }
 
 function buildModelFactChecks(entry, modelProfile, sourceDetails) {
@@ -507,39 +476,42 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
         .filter(Boolean)
         .filter((title) => !/^https?:\/\//i.test(title));
     const override = MODEL_FACT_OVERRIDES[entry.term];
+    const problem = inferModelReaderProblem(entry, modelProfile);
+    const axis = inferModelDecisionAxis(entry, modelProfile);
 
     if (override) {
         return [
             {
                 type: 'source_match',
                 result: 'pass',
-                summary: '원문에서 모델명, 벤더, 페이지 성격이 같은 축인지 먼저 맞춰봤다.',
-                items: override.sourceMatch,
+                summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
+                items: [`독자 문제 대조: ${problem}`, ...override.sourceMatch],
             },
             {
                 type: 'web_cross_check',
                 result: sourceDetails.length > 1 ? 'pass' : 'skip',
                 sources: sourceDetails.length,
-                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 라인업 위치와 접근 경로를 다시 봤다.`,
-                items: override.webCrossCheck,
+                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
+                items: [`비교 기준: ${axis}`, ...override.webCrossCheck],
             },
-        {
-            type: 'number_verify',
-            result: 'pass',
-            summary: '숫자와 고유 명칭은 따로 빼서 한 번 더 봤다.',
-            items: override.numberVerify,
-        },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: `숫자와 고유 명칭은 ${axis}를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다.`,
+                items: override.numberVerify,
+            },
             {
                 type: 'adversarial',
                 result: 'pass',
-                summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다.',
-                items: override.adversarial,
-                findings: override.adversarial,
+                summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리했다.`,
+                items: [`오해 방지 기준: ${axis}`, ...override.adversarial],
+                findings: override.adversarial.slice(),
             },
         ];
     }
 
     const baseItems = [
+        `독자 문제 대조: ${problem}`,
         `모델명 대조: ${entry.title}`,
         `벤더 대조: ${modelProfile.vendor}`,
         entry.parentModel ? `상위 계열: ${entry.parentModel}` : '상위 계열: 최상위 라인업',
@@ -560,29 +532,32 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
         {
             type: 'source_match',
             result: 'pass',
-            summary: '원문에서 모델명과 벤더, 페이지 성격이 엇갈리지 않는지 먼저 맞춰봤다.',
+            summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
             items: baseItems,
         },
         {
             type: 'web_cross_check',
             result: sourceDetails.length > 1 ? 'pass' : 'skip',
             sources: sourceDetails.length,
-            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 설명 축이 같은지 다시 봤다.`,
-            items: sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
+            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
+            items: [
+                `비교 기준: ${axis}`,
+                ...sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
+            ],
         },
         {
             type: 'number_verify',
             result: 'pass',
-            summary: '가격, 접근 경로, 입력 범위처럼 실제 선택에 쓰는 정보는 따로 떼서 한 번 더 봤다.',
+            summary: `가격, 접근 경로, 입력 범위처럼 ${axis}를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다.`,
             items: numberItems,
         },
         {
             type: 'adversarial',
             result: 'pass',
-            summary: '계열 설명을 개별 모델 스펙처럼 읽지 않도록 한 번 더 의심해보고 정리했다.',
+            summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리했다.`,
             items: entry.modelType === 'family'
-                ? ['개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.']
-                : ['벤치마크 숫자보다 실제 운영 조건이 더 중요하다는 점을 따로 분리해뒀다.'],
+                ? [`오해 방지 기준: ${axis}`, '개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.']
+                : [`오해 방지 기준: ${axis}`, '벤치마크 숫자보다 실제 운영 조건이 더 중요하다는 점을 따로 분리해뒀다.'],
             findings: entry.modelType === 'family'
                 ? ['계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다.']
                 : ['발표문 숫자만 보면 과대평가하기 쉬워서 가격표와 접근 채널을 같이 보게 만들었다.'],

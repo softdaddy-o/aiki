@@ -3,7 +3,7 @@ term: vector-db
 title: "Vector Database"
 lang: ko
 summary: "Vector Database는 임베딩 벡터를 저장하고 비슷한 벡터를 빠르게 찾도록 만든 검색용 데이터베이스다."
-readerValue: "이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡게 해준다."
+readerValue: "RAG에서 문서를 어디에 저장하고 어떤 검색 엔진으로 꺼낼지 먼저 판단하게 해준다."
 category: tool
 aliases:
   - "vector database"
@@ -28,30 +28,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다."
+      summary: "이 페이지를 RAG에서 문서를 어디에 저장하고 어떤 검색 엔진으로 꺼낼지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
+        - "독자 문제 대조: RAG에서 문서를 어디에 저장하고 어떤 검색 엔진으로 꺼낼지"
         - "용어명 대조: Vector Database"
         - "분류 대조: 도구"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
+      summary: "관련 출처 2건을 나란히 놓고 검색 정확도보다 운영 방식과 필터링·하이브리드 검색 요구가 더 큰 선택 기준인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
+        - "비교 기준: 검색 정확도보다 운영 방식과 필터링·하이브리드 검색 요구가 더 큰 선택 기준인지"
         - "Vector database (https://en.wikipedia.org/wiki/Vector_database)"
         - "What is a Vector Database &amp; How Does it Work? Use Cases + Examples | Pinecone (https://www.pinecone.io/learn/vector-database/)"
     - type: number_verify
       result: pass
-      summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."
+      summary: "숫자가 적은 항목이라도 검색 정확도보다 운영 방식과 필터링·하이브리드 검색 요구가 더 큰 선택 기준인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
+        - "선택 기준 대조: 검색 정확도보다 운영 방식과 필터링·하이브리드 검색 요구가 더 큰 선택 기준인지"
         - "명칭 대조: Vector Database"
-        - "숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다."
+        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 선택 포인트는 RAG에서 문서를 어디에 저장하고 어떤 검색 엔진으로 꺼낼지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
+        - "오해 방지 기준: 검색 정확도보다 운영 방식과 필터링·하이브리드 검색 요구가 더 큰 선택 기준인지"
+        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "벡터 DB라는 큰 묶음만 보면 실제론 관리형 SaaS, 오픈소스 서버형, 로컬 임베디드형 차이를 놓치기 쉬워."
 ---
 ## 한 줄 정의
 Vector Database는 텍스트나 이미지의 임베딩을 저장한 뒤, 의미적으로 가까운 항목을 유사도 검색으로 찾아주는 저장소다.
@@ -65,4 +69,4 @@ RAG 품질은 모델만으로 결정되지 않아. 어떤 벡터 데이터베이
 - [RAG](/ko/wiki/rag/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
 - [LlamaIndex](/ko/wiki/llamaindex/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
 - [Embedding](/ko/wiki/embedding/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
-- [Pinecone](/ko/wiki/pinecone/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [Pinecone](/ko/wiki/pinecone/) — 완전 관리형 벡터 DB를 고를 때 어떤 운영 부담을 넘기는지 비교하게 해 준다.

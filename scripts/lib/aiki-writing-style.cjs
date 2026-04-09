@@ -149,8 +149,13 @@ function buildNewsReaderValue(frontmatter, fileName = '') {
 function buildWikiReaderValue(entry) {
     const category = String(entry.category || '').toLowerCase();
     const tags = new Set(lowerList(entry.tags));
+    const explicitProblem = normalizeText(entry.userProblem);
 
     const hasAnyTag = (values) => values.some((value) => tags.has(String(value || '').toLowerCase()));
+
+    if (explicitProblem) {
+        return `${explicitProblem} 먼저 판단하게 해준다.`;
+    }
 
     if (category === 'model') {
         return '기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다.';

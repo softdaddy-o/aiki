@@ -106,6 +106,12 @@ const WIKI_SOURCE_COPY_PATTERNS = [
     /what are /i,
 ];
 
+const GENERIC_WIKI_RELATED_HINT_PATTERNS = [
+    /맥락을 같이 잡아 준다/u,
+    /함께 보면 맥락이 더 빨리 잡힌다/u,
+    /같이 본다\.$/u,
+];
+
 const FACT_CHECK_FORMAL_PATTERNS = [
     /교차검증했다/u,
     /비판적으로(?: 다시)? 검토했다/u,
@@ -511,6 +517,19 @@ function validateWikiStructure(frontmatter, body) {
         failures.push('wiki still contains source-style CTA copy');
     }
 
+    const relatedSectionMatch = normalizedBody.match(/##\s+관련 용어\s*\n([\s\S]*)$/m);
+    if (relatedSectionMatch) {
+        const relatedLines = relatedSectionMatch[1]
+            .split('\n')
+            .map((line) => line.trim())
+            .filter((line) => line.startsWith('- '));
+
+        const genericCount = relatedLines.filter((line) => GENERIC_WIKI_RELATED_HINT_PATTERNS.some((pattern) => pattern.test(line))).length;
+        if (relatedLines.length >= 3 && genericCount === relatedLines.length) {
+            failures.push('wiki related terms still use generic repeated hints');
+        }
+    }
+
     return failures;
 }
 
@@ -535,6 +554,20 @@ function validateFactCheckDetails(targetName, frontmatter) {
 
         if (!hasDetailedItems(check)) {
             failures.push(`factCheck.${type} lacks summary or items`);
+        }
+
+        if (targetName === 'wiki' && type === 'source_match') {
+            const items = Array.isArray(check.items) ? check.items.map((item) => String(item || '')) : [];
+            if (!items.some((item) => item.startsWith('독자 문제 대조:'))) {
+                failures.push('factCheck.source_match missing reader-problem check item');
+            }
+        }
+
+        if (targetName === 'wiki' && type === 'web_cross_check') {
+            const items = Array.isArray(check.items) ? check.items.map((item) => String(item || '')) : [];
+            if (!items.some((item) => item.startsWith('비교 기준:'))) {
+                failures.push('factCheck.web_cross_check missing comparison-axis item');
+            }
         }
     }
 
