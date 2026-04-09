@@ -89,6 +89,12 @@ const BAD_WIKI_MODEL_BODY_PATTERNS = [
     /내 앱에 바로 붙는지/u,
     /이 줄은 .*항목이야/u,
     /읽는 줄이다/u,
+    /묶어 부르는 상위 모델 계열이야/u,
+    /기사에서 이름만 크게 보일 때가 많아서/u,
+    /개별 모델 프로필이 필요하면/u,
+    /어떤 하위 버전으로 갈라지나/u,
+    /계열 이름만 알아서는 가격이나 컨텍스트를 못 박을 수 없고/u,
+    /상위 계열 페이지가 필요한 이유는/u,
 ];
 
 const WIKI_SOURCE_COPY_PATTERNS = [
@@ -391,6 +397,16 @@ function validateWikiTone(frontmatter, body) {
 
         if (BAD_WIKI_MODEL_BODY_PATTERNS.some((pattern) => pattern.test(combined))) {
             failures.push('wiki model body still uses deprecated template copy');
+        }
+    }
+
+    if (category === 'model' && modelType === 'family') {
+        if (/상위 모델 계열이다\. 기사에서 이름만 나오면 하위 버전과 제품 포지션을 함께 확인해야 한다\./u.test(String(frontmatter.summary || ''))) {
+            failures.push('wiki family model summary still uses generic template copy');
+        }
+
+        if (BAD_WIKI_MODEL_BODY_PATTERNS.some((pattern) => pattern.test(combined))) {
+            failures.push('wiki family model body still uses deprecated template copy');
         }
     }
 

@@ -638,7 +638,8 @@ function summaryFromSource(entry, sourceContext) {
 
 function buildModelSummary(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `${modelProfile.vendor}의 상위 모델 계열이다. 기사에서 이름만 나오면 하위 버전과 제품 포지션을 함께 확인해야 한다.`;
+        const angle = inferFamilyAngle(entry, modelProfile);
+        return `${entry.title}는 ${modelProfile.vendor}가 ${angle}에 붙이는 대표 이름이다. 기사에서 보이면 개별 버전보다 라인업 방향을 먼저 읽는 편이 맞다.`;
     }
 
     return `${modelProfile.vendor}의 ${entry.title} 모델이다. 이름이 나오면 벤치마크 점수보다 어떤 작업에 쓰는지와 API 비용 구간을 같이 봐야 한다.`;
@@ -662,6 +663,30 @@ function inferModelJobFocus(modelProfile) {
     }
 
     return '실제 제품에 붙일 모델 선택';
+}
+
+function inferFamilyAngle(entry, modelProfile) {
+    const tags = new Set((entry.tags || []).map((tag) => String(tag || '').toLowerCase()));
+    const support = String(modelProfile.multimodalSupport || '').toLowerCase();
+    const implementation = String(modelProfile.implementation || '').toLowerCase();
+
+    if (tags.has('video-generation')) {
+        return '텍스트에서 영상으로 넘어가는 생성 계열';
+    }
+
+    if (tags.has('assistant')) {
+        return '범용 대화형 모델 라인업';
+    }
+
+    if (tags.has('reasoning') || implementation.includes('reasoning')) {
+        return '복잡한 추론 작업 중심 라인업';
+    }
+
+    if (support.includes('오디오') || support.includes('시각') || support.includes('멀티모달')) {
+        return '멀티모달 생성과 이해를 같이 다루는 라인업';
+    }
+
+    return '여러 하위 모델을 묶어 부르는 제품 라인업';
 }
 
 function buildRelationHint(entry, relatedEntry) {
@@ -985,7 +1010,8 @@ function buildNonModelWhyImportant(entry) {
 
 function buildModelDefinition(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `${entry.title}는 ${modelProfile.vendor}가 묶어 부르는 상위 모델 계열이야. 기사에서 이름만 크게 보일 때가 많아서, 먼저 어떤 하위 버전을 가리키는지부터 잡아야 맥락이 덜 꼬인다. 개별 모델 프로필이 필요하면 이 페이지보다 하위 버전 페이지로 내려가는 게 맞다.`;
+        const angle = inferFamilyAngle(entry, modelProfile);
+        return `${entry.title}는 ${modelProfile.vendor}가 ${angle} 쪽에 붙이는 대표 이름이야. 기사에서 이 이름이 보이면 모델 하나가 갑자기 바뀌었다기보다, 제품군 전체 방향이나 배포 확대를 말하는 경우가 많다. 그래서 이 페이지는 성능표보다 "지금 무슨 축으로 밀고 있나"를 읽는 용도로 보는 편이 맞다.`;
     }
 
     const focus = inferModelJobFocus(modelProfile);
@@ -994,7 +1020,7 @@ function buildModelDefinition(entry, modelProfile) {
 
 function buildModelCapabilities(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `${entry.title} 같은 계열 페이지에서는 "무슨 일을 잘하나"보다 "어떤 하위 버전으로 갈라지나"를 먼저 보는 편이 좋아. ${ensureSentence(modelProfile.access)} 계열 이름만 알아서는 가격이나 컨텍스트를 못 박을 수 없고, 실제 선택은 하위 버전에서 갈린다.`;
+        return `${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} 다만 계열 이름만으로는 가격이나 제한을 못 박을 수 없어서, 실제 도입 판단은 하위 버전 페이지에서 끝내야 해. 여기서는 "이 라인업이 어떤 입력과 결과를 밀고 있나"를 먼저 잡아두면 충분하다.`;
     }
 
     const focus = inferModelJobFocus(modelProfile);
@@ -1020,7 +1046,7 @@ function buildModelSpecGuide(entry, modelProfile) {
 
 function buildModelWhyImportant(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `상위 계열 페이지가 필요한 이유는 뉴스 제목에 버전명보다 계열명만 남는 경우가 많기 때문이야. ${modelProfile.vendor}가 라인업을 어떤 축으로 나누는지 먼저 알아두면, 하위 버전 페이지로 내려갔을 때 왜 가격과 성격이 갈리는지도 훨씬 빨리 보인다.`;
+        return `중요한 건 뉴스가 항상 세부 버전까지 친절하게 적어주지 않는다는 점이야. ${entry.title} 같은 계열명을 먼저 알아두면 "새 데모 하나가 나왔다"가 아니라 ${modelProfile.vendor}가 어느 경험을 키우고 있는지 바로 읽힌다. 그리고 나서 실제 구매나 연동 판단이 필요할 때만 하위 버전 페이지로 내려가면 된다.`;
     }
 
     return `중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 ${modelProfile.vendor} 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞다.`;

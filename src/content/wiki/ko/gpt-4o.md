@@ -34,7 +34,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/GPT-4o"
       title: "GPT-4o"
     - url: "https://openai.com/index/hello-gpt-4o/"
-      title: "https://openai.com/index/hello-gpt-4o/"
+      title: "Hello GPT-4o"
   checks:
     - type: source_match
       result: pass

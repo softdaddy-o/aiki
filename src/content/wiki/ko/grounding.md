@@ -23,9 +23,9 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://ai.google.dev/gemini-api/docs/grounding"
-      title: "Tìm hiểu thông tin cơ bản trên Google Tìm kiếm &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
-      title: "Panoramica del grounding &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
+      title: "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
   checks:
     - type: source_match
       result: pass
@@ -38,8 +38,8 @@ factCheck:
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
-        - "Tìm hiểu thông tin cơ bản trên Google Tìm kiếm &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/grounding)"
-        - "Panoramica del grounding &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation (https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)"
+        - "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/grounding)"
+        - "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation (https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)"
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."

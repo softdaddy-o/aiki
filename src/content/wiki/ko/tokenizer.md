@@ -21,7 +21,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Lexical_analysis"
       title: "Lexical analysis"
     - url: "https://platform.openai.com/tokenizer"
-      title: "OpenAI Platform"
+      title: "https://platform.openai.com/tokenizer"
   checks:
     - type: source_match
       result: pass
@@ -35,7 +35,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
         - "Lexical analysis (https://en.wikipedia.org/wiki/Lexical_analysis)"
-        - "OpenAI Platform (https://platform.openai.com/tokenizer)"
+        - "https://platform.openai.com/tokenizer (https://platform.openai.com/tokenizer)"
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."

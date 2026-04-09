@@ -23,7 +23,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/OpenAI"
       title: "OpenAI"
     - url: "https://openai.com/"
-      title: "https://openai.com/"
+      title: "OpenAI"
   checks:
     - type: source_match
       result: pass
@@ -37,7 +37,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
         - "OpenAI (https://en.wikipedia.org/wiki/OpenAI)"
-        - "https://openai.com/ (https://openai.com/)"
+        - "OpenAI (https://openai.com/)"
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
