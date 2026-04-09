@@ -22,7 +22,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart"
-      title: "Krótkie wprowadzenie do Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Guida rapida di Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://aistudio.google.com/"
       title: "Google AI Studio"
   checks:
@@ -37,7 +37,7 @@ factCheck:
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
-        - "Krótkie wprowadzenie do Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/ai-studio-quickstart)"
+        - "Guida rapida di Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/ai-studio-quickstart)"
         - "Google AI Studio (https://aistudio.google.com/)"
     - type: number_verify
       result: pass

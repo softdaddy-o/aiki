@@ -7,12 +7,12 @@ readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어
 category: model
 modelType: version
 modelProfile:
-  memoryUsage: "OpenAI API 기준 컨텍스트 128K, 최대 출력 16,384토큰이다. 자체 호스팅형 웨이트가 아니라 GPU 메모리 계산보다 요청당 토큰 예산을 먼저 본다."
-  implementation: "OpenAI의 범용 멀티모달 GPT 계열이다. 텍스트와 이미지 입력, 텍스트 출력, 함수 호출, 구조화 출력, 파인튜닝까지 공식 지원한다."
-  activeParameters: "활성 파라미터 수는 비공개다. 대신 gpt-4o, gpt-4o-2024-08-06, gpt-4o-2024-11-20처럼 스냅샷을 고정해 운영할 수 있다."
-  multimodalSupport: "텍스트와 이미지 입력, 텍스트 출력이 기본이다. 오디오 입출력은 별도 GPT-4o Audio 계열과 구분해서 보는 편이 정확하다."
-  access: "Responses API, Chat Completions, Batch, Realtime에 바로 붙일 수 있다. 범용 프로덕션 기본 모델로 쓰기 쉬운 타입이다."
-  pricing: "OpenAI API 기준 1M 토큰당 입력 $2.50, 캐시 입력 $1.25, 출력 $10.00이다."
+  memoryUsage: "OpenAI API 기준 컨텍스트 128K, 최대 출력 16,384토큰이야. 자체 호스팅형 웨이트가 아니라 GPU 메모리 계산보다 요청당 토큰 예산을 먼저 봐."
+  implementation: "OpenAI의 범용 멀티모달 GPT 계열이야. 텍스트와 이미지 입력, 텍스트 출력, 함수 호출, 구조화 출력, 파인튜닝까지 공식 지원해."
+  activeParameters: "활성 파라미터 수는 비공개다. 대신 gpt-4o, gpt-4o-2024-08-06, gpt-4o-2024-11-20처럼 스냅샷을 고정해 운영할 수 있어."
+  multimodalSupport: "텍스트와 이미지 입력, 텍스트 출력이 기본이야. 오디오 입출력은 별도 GPT-4o Audio 계열과 구분해서 보는 편이 정확해."
+  access: "Responses API, Chat Completions, Batch, Realtime에 바로 붙일 수 있어. 범용 프로덕션 기본 모델로 쓰기 쉬운 타입이야."
+  pricing: "OpenAI API 기준 1M 토큰당 입력 $2.50, 캐시 입력 $1.25, 출력 $10.00이야."
   weightsOpen: "오픈 웨이트 미공개, API 제공 중심"
   vendor: "OpenAI"
 aliases:
@@ -34,7 +34,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/GPT-4o"
       title: "GPT-4o"
     - url: "https://openai.com/index/hello-gpt-4o/"
-      title: "Hello GPT-4o"
+      title: "https://openai.com/index/hello-gpt-4o/"
   checks:
     - type: source_match
       result: pass

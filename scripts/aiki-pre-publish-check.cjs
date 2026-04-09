@@ -549,11 +549,13 @@ function validateFactCheckTone(frontmatter) {
     for (const check of checks) {
         const type = String(check && check.type || 'unknown');
         const summary = String(check && check.summary || '').trim();
+        const findings = ((check && Array.isArray(check.findings)) ? check.findings : []).map((item) => String(item || '').trim());
         const joined = [
             summary,
             ...((check && Array.isArray(check.items)) ? check.items : []).map((item) => String(item || '').trim()),
-            ...((check && Array.isArray(check.findings)) ? check.findings : []).map((item) => String(item || '').trim()),
+            ...findings,
         ].join('\n');
+        const toneTarget = [summary, ...findings].filter(Boolean).join('\n');
 
         if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(joined))) {
             failures.push(`factCheck.${type} still uses report-style template copy`);
@@ -562,9 +564,46 @@ function validateFactCheckTone(frontmatter) {
         if (summary && !FACT_CHECK_TONE_PATTERNS.some((pattern) => pattern.test(summary))) {
             failures.push(`factCheck.${type} summary is missing AIKI writing tone`);
         }
+
+        if (toneTarget) {
+            const toneFailures = getToneResults(toneTarget)
+                .filter((result) => result.severity === 'FAIL' && /^T/.test(result.id));
+
+            for (const result of toneFailures) {
+                failures.push(`factCheck.${type} tone fail [${result.id}] ${result.name}`);
+            }
+        }
     }
 
     return failures;
+}
+
+function validateModelProfileTone(frontmatter) {
+    const profile = frontmatter.modelProfile;
+    if (!profile || typeof profile !== 'object') {
+        return [];
+    }
+
+    const toneTarget = [
+        profile.memoryUsage,
+        profile.implementation,
+        profile.activeParameters,
+        profile.multimodalSupport,
+        profile.access,
+        profile.pricing,
+        profile.weightsOpen,
+    ]
+        .map((value) => String(value || '').trim())
+        .filter(Boolean)
+        .join('\n');
+
+    if (!toneTarget) {
+        return [];
+    }
+
+    return getToneResults(toneTarget)
+        .filter((result) => result.severity === 'FAIL' && /^T/.test(result.id))
+        .map((result) => `modelProfile tone fail [${result.id}] ${result.name}`);
 }
 
 const changedFiles = getChangedFiles();
@@ -750,6 +789,14 @@ for (const target of CONTENT_TARGETS) {
             const message = `${target.name}/${filename}: contains repeated adjacent words`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki') {
+            for (const failure of validateModelProfileTone(fm)) {
+                const message = `${target.name}/${filename}: ${failure}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
         }
 
         if (!isDraft && target.name === 'wiki') {

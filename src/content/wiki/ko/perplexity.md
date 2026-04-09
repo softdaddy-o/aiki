@@ -24,7 +24,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Perplexity_AI"
       title: "Perplexity AI"
     - url: "https://www.perplexity.ai/hub"
-      title: "https://www.perplexity.ai/hub"
+      title: "Perplexity Blog"
   checks:
     - type: source_match
       result: pass
@@ -38,7 +38,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
         - "Perplexity AI (https://en.wikipedia.org/wiki/Perplexity_AI)"
-        - "https://www.perplexity.ai/hub (https://www.perplexity.ai/hub)"
+        - "Perplexity Blog (https://www.perplexity.ai/hub)"
     - type: number_verify
       result: pass
       summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."

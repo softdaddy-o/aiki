@@ -8,12 +8,12 @@ category: model
 modelType: version
 parentModel: mistral
 modelProfile:
-  memoryUsage: "Mixtral 8x7B v0.1 기준 32K 컨텍스트를 지원한다. 총 파라미터 수는 46.7B지만 토큰당 활성 파라미터가 더 적어 dense 40B대 모델과는 메모리 감각이 다르다."
-  implementation: "Mistral AI의 sparse mixture-of-experts 모델이다. 8개 expert 중 일부만 활성화하는 구조라 MoE 이해가 핵심이다."
+  memoryUsage: "Mixtral 8x7B v0.1 기준 32K 컨텍스트를 지원해. 총 파라미터 수는 46.7B지만 토큰당 활성 파라미터가 더 적어 dense 40B대 모델과는 메모리 감각이 다르다."
+  implementation: "Mistral AI의 sparse mixture-of-experts 모델이야. 8개 expert 중 일부만 활성화하는 구조라 MoE 이해가 관건이야."
   activeParameters: "공식 발표 기준 총 46.7B 파라미터, 토큰당 활성 12.9B다."
-  multimodalSupport: "텍스트 중심 모델이다. 이미지·오디오 입력을 기대하는 계열은 아니다."
-  access: "오픈 웨이트 모델이라 허깅페이스에서 바로 받아 로컬이나 자체 인프라에 올릴 수 있다."
-  pricing: "직접 호스팅이면 GPU 비용이 핵심이다. API 재판매 채널을 쓸 때만 별도 토큰 단가를 비교하면 된다."
+  multimodalSupport: "텍스트 중심 모델이야. 이미지·오디오 입력을 기대하는 계열은 아니다."
+  access: "오픈 웨이트 모델이라 허깅페이스에서 바로 받아 로컬이나 자체 인프라에 올릴 수 있어."
+  pricing: "직접 호스팅이면 GPU 비용이 관건이야. API 재판매 채널을 쓸 때만 별도 토큰 단가를 비교하면 돼."
   weightsOpen: "오픈 웨이트 공개"
   vendor: "Mistral AI"
 aliases:

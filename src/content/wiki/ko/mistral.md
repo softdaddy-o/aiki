@@ -7,12 +7,12 @@ readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어
 category: model
 modelType: family
 modelProfile:
-  memoryUsage: "직접 배포하는 경우 메모리 사용량은 총 파라미터 수, 정밀도, KV 캐시 설정을 같이 봐야 한다."
-  implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요하다."
+  memoryUsage: "직접 배포하는 경우 메모리 사용량은 총 파라미터 수, 정밀도, KV 캐시 설정을 같이 봐야 해."
+  implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해."
   activeParameters: "공개 자료 기준 활성 파라미터 수 확인 필요"
   multimodalSupport: "텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요"
-  access: "무료 실험 또는 자체 호스팅 가능성이 높다. 다만 호스팅 플랫폼에서는 별도 유료 과금이 붙을 수 있다."
-  pricing: "직접 호스팅이면 GPU/추론 비용이 핵심이고, API 재판매 채널을 쓸 경우 입력/출력 토큰 단가를 별도로 확인해야 한다."
+  access: "무료 실험 또는 자체 호스팅 가능성이 높아. 다만 호스팅 플랫폼에서는 별도 유료 과금이 붙을 수 있어."
+  pricing: "직접 호스팅이면 GPU/추론 비용이 핵심이고, API 재판매 채널을 쓸 경우 입력/출력 토큰 단가를 별도로 확인해야 해."
   weightsOpen: "오픈 웨이트"
   vendor: "Mistral AI"
 aliases:

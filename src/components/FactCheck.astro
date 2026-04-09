@@ -61,16 +61,25 @@ function fallbackItems(check: Check) {
 
     return [];
 }
+
+const visibleChecks = checks
+    .map((check) => ({
+        ...check,
+        label: checkLabel(check.type),
+        preview: String(check.summary || fallbackSummary(check) || '').trim(),
+        detailItems: fallbackItems(check),
+        findingItems: Array.isArray(check.findings) ? check.findings : [],
+    }))
+    .filter((check) => check.preview || check.detailItems.length > 0 || check.findingItems.length > 0);
 ---
 
-<details class="factcheck">
-    <summary class="fc-toggle">
+<section class="factcheck">
+    <div class="fc-header">
         <div>
             <div class="fc-title">팩트 체크</div>
             <div class="fc-meta-inline">상태 {statusIcon} · {date} KST</div>
         </div>
-        <span class="fc-toggle-copy">열어서 보기</span>
-    </summary>
+    </div>
 
     <div class="fc-body">
         <div class="fc-meta">
@@ -79,33 +88,37 @@ function fallbackItems(check: Check) {
         </div>
 
         <div class="fc-groups">
-            {checks.map((check) => (
-                ((check.summary && check.summary.trim()) || fallbackItems(check).length > 0 || (check.findings && check.findings.length > 0) || fallbackSummary(check)) && (
-                    <div class="fc-group">
-                        <div class="fc-group-header">
+            {visibleChecks.map((check) => (
+                <details class="fc-group">
+                    <summary class="fc-group-toggle">
+                        <div class="fc-group-main">
                             <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
                                 {resultIcon(check.result)}
                             </span>
-                            <span>{checkLabel(check.type)}</span>
+                            <span class="fc-group-title">{check.label}</span>
+                            {check.preview && <span class="fc-group-preview">{check.preview}</span>}
                             {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
                         </div>
-                        {(check.summary || fallbackSummary(check)) && <p class="fc-group-summary">{check.summary || fallbackSummary(check)}</p>}
-                        {fallbackItems(check).length > 0 && (
+                        <span class="fc-group-toggle-copy">항목 펼치기</span>
+                    </summary>
+
+                    <div class="fc-group-body">
+                        {check.detailItems.length > 0 && (
                             <ul class="fc-group-list">
-                                {fallbackItems(check).map((item) => (
+                                {check.detailItems.map((item) => (
                                     <li>{item}</li>
                                 ))}
                             </ul>
                         )}
-                        {check.findings && check.findings.length > 0 && (
+                        {check.findingItems.length > 0 && (
                             <ul class="fc-group-list fc-findings">
-                                {check.findings.map((finding) => (
+                                {check.findingItems.map((finding) => (
                                     <li>{finding}</li>
                                 ))}
                             </ul>
                         )}
                     </div>
-                )
+                </details>
             ))}
         </div>
 
@@ -122,7 +135,7 @@ function fallbackItems(check: Check) {
             <a href="https://github.com/softdaddy-o/aiki/issues/new"> 오류 제보</a>
         </div>
     </div>
-</details>
+</section>
 
 <style>
     .factcheck {
@@ -139,13 +152,7 @@ function fallbackItems(check: Check) {
     .factcheck summary::-webkit-details-marker {
         display: none;
     }
-    .fc-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        cursor: pointer;
-    }
+    .fc-header { margin-bottom: 14px; }
     .fc-title {
         font-size: 14px;
         margin-bottom: 4px;
@@ -153,17 +160,6 @@ function fallbackItems(check: Check) {
     .fc-meta-inline {
         color: var(--color-text-muted);
         font-size: 12px;
-    }
-    .fc-toggle-copy {
-        color: var(--color-text-muted);
-        font-size: 12px;
-        white-space: nowrap;
-    }
-    .factcheck[open] .fc-toggle-copy {
-        color: var(--color-news);
-    }
-    .fc-body {
-        margin-top: 14px;
     }
     .fc-meta {
         display: flex;
@@ -197,22 +193,43 @@ function fallbackItems(check: Check) {
     .fc-group {
         background: var(--color-surface-alt);
         border-radius: 8px;
-        padding: 10px 12px;
+        border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
     }
-    .fc-group-header {
+    .fc-group-toggle {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+        padding: 11px 12px;
+        cursor: pointer;
+    }
+    .fc-group-main {
         display: flex;
         gap: 8px;
         align-items: center;
         flex-wrap: wrap;
-        font-weight: 600;
     }
-    .fc-group-summary {
-        margin: 10px 0 8px;
+    .fc-group-title {
+        font-weight: 700;
+    }
+    .fc-group-preview {
         color: var(--color-text-muted);
         font-size: 12px;
         line-height: 1.6;
     }
+    .fc-group-toggle-copy {
+        color: var(--color-text-muted);
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    .fc-group[open] .fc-group-toggle-copy {
+        color: var(--color-news);
+    }
+    .fc-group-body {
+        padding: 0 12px 12px;
+    }
     .fc-group-list {
+        margin: 0;
         padding-left: 18px;
         font-size: 12px;
         color: var(--color-text-muted);

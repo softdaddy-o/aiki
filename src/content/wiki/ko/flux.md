@@ -7,12 +7,12 @@ readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어
 category: model
 modelType: version
 modelProfile:
-  memoryUsage: "FLUX.1은 12B 파라미터 이미지 생성 모델 계열로 알려져 있다. 텍스트 LLM보다 VRAM 요구량이 크기 쉬워 배치와 해상도 설정을 같이 봐야 한다."
-  implementation: "Black Forest Labs의 rectified flow transformer 계열 이미지 생성 모델이다. Pro, Dev, Schnell처럼 배포 방식이 나뉜다."
-  activeParameters: "공개 자료 기준 12B 파라미터 계열이다. 활성 파라미터를 따로 쪼개 공개하는 구조는 아니다."
-  multimodalSupport: "텍스트 프롬프트를 받아 이미지를 생성하는 모델이다. 텍스트 출력형 LLM과는 사용 방식이 다르다."
-  access: "Pro는 API 중심이고, Dev와 Schnell은 오픈 웨이트로 받아 직접 실행할 수 있다."
-  pricing: "API형 Pro와 자체 호스팅형 Dev·Schnell의 비용 구조가 갈린다. 이 모델은 토큰 가격보다 이미지 1장당 생성 비용과 GPU 점유가 더 중요하다."
+  memoryUsage: "FLUX.1은 12B 파라미터 이미지 생성 모델 계열로 알려져 있어. 텍스트 LLM보다 VRAM 요구량이 크기 쉬워 배치와 해상도 설정을 같이 봐야 해."
+  implementation: "Black Forest Labs의 rectified flow transformer 계열 이미지 생성 모델이야. Pro, Dev, Schnell처럼 배포 방식이 나뉜다."
+  activeParameters: "공개 자료 기준 12B 파라미터 계열이야. 활성 파라미터를 따로 쪼개 공개하는 구조는 아니다."
+  multimodalSupport: "텍스트 프롬프트를 받아 이미지를 생성하는 모델이야. 텍스트 출력형 LLM과는 사용 방식이 다르다."
+  access: "Pro는 API 중심이고, Dev와 Schnell은 오픈 웨이트로 받아 직접 실행할 수 있어."
+  pricing: "API형 Pro와 자체 호스팅형 Dev·Schnell의 비용 구조가 갈려. 이 모델은 토큰 가격보다 이미지 1장당 생성 비용과 GPU 점유가 더 중요해."
   weightsOpen: "Dev와 Schnell은 오픈 웨이트, Pro는 폐쇄형 API"
   vendor: "Black Forest Labs"
 aliases:

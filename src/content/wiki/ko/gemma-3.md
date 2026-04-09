@@ -8,12 +8,12 @@ category: model
 modelType: version
 parentModel: gemma
 modelProfile:
-  memoryUsage: "Gemma 3는 1B, 4B, 12B, 27B 크기로 나온 오픈 모델 계열이다. 128K 컨텍스트를 지원하지만 실제 배포 메모리는 모델 크기와 정밀도에 따라 크게 달라진다."
-  implementation: "Google의 경량 오픈 모델 계열로, 텍스트와 이미지 입력을 받아 텍스트를 생성하는 멀티모달 오픈 웨이트 라인업이다."
-  activeParameters: "공식 모델 크기는 1B, 4B, 12B, 27B다. 페이지를 볼 때는 어떤 크기를 말하는지까지 같이 확인해야 한다."
-  multimodalSupport: "텍스트와 이미지 입력, 텍스트 출력을 지원한다. 140개 이상 언어 지원과 128K 컨텍스트가 공식 포인트다."
-  access: "오픈 웨이트 모델이라 Hugging Face, Kaggle, Vertex Model Garden 등에서 내려받아 직접 실행할 수 있다."
-  pricing: "모델 자체 라이선스와 호스팅 비용이 핵심이다. API 토큰 과금보다 GPU 사양과 추론 속도를 먼저 계산하는 편이 맞다."
+  memoryUsage: "Gemma 3는 1B, 4B, 12B, 27B 크기로 나온 오픈 모델 계열이야. 128K 컨텍스트를 지원하지만 실제 배포 메모리는 모델 크기와 정밀도에 따라 크게 달라져."
+  implementation: "Google의 경량 오픈 모델 계열로, 텍스트와 이미지 입력을 받아 텍스트를 생성하는 멀티모달 오픈 웨이트 라인업이야."
+  activeParameters: "공식 모델 크기는 1B, 4B, 12B, 27B다. 페이지를 볼 때는 어떤 크기를 말하는지까지 같이 확인해야 해."
+  multimodalSupport: "텍스트와 이미지 입력, 텍스트 출력을 지원해. 140개 이상 언어 지원과 128K 컨텍스트가 공식 포인트다."
+  access: "오픈 웨이트 모델이라 Hugging Face, Kaggle, Vertex Model Garden 등에서 내려받아 직접 실행할 수 있어."
+  pricing: "모델 자체 라이선스와 호스팅 비용이 관건이야. API 토큰 과금보다 GPU 사양과 추론 속도를 먼저 계산하는 편이 맞아."
   weightsOpen: "오픈 웨이트 공개"
   vendor: "Google DeepMind"
 aliases:

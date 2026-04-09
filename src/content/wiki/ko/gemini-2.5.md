@@ -8,12 +8,12 @@ category: model
 modelType: version
 parentModel: gemini
 modelProfile:
-  memoryUsage: "Gemini 2.5 Pro 기준 컨텍스트 1,048,576토큰이다. 서비스형 모델이라 GPU 메모리보다는 긴 입력을 실제로 감당할 예산이 더 중요하다."
-  implementation: "Google의 Gemini 2.5 계열은 Pro와 Flash로 갈리는 멀티모달 추론 라인업이다. 제품에서는 긴 컨텍스트와 멀티모달 입력 처리가 핵심 포인트다."
-  activeParameters: "활성 파라미터 수는 비공개다. 대신 Pro/Flash 라인업 구분과 컨텍스트 한도가 실사용 차이를 만든다."
-  multimodalSupport: "Gemini 2.5 Pro 기준 텍스트, 이미지, 비디오, 오디오 입력과 텍스트 출력을 지원한다."
-  access: "Gemini API와 Google AI Studio에서 접근하는 폐쇄형 모델 계열이다. 실제 도입은 Pro와 Flash 중 무엇을 쓰는지까지 확인해야 한다."
-  pricing: "Gemini 2.5 Pro paid tier 기준 1M 토큰당 입력 $1.25, 출력 $10.00(200K 이하), 200K 초과 구간은 입력 $2.50, 출력 $15.00이다."
+  memoryUsage: "Gemini 2.5 Pro 기준 컨텍스트 1,048,576토큰이야. 서비스형 모델이라 GPU 메모리보다는 긴 입력을 실제로 감당할 예산이 더 중요해."
+  implementation: "Google의 Gemini 2.5 계열은 Pro와 Flash로 갈리는 멀티모달 추론 라인업이야. 제품에서는 긴 컨텍스트와 멀티모달 입력 처리가 핵심 포인트다."
+  activeParameters: "활성 파라미터 수는 비공개다. 대신 Pro/Flash 라인업 구분과 컨텍스트 한도가 실사용 차이를 만들어."
+  multimodalSupport: "Gemini 2.5 Pro 기준 텍스트, 이미지, 비디오, 오디오 입력과 텍스트 출력을 지원해."
+  access: "Gemini API와 Google AI Studio에서 접근하는 폐쇄형 모델 계열이야. 실제 도입은 Pro와 Flash 중 무엇을 쓰는지까지 확인해야 해."
+  pricing: "Gemini 2.5 Pro paid tier 기준 1M 토큰당 입력 $1.25, 출력 $10.00(200K 이하), 200K 초과 구간은 입력 $2.50, 출력 $15.00이야."
   weightsOpen: "오픈 웨이트 미공개, API 제공 중심"
   vendor: "Google DeepMind"
 aliases:
@@ -35,7 +35,7 @@ factCheck:
     - url: "https://deepmind.google/technologies/gemini/"
       title: "Gemini 3 — Google DeepMind"
     - url: "https://ai.google.dev/gemini-api/docs/models"
-      title: "モデル &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Модели &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass

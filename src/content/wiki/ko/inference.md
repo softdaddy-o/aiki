@@ -25,7 +25,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "機械学習の用語集
+      title: "Glossário de machine learning
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
@@ -40,7 +40,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
         - "Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "機械学習の用語集
+        - "Glossário de machine learning
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: number_verify
       result: pass

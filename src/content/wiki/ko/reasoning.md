@@ -20,7 +20,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/guides/reasoning-best-practices"
-      title: "https://platform.openai.com/docs/guides/reasoning-best-practices"
+      title: "Reasoning best practices | OpenAI API"
     - url: "https://www.anthropic.com/news/visible-extended-thinking"
       title: "Claude&#x27;s extended thinking"
   checks:
@@ -35,12 +35,14 @@ factCheck:
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
-        - "https://platform.openai.com/docs/guides/reasoning-best-practices (https://platform.openai.com/docs/guides/reasoning-best-practices)"
+        - "Reasoning best practices | OpenAI API (https://platform.openai.com/docs/guides/reasoning-best-practices)"
         - "Claude&#x27;s extended thinking (https://www.anthropic.com/news/visible-extended-thinking)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 같이 언급되는 숫자와 이름은 한 번 더 봤다."
       items:
+        - "수치 대조: 1"
+        - "수치 대조: 3"
         - "수치 대조: 27"
     - type: adversarial
       result: pass

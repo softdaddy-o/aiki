@@ -557,6 +557,17 @@ function toWikiVoiceText(text) {
         [/돕는다\./g, '도와.'],
         [/붙는다\./g, '붙어.'],
         [/갈린다\./g, '갈려.'],
+        [/열린다\./g, '열려.'],
+        [/쓰인다\./g, '쓰여.'],
+        [/지원된다\./g, '지원돼.'],
+        [/제공된다\./g, '제공돼.'],
+        [/구분된다\./g, '구분돼.'],
+        [/유지된다\./g, '유지돼.'],
+        [/요구된다\./g, '요구돼.'],
+        [/정해진다\./g, '정해져.'],
+        [/남는다\./g, '남아.'],
+        [/이어진다\./g, '이어져.'],
+        [/설계됐다\./g, '설계됐어.'],
         [/필요하다\./g, '필요해.'],
         [/중요하다\./g, '중요해.'],
         [/가능하다\./g, '가능해.'],
@@ -613,6 +624,19 @@ function normalizeBodySectionsTone(sections) {
 
         return toWikiVoiceText(line);
     });
+}
+
+function normalizeModelProfileTone(profile) {
+    if (!profile || typeof profile !== 'object') {
+        return profile;
+    }
+
+    const normalized = {};
+    for (const [key, value] of Object.entries(profile)) {
+        normalized[key] = typeof value === 'string' ? toWikiVoiceText(value) : value;
+    }
+
+    return normalized;
 }
 
 function firstSentence(text) {
@@ -1263,7 +1287,7 @@ function buildModelWhyImportant(entry, modelProfile) {
 async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerms) {
     const sourceContext = await buildSourceContext(entry, sourceDetails);
     const modelProfile = entry.category === 'model'
-        ? buildModelProfile(entry)
+        ? normalizeModelProfileTone(buildModelProfile(entry))
         : null;
     const rawFactChecks = entry.category === 'model'
         ? buildModelFactChecks(entry, modelProfile, sourceDetails)

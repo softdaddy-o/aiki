@@ -37,19 +37,19 @@ const styles: Record<string, CSSProperties> = {
     layout: {
         display: 'grid',
         gridTemplateColumns: '110px minmax(0, 1fr)',
-        gap: '8px',
+        gap: '0',
         alignItems: 'start',
-        padding: '16px',
+        padding: '12px',
     },
     labelsColumn: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '8px',
+        gap: '0',
     },
     labelRow: {
         display: 'flex',
         alignItems: 'center',
-        borderRadius: '4px',
+        borderRadius: '0',
         padding: '8px 10px',
         minHeight: '42px',
     },
@@ -62,20 +62,20 @@ const styles: Record<string, CSSProperties> = {
     scrollArea: {
         overflowX: 'auto',
         overflowY: 'hidden',
-        borderRadius: '4px',
-        paddingBottom: '2px',
+        borderRadius: '0',
+        paddingBottom: '0',
     },
     rows: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '8px',
+        gap: '0',
         width: 'max-content',
         minWidth: '100%',
     },
     termsRow: {
         display: 'flex',
         alignItems: 'center',
-        borderRadius: '4px',
+        borderRadius: '0',
         padding: '8px 10px',
         minHeight: '42px',
         minWidth: '100%',
@@ -158,6 +158,7 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
     return (
         <div style={styles.container}>
             <div style={styles.layout}>
+                {/* Keep row gaps and inner radii at zero so the dark container never leaks through as separator lines. */}
                 <div style={styles.labelsColumn}>
                     {layers.map((layer) => (
                         <div

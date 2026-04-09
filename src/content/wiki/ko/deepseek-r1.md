@@ -7,13 +7,13 @@ readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어
 category: model
 modelType: version
 modelProfile:
-  memoryUsage: "공개 모델 기준 총 671B 파라미터, 활성 37B 규모의 MoE 계열로 알려져 있다. 자체 호스팅 시 메모리와 KV 캐시 설계 부담이 큰 편이다."
-  implementation: "추론 특화 MoE 모델이다. DeepSeek는 R1이 강화학습 기반 추론 성능을 전면에 내세운 공개 계열이라고 설명한다."
+  memoryUsage: "공개 모델 기준 총 671B 파라미터, 활성 37B 규모의 MoE 계열로 알려져 있어. 자체 호스팅 시 메모리와 KV 캐시 설계 부담이 큰 편이야."
+  implementation: "추론 특화 MoE 모델이야. DeepSeek는 R1이 강화학습 기반 추론 성능을 전면에 내세운 공개 계열이라고 설명해."
   activeParameters: "공식 공개 수치는 총 671B 파라미터, 토큰당 활성 37B다."
-  multimodalSupport: "현재 공개 버전은 텍스트 중심 reasoning 모델로 보는 편이 정확하다."
-  access: "DeepSeek API의 reasoning 채널로 쓰거나, 공개 웨이트를 받아 자체 호스팅하는 두 경로가 있다."
-  pricing: "API 채널 가격은 시점별로 바뀔 수 있다. 자체 호스팅 관점에서는 토큰 단가보다 GPU 시간과 메모리 비용이 더 중요하다."
-  weightsOpen: "오픈 웨이트 공개 계열이다. 허깅페이스와 GitHub 배포 경로를 함께 확인하는 편이 안전하다."
+  multimodalSupport: "현재 공개 버전은 텍스트 중심 reasoning 모델로 보는 편이 정확해."
+  access: "DeepSeek API의 reasoning 채널로 쓰거나, 공개 웨이트를 받아 자체 호스팅하는 두 경로가 있어."
+  pricing: "API 채널 가격은 시점별로 바뀔 수 있어. 자체 호스팅 관점에서는 토큰 단가보다 GPU 시간과 메모리 비용이 더 중요해."
+  weightsOpen: "오픈 웨이트 공개 계열이야. 허깅페이스와 GitHub 배포 경로를 함께 확인하는 편이 안전하다."
   vendor: "DeepSeek"
 aliases:
   - "DeepSeek R1"

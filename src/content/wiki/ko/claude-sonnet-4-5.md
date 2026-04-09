@@ -8,11 +8,11 @@ category: model
 modelType: version
 parentModel: claude-sonnet
 modelProfile:
-  memoryUsage: "Claude API 기준 200K 컨텍스트 계열로 운영한다. 자체 웨이트가 공개되지 않으므로 서버 메모리보다 컨텍스트와 출력 정책을 먼저 본다."
-  implementation: "Anthropic의 Sonnet 라인업 중 코딩과 에이전트 작업을 겨냥한 서비스형 모델이다. 병렬 툴 실행과 긴 코드베이스 작업 성능을 강조한다."
-  activeParameters: "활성 파라미터 수는 비공개다. 대신 API 식별자 `claude-sonnet-4-5`와 상위 Sonnet 라인업 내 포지션이 실사용 기준이 된다."
-  multimodalSupport: "텍스트 중심 모델로 보되, Claude 계열의 일반 입력 기능과 함께 읽는 편이 맞다. 핵심 포인트는 코드 이해와 장문 맥락 유지다."
-  access: "Claude API, AWS Bedrock, Vertex AI 같은 서비스 채널에서 접근하는 폐쇄형 모델이다."
+  memoryUsage: "Claude API 기준 200K 컨텍스트 계열로 운영해. 자체 웨이트가 공개되지 않으므로 서버 메모리보다 컨텍스트와 출력 정책을 먼저 봐."
+  implementation: "Anthropic의 Sonnet 라인업 중 코딩과 에이전트 작업을 겨냥한 서비스형 모델이야. 병렬 툴 실행과 긴 코드베이스 작업 성능을 강조해."
+  activeParameters: "활성 파라미터 수는 비공개다. 대신 API 식별자 `claude-sonnet-4-5`와 상위 Sonnet 라인업 내 포지션이 실사용 기준이 돼."
+  multimodalSupport: "텍스트 중심 모델로 보되, Claude 계열의 일반 입력 기능과 함께 읽는 편이 맞아. 핵심 포인트는 코드 이해와 장문 맥락 유지다."
+  access: "Claude API, AWS Bedrock, Vertex AI 같은 서비스 채널에서 접근하는 폐쇄형 모델이야."
   pricing: "Anthropic 발표 기준 Claude Sonnet 4와 같은 가격으로 유지되며, 1M 토큰당 입력 $3, 출력 $15다."
   weightsOpen: "오픈 웨이트 미공개, API 제공 중심"
   vendor: "Anthropic"
