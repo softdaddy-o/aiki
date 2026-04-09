@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 벡터 검색에 필터링, 모듈 연결, 스키마 설계까지 한 번에 묶고 싶은지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 벡터 검색에 필터링, 모듈 연결, 스키마 설계까지 한 번에 묶고 싶은지."
+        - "독자가 먼저 갈라 봐야 할 건 벡터 검색에 필터링, 모듈 연결, 스키마 설계까지 한 번에 묶고 싶은지야."
         - "이름을 다시 보면 Weaviate로 잡혀."
         - "분류를 다시 보면 도구로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 검색 엔진 하나보다 데이터 모델과 확장 모듈까지 같이 고를 필요가 있는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 검색 엔진 하나보다 데이터 모델과 확장 모듈까지 같이 고를 필요가 있는지야."
-        - "비교 출처 1: Weaviate (https://en.wikipedia.org/wiki/Weaviate)"
-        - "비교 출처 2: Weaviate Database | Weaviate Documentation (https://docs.weaviate.io/)"
+        - "같이 본 출처로는 Weaviate (https://en.wikipedia.org/wiki/Weaviate)"
+        - "같이 본 출처로는 Weaviate Database | Weaviate Documentation (https://docs.weaviate.io/)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 검색 엔진 하나보다 데이터 모델과 확장 모듈까지 같이 고를 필요가 있는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

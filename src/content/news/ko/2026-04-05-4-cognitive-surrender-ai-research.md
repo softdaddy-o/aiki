@@ -24,24 +24,24 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"\"인지 항복\" — AI가 틀려도 80%가 그대로 따른다는 연구 결과\"이고, 원문 제목은 \"SSRN — Wharton School\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 papers.ssrn.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 research, cognitive-surrender, wharton, ai-safety로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 ""인지 항복" — AI가 틀려도 80%가 그대로 따른다는 연구 결과"이고, 원문 제목은 "SSRN — Wharton School"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 papers.ssrn.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 research, cognitive-surrender, wharton, ai-safety로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 3
       summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: SSRN — Thinking Fast, Slow, and Artificial (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646)"
-        - "비교 출처 2: Wharton Knowledge — Podcast (https://knowledge.wharton.upenn.edu/podcast/ripple-effect/how-ai-is-reshaping-human-intuition-and-reasoning-gideon-nave-and-steven-shaw/)"
-        - "비교 출처 3: Futurism — Study coverage (https://futurism.com/artificial-intelligence/study-do-what-chatgpt-tells-us)"
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 SSRN — Thinking Fast, Slow, and Artificial (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646)
+        - 같이 본 출처로는 Wharton Knowledge — Podcast (https://knowledge.wharton.upenn.edu/podcast/ripple-effect/how-ai-is-reshaping-human-intuition-and-reasoning-gideon-nave-and-steven-shaw/)
+        - 같이 본 출처로는 Futurism — Study coverage (https://futurism.com/artificial-intelligence/study-do-what-chatgpt-tells-us)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 80%, 1, 372, 79.8% 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 80%, 1, 372, 79.8% 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

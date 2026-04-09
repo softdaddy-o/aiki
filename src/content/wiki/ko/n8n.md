@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지야."
         - "이름을 다시 보면 n8n로 잡혀."
         - "분류를 다시 보면 도구로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지야."
-        - "비교 출처 1: N8n (https://en.wikipedia.org/wiki/N8n)"
-        - "비교 출처 2: Explore n8n Docs: Your Resource for Workflow Automation and Integrations | n8n Docs (https://docs.n8n.io/)"
+        - "같이 본 출처로는 N8n (https://en.wikipedia.org/wiki/N8n)"
+        - "같이 본 출처로는 Explore n8n Docs: Your Resource for Workflow Automation and Integrations | n8n Docs (https://docs.n8n.io/)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지를 가를 때 필요한 숫자와 이름은 한 번 더 봤다."

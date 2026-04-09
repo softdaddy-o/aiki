@@ -933,6 +933,8 @@ function normalizeFactChecksTone(checks) {
         }
 
         const replacements = [
+            [/^독자 문제 대조:\s*/u, '독자가 먼저 갈라 봐야 할 건 '],
+            [/^비교 출처\s*\d+:\s*/u, '같이 본 출처로는 '],
             [/^원문 대조:\s*/u, '원문을 보면 '],
             [/^정체성 대조:\s*/u, '정체성을 보면 '],
             [/^카테고리 대조:\s*/u, '분류를 잡을 때는 '],
@@ -950,11 +952,21 @@ function normalizeFactChecksTone(checks) {
             [/^채널 검증:\s*/u, '접근 채널을 보면 '],
             [/^비판적 검증:\s*/u, '헷갈리기 쉬운 건 '],
             [/^오해 방지 기준:\s*/u, '헷갈리지 않으려면 '],
+            [/^그래서 해석할 때는 그래서\s+/u, '그래서 '],
         ];
 
         for (const [pattern, replacement] of replacements) {
             value = value.replace(pattern, replacement);
         }
+
+        value = value.replace(
+            /^독자가 먼저 갈라 봐야 할 건 (.+?)(?:부터)?\s*갈라 봐야 (?:해|한다)\.?$/u,
+            '독자가 먼저 갈라 봐야 할 건 $1야',
+        );
+        value = value.replace(
+            /^여기서 먼저 갈라 볼 기준은 (.+?)(?:부터)?\s*갈라 봐야 (?:해|한다)\.?$/u,
+            '여기서 먼저 갈라 볼 기준은 $1야',
+        );
 
         value = toWikiVoiceText(value);
         if (!/[.!?]$/u.test(value) && !/\)$/u.test(value)) {
@@ -1103,6 +1115,10 @@ function getEntryProblem(entry) {
 
 function getDecisionAxis(entry) {
     return trimSentence(entry.decisionAxis || getEntryProblem(entry));
+}
+
+function compactProblemText(text) {
+    return trimSentence(String(text || '').replace(/(?:부터)?\s*갈라 봐야 해[.!?]?$/u, ''));
 }
 
 function endsWithSentence(text) {
@@ -1308,6 +1324,8 @@ function buildGenericFactChecks(entry, sourceDetails) {
     const numericSignals = [];
     const problem = getEntryProblem(entry);
     const axis = getDecisionAxis(entry);
+    const compactAxis = compactProblemText(axis);
+    const compactProblem = compactProblemText(problem);
 
     for (const detail of sourceDetails) {
         const sourceText = `${detail.title || ''} ${detail.summary || ''}`;
@@ -1328,9 +1346,9 @@ function buildGenericFactChecks(entry, sourceDetails) {
             result: 'pass',
             summary: `이 페이지를 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
             items: [
-                `독자 문제 대조: ${problem}`,
-                    `이름을 다시 보면 ${entry.title}로 잡혀.`,
-                    `분류를 다시 보면 ${categoryLabel(entry.category)}로 읽는 게 맞아.`,
+                `독자가 먼저 갈라 봐야 할 건 ${compactProblem}야.`,
+                `이름을 다시 보면 ${entry.title}로 잡혀.`,
+                `분류를 다시 보면 ${categoryLabel(entry.category)}로 읽는 게 맞아.`,
             ],
         },
         {
@@ -1339,7 +1357,7 @@ function buildGenericFactChecks(entry, sourceDetails) {
             sources: sourceDetails.length,
             summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
             items: [
-                    `여기서 먼저 갈라 볼 기준은 ${axis}야.`,
+                `여기서 먼저 갈라 볼 기준은 ${compactAxis}야.`,
                 ...sourceItems,
             ],
         },
@@ -1352,7 +1370,7 @@ function buildGenericFactChecks(entry, sourceDetails) {
             items: numberItems.length > 0
                 ? numberItems
                 : [
-                    `숫자보다 먼저 갈라 볼 기준은 ${axis}야.`,
+                    `숫자보다 먼저 갈라 볼 기준은 ${compactAxis}야.`,
                     `이름부터 다시 보면 ${entry.title}로 고정돼.`,
                     '고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어.',
                 ],
@@ -1366,7 +1384,7 @@ function buildGenericFactChecks(entry, sourceDetails) {
                     || `이 페이지는 ${problem}부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해.`,
             ],
             items: [
-                `헷갈리지 않으려면 ${axis}부터 먼저 잡아야 해.`,
+                `헷갈리지 않으려면 ${compactAxis}부터 먼저 잡아야 해.`,
                 '정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어.',
             ],
         },

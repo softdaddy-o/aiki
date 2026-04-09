@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 토큰 예산과 긴 문맥 처리를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 토큰 예산과 긴 문맥 처리를 기사에서 어떤 판단 기준으로 읽어야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 토큰 예산과 긴 문맥 처리를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
         - "이름을 다시 보면 Long Context로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 토큰 예산과 긴 문맥 처리를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 토큰 예산과 긴 문맥 처리를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "비교 출처 1: Context windows (https://docs.anthropic.com/en/docs/build-with-claude/context-windows)"
-        - "비교 출처 2: Gemini 3 — Google DeepMind (https://deepmind.google/technologies/gemini/)"
+        - "같이 본 출처로는 Context windows (https://docs.anthropic.com/en/docs/build-with-claude/context-windows)"
+        - "같이 본 출처로는 Gemini 3 — Google DeepMind (https://deepmind.google/technologies/gemini/)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 토큰 예산과 긴 문맥 처리를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가를 때 필요한 숫자와 이름은 한 번 더 봤다."

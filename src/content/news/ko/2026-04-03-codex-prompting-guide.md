@@ -24,18 +24,18 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"코덱스 프롬프트 가이드 Codex 모델은 지능과 효율성의 한계를 뛰어넘고 권장되는 에이전트 코딩 모델을 제공합니다\"이고, 원문 제목은 \"Codex Prompting Guide\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 developers.openai.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 codex, openai, agents, prompting로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "코덱스 프롬프트 가이드 Codex 모델은 지능과 효율성의 한계를 뛰어넘고 권장되는 에이전트 코딩 모델을 제공합니다"이고, 원문 제목은 "Codex Prompting Guide"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 developers.openai.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 codex, openai, agents, prompting로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: developers.openai.com (https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)"
-        - "비교 출처 2: Codex Prompting Guide (https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)"
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 developers.openai.com (https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)
+        - 같이 본 출처로는 Codex Prompting Guide (https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.

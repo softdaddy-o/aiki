@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지."
+        - "독자가 먼저 갈라 봐야 할 건 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지야."
         - "이름을 다시 보면 JAX로 잡혀."
         - "분류를 다시 보면 프레임워크로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지야."
-        - "비교 출처 1: jax-ml/jax (https://github.com/jax-ml/jax)"
-        - "비교 출처 2: JAX: High performance array computing &#8212; JAX documentation (https://jax.readthedocs.io/en/latest/)"
+        - "같이 본 출처로는 jax-ml/jax (https://github.com/jax-ml/jax)"
+        - "같이 본 출처로는 JAX: High performance array computing &#8212; JAX documentation (https://jax.readthedocs.io/en/latest/)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지를 가를 때 필요한 숫자와 이름은 한 번 더 봤다."

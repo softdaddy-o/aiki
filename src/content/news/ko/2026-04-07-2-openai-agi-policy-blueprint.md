@@ -26,25 +26,25 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"OpenAI, AGI 시대 정책 청사진 공개 — 공공 자산 펀드·4일 근무제 제안\"이고, 원문 제목은 \"OpenAI\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 openai.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 openai, policy, agi, economics로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "OpenAI, AGI 시대 정책 청사진 공개 — 공공 자산 펀드·4일 근무제 제안"이고, 원문 제목은 "OpenAI"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 openai.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 openai, policy, agi, economics로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 4
       summary: 원문 하나만 믿지 않으려고 관련 출처 4건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: OpenAI — Industrial Policy for the Intelligence Age (https://openai.com/index/industrial-policy-for-the-intelligence-age/)"
-        - "비교 출처 2: Axios — Sam Altman New Deal interview (https://www.axios.com/2026/04/06/behind-the-curtain-sams-superintelligence-new-deal)"
-        - "비교 출처 3: Fortune — Critics: regulatory nihilism (https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/)"
-        - "비교 출처 4: TechCrunch — OpenAI AI economy vision (https://techcrunch.com/2026/04/06/openais-vision-for-the-ai-economy-public-wealth-funds-robot-taxes-and-a-four-day-work-week/)"
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 OpenAI — Industrial Policy for the Intelligence Age (https://openai.com/index/industrial-policy-for-the-intelligence-age/)
+        - 같이 본 출처로는 Axios — Sam Altman New Deal interview (https://www.axios.com/2026/04/06/behind-the-curtain-sams-superintelligence-new-deal)
+        - "같이 본 출처로는 Fortune — Critics: regulatory nihilism (https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/)"
+        - 같이 본 출처로는 TechCrunch — OpenAI AI economy vision (https://techcrunch.com/2026/04/06/openais-vision-for-the-ai-economy-public-wealth-funds-robot-taxes-and-a-four-day-work-week/)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 4, 6, 32 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 4, 6, 32 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

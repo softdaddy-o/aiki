@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 검색과 외부 지식 연결 흐름을 어떤 구조로 묶어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 검색과 외부 지식 연결 흐름을 어떤 구조로 묶어야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 검색과 외부 지식 연결 흐름을 어떤 구조로 묶어야 하는지야."
         - "이름을 다시 보면 LlamaIndex로 잡혀."
         - "분류를 다시 보면 프레임워크로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 검색과 외부 지식 연결 흐름을 어떤 구조로 묶어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 검색과 외부 지식 연결 흐름을 어떤 구조로 묶어야 하는지야."
-        - "비교 출처 1: run-llama/llama_index (https://github.com/run-llama/llama_index)"
-        - "비교 출처 2: LlamaIndex | AI Agents for Document OCR + Workflows (https://www.llamaindex.ai/)"
+        - "같이 본 출처로는 run-llama/llama_index (https://github.com/run-llama/llama_index)"
+        - "같이 본 출처로는 LlamaIndex | AI Agents for Document OCR + Workflows (https://www.llamaindex.ai/)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 검색과 외부 지식 연결 흐름을 어떤 구조로 묶어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

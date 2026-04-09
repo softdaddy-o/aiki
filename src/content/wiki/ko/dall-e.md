@@ -34,13 +34,13 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/DALL-E"
       title: "DALL-E"
     - url: "https://openai.com/dall-e-3"
-      title: "DALL·E 3"
+      title: "https://openai.com/dall-e-3"
   checks:
     - type: source_match
       result: pass
       summary: "원문에서 DALL-E가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: DALL-E가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
+        - "독자가 먼저 갈라 봐야 할 건 DALL-E가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
         - "모델 이름부터 다시 보면 DALL-E."
         - "만든 쪽을 다시 보면 OpenAI."
         - "상위 계열로는 최상위 라인업."
@@ -52,7 +52,6 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 DALL-E 아래에서 어떤 버전 페이지를 봐야 하는지."
         - "비교 소스 1: DALL-E."
-        - "비교 소스 2: DALL·E 3."
     - type: number_verify
       result: pass
       summary: "가격, 접근 경로, 입력 범위처럼 DALL-E 아래에서 어떤 버전 페이지를 봐야 하는지를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다."

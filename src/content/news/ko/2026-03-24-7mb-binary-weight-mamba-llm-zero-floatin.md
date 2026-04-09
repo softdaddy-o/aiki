@@ -24,18 +24,18 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"OneBitModel의 포옹하는 얼굴 공간\"이고, 원문 제목은 \"a Hugging Face Space by OneBitModel\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 huggingface.co로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 llm, token, inference, mixture-of-experts로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 모델이 화제성 공개인지 실제 배포 후보인지.
+        - 제목부터 다시 보면 기사 제목은 "OneBitModel의 포옹하는 얼굴 공간"이고, 원문 제목은 "a Hugging Face Space by OneBitModel"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 huggingface.co로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 llm, token, inference, mixture-of-experts로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
-        - "비교 출처 1: LocalLLaMA (https://huggingface.co/spaces/OneBitModel/prisme)"
-        - "비교 출처 2: Secondary source (https://arxiv.org/abs/2603.20172v1)"
+        - 여기서 먼저 갈라 볼 기준은 이 모델이 화제성 공개인지 실제 배포 후보인지.
+        - 같이 본 출처로는 LocalLLaMA (https://huggingface.co/spaces/OneBitModel/prisme)
+        - 같이 본 출처로는 Secondary source (https://arxiv.org/abs/2603.20172v1)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.

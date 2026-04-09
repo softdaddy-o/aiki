@@ -22,23 +22,23 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"Gemini API에 Flex/Priority 티어 추가 — 비용 50% 절감 or 최우선 처리\"이고, 원문 제목은 \"Google Blog\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 gemini, google, api, pricing로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "Gemini API에 Flex/Priority 티어 추가 — 비용 50% 절감 or 최우선 처리"이고, 원문 제목은 "Google Blog"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 gemini, google, api, pricing로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: Google Blog — Flex and Priority tiers (https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/)"
-        - "비교 출처 2: Gemini API Priority Inference Docs (https://ai.google.dev/gemini-api/docs/priority-inference)"
+        - 여기서 먼저 갈라 볼 기준은 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지.
+        - 같이 본 출처로는 Google Blog — Flex and Priority tiers (https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/)
+        - 같이 본 출처로는 Gemini API Priority Inference Docs (https://ai.google.dev/gemini-api/docs/priority-inference)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 50%, 4, 2, 3 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 50%, 4, 2, 3 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

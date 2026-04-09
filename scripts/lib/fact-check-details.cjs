@@ -1,5 +1,47 @@
 const { buildNewsProblemStatement } = require('./aiki-writing-style.cjs');
 
+function rewriteFactCheckLine(text) {
+    let value = String(text || '').trim();
+    if (!value) {
+        return value;
+    }
+
+    const replacements = [
+        [/^독자 문제 대조:\s*/u, '독자가 먼저 갈라 봐야 할 건 '],
+        [/^제목 대조:\s*/u, '제목부터 다시 보면 '],
+        [/^출처 대조:\s*/u, '출처를 다시 보면 '],
+        [/^태그 대조:\s*/u, '이 글의 축을 다시 보면 '],
+        [/^비교 기준:\s*/u, '여기서 먼저 갈라 볼 기준은 '],
+        [/^비교 출처\s*\d+:\s*/u, '같이 본 출처로는 '],
+        [/^숫자 포인트:\s*/u, '숫자를 다시 보면 '],
+        [/^원문 대조:\s*/u, '원문을 다시 보면 '],
+        [/^교차검증:\s*/u, '같이 본 출처를 보면 '],
+        [/^수치 검증:\s*/u, '숫자를 다시 보면 '],
+        [/^명칭 검증:\s*/u, '이름부터 다시 보면 '],
+        [/^비판적 검증:\s*/u, '헷갈리기 쉬운 건 '],
+        [/^그래서 해석할 때는 그래서\s+/u, '그래서 '],
+    ];
+
+    for (const [pattern, replacement] of replacements) {
+        value = value.replace(pattern, replacement);
+    }
+
+    value = value.replace(
+        /^독자가 먼저 갈라 봐야 할 건 (.+?)(?:부터)?\s*갈라 봐야 (?:해|한다)\.?$/u,
+        '독자가 먼저 갈라 봐야 할 건 $1야',
+    );
+    value = value.replace(
+        /^여기서 먼저 갈라 볼 기준은 (.+?)(?:부터)?\s*갈라 봐야 (?:해|한다)\.?$/u,
+        '여기서 먼저 갈라 볼 기준은 $1야',
+    );
+
+    if (!/[.!?]$/u.test(value) && !/\)$/u.test(value)) {
+        value = `${value}.`;
+    }
+
+    return value;
+}
+
 function escapeRegExp(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -94,14 +136,14 @@ function buildNumberItems(frontmatter, body) {
     ]).slice(0, 4);
 
     if (signals.length > 0) {
-        const items = [`숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 ${signals.join(', ')} 쪽이야.`];
+        const items = [`숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 ${signals.join(', ')} 쪽이야`];
         if (signals.some((signal) => /[A-Za-z]/.test(signal) && /\d/.test(signal))) {
             items.push('이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.');
         }
-        return items;
+        return items.map(rewriteFactCheckLine);
     }
 
-    return ['핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.'];
+    return ['핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.'].map(rewriteFactCheckLine);
 }
 
 function buildAdversarialItems(frontmatter, body, sources) {
@@ -130,7 +172,10 @@ function buildAdversarialItems(frontmatter, body, sources) {
         items.push('사건성 키워드는 단발 이슈인지 구조 변화 신호인지 따로 갈라 봤어.');
     }
 
-    return { items: unique(items), findings: unique(findings) };
+    return {
+        items: unique(items).map(rewriteFactCheckLine),
+        findings: unique(findings).map(rewriteFactCheckLine),
+    };
 }
 
 function buildNewsFactChecks(frontmatter, body) {
@@ -163,7 +208,7 @@ function buildNewsFactChecks(frontmatter, body) {
                     titleLine,
                     ...(domain ? [`출처 대조: 대표 원문 도메인은 ${domain}로 잡혔어.`] : []),
                     ...(tags.length > 0 ? [`태그 대조: 이 글의 핵심 축은 ${tags.slice(0, 4).join(', ')}로 읽었어.`] : []),
-                ]),
+                ]).map(rewriteFactCheckLine),
             },
             {
                 type: 'web_cross_check',
@@ -175,7 +220,7 @@ function buildNewsFactChecks(frontmatter, body) {
                 items: unique([
                     `비교 기준: ${buildNewsProblemStatement(frontmatter)}`,
                     ...sourceItems,
-                ]),
+                ]).map(rewriteFactCheckLine),
             },
             {
                 type: 'number_verify',

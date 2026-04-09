@@ -31,7 +31,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 텍스트 모델 뉴스가 아니라 입력과 출력 범위가 넓어진 변화인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 텍스트 모델 뉴스가 아니라 입력과 출력 범위가 넓어진 변화인지."
+        - "독자가 먼저 갈라 봐야 할 건 텍스트 모델 뉴스가 아니라 입력과 출력 범위가 넓어진 변화인지야."
         - "이름을 다시 보면 Multimodal AI로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -40,8 +40,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 이미지 이해, 음성 처리, 비디오 입력 중 실제로 지원 범위가 어디까지인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 이미지 이해, 음성 처리, 비디오 입력 중 실제로 지원 범위가 어디까지인지야."
-        - "비교 출처 1: Multimodal learning (https://en.wikipedia.org/wiki/Multimodal_learning)"
-        - "비교 출처 2: Gemini 3 — Google DeepMind (https://deepmind.google/technologies/gemini/)"
+        - "같이 본 출처로는 Multimodal learning (https://en.wikipedia.org/wiki/Multimodal_learning)"
+        - "같이 본 출처로는 Gemini 3 — Google DeepMind (https://deepmind.google/technologies/gemini/)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 이미지 이해, 음성 처리, 비디오 입력 중 실제로 지원 범위가 어디까지인지를 가를 때 필요한 숫자와 이름은 한 번 더 봤다."

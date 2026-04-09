@@ -26,19 +26,19 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"OpenAI, TBPN 인수\"이고, 원문 제목은 \"OpenAI acquires TBPN\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 openai.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 OpenAI, 미디어, 인수합병, TBPN로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "OpenAI, TBPN 인수"이고, 원문 제목은 "OpenAI acquires TBPN"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 openai.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 OpenAI, 미디어, 인수합병, TBPN로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 3
       summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: OpenAI official announcement (https://openai.com/index/openai-acquires-tbpn/)"
-        - "비교 출처 2: TechCrunch (https://techcrunch.com/2026/04/02/openai-acquires-tbpn-the-buzzy-founder-led-business-talk-show/)"
-        - "비교 출처 3: CNBC (https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html)"
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 OpenAI official announcement (https://openai.com/index/openai-acquires-tbpn/)
+        - 같이 본 출처로는 TechCrunch (https://techcrunch.com/2026/04/02/openai-acquires-tbpn-the-buzzy-founder-led-business-talk-show/)
+        - 같이 본 출처로는 CNBC (https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.

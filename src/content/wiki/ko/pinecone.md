@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 벡터 검색을 빨리 붙이고 싶지만 인프라를 직접 운영하고 싶지 않은지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 벡터 검색을 빨리 붙이고 싶지만 인프라를 직접 운영하고 싶지 않은지."
+        - "독자가 먼저 갈라 봐야 할 건 벡터 검색을 빨리 붙이고 싶지만 인프라를 직접 운영하고 싶지 않은지야."
         - "이름을 다시 보면 Pinecone로 잡혀."
         - "분류를 다시 보면 도구로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 완전 관리형 SaaS의 편의성과 비용을 감수할 만한지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 완전 관리형 SaaS의 편의성과 비용을 감수할 만한지야."
-        - "비교 출처 1: Pinecone (company) (https://en.wikipedia.org/wiki/Pinecone_(company))"
-        - "비교 출처 2: Pinecone documentation - Pinecone Docs (https://docs.pinecone.io/)"
+        - "같이 본 출처로는 Pinecone (company) (https://en.wikipedia.org/wiki/Pinecone_(company))"
+        - "같이 본 출처로는 Pinecone documentation - Pinecone Docs (https://docs.pinecone.io/)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 완전 관리형 SaaS의 편의성과 비용을 감수할 만한지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

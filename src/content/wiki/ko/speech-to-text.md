@@ -24,13 +24,13 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Speech_recognition"
       title: "Speech recognition"
     - url: "https://platform.openai.com/docs/guides/speech-to-text"
-      title: "https://platform.openai.com/docs/guides/speech-to-text"
+      title: "Speech to text | OpenAI API"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지."
+        - "독자가 먼저 갈라 봐야 할 건 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지야."
         - "이름을 다시 보면 Speech to Text로 잡혀."
         - "분류를 다시 보면 기법로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지야."
-        - "비교 출처 1: Speech recognition (https://en.wikipedia.org/wiki/Speech_recognition)"
-        - "비교 출처 2: https://platform.openai.com/docs/guides/speech-to-text (https://platform.openai.com/docs/guides/speech-to-text)"
+        - "같이 본 출처로는 Speech recognition (https://en.wikipedia.org/wiki/Speech_recognition)"
+        - "같이 본 출처로는 Speech to text | OpenAI API (https://platform.openai.com/docs/guides/speech-to-text)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

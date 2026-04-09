@@ -25,14 +25,13 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
-   &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
+      title: "Machine Learning Glossary &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
         - "이름을 다시 보면 Inference로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -41,9 +40,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "비교 출처 1: Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "비교 출처 2: อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
-   &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
+        - "같이 본 출처로는 Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
+        - "같이 본 출처로는 Machine Learning Glossary &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

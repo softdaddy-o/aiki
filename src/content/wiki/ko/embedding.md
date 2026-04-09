@@ -25,13 +25,13 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Word_embedding"
       title: "Word embedding"
     - url: "https://platform.openai.com/docs/guides/embeddings"
-      title: "Vector embeddings | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/embeddings"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 검색 품질이 모델 답변보다 먼저 갈리고 있는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 검색 품질이 모델 답변보다 먼저 갈리고 있는지."
+        - "독자가 먼저 갈라 봐야 할 건 검색 품질이 모델 답변보다 먼저 갈리고 있는지야."
         - "이름을 다시 보면 Embedding로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -40,8 +40,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지야."
-        - "비교 출처 1: Word embedding (https://en.wikipedia.org/wiki/Word_embedding)"
-        - "비교 출처 2: Vector embeddings | OpenAI API (https://platform.openai.com/docs/guides/embeddings)"
+        - "같이 본 출처로는 Word embedding (https://en.wikipedia.org/wiki/Word_embedding)"
+        - "같이 본 출처로는 https://platform.openai.com/docs/guides/embeddings (https://platform.openai.com/docs/guides/embeddings)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

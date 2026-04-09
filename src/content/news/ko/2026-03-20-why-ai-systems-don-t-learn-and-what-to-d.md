@@ -24,23 +24,23 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"AI 시스템이 학습하지 못하는 이유와 대처 방법: 인지과학의 자율 학습에 대한 교훈\"이고, 원문 제목은 \"Why AI systems don&#39;t learn and what to do about it: Lessons on autonomous learning from cognitive science\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 arxiv.org로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 claude-code, memory, cursor, claude로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지.
+        - "제목부터 다시 보면 기사 제목은 \"AI 시스템이 학습하지 못하는 이유와 대처 방법: 인지과학의 자율 학습에 대한 교훈\"이고, 원문 제목은 \"Why AI systems don&#39;t learn and what to do about it: Lessons on autonomous learning from cognitive science\"로 잡혔어."
+        - 출처를 다시 보면 대표 원문 도메인은 arxiv.org로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 claude-code, memory, cursor, claude로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 먼저 갈라 봐야 해."
-        - "비교 출처 1: artificial (https://arxiv.org/abs/2603.15381)"
-        - "비교 출처 2: Secondary source (https://arxiv.org/abs/2603.17973v1)"
+        - 여기서 먼저 갈라 볼 기준은 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지.
+        - 같이 본 출처로는 artificial (https://arxiv.org/abs/2603.15381)
+        - 같이 본 출처로는 Secondary source (https://arxiv.org/abs/2603.17973v1)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 2603.15381, 2603.1 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 2603.15381, 2603.1 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

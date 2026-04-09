@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지야."
         - "이름을 다시 보면 GGUF로 잡혀."
         - "분류를 다시 보면 프레임워크로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지야."
-        - "비교 출처 1: llama.cpp/gguf-py/README.md at master · ggml-org/llama.cpp (https://github.com/ggerganov/llama.cpp/blob/master/gguf-py/README.md)"
-        - "비교 출처 2: GGUF · Hugging Face (https://huggingface.co/docs/hub/gguf)"
+        - "같이 본 출처로는 llama.cpp/gguf-py/README.md at master · ggml-org/llama.cpp (https://github.com/ggerganov/llama.cpp/blob/master/gguf-py/README.md)"
+        - "같이 본 출처로는 GGUF · Hugging Face (https://huggingface.co/docs/hub/gguf)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

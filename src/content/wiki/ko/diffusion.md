@@ -31,7 +31,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 이미지 생성 뉴스에서 모델 이름보다 생성 방식 차이가 중요한지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 이미지 생성 뉴스에서 모델 이름보다 생성 방식 차이가 중요한지."
+        - "독자가 먼저 갈라 봐야 할 건 이미지 생성 뉴스에서 모델 이름보다 생성 방식 차이가 중요한지야."
         - "이름을 다시 보면 Diffusion Model로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -40,8 +40,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 생성 품질, 제어 가능성, 추론 비용 중 무엇이 핵심인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 생성 품질, 제어 가능성, 추론 비용 중 무엇이 핵심인지야."
-        - "비교 출처 1: Diffusion model (https://en.wikipedia.org/wiki/Diffusion_model)"
-        - "비교 출처 2: Stable Diffusion Public Release &mdash; Stability AI (https://stability.ai/blog/stable-diffusion-public-release)"
+        - "같이 본 출처로는 Diffusion model (https://en.wikipedia.org/wiki/Diffusion_model)"
+        - "같이 본 출처로는 Stable Diffusion Public Release &mdash; Stability AI (https://stability.ai/blog/stable-diffusion-public-release)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 생성 품질, 제어 가능성, 추론 비용 중 무엇이 핵심인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

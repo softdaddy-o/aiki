@@ -34,13 +34,13 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/GPT-4o"
       title: "GPT-4o"
     - url: "https://openai.com/index/hello-gpt-4o/"
-      title: "https://openai.com/index/hello-gpt-4o/"
+      title: "Hello GPT-4o"
   checks:
     - type: source_match
       result: pass
       summary: "원문에서 GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지."
+        - "독자가 먼저 갈라 봐야 할 건 GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지."
         - "모델 이름부터 다시 보면 GPT-4o."
         - "만든 쪽을 다시 보면 OpenAI."
         - "배포 유형 대조: version 모델 / 폐쇄형 API."

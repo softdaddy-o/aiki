@@ -22,23 +22,23 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"중국 AI 랩들이 동시에 최신 모델 오픈소스를 멈췄다\"이고, 원문 제목은 \"r/LocalLLaMA\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 reddit.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 오픈소스, 중국-AI, LocalLLaMA, MiniMax로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지.
+        - 제목부터 다시 보면 기사 제목은 "중국 AI 랩들이 동시에 최신 모델 오픈소스를 멈췄다"이고, 원문 제목은 "r/LocalLLaMA"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 reddit.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 오픈소스, 중국-AI, LocalLLaMA, MiniMax로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 먼저 갈라 봐야 해."
-        - "비교 출처 1: r/LocalLLaMA 원문 (https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/)"
-        - "비교 출처 2: MiniMax 2.7 지연 관련 별도 글 (https://www.reddit.com/r/LocalLLaMA/comments/1scpvz8/)"
+        - 여기서 먼저 갈라 볼 기준은 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지.
+        - 같이 본 출처로는 r/LocalLLaMA 원문 (https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/)
+        - 같이 본 출처로는 MiniMax 2.7 지연 관련 별도 글 (https://www.reddit.com/r/LocalLLaMA/comments/1scpvz8/)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 MiniMax-m2.7, 14, 4, Qwen3.6 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 MiniMax-m2.7, 14, 4, Qwen3.6 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass

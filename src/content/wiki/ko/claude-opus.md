@@ -42,7 +42,7 @@ factCheck:
       result: pass
       summary: "원문에서 Claude Opus가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: Claude Opus가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
+        - "독자가 먼저 갈라 봐야 할 건 Claude Opus가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
         - "모델 이름부터 다시 보면 Claude Opus."
         - "만든 쪽을 다시 보면 Anthropic."
         - "상위 계열로는 claude."

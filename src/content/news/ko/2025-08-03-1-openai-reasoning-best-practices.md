@@ -22,22 +22,22 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"추론 모범 사례, 사용 사례, 모델 선택 방법, 프롬프트 지침을 포함하여 o1 및 o3-mini와 같은 o 시리즈…\"이고, 원문 제목은 \"Reasoning best practices\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 platform.openai.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 openai, reasoning, prompting, o3로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지.
+        - 제목부터 다시 보면 기사 제목은 "추론 모범 사례, 사용 사례, 모델 선택 방법, 프롬프트 지침을 포함하여 o1 및 o3-mini와 같은 o 시리즈…"이고, 원문 제목은 "Reasoning best practices"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 platform.openai.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 openai, reasoning, prompting, o3로 읽었어.
     - type: web_cross_check
       result: skip
       sources: 1
       summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
       items:
-        - "비교 기준: 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: OpenAI Platform Docs — Reasoning Best Practices (https://platform.openai.com/docs/guides/reasoning-best-practices)"
+        - 여기서 먼저 갈라 볼 기준은 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지.
+        - 같이 본 출처로는 OpenAI Platform Docs — Reasoning Best Practices (https://platform.openai.com/docs/guides/reasoning-best-practices)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 o1, o3-mini 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 o1, o3-mini 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass

@@ -24,24 +24,24 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 이슈가 기능 소개보다 운영 리스크에 가까운지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"OpenClaw 보안 취약점 연쇄 발견 — 13.5만 인스턴스 중 63%가 인증 미설정\"이고, 원문 제목은 \"ARMO Security\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 armosec.io로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 openclaw, security, cve, vulnerability로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 이슈가 기능 소개보다 운영 리스크에 가까운지.
+        - 제목부터 다시 보면 기사 제목은 "OpenClaw 보안 취약점 연쇄 발견 — 13.5만 인스턴스 중 63%가 인증 미설정"이고, 원문 제목은 "ARMO Security"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 armosec.io로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 openclaw, security, cve, vulnerability로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 3
       summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 이슈가 기능 소개보다 운영 리스크에 가까운지 먼저 갈라 봐야 해."
-        - "비교 출처 1: ARMO — CVE-2026-32922 privilege escalation (https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security/)"
-        - "비교 출처 2: Sangfor — OpenClaw security risks (https://www.sangfor.com/blog/cybersecurity/openclaw-ai-agent-security-risks-2026)"
-        - "비교 출처 3: OpenClaw AI — Nine CVEs in Four Days (https://openclawai.io/blog/openclaw-cve-flood-nine-vulnerabilities-four-days-march-2026)"
+        - 여기서 먼저 갈라 볼 기준은 이 이슈가 기능 소개보다 운영 리스크에 가까운지.
+        - 같이 본 출처로는 ARMO — CVE-2026-32922 privilege escalation (https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security/)
+        - 같이 본 출처로는 Sangfor — OpenClaw security risks (https://www.sangfor.com/blog/cybersecurity/openclaw-ai-agent-security-risks-2026)
+        - 같이 본 출처로는 OpenClaw AI — Nine CVEs in Four Days (https://openclawai.io/blog/openclaw-cve-flood-nine-vulnerabilities-four-days-march-2026)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 13.5, 63%, 8.8, 3 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 13.5, 63%, 8.8, 3 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

@@ -31,7 +31,7 @@ factCheck:
       result: pass
       summary: "Ollama를 로컬 추론 런타임으로 설명하는 게 맞는지부터 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 로컬 AI를 쓸 때 채팅 UI가 필요한지, 실제 모델 런타임과 API 계층이 필요한지부터 갈라 봐야 해."
+        - "독자가 먼저 갈라 봐야 할 건 로컬 AI를 쓸 때 채팅 UI가 필요한지, 실제 모델 런타임과 API 계층이 필요한지야."
         - "원문을 보면 API introduction은 기본 로컬 엔드포인트를 http://localhost:11434/api 로 안내해."
         - "정체성을 보면 그래서 Ollama는 모델 파일과 앱 사이에 놓이는 실행 계층으로 읽는 편이 맞아."
         - "분류를 잡을 때는 tool로 두되, 채팅 앱이 아니라 local serving runtime이라는 위치를 본문에서 먼저 잡았다."

@@ -25,13 +25,13 @@ factCheck:
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
       title: "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
     - url: "https://ai.google.dev/gemini-api/docs/google-search"
-      title: "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "พื้นฐานด้วย Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass
       summary: "grounding을 모델 학습이 아니라 외부 근거 연결 기법으로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 모델이 원래 더 똑똑한 경우와, 실행 시점에 외부 근거를 붙여 답변을 안정시키는 경우를 먼저 나눠 봐야 해."
+        - "독자가 먼저 갈라 봐야 할 건 모델이 원래 더 똑똑한 경우와, 실행 시점에 외부 근거를 붙여 답변을 안정시키는 경우를 먼저 나눠 봐야 해."
         - "원문을 보면 Vertex AI 문서는 grounding을 모델 출력을 검증 가능한 소스와 연결하는 방식으로 설명해."
         - "정체성을 보면 fine-tuning이나 pretraining이 아니라 inference 시점의 연결 기법이라는 해석과 맞는다."
         - "분류를 잡을 때는 technique로 두고, 본문에서는 search 자체보다 evidence attachment 계층이라는 점을 먼저 잡았다."
@@ -43,7 +43,7 @@ factCheck:
         - "여기서 먼저 갈라 볼 기준은 검색 API, RAG, grounding 가운데 어떤 것이 근거 연결 전체를 설명하는지 봐야 해."
         - "공식 자료를 같이 보면 Vertex 문서는 Google Search, Vertex AI Search, RAG Engine, Maps, 외부 파트너 검색까지 여러 grounding 경로를 포괄해."
         - "공식 자료를 같이 보면 Gemini 문서는 grounding 결과와 함께 citation, web search query, grounding metadata를 반환하는 흐름을 설명해."
-        - "그래서 해석할 때는 그래서 grounding은 검색 붙이기보다 넓고, RAG는 그 안의 한 구현 패턴으로 보는 편이 정확해."
+        - "그래서 grounding은 검색 붙이기보다 넓고, RAG는 그 안의 한 구현 패턴으로 보는 편이 정확해."
     - type: number_verify
       result: pass
       summary: "문서에 직접 나오는 필드 이름과 단계 정보도 한 번 더 봤다."

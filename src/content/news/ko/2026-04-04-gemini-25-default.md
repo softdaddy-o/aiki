@@ -20,22 +20,22 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다\"이고, 원문 제목은 \"Google Blog\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 gemini, google, model, developer-tools로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다"이고, 원문 제목은 "Google Blog"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 gemini, google, model, developer-tools로 읽었어.
     - type: web_cross_check
       result: skip
       sources: 1
       summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
       items:
-        - "비교 기준: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: Google Blog (https://blog.google/technology/ai/gemini-25-pro)"
+        - 여기서 먼저 갈라 볼 기준은 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지.
+        - 같이 본 출처로는 Google Blog (https://blog.google/technology/ai/gemini-25-pro)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 2.5, 100, 2026, 4 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 2.5, 100, 2026, 4 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

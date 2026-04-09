@@ -22,17 +22,17 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"AI 문해력의 날 요약: 교육자를 선두에 두기\"이고, 원문 제목은 \"Our AI Literacy Day recap: putting educators in the lead\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 agent, ai, anthropic, claude로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - "제목부터 다시 보면 기사 제목은 \"AI 문해력의 날 요약: 교육자를 선두에 두기\"이고, 원문 제목은 \"Our AI Literacy Day recap: putting educators in the lead\"로 잡혔어."
+        - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 agent, ai, anthropic, claude로 읽었어.
     - type: web_cross_check
       result: skip
       sources: 1
       summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
       items:
-        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: blog.google (https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/)"
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 blog.google (https://blog.google/products-and-platforms/products/education/ai-literacy-tools-certifications/)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.

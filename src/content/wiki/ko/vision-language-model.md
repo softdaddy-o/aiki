@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지."
+        - "독자가 먼저 갈라 봐야 할 건 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지야."
         - "이름을 다시 보면 Vision-Language Model로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지야."
-        - "비교 출처 1: Multimodal learning (https://en.wikipedia.org/wiki/Multimodal_learning)"
-        - "비교 출처 2: What is Image-Text-to-Text? - Hugging Face (https://huggingface.co/tasks/image-text-to-text)"
+        - "같이 본 출처로는 Multimodal learning (https://en.wikipedia.org/wiki/Multimodal_learning)"
+        - "같이 본 출처로는 What is Image-Text-to-Text? - Hugging Face (https://huggingface.co/tasks/image-text-to-text)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

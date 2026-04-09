@@ -31,7 +31,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지야."
         - "이름을 다시 보면 Cursor로 잡혀."
         - "분류를 다시 보면 도구로 읽는 게 맞아."
     - type: web_cross_check
@@ -40,8 +40,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지야."
-        - "비교 출처 1: The best way to code with AI (https://www.cursor.com/)"
-        - "비교 출처 2: https://docs.cursor.com/ (https://docs.cursor.com/)"
+        - "같이 본 출처로는 The best way to code with AI (https://www.cursor.com/)"
+        - "같이 본 출처로는 https://docs.cursor.com/ (https://docs.cursor.com/)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

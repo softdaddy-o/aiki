@@ -28,7 +28,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 언어 생성과 텍스트 이해를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 언어 생성과 텍스트 이해를 기사에서 어떤 판단 기준으로 읽어야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 언어 생성과 텍스트 이해를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
         - "이름을 다시 보면 LLM로 잡혀."
         - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
@@ -37,8 +37,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 언어 생성과 텍스트 이해를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 언어 생성과 텍스트 이해를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "비교 출처 1: Large language model (https://en.wikipedia.org/wiki/Large_language_model)"
-        - "비교 출처 2: What Are Large Language Models (LLMs)? | IBM (https://www.ibm.com/think/topics/large-language-models)"
+        - "같이 본 출처로는 Large language model (https://en.wikipedia.org/wiki/Large_language_model)"
+        - "같이 본 출처로는 What Are Large Language Models (LLMs)? | IBM (https://www.ibm.com/think/topics/large-language-models)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 언어 생성과 텍스트 이해를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

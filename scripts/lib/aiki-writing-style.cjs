@@ -128,7 +128,7 @@ function focusFromNews(frontmatter) {
 }
 
 function buildNewsProblemStatement(frontmatter) {
-    return `${focusFromNews(frontmatter)} 먼저 갈라 봐야 해.`;
+    return focusFromNews(frontmatter);
 }
 
 function buildNewsReaderValue(frontmatter, fileName = '') {

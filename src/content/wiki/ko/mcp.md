@@ -28,7 +28,7 @@ factCheck:
       result: pass
       summary: "MCP를 오픈 표준 프로토콜로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 모델 능력 이야기와 도구 연결 구조 이야기를 먼저 구분해야 해."
+        - "독자가 먼저 갈라 봐야 할 건 모델 능력 이야기와 도구 연결 구조 이야기를 먼저 구분해야 해."
         - "원문을 보면 introduction은 MCP를 open standard로 소개해."
         - "정체성을 보면 앱과 도구를 연결하는 protocol 성격이 핵심이라는 설명과 맞는다."
         - "비유 대조: 공식 소개가 USB-C 비유를 쓰는 이유도 연결 규격 표준이라는 해석과 일치해."
@@ -40,7 +40,7 @@ factCheck:
         - "여기서 먼저 갈라 볼 기준은 함수 호출 규격, 에이전트 프레임워크, 도구 연결 표준 가운데 MCP가 어디에 놓이는지 봐야 해."
         - "공식 자료를 같이 보면 architecture 문서는 host, client, server 구성을 분리해 설명해."
         - "공식 자료를 같이 보면 specification 문서는 tools, resources, prompts 같은 노출 단위를 별도로 정의해."
-        - "그래서 해석할 때는 그래서 MCP를 agent framework 하나로 축소하거나 function calling의 다른 이름으로 치환하면 범위가 틀어진다."
+        - "그래서 MCP를 agent framework 하나로 축소하거나 function calling의 다른 이름으로 치환하면 범위가 틀어진다."
     - type: number_verify
       result: pass
       summary: "스펙 버전과 구성 요소 이름처럼 자주 틀리는 고유 항목도 한 번 더 봤다."

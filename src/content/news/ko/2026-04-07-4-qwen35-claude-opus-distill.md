@@ -24,24 +24,24 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"Claude Opus 추론을 Qwen3.5에 이식 — RTX 3090 한 장으로 실행 가능\"이고, 원문 제목은 \"Hugging Face\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 huggingface.co로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 qwen, claude, fine-tuning, local-llm로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 모델이 화제성 공개인지 실제 배포 후보인지.
+        - 제목부터 다시 보면 기사 제목은 "Claude Opus 추론을 Qwen3.5에 이식 — RTX 3090 한 장으로 실행 가능"이고, 원문 제목은 "Hugging Face"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 huggingface.co로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 qwen, claude, fine-tuning, local-llm로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 3
       summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
-        - "비교 출처 1: HuggingFace — Jackrong Qwen3.5-27B Claude Distilled (https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled)"
-        - "비교 출처 2: Anthropic — Detecting and Preventing Distillation Attacks (https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks)"
-        - "비교 출처 3: NVIDIA DGX Spark Forum — AWQ test success (https://forums.developer.nvidia.com/t/success-with-quanttrio-qwen3-5-27b-claude-4-6-opus-reasoning-distilled-v2-awq/365416)"
+        - 여기서 먼저 갈라 볼 기준은 이 모델이 화제성 공개인지 실제 배포 후보인지.
+        - 같이 본 출처로는 HuggingFace — Jackrong Qwen3.5-27B Claude Distilled (https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled)
+        - 같이 본 출처로는 Anthropic — Detecting and Preventing Distillation Attacks (https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks)
+        - 같이 본 출처로는 NVIDIA DGX Spark Forum — AWQ test success (https://forums.developer.nvidia.com/t/success-with-quanttrio-qwen3-5-27b-claude-4-6-opus-reasoning-distilled-v2-awq/365416)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 Qwen3.5, 3090, Qwen3.5-27B, 4.6 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 Qwen3.5, 3090, Qwen3.5-27B, 4.6 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass

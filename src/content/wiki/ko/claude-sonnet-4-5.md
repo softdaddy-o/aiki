@@ -41,7 +41,7 @@ factCheck:
       result: pass
       summary: "원문에서 Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지."
+        - "독자가 먼저 갈라 봐야 할 건 Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지."
         - "모델 이름부터 다시 보면 Claude Sonnet 4.5."
         - "만든 쪽을 다시 보면 Anthropic."
         - "배포 유형 대조: version 모델 / 폐쇄형 API."

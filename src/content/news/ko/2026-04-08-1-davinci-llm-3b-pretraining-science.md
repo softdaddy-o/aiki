@@ -22,23 +22,23 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험\"이고, 원문 제목은 \"Hugging Face / arXiv\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 huggingface.co로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 llm, pretraining, open-model, hugging-face로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 모델이 화제성 공개인지 실제 배포 후보인지.
+        - 제목부터 다시 보면 기사 제목은 "daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험"이고, 원문 제목은 "Hugging Face / arXiv"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 huggingface.co로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 llm, pretraining, open-model, hugging-face로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
-        - "비교 출처 1: Hugging Face model card (https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)"
-        - "비교 출처 2: arXiv: daVinci-LLM: Towards the Science of Pretraining (https://arxiv.org/abs/2603.27164)"
+        - 여기서 먼저 갈라 볼 기준은 이 모델이 화제성 공개인지 실제 배포 후보인지.
+        - 같이 본 출처로는 Hugging Face model card (https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)
+        - "같이 본 출처로는 arXiv: daVinci-LLM: Towards the Science of Pretraining (https://arxiv.org/abs/2603.27164)"
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 daVinci-LLM-3B, 3B, 7B, 3.09B 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 daVinci-LLM-3B, 3B, 7B, 3.09B 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass

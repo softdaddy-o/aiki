@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
         - "이름을 다시 보면 RLHF로 잡혀."
         - "분류를 다시 보면 기법로 읽는 게 맞아."
     - type: web_cross_check
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "비교 출처 1: Reinforcement learning from human feedback (https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)"
-        - "비교 출처 2: Illustrating Reinforcement Learning from Human Feedback (RLHF) (https://huggingface.co/blog/rlhf)"
+        - "같이 본 출처로는 Reinforcement learning from human feedback (https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)"
+        - "같이 본 출처로는 Illustrating Reinforcement Learning from Human Feedback (RLHF) (https://huggingface.co/blog/rlhf)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

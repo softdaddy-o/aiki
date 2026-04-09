@@ -25,18 +25,18 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"GPT-2 공개, 생성형 AI 배포 기준의 변화\"이고, 원문 제목은 \"GPT-2\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 openai.com로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 gpt-2, openai, language-model로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지.
+        - 제목부터 다시 보면 기사 제목은 "GPT-2 공개, 생성형 AI 배포 기준의 변화"이고, 원문 제목은 "GPT-2"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 openai.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 gpt-2, openai, language-model로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: GPT-2 (https://openai.com/index/better-language-models/)"
-        - "비교 출처 2: Secondary source (https://en.wikipedia.org/wiki/GPT-2)"
+        - 여기서 먼저 갈라 볼 기준은 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지.
+        - 같이 본 출처로는 GPT-2 (https://openai.com/index/better-language-models/)
+        - 같이 본 출처로는 Secondary source (https://en.wikipedia.org/wiki/GPT-2)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.

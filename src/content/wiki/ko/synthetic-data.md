@@ -27,7 +27,7 @@ factCheck:
       result: pass
       summary: "이 페이지를 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지."
+        - "독자가 먼저 갈라 봐야 할 건 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
         - "이름을 다시 보면 Synthetic Data로 잡혀."
         - "분류를 다시 보면 기법로 읽는 게 맞아."
     - type: web_cross_check
@@ -36,8 +36,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "비교 출처 1: Synthetic data (https://en.wikipedia.org/wiki/Synthetic_data)"
-        - "비교 출처 2: What Is Synthetic Data? | IBM (https://www.ibm.com/think/topics/synthetic-data)"
+        - "같이 본 출처로는 Synthetic data (https://en.wikipedia.org/wiki/Synthetic_data)"
+        - "같이 본 출처로는 What Is Synthetic Data? | IBM (https://www.ibm.com/think/topics/synthetic-data)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

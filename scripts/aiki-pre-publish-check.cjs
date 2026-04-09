@@ -564,7 +564,7 @@ function validateFactCheckDetails(targetName, frontmatter) {
 
         if (targetName === 'wiki' && type === 'source_match') {
             const items = Array.isArray(check.items) ? check.items.map((item) => String(item || '')) : [];
-            if (!items.some((item) => item.startsWith('독자 문제 대조:'))) {
+            if (!items.some((item) => item.startsWith('독자 문제 대조:') || item.startsWith('독자가 먼저 갈라 봐야 할 건 '))) {
                 failures.push('factCheck.source_match missing reader-problem check item');
             }
         }
@@ -615,7 +615,7 @@ function validateFactCheckTone(frontmatter) {
         }
 
         for (const item of items) {
-            if (/^비교 출처 \d+:/u.test(item)) {
+            if (/^비교 출처 \d+:/u.test(item) || item.startsWith('같이 본 출처로는 ')) {
                 continue;
             }
 

@@ -24,23 +24,23 @@ factCheck:
       result: pass
       summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "제목 대조: 기사 제목은 \"3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다\"이고, 원문 제목은 \"3 new Gemini features are coming to Google TV\"로 잡혔어."
-        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
-        - "태그 대조: 이 글의 핵심 축은 gemini, claude로 읽었어."
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "3가지 새로운 Gemini 기능이 Google TV에 ​​출시됩니다"이고, 원문 제목은 "3 new Gemini features are coming to Google TV"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 gemini, claude로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
       summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
-        - "비교 출처 1: blog.google (https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/)"
-        - "비교 출처 2: Secondary source (https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/)"
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 blog.google (https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/)
+        - 같이 본 출처로는 Secondary source (https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/)
     - type: number_verify
       result: pass
       summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 3 쪽이야."
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 3 쪽이야.
     - type: adversarial
       result: pass
       summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.

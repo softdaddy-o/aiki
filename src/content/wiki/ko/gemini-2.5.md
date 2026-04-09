@@ -35,13 +35,13 @@ factCheck:
     - url: "https://deepmind.google/technologies/gemini/"
       title: "Gemini 3 — Google DeepMind"
     - url: "https://ai.google.dev/gemini-api/docs/models"
-      title: "মডেল &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "मॉडल &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass
       summary: "원문에서 Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지."
+        - "독자가 먼저 갈라 봐야 할 건 Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지."
         - "모델 이름부터 다시 보면 Gemini 2.5."
         - "만든 쪽을 다시 보면 Google DeepMind."
         - "배포 유형 대조: version 모델 / 폐쇄형 API."

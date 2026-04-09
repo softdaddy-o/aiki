@@ -30,7 +30,7 @@ factCheck:
       result: pass
       summary: "Qdrant를 단순 저장소가 아니라 검색 엔진 계층으로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 벡터를 저장만 하면 되는지, 운영형 검색 계층이 필요한지부터 갈라 봐야 해."
+        - "독자가 먼저 갈라 봐야 할 건 벡터를 저장만 하면 되는지, 운영형 검색 계층이 필요한지야."
         - "원문을 보면 공식 사이트는 Qdrant를 vector search engine으로 소개해."
         - "정체성을 보면 임베딩 저장만이 아니라 retrieval 품질과 운영 기능을 같이 설명하는 제품 포지션과 맞는다."
         - "분류를 잡을 때는 tool로 두되, 본문에서는 vector DB보다 search layer에 더 가까운 성격을 먼저 잡았다."
@@ -42,7 +42,7 @@ factCheck:
         - "여기서 먼저 갈라 볼 기준은 관리형 서비스, 개발용 스토어, 운영형 검색 엔진 사이에서 Qdrant가 어디에 놓이는지 봐야 해."
         - "공식 자료를 같이 보면 공식 소개는 dense, sparse, multivector, hybrid search를 함께 지원 범위로 제시해."
         - "공식 자료를 같이 보면 검색 문서는 metadata filtering과 reranking 흐름을 운영형 검색 맥락에서 설명해."
-        - "그래서 해석할 때는 그래서 Qdrant를 무료 Pinecone 정도로 줄여 쓰면 검색 기능 범위와 운영 부담을 모두 놓치게 돼."
+        - "그래서 Qdrant를 무료 Pinecone 정도로 줄여 쓰면 검색 기능 범위와 운영 부담을 모두 놓치게 돼."
     - type: number_verify
       result: pass
       summary: "운영 판단에 직접 걸리는 수치와 명칭도 한 번 더 봤다."
