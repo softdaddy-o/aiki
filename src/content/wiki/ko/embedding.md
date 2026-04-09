@@ -25,7 +25,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Word_embedding"
       title: "Word embedding"
     - url: "https://platform.openai.com/docs/guides/embeddings"
-      title: "https://platform.openai.com/docs/guides/embeddings"
+      title: "Vector embeddings | OpenAI API"
   checks:
     - type: source_match
       result: pass
@@ -41,7 +41,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지야."
         - "같이 본 출처로는 Word embedding (https://en.wikipedia.org/wiki/Word_embedding)"
-        - "같이 본 출처로는 https://platform.openai.com/docs/guides/embeddings (https://platform.openai.com/docs/guides/embeddings)"
+        - "같이 본 출처로는 Vector embeddings | OpenAI API (https://platform.openai.com/docs/guides/embeddings)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

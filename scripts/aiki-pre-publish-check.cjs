@@ -348,6 +348,10 @@ function hasRepeatedAdjacentWord(text) {
     return /(^|[\s"'“”‘’(])([가-힣A-Za-z0-9][가-힣A-Za-z0-9-]*)\s+\2(?=$|[\s"'“”‘’).,!?])/m.test(source);
 }
 
+function hasFormalWikiSummaryEnding(text) {
+    return /(?:선택지다|도구다|프레임워크다|기법이다|개념이다|모델이다|라인업이다|구조다|뼈대다|가깝다|쉽다|어렵다|높다|낮다|좋다|같다|많다|적다|길다|깊다|넓다|갈린다|늘어난다|안정된다|제공한다|지원한다|설명한다|담당한다)\./u.test(String(text || ''));
+}
+
 function bodyContainsValuelessTemplate(body) {
     return VALUELESS_PATTERNS.some((pattern) => pattern.test(body));
 }
@@ -837,6 +841,12 @@ for (const target of CONTENT_TARGETS) {
 
         if (!isDraft && target.name === 'wiki' && hasRepeatedAdjacentWord(`${String(fm.summary || '')}\n${body}`)) {
             const message = `${target.name}/${filename}: contains repeated adjacent words`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki' && hasFormalWikiSummaryEnding(String(fm.summary || ''))) {
+            const message = `${target.name}/${filename}: wiki summary still ends in formal report tone`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
         }
