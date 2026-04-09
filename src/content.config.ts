@@ -45,6 +45,10 @@ const news = defineCollection({
         sourceCount: z.number().default(1),
         backfilled: z.boolean().default(false),
         backfilledAt: z.string().optional(),
+        guideVersion: z.object({
+            common: z.string(),
+            news: z.string(),
+        }).optional(),
     }),
 });
 
@@ -67,6 +71,10 @@ const wiki = defineCollection({
         parentModel: z.string().optional(),
         modelProfile: modelProfileSchema.optional(),
         factCheck: factCheckSchema.optional(),
+        guideVersion: z.object({
+            common: z.string(),
+            wiki: z.string(),
+        }).optional(),
     }),
 });
 
