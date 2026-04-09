@@ -2,8 +2,8 @@
 term: mcp
 title: "MCP"
 lang: ko
-summary: "AI 모델이 외부 도구와 데이터 소스에 접근하는 방식을 표준화한 프로토콜. 여러 앱과 도구를 같은 규격으로 연결하게 해준다."
-readerValue: "이 말이 답변 생성 이야기가 아니라 외부 도구 실행과 연결 구조 이야기인지 빠르게 구분하게 해준다."
+summary: "MCP는 AI 앱이 외부 도구와 데이터 소스에 연결되는 방식을 표준화하려는 오픈 프로토콜이야. 모델 성능을 높이는 기술이라기보다, 도구 연결을 같은 규격으로 정리하는 접속 표준에 가까워."
+readerValue: "모델 능력 이야기와 도구 연결 구조 이야기를 구분해야 하는지 먼저 판단하게 해준다."
 category: framework
 aliases:
   - "model context protocol"
@@ -21,54 +21,54 @@ factCheck:
   sources:
     - url: "https://modelcontextprotocol.io/introduction"
       title: "What is the Model Context Protocol (MCP)? - Model Context Protocol"
-    - url: "https://github.com/modelcontextprotocol/modelcontextprotocol"
-      title: "modelcontextprotocol/modelcontextprotocol"
+    - url: "https://modelcontextprotocol.io/specification/2024-11-05/index"
+      title: "Specification - Model Context Protocol"
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
+      summary: "MCP를 오픈 표준 프로토콜로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
-        - "용어명 대조: MCP"
-        - "분류 대조: 프레임워크"
+        - "독자 문제 대조: 모델 능력 이야기와 도구 연결 구조 이야기를 먼저 구분해야 해."
+        - "원문 대조: introduction은 MCP를 open standard로 소개해."
+        - "정체성 대조: 앱과 도구를 연결하는 protocol 성격이 핵심이라는 설명과 맞는다."
+        - "비유 대조: 공식 소개가 USB-C 비유를 쓰는 이유도 연결 규격 표준이라는 해석과 일치해."
     - type: web_cross_check
       result: pass
-      sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
+      sources: 3
+      summary: "소개, 아키텍처, 스펙 문서를 같이 놓고 MCP 범위를 과장하지 않았는지 다시 봤다."
       items:
-        - "비교 기준: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
-        - "What is the Model Context Protocol (MCP)? - Model Context Protocol (https://modelcontextprotocol.io/introduction)"
-        - "modelcontextprotocol/modelcontextprotocol (https://github.com/modelcontextprotocol/modelcontextprotocol)"
+        - "비교 기준: 함수 호출 규격, 에이전트 프레임워크, 도구 연결 표준 가운데 MCP가 어디에 놓이는지 봐야 해."
+        - "교차검증: architecture 문서는 host, client, server 구성을 분리해 설명해."
+        - "교차검증: specification 문서는 tools, resources, prompts 같은 노출 단위를 별도로 정의해."
+        - "해석 보정: 그래서 MCP를 agent framework 하나로 축소하거나 function calling의 다른 이름으로 치환하면 범위가 틀어진다."
     - type: number_verify
       result: pass
-      summary: "숫자가 적은 항목이라도 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
+      summary: "스펙 버전과 구성 요소 이름처럼 자주 틀리는 고유 항목도 한 번 더 봤다."
       items:
-        - "선택 기준 대조: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
-        - "명칭 대조: MCP"
-        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
+        - "버전 검증: 공식 스펙 경로는 2024-11-05 버전을 포함해."
+        - "명칭 검증: MCP는 Model Context Protocol의 약자다."
+        - "구성 검증: tools, resources, prompts는 공식 문서에서 분리된 개념으로 다뤄진다."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 선택 포인트는 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지 기준으로 한 번 더 의심해보고 정리했다."
+      summary: "MCP 주변에서 가장 흔한 과장을 어떻게 걸러야 하는지 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지"
-        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
+        - "비판적 검증: MCP는 모델 자체를 더 똑똑하게 만드는 기술이 아니다."
+        - "비판적 검증: MCP를 붙였다고 보안 문제가 자동으로 해결되는 것도 아니다."
+        - "비판적 검증: function calling은 호출 형식에 가깝고, MCP는 도구를 발견하고 연결하는 표준이라는 점에서 층위가 다르다."
       findings:
-        - "이 페이지는 도구 호출과 실행 연결 흐름을 어떤 구조로 묶어야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "MCP를 이해할 때 핵심은 어떤 모델이냐보다, 서로 다른 도구 연결을 같은 계약으로 묶을 수 있느냐에 있어."
 ---
 ## 한 줄 정의
-MCP(Model Context Protocol)는 AI 모델이 외부 도구, 파일 시스템, API 같은 자원에 접근하는 방식을 표준화한 오픈 프로토콜이야.
+MCP는 AI 앱이 외부 도구, 파일, 데이터 소스에 연결되는 방식을 표준화하려는 오픈 프로토콜이야.
 ## 어떻게 작동하나
-MCP는 클라이언트-서버 구조야.
+MCP를 이해할 때 먼저 잡아야 할 점은 이것이 모델 기능이 아니라 연결 규격이라는 사실이야. AI 앱이 바깥 세계와 붙으려면 파일 시스템도 읽어야 하고, API도 호출해야 하고, 데이터베이스도 조회해야 하거든. 문제는 도구마다 연결 방식이 제각각이면 앱마다 연동 코드를 따로 써야 한다는 점이야.
 
-- **MCP 클라이언트**: AI 모델을 호스팅하는 앱이 클라이언트 역할을 해. Claude Desktop, IDE 플러그인, 에이전트 런타임이 여기에 들어간다.
-- **MCP 서버**: 특정 도구나 데이터 소스를 노출하는 가벼운 프로세스다. 예를 들어 파일 시스템, Notion, GitHub 같은 외부 자원을 MCP 서버가 통일된 형태로 보여 준다.
-
-클라이언트가 서버에 연결하면 서버는 "내가 제공하는 도구" 목록을 알려 준다. 모델은 그 목록을 보고 필요한 도구를 골라 호출해. 쉽게 말하면 AI용 USB-C 규격에 가까워.
+MCP는 그 연결부를 공통 규격으로 맞추려 해. 공식 아키텍처 문서 기준으로는 host, client, server가 분리되고, server는 tools, resources, prompts 같은 단위를 노출해. 그래서 MCP를 지원하는 앱은 각 도구마다 전용 연동을 새로 만드는 대신, 같은 계약을 따라 여러 외부 시스템에 붙을 수 있어.
 ## 왜 중요한가
-에이전트가 실제로 쓸모 있으려면 외부 세계와 연결돼야 해. 파일을 읽고, API를 호출하고, 데이터베이스를 조회해야 해. 그런데 서비스마다 연동 방식이 다르면 앱 수와 도구 수가 늘수록 연결 코드가 폭증해.
+MCP가 중요한 이유는 에이전트나 코딩 도구가 실제로 쓸모 있으려면 결국 외부 도구와 연결돼야 하기 때문이야. 모델이 답을 생성하는 것만으로는 업무를 끝낼 수 없어. 파일을 읽고, 이슈를 만들고, 노션을 수정하고, 배포 상태를 확인하는 순간부터는 연결 표준이 중요해진다.
 
-MCP는 이 문제를 규격 하나로 줄여 줘. 도구 제공자는 MCP 서버 하나만 만들면 되고, MCP를 지원하는 여러 AI 앱은 같은 규격으로 그 도구를 바로 붙일 수 있어. 그래서 요즘 코딩 도구, 업무 자동화, 사내 도구 연동 뉴스에서 MCP가 빠르게 기준 단어가 되고 있어.
+그래서 MCP는 "새로운 모델 기술"이라기보다 도구 연결을 재사용 가능하게 만드는 인프라 용어로 이해해야 해. 이 차이를 놓치면 MCP 관련 뉴스를 읽을 때도 과장되게 받아들이기 쉬워. 실제로는 모델 능력보다 도구 생태계를 어떻게 표준화할지에 대한 이야기인 경우가 많아.
 ## 관련 용어
-- [AI Agent](/ko/wiki/agent/) — MCP를 통해 외부 도구를 실제로 사용하는 주체
-- [LLM](/ko/wiki/llm/) — MCP 클라이언트가 호출하는 기반 모델
-- [Function Calling](/ko/wiki/function-calling/) — 모델이 도구를 호출하는 실행 방식
+- [Function Calling](/ko/wiki/function-calling/) — 모델이 도구를 호출하는 인터페이스라는 점은 겹치지만, MCP는 호출 자체보다 도구 발견과 연결 규격을 표준화한다는 점에서 층위가 다르다.
+- [AI Agent](/ko/wiki/agent/) — MCP는 에이전트가 외부 세계와 상호작용할 때 자주 쓰는 연결 규격이라서, 에이전트가 실제로 어떤 도구를 만지는지 이해하는 데 도움이 돼.
+- [Claude Code](/ko/wiki/claude-code/) — MCP를 실제 개발 도구 안에서 어떻게 체감하는지 보여 주는 사례라서, 추상 표준이 제품 안에서 어떻게 드러나는지 볼 때 좋아.

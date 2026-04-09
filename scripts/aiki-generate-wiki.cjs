@@ -73,26 +73,347 @@ const MANUAL_WIKI_OVERRIDES = {
         ],
     },
     mcp: {
-        summary: 'AI 모델이 외부 도구와 데이터 소스에 접근하는 방식을 표준화한 프로토콜. 여러 앱과 도구를 같은 규격으로 연결하게 해준다.',
-        definition: 'MCP(Model Context Protocol)는 AI 모델이 외부 도구, 파일 시스템, API 같은 자원에 접근하는 방식을 표준화한 오픈 프로토콜이다.',
+        summary: 'MCP는 AI 앱이 외부 도구와 데이터 소스에 연결되는 방식을 표준화하려는 오픈 프로토콜이다. 모델 성능을 높이는 기술이라기보다, 도구 연결을 같은 규격으로 정리하는 접속 표준에 가깝다.',
+        definition: 'MCP는 AI 앱이 외부 도구, 파일, 데이터 소스에 연결되는 방식을 표준화하려는 오픈 프로토콜이야.',
         explainHeading: '## 어떻게 작동하나',
         explain: [
-            'MCP는 클라이언트-서버 구조다.',
+            'MCP를 이해할 때 먼저 잡아야 할 점은 이것이 모델 기능이 아니라 연결 규격이라는 사실이야. AI 앱이 바깥 세계와 붙으려면 파일 시스템도 읽어야 하고, API도 호출해야 하고, 데이터베이스도 조회해야 하거든. 문제는 도구마다 연결 방식이 제각각이면 앱마다 연동 코드를 따로 써야 한다는 점이다.',
             '',
-            '- **MCP 클라이언트**: AI 모델을 호스팅하는 앱이 클라이언트 역할을 한다. Claude Desktop, IDE 플러그인, 에이전트 런타임이 여기에 들어간다.',
-            '- **MCP 서버**: 특정 도구나 데이터 소스를 노출하는 가벼운 프로세스다. 예를 들어 파일 시스템, Notion, GitHub 같은 외부 자원을 MCP 서버가 통일된 형태로 보여 준다.',
-            '',
-            '클라이언트가 서버에 연결하면 서버는 "내가 제공하는 도구" 목록을 알려 준다. 모델은 그 목록을 보고 필요한 도구를 골라 호출한다. 쉽게 말하면 AI용 USB-C 규격에 가깝다.',
+            'MCP는 그 연결부를 공통 규격으로 맞추려 해. 공식 아키텍처 문서 기준으로는 host, client, server가 분리되고, server는 tools, resources, prompts 같은 단위를 노출한다. 그래서 MCP를 지원하는 앱은 각 도구마다 전용 연동을 새로 만드는 대신, 같은 계약을 따라 여러 외부 시스템에 붙을 수 있다.',
         ].join('\n'),
         whyImportant: [
-            '에이전트가 실제로 쓸모 있으려면 외부 세계와 연결돼야 한다. 파일을 읽고, API를 호출하고, 데이터베이스를 조회해야 한다. 그런데 서비스마다 연동 방식이 다르면 앱 수와 도구 수가 늘수록 연결 코드가 폭증한다.',
+            'MCP가 중요한 이유는 에이전트나 코딩 도구가 실제로 쓸모 있으려면 결국 외부 도구와 연결돼야 하기 때문이야. 모델이 답을 생성하는 것만으로는 업무를 끝낼 수 없다. 파일을 읽고, 이슈를 만들고, 노션을 수정하고, 배포 상태를 확인하는 순간부터는 연결 표준이 중요해진다.',
             '',
-            'MCP는 이 문제를 규격 하나로 줄여 준다. 도구 제공자는 MCP 서버 하나만 만들면 되고, MCP를 지원하는 여러 AI 앱은 같은 규격으로 그 도구를 바로 붙일 수 있다. 그래서 요즘 코딩 도구, 업무 자동화, 사내 도구 연동 뉴스에서 MCP가 빠르게 기준 단어가 되고 있다.',
+            '그래서 MCP는 "새로운 모델 기술"이라기보다 도구 연결을 재사용 가능하게 만드는 인프라 용어로 이해해야 해. 이 차이를 놓치면 MCP 관련 뉴스를 읽을 때도 과장되게 받아들이기 쉽다. 실제로는 모델 능력보다 도구 생태계를 어떻게 표준화할지에 대한 이야기인 경우가 많다.',
         ].join('\n'),
         relatedLines: [
-            '- [AI Agent](/ko/wiki/agent/) — MCP를 통해 외부 도구를 실제로 사용하는 주체',
-            '- [LLM](/ko/wiki/llm/) — MCP 클라이언트가 호출하는 기반 모델',
-            '- [Function Calling](/ko/wiki/function-calling/) — 모델이 도구를 호출하는 실행 방식',
+            '- [Function Calling](/ko/wiki/function-calling/) — 모델이 도구를 호출하는 인터페이스라는 점은 겹치지만, MCP는 호출 자체보다 도구 발견과 연결 규격을 표준화한다는 점에서 층위가 다르다.',
+            '- [AI Agent](/ko/wiki/agent/) — MCP는 에이전트가 외부 세계와 상호작용할 때 자주 쓰는 연결 규격이라서, 에이전트가 실제로 어떤 도구를 만지는지 이해하는 데 도움이 된다.',
+            '- [Claude Code](/ko/wiki/claude-code/) — MCP를 실제 개발 도구 안에서 어떻게 체감하는지 보여 주는 사례라서, 추상 표준이 제품 안에서 어떻게 드러나는지 볼 때 좋다.',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: 'MCP를 오픈 표준 프로토콜로 읽는 게 맞는지부터 먼저 맞춰봤다.',
+                items: [
+                    '독자 문제 대조: 모델 능력 이야기와 도구 연결 구조 이야기를 먼저 구분해야 한다.',
+                    '원문 대조: introduction은 MCP를 open standard로 소개한다.',
+                    '정체성 대조: 앱과 도구를 연결하는 protocol 성격이 핵심이라는 설명과 맞는다.',
+                    '비유 대조: 공식 소개가 USB-C 비유를 쓰는 이유도 연결 규격 표준이라는 해석과 일치한다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 3,
+                summary: '소개, 아키텍처, 스펙 문서를 같이 놓고 MCP 범위를 과장하지 않았는지 다시 봤다.',
+                items: [
+                    '비교 기준: 함수 호출 규격, 에이전트 프레임워크, 도구 연결 표준 가운데 MCP가 어디에 놓이는지 봐야 한다.',
+                    '교차검증: architecture 문서는 host, client, server 구성을 분리해 설명한다.',
+                    '교차검증: specification 문서는 tools, resources, prompts 같은 노출 단위를 별도로 정의한다.',
+                    '해석 보정: 그래서 MCP를 agent framework 하나로 축소하거나 function calling의 다른 이름으로 치환하면 범위가 틀어진다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '스펙 버전과 구성 요소 이름처럼 자주 틀리는 고유 항목도 한 번 더 봤다.',
+                items: [
+                    '버전 검증: 공식 스펙 경로는 2024-11-05 버전을 포함한다.',
+                    '명칭 검증: MCP는 Model Context Protocol의 약자다.',
+                    '구성 검증: tools, resources, prompts는 공식 문서에서 분리된 개념으로 다뤄진다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: 'MCP 주변에서 가장 흔한 과장을 어떻게 걸러야 하는지 의심해보고 정리했다.',
+                items: [
+                    '비판적 검증: MCP는 모델 자체를 더 똑똑하게 만드는 기술이 아니다.',
+                    '비판적 검증: MCP를 붙였다고 보안 문제가 자동으로 해결되는 것도 아니다.',
+                    '비판적 검증: function calling은 호출 형식에 가깝고, MCP는 도구를 발견하고 연결하는 표준이라는 점에서 층위가 다르다.',
+                ],
+                findings: [
+                    'MCP를 이해할 때 핵심은 어떤 모델이냐보다, 서로 다른 도구 연결을 같은 계약으로 묶을 수 있느냐에 있어.',
+                ],
+            },
+        ],
+    },
+    grounding: {
+        summary: 'Grounding은 모델 답변을 외부의 검증 가능한 정보원에 붙여 주는 기법이다. 단순히 검색을 붙이는 것보다 넓은 개념이고, 모델을 더 학습시키는 대신 실행 시점에 근거를 연결한다는 점이 핵심이다.',
+        definition: 'Grounding은 모델 답변을 외부의 검증 가능한 정보원에 연결해, 답변에 근거를 붙이는 기법이야.',
+        explainHeading: '## 어떻게 작동하나',
+        explain: [
+            'Grounding을 이해할 때 가장 먼저 버려야 할 오해는 "모델이 더 똑똑해지는 기술"이라는 생각이야. grounding은 학습 단계가 아니라 실행 단계에서 작동하거든. 질문이 들어오면 웹 검색, 사내 검색, 지도 데이터, 문서 저장소 같은 외부 소스를 조회하고, 그 결과를 모델 답변과 연결한다.',
+            '',
+            '그래서 grounding의 핵심은 검색 자체보다 근거 연결 방식에 있어. 검색 결과를 그냥 참고만 하는 것이 아니라, 어떤 소스를 바탕으로 답했는지 citation과 metadata를 함께 남길 수 있어야 하거든. Gemini와 Vertex 문서가 grounding metadata를 따로 강조하는 이유도 여기에 있다.',
+        ].join('\n'),
+        whyImportant: [
+            'Grounding이 중요한 이유는 많은 AI 제품의 문제를 "모델 성능 부족"으로만 오해하기 쉽기 때문이야. 실제로는 모델이 모르는 최신 정보, 조직 내부 정보, 특정 도메인 데이터가 필요한 경우가 훨씬 많다. 이때 필요한 것은 더 큰 모델이 아니라, 외부 근거를 안전하게 붙이는 설계일 수 있다.',
+            '',
+            '또 grounding은 제품 판단에도 영향을 줘. 같은 검색을 붙여도 citation이 필요한지, 웹 기반 최신성이 중요한지, 사내 문서 중심인지에 따라 구현 방식이 달라진다. 그래서 grounding을 이해하면 RAG, 검색 API, 벡터 DB를 어디에 써야 할지 구분이 쉬워진다.',
+        ].join('\n'),
+        relatedLines: [
+            '- [RAG](/ko/wiki/rag/) — grounding의 대표 구현 패턴 중 하나라서 같이 보되, grounding 전체를 RAG로 축소하면 범위를 잘못 잡게 된다.',
+            '- [LlamaIndex](/ko/wiki/llamaindex/) — grounding을 실제 문서 연결 흐름으로 구현할 때 자주 등장하는 프레임워크라서, 추상 개념이 코드로 내려오는 방식을 보기 좋다.',
+            '- [Embedding](/ko/wiki/embedding/) — grounding에서 검색 후보를 고르는 단계와 자주 연결되므로, retrieval 품질이 어디서 갈리는지 이해할 때 필요하다.',
+            '- [Vector Database](/ko/wiki/vector-db/) — grounding이 문서 검색 계층과 만나는 대표 지점이라서, 외부 근거를 어떤 저장소에서 꺼내는지 이해하는 데 도움이 된다.',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: 'grounding을 모델 학습이 아니라 외부 근거 연결 기법으로 읽는 게 맞는지부터 먼저 맞춰봤다.',
+                items: [
+                    '독자 문제 대조: 모델이 원래 더 똑똑한 경우와, 실행 시점에 외부 근거를 붙여 답변을 안정시키는 경우를 먼저 나눠 봐야 한다.',
+                    '원문 대조: Vertex AI 문서는 grounding을 모델 출력을 검증 가능한 소스와 연결하는 방식으로 설명한다.',
+                    '정체성 대조: fine-tuning이나 pretraining이 아니라 inference 시점의 연결 기법이라는 해석과 맞는다.',
+                    '카테고리 대조: technique로 두고, 본문에서는 search 자체보다 evidence attachment 계층이라는 점을 먼저 잡았다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: 'Vertex와 Gemini 문서를 같이 놓고 grounding을 단순 검색 기능으로 축소하지 않았는지 다시 봤다.',
+                items: [
+                    '비교 기준: 검색 API, RAG, grounding 가운데 어떤 것이 근거 연결 전체를 설명하는지 봐야 한다.',
+                    '교차검증: Vertex 문서는 Google Search, Vertex AI Search, RAG Engine, Maps, 외부 파트너 검색까지 여러 grounding 경로를 포괄한다.',
+                    '교차검증: Gemini 문서는 grounding 결과와 함께 citation, web search query, grounding metadata를 반환하는 흐름을 설명한다.',
+                    '해석 보정: 그래서 grounding은 검색 붙이기보다 넓고, RAG는 그 안의 한 구현 패턴으로 보는 편이 정확하다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '문서에 직접 나오는 필드 이름과 단계 정보도 한 번 더 봤다.',
+                items: [
+                    '필드 검증: Gemini 문서는 groundingMetadata, groundingChunks, groundingSupports, webSearchQueries 같은 응답 필드를 예시로 보여 준다.',
+                    '범위 검증: Vertex overview는 여러 grounding source 유형을 한 umbrella 개념 아래에서 다룬다.',
+                    '명칭 검증: grounding은 retrieval 자체와 동의어가 아니라, 답변을 근거와 묶는 더 넓은 용어다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: 'grounding을 설명할 때 자주 생기는 축소 해석을 어떻게 걸러야 하는지 의심해보고 정리했다.',
+                items: [
+                    '비판적 검증: grounding은 RAG의 다른 이름이 아니다.',
+                    '비판적 검증: grounding을 붙였다고 답변이 항상 사실이 되는 것은 아니고, 어떤 소스를 붙이느냐가 여전히 중요하다.',
+                    '비판적 검증: 더 좋은 모델을 쓰는 문제와, 외부 근거를 답변에 연결하는 문제는 층위가 다르다.',
+                ],
+                findings: [
+                    'grounding의 핵심은 모델 성능을 마법처럼 끌어올리는 데 있지 않고, 답변을 어떤 근거 체계에 묶을지 설계하는 데 있어.',
+                ],
+            },
+        ],
+    },
+    ollama: {
+        summary: 'Ollama는 로컬 환경에서 LLM을 내려받아 실행하고 API로 노출하는 런타임 도구다. 채팅 앱이라기보다 모델 파일과 애플리케이션 사이를 이어 주는 로컬 서빙 레이어로 보는 편이 맞다.',
+        definition: 'Ollama는 로컬에서 LLM을 내려받아 실행하고, 그 모델을 API로 꺼내 쓸 수 있게 만드는 런타임 도구야.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            'Ollama는 채팅 화면 자체보다 실행 엔진 쪽에 가깝다. 모델 파일을 받아서 로컬 머신에 올리고, 앱이 HTTP API로 그 모델을 호출하게 만들거든. 그래서 "내 노트북에서 모델을 돌려 본다"는 수준에서 끝나지 않고, 코드 에디터 플러그인이나 내부 툴이 그 모델에 붙도록 연결하는 역할까지 맡는다.',
+            '',
+            '이 도구가 자주 언급되는 이유도 단순해. 로컬 AI를 쓰고 싶을 때 많은 사람이 처음 필요한 것을 UI라고 생각하지만, 실제로는 모델을 일관되게 실행하고 호출하는 런타임이 더 중요하거든. Ollama는 그 역할을 작게 시작하기 쉽게 만들어 준다.',
+        ].join('\n'),
+        whyImportant: [
+            'Ollama를 다른 로컬 AI 툴과 구분해야 하는 이유는 운영 감각이 다르기 때문이야. LM Studio는 사람이 직접 만지는 데스크톱 경험이 강하고, llama.cpp는 더 낮은 수준의 실행 엔진 감각이 강하다. 반면 Ollama는 "모델을 API처럼 다루게 해 준다"는 점에서 개발 흐름과 맞닿아 있다.',
+            '',
+            '그래서 작은 팀이 로컬 모델을 앱에 붙여 보거나, 사내 도구에서 외부 API 대신 내부 모델을 먼저 붙여 보거나, GGUF 모델을 빠르게 교체 실험할 때 자주 선택돼. 반대로 대규모 동시 처리량과 고성능 GPU 서버 최적화가 핵심이면 vLLM 같은 다른 선택지가 더 맞을 수 있다.',
+        ].join('\n'),
+        relatedLines: [
+            '- [llama.cpp](/ko/wiki/llama.cpp/) — Ollama가 기대는 저수준 추론 엔진 계열을 이해하면, Ollama가 어디까지를 감싸는 도구인지 분명해진다.',
+            '- [vLLM](/ko/wiki/vllm/) — 둘 다 모델 서빙 계층이지만, Ollama는 로컬 개발과 간편 배포 쪽이고 vLLM은 고처리량 서버 추론 쪽으로 무게가 다르다.',
+            '- [GGUF](/ko/wiki/gguf/) — Ollama가 자주 다루는 로컬 모델 파일 형식 맥락이라서, 모델 배포 감각을 이해할 때 같이 봐야 한다.',
+            '- [LM Studio](/ko/wiki/lm-studio/) — 둘 다 로컬 모델을 다루지만, LM Studio는 UI 중심이고 Ollama는 API 중심이라는 차이가 있다.',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: 'Ollama를 로컬 추론 런타임으로 설명하는 게 맞는지부터 먼저 맞춰봤다.',
+                items: [
+                    '독자 문제 대조: 로컬 AI를 쓸 때 채팅 UI가 필요한지, 실제 모델 런타임과 API 계층이 필요한지부터 갈라 봐야 한다.',
+                    '원문 대조: API introduction은 기본 로컬 엔드포인트를 http://localhost:11434/api 로 안내한다.',
+                    '정체성 대조: 그래서 Ollama는 모델 파일과 앱 사이에 놓이는 실행 계층으로 읽는 편이 맞다.',
+                    '카테고리 대조: tool로 두되, 채팅 앱이 아니라 local serving runtime이라는 위치를 본문에서 먼저 잡았다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 3,
+                summary: 'API, import, quickstart 문서를 같이 놓고 Ollama 범위를 과장하거나 축소하지 않았는지 다시 봤다.',
+                items: [
+                    '비교 기준: 데스크톱 UI, 저수준 엔진, 고처리량 서버 스택 사이에서 Ollama가 어느 층에 놓이는지 봐야 한다.',
+                    '교차검증: quickstart는 macOS, Linux, Windows 설치 흐름을 모두 제공한다.',
+                    '교차검증: import 문서는 GGUF와 Safetensors 계열 모델을 Modelfile로 가져오는 흐름을 설명한다.',
+                    '교차검증: API 문서는 로컬 API뿐 아니라 cloud endpoint인 https://ollama.com/api 도 함께 안내한다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '운영 판단에 직접 걸리는 이름과 엔드포인트, 양자화 표현도 한 번 더 봤다.',
+                items: [
+                    '명칭 검증: 제품명은 Ollama이고, llama.cpp나 LM Studio와 같은 별도 프로젝트와 구분된다.',
+                    '엔드포인트 검증: 기본 로컬 API 주소는 http://localhost:11434/api 다.',
+                    '양자화 검증: import 문서는 q4_K_M 같은 quantization 지정 예시를 포함한다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '로컬 AI 글에서 자주 섞이는 오해를 어떻게 걸러야 하는지 의심해보고 정리했다.',
+                items: [
+                    '비판적 검증: Ollama는 모델 자체가 아니다. 모델을 내려받고 실행하는 런타임이다.',
+                    '비판적 검증: LM Studio 같은 데스크톱 UI와 달리, Ollama의 핵심은 API로 로컬 모델을 노출하는 데 있다.',
+                    '비판적 검증: vLLM처럼 대규모 고처리량 서빙을 기본 목표로 한 서버 스택과도 역할이 다르다.',
+                ],
+                findings: [
+                    'Ollama를 이해할 때 핵심은 로컬에서 바로 돌릴 수 있느냐보다, 앱이 붙을 수 있는 API 계층을 로컬에 만드느냐에 있어.',
+                ],
+            },
+        ],
+    },
+    comfyui: {
+        summary: 'ComfyUI는 생성 모델 자체가 아니라 노드 그래프로 이미지, 영상, 오디오 생성 파이프라인을 설계하고 실행하는 오픈소스 워크플로 앱이다. 프롬프트를 한 번 넣고 결과를 보는 UI라기보다 생성 단계를 세밀하게 조립하고 재현하는 쪽에 가깝다.',
+        definition: 'ComfyUI는 생성 모델을 실행하는 환경 위에 얹는 노드 그래프형 워크플로 앱이야. 한 줄로 줄이면 모델 자체가 아니라 생성 파이프라인을 눈으로 조립하고 반복 실행하는 도구라고 보면 돼.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            'ComfyUI는 프롬프트 하나를 넣고 결과만 보는 UI와 다르다. 입력 전처리, 모델 로딩, 샘플링, 업스케일, 후처리, 저장 같은 단계를 각각 노드로 나눠 연결하거든. 그래서 같은 생성 작업이라도 어느 단계에서 무엇을 바꿨는지 추적하기 쉽고, 한번 만든 흐름을 다시 재현하기도 쉽다.',
+            '',
+            '공식 문서가 workflow를 connected graph of nodes라고 설명하는 이유도 여기 있어. ComfyUI는 "이미지를 만들어 주는 앱"이라기보다 "생성 과정을 설계하는 캔버스"에 가깝다. Stable Diffusion, FLUX 같은 모델을 얹어 쓰더라도 핵심 가치는 모델 자체보다 파이프라인을 세밀하게 제어한다는 점이야.',
+        ].join('\n'),
+        whyImportant: [
+            'ComfyUI를 모르면 생성 AI 도구를 전부 같은 부류로 보기 쉽다. 하지만 빠르게 결과를 뽑는 툴과, 생성 단계를 조립해 실험하고 반복하는 툴은 쓰임새가 다르거든. 전자는 속도가 중요하고, 후자는 재현성과 제어권이 중요하다.',
+            '',
+            '실무에서는 이 차이가 바로 작업 방식으로 이어진다. 여러 모델을 섞어 보고 싶거나, 전처리와 후처리를 반복적으로 조정해야 하거나, 팀 안에서 같은 워크플로를 공유해야 한다면 ComfyUI 같은 도구가 훨씬 잘 맞아. 반대로 그냥 간단히 생성 결과만 얻고 싶다면 ComfyUI는 오히려 과한 선택일 수 있다.',
+        ].join('\n'),
+        relatedLines: [
+            '- [Stable Diffusion](/ko/wiki/stable-diffusion/) — ComfyUI가 자주 연결하는 대표 모델 계열이라서, 워크플로 도구와 모델 자체를 구분하는 데 도움이 된다.',
+            '- [Diffusion Model](/ko/wiki/diffusion/) — ComfyUI 안에서 많이 다루는 생성 원리의 상위 개념이라서, 왜 노드 구성이 길어지는지 이해할 때 같이 봐야 한다.',
+            '- [FLUX](/ko/wiki/flux/) — ComfyUI 안에서 교체 가능한 최신 이미지 생성 모델 계열 예시라서, 워크플로와 모델을 분리해서 보는 감각을 준다.',
+            '- [Ollama](/ko/wiki/ollama/) — 둘 다 로컬 환경에서 많이 쓰이지만, Ollama는 모델 런타임이고 ComfyUI는 시각적 생성 파이프라인 도구라는 점에서 역할이 갈린다.',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: 'ComfyUI를 모델이 아니라 워크플로 앱으로 읽는 게 맞는지부터 먼저 맞춰봤다.',
+                items: [
+                    '독자 문제 대조: 간단한 생성 UI를 찾는 상황과, 생성 파이프라인 자체를 설계하고 재현해야 하는 상황을 구분해야 한다.',
+                    '원문 대조: ComfyUI 문서는 workflow를 connected graph of nodes라고 설명한다.',
+                    '정체성 대조: 생성 모델 자체가 아니라 노드 기반 파이프라인 편집기라는 해석과 맞는다.',
+                    '카테고리 대조: tool로 두되, 본문에서는 생성 앱이 아니라 workflow editor 겸 executor라는 위치를 분명히 잡았다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: '공식 사이트와 워크플로 문서를 같이 놓고 ComfyUI 범위를 너무 좁게 읽지 않았는지 다시 봤다.',
+                items: [
+                    '비교 기준: 생성 결과를 빠르게 뽑는 UI와, 생성 파이프라인을 설계하는 도구는 어디서 갈리는지 봐야 한다.',
+                    '교차검증: 공식 사이트는 image, video, 3D, audio를 모두 다룬다고 소개한다.',
+                    '교차검증: 워크플로 문서는 개별 노드를 연결해 입력, 생성, 후처리를 분리하는 구조를 전제로 한다.',
+                    '해석 보정: 그래서 ComfyUI를 단순 이미지 프롬프트 툴로 줄여 쓰면 제품 범위를 과소평가하게 된다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '이름과 범위, 저장 방식처럼 헷갈리기 쉬운 고유 정보도 한 번 더 봤다.',
+                items: [
+                    '명칭 검증: 제품명은 ComfyUI이고, 모델명이나 특정 모델 계열명이 아니다.',
+                    '범위 검증: 공식 사이트는 4개 미디어 범주인 image, video, 3D, audio를 함께 제시한다.',
+                    '구조 검증: workflow는 JSON으로 저장하고 다시 불러오는 재현 가능한 구조라는 설명이 문서와 커뮤니티 예시 전반에서 일치한다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '독자가 가장 많이 틀리는 지점을 기준으로 어떤 오해를 먼저 걸러야 하는지 의심해보고 정리했다.',
+                items: [
+                    '비판적 검증: ComfyUI는 모델이 아니다. 모델을 갈아끼우는 워크플로 환경이다.',
+                    '비판적 검증: 예쁜 UI를 제공하는 생성 앱과 달리, ComfyUI의 핵심 가치는 제어 가능성과 재현성이다.',
+                    '비판적 검증: 로컬에서 많이 쓰이지만, 그것만으로 Ollama 같은 로컬 모델 런타임과 같은 역할이라고 보면 틀린다.',
+                ],
+                findings: [
+                    'ComfyUI를 이해할 때 핵심은 결과물 품질보다 파이프라인 제어권이야. 그래서 무슨 모델이 좋으냐보다 생성 단계를 얼마나 세밀하게 만질 수 있느냐를 먼저 봐야 해.',
+                ],
+            },
+        ],
+    },
+    qdrant: {
+        summary: 'Qdrant는 임베딩을 저장만 하는 스토어가 아니라, 필터링과 hybrid search까지 포함해 운영형 검색 계층을 제공하는 오픈소스 벡터 검색 엔진이다. 관리형 서비스 대신 검색 제어권을 더 많이 가져오고 싶을 때 자주 비교되는 선택지다.',
+        definition: 'Qdrant는 임베딩을 보관하는 저장소를 넘어, 필터링과 hybrid search까지 포함한 운영형 벡터 검색 엔진이야.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            'Qdrant를 단순 벡터 DB로만 이해하면 중요한 부분을 놓치기 쉬워. 실제로는 문서나 항목을 임베딩으로 저장하는 것뿐 아니라, 검색 시점에 metadata filtering, dense와 sparse를 섞는 hybrid search, multivector retrieval, reranking 같은 기능을 함께 다루는 검색 계층에 가깝거든.',
+            '',
+            '이 차이가 중요한 이유는 제품에 붙이는 순간 바로 드러나기 때문이야. 데모 단계에서는 "벡터만 저장하면 되지"라고 생각하기 쉽지만, 운영 단계로 가면 권한 필터, 카테고리 조건, 다국어 검색, 검색 품질 튜닝이 같이 필요해진다. Qdrant는 바로 그 운영형 요구를 겨냥한 도구다.',
+        ].join('\n'),
+        whyImportant: [
+            'Qdrant를 이해해야 하는 이유는 RAG나 검색형 AI 제품에서 병목이 모델보다 retrieval 계층에서 자주 생기기 때문이야. 검색 품질이 흔들리면 아무리 좋은 모델을 붙여도 답변 품질이 떨어진다. 반대로 검색 레이어를 잘 설계하면 모델을 크게 바꾸지 않아도 결과가 안정된다.',
+            '',
+            '그래서 Qdrant는 "오픈소스 벡터 DB 하나 더 있다"로 읽으면 안 돼. 운영 제어권을 더 가져오고 싶고, 검색 기능을 세밀하게 튜닝하고 싶을 때 비교해야 하는 도구다. 물론 그만큼 직접 운영 부담도 늘어난다.',
+        ].join('\n'),
+        relatedLines: [
+            '- [Pinecone](/ko/wiki/pinecone/) — 둘 다 벡터 검색 계층이지만, Pinecone은 관리형 서비스이고 Qdrant는 제어권을 더 가져오는 쪽이라 운영 책임이 갈린다.',
+            '- [Weaviate](/ko/wiki/weaviate/) — 같은 운영형 벡터 검색 계열이지만, 데이터 모델과 기능 묶음, 생태계 접근법에서 감각 차이가 있다.',
+            '- [Chroma](/ko/wiki/chroma/) — 개발 친화적인 임베딩 스토어로 빠르게 시작할 때 자주 비교되지만, 운영형 검색 기능 범위는 Qdrant 쪽이 더 넓다.',
+            '- [RAG](/ko/wiki/rag/) — Qdrant가 왜 필요한지 알려면 상위 파이프라인인 RAG를 같이 봐야 한다. Qdrant는 그 안에서 retrieval 계층을 담당한다.',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: 'Qdrant를 단순 저장소가 아니라 검색 엔진 계층으로 읽는 게 맞는지부터 먼저 맞춰봤다.',
+                items: [
+                    '독자 문제 대조: 벡터를 저장만 하면 되는지, 운영형 검색 계층이 필요한지부터 갈라 봐야 한다.',
+                    '원문 대조: 공식 사이트는 Qdrant를 vector search engine으로 소개한다.',
+                    '정체성 대조: 임베딩 저장만이 아니라 retrieval 품질과 운영 기능을 같이 설명하는 제품 포지션과 맞는다.',
+                    '카테고리 대조: tool로 두되, 본문에서는 vector DB보다 search layer에 더 가까운 성격을 먼저 잡았다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: '공식 사이트와 검색 문서를 같이 놓고 Qdrant 차별점을 실제 기능 기준으로 다시 봤다.',
+                items: [
+                    '비교 기준: 관리형 서비스, 개발용 스토어, 운영형 검색 엔진 사이에서 Qdrant가 어디에 놓이는지 봐야 한다.',
+                    '교차검증: 공식 소개는 dense, sparse, multivector, hybrid search를 함께 지원 범위로 제시한다.',
+                    '교차검증: 검색 문서는 metadata filtering과 reranking 흐름을 운영형 검색 맥락에서 설명한다.',
+                    '해석 보정: 그래서 Qdrant를 무료 Pinecone 정도로 줄여 쓰면 검색 기능 범위와 운영 부담을 모두 놓치게 된다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '운영 판단에 직접 걸리는 수치와 명칭도 한 번 더 봤다.',
+                items: [
+                    '수치 검증: 공식 사이트는 quantization으로 memory를 up to 64x 줄일 수 있다고 소개한다.',
+                    '명칭 검증: 공식 소개 문구는 vector database보다 vector search engine 쪽에 더 무게를 둔다.',
+                    '채널 검증: 공식 자료는 REST와 gRPC, 여러 공식 클라이언트 지원을 함께 안내한다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: 'Qdrant를 고를 때 자주 생기는 과장과 오해를 어떻게 걸러야 하는지 의심해보고 정리했다.',
+                items: [
+                    '비판적 검증: 오픈소스라는 이유만으로 운영 비용이 자동으로 낮아지는 것은 아니다.',
+                    '비판적 검증: Chroma 같은 개발 친화형 스토어와 같은 층위로 보면 운영형 검색 기능 차이를 놓치기 쉽다.',
+                    '비판적 검증: Pinecone 같은 관리형 서비스와 비교할 때 장점은 제어권이지만, 동시에 직접 운영 책임도 따라온다.',
+                ],
+                findings: [
+                    'Qdrant를 볼 때 핵심은 벡터를 저장하느냐가 아니라, 검색 품질과 운영 제어권을 어느 정도까지 직접 가져가려 하느냐다.',
+                ],
+            },
         ],
     },
     token: {
@@ -938,6 +1259,11 @@ function renderFactCheckChecks(checks) {
 }
 
 function buildGenericFactChecks(entry, sourceDetails) {
+    const manual = MANUAL_WIKI_OVERRIDES[entry.term];
+    if (manual && Array.isArray(manual.factChecks) && manual.factChecks.length > 0) {
+        return manual.factChecks;
+    }
+
     const sourceItems = sourceDetails.map((detail) => `${detail.title} (${detail.url})`);
     const numericSignals = [];
     const problem = getEntryProblem(entry);

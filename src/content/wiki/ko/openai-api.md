@@ -22,9 +22,9 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/overview"
-      title: "OpenAI Platform"
+      title: "https://platform.openai.com/docs/overview"
     - url: "https://platform.openai.com/docs/api-reference"
-      title: "API Overview"
+      title: "https://platform.openai.com/docs/api-reference"
   checks:
     - type: source_match
       result: pass
@@ -39,8 +39,8 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "비교 기준: API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지"
-        - "OpenAI Platform (https://platform.openai.com/docs/overview)"
-        - "API Overview (https://platform.openai.com/docs/api-reference)"
+        - "https://platform.openai.com/docs/overview (https://platform.openai.com/docs/overview)"
+        - "https://platform.openai.com/docs/api-reference (https://platform.openai.com/docs/api-reference)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

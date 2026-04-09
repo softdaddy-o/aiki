@@ -23,7 +23,7 @@ factCheck:
   sources:
     - url: "https://github.com/ggml-org/llama.cpp"
       title: "ggml-org/llama.cpp"
-    - url: "https://github.com/ggerganov/llama.cpp"
+    - url: "https://github.com/ggml-org/llama.cpp"
       title: "GitHub - ggml-org/llama.cpp: LLM inference in C/C++"
   checks:
     - type: source_match
@@ -40,7 +40,7 @@ factCheck:
       items:
         - "비교 기준: 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지"
         - "ggml-org/llama.cpp (https://github.com/ggml-org/llama.cpp)"
-        - "GitHub - ggml-org/llama.cpp: LLM inference in C/C++ (https://github.com/ggerganov/llama.cpp)"
+        - "GitHub - ggml-org/llama.cpp: LLM inference in C/C++ (https://github.com/ggml-org/llama.cpp)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

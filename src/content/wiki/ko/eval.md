@@ -20,7 +20,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/guides/evals"
-      title: "Working with evals | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/evals"
     - url: "https://huggingface.co/docs/evaluate/index"
       title: "Evaluate on the Hub · Hugging Face"
   checks:
@@ -37,7 +37,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "비교 기준: 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지"
-        - "Working with evals | OpenAI API (https://platform.openai.com/docs/guides/evals)"
+        - "https://platform.openai.com/docs/guides/evals (https://platform.openai.com/docs/guides/evals)"
         - "Evaluate on the Hub · Hugging Face (https://huggingface.co/docs/evaluate/index)"
     - type: number_verify
       result: pass
