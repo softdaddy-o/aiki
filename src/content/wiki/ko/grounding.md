@@ -32,32 +32,32 @@ factCheck:
       summary: "grounding을 모델 학습이 아니라 외부 근거 연결 기법으로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
         - "독자 문제 대조: 모델이 원래 더 똑똑한 경우와, 실행 시점에 외부 근거를 붙여 답변을 안정시키는 경우를 먼저 나눠 봐야 해."
-        - "원문 대조: Vertex AI 문서는 grounding을 모델 출력을 검증 가능한 소스와 연결하는 방식으로 설명해."
-        - "정체성 대조: fine-tuning이나 pretraining이 아니라 inference 시점의 연결 기법이라는 해석과 맞는다."
-        - "카테고리 대조: technique로 두고, 본문에서는 search 자체보다 evidence attachment 계층이라는 점을 먼저 잡았다."
+        - "원문을 보면 Vertex AI 문서는 grounding을 모델 출력을 검증 가능한 소스와 연결하는 방식으로 설명해."
+        - "정체성을 보면 fine-tuning이나 pretraining이 아니라 inference 시점의 연결 기법이라는 해석과 맞는다."
+        - "분류를 잡을 때는 technique로 두고, 본문에서는 search 자체보다 evidence attachment 계층이라는 점을 먼저 잡았다."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "Vertex와 Gemini 문서를 같이 놓고 grounding을 단순 검색 기능으로 축소하지 않았는지 다시 봤다."
       items:
-        - "비교 기준: 검색 API, RAG, grounding 가운데 어떤 것이 근거 연결 전체를 설명하는지 봐야 해."
-        - "교차검증: Vertex 문서는 Google Search, Vertex AI Search, RAG Engine, Maps, 외부 파트너 검색까지 여러 grounding 경로를 포괄해."
-        - "교차검증: Gemini 문서는 grounding 결과와 함께 citation, web search query, grounding metadata를 반환하는 흐름을 설명해."
-        - "해석 보정: 그래서 grounding은 검색 붙이기보다 넓고, RAG는 그 안의 한 구현 패턴으로 보는 편이 정확해."
+        - "여기서 먼저 갈라 볼 기준은 검색 API, RAG, grounding 가운데 어떤 것이 근거 연결 전체를 설명하는지 봐야 해."
+        - "공식 자료를 같이 보면 Vertex 문서는 Google Search, Vertex AI Search, RAG Engine, Maps, 외부 파트너 검색까지 여러 grounding 경로를 포괄해."
+        - "공식 자료를 같이 보면 Gemini 문서는 grounding 결과와 함께 citation, web search query, grounding metadata를 반환하는 흐름을 설명해."
+        - "그래서 해석할 때는 그래서 grounding은 검색 붙이기보다 넓고, RAG는 그 안의 한 구현 패턴으로 보는 편이 정확해."
     - type: number_verify
       result: pass
       summary: "문서에 직접 나오는 필드 이름과 단계 정보도 한 번 더 봤다."
       items:
         - "필드 검증: Gemini 문서는 groundingMetadata, groundingChunks, groundingSupports, webSearchQueries 같은 응답 필드를 예시로 보여 준다."
-        - "범위 검증: Vertex overview는 여러 grounding source 유형을 한 umbrella 개념 아래에서 다룬다."
-        - "명칭 검증: grounding은 retrieval 자체와 동의어가 아니라, 답변을 근거와 묶는 더 넓은 용어다."
+        - "범위를 다시 보면 Vertex overview는 여러 grounding source 유형을 한 umbrella 개념 아래에서 다룬다."
+        - "이름부터 다시 보면 grounding은 retrieval 자체와 동의어가 아니라, 답변을 근거와 묶는 더 넓은 용어다."
     - type: adversarial
       result: pass
       summary: "grounding을 설명할 때 자주 생기는 축소 해석을 어떻게 걸러야 하는지 의심해보고 정리했다."
       items:
-        - "비판적 검증: grounding은 RAG의 다른 이름이 아니다."
-        - "비판적 검증: grounding을 붙였다고 답변이 항상 사실이 되는 것은 아니고, 어떤 소스를 붙이느냐가 여전히 중요해."
-        - "비판적 검증: 더 좋은 모델을 쓰는 문제와, 외부 근거를 답변에 연결하는 문제는 층위가 다르다."
+        - "헷갈리기 쉬운 건 grounding은 RAG의 다른 이름이 아니다."
+        - "헷갈리기 쉬운 건 grounding을 붙였다고 답변이 항상 사실이 되는 것은 아니고, 어떤 소스를 붙이느냐가 여전히 중요해."
+        - "헷갈리기 쉬운 건 더 좋은 모델을 쓰는 문제와, 외부 근거를 답변에 연결하는 문제는 층위가 다르다."
       findings:
         - "grounding의 핵심은 모델 성능을 마법처럼 끌어올리는 데 있지 않고, 답변을 어떤 근거 체계에 묶을지 설계하는 데 있어."
 ---

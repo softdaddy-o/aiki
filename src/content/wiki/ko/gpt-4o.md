@@ -34,37 +34,37 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/GPT-4o"
       title: "GPT-4o"
     - url: "https://openai.com/index/hello-gpt-4o/"
-      title: "Hello GPT-4o"
+      title: "https://openai.com/index/hello-gpt-4o/"
   checks:
     - type: source_match
       result: pass
       summary: "원문에서 GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지"
-        - "모델명 대조: GPT-4o"
-        - "벤더 대조: OpenAI"
-        - "배포 유형 대조: version 모델 / 폐쇄형 API"
+        - "독자 문제 대조: GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지."
+        - "모델 이름부터 다시 보면 GPT-4o."
+        - "만든 쪽을 다시 보면 OpenAI."
+        - "배포 유형 대조: version 모델 / 폐쇄형 API."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "공식 소스 2건을 나란히 놓고 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지"
-        - "공식 소스 1: Introducing GPT-4o"
-        - "공식 소스 2: OpenAI API 모델 문서"
-        - "비교 확인: 멀티모달 입력 범위와 API 지원 범위가 두 소스에서 일치"
+        - "여기서 먼저 갈라 볼 기준은 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지."
+        - "공식 소스 1: Introducing GPT-4o."
+        - "공식 소스 2: OpenAI API 모델 문서."
+        - "비교 확인: 멀티모달 입력 범위와 API 지원 범위가 두 소스에서 일치."
     - type: number_verify
       result: pass
       summary: "숫자와 고유 명칭은 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다."
       items:
-        - "컨텍스트: 128K"
-        - "최대 출력: 16,384 토큰"
-        - "가격: 입력 $2.50 / 캐시 입력 $1.25 / 출력 $10.00 per 1M tokens"
+        - "컨텍스트: 128K."
+        - "최대 출력: 16,384 토큰."
+        - "가격: 입력 $2.50 / 캐시 입력 $1.25 / 출력 $10.00 per 1M tokens."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 GPT-4o를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지"
+        - "헷갈리지 않으려면 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지."
         - "오디오 입출력은 GPT-4o 기본 텍스트 모델과 별도 계열 문서로 분리해 읽어야 해."
       findings:
         - "오디오 입출력은 GPT-4o 기본 텍스트 모델과 별도 계열 문서로 분리해 읽어야 해."

@@ -18,32 +18,30 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다"
-        - "원문 제목 대조: Google Blog"
-        - "대표 출처 도메인: blog.google"
-        - "핵심 태그 축: gemini, google, model, developer-tools"
+        - "독자 문제 대조: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다\"이고, 원문 제목은 \"Google Blog\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 gemini, google, model, developer-tools로 읽었어."
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 출처 1건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
       items:
-        - "출처 1: Google Blog (https://blog.google/technology/ai/gemini-25-pro)"
+        - "비교 기준: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: Google Blog (https://blog.google/technology/ai/gemini-25-pro)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다"
-        - "수치 대조: Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API의 기본 선택지로 끌..."
-        - "수치 대조: 공개 프리뷰와 더 높은 사용 한도를 함께 밀면서, 100만 토큰급 장문 맥락 수요를 정면으로 받겠다는 신호다."
-        - "수치 대조: Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API에서 사실상 기본 모..."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 2.5, 100, 2026, 4 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - gemini

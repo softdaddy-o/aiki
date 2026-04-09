@@ -22,34 +22,32 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: 미국 데이터센터 절반이 지연 또는 취소 — 전력 인프라가 병목"
-        - "원문 제목 대조: Tom's Hardware"
-        - "대표 출처 도메인: tomshardware.com"
-        - "핵심 태그 축: 데이터센터, AI-인프라, 전력, 중국-부품"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"미국 데이터센터 절반이 지연 또는 취소 — 전력 인프라가 병목\"이고, 원문 제목은 \"Tom's Hardware\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 tomshardware.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 데이터센터, AI-인프라, 전력, 중국-부품로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: Tom's Hardware 보도 (https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)"
-        - "출처 2: Bloomberg 보도 (https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports)"
-        - "출처 3: Futurism 보도 (https://futurism.com/science-energy/data-centers-construction-supply)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: Tom's Hardware 보도 (https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)"
+        - "비교 출처 2: Bloomberg 보도 (https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports)"
+        - "비교 출처 3: Futurism 보도 (https://futurism.com/science-energy/data-centers-construction-supply)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: 2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다."
-        - "수치 대조: 변압기, 배전반 등 핵심 전기 부품의 리드타임이 최대 5년까지 늘어났고, 상당수가 중국산에 의존하고 있다."
-        - "수치 대조: ## 6500억 달러 투자인데 절반이 막혔대"
-        - "수치 대조: Alphabet, Amazon, Meta, Microsoft가 2026년 AI 인프라에 6,500억 달러 이상을 투입할 계획이거든."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 2026, 5, 6500, 6 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - 데이터센터

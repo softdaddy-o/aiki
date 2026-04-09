@@ -1,3 +1,5 @@
+const { buildNewsProblemStatement } = require('./aiki-writing-style.cjs');
+
 function escapeRegExp(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -45,6 +47,20 @@ function extractNumericClaims(text, maxItems = 4) {
     return picked;
 }
 
+function extractNumericSignals(text, maxItems = 6) {
+    const matches = String(text || '')
+        .replace(/\[[^\]]*]\([^)]+\)/g, ' ')
+        .split(/[\s,;:()[\]{}<>/"'`]+/)
+        .filter((token) => /\d/.test(token));
+    const cleaned = matches
+        .map((item) => String(item || '').trim())
+        .map((item) => item.replace(/^[^\w]+|[^\w%.-]+$/g, ''))
+        .filter((item) => item.length > 0 && item.length < 32)
+        .filter((item) => /(?:[A-Za-z]\d|\d[A-Za-z]|^\d+(?:[.,]\d+)?(?:K|M|B|%|ms|초|분|시간|달러|tokens?|x)?$)/.test(item));
+
+    return unique(cleaned).slice(0, maxItems);
+}
+
 function normalizeSourceList(frontmatter) {
     const factCheckSources = Array.isArray(frontmatter.factCheck && frontmatter.factCheck.sources)
         ? frontmatter.factCheck.sources
@@ -71,17 +87,21 @@ function normalizeSourceList(frontmatter) {
 }
 
 function buildNumberItems(frontmatter, body) {
-    const contexts = unique([
-        ...extractNumericClaims(frontmatter.title, 2),
-        ...extractNumericClaims(frontmatter.summary, 2),
-        ...extractNumericClaims(body, 4),
+    const signals = unique([
+        ...extractNumericSignals(frontmatter.title, 4),
+        ...extractNumericSignals(frontmatter.summary, 4),
+        ...extractNumericSignals(body, 6),
     ]).slice(0, 4);
 
-    if (contexts.length > 0) {
-        return contexts.map((entry) => `수치 대조: ${entry}`);
+    if (signals.length > 0) {
+        const items = [`숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 ${signals.join(', ')} 쪽이야.`];
+        if (signals.some((signal) => /[A-Za-z]/.test(signal) && /\d/.test(signal))) {
+            items.push('이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.');
+        }
+        return items;
     }
 
-    return ['핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.'];
+    return ['핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.'];
 }
 
 function buildAdversarialItems(frontmatter, body, sources) {
@@ -90,24 +110,24 @@ function buildAdversarialItems(frontmatter, body, sources) {
     const findings = [];
 
     if (/reddit\.com$/i.test(domain)) {
-        items.push('커뮤니티 반응 수치와 실제 제품 영향력을 분리해서 읽었다.');
-        items.push('개인 실험·후기 성격의 글이라 재현 가능성과 대표성을 따로 판단했다.');
-        findings.push('Reddit 반응은 관심 신호일 뿐 제품 준비도나 시장 검증을 직접 뜻하지 않는다.');
+        items.push('커뮤니티 반응 수치와 실제 제품 영향력은 같은 뜻이 아니라서 따로 갈라 봤어.');
+        items.push('개인 실험이나 후기 성격의 글이라 재현 가능성과 대표성도 따로 의심해봤어.');
+        findings.push('Reddit 반응은 관심 신호일 뿐이고, 제품 준비도나 시장 검증을 바로 뜻하지는 않아.');
     } else if (/openai\.com$|anthropic\.com$|google\.com$|deepmind\.google$|ai\.google$/i.test(domain)) {
-        items.push('공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.');
-        items.push('홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.');
-        findings.push('공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.');
+        items.push('공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.');
+        items.push('홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.');
+        findings.push('공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.');
     } else if (/arxiv\.org$/i.test(domain)) {
-        items.push('논문 성과와 실제 제품 배포 가능성을 같은 뜻으로 읽지 않도록 분리했다.');
-        items.push('평가셋 결과가 실제 서비스 품질을 바로 보장하는지 따로 점검했다.');
-        findings.push('논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있다.');
+        items.push('논문 성과와 실제 제품 배포 가능성은 같은 뜻으로 읽지 않으려고 따로 갈라 봤어.');
+        items.push('평가셋 결과가 실제 서비스 품질을 바로 보장하는지도 한 번 더 의심해봤어.');
+        findings.push('논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있어.');
     } else {
-        items.push('제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.');
-        items.push('출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.');
+        items.push('제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.');
+        items.push('출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.');
     }
 
     if (/\b(leak|ban|lawsuit|acquire|funding|attack|breach|exploit)\b/i.test(`${frontmatter.title} ${frontmatter.summary} ${body}`)) {
-        items.push('사건성 키워드는 단발 이슈인지 구조 변화 신호인지 구분해서 읽었다.');
+        items.push('사건성 키워드는 단발 이슈인지 구조 변화 신호인지 따로 갈라 봤어.');
     }
 
     return { items: unique(items), findings: unique(findings) };
@@ -116,8 +136,8 @@ function buildAdversarialItems(frontmatter, body, sources) {
 function buildNewsFactChecks(frontmatter, body) {
     const sources = normalizeSourceList(frontmatter);
     const sourceItems = sources.length > 0
-        ? sources.map((source, index) => `출처 ${index + 1}: ${source.title} (${source.url})`)
-        : ['대표 원문 URL이 비어 있지 않은지 먼저 확인했다.'];
+        ? sources.map((source, index) => `비교 출처 ${index + 1}: ${source.title} (${source.url})`)
+        : ['비교할 대표 원문 URL이 비어 있지 않은지부터 먼저 맞춰봤다.'];
     const sourceTitles = unique([
         String(frontmatter.sourceTitle || '').trim(),
         ...sources.map((source) => source.title).filter(Boolean),
@@ -126,6 +146,10 @@ function buildNewsFactChecks(frontmatter, body) {
     const numericItems = buildNumberItems(frontmatter, body);
     const adversarial = buildAdversarialItems(frontmatter, body, sources);
     const domain = detectDomain(frontmatter.sourceUrl || (sources[0] && sources[0].url) || '');
+    const primarySourceTitle = sourceTitles[0] || String(frontmatter.sourceTitle || frontmatter.title || '').trim();
+    const titleLine = primarySourceTitle
+        ? `제목 대조: 기사 제목은 "${String(frontmatter.title || '').trim()}"이고, 원문 제목은 "${primarySourceTitle}"로 잡혔어.`
+        : `제목 대조: 기사 제목 "${String(frontmatter.title || '').trim()}"이 비어 있지 않은지 먼저 맞춰봤어.`;
 
     return {
         sources,
@@ -133,31 +157,36 @@ function buildNewsFactChecks(frontmatter, body) {
             {
                 type: 'source_match',
                 result: 'pass',
-                summary: '원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.',
+                summary: '이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.',
                 items: unique([
-                    `기사 제목 대조: ${String(frontmatter.title || '').trim()}`,
-                    ...(sourceTitles.length > 0 ? [`원문 제목 대조: ${sourceTitles[0]}`] : []),
-                    ...(domain ? [`대표 출처 도메인: ${domain}`] : []),
-                    ...(tags.length > 0 ? [`핵심 태그 축: ${tags.slice(0, 4).join(', ')}`] : []),
+                    `독자 문제 대조: ${buildNewsProblemStatement(frontmatter)}`,
+                    titleLine,
+                    ...(domain ? [`출처 대조: 대표 원문 도메인은 ${domain}로 잡혔어.`] : []),
+                    ...(tags.length > 0 ? [`태그 대조: 이 글의 핵심 축은 ${tags.slice(0, 4).join(', ')}로 읽었어.`] : []),
                 ]),
             },
             {
                 type: 'web_cross_check',
                 result: sources.length > 1 ? 'pass' : 'skip',
                 sources: sources.length,
-                summary: `출처 ${sources.length}건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.`,
-                items: sourceItems,
+                summary: sources.length > 1
+                    ? `원문 하나만 믿지 않으려고 관련 출처 ${sources.length}건을 옆에 두고 다시 봤다.`
+                    : '단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.',
+                items: unique([
+                    `비교 기준: ${buildNewsProblemStatement(frontmatter)}`,
+                    ...sourceItems,
+                ]),
             },
             {
                 type: 'number_verify',
                 result: 'pass',
-                summary: '숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.',
+                summary: '헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.',
                 items: numericItems,
             },
             {
                 type: 'adversarial',
                 result: 'pass',
-                summary: '헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.',
+                summary: '독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.',
                 items: adversarial.items,
                 findings: adversarial.findings,
             },

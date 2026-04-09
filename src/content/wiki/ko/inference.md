@@ -25,38 +25,38 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "Bảng thuật ngữ máy học
+      title: "อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "용어명 대조: Inference"
-        - "분류 대조: 개념"
+        - "독자 문제 대조: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지."
+        - "이름을 다시 보면 Inference로 잡혀."
+        - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "Bảng thuật ngữ máy học
+        - "여기서 먼저 갈라 볼 기준은 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
+        - "비교 출처 1: Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
+        - "비교 출처 2: อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
-        - "선택 기준 대조: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "명칭 대조: Inference"
-        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
+        - "숫자보다 먼저 갈라 볼 기준은 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
+        - "이름부터 다시 보면 Inference로 고정돼."
+        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 선택 포인트는 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
+        - "헷갈리지 않으려면 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 먼저 잡아야 해."
+        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
       findings:
         - "이 페이지는 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
@@ -65,7 +65,7 @@ Inference는 이미 학습된 모델에 프롬프트나 데이터를 넣고, 그
 ## 어떻게 작동하나
 학습이 모델을 만드는 단계라면, inference는 그 모델을 실제 서비스에서 돌리는 단계다. 사용자가 질문을 보냈을 때 토큰을 생성하고, 이미지 요청을 받았을 때 결과를 내놓는 일이 전부 여기에 해당해.
 
-실무에서는 정확도 못지않게 inference 속도, 지연, GPU 메모리, 배치 처리 효율이 중요해. 같은 모델도 inference 스택이 달라지면 운영비와 사용자 경험이 크게 달라져.
+실무에선 정확도 못지않게 inference 속도, 지연, GPU 메모리, 배치 처리 효율이 중요해. 같은 모델도 inference 스택이 달라지면 운영비와 사용자 경험이 크게 달라져.
 ## 왜 중요한가
 모델 출시 뉴스와 실제 서비스 운영 뉴스는 종종 다른 문제를 다룬다. Inference를 이해하면 "모델이 좋다"와 "서비스에 싸고 빠르게 올릴 수 있다"를 분리해서 볼 수 있어.
 ## 관련 용어

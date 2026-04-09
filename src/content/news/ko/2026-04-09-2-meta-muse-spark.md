@@ -22,35 +22,33 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: Meta의 오픈소스 전략이 바뀌었다 — Muse Spark 공개"
-        - "원문 제목 대조: TechCrunch: Meta Muse Spark"
-        - "대표 출처 도메인: techcrunch.com"
-        - "핵심 태그 축: Meta, Muse Spark, AI모델, 오픈소스"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"Meta의 오픈소스 전략이 바뀌었다 — Muse Spark 공개\"이고, 원문 제목은 \"TechCrunch: Meta Muse Spark\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 techcrunch.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 Meta, Muse Spark, AI모델, 오픈소스로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: TechCrunch (https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/)"
-        - "출처 2: Bloomberg (https://www.bloomberg.com/news/articles/2026-04-08/meta-debuts-first-ai-model-from-prized-superintelligence-group)"
-        - "출처 3: CNBC (https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: TechCrunch (https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/)"
+        - "비교 출처 2: Bloomberg (https://www.bloomberg.com/news/articles/2026-04-08/meta-debuts-first-ai-model-from-prized-superintelligence-group)"
+        - "비교 출처 3: CNBC (https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: Llama로 대표되던 오픈소스 전략을 뒤집고 클로즈드 모델로 출시, 전 세계 30억 명의 Meta 앱에 탑재할 예정이다."
-        - "수치 대조: Meta Superintelligence Labs의 첫 모델 [Muse Spark](https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark..."
-        - "수치 대조: 9개월 전 영입한 Alexandr Wang이 이끄는 팀의 작품이고, 코드명은 Avocado였다고."
-        - "수치 대조: 모델은 속도 모드와 깊은 추론을 위한 Contemplating mode를 이중으로 갖췄고, 의사 1,000명과 협력해 건강 관련 추론 능력을 키웠대."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 30, 9, 1, 000 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
-        - 사건성 키워드는 단발 이슈인지 구조 변화 신호인지 구분해서 읽었다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
+        - 사건성 키워드는 단발 이슈인지 구조 변화 신호인지 따로 갈라 봤어.
       findings: []
 tags:
   - Meta

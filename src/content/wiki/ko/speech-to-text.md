@@ -24,36 +24,36 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Speech_recognition"
       title: "Speech recognition"
     - url: "https://platform.openai.com/docs/guides/speech-to-text"
-      title: "Speech to text | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/speech-to-text"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지"
-        - "용어명 대조: Speech to Text"
-        - "분류 대조: 기법"
+        - "독자 문제 대조: 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지."
+        - "이름을 다시 보면 Speech to Text로 잡혀."
+        - "분류를 다시 보면 기법로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지"
-        - "Speech recognition (https://en.wikipedia.org/wiki/Speech_recognition)"
-        - "Speech to text | OpenAI API (https://platform.openai.com/docs/guides/speech-to-text)"
+        - "여기서 먼저 갈라 볼 기준은 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지야."
+        - "비교 출처 1: Speech recognition (https://en.wikipedia.org/wiki/Speech_recognition)"
+        - "비교 출처 2: https://platform.openai.com/docs/guides/speech-to-text (https://platform.openai.com/docs/guides/speech-to-text)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
-        - "선택 기준 대조: 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지"
-        - "명칭 대조: Speech to Text"
-        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
+        - "숫자보다 먼저 갈라 볼 기준은 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지야."
+        - "이름부터 다시 보면 Speech to Text로 고정돼."
+        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 선택 포인트는 음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지"
-        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
+        - "헷갈리지 않으려면 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지부터 먼저 잡아야 해."
+        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
       findings:
         - "음성 기능 전체를 한 덩어리로 보면 인식과 합성의 병목이 어디서 갈리는지 놓치기 쉬워."
 ---

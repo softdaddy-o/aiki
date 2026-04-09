@@ -32,32 +32,32 @@ factCheck:
       summary: "Ollama를 로컬 추론 런타임으로 설명하는 게 맞는지부터 먼저 맞춰봤다."
       items:
         - "독자 문제 대조: 로컬 AI를 쓸 때 채팅 UI가 필요한지, 실제 모델 런타임과 API 계층이 필요한지부터 갈라 봐야 해."
-        - "원문 대조: API introduction은 기본 로컬 엔드포인트를 http://localhost:11434/api 로 안내해."
-        - "정체성 대조: 그래서 Ollama는 모델 파일과 앱 사이에 놓이는 실행 계층으로 읽는 편이 맞아."
-        - "카테고리 대조: tool로 두되, 채팅 앱이 아니라 local serving runtime이라는 위치를 본문에서 먼저 잡았다."
+        - "원문을 보면 API introduction은 기본 로컬 엔드포인트를 http://localhost:11434/api 로 안내해."
+        - "정체성을 보면 그래서 Ollama는 모델 파일과 앱 사이에 놓이는 실행 계층으로 읽는 편이 맞아."
+        - "분류를 잡을 때는 tool로 두되, 채팅 앱이 아니라 local serving runtime이라는 위치를 본문에서 먼저 잡았다."
     - type: web_cross_check
       result: pass
       sources: 3
       summary: "API, import, quickstart 문서를 같이 놓고 Ollama 범위를 과장하거나 축소하지 않았는지 다시 봤다."
       items:
-        - "비교 기준: 데스크톱 UI, 저수준 엔진, 고처리량 서버 스택 사이에서 Ollama가 어느 층에 놓이는지 봐야 해."
-        - "교차검증: quickstart는 macOS, Linux, Windows 설치 흐름을 모두 제공해."
-        - "교차검증: import 문서는 GGUF와 Safetensors 계열 모델을 Modelfile로 가져오는 흐름을 설명해."
-        - "교차검증: API 문서는 로컬 API뿐 아니라 cloud endpoint인 https://ollama.com/api 도 함께 안내해."
+        - "여기서 먼저 갈라 볼 기준은 데스크톱 UI, 저수준 엔진, 고처리량 서버 스택 사이에서 Ollama가 어느 층에 놓이는지 봐야 해."
+        - "공식 자료를 같이 보면 quickstart는 macOS, Linux, Windows 설치 흐름을 모두 제공해."
+        - "공식 자료를 같이 보면 import 문서는 GGUF와 Safetensors 계열 모델을 Modelfile로 가져오는 흐름을 설명해."
+        - "공식 자료를 같이 보면 API 문서는 로컬 API뿐 아니라 cloud endpoint인 https://ollama.com/api 도 함께 안내해."
     - type: number_verify
       result: pass
       summary: "운영 판단에 직접 걸리는 이름과 엔드포인트, 양자화 표현도 한 번 더 봤다."
       items:
-        - "명칭 검증: 제품명은 Ollama이고, llama.cpp나 LM Studio와 같은 별도 프로젝트와 구분돼."
+        - "이름부터 다시 보면 제품명은 Ollama이고, llama.cpp나 LM Studio와 같은 별도 프로젝트와 구분돼."
         - "엔드포인트 검증: 기본 로컬 API 주소는 http://localhost:11434/api 다."
         - "양자화 검증: import 문서는 q4_K_M 같은 quantization 지정 예시를 포함해."
     - type: adversarial
       result: pass
       summary: "로컬 AI 글에서 자주 섞이는 오해를 어떻게 걸러야 하는지 의심해보고 정리했다."
       items:
-        - "비판적 검증: Ollama는 모델 자체가 아니다. 모델을 내려받고 실행하는 런타임이야."
-        - "비판적 검증: LM Studio 같은 데스크톱 UI와 달리, Ollama의 핵심은 API로 로컬 모델을 노출하는 데 있어."
-        - "비판적 검증: vLLM처럼 대규모 고처리량 서빙을 기본 목표로 한 서버 스택과도 역할이 다르다."
+        - "헷갈리기 쉬운 건 Ollama는 모델 자체가 아니다. 모델을 내려받고 실행하는 런타임이야."
+        - "헷갈리기 쉬운 건 LM Studio 같은 데스크톱 UI와 달리, Ollama의 핵심은 API로 로컬 모델을 노출하는 데 있어."
+        - "헷갈리기 쉬운 건 vLLM처럼 대규모 고처리량 서빙을 기본 목표로 한 서버 스택과도 역할이 다르다."
       findings:
         - "Ollama를 이해할 때 핵심은 로컬에서 바로 돌릴 수 있느냐보다, 앱이 붙을 수 있는 API 계층을 로컬에 만드느냐에 있어."
 ---

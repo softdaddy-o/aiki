@@ -31,30 +31,30 @@ factCheck:
       result: pass
       summary: "이 페이지를 검색 품질이 모델 답변보다 먼저 갈리고 있는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 검색 품질이 모델 답변보다 먼저 갈리고 있는지"
-        - "용어명 대조: Embedding"
-        - "분류 대조: 개념"
+        - "독자 문제 대조: 검색 품질이 모델 답변보다 먼저 갈리고 있는지."
+        - "이름을 다시 보면 Embedding로 잡혀."
+        - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지"
-        - "Word embedding (https://en.wikipedia.org/wiki/Word_embedding)"
-        - "Vector embeddings | OpenAI API (https://platform.openai.com/docs/guides/embeddings)"
+        - "여기서 먼저 갈라 볼 기준은 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지야."
+        - "비교 출처 1: Word embedding (https://en.wikipedia.org/wiki/Word_embedding)"
+        - "비교 출처 2: Vector embeddings | OpenAI API (https://platform.openai.com/docs/guides/embeddings)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
-        - "선택 기준 대조: 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지"
-        - "명칭 대조: Embedding"
-        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
+        - "숫자보다 먼저 갈라 볼 기준은 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지야."
+        - "이름부터 다시 보면 Embedding로 고정돼."
+        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 선택 포인트는 검색 품질이 모델 답변보다 먼저 갈리고 있는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지"
-        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
+        - "헷갈리지 않으려면 임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지부터 먼저 잡아야 해."
+        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
       findings:
         - "임베딩 품질 문제를 LLM 답변 문제로 착각하면 검색 단계 병목을 놓치기 쉬워."
 ---

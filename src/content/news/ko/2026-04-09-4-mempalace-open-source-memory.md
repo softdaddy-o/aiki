@@ -22,34 +22,32 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: 배우가 만든 AI 메모리 툴 — MemPalace, 유료 경쟁자 제쳤다"
-        - "원문 제목 대조: GitHub: MemPalace"
-        - "대표 출처 도메인: github.com"
-        - "핵심 태그 축: 오픈소스, AI메모리, MemPalace, 로컬AI"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"배우가 만든 AI 메모리 툴 — MemPalace, 유료 경쟁자 제쳤다\"이고, 원문 제목은 \"GitHub: MemPalace\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 github.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 오픈소스, AI메모리, MemPalace, 로컬AI로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: GitHub MemPalace (https://github.com/milla-jovovich/mempalace)"
-        - "출처 2: Cybernews (https://cybernews.com/ai-news/milla-jovovich-mempalace-memory-tool/)"
-        - "출처 3: MemPalace 공식 사이트 (https://www.mempalace.tech/)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: GitHub MemPalace (https://github.com/milla-jovovich/mempalace)"
+        - "비교 출처 2: Cybernews (https://cybernews.com/ai-news/milla-jovovich-mempalace-memory-tool/)"
+        - "비교 출처 3: MemPalace 공식 사이트 (https://www.mempalace.tech/)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: 밀라 요보비치와 개발자 Ben Sigman이 만든 오픈소스 AI 메모리 시스템 MemPalace가 출시 3일 만에 GitHub 스타 23,000개를 넘겼다."
-        - "수치 대조: LongMemEval 96.6% 달성, 유료 경쟁 제품보다 높다."
-        - "수치 대조: 4월 6일에 나온 [MemPalace](https://github.com/milla-jovovich/mempalace)가 3일 만에 GitHub 스타 23,000개를 넘겼어."
-        - "수치 대조: LongMemEval 벤치마크에서 96.6%(raw 기준)를 달성했고, 월 $19~249짜리 Mem0나 $25+짜리 Zep보다 점수가 높아."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 3, 23, 000, 96.6% 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - 오픈소스

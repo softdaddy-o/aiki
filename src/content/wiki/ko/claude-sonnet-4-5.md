@@ -41,31 +41,31 @@ factCheck:
       result: pass
       summary: "원문에서 Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지"
-        - "모델명 대조: Claude Sonnet 4.5"
-        - "벤더 대조: Anthropic"
-        - "배포 유형 대조: version 모델 / 폐쇄형 API"
+        - "독자 문제 대조: Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지."
+        - "모델 이름부터 다시 보면 Claude Sonnet 4.5."
+        - "만든 쪽을 다시 보면 Anthropic."
+        - "배포 유형 대조: version 모델 / 폐쇄형 API."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "공식 소스 2건을 나란히 놓고 코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지"
-        - "공식 소스 1: Introducing Claude Sonnet 4.5"
-        - "공식 소스 2: Claude models overview"
-        - "비교 확인: Sonnet 라인업 내 위치와 배포 채널 설명이 두 소스에서 일치"
+        - "여기서 먼저 갈라 볼 기준은 코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지."
+        - "공식 소스 1: Introducing Claude Sonnet 4.5."
+        - "공식 소스 2: Claude models overview."
+        - "비교 확인: Sonnet 라인업 내 위치와 배포 채널 설명이 두 소스에서 일치."
     - type: number_verify
       result: pass
       summary: "숫자와 고유 명칭은 코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다."
       items:
-        - "컨텍스트: 200K 계열"
-        - "가격: 입력 $3 / 출력 $15 per 1M tokens"
-        - "채널: Claude API / AWS Bedrock / Vertex AI"
+        - "컨텍스트: 200K 계열."
+        - "가격: 입력 $3 / 출력 $15 per 1M tokens."
+        - "채널: Claude API / AWS Bedrock / Vertex AI."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 Claude Sonnet 4.5를 코드 작업과 에이전트 자동화에 붙여도 되는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지"
+        - "헷갈리지 않으려면 코드 이해력, 도구 호출, 장문 컨텍스트 유지 중 무엇이 핵심인지."
         - "활성 파라미터 수는 공개되지 않아 벤치마크 기사에서 추정 수치를 사실처럼 쓰면 안 돼."
       findings:
         - "활성 파라미터 수는 공개되지 않아 벤치마크 기사에서 추정 수치를 사실처럼 쓰면 안 돼."

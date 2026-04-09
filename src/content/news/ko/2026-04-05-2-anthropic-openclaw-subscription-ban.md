@@ -22,34 +22,32 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: Anthropic Claude 구독으로 OpenClaw 사용 막았어 — 서드파티 에이전트 일괄 제한"
-        - "원문 제목 대조: VentureBeat"
-        - "대표 출처 도메인: venturebeat.com"
-        - "핵심 태그 축: anthropic, claude, openclaw, pricing"
+        - "독자 문제 대조: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"Anthropic Claude 구독으로 OpenClaw 사용 막았어 — 서드파티 에이전트 일괄 제한\"이고, 원문 제목은 \"VentureBeat\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 venturebeat.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 anthropic, claude, openclaw, pricing로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: VentureBeat — Anthropic cuts off Claude subscriptions with OpenClaw (https://venturebeat.com/technology/anthropic-cuts-off-the-ability-to-use-claude-subscriptions-with-openclaw-and)"
-        - "출처 2: TNW — Anthropic blocks OpenClaw from Claude subscriptions (https://thenextweb.com/news/anthropic-openclaw-claude-subscription-ban-cost)"
-        - "출처 3: Hacker News discussion (https://news.ycombinator.com/item?id=47633396)"
+        - "비교 기준: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: VentureBeat — Anthropic cuts off Claude subscriptions with OpenClaw (https://venturebeat.com/technology/anthropic-cuts-off-the-ability-to-use-claude-subscriptions-with-openclaw-and)"
+        - "비교 출처 2: TNW — Anthropic blocks OpenClaw from Claude subscriptions (https://thenextweb.com/news/anthropic-openclaw-claude-subscription-ban-cost)"
+        - "비교 출처 3: Hacker News discussion (https://news.ycombinator.com/item?id=47633396)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: 4월 4일부터 Claude Pro/Max 구독자는 OpenClaw 같은 서드파티 에이전트 도구에서 구독을 못 써."
-        - "수치 대조: API 종량제 전환이 필수고, 일부 사용자는 월 비용이 최대 50배까지 오를 수 있어."
-        - "수치 대조: Anthropic이 4월 4일(미국 시간 정오)부터 Claude Pro랑 Max 구독을 서드파티 에이전트 도구에서 못 쓰게 막았어."
-        - "수치 대조: 당시 13.5만 개 이상의 OpenClaw 인스턴스가 돌아가고 있었는데, 월정액 구독자가 API 요금 대비 5배 이상 싸게 대규모 에이전트 작업을 돌리고 있었어."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 4, 50, 13.5, 5 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - anthropic

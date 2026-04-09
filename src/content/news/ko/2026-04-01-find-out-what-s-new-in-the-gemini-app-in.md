@@ -20,31 +20,31 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: 3월 Gemini Drop에서 Gemini 앱의 새로운 기능을 알아보세요."
-        - "원문 제목 대조: Find out what’s new in the Gemini app in March&#x27;s Gemini Drop."
-        - "대표 출처 도메인: blog.google"
-        - "핵심 태그 축: gemini, google, consumer-ai, personalization"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"3월 Gemini Drop에서 Gemini 앱의 새로운 기능을 알아보세요.\"이고, 원문 제목은 \"Find out what’s new in the Gemini app in March&#x27;s Gemini Drop.\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 gemini, google, consumer-ai, personalization로 읽었어."
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 출처 1건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
       items:
-        - "출처 1: blog.google (https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: blog.google (https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: 3월 Gemini Drop에서 Gemini 앱의 새로운 기능을 알아보세요."
-        - "수치 대조: Gemini Drops는 Gemini 앱을 최대한 활용하는 방법에 대한 정기적인 월간 업데이트입니다 [원문](https://blog.google/innovation-and-ai/products..."
-        - "수치 대조: 3월 Gemini Drop에서 Gemini 앱의 새로운 기능을 알아보세요., Gemini Drops는 Gemini…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바..."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 3, March&#x27 쪽이야."
+        - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - gemini

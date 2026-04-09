@@ -22,34 +22,33 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스"
-        - "원문 제목 대조: Google Blog"
-        - "대표 출처 도메인: blog.google"
-        - "핵심 태그 축: google, gemma-4, open-model, deepmind"
+        - "독자 문제 대조: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스\"이고, 원문 제목은 \"Google Blog\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 blog.google로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 google, gemma-4, open-model, deepmind로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: Google Blog — Gemma 4 announcement (https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)"
-        - "출처 2: Google DeepMind — Gemma 4 model page (https://deepmind.google/models/gemma/gemma-4/)"
-        - "출처 3: Google Developers Blog — Gemma 4 on edge (https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)"
+        - "비교 기준: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
+        - "비교 출처 1: Google Blog — Gemma 4 announcement (https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)"
+        - "비교 출처 2: Google DeepMind — Gemma 4 model page (https://deepmind.google/models/gemma/gemma-4/)"
+        - "비교 출처 3: Google Developers Blog — Gemma 4 on edge (https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스"
-        - "수치 대조: Google DeepMind이 Gemini 3 기반 오픈 모델 Gemma 4를 Apache 2.0으로 공개했어."
-        - "수치 대조: 31B Dense 모델이 Arena AI 텍스트 리더보드 오픈 모델 3위, MMLU Pro 85.2%, Codeforces ELO 2150을 기록했어."
-        - "수치 대조: Google DeepMind이 4월 2일 Gemma 4를 공개했어."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 4, 3, 2.0, 31B 쪽이야."
+        - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - google

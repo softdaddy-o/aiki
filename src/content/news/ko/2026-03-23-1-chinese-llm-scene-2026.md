@@ -24,33 +24,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: 중국 LLM 진영의 현재 구도 정리"
-        - "원문 제목 대조: Reddit r/LocalLLaMA"
-        - "대표 출처 도메인: reddit.com"
-        - "핵심 태그 축: china-ai, llm, bytedance, doubao"
+        - "독자 문제 대조: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"중국 LLM 진영의 현재 구도 정리\"이고, 원문 제목은 \"Reddit r/LocalLLaMA\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 reddit.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 china-ai, llm, bytedance, doubao로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: China's LLM Landscape in 2026 (https://merchmindai.net/blog/en/post/china-llm-landscape-2026)"
-        - "출처 2: Doubao vs DeepSeek: Who Leads China's AI Chatbot Race in 2026 (https://www.secondtalent.com/resources/doubao-vs-deepseek/)"
-        - "출처 3: China LLM Deep Dive (2026.02) (https://robonomics.substack.com/p/china-llm-deep-dive-202602)"
+        - "비교 기준: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 먼저 갈라 봐야 해."
+        - "비교 출처 1: China's LLM Landscape in 2026 (https://merchmindai.net/blog/en/post/china-llm-landscape-2026)"
+        - "비교 출처 2: Doubao vs DeepSeek: Who Leads China's AI Chatbot Race in 2026 (https://www.secondtalent.com/resources/doubao-vs-deepseek/)"
+        - "비교 출처 3: China LLM Deep Dive (2026.02) (https://robonomics.substack.com/p/china-llm-deep-dive-202602)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: ByteDance, Alibaba, Tencent, Baidu 등 주요 플레이어의 위치를 한 번에 훑게 해준다 [원문](https://www.reddit.com/r/LocalLLaMA/comm..."
+        - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 커뮤니티 반응 수치와 실제 제품 영향력을 분리해서 읽었다.
-        - 개인 실험·후기 성격의 글이라 재현 가능성과 대표성을 따로 판단했다.
+        - 커뮤니티 반응 수치와 실제 제품 영향력은 같은 뜻이 아니라서 따로 갈라 봤어.
+        - 개인 실험이나 후기 성격의 글이라 재현 가능성과 대표성도 따로 의심해봤어.
       findings:
-        - Reddit 반응은 관심 신호일 뿐 제품 준비도나 시장 검증을 직접 뜻하지 않는다.
+        - Reddit 반응은 관심 신호일 뿐이고, 제품 준비도나 시장 검증을 바로 뜻하지는 않아.
 tags:
   - china-ai
   - llm

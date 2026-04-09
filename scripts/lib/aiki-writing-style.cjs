@@ -127,6 +127,10 @@ function focusFromNews(frontmatter) {
     return '이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지';
 }
 
+function buildNewsProblemStatement(frontmatter) {
+    return `${focusFromNews(frontmatter)} 먼저 갈라 봐야 해.`;
+}
+
 function buildNewsReaderValue(frontmatter, fileName = '') {
     const slug = slugFromFileName(fileName);
     const summary = trimSentence(frontmatter.summary);
@@ -262,9 +266,11 @@ function buildNewsTitle(frontmatter, fileName = '') {
 }
 
 module.exports = {
+    buildNewsProblemStatement,
     buildNewsReaderValue,
     buildNewsTitle,
     buildWikiReaderValue,
+    focusFromNews,
     isBadNewsReaderValue,
     isBadNewsTitle,
     normalizeText,

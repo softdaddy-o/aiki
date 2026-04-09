@@ -20,33 +20,32 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험"
-        - "원문 제목 대조: Hugging Face / arXiv"
-        - "대표 출처 도메인: huggingface.co"
-        - "핵심 태그 축: llm, pretraining, open-model, hugging-face"
+        - "독자 문제 대조: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험\"이고, 원문 제목은 \"Hugging Face / arXiv\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 huggingface.co로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 llm, pretraining, open-model, hugging-face로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: Hugging Face model card (https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)"
-        - "출처 2: arXiv: daVinci-LLM: Towards the Science of Pretraining (https://arxiv.org/abs/2603.27164)"
+        - "비교 기준: 이 모델이 화제성 공개인지 실제 배포 후보인지 먼저 갈라 봐야 해."
+        - "비교 출처 1: Hugging Face model card (https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)"
+        - "비교 출처 2: arXiv: daVinci-LLM: Towards the Science of Pretraining (https://arxiv.org/abs/2603.27164)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: daVinci-LLM-3B, 3B 모델로 7B급 성능에 근접한 공개 사전학습 실험"
-        - "수치 대조: SII-GAIR가 daVinci-LLM-3B를 공개했다."
-        - "수치 대조: 3.09B 파라미터 모델인데도 19개 벤치 평균 51.72로 OLMo-3 7B와 비슷한 수준을 보였고, 가중치만이 아니라 8T 토큰 학습 과정과 200개 넘는 ablation 결과까지 함께 공..."
-        - "수치 대조: [daVinci-LLM-3B](https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)는 그 빈칸을 메우겠다고 나온 쪽에 가까워."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 daVinci-LLM-3B, 3B, 7B, 3.09B 쪽이야."
+        - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - llm

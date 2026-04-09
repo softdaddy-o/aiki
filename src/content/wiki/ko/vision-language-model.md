@@ -30,30 +30,30 @@ factCheck:
       result: pass
       summary: "이 페이지를 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지"
-        - "용어명 대조: Vision-Language Model"
-        - "분류 대조: 개념"
+        - "독자 문제 대조: 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지."
+        - "이름을 다시 보면 Vision-Language Model로 잡혀."
+        - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지"
-        - "Multimodal learning (https://en.wikipedia.org/wiki/Multimodal_learning)"
-        - "What is Image-Text-to-Text? - Hugging Face (https://huggingface.co/tasks/image-text-to-text)"
+        - "여기서 먼저 갈라 볼 기준은 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지야."
+        - "비교 출처 1: Multimodal learning (https://en.wikipedia.org/wiki/Multimodal_learning)"
+        - "비교 출처 2: What is Image-Text-to-Text? - Hugging Face (https://huggingface.co/tasks/image-text-to-text)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
       items:
-        - "선택 기준 대조: 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지"
-        - "명칭 대조: Vision-Language Model"
-        - "고정 스펙이 적은 항목이라 숫자 대신 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤다."
+        - "숫자보다 먼저 갈라 볼 기준은 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지야."
+        - "이름부터 다시 보면 Vision-Language Model로 고정돼."
+        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 선택 포인트는 이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지"
-        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
+        - "헷갈리지 않으려면 이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지부터 먼저 잡아야 해."
+        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
       findings:
         - "이미지 이해 모델과 이미지 생성 모델을 같은 축으로 읽으면 제품 기능을 잘못 짚기 쉬워."
 ---

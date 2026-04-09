@@ -23,34 +23,33 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: GPT-2 공개, 생성형 AI 배포 기준의 변화"
-        - "원문 제목 대조: GPT-2"
-        - "대표 출처 도메인: openai.com"
-        - "핵심 태그 축: gpt-2, openai, language-model"
+        - "독자 문제 대조: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"GPT-2 공개, 생성형 AI 배포 기준의 변화\"이고, 원문 제목은 \"GPT-2\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 openai.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 gpt-2, openai, language-model로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: GPT-2 (https://openai.com/index/better-language-models/)"
-        - "출처 2: Secondary source (https://en.wikipedia.org/wiki/GPT-2)"
+        - "비교 기준: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: GPT-2 (https://openai.com/index/better-language-models/)"
+        - "비교 출처 2: Secondary source (https://en.wikipedia.org/wiki/GPT-2)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: GPT-2 공개, 생성형 AI 배포 기준의 변화"
-        - "수치 대조: [공식 발표](https://openai.com/index/better-language-models/)와 [보조 자료](https://en.wikipedia.org/wiki/GPT-2)를 같이..."
-        - "수치 대조: GPT-2 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야."
+        - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
-        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.
+        - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.
       findings:
-        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.
 tags:
   - gpt-2
   - openai

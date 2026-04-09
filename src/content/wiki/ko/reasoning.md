@@ -20,7 +20,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/guides/reasoning-best-practices"
-      title: "Reasoning best practices | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/reasoning-best-practices"
     - url: "https://www.anthropic.com/news/visible-extended-thinking"
       title: "Claude&#x27;s extended thinking"
   checks:
@@ -28,30 +28,28 @@ factCheck:
       result: pass
       summary: "이 페이지를 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "용어명 대조: Reasoning Model"
-        - "분류 대조: 개념"
+        - "독자 문제 대조: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지."
+        - "이름을 다시 보면 Reasoning Model로 잡혀."
+        - "분류를 다시 보면 개념로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "관련 출처 2건을 나란히 놓고 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "Reasoning best practices | OpenAI API (https://platform.openai.com/docs/guides/reasoning-best-practices)"
-        - "Claude&#x27;s extended thinking (https://www.anthropic.com/news/visible-extended-thinking)"
+        - "여기서 먼저 갈라 볼 기준은 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
+        - "비교 출처 1: https://platform.openai.com/docs/guides/reasoning-best-practices (https://platform.openai.com/docs/guides/reasoning-best-practices)"
+        - "비교 출처 2: Claude&#x27;s extended thinking (https://www.anthropic.com/news/visible-extended-thinking)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가를 때 필요한 숫자와 이름은 한 번 더 봤다."
       items:
-        - "수치 대조: 1"
-        - "수치 대조: 3"
-        - "수치 대조: 27"
+        - "숫자를 다시 보면 27 같은 표기가 실제 기준점으로 잡혀."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 선택 포인트는 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지"
-        - "정의와 역할보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈다."
+        - "헷갈리지 않으려면 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 먼저 잡아야 해."
+        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
       findings:
         - "이 페이지는 복잡한 추론과 계획를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---

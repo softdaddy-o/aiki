@@ -35,37 +35,37 @@ factCheck:
     - url: "https://deepmind.google/technologies/gemini/"
       title: "Gemini 3 — Google DeepMind"
     - url: "https://ai.google.dev/gemini-api/docs/models"
-      title: "Models &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "মডেল &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass
       summary: "원문에서 Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지"
-        - "모델명 대조: Gemini 2.5"
-        - "벤더 대조: Google DeepMind"
-        - "배포 유형 대조: version 모델 / 폐쇄형 API"
+        - "독자 문제 대조: Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지."
+        - "모델 이름부터 다시 보면 Gemini 2.5."
+        - "만든 쪽을 다시 보면 Google DeepMind."
+        - "배포 유형 대조: version 모델 / 폐쇄형 API."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "공식 소스 2건을 나란히 놓고 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지"
-        - "공식 소스 1: Gemini API models"
-        - "공식 소스 2: Gemini API pricing"
-        - "비교 확인: Pro/Flash 라인업 구분과 가격 체계가 일치"
+        - "여기서 먼저 갈라 볼 기준은 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지."
+        - "공식 소스 1: Gemini API models."
+        - "공식 소스 2: Gemini API pricing."
+        - "비교 확인: Pro/Flash 라인업 구분과 가격 체계가 일치."
     - type: number_verify
       result: pass
       summary: "숫자와 고유 명칭은 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다."
       items:
         - "컨텍스트: 1,048,576 토큰 (Pro 기준)"
         - "가격: 입력 $1.25 / 출력 $10.00 per 1M tokens (200K 이하)"
-        - "입력 범위: 텍스트 / 이미지 / 비디오 / 오디오"
+        - "입력 범위: 텍스트 / 이미지 / 비디오 / 오디오."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 Gemini 2.5를 어려운 추론 작업에 붙일지, 비용이 더 낮은 범용 모델로 내려도 되는지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지"
+        - "헷갈리지 않으려면 추론 성능, 응답 속도, 운영비 중 어디에 무게를 둘지."
         - "Gemini 2.5는 Pro와 Flash가 갈리므로 기사에서 세부 모델명을 생략하면 가격 해석이 틀어질 수 있어."
       findings:
         - "Gemini 2.5는 Pro와 Flash가 갈리므로 기사에서 세부 모델명을 생략하면 가격 해석이 틀어질 수 있어."

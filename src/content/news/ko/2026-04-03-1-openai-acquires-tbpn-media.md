@@ -24,33 +24,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: OpenAI, TBPN 인수"
-        - "원문 제목 대조: OpenAI acquires TBPN"
-        - "대표 출처 도메인: openai.com"
-        - "핵심 태그 축: OpenAI, 미디어, 인수합병, TBPN"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"OpenAI, TBPN 인수\"이고, 원문 제목은 \"OpenAI acquires TBPN\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 openai.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 OpenAI, 미디어, 인수합병, TBPN로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: OpenAI official announcement (https://openai.com/index/openai-acquires-tbpn/)"
-        - "출처 2: TechCrunch (https://techcrunch.com/2026/04/02/openai-acquires-tbpn-the-buzzy-founder-led-business-talk-show/)"
-        - "출처 3: CNBC (https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: OpenAI official announcement (https://openai.com/index/openai-acquires-tbpn/)"
+        - "비교 출처 2: TechCrunch (https://techcrunch.com/2026/04/02/openai-acquires-tbpn-the-buzzy-founder-led-business-talk-show/)"
+        - "비교 출처 3: CNBC (https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - 핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.
+        - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
-        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.
+        - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.
       findings:
-        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.
 tags:
   - OpenAI
   - 미디어

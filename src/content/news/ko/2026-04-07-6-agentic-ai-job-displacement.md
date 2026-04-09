@@ -22,35 +22,33 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: AI 에이전트가 직업을 대체한다 — 236개 직종 실증 분석"
-        - "원문 제목 대조: arXiv: Agentic AI and Occupational Displacement"
-        - "대표 출처 도메인: arxiv.org"
-        - "핵심 태그 축: AI고용, 직업대체, 에이전트AI, 연구"
+        - "독자 문제 대조: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"AI 에이전트가 직업을 대체한다 — 236개 직종 실증 분석\"이고, 원문 제목은 \"arXiv: Agentic AI and Occupational Displacement\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 arxiv.org로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 AI고용, 직업대체, 에이전트AI, 연구로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: arXiv: Agentic AI and Occupational Displacement (https://arxiv.org/abs/2604.00186)"
-        - "출처 2: MIT Technology Review (https://www.technologyreview.com/2026/04/07/1134966/enabling-agent-first-process-redesign/)"
+        - "비교 기준: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 먼저 갈라 봐야 해."
+        - "비교 출처 1: arXiv: Agentic AI and Occupational Displacement (https://arxiv.org/abs/2604.00186)"
+        - "비교 출처 2: MIT Technology Review (https://www.technologyreview.com/2026/04/07/1134966/enabling-agent-first-process-redesign/)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: AI 에이전트가 직업을 대체한다 — 236개 직종 실증 분석"
-        - "수치 대조: 236개 직종과 미국 5개 도시를 대상으로 적용한 결과, 단순 자동화보다 에이전트형 AI의 파급력이 훨씬 크다는 걸 보여줬다."
-        - "수치 대조: AI가 '단순 반복 업무'를 대체한다는 건 이제 익숙한 얘기인데, 이번에 나온 [arXiv 논문](https://arxiv.org/abs/2604.00186)은 거기서 한 발 더 나갔어."
-        - "수치 대조: 연구팀은 경제학의 Acemoglu-Restrepo 직업 대체 모형을 에이전트 AI에 맞게 확장하고, 미국 SF Bay, Seattle, Austin, Boston, NYC 5개 기술 도시의 2..."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 236, 5 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 논문 성과와 실제 제품 배포 가능성을 같은 뜻으로 읽지 않도록 분리했다.
-        - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지 따로 점검했다.
+        - 논문 성과와 실제 제품 배포 가능성은 같은 뜻으로 읽지 않으려고 따로 갈라 봤어.
+        - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지도 한 번 더 의심해봤어.
       findings:
-        - 논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있다.
+        - 논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있어.
 tags:
   - AI고용
   - 직업대체

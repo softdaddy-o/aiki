@@ -39,31 +39,31 @@ factCheck:
       result: pass
       summary: "원문에서 Mistral가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 문제로 읽어도 되는지 먼저 맞춰봤다."
       items:
-        - "독자 문제 대조: Mistral가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지"
-        - "모델명 대조: Mistral"
-        - "벤더 대조: Mistral AI"
-        - "상위 계열: 최상위 라인업"
-        - "페이지 성격: 개별 스냅샷이 아니라 상위 계열 안내 페이지"
+        - "독자 문제 대조: Mistral가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
+        - "모델 이름부터 다시 보면 Mistral."
+        - "만든 쪽을 다시 보면 Mistral AI."
+        - "상위 계열로는 최상위 라인업."
+        - "페이지 성격: 개별 스냅샷이 아니라 상위 계열 안내 페이지."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "공식 소스 2건을 나란히 놓고 Mistral 아래에서 어떤 버전 페이지를 봐야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
-        - "비교 기준: Mistral 아래에서 어떤 버전 페이지를 봐야 하는지"
-        - "비교 소스 1: Mistral AI"
-        - "비교 소스 2: Mistral AI Studio - your AI production platform | Mistral AI"
+        - "여기서 먼저 갈라 볼 기준은 Mistral 아래에서 어떤 버전 페이지를 봐야 하는지."
+        - "비교 소스 1: Mistral AI."
+        - "비교 소스 2: Mistral AI Studio - your AI production platform | Mistral AI."
     - type: number_verify
       result: pass
       summary: "가격, 접근 경로, 입력 범위처럼 Mistral 아래에서 어떤 버전 페이지를 봐야 하는지를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다."
       items:
         - "운영 정보 대조: 직접 호스팅이면 GPU/추론 비용이 핵심이고, API 재판매 채널을 쓸 경우 입력/출력 토큰 단가를 별도로 확인해야 해."
         - "접근 경로 대조: 무료 실험 또는 자체 호스팅 가능성이 높아. 다만 호스팅 플랫폼에서는 별도 유료 과금이 붙을 수 있어."
-        - "입력/출력 범위 대조: 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요"
+        - "입력/출력 범위 대조: 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 Mistral가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 기준으로 한 번 더 의심해보고 정리했다."
       items:
-        - "오해 방지 기준: Mistral 아래에서 어떤 버전 페이지를 봐야 하는지"
+        - "헷갈리지 않으려면 Mistral 아래에서 어떤 버전 페이지를 봐야 하는지."
         - "개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 해."
       findings:
         - "계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다."

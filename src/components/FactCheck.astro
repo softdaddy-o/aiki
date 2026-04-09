@@ -39,10 +39,10 @@ function resultIcon(result: string) {
 }
 
 function fallbackSummary(check: Check) {
-    if (check.type === 'source_match') return '원문 제목이랑 글 제목이 같은 축인지 먼저 맞춰봤다.';
-    if (check.type === 'web_cross_check') return `관련 출처 ${check.sources ?? sources.length}건을 나란히 놓고 다시 봤다.`;
-    if (check.type === 'number_verify') return '숫자와 고유 명칭은 따로 빼서 한 번 더 봤다.';
-    if (check.type === 'adversarial') return '헷갈릴 수 있는 해석 포인트는 한 번 더 의심해봤다.';
+    if (check.type === 'source_match') return '이 글이 실제로 같은 대상과 사건을 가리키는지부터 먼저 맞춰봤다.';
+    if (check.type === 'web_cross_check') return `원문 하나만 믿지 않으려고 관련 출처 ${check.sources ?? sources.length}건을 옆에 두고 다시 봤다.`;
+    if (check.type === 'number_verify') return '헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.';
+    if (check.type === 'adversarial') return '독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.';
     return '';
 }
 
@@ -71,6 +71,7 @@ const visibleChecks = checks
         findingItems: Array.isArray(check.findings) ? check.findings : [],
     }))
     .filter((check) => check.preview || check.detailItems.length > 0 || check.findingItems.length > 0);
+const primaryCheck = visibleChecks.find((check) => check.type === 'source_match') || visibleChecks[0] || null;
 ---
 
 <section class="factcheck">
@@ -87,40 +88,58 @@ const visibleChecks = checks
             <span>상태: {statusIcon}</span>
         </div>
 
-        <div class="fc-groups">
-            {visibleChecks.map((check) => (
-                <details class="fc-group">
-                    <summary class="fc-group-toggle">
-                        <div class="fc-group-main">
-                            <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                                {resultIcon(check.result)}
-                            </span>
-                            <span class="fc-group-title">{check.label}</span>
-                            {check.preview && <span class="fc-group-preview">{check.preview}</span>}
-                            {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
-                        </div>
-                        <span class="fc-group-toggle-copy">항목 펼치기</span>
-                    </summary>
+        {primaryCheck && (
+            <div class="fc-primary">
+                <div class="fc-primary-head">
+                    <span class={primaryCheck.result === 'pass' ? 'check-pass' : primaryCheck.result === 'skip' ? 'check-skip' : 'check-fail'}>
+                        {resultIcon(primaryCheck.result)}
+                    </span>
+                    <span class="fc-primary-title">{primaryCheck.label}</span>
+                </div>
+                {primaryCheck.preview && <div class="fc-primary-preview">{primaryCheck.preview}</div>}
+            </div>
+        )}
 
-                    <div class="fc-group-body">
-                        {check.detailItems.length > 0 && (
-                            <ul class="fc-group-list">
-                                {check.detailItems.map((item) => (
-                                    <li>{item}</li>
-                                ))}
-                            </ul>
-                        )}
-                        {check.findingItems.length > 0 && (
-                            <ul class="fc-group-list fc-findings">
-                                {check.findingItems.map((finding) => (
-                                    <li>{finding}</li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                </details>
-            ))}
-        </div>
+        <details class="fc-details">
+            <summary class="fc-details-toggle">
+                <span>팩트 체크 전체 보기</span>
+                <span class="fc-details-toggle-copy">원문 대조, 교차검증, 숫자·명칭 검증, 비판적 검증</span>
+            </summary>
+
+            <div class="fc-groups">
+                {visibleChecks.map((check) => (
+                    <section class="fc-group">
+                        <div class="fc-group-header">
+                            <div class="fc-group-main">
+                                <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
+                                    {resultIcon(check.result)}
+                                </span>
+                                <span class="fc-group-title">{check.label}</span>
+                                {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
+                            </div>
+                            {check.preview && <div class="fc-group-preview">{check.preview}</div>}
+                        </div>
+
+                        <div class="fc-group-body">
+                            {check.detailItems.length > 0 && (
+                                <ul class="fc-group-list">
+                                    {check.detailItems.map((item) => (
+                                        <li>{item}</li>
+                                    ))}
+                                </ul>
+                            )}
+                            {check.findingItems.length > 0 && (
+                                <ul class="fc-group-list fc-findings">
+                                    {check.findingItems.map((finding) => (
+                                        <li>{finding}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </section>
+                ))}
+            </div>
+        </details>
 
         {sources.length > 0 && (
             <div class="fc-sources-list">
@@ -184,24 +203,62 @@ const visibleChecks = checks
         color: var(--color-text-muted);
         font-size: 12px;
     }
-    .fc-groups {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+    .fc-primary {
+        padding: 12px;
         margin-bottom: 12px;
+        background: var(--color-surface-alt);
+        border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+        border-radius: 8px;
     }
-    .fc-group {
+    .fc-primary-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+    .fc-primary-title {
+        font-weight: 700;
+    }
+    .fc-primary-preview {
+        color: var(--color-text-muted);
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    .fc-details {
         background: var(--color-surface-alt);
         border-radius: 8px;
         border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+        margin-bottom: 12px;
     }
-    .fc-group-toggle {
+    .fc-details-toggle {
         display: flex;
         justify-content: space-between;
         gap: 8px;
         align-items: center;
         padding: 11px 12px;
         cursor: pointer;
+    }
+    .fc-details-toggle-copy {
+        color: var(--color-text-muted);
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    .fc-details[open] .fc-details-toggle-copy {
+        color: var(--color-news);
+    }
+    .fc-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 12px 12px;
+    }
+    .fc-group {
+        background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+        border-radius: 8px;
+        border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+    }
+    .fc-group-header {
+        padding: 11px 12px 0;
     }
     .fc-group-main {
         display: flex;
@@ -216,17 +273,10 @@ const visibleChecks = checks
         color: var(--color-text-muted);
         font-size: 12px;
         line-height: 1.6;
-    }
-    .fc-group-toggle-copy {
-        color: var(--color-text-muted);
-        font-size: 12px;
-        white-space: nowrap;
-    }
-    .fc-group[open] .fc-group-toggle-copy {
-        color: var(--color-news);
+        margin-top: 6px;
     }
     .fc-group-body {
-        padding: 0 12px 12px;
+        padding: 8px 12px 12px;
     }
     .fc-group-list {
         margin: 0;

@@ -31,32 +31,32 @@ factCheck:
       summary: "Qdrant를 단순 저장소가 아니라 검색 엔진 계층으로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
         - "독자 문제 대조: 벡터를 저장만 하면 되는지, 운영형 검색 계층이 필요한지부터 갈라 봐야 해."
-        - "원문 대조: 공식 사이트는 Qdrant를 vector search engine으로 소개해."
-        - "정체성 대조: 임베딩 저장만이 아니라 retrieval 품질과 운영 기능을 같이 설명하는 제품 포지션과 맞는다."
-        - "카테고리 대조: tool로 두되, 본문에서는 vector DB보다 search layer에 더 가까운 성격을 먼저 잡았다."
+        - "원문을 보면 공식 사이트는 Qdrant를 vector search engine으로 소개해."
+        - "정체성을 보면 임베딩 저장만이 아니라 retrieval 품질과 운영 기능을 같이 설명하는 제품 포지션과 맞는다."
+        - "분류를 잡을 때는 tool로 두되, 본문에서는 vector DB보다 search layer에 더 가까운 성격을 먼저 잡았다."
     - type: web_cross_check
       result: pass
       sources: 2
       summary: "공식 사이트와 검색 문서를 같이 놓고 Qdrant 차별점을 실제 기능 기준으로 다시 봤다."
       items:
-        - "비교 기준: 관리형 서비스, 개발용 스토어, 운영형 검색 엔진 사이에서 Qdrant가 어디에 놓이는지 봐야 해."
-        - "교차검증: 공식 소개는 dense, sparse, multivector, hybrid search를 함께 지원 범위로 제시해."
-        - "교차검증: 검색 문서는 metadata filtering과 reranking 흐름을 운영형 검색 맥락에서 설명해."
-        - "해석 보정: 그래서 Qdrant를 무료 Pinecone 정도로 줄여 쓰면 검색 기능 범위와 운영 부담을 모두 놓치게 돼."
+        - "여기서 먼저 갈라 볼 기준은 관리형 서비스, 개발용 스토어, 운영형 검색 엔진 사이에서 Qdrant가 어디에 놓이는지 봐야 해."
+        - "공식 자료를 같이 보면 공식 소개는 dense, sparse, multivector, hybrid search를 함께 지원 범위로 제시해."
+        - "공식 자료를 같이 보면 검색 문서는 metadata filtering과 reranking 흐름을 운영형 검색 맥락에서 설명해."
+        - "그래서 해석할 때는 그래서 Qdrant를 무료 Pinecone 정도로 줄여 쓰면 검색 기능 범위와 운영 부담을 모두 놓치게 돼."
     - type: number_verify
       result: pass
       summary: "운영 판단에 직접 걸리는 수치와 명칭도 한 번 더 봤다."
       items:
-        - "수치 검증: 공식 사이트는 quantization으로 memory를 up to 64x 줄일 수 있다고 소개해."
-        - "명칭 검증: 공식 소개 문구는 vector database보다 vector search engine 쪽에 더 무게를 둔다."
-        - "채널 검증: 공식 자료는 REST와 gRPC, 여러 공식 클라이언트 지원을 함께 안내해."
+        - "숫자를 다시 보면 공식 사이트는 quantization으로 memory를 up to 64x 줄일 수 있다고 소개해."
+        - "이름부터 다시 보면 공식 소개 문구는 vector database보다 vector search engine 쪽에 더 무게를 둔다."
+        - "접근 채널을 보면 공식 자료는 REST와 gRPC, 여러 공식 클라이언트 지원을 함께 안내해."
     - type: adversarial
       result: pass
       summary: "Qdrant를 고를 때 자주 생기는 과장과 오해를 어떻게 걸러야 하는지 의심해보고 정리했다."
       items:
-        - "비판적 검증: 오픈소스라는 이유만으로 운영 비용이 자동으로 낮아지는 것은 아니다."
-        - "비판적 검증: Chroma 같은 개발 친화형 스토어와 같은 층위로 보면 운영형 검색 기능 차이를 놓치기 쉬워."
-        - "비판적 검증: Pinecone 같은 관리형 서비스와 비교할 때 장점은 제어권이지만, 동시에 직접 운영 책임도 따라온다."
+        - "헷갈리기 쉬운 건 오픈소스라는 이유만으로 운영 비용이 자동으로 낮아지는 것은 아니다."
+        - "헷갈리기 쉬운 건 Chroma 같은 개발 친화형 스토어와 같은 층위로 보면 운영형 검색 기능 차이를 놓치기 쉬워."
+        - "헷갈리기 쉬운 건 Pinecone 같은 관리형 서비스와 비교할 때 장점은 제어권이지만, 동시에 직접 운영 책임도 따라온다."
       findings:
         - "Qdrant를 볼 때 핵심은 벡터를 저장하느냐가 아니라, 검색 품질과 운영 제어권을 어느 정도까지 직접 가져가려 하느냐다."
 ---

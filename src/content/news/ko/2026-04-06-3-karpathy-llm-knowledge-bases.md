@@ -22,34 +22,32 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: Karpathy, RAG 대신 마크다운 위키로 지식 관리하는 방법 공개"
-        - "원문 제목 대조: Karpathy GitHub Gist"
-        - "대표 출처 도메인: gist.github.com"
-        - "핵심 태그 축: karpathy, 지식관리, RAG, Obsidian"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"Karpathy, RAG 대신 마크다운 위키로 지식 관리하는 방법 공개\"이고, 원문 제목은 \"Karpathy GitHub Gist\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 gist.github.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 karpathy, 지식관리, RAG, Obsidian로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: Karpathy Gist 원문 (https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)"
-        - "출처 2: VentureBeat 보도 (https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an/)"
-        - "출처 3: DAIR.AI 분석 (https://academy.dair.ai/blog/llm-knowledge-bases-karpathy)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: Karpathy Gist 원문 (https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)"
+        - "비교 출처 2: VentureBeat 보도 (https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an/)"
+        - "비교 출처 3: DAIR.AI 분석 (https://academy.dair.ai/blog/llm-knowledge-bases-karpathy)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: 기사 100개, 40만 단어 규모에서 복잡한 Q&A가 가능하다고 한다."
-        - "수치 대조: Andrej Karpathy가 4월 3일 GitHub Gist에 ['LLM Knowledge Bases'](https://gist.github.com/karpathy/442a6bf5559148..."
-        - "수치 대조: ## 3개 레이어로 돼 있어"
-        - "수치 대조: 기사 약 100개, 40만 단어 규모에서 RAG 파이프라인 없이 복잡한 Q&A가 가능하대."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 100, 40, 4, 3 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
-        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
+        - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
       findings: []
 tags:
   - karpathy

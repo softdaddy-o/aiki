@@ -29,32 +29,32 @@ factCheck:
       summary: "MCP를 오픈 표준 프로토콜로 읽는 게 맞는지부터 먼저 맞춰봤다."
       items:
         - "독자 문제 대조: 모델 능력 이야기와 도구 연결 구조 이야기를 먼저 구분해야 해."
-        - "원문 대조: introduction은 MCP를 open standard로 소개해."
-        - "정체성 대조: 앱과 도구를 연결하는 protocol 성격이 핵심이라는 설명과 맞는다."
+        - "원문을 보면 introduction은 MCP를 open standard로 소개해."
+        - "정체성을 보면 앱과 도구를 연결하는 protocol 성격이 핵심이라는 설명과 맞는다."
         - "비유 대조: 공식 소개가 USB-C 비유를 쓰는 이유도 연결 규격 표준이라는 해석과 일치해."
     - type: web_cross_check
       result: pass
       sources: 3
       summary: "소개, 아키텍처, 스펙 문서를 같이 놓고 MCP 범위를 과장하지 않았는지 다시 봤다."
       items:
-        - "비교 기준: 함수 호출 규격, 에이전트 프레임워크, 도구 연결 표준 가운데 MCP가 어디에 놓이는지 봐야 해."
-        - "교차검증: architecture 문서는 host, client, server 구성을 분리해 설명해."
-        - "교차검증: specification 문서는 tools, resources, prompts 같은 노출 단위를 별도로 정의해."
-        - "해석 보정: 그래서 MCP를 agent framework 하나로 축소하거나 function calling의 다른 이름으로 치환하면 범위가 틀어진다."
+        - "여기서 먼저 갈라 볼 기준은 함수 호출 규격, 에이전트 프레임워크, 도구 연결 표준 가운데 MCP가 어디에 놓이는지 봐야 해."
+        - "공식 자료를 같이 보면 architecture 문서는 host, client, server 구성을 분리해 설명해."
+        - "공식 자료를 같이 보면 specification 문서는 tools, resources, prompts 같은 노출 단위를 별도로 정의해."
+        - "그래서 해석할 때는 그래서 MCP를 agent framework 하나로 축소하거나 function calling의 다른 이름으로 치환하면 범위가 틀어진다."
     - type: number_verify
       result: pass
       summary: "스펙 버전과 구성 요소 이름처럼 자주 틀리는 고유 항목도 한 번 더 봤다."
       items:
         - "버전 검증: 공식 스펙 경로는 2024-11-05 버전을 포함해."
-        - "명칭 검증: MCP는 Model Context Protocol의 약자다."
+        - "이름부터 다시 보면 MCP는 Model Context Protocol의 약자다."
         - "구성 검증: tools, resources, prompts는 공식 문서에서 분리된 개념으로 다뤄진다."
     - type: adversarial
       result: pass
       summary: "MCP 주변에서 가장 흔한 과장을 어떻게 걸러야 하는지 의심해보고 정리했다."
       items:
-        - "비판적 검증: MCP는 모델 자체를 더 똑똑하게 만드는 기술이 아니다."
-        - "비판적 검증: MCP를 붙였다고 보안 문제가 자동으로 해결되는 것도 아니다."
-        - "비판적 검증: function calling은 호출 형식에 가깝고, MCP는 도구를 발견하고 연결하는 표준이라는 점에서 층위가 다르다."
+        - "헷갈리기 쉬운 건 MCP는 모델 자체를 더 똑똑하게 만드는 기술이 아니다."
+        - "헷갈리기 쉬운 건 MCP를 붙였다고 보안 문제가 자동으로 해결되는 것도 아니다."
+        - "헷갈리기 쉬운 건 function calling은 호출 형식에 가깝고, MCP는 도구를 발견하고 연결하는 표준이라는 점에서 층위가 다르다."
       findings:
         - "MCP를 이해할 때 핵심은 어떤 모델이냐보다, 서로 다른 도구 연결을 같은 계약으로 묶을 수 있느냐에 있어."
 ---

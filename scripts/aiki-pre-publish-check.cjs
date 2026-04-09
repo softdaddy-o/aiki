@@ -131,6 +131,12 @@ const FACT_CHECK_TONE_PATTERNS = [
     /걸렀다/u,
 ];
 
+const FACT_CHECK_ITEM_TONE_PATTERNS = [
+    /(?:이야|야|해|했어|읽었어|잡혔어|중요해|필요해|같아|갈려|맞아|없어|있어|돼|구분돼|틀려|나아|[가-힣]+(?:았어|었어|였어|됐어|났어|겼어))(?:["')\].!?]+)?$/u,
+    /보면\s+/u,
+    /봐야 해/u,
+];
+
 const VERSION_MODEL_CONTRADICTION_PATTERNS = [
     /여러 버전을 묶어 부르는 상위 계열명/u,
     /개별 버전 대신 묶음 이름/u,
@@ -565,7 +571,7 @@ function validateFactCheckDetails(targetName, frontmatter) {
 
         if (targetName === 'wiki' && type === 'web_cross_check') {
             const items = Array.isArray(check.items) ? check.items.map((item) => String(item || '')) : [];
-            if (!items.some((item) => item.startsWith('비교 기준:'))) {
+            if (!items.some((item) => item.startsWith('비교 기준:') || item.startsWith('여기서 먼저 갈라 볼 기준은 '))) {
                 failures.push('factCheck.web_cross_check missing comparison-axis item');
             }
         }
@@ -582,10 +588,11 @@ function validateFactCheckTone(frontmatter) {
     for (const check of checks) {
         const type = String(check && check.type || 'unknown');
         const summary = String(check && check.summary || '').trim();
+        const items = ((check && Array.isArray(check.items)) ? check.items : []).map((item) => String(item || '').trim());
         const findings = ((check && Array.isArray(check.findings)) ? check.findings : []).map((item) => String(item || '').trim());
         const joined = [
             summary,
-            ...((check && Array.isArray(check.items)) ? check.items : []).map((item) => String(item || '').trim()),
+            ...items,
             ...findings,
         ].join('\n');
         const toneTarget = [summary, ...findings].filter(Boolean).join('\n');
@@ -604,6 +611,16 @@ function validateFactCheckTone(frontmatter) {
 
             for (const result of toneFailures) {
                 failures.push(`factCheck.${type} tone fail [${result.id}] ${result.name}`);
+            }
+        }
+
+        for (const item of items) {
+            if (/^비교 출처 \d+:/u.test(item)) {
+                continue;
+            }
+
+            if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(item))) {
+                failures.push(`factCheck.${type} item still uses report-style template copy`);
             }
         }
     }

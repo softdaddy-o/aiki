@@ -22,35 +22,34 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: 공개 거부된 AI — Claude Mythos와 Project Glasswing"
-        - "원문 제목 대조: Anthropic Project Glasswing"
-        - "대표 출처 도메인: anthropic.com"
-        - "핵심 태그 축: Anthropic, AI보안, 사이버보안, Claude"
+        - "독자 문제 대조: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"공개 거부된 AI — Claude Mythos와 Project Glasswing\"이고, 원문 제목은 \"Anthropic Project Glasswing\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 anthropic.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 Anthropic, AI보안, 사이버보안, Claude로 읽었어."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
       items:
-        - "출처 1: Anthropic Project Glasswing (https://www.anthropic.com/glasswing)"
-        - "출처 2: TechCrunch: Anthropic Mythos (https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/)"
-        - "출처 3: The Guardian (https://www.theguardian.com/technology/2026/apr/08/anthropic-ai-cybersecurity-software)"
+        - "비교 기준: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: Anthropic Project Glasswing (https://www.anthropic.com/glasswing)"
+        - "비교 출처 2: TechCrunch: Anthropic Mythos (https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/)"
+        - "비교 출처 3: The Guardian (https://www.theguardian.com/technology/2026/apr/08/anthropic-ai-cybersecurity-software)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: 수천 개의 제로데이 취약점을 혼자 찾아내는 능력이 너무 강해 Project Glasswing을 통해 사이버 보안 전문가 11개 기업에만 제한 제공한다."
-        - "수치 대조: 몇 주 만에 FreeBSD에서 17년 된 원격코드실행 취약점(CVE-2026-4747), OpenBSD에서는 무려 27년 된 버그를 포함해 수천 개의 제로데이를 혼자 찾아냈거든."
-        - "수치 대조: 파트너사는 AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan Chase, Linux Foundation, Microsoft, NVIDIA..."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 11, 17, 27 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
-        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.
+        - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.
       findings:
-        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.
 tags:
   - Anthropic
   - AI보안

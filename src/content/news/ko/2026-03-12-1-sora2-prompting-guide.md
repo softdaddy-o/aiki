@@ -20,33 +20,32 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
       items:
-        - "기사 제목 대조: Sora 2 프롬프트 가이드"
-        - "원문 제목 대조: Sora 2 Prompting Guide"
-        - "대표 출처 도메인: cookbook.openai.com"
-        - "핵심 태그 축: openai, sora, video-generation, prompting"
+        - "독자 문제 대조: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 먼저 갈라 봐야 해."
+        - "제목 대조: 기사 제목은 \"Sora 2 프롬프트 가이드\"이고, 원문 제목은 \"Sora 2 Prompting Guide\"로 잡혔어."
+        - "출처 대조: 대표 원문 도메인은 cookbook.openai.com로 잡혔어."
+        - "태그 대조: 이 글의 핵심 축은 openai, sora, video-generation, prompting로 읽었어."
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 출처 1건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
       items:
-        - "출처 1: OpenAI Cookbook — Sora 2 Prompting Guide (https://cookbook.openai.com/examples/sora/sora2_prompting_guide)"
+        - "비교 기준: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 먼저 갈라 봐야 해."
+        - "비교 출처 1: OpenAI Cookbook — Sora 2 Prompting Guide (https://cookbook.openai.com/examples/sora/sora2_prompting_guide)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
       items:
-        - "수치 대조: Sora 2 프롬프트 가이드"
-        - "수치 대조: Sora API 기능을 반영하도록 업데이트되었습니다 [원문](https://cookbook.openai.com/examples/sora/sora2_prompting_guide)은 Sora 2 ..."
-        - "수치 대조: Sora 2 프롬프트 가이드, 이 가이드는 다음을 포함한 최신 Sora API 기능을 반영하도록 업데이트되었습니다에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸..."
+        - "숫자 포인트: 원문에서 다시 본 숫자나 버전 표기는 2 쪽이야."
     - type: adversarial
       result: pass
-      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
       items:
-        - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
-        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.
+        - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.
       findings:
-        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어 운영 조건을 따로 봐야 한다.
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.
 tags:
   - openai
   - sora
