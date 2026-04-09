@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: OpenClaw 보안 취약점 연쇄 발견 — 13.5만 인스턴스 중 63%가 인증 미설정"
         - "원문 제목 대조: ARMO Security"
@@ -31,14 +31,14 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: ARMO — CVE-2026-32922 privilege escalation (https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security/)"
         - "출처 2: Sangfor — OpenClaw security risks (https://www.sangfor.com/blog/cybersecurity/openclaw-ai-agent-security-risks-2026)"
         - "출처 3: OpenClaw AI — Nine CVEs in Four Days (https://openclawai.io/blog/openclaw-cve-flood-nine-vulnerabilities-four-days-march-2026)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: OpenClaw 보안 취약점 연쇄 발견 — 13.5만 인스턴스 중 63%가 인증 미설정"
         - "수치 대조: OpenClaw에서 CVE-2026-25253(CVSS 8.8) 등 심각한 보안 취약점이 연달아 터졌어."
@@ -46,7 +46,7 @@ factCheck:
         - "수치 대조: 3월에만 4일간 9개 CVE가 동시에 공개됐고, 그중 CVE-2026-25253은 CVSS 8.8점으로 게이트웨이 전체 장악이 가능한 수준이야."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
         - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.

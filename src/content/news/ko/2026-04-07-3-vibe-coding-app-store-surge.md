@@ -24,7 +24,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: 바이브 코딩 효과: App Store 신규 앱 84% 급증, 그러나 애플은 퇴출 중"
         - "원문 제목 대조: The Next Web"
@@ -33,7 +33,7 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 4
-      summary: 출처 4건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 4건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: The Next Web — Vibe coding 84% App Store surge (https://thenextweb.com/news/vibe-coding-apple-app-store-surge-crackdown)"
         - "출처 2: The Information — 84% jump in new apps (https://www.theinformation.com/articles/vibe-coding-effect-apples-app-store-saw-84-jump-new-apps-quarter)"
@@ -41,7 +41,7 @@ factCheck:
         - "출처 4: MacRumors — Apple pulls Anything app (https://www.macrumors.com/2026/03/30/apple-pulls-vibe-coding-app/)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: 바이브 코딩 효과: App Store 신규 앱 84% 급증, 그러나 애플은 퇴출 중"
         - "수치 대조: 2026년 1분기 App Store 신규 앱이 235,800개로 전년 대비 84% 급증했어."
@@ -49,7 +49,7 @@ factCheck:
         - "수치 대조: App Store에서 무슨 일이 벌어졌냐면, `2026년 1분기` 신규 앱 등록이 `235,800개`로 전년 대비 `84%` 급증했어."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
         - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.

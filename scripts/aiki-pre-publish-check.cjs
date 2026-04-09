@@ -82,6 +82,13 @@ const BAD_WIKI_MODEL_BODY_PATTERNS = [
     /이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도/u,
     /모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분/u,
     /AIKI 기사에서 이미 \d+번 이상 언급/u,
+    /버전형 모델이야/u,
+    /한 줄로 말하면/u,
+    /실무에서는 이 문장만 읽어도/u,
+    /이런 버전 페이지가 중요한 이유는/u,
+    /내 앱에 바로 붙는지/u,
+    /이 줄은 .*항목이야/u,
+    /읽는 줄이다/u,
 ];
 
 const WIKI_SOURCE_COPY_PATTERNS = [
@@ -91,6 +98,25 @@ const WIKI_SOURCE_COPY_PATTERNS = [
     /learn how/i,
     /what is /i,
     /what are /i,
+];
+
+const FACT_CHECK_FORMAL_PATTERNS = [
+    /교차검증했다/u,
+    /비판적으로(?: 다시)? 검토했다/u,
+    /별도(?:로)? 묶(?:음|어서)으로 다시/u,
+    /맞는지 확인했다/u,
+    /일치하는지 확인했다/u,
+    /직접 대조했다/u,
+];
+
+const FACT_CHECK_TONE_PATTERNS = [
+    /맞춰봤다/u,
+    /다시 봤다/u,
+    /한 번 더 봤다/u,
+    /한 번 더 확인해봤다/u,
+    /의심해보고/u,
+    /정리했다/u,
+    /걸렀다/u,
 ];
 
 const VERSION_MODEL_CONTRADICTION_PATTERNS = [
@@ -342,7 +368,7 @@ function splitBodySentences(body) {
         .filter((entry) => entry.length > 4);
 }
 
-function validateWikiTone(body) {
+function validateWikiTone(frontmatter, body) {
     const normalized = normalizeLineEndings(body);
     const sentences = splitBodySentences(normalized);
     if (sentences.length < 2) {
@@ -350,9 +376,22 @@ function validateWikiTone(body) {
     }
 
     const failures = [];
+    const category = String(frontmatter.category || '').toLowerCase();
+    const modelType = String(frontmatter.modelType || '').toLowerCase();
+    const combined = `${String(frontmatter.summary || '')}\n${normalized}`;
 
     if (containsWeakWikiSourceCopy(normalized)) {
         failures.push('wiki tone still reads like pasted source copy');
+    }
+
+    if (category === 'model' && modelType === 'version') {
+        if (BAD_WIKI_MODEL_SUMMARY_PATTERNS.some((pattern) => pattern.test(String(frontmatter.summary || '')))) {
+            failures.push('wiki model summary still uses generic family-level copy');
+        }
+
+        if (BAD_WIKI_MODEL_BODY_PATTERNS.some((pattern) => pattern.test(combined))) {
+            failures.push('wiki model body still uses deprecated template copy');
+        }
     }
 
     return failures;
@@ -456,6 +495,32 @@ function validateFactCheckDetails(targetName, frontmatter) {
     return failures;
 }
 
+function validateFactCheckTone(frontmatter) {
+    const factCheck = frontmatter.factCheck || {};
+    const checks = Array.isArray(factCheck.checks) ? factCheck.checks : [];
+    const failures = [];
+
+    for (const check of checks) {
+        const type = String(check && check.type || 'unknown');
+        const summary = String(check && check.summary || '').trim();
+        const joined = [
+            summary,
+            ...((check && Array.isArray(check.items)) ? check.items : []).map((item) => String(item || '').trim()),
+            ...((check && Array.isArray(check.findings)) ? check.findings : []).map((item) => String(item || '').trim()),
+        ].join('\n');
+
+        if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(joined))) {
+            failures.push(`factCheck.${type} still uses report-style template copy`);
+        }
+
+        if (summary && !FACT_CHECK_TONE_PATTERNS.some((pattern) => pattern.test(summary))) {
+            failures.push(`factCheck.${type} summary is missing AIKI writing tone`);
+        }
+    }
+
+    return failures;
+}
+
 const changedFiles = getChangedFiles();
 const today = getTodayString();
 const errors = [];
@@ -549,6 +614,12 @@ for (const target of CONTENT_TARGETS) {
                 if (checkAll) warnings.push(message);
                 else errors.push(message);
             }
+
+            for (const failure of validateFactCheckTone(fm)) {
+                const message = `${target.name}/${filename}: ${failure}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
         }
 
         if (!isBackfill && filenameDate && fmDate && filenameDate !== fmDate) {
@@ -633,7 +704,7 @@ for (const target of CONTENT_TARGETS) {
         }
 
         if (!isDraft && target.name === 'wiki') {
-            for (const failure of validateWikiTone(body)) {
+            for (const failure of validateWikiTone(fm, body)) {
                 const message = `${target.name}/${filename}: ${failure}`;
                 if (checkAll) warnings.push(message);
                 else errors.push(message);

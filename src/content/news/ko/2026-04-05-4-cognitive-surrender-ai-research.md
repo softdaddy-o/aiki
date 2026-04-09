@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: \"인지 항복\" — AI가 틀려도 80%가 그대로 따른다는 연구 결과"
         - "원문 제목 대조: SSRN — Wharton School"
@@ -31,14 +31,14 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: SSRN — Thinking Fast, Slow, and Artificial (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646)"
         - "출처 2: Wharton Knowledge — Podcast (https://knowledge.wharton.upenn.edu/podcast/ripple-effect/how-ai-is-reshaping-human-intuition-and-reasoning-gideon-nave-and-steven-shaw/)"
         - "출처 3: Futurism — Study coverage (https://futurism.com/artificial-intelligence/study-do-what-chatgpt-tells-us)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: \"인지 항복\" — AI가 틀려도 80%가 그대로 따른다는 연구 결과"
         - "수치 대조: 와튼스쿨 연구팀이 1,372명 대상 실험에서 AI가 오답을 줘도 79.8%가 그대로 수용한다는 결과를 발표했어."
@@ -46,7 +46,7 @@ factCheck:
         - "수치 대조: 실험 참가자의 절반 이상이 AI 조언을 요청했고, AI가 정답을 줬을 때 수용률은 92.7%였어."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
         - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.

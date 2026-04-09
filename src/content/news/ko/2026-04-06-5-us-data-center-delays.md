@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: 미국 데이터센터 절반이 지연 또는 취소 — 전력 인프라가 병목"
         - "원문 제목 대조: Tom's Hardware"
@@ -31,14 +31,14 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: Tom's Hardware 보도 (https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)"
         - "출처 2: Bloomberg 보도 (https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports)"
         - "출처 3: Futurism 보도 (https://futurism.com/science-energy/data-centers-construction-supply)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: 2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다."
         - "수치 대조: 변압기, 배전반 등 핵심 전기 부품의 리드타임이 최대 5년까지 늘어났고, 상당수가 중국산에 의존하고 있다."
@@ -46,7 +46,7 @@ factCheck:
         - "수치 대조: Alphabet, Amazon, Meta, Microsoft가 2026년 AI 인프라에 6,500억 달러 이상을 투입할 계획이거든."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
         - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.

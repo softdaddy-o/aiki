@@ -1,53 +1,59 @@
 ---
-title: "Gemini 채팅이 NotebookLM으로 자동 연결된다"
+title: Gemini 채팅이 NotebookLM으로 자동 연결된다
 date: "2026-04-09T13:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 Gemini 앱에 Notebooks 기능을 추가했다. Gemini에서 나눈 대화와 파일이 NotebookLM과 자동 동기화돼 시각화 자료나 팟캐스트까지 뽑을 수 있다. AI Ultra·Pro·Plus 구독자부터 시작."
-sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/"
+summary: Google이 Gemini 앱에 Notebooks 기능을 추가했다. Gemini에서 나눈 대화와 파일이 NotebookLM과 자동 동기화돼 시각화 자료나 팟캐스트까지 뽑을 수 있다. AI Ultra·Pro·Plus 구독자부터 시작.
+readerValue: Gemini와 NotebookLM을 따로 쓰던 사람이 두 앱을 연결하는 워크플로우를 바로 적용하게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/
 sourceTitle: "Google Blog: Gemini Notebooks"
 draft: false
-readerValue: Gemini와 NotebookLM을 따로 쓰던 사람이 두 앱을 연결하는 워크플로우를 바로 적용하게 해준다.
+score: 68
 factCheck:
   status: passed
   date: "2026-04-09"
   sources:
-    - url: "https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/"
-      title: "Google Blog"
-    - url: "https://9to5google.com/2026/04/08/gemini-app-notebooks/"
-      title: "9to5Google"
-    - url: "https://android.gadgethacks.com/news/google-gemini-gets-notebooklm-integration-with-300-sources/"
-      title: "Android Gadget Hacks"
+    - url: https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/
+      title: Google Blog
+    - url: https://9to5google.com/2026/04/08/gemini-app-notebooks/
+      title: 9to5Google
+    - url: https://android.gadgethacks.com/news/google-gemini-gets-notebooklm-integration-with-300-sources/
+      title: Android Gadget Hacks
   checks:
     - type: source_match
       result: pass
-      summary: Google 공식 블로그·9to5Google·Android Gadget Hacks 원문 대조
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
-        - "4월 8일 출시 — Google 공식 블로그 확인"
-        - "AI Ultra·Pro·Plus 우선 배포 — 공식 블로그 확인"
-        - "Video Overview·Infographics — NotebookLM 독점 기능으로 Google 확인"
+        - "기사 제목 대조: Gemini 채팅이 NotebookLM으로 자동 연결된다"
+        - "원문 제목 대조: Google Blog: Gemini Notebooks"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: Google, Gemini, NotebookLM, AI도구"
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: Google Blog, 9to5Google, Android Gadget Hacks 교차검증
+      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
-        - "Google Blog: Notebooks 기능 및 NotebookLM 동기화 공식 발표 일치"
-        - "9to5Google: 배포 대상 및 시점 일치"
-        - "Android Gadget Hacks: 소스 최대 300개 수치 확인"
+        - "출처 1: Google Blog (https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/)"
+        - "출처 2: 9to5Google (https://9to5google.com/2026/04/08/gemini-app-notebooks/)"
+        - "출처 3: Android Gadget Hacks (https://android.gadgethacks.com/news/google-gemini-gets-notebooklm-integration-with-300-sources/)"
     - type: number_verify
       result: pass
-      summary: 기사 내 수치 개별 확인
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
-        - "소스 최대 300개 — Android Gadget Hacks '300 sources' 보도 ✅"
+        - "수치 대조: [Gemini 앱에 Notebooks 기능](https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-noteboo..."
+        - "수치 대조: 소스는 최대 300개까지 묶을 수 있고, 커스텀 지시사항이나 파일도 노트북 단위로 관리할 수 있어."
     - type: adversarial
       result: pass
-      summary: 과장·인과 오류 비판적 검토
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
-        - "모바일·무료 사용자 배포 시점 미정 — 본문에 '순차적'으로 명시"
-        - "기능 설명이 Google 공식과 일치, 과장 없음"
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-tags: ["Google", "Gemini", "NotebookLM", "AI도구"]
-score: 68
+tags:
+  - Google
+  - Gemini
+  - NotebookLM
+  - AI도구
 ---
 
 [Gemini 앱에 Notebooks 기능](https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/)이 4월 8일 추가됐어. 핵심은 Gemini에서 나눈 대화가 NotebookLM과 자동 동기화된다는 거야. Gemini에서 정보를 모으고 대화하다가 그 맥락 그대로 NotebookLM으로 넘겨서 Video Overview나 인포그래픽을 뽑을 수 있는 구조거든.

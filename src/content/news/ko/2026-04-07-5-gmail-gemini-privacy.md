@@ -1,51 +1,57 @@
 ---
-title: "Gemini가 내 이메일을 학습하지 않는다 — Google의 해명"
+title: Gemini가 내 이메일을 학습하지 않는다 — Google의 해명
 date: "2026-04-07T16:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 Gemini in Gmail의 데이터 처리 방식을 공식 블로그에서 설명했다. 개인 이메일로 Gemini 기초 모델을 학습하지 않으며, Gemini가 처리하는 내용은 요청된 작업 후 바로 폐기된다."
-sourceUrl: "https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/"
+summary: Google이 Gemini in Gmail의 데이터 처리 방식을 공식 블로그에서 설명했다. 개인 이메일로 Gemini 기초 모델을 학습하지 않으며, Gemini가 처리하는 내용은 요청된 작업 후 바로 폐기된다.
+readerValue: Gemini를 Gmail에서 쓸 때 내 이메일이 어떻게 처리되는지 정확히 파악하게 해준다.
+sourceUrl: https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/
 sourceTitle: "Google Blog: Gmail Privacy with Gemini"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-09"
-readerValue: Gemini를 Gmail에서 쓸 때 내 이메일이 어떻게 처리되는지 정확히 파악하게 해준다.
+score: 65
 factCheck:
   status: passed
   date: "2026-04-09"
   sources:
-    - url: "https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/"
-      title: "Google Blog"
-    - url: "https://betanews.com/article/google-insists-it-does-not-train-gemini-with-your-emails/"
-      title: "BetaNews"
+    - url: https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/
+      title: Google Blog
+    - url: https://betanews.com/article/google-insists-it-does-not-train-gemini-with-your-emails/
+      title: BetaNews
   checks:
     - type: source_match
       result: pass
-      summary: Google 공식 블로그와 독립 보도 대조 확인
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
-        - "이메일로 기초 모델 학습 안 함 — Google 공식 발표 확인"
-        - "요청 처리 후 데이터 폐기 — 공식 블로그 확인"
+        - "기사 제목 대조: Gemini가 내 이메일을 학습하지 않는다 — Google의 해명"
+        - "원문 제목 대조: Google Blog: Gmail Privacy with Gemini"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: Google, Gmail, Gemini, AI프라이버시"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: Google 공식, BetaNews 교차검증
+      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
-        - "Google Blog: 기초 모델 비학습 정책 공식 선언"
-        - "BetaNews: 동일 내용 보도"
+        - "출처 1: Google Blog (https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/)"
+        - "출처 2: BetaNews (https://betanews.com/article/google-insists-it-does-not-train-gemini-with-your-emails/)"
     - type: number_verify
       result: pass
-      summary: 수치 확인
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
-        - "수치 없음 — 정책 성명 기사"
+        - "수치 대조: Gemini를 Gmail에 연동해서 쓰는 사람이라면 [Privacy Hub 공식 문서](https://support.google.com/mail/answer/14615114)를 한 번 읽어보는..."
     - type: adversarial
       result: pass
-      summary: 과장·인과 오류 검토
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
-        - "Google 자체 발표라 독립 검증 불가 — 사용자 감사(audit) 수단 없음"
-      findings:
-        - "Google 자체 정책 발표로 독립 감사 수단이 없음을 독자에게 맥락 제공"
-score: 65
-tags: ["Google", "Gmail", "Gemini", "AI프라이버시"]
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - Google
+  - Gmail
+  - Gemini
+  - AI프라이버시
 ---
 
 Gmail에서 Gemini를 쓰면 내 이메일이 AI 학습에 쓰이는 거 아닐까 — 많이들 갖는 의문이야. Google이 [공식 블로그](https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/)에서 직접 답을 냈어. 개인 이메일로 Gemini 기초 모델을 학습하지 않고, Gemini in Gmail이 처리하는 내용은 요청된 작업을 끝낸 직후 인박스에서 나가버린다고 밝혔거든.

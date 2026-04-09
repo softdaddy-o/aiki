@@ -18,7 +18,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다"
         - "원문 제목 대조: Google Blog"
@@ -27,12 +27,12 @@ factCheck:
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 출처 1건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 1건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: Google Blog (https://blog.google/technology/ai/gemini-25-pro)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다"
         - "수치 대조: Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API의 기본 선택지로 끌..."
@@ -40,7 +40,7 @@ factCheck:
         - "수치 대조: Google이 [Gemini 2.5 Pro](https://blog.google/technology/ai/gemini-25-pro)를 AI Studio와 Gemini API에서 사실상 기본 모..."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
         - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.

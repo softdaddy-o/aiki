@@ -116,7 +116,7 @@ const catalog = [
     entry('qdrant', 'Qdrant', 'tool', [repo('qdrant/qdrant'), url('https://qdrant.tech/documentation/')], { tags: ['vector-db', 'retrieval'], priority: 72 }),
     entry('gpt-4o', 'GPT-4o', 'model', [wikipedia('GPT-4o'), url('https://openai.com/index/hello-gpt-4o/')], { tags: ['openai', 'multimodal'], priority: 90, modelType: 'version' }),
     entry('o1', 'o1', 'model', [url('https://openai.com/index/introducing-openai-o1-preview/'), url('https://platform.openai.com/docs/guides/reasoning-best-practices')], { tags: ['openai', 'reasoning'], priority: 84, modelType: 'version' }),
-    entry('o3', 'o3', 'model', [url('https://openai.com/index/introducing-o3-and-o4-mini/'), url('https://platform.openai.com/docs/guides/reasoning-best-practices')], { tags: ['openai', 'reasoning'], priority: 88, modelType: 'version' }),
+    entry('o3', 'o3', 'model', [url('https://platform.openai.com/docs/models/o3'), url('https://platform.openai.com/docs/pricing')], { tags: ['openai', 'reasoning'], priority: 88, modelType: 'version' }),
     entry('claude', 'Claude', 'model', [wikipedia('Claude_(language_model)'), url('https://www.anthropic.com/claude')], { tags: ['anthropic', 'assistant'], priority: 94, modelType: 'family' }),
     entry('claude-opus', 'Claude Opus', 'model', [url('https://www.anthropic.com/claude/opus'), url('https://docs.anthropic.com/en/docs/about-claude/models')], { tags: ['anthropic', 'reasoning'], priority: 86, modelType: 'family', parentModel: 'claude' }),
     entry('claude-sonnet', 'Claude Sonnet', 'model', [url('https://www.anthropic.com/claude/sonnet'), url('https://docs.anthropic.com/en/docs/about-claude/models')], { tags: ['anthropic', 'application'], priority: 86, modelType: 'family', parentModel: 'claude' }),

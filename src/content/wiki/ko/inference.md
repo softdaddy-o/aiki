@@ -25,26 +25,26 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "Glossário de machine learning
+      title: "อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
       result: pass
-      summary: "대표 출처 기준으로 용어명과 문서 주제를 직접 대조했다."
+      summary: "대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다."
       items:
         - "용어명 대조: Inference"
         - "분류 대조: 개념"
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 비교해 설명 축이 어긋나지 않는지 확인했다."
+      summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
         - "Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "Glossário de machine learning
+        - "อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
+      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
       items:
         - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:

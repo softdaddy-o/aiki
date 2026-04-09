@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: Anthropic은 Claude의 컴퓨터 사용 능력을 향상시키기 위해 Vercept를 인수했습니다."
         - "원문 제목 대조: Anthropic acquires Vercept to advance Claude&#x27;s computer use capabilities"
@@ -31,18 +31,18 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: ClaudeAI (https://www.anthropic.com/news/acquires-vercept)"
         - "출처 2: Secondary source (https://www.anthropic.com/responsible-scaling-policy/roadmap)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: Anthropic은 신뢰할 수 있고 해석 가능하며 조종 가능한 AI 시스템을 구축하기 위해 노력하는 AI 안전 및 연구 회사입니다 [원문](https://www.anthropic.com/new..."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 공식 발표 문구와 실제 배포 범위를 분리해서 읽었다.
         - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 확인했다.

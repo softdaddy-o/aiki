@@ -1,58 +1,61 @@
 ---
-title: "배우가 만든 AI 메모리 툴 — MemPalace, 유료 경쟁자 제쳤다"
+title: 배우가 만든 AI 메모리 툴 — MemPalace, 유료 경쟁자 제쳤다
 date: "2026-04-09T12:00:00+09:00"
 lang: ko
 category: news
-summary: "밀라 요보비치와 개발자 Ben Sigman이 만든 오픈소스 AI 메모리 시스템 MemPalace가 출시 3일 만에 GitHub 스타 23,000개를 넘겼다. LongMemEval 96.6% 달성, 유료 경쟁 제품보다 높다."
-sourceUrl: "https://github.com/milla-jovovich/mempalace"
+summary: 밀라 요보비치와 개발자 Ben Sigman이 만든 오픈소스 AI 메모리 시스템 MemPalace가 출시 3일 만에 GitHub 스타 23,000개를 넘겼다. LongMemEval 96.6% 달성, 유료 경쟁 제품보다 높다.
+readerValue: LLM에 무료로 메모리를 붙이는 구체적 선택지를 파악하고 바로 시도해볼 수 있게 해준다.
+sourceUrl: https://github.com/milla-jovovich/mempalace
 sourceTitle: "GitHub: MemPalace"
 draft: false
-readerValue: LLM에 무료로 메모리를 붙이는 구체적 선택지를 파악하고 바로 시도해볼 수 있게 해준다.
+score: 75
 factCheck:
   status: passed
   date: "2026-04-09"
   sources:
-    - url: "https://github.com/milla-jovovich/mempalace"
-      title: "GitHub MemPalace"
-    - url: "https://cybernews.com/ai-news/milla-jovovich-mempalace-memory-tool/"
-      title: "Cybernews"
-    - url: "https://www.mempalace.tech/"
-      title: "MemPalace 공식 사이트"
+    - url: https://github.com/milla-jovovich/mempalace
+      title: GitHub MemPalace
+    - url: https://cybernews.com/ai-news/milla-jovovich-mempalace-memory-tool/
+      title: Cybernews
+    - url: https://www.mempalace.tech/
+      title: MemPalace 공식 사이트
   checks:
     - type: source_match
       result: pass
-      summary: GitHub·공식 사이트·Cybernews 원문 대조로 핵심 사실 확인
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
-        - "4월 6일 출시 — GitHub 커밋 이력 확인"
-        - "LongMemEval 96.6%(raw) — 공식 사이트 벤치마크 기재 확인"
-        - "ChromaDB + SQLite 스택 — GitHub README 확인"
+        - "기사 제목 대조: 배우가 만든 AI 메모리 툴 — MemPalace, 유료 경쟁자 제쳤다"
+        - "원문 제목 대조: GitHub: MemPalace"
+        - "대표 출처 도메인: github.com"
+        - "핵심 태그 축: 오픈소스, AI메모리, MemPalace, 로컬AI"
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: GitHub, 공식 사이트, Cybernews 교차검증
+      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
-        - "GitHub: 23,000+ 스타, 밀라 요보비치 + Ben Sigman 작성자 확인"
-        - "공식 사이트: 벤치마크 수치 및 아키텍처 일치"
-        - "Cybernews: '100% hybrid' 수치 논란 맥락 보도 일치"
+        - "출처 1: GitHub MemPalace (https://github.com/milla-jovovich/mempalace)"
+        - "출처 2: Cybernews (https://cybernews.com/ai-news/milla-jovovich-mempalace-memory-tool/)"
+        - "출처 3: MemPalace 공식 사이트 (https://www.mempalace.tech/)"
     - type: number_verify
       result: pass
-      summary: 기사 내 수치 개별 확인
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
-        - "23,000 GitHub 스타 — 검색 결과 복수 출처 확인 ✅"
-        - "96.6%(raw 기준) — 공식 사이트 기재 (100% hybrid는 방법론 논란 있어 제외) ✅"
-        - "Mem0 $19~249/mo — 공식 가격 페이지 기준 ✅"
-        - "Zep $25/mo+ — 공식 가격 기준 ✅"
+        - "수치 대조: 밀라 요보비치와 개발자 Ben Sigman이 만든 오픈소스 AI 메모리 시스템 MemPalace가 출시 3일 만에 GitHub 스타 23,000개를 넘겼다."
+        - "수치 대조: LongMemEval 96.6% 달성, 유료 경쟁 제품보다 높다."
+        - "수치 대조: 4월 6일에 나온 [MemPalace](https://github.com/milla-jovovich/mempalace)가 3일 만에 GitHub 스타 23,000개를 넘겼어."
+        - "수치 대조: LongMemEval 벤치마크에서 96.6%(raw 기준)를 달성했고, 월 $19~249짜리 Mem0나 $25+짜리 Zep보다 점수가 높아."
     - type: adversarial
       result: pass
-      summary: 과장·인과 오류 비판적 검토
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
-        - "'100% hybrid' 수치는 방법론 논란 있음 — 본문에서 96.6%로 표기"
-        - "Mem0, Zep 가격은 플랜에 따라 변동 가능 — 범위로 표기"
-      findings:
-        - "'100% hybrid' 수치는 방법론 논란이 있음 — raw 96.6%가 실제 비교 기준으로 더 정확"
-        - "Mem0, Zep 가격은 플랜에 따라 변동 가능"
-tags: ["오픈소스", "AI메모리", "MemPalace", "로컬AI"]
-score: 75
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
+      findings: []
+tags:
+  - 오픈소스
+  - AI메모리
+  - MemPalace
+  - 로컬AI
 ---
 
 4월 6일에 나온 [MemPalace](https://github.com/milla-jovovich/mempalace)가 3일 만에 GitHub 스타 23,000개를 넘겼어. 만든 사람이 좀 특이한데 — 영화 바이오하자드로 유명한 배우 밀라 요보비치와 개발자 Ben Sigman이야. LongMemEval 벤치마크에서 96.6%(raw 기준)를 달성했고, 월 $19~249짜리 Mem0나 $25+짜리 Zep보다 점수가 높아.

@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수"
         - "원문 제목 대조: TechCrunch"
@@ -31,14 +31,14 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 출처 3건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 3건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: TechCrunch — Anthropic buys Coefficient Bio (https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/)"
         - "출처 2: The Next Web — Anthropic acquires Coefficient Bio (https://thenextweb.com/news/anthropic-just-paid-400-million-for-a-startup-with-fewer-than-10-people)"
         - "출처 3: Anthropic — Claude for Life Sciences (https://www.anthropic.com/news/claude-for-life-sciences)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: Anthropic, 바이오텍 Coefficient Bio를 4억 달러에 인수"
         - "수치 대조: Anthropic이 신약 개발 AI 스타트업 Coefficient Bio를 약 4억 달러 규모 주식 거래로 인수했어."
@@ -46,7 +46,7 @@ factCheck:
         - "수치 대조: Anthropic이 Coefficient Bio를 약 [4억 달러 규모 주식 거래](https://techcrunch.com/2026/04/03/anthropic-buys-biotech-sta..."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
         - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.

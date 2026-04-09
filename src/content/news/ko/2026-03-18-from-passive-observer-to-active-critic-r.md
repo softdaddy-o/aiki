@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: 수동적 관찰자에서 능동적 비평가로: 강화 학습은 로봇 조작에 대한 프로세스 추론을 이끌어냅니다."
         - "원문 제목 대조: From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation"
@@ -31,20 +31,20 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: cs.AI (https://arxiv.org/abs/2603.15600v1)"
         - "출처 2: Secondary source (https://arxiv.org/abs/2603.15547v1)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: arXiv 논문 2603.15600v1의 추상 페이지: 수동적 관찰자에서 적극적인 비평가로: 강화 학습은 로봇 조작에 대한 프로세스 추론을 이끌어냅니다."
         - "수치 대조: arXiv 논문 2603.15600v1의 추상 페이지: 수동적 관찰자에서 적극적인 비평가로: 강화 학습은 로봇 조작에 대한 프로세스 추론을 이끌어냅니다 [원문](https://arxiv.org..."
         - "수치 대조: 이 이슈는 arXiv 논문 2603.15600v1의 추상 페이지: 수동적 관찰자에서 적극적인 비평가로: 강화 학습은 로봇 조작에 대한 프로세스 추론을 이끌어냅니다가 실제 시장과 개발 흐름에서 ..."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 논문 성과와 실제 제품 배포 가능성을 같은 뜻으로 읽지 않도록 분리했다.
         - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지 따로 점검했다.

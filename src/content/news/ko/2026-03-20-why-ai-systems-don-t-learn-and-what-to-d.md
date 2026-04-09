@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: AI 시스템이 학습하지 못하는 이유와 대처 방법: 인지과학의 자율 학습에 대한 교훈"
         - "원문 제목 대조: Why AI systems don&#39;t learn and what to do about it: Lessons on autonomous learning from cognitive science"
@@ -31,13 +31,13 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 출처 2건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 2건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: artificial (https://arxiv.org/abs/2603.15381)"
         - "출처 2: Secondary source (https://arxiv.org/abs/2603.17973v1)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: arXiv 논문 2603.15381의 초록 페이지: AI 시스템이 학습하지 않는 이유와 이에 대해 수행할 작업: 인지 과학의 자율 학습에 대한 교훈."
         - "수치 대조: arXiv 논문 2603.15381의 초록 페이지: AI 시스템이 학습하지 않는 이유와 이에 대해 수행할 작업: 인지 과학의 자율 학습에 대한 교훈 [원문](https://arxiv.org/a..."
@@ -45,7 +45,7 @@ factCheck:
         - "수치 대조: AI 시스템이 학습하지 못하는 이유와 대처 방법: 인지과학의 자율 학습에 대한 교훈, arXiv 논문 2603.1…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바..."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 논문 성과와 실제 제품 배포 가능성을 같은 뜻으로 읽지 않도록 분리했다.
         - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지 따로 점검했다.

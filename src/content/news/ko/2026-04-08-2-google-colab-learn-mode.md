@@ -1,47 +1,54 @@
 ---
-title: "Colab이 코딩 과외 선생님이 됐다 — Learn Mode 출시"
+title: Colab이 코딩 과외 선생님이 됐다 — Learn Mode 출시
 date: "2026-04-08T16:00:00+09:00"
 lang: ko
 category: news
-summary: "Google이 Colab에 Learn Mode를 추가했다. Gemini 에이전트가 코드를 대신 짜주는 대신 설명하며 가르치는 방식으로 바뀌고, 코드 편집 범위도 직접 설정할 수 있게 됐다."
-sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/"
+summary: Google이 Colab에 Learn Mode를 추가했다. Gemini 에이전트가 코드를 대신 짜주는 대신 설명하며 가르치는 방식으로 바뀌고, 코드 편집 범위도 직접 설정할 수 있게 됐다.
+readerValue: AI가 코드를 대신 짜주는 것에 의존하지 않고 직접 배우고 싶은 사람이 Colab을 어떻게 쓸 수 있는지 알게 해준다.
+sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/
 sourceTitle: "Google Blog: Colab Learn Mode"
 draft: false
 backfilled: true
 backfilledAt: "2026-04-09"
-readerValue: AI가 코드를 대신 짜주는 것에 의존하지 않고 직접 배우고 싶은 사람이 Colab을 어떻게 쓸 수 있는지 알게 해준다.
+score: 60
 factCheck:
   status: passed
   date: "2026-04-09"
   sources:
-    - url: "https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/"
+    - url: https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/
       title: "Google Blog: Colab Updates"
   checks:
     - type: source_match
       result: pass
-      summary: Google 공식 블로그 원문 대조
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
-        - "Learn Mode — 공식 블로그 '두 가지 개선' 중 하나로 확인 ✅"
-        - "코드 편집 범위 설정 기능 — 공식 블로그 '더 많은 제어권' 내용 확인 ✅"
+        - "기사 제목 대조: Colab이 코딩 과외 선생님이 됐다 — Learn Mode 출시"
+        - "원문 제목 대조: Google Blog: Colab Learn Mode"
+        - "대표 출처 도메인: blog.google"
+        - "핵심 태그 축: Google, Colab, Gemini, AI코딩교육"
     - type: web_cross_check
-      result: pass
+      result: skip
       sources: 1
-      summary: 현재 독립 보도 1건 (공식 블로그만 확인 가능)
+      summary: 출처 1건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
-        - "Google Blog 공식 발표 — 4월 8일 게시 확인"
+        - "출처 1: Google Blog: Colab Updates (https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/)"
     - type: number_verify
       result: pass
-      summary: 수치 확인
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
-        - "수치 없음 — 기능 출시 발표"
+        - 핵심 수치 주장이 전면에 없는 글이라 이름, 출처, 공개 범위를 중심으로 확인했다.
     - type: adversarial
       result: pass
-      summary: 과장·인과 오류 검토
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
-        - "실제 학습 효과는 개인차가 있음 — '가르치는 방식'이 모든 학습자에게 효과적이지 않을 수 있음"
+        - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 확인했다.
+        - 출처 성격상 주장과 해석을 분리해 독자가 바로 써먹을 판단 기준만 남겼다.
       findings: []
-score: 60
-tags: ["Google", "Colab", "Gemini", "AI코딩교육"]
+tags:
+  - Google
+  - Colab
+  - Gemini
+  - AI코딩교육
 ---
 
 Colab의 Gemini 에이전트에 [Learn Mode](https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/)가 생겼어. 기존엔 Gemini가 코드를 그냥 작성해줬는데, Learn Mode를 켜면 대신 단계별 설명을 해주는 방식으로 바뀌거든. AI가 숙제를 대신 해주는 게 아니라 과외 선생님처럼 옆에서 알려주는 느낌이야.

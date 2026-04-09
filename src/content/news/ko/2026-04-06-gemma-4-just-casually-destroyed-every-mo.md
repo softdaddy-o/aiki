@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 대표 원문과 기사 메타데이터를 먼저 대조해 제목 축이 맞는지 확인했다.
+      summary: 원문 제목이랑 기사 메타데이터가 같은 사건을 가리키는지 먼저 맞춰봤다.
       items:
         - "기사 제목 대조: Gemma 4 31B가 $0.20 비용으로 상위 모델들을 앞섰다는 주장"
         - "원문 제목 대조: Reddit r/LocalLLaMA"
@@ -29,12 +29,12 @@ factCheck:
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 출처 1건을 비교해 같은 사건을 가리키는지 교차검증했다.
+      summary: 출처 1건을 나란히 놓고 정말 같은 사건을 말하는지 다시 봤다.
       items:
         - "출처 1: LocalLLaMA benchmark post (https://www.reddit.com/r/LocalLLaMA/comments/1sdcotc/gemma_4_just_casually_destroyed_every_model_on/)"
     - type: number_verify
       result: pass
-      summary: 숫자와 고유 명칭은 별도 묶음으로 다시 훑어 과장 여부를 걸렀다.
+      summary: 숫자와 고유 명칭은 따로 빼서 한 번 더 보고 과장된 표현을 걸렀다.
       items:
         - "수치 대조: Gemma 4 31B가 $0.20 비용으로 상위 모델들을 앞섰다는 주장"
         - "수치 대조: Gemma 4 31B가 실행당 0.20달러 비용으로 GPT-5.2, Gemini 3 Pro, Sonnet 4.6보다 높은 수익률을 냈다는 보고다."
@@ -42,7 +42,7 @@ factCheck:
         - "수치 대조: Gemma 4 31B가 $0.20 비용으로 상위 모델들을 앞섰다는 주장에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야."
     - type: adversarial
       result: pass
-      summary: 헷갈리기 쉬운 해석 포인트를 비판적으로 다시 검토했다.
+      summary: 헷갈릴 수 있는 해석 포인트는 한 번 더 의심해보고 정리했다.
       items:
         - 커뮤니티 반응 수치와 실제 제품 영향력을 분리해서 읽었다.
         - 개인 실험·후기 성격의 글이라 재현 가능성과 대표성을 따로 판단했다.

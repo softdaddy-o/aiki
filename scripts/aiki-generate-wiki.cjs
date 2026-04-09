@@ -638,10 +638,30 @@ function summaryFromSource(entry, sourceContext) {
 
 function buildModelSummary(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `${modelProfile.vendor}의 상위 모델 계열이다. 기사에서는 개별 버전보다 라인업 이름으로 자주 등장한다.`;
+        return `${modelProfile.vendor}의 상위 모델 계열이다. 기사에서 이름만 나오면 하위 버전과 제품 포지션을 함께 확인해야 한다.`;
     }
 
-    return `${modelProfile.vendor}에서 제공하는 버전형 모델이다. 실제 도입에서는 입력 범위, 컨텍스트, 가격을 함께 비교해야 한다.`;
+    return `${modelProfile.vendor}의 ${entry.title} 모델이다. 이름이 나오면 벤치마크 점수보다 어떤 작업에 쓰는지와 API 비용 구간을 같이 봐야 한다.`;
+}
+
+function inferModelJobFocus(modelProfile) {
+    const implementation = String(modelProfile.implementation || '').toLowerCase();
+    const access = String(modelProfile.access || '').toLowerCase();
+    const support = String(modelProfile.multimodalSupport || '').toLowerCase();
+
+    if (implementation.includes('reasoning')) {
+        return '어려운 추론, 계획 수립, 도구를 섞어 써야 하는 일';
+    }
+
+    if (implementation.includes('코딩') || access.includes('agent') || access.includes('에이전트')) {
+        return '코드 이해, 수정, 에이전트형 자동화';
+    }
+
+    if (support.includes('이미지') || support.includes('multimodal')) {
+        return '텍스트만이 아니라 이미지 맥락까지 같이 읽는 작업';
+    }
+
+    return '실제 제품에 붙일 모델 선택';
 }
 
 function buildRelationHint(entry, relatedEntry) {
@@ -705,7 +725,7 @@ function buildGenericFactChecks(entry, sourceDetails) {
         {
             type: 'source_match',
             result: 'pass',
-            summary: '대표 출처 기준으로 용어명과 문서 주제를 직접 대조했다.',
+            summary: '대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다.',
             items: [
                 `용어명 대조: ${entry.title}`,
                 `분류 대조: ${categoryLabel(entry.category)}`,
@@ -715,13 +735,13 @@ function buildGenericFactChecks(entry, sourceDetails) {
             type: 'web_cross_check',
             result: sourceDetails.length > 1 ? 'pass' : 'skip',
             sources: sourceDetails.length,
-            summary: `관련 출처 ${sourceDetails.length}건을 비교해 설명 축이 어긋나지 않는지 확인했다.`,
+            summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다.`,
             items: sourceItems,
         },
         {
             type: 'adversarial',
             result: 'pass',
-            summary: '헷갈리기 쉬운 해석 포인트를 따로 점검했다.',
+            summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다.',
             findings: ['이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다.'],
             items: ['정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다.'],
         },
@@ -965,28 +985,30 @@ function buildNonModelWhyImportant(entry) {
 
 function buildModelDefinition(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `${modelProfile.vendor}의 상위 모델 계열이야. 기사에서 이 이름만 보이면 보통 특정 스냅샷 하나보다 라인업 전체 방향을 가리키는 경우가 많아. 그래서 먼저 어떤 하위 모델을 뜻하는지부터 확인하는 편이 맞아.`;
+        return `${entry.title}는 ${modelProfile.vendor}가 묶어 부르는 상위 모델 계열이야. 기사에서 이름만 크게 보일 때가 많아서, 먼저 어떤 하위 버전을 가리키는지부터 잡아야 맥락이 덜 꼬인다. 개별 모델 프로필이 필요하면 이 페이지보다 하위 버전 페이지로 내려가는 게 맞다.`;
     }
 
-    return `${modelProfile.vendor}에서 제공하는 버전형 모델이야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} 한 줄로 말하면 "이 모델이 실제로 어떤 입력을 받아 어떤 결과를 내는지"를 가장 직접적으로 보여 주는 페이지라고 보면 된다.`;
+    const focus = inferModelJobFocus(modelProfile);
+    return `${entry.title}는 ${modelProfile.vendor}가 ${focus} 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제 비교표에 올릴 후보라고 생각하면 된다. ${ensureSentence(modelProfile.multimodalSupport)} ${ensureSentence(modelProfile.implementation)}`;
 }
 
 function buildModelCapabilities(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `${entry.title} 같은 계열 페이지에서는 세부 버전별 역할을 먼저 잡는 게 중요해. ${modelProfile.access} 계열 이름만 알아서는 가격이나 컨텍스트를 정확히 비교할 수 없고, 실제 선택은 하위 버전에서 갈린다.`;
+        return `${entry.title} 같은 계열 페이지에서는 "무슨 일을 잘하나"보다 "어떤 하위 버전으로 갈라지나"를 먼저 보는 편이 좋아. ${ensureSentence(modelProfile.access)} 계열 이름만 알아서는 가격이나 컨텍스트를 못 박을 수 없고, 실제 선택은 하위 버전에서 갈린다.`;
     }
 
-    return `${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} 실무에서는 이 문장만 읽어도 이 모델이 챗봇형인지, 코딩형인지, 멀티모달 앱에 맞는지 감이 잡힌다.`;
+    const focus = inferModelJobFocus(modelProfile);
+    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 된다.`;
 }
 
 function buildModelSpecGuide(entry, modelProfile) {
     const guideLines = [
-        `- **입력/출력 범위**: ${ensureSentence(modelProfile.multimodalSupport)} 이 줄은 텍스트 전용인지, 이미지·오디오까지 받는지부터 구분하는 항목이야.`,
-        `- **컨텍스트/메모리 감각**: ${ensureSentence(modelProfile.memoryUsage)} 긴 문서를 붙일 수 있는지와 호출 비용 감각이 여기서 갈린다.`,
-        `- **모델 구조와 규모**: ${ensureSentence(modelProfile.activeParameters)} dense인지 MoE인지, 크기 감각을 읽는 데 쓰는 줄이다.`,
-        `- **접근 경로**: ${ensureSentence(modelProfile.access)} 이 항목을 보면 바로 제품에 붙일 수 있는지, 특정 플랫폼에서만 쓰는지 판단할 수 있다.`,
-        `- **가격과 운영비**: ${ensureSentence(modelProfile.pricing)} API 단가인지, GPU 비용인지, 어느 쪽을 먼저 계산해야 하는지 여기서 정리된다.`,
-        `- **웨이트 공개 여부**: ${ensureSentence(modelProfile.weightsOpen)} 직접 호스팅 가능한지 여부를 읽는 줄이다.`,
+        `- **입력/출력 범위**: ${ensureSentence(modelProfile.multimodalSupport)} 텍스트 전용인지, 이미지까지 같이 읽는지부터 여기서 갈린다.`,
+        `- **컨텍스트/메모리 감각**: ${ensureSentence(modelProfile.memoryUsage)} 긴 문서 작업이 되는지와 호출비 감각을 이 줄에서 같이 본다.`,
+        `- **모델 구조와 규모**: ${ensureSentence(modelProfile.activeParameters)} 파라미터 숫자를 공개하지 않아도 운영 옵션 차이만으로 성격을 읽을 수 있다.`,
+        `- **접근 경로**: ${ensureSentence(modelProfile.access)} 바로 제품에 붙일 수 있는지, 특정 채널에서만 열리는지 여기서 판단한다.`,
+        `- **가격과 운영비**: ${ensureSentence(modelProfile.pricing)} 운영비 계산을 어디서 시작할지 정하는 자리라고 보면 된다.`,
+        `- **웨이트 공개 여부**: ${ensureSentence(modelProfile.weightsOpen)} 자체 호스팅 가능 여부를 여기서 먼저 걸러낸다.`,
     ];
 
     if (entry.modelType === 'family') {
@@ -998,10 +1020,10 @@ function buildModelSpecGuide(entry, modelProfile) {
 
 function buildModelWhyImportant(entry, modelProfile) {
     if (entry.modelType === 'family') {
-        return `이런 상위 계열을 알아두면 ${modelProfile.vendor}의 라인업 방향을 빠르게 읽을 수 있어. 뉴스 제목에는 상위 이름만 크게 남는 경우가 많지만, 실제 선택 기준은 속도형인지 고성능형인지, 폐쇄형 API인지 공개 웨이트인지 같은 하위 포지션에서 갈린다.`;
+        return `상위 계열 페이지가 필요한 이유는 뉴스 제목에 버전명보다 계열명만 남는 경우가 많기 때문이야. ${modelProfile.vendor}가 라인업을 어떤 축으로 나누는지 먼저 알아두면, 하위 버전 페이지로 내려갔을 때 왜 가격과 성격이 갈리는지도 훨씬 빨리 보인다.`;
     }
 
-    return `이런 버전 페이지가 중요한 이유는 실제 도입 판단이 바로 이 단계에서 이뤄지기 때문이야. 같은 회사 모델끼리도 입력 범위, 컨텍스트, 가격, 배포 채널이 다르면 완전히 다른 제품에 맞는다. 그래서 벤치마크 숫자보다 "내 앱에 바로 붙는지"를 읽는 기준으로 봐야 한다.`;
+    return `중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 ${modelProfile.vendor} 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞다.`;
 }
 
 async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerms) {
