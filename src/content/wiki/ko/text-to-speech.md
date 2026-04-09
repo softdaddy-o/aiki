@@ -23,7 +23,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Speech_synthesis"
       title: "Speech synthesis"
     - url: "https://platform.openai.com/docs/guides/text-to-speech"
-      title: "https://platform.openai.com/docs/guides/text-to-speech"
+      title: "Text to speech | OpenAI API"
   checks:
     - type: source_match
       result: pass
@@ -39,7 +39,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 음질, 스트리밍 지연, 비용 중 무엇을 먼저 맞춰야 하는지야."
         - "같이 본 출처로는 Speech synthesis (https://en.wikipedia.org/wiki/Speech_synthesis)"
-        - "같이 본 출처로는 https://platform.openai.com/docs/guides/text-to-speech (https://platform.openai.com/docs/guides/text-to-speech)"
+        - "같이 본 출처로는 Text to speech | OpenAI API (https://platform.openai.com/docs/guides/text-to-speech)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 음질, 스트리밍 지연, 비용 중 무엇을 먼저 맞춰야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

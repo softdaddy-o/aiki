@@ -25,7 +25,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "Glosario sobre aprendizaje automático
+      title: "Glossário de machine learning
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
@@ -42,7 +42,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
         - "같이 본 출처로는 Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "같이 본 출처로는 Glosario sobre aprendizaje automático
+        - "같이 본 출처로는 Glossário de machine learning
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: number_verify
       result: pass

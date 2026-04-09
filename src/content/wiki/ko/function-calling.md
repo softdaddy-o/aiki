@@ -23,7 +23,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/guides/function-calling"
-      title: "https://platform.openai.com/docs/guides/function-calling"
+      title: "Function calling | OpenAI API"
     - url: "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
       title: "Tool use with Claude"
   checks:
@@ -40,7 +40,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 API 연결과 제품 통합를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 API 연결과 제품 통합를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "같이 본 출처로는 https://platform.openai.com/docs/guides/function-calling (https://platform.openai.com/docs/guides/function-calling)"
+        - "같이 본 출처로는 Function calling | OpenAI API (https://platform.openai.com/docs/guides/function-calling)"
         - "같이 본 출처로는 Tool use with Claude (https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)"
     - type: number_verify
       result: pass

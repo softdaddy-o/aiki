@@ -24,7 +24,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Perplexity_AI"
       title: "Perplexity AI"
     - url: "https://www.perplexity.ai/hub"
-      title: "Perplexity Blog"
+      title: "https://www.perplexity.ai/hub"
   checks:
     - type: source_match
       result: pass
@@ -40,7 +40,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 검색과 외부 지식 연결에서 어떤 도구를 붙여야 하는지야."
         - "같이 본 출처로는 Perplexity AI (https://en.wikipedia.org/wiki/Perplexity_AI)"
-        - "같이 본 출처로는 Perplexity Blog (https://www.perplexity.ai/hub)"
+        - "같이 본 출처로는 https://www.perplexity.ai/hub (https://www.perplexity.ai/hub)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 검색과 외부 지식 연결에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

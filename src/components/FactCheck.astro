@@ -71,7 +71,6 @@ const visibleChecks = checks
         findingItems: Array.isArray(check.findings) ? check.findings : [],
     }))
     .filter((check) => check.preview || check.detailItems.length > 0 || check.findingItems.length > 0);
-const primaryCheck = visibleChecks.find((check) => check.type === 'source_match') || visibleChecks[0] || null;
 ---
 
 <section class="factcheck">
@@ -88,15 +87,20 @@ const primaryCheck = visibleChecks.find((check) => check.type === 'source_match'
             <span>상태: {statusIcon}</span>
         </div>
 
-        {primaryCheck && (
-            <div class="fc-primary">
-                <div class="fc-primary-head">
-                    <span class={primaryCheck.result === 'pass' ? 'check-pass' : primaryCheck.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                        {resultIcon(primaryCheck.result)}
-                    </span>
-                    <span class="fc-primary-title">{primaryCheck.label}</span>
-                </div>
-                {primaryCheck.preview && <div class="fc-primary-preview">{primaryCheck.preview}</div>}
+        {visibleChecks.length > 0 && (
+            <div class="fc-summary-grid">
+                {visibleChecks.map((check) => (
+                    <section class="fc-summary-card">
+                        <div class="fc-summary-head">
+                            <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
+                                {resultIcon(check.result)}
+                            </span>
+                            <span class="fc-summary-title">{check.label}</span>
+                            {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
+                        </div>
+                        {check.preview && <div class="fc-summary-preview">{check.preview}</div>}
+                    </section>
+                ))}
             </div>
         )}
 
@@ -107,40 +111,9 @@ const primaryCheck = visibleChecks.find((check) => check.type === 'source_match'
             </summary>
 
             <div class="fc-groups">
-                {primaryCheck && (primaryCheck.detailItems.length > 0 || primaryCheck.findingItems.length > 0) && (
-                    <section class="fc-group fc-group-primary-detail">
-                        <div class="fc-group-body">
-                            {primaryCheck.detailItems.length > 0 && (
-                                <ul class="fc-group-list">
-                                    {primaryCheck.detailItems.map((item) => (
-                                        <li>{item}</li>
-                                    ))}
-                                </ul>
-                            )}
-                            {primaryCheck.findingItems.length > 0 && (
-                                <ul class="fc-group-list fc-findings">
-                                    {primaryCheck.findingItems.map((finding) => (
-                                        <li>{finding}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    </section>
-                )}
-
-                {visibleChecks.filter((check) => check.type !== primaryCheck?.type).map((check) => (
+                {visibleChecks.map((check) => (
                     <section class="fc-group">
-                        <div class="fc-group-header">
-                            <div class="fc-group-main">
-                                <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                                    {resultIcon(check.result)}
-                                </span>
-                                <span class="fc-group-title">{check.label}</span>
-                                {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
-                            </div>
-                            {check.preview && check.type !== primaryCheck?.type && <div class="fc-group-preview">{check.preview}</div>}
-                        </div>
-
+                        <div class="sr-only">{check.label} 상세 검증</div>
                         <div class="fc-group-body">
                             {check.detailItems.length > 0 && (
                                 <ul class="fc-group-list">
@@ -224,23 +197,28 @@ const primaryCheck = visibleChecks.find((check) => check.type === 'source_match'
         color: var(--color-text-muted);
         font-size: 12px;
     }
-    .fc-primary {
-        padding: 12px;
+    .fc-summary-grid {
+        display: grid;
+        gap: 12px;
         margin-bottom: 12px;
+    }
+    .fc-summary-card {
+        padding: 12px;
         background: var(--color-surface-alt);
         border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
         border-radius: 8px;
     }
-    .fc-primary-head {
+    .fc-summary-head {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 8px;
         margin-bottom: 6px;
     }
-    .fc-primary-title {
+    .fc-summary-title {
         font-weight: 700;
     }
-    .fc-primary-preview {
+    .fc-summary-preview {
         color: var(--color-text-muted);
         font-size: 12px;
         line-height: 1.6;
@@ -278,26 +256,8 @@ const primaryCheck = visibleChecks.find((check) => check.type === 'source_match'
         border-radius: 8px;
         border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
     }
-    .fc-group-header {
-        padding: 11px 12px 0;
-    }
-    .fc-group-main {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .fc-group-title {
-        font-weight: 700;
-    }
-    .fc-group-preview {
-        color: var(--color-text-muted);
-        font-size: 12px;
-        line-height: 1.6;
-        margin-top: 6px;
-    }
     .fc-group-body {
-        padding: 8px 12px 12px;
+        padding: 12px;
     }
     .fc-group-list {
         margin: 0;
@@ -327,5 +287,16 @@ const primaryCheck = visibleChecks.find((check) => check.type === 'source_match'
     }
     .fc-footer a {
         color: var(--color-news);
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
     }
 </style>
