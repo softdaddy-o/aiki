@@ -24,7 +24,7 @@ factCheck:
     - url: "https://platform.openai.com/docs/overview"
       title: "https://platform.openai.com/docs/overview"
     - url: "https://platform.openai.com/docs/api-reference"
-      title: "https://platform.openai.com/docs/api-reference"
+      title: "API Overview"
   checks:
     - type: source_match
       result: pass
@@ -40,7 +40,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지야."
         - "같이 본 출처로는 https://platform.openai.com/docs/overview (https://platform.openai.com/docs/overview)"
-        - "같이 본 출처로는 https://platform.openai.com/docs/api-reference (https://platform.openai.com/docs/api-reference)"
+        - "같이 본 출처로는 API Overview (https://platform.openai.com/docs/api-reference)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

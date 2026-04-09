@@ -107,7 +107,28 @@ const primaryCheck = visibleChecks.find((check) => check.type === 'source_match'
             </summary>
 
             <div class="fc-groups">
-                {visibleChecks.map((check) => (
+                {primaryCheck && (primaryCheck.detailItems.length > 0 || primaryCheck.findingItems.length > 0) && (
+                    <section class="fc-group fc-group-primary-detail">
+                        <div class="fc-group-body">
+                            {primaryCheck.detailItems.length > 0 && (
+                                <ul class="fc-group-list">
+                                    {primaryCheck.detailItems.map((item) => (
+                                        <li>{item}</li>
+                                    ))}
+                                </ul>
+                            )}
+                            {primaryCheck.findingItems.length > 0 && (
+                                <ul class="fc-group-list fc-findings">
+                                    {primaryCheck.findingItems.map((finding) => (
+                                        <li>{finding}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </section>
+                )}
+
+                {visibleChecks.filter((check) => check.type !== primaryCheck?.type).map((check) => (
                     <section class="fc-group">
                         <div class="fc-group-header">
                             <div class="fc-group-main">

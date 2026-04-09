@@ -24,7 +24,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Speech_recognition"
       title: "Speech recognition"
     - url: "https://platform.openai.com/docs/guides/speech-to-text"
-      title: "Speech to text | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/speech-to-text"
   checks:
     - type: source_match
       result: pass
@@ -40,7 +40,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지야."
         - "같이 본 출처로는 Speech recognition (https://en.wikipedia.org/wiki/Speech_recognition)"
-        - "같이 본 출처로는 Speech to text | OpenAI API (https://platform.openai.com/docs/guides/speech-to-text)"
+        - "같이 본 출처로는 https://platform.openai.com/docs/guides/speech-to-text (https://platform.openai.com/docs/guides/speech-to-text)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

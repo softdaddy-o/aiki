@@ -22,7 +22,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart"
-      title: "Hướng dẫn nhanh về Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Google AI Studio のクイックスタート &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://aistudio.google.com/"
       title: "Google AI Studio"
   checks:
@@ -39,7 +39,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 API 연결과 제품 통합에서 어떤 도구를 붙여야 하는지야."
-        - "같이 본 출처로는 Hướng dẫn nhanh về Google AI Studio &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/ai-studio-quickstart)"
+        - "같이 본 출처로는 Google AI Studio のクイックスタート &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/ai-studio-quickstart)"
         - "같이 본 출처로는 Google AI Studio (https://aistudio.google.com/)"
     - type: number_verify
       result: pass

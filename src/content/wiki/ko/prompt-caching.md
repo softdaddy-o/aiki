@@ -22,7 +22,7 @@ factCheck:
   date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/guides/prompt-caching"
-      title: "Prompt caching | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/prompt-caching"
     - url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
       title: "Prompt caching"
   checks:
@@ -39,7 +39,7 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 모델 서빙과 추론 성능를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
       items:
         - "여기서 먼저 갈라 볼 기준은 모델 서빙과 추론 성능를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "같이 본 출처로는 Prompt caching | OpenAI API (https://platform.openai.com/docs/guides/prompt-caching)"
+        - "같이 본 출처로는 https://platform.openai.com/docs/guides/prompt-caching (https://platform.openai.com/docs/guides/prompt-caching)"
         - "같이 본 출처로는 Prompt caching (https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)"
     - type: number_verify
       result: pass
