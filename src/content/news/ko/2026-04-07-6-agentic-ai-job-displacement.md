@@ -4,7 +4,7 @@ date: "2026-04-07T04:24:06+09:00"
 lang: ko
 category: news
 summary: arXiv 논문이 AI 에이전트의 직업 대체 위험을 분석했다. 236개 직종과 미국 5개 도시를 대상으로 적용한 결과, 단순 자동화보다 에이전트형 AI의 파급력이 훨씬 크다는 걸 보여줬다.
-readerValue: AI가 내 직종에 미치는 위험 수준을 학술 기준으로 파악하고 준비 방향을 잡게 해준다.
+readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다.
 sourceUrl: https://arxiv.org/abs/2604.00186
 sourceTitle: "arXiv: Agentic AI and Occupational Displacement"
 draft: false

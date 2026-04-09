@@ -4,7 +4,7 @@ date: "2026-03-23T12:00:00+09:00"
 lang: ko
 category: news
 summary: Gemini API 호출로 Google 검색과 같은 내장 도구와 함수 호출을 결합하여 에이전트적이고 복잡한 도구 사용 애플리케이션을 구축할 수 있습니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tooling-updates/
 sourceTitle: "Gemini API tooling updates: context circulation, tool combos and Maps grounding for Gemini 3"
 draft: false

@@ -4,7 +4,7 @@ date: "2026-04-09T10:00:00+09:00"
 lang: ko
 category: news
 summary: Meta Superintelligence Labs의 첫 모델 Muse Spark가 공개됐다. Llama로 대표되던 오픈소스 전략을 뒤집고 클로즈드 모델로 출시, 전 세계 30억 명의 Meta 앱에 탑재할 예정이다.
-readerValue: Meta AI 전략 전환의 의미와 오픈소스 생태계에 미치는 영향을 실용적으로 파악하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/
 sourceTitle: "TechCrunch: Meta Muse Spark"
 draft: false

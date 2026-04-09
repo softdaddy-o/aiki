@@ -4,7 +4,7 @@ date: "2026-04-05T09:00:00+09:00"
 lang: ko
 category: news
 summary: Google이 Gemini API에 Flex(50% 할인)랑 Priority(75-100% 프리미엄) 티어를 넣었어. 파라미터 하나로 전환 가능.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/
 sourceTitle: Google Blog
 draft: false

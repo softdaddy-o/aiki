@@ -4,7 +4,7 @@ date: "2026-03-26T12:00:00+09:00"
 lang: ko
 category: news
 summary: .
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다.
 sourceUrl: https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/
 sourceTitle: "TurboQuant: Redefining AI efficiency with extreme compression"
 draft: false

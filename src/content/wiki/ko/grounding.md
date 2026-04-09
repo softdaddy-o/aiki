@@ -25,7 +25,7 @@ factCheck:
     - url: "https://ai.google.dev/gemini-api/docs/grounding"
       title: "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
-      title: "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
+      title: "Informações gerais sobre embasamento &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
   checks:
     - type: source_match
       result: pass
@@ -41,7 +41,7 @@ factCheck:
       items:
         - "비교 기준: 검색과 외부 지식 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지"
         - "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/grounding)"
-        - "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation (https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)"
+        - "Informações gerais sobre embasamento &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation (https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 검색과 외부 지식 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

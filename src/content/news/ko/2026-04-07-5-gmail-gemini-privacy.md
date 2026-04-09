@@ -4,7 +4,7 @@ date: "2026-04-07T16:00:00+09:00"
 lang: ko
 category: news
 summary: Google이 Gemini in Gmail의 데이터 처리 방식을 공식 블로그에서 설명했다. 개인 이메일로 Gemini 기초 모델을 학습하지 않으며, Gemini가 처리하는 내용은 요청된 작업 후 바로 폐기된다.
-readerValue: Gemini를 Gmail에서 쓸 때 내 이메일이 어떻게 처리되는지 정확히 파악하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/
 sourceTitle: "Google Blog: Gmail Privacy with Gemini"
 draft: false

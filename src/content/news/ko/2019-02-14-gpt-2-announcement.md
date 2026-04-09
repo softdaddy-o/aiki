@@ -4,7 +4,7 @@ date: "2019-02-14T12:00:00+09:00"
 lang: ko
 category: news
 summary: 우리는 일관된 텍스트 단락을 생성하고, 많은 언어 모델링 벤치마크에서 최첨단 성능을 달성하고, 기초적인 독해, 기계 번역, 질문 응답 및 요약을 수행하는 대규모 비지도 언어 모델을 훈련했습니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
 sourceUrl: https://openai.com/index/better-language-models/
 sourceTitle: GPT-2
 draft: false

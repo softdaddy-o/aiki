@@ -4,7 +4,7 @@ date: "2024-02-15T12:00:00+09:00"
 lang: ko
 category: news
 summary: 우리는 사람들이 실제 상호 작용이 필요한 문제를 해결하는 데 도움이 되는 모델 훈련을 목표로 AI가 움직이는 물리적 세계를 이해하고 시뮬레이션하도록 가르치고 있습니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
 sourceUrl: https://openai.com/index/sora/
 sourceTitle: OpenAI Sora
 draft: false

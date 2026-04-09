@@ -4,7 +4,7 @@ date: "2026-03-13T12:00:00+09:00"
 lang: ko
 category: news
 summary: Gemini Embedding 2에 대한 개요입니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/
 sourceTitle: "Gemini Embedding 2: Our first natively multimodal embedding model"
 draft: false

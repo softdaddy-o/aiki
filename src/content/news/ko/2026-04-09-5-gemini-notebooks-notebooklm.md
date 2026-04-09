@@ -4,7 +4,7 @@ date: "2026-04-09T13:00:00+09:00"
 lang: ko
 category: news
 summary: Google이 Gemini 앱에 Notebooks 기능을 추가했다. Gemini에서 나눈 대화와 파일이 NotebookLM과 자동 동기화돼 시각화 자료나 팟캐스트까지 뽑을 수 있다. AI Ultra·Pro·Plus 구독자부터 시작.
-readerValue: Gemini와 NotebookLM을 따로 쓰던 사람이 두 앱을 연결하는 워크플로우를 바로 적용하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/
 sourceTitle: "Google Blog: Gemini Notebooks"
 draft: false

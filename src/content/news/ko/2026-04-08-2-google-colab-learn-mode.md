@@ -4,7 +4,7 @@ date: "2026-04-08T16:00:00+09:00"
 lang: ko
 category: news
 summary: Google이 Colab에 Learn Mode를 추가했다. Gemini 에이전트가 코드를 대신 짜주는 대신 설명하며 가르치는 방식으로 바뀌고, 코드 편집 범위도 직접 설정할 수 있게 됐다.
-readerValue: AI가 코드를 대신 짜주는 것에 의존하지 않고 직접 배우고 싶은 사람이 Colab을 어떻게 쓸 수 있는지 알게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/
 sourceTitle: "Google Blog: Colab Learn Mode"
 draft: false

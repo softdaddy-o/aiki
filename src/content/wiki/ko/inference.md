@@ -25,7 +25,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "机器学习术语表
+      title: "مسرد مصطلحات تعلُم الآلة
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
@@ -42,7 +42,7 @@ factCheck:
       items:
         - "비교 기준: 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지"
         - "Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "机器学习术语表
+        - "مسرد مصطلحات تعلُم الآلة
    &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: number_verify
       result: pass

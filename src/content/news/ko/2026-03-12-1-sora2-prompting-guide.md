@@ -4,7 +4,7 @@ date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: Sora API 기능을 반영하도록 업데이트되었습니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
 sourceUrl: https://cookbook.openai.com/examples/sora/sora2_prompting_guide
 sourceTitle: Sora 2 Prompting Guide
 draft: false

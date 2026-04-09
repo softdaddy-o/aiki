@@ -4,7 +4,7 @@ date: "2018-10-11T12:00:00+09:00"
 lang: ko
 category: news
 summary: 우리는 다양한 기간과 위험 수준에 걸쳐 다양한 유형의 연구에 도움이 되는 환경을 조성하기 위해 노력합니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
 sourceUrl: https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/
 sourceTitle: BERT
 draft: false

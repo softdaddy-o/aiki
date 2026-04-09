@@ -4,7 +4,7 @@ date: "2026-04-05T10:00:00+09:00"
 lang: ko
 category: news
 summary: 4월 4일부터 Claude Pro/Max 구독자는 OpenClaw 같은 서드파티 에이전트 도구에서 구독을 못 써. API 종량제 전환이 필수고, 일부 사용자는 월 비용이 최대 50배까지 오를 수 있어.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://venturebeat.com/technology/anthropic-cuts-off-the-ability-to-use-claude-subscriptions-with-openclaw-and
 sourceTitle: VentureBeat
 draft: false

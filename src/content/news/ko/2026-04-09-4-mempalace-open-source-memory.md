@@ -4,7 +4,7 @@ date: "2026-04-09T12:00:00+09:00"
 lang: ko
 category: news
 summary: 밀라 요보비치와 개발자 Ben Sigman이 만든 오픈소스 AI 메모리 시스템 MemPalace가 출시 3일 만에 GitHub 스타 23,000개를 넘겼다. LongMemEval 96.6% 달성, 유료 경쟁 제품보다 높다.
-readerValue: LLM에 무료로 메모리를 붙이는 구체적 선택지를 파악하고 바로 시도해볼 수 있게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://github.com/milla-jovovich/mempalace
 sourceTitle: "GitHub: MemPalace"
 draft: false

@@ -4,7 +4,7 @@ date: "2026-04-09T09:00:00+09:00"
 lang: ko
 category: news
 summary: Anthropic이 Claude Mythos Preview를 일반에 공개하지 않기로 했다. 수천 개의 제로데이 취약점을 혼자 찾아내는 능력이 너무 강해 Project Glasswing을 통해 사이버 보안 전문가 11개 기업에만 제한 제공한다.
-readerValue: Claude Mythos가 실제로 무엇을 할 수 있고 왜 공개 안 되는지 파악해 AI 보안 흐름을 빠르게 이해하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://www.anthropic.com/glasswing
 sourceTitle: Anthropic Project Glasswing
 draft: false

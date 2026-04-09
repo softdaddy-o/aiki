@@ -3,8 +3,8 @@ title: "Google의 상거래 미디어 제품군: 소매업체의 통찰력과 Yo
 date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
-summary: Kroger의 쇼핑객 통계를 Google의 AI 및 규모와 연결하여 전체 고객 여정 전반에 걸쳐 성과를 극대화하세요.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+summary: Kroger의 쇼핑객 데이터와 YouTube 광고를 한 흐름으로 묶어, 구글이 리테일 미디어 운영권을 어디까지 넓히려는지 보여주는 발표야.
+readerValue: 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지 빠르게 판단하게 해준다.
 sourceUrl: https://blog.google/products/marketingplatform/360/googles-commerce-media-suite-where-retailer-insights-meet-the-power-of-youtube/
 sourceTitle: "Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube"
 draft: false

@@ -4,7 +4,7 @@ date: "2026-04-09T11:00:00+09:00"
 lang: ko
 category: news
 summary: Anthropic이 Claude Managed Agents 퍼블릭 베타를 공개했다. AI 에이전트 배포에 수개월 걸리던 인프라 작업이 며칠로 줄어든다. Notion, Asana, Rakuten, Sentry가 이미 실전 적용했다.
-readerValue: 에이전트 배포 진입 장벽이 실제로 얼마나 낮아졌는지 파악하고 시작 시점을 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
 sourceUrl: https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/
 sourceTitle: "The New Stack: Claude Managed Agents"
 draft: false

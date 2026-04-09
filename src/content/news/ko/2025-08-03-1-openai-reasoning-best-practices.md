@@ -4,7 +4,7 @@ date: "2025-08-03T12:00:00+09:00"
 lang: ko
 category: news
 summary: o1 및 o3-mini와 같은 o 시리즈 추론 모델과 GPT 모델을 사용하는 모범 사례를 살펴보세요.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지 빠르게 판단하게 해준다.
 sourceUrl: https://platform.openai.com/docs/guides/reasoning-best-practices
 sourceTitle: Reasoning best practices
 draft: false
