@@ -21,7 +21,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Lexical_analysis"
       title: "Lexical analysis"
     - url: "https://platform.openai.com/tokenizer"
-      title: "OpenAI Platform"
+      title: "https://platform.openai.com/tokenizer"
   checks:
     - type: source_match
       result: pass
@@ -37,7 +37,7 @@ factCheck:
       items:
         - "비교 기준: 토큰 예산과 긴 문맥 처리에서 어떤 도구를 붙여야 하는지"
         - "Lexical analysis (https://en.wikipedia.org/wiki/Lexical_analysis)"
-        - "OpenAI Platform (https://platform.openai.com/tokenizer)"
+        - "https://platform.openai.com/tokenizer (https://platform.openai.com/tokenizer)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 토큰 예산과 긴 문맥 처리에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

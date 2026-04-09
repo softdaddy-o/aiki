@@ -35,7 +35,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)"
       title: "Sora (text-to-video model)"
     - url: "https://openai.com/sora"
-      title: "Sora"
+      title: "https://openai.com/sora"
   checks:
     - type: source_match
       result: pass
@@ -53,7 +53,6 @@ factCheck:
       items:
         - "비교 기준: Sora 아래에서 어떤 버전 페이지를 봐야 하는지"
         - "비교 소스 1: Sora (text-to-video model)"
-        - "비교 소스 2: Sora"
     - type: number_verify
       result: pass
       summary: "가격, 접근 경로, 입력 범위처럼 Sora 아래에서 어떤 버전 페이지를 봐야 하는지를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다."
