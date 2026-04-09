@@ -25,7 +25,7 @@ factCheck:
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
       title: "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
     - url: "https://ai.google.dev/gemini-api/docs/google-search"
-      title: "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Tokëzimi me Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass

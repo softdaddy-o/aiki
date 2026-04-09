@@ -25,7 +25,7 @@ factCheck:
     - url: "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
       title: "Tool use with Claude"
     - url: "https://platform.openai.com/docs/guides/function-calling"
-      title: "Function calling | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/function-calling"
   checks:
     - type: source_match
       result: pass
@@ -41,7 +41,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
         - "같이 본 출처로는 Tool use with Claude (https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)"
-        - "같이 본 출처로는 Function calling | OpenAI API (https://platform.openai.com/docs/guides/function-calling)"
+        - "같이 본 출처로는 https://platform.openai.com/docs/guides/function-calling (https://platform.openai.com/docs/guides/function-calling)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

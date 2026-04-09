@@ -25,7 +25,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)"
       title: "Fine-tuning (deep learning)"
     - url: "https://platform.openai.com/docs/guides/fine-tuning"
-      title: "Model optimization | OpenAI API"
+      title: "https://platform.openai.com/docs/guides/fine-tuning"
   checks:
     - type: source_match
       result: pass
@@ -41,7 +41,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
         - "같이 본 출처로는 Fine-tuning (deep learning) (https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning))"
-        - "같이 본 출처로는 Model optimization | OpenAI API (https://platform.openai.com/docs/guides/fine-tuning)"
+        - "같이 본 출처로는 https://platform.openai.com/docs/guides/fine-tuning (https://platform.openai.com/docs/guides/fine-tuning)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 학습과 비용 최적화를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."

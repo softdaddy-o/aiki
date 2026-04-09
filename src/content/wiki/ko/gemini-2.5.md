@@ -35,7 +35,7 @@ factCheck:
     - url: "https://deepmind.google/technologies/gemini/"
       title: "Gemini 3 — Google DeepMind"
     - url: "https://ai.google.dev/gemini-api/docs/models"
-      title: "模型 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Modelos &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass

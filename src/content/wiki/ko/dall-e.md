@@ -34,7 +34,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/DALL-E"
       title: "DALL-E"
     - url: "https://openai.com/dall-e-3"
-      title: "https://openai.com/dall-e-3"
+      title: "DALL·E 3"
   checks:
     - type: source_match
       result: pass
@@ -52,6 +52,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 DALL-E 아래에서 어떤 버전 페이지를 봐야 하는지."
         - "비교 소스 1: DALL-E."
+        - "비교 소스 2: DALL·E 3."
     - type: number_verify
       result: pass
       summary: "가격, 접근 경로, 입력 범위처럼 DALL-E 아래에서 어떤 버전 페이지를 봐야 하는지를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다."

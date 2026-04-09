@@ -79,6 +79,9 @@ const visibleChecks = checks
             <div class="fc-title">팩트 체크</div>
             <div class="fc-meta-inline">상태 {statusIcon} · {date} KST</div>
         </div>
+        {visibleChecks.length > 0 && (
+            <button type="button" class="fc-expand-all" data-fc-toggle-all aria-expanded="false">전체 보기</button>
+        )}
     </div>
 
     <div class="fc-body">
@@ -90,31 +93,18 @@ const visibleChecks = checks
         {visibleChecks.length > 0 && (
             <div class="fc-summary-grid">
                 {visibleChecks.map((check) => (
-                    <section class="fc-summary-card">
-                        <div class="fc-summary-head">
-                            <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                                {resultIcon(check.result)}
-                            </span>
-                            <span class="fc-summary-title">{check.label}</span>
-                            {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
-                        </div>
-                        {check.preview && <div class="fc-summary-preview">{check.preview}</div>}
-                    </section>
-                ))}
-            </div>
-        )}
-
-        <details class="fc-details">
-            <summary class="fc-details-toggle">
-                <span>팩트 체크 전체 보기</span>
-                <span class="fc-details-toggle-copy">원문 대조, 교차검증, 숫자·명칭 검증, 비판적 검증</span>
-            </summary>
-
-            <div class="fc-groups">
-                {visibleChecks.map((check) => (
-                    <section class="fc-group">
-                        <div class="sr-only">{check.label} 상세 검증</div>
-                        <div class="fc-group-body">
+                    <details class="fc-summary-card" data-fc-item>
+                        <summary class="fc-summary-toggle">
+                            <div class="fc-summary-head">
+                                <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
+                                    {resultIcon(check.result)}
+                                </span>
+                                <span class="fc-summary-title">{check.label}</span>
+                                {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
+                            </div>
+                            {check.preview && <div class="fc-summary-preview">{check.preview}</div>}
+                        </summary>
+                        <div class="fc-summary-body">
                             {check.detailItems.length > 0 && (
                                 <ul class="fc-group-list">
                                     {check.detailItems.map((item) => (
@@ -130,10 +120,10 @@ const visibleChecks = checks
                                 </ul>
                             )}
                         </div>
-                    </section>
+                    </details>
                 ))}
             </div>
-        </details>
+        )}
 
         {sources.length > 0 && (
             <div class="fc-sources-list">
@@ -165,7 +155,13 @@ const visibleChecks = checks
     .factcheck summary::-webkit-details-marker {
         display: none;
     }
-    .fc-header { margin-bottom: 14px; }
+    .fc-header {
+        margin-bottom: 14px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
     .fc-title {
         font-size: 14px;
         margin-bottom: 4px;
@@ -203,10 +199,20 @@ const visibleChecks = checks
         margin-bottom: 12px;
     }
     .fc-summary-card {
-        padding: 12px;
         background: var(--color-surface-alt);
         border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
         border-radius: 8px;
+    }
+    .fc-summary-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 12px;
+    }
+    .fc-summary-card summary {
+        list-style: none;
+    }
+    .fc-summary-card summary::-webkit-details-marker {
+        display: none;
     }
     .fc-summary-head {
         display: flex;
@@ -223,41 +229,22 @@ const visibleChecks = checks
         font-size: 12px;
         line-height: 1.6;
     }
-    .fc-details {
-        background: var(--color-surface-alt);
-        border-radius: 8px;
-        border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
-        margin-bottom: 12px;
-    }
-    .fc-details-toggle {
-        display: flex;
-        justify-content: space-between;
-        gap: 8px;
-        align-items: center;
-        padding: 11px 12px;
-        cursor: pointer;
-    }
-    .fc-details-toggle-copy {
-        color: var(--color-text-muted);
-        font-size: 12px;
-        white-space: nowrap;
-    }
-    .fc-details[open] .fc-details-toggle-copy {
-        color: var(--color-news);
-    }
-    .fc-groups {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+    .fc-summary-body {
         padding: 0 12px 12px;
     }
-    .fc-group {
-        background: color-mix(in srgb, var(--color-surface) 75%, transparent);
-        border-radius: 8px;
-        border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+    .fc-expand-all {
+        appearance: none;
+        border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+        background: var(--color-surface-alt);
+        color: var(--color-news);
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 12px;
+        line-height: 1.2;
+        cursor: pointer;
     }
-    .fc-group-body {
-        padding: 12px;
+    .fc-expand-all:hover {
+        border-color: var(--color-news);
     }
     .fc-group-list {
         margin: 0;
@@ -288,15 +275,33 @@ const visibleChecks = checks
     .fc-footer a {
         color: var(--color-news);
     }
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
 </style>
+
+<script is:inline>
+    document.querySelectorAll('[data-fc-toggle-all]').forEach((button) => {
+        const container = button.closest('.factcheck');
+        if (!container) return;
+        const items = Array.from(container.querySelectorAll('[data-fc-item]'));
+        if (items.length === 0) return;
+
+        const syncLabel = () => {
+            const allOpen = items.every((item) => item.open);
+            button.textContent = allOpen ? '전체 닫기' : '전체 보기';
+            button.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
+        };
+
+        button.addEventListener('click', () => {
+            const shouldOpen = !items.every((item) => item.open);
+            items.forEach((item) => {
+                item.open = shouldOpen;
+            });
+            syncLabel();
+        });
+
+        items.forEach((item) => {
+            item.addEventListener('toggle', syncLabel);
+        });
+
+        syncLabel();
+    });
+</script>
