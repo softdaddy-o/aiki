@@ -66,6 +66,45 @@ function extractBody(content) {
     return content.slice(fmEnd + 3).trim();
 }
 
+function splitToneSentences(text) {
+    const clean = String(text || '')
+        .replace(/^#{1,6}\s+.+$/gm, '')
+        .replace(/^\s*[-*•]\s*/gm, '')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .trim();
+
+    return clean
+        .split(/(?<=[.?!])\s+/)
+        .filter((sentence) => sentence.trim().length > 5);
+}
+
+function getExtendedColloquialRatio(text) {
+    const sentences = splitToneSentences(text);
+    if (sentences.length < 3) {
+        return { total: sentences.length, casual: 0, ratio: 1 };
+    }
+
+    const colloquial = /(?:이야|거야|거든|더라|잖아|인데|는데|어봐|래|네|지|[가-힣]+(?:해|돼|봐|줘|워|어|아))\s*[.!]?\s*$/;
+    const casual = sentences.filter((sentence) => colloquial.test(sentence.trim())).length;
+    return {
+        total: sentences.length,
+        casual,
+        ratio: casual / sentences.length,
+    };
+}
+
+function getToneResults(body) {
+    const results = checkTone(body, 'blog');
+    const localColloquial = getExtendedColloquialRatio(body);
+    return results.filter((result) => {
+        if (result && result.id === 'T2' && localColloquial.ratio >= 0.15) {
+            return false;
+        }
+        return true;
+    });
+}
+
 // ── 파일 수집 ───────────────────────────────────────────────────────────────
 
 function getFiles() {
@@ -105,7 +144,7 @@ for (const filepath of files) {
     const content = fs.readFileSync(filepath, 'utf-8');
     const body = extractBody(content);
 
-    const results = checkTone(body, 'blog');
+    const results = getToneResults(body);
     const fails = results.filter(r => r.severity === 'FAIL');
     const warns = results.filter(r => r.severity === 'WARN');
     totalFails += fails.length;

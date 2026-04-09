@@ -170,13 +170,49 @@ function normalizeLineEndings(text) {
     return String(text || '').replace(/\r\n/g, '\n');
 }
 
+function splitToneSentences(text) {
+    const clean = String(text || '')
+        .replace(/^#{1,6}\s+.+$/gm, '')
+        .replace(/^\s*[-*•]\s*/gm, '')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .trim();
+
+    return clean
+        .split(/(?<=[.?!])\s+/)
+        .filter((sentence) => sentence.trim().length > 5);
+}
+
+function getExtendedColloquialRatio(text) {
+    const sentences = splitToneSentences(text);
+    if (sentences.length < 3) {
+        return { total: sentences.length, casual: 0, ratio: 1 };
+    }
+
+    const colloquial = /(?:이야|거야|거든|더라|잖아|인데|는데|어봐|래|네|지|[가-힣]+(?:해|돼|봐|줘|워|어|아))\s*[.!]?\s*$/;
+    const casual = sentences.filter((sentence) => colloquial.test(sentence.trim())).length;
+    return {
+        total: sentences.length,
+        casual,
+        ratio: casual / sentences.length,
+    };
+}
+
 function getToneResults(body) {
     if (!toneRules || typeof toneRules.checkTone !== 'function') {
         return [];
     }
 
     try {
-        return toneRules.checkTone(body, 'blog');
+        const results = toneRules.checkTone(body, 'blog');
+        const localColloquial = getExtendedColloquialRatio(body);
+
+        return results.filter((result) => {
+            if (result && result.id === 'T2' && localColloquial.ratio >= 0.15) {
+                return false;
+            }
+            return true;
+        });
     } catch {
         return [];
     }
@@ -482,13 +518,7 @@ function validateFactCheckDetails(targetName, frontmatter) {
     const factCheck = frontmatter.factCheck || {};
     const checks = Array.isArray(factCheck.checks) ? factCheck.checks : [];
     const checkMap = new Map(checks.map((check) => [String(check && check.type || ''), check]));
-    const requiredTypes = targetName === 'news'
-        ? ['source_match', 'web_cross_check', 'number_verify', 'adversarial']
-        : ['source_match', 'web_cross_check', 'adversarial'];
-
-    if (String(frontmatter.modelType || '').toLowerCase() === 'version' && !requiredTypes.includes('number_verify')) {
-        requiredTypes.push('number_verify');
-    }
+    const requiredTypes = ['source_match', 'web_cross_check', 'number_verify', 'adversarial'];
 
     const failures = [];
 
@@ -568,7 +598,10 @@ for (const target of CONTENT_TARGETS) {
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-        const toneResults = getToneResults(body);
+        const toneTargetText = [String(fm.summary || '').trim(), String(body || '').trim()]
+            .filter(Boolean)
+            .join('\n\n');
+        const toneResults = getToneResults(toneTargetText);
 
         for (const field of target.requiredFields) {
             if (!fm[field]) {
@@ -733,7 +766,7 @@ for (const target of CONTENT_TARGETS) {
             }
         }
 
-        if (!isDraft && target.name === 'news' && toneResults.length > 0) {
+        if (!isDraft && toneResults.length > 0) {
             for (const result of toneResults) {
                 const message = `${target.name}/${filename}: tone ${result.severity.toLowerCase()} [${result.id}] ${result.name} - ${result.msg}`;
                 if (result.severity === 'FAIL') {

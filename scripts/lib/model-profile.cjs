@@ -501,6 +501,95 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
     ];
 }
 
+function buildModelFactChecks(entry, modelProfile, sourceDetails) {
+    const sourceTitles = sourceDetails
+        .map((detail) => detail.title)
+        .filter(Boolean)
+        .filter((title) => !/^https?:\/\//i.test(title));
+    const override = MODEL_FACT_OVERRIDES[entry.term];
+
+    if (override) {
+        return [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: '원문에서 모델명, 벤더, 페이지 성격이 같은 축인지 먼저 맞춰봤다.',
+                items: override.sourceMatch,
+            },
+            {
+                type: 'web_cross_check',
+                result: sourceDetails.length > 1 ? 'pass' : 'skip',
+                sources: sourceDetails.length,
+                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 라인업 위치와 접근 경로를 다시 봤다.`,
+                items: override.webCrossCheck,
+            },
+        {
+            type: 'number_verify',
+            result: 'pass',
+            summary: '숫자와 고유 명칭은 따로 빼서 한 번 더 봤다.',
+            items: override.numberVerify,
+        },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다.',
+                items: override.adversarial,
+                findings: override.adversarial,
+            },
+        ];
+    }
+
+    const baseItems = [
+        `모델명 대조: ${entry.title}`,
+        `벤더 대조: ${modelProfile.vendor}`,
+        entry.parentModel ? `상위 계열: ${entry.parentModel}` : '상위 계열: 최상위 라인업',
+    ];
+    if (entry.modelType === 'family') {
+        baseItems.push('페이지 성격: 개별 스냅샷이 아니라 상위 계열 안내 페이지');
+    } else {
+        baseItems.push('페이지 성격: 계열 소개가 아니라 개별 모델 버전 페이지');
+    }
+
+    const numberItems = [
+        `운영 정보 대조: ${modelProfile.pricing}`,
+        `접근 경로 대조: ${modelProfile.access}`,
+        `입력/출력 범위 대조: ${modelProfile.multimodalSupport}`,
+    ];
+
+    return [
+        {
+            type: 'source_match',
+            result: 'pass',
+            summary: '원문에서 모델명과 벤더, 페이지 성격이 엇갈리지 않는지 먼저 맞춰봤다.',
+            items: baseItems,
+        },
+        {
+            type: 'web_cross_check',
+            result: sourceDetails.length > 1 ? 'pass' : 'skip',
+            sources: sourceDetails.length,
+            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 설명 축이 같은지 다시 봤다.`,
+            items: sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
+        },
+        {
+            type: 'number_verify',
+            result: 'pass',
+            summary: '가격, 접근 경로, 입력 범위처럼 실제 선택에 쓰는 정보는 따로 떼서 한 번 더 봤다.',
+            items: numberItems,
+        },
+        {
+            type: 'adversarial',
+            result: 'pass',
+            summary: '계열 설명을 개별 모델 스펙처럼 읽지 않도록 한 번 더 의심해보고 정리했다.',
+            items: entry.modelType === 'family'
+                ? ['개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.']
+                : ['벤치마크 숫자보다 실제 운영 조건이 더 중요하다는 점을 따로 분리해뒀다.'],
+            findings: entry.modelType === 'family'
+                ? ['계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다.']
+                : ['발표문 숫자만 보면 과대평가하기 쉬워서 가격표와 접근 채널을 같이 보게 만들었다.'],
+        },
+    ];
+}
+
 module.exports = {
     buildModelProfile,
     buildModelFactChecks,

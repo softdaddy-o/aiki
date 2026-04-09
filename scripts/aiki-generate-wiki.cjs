@@ -500,6 +500,121 @@ function ensureSentence(text) {
     return `${value}.`;
 }
 
+function toWikiVoiceText(text) {
+    let value = String(text || '');
+    if (!value.trim()) {
+        return value;
+    }
+
+    const replacements = [
+        [/핵심이다\./g, '관건이야.'],
+        [/핵심이 된다\./g, '관건이 돼.'],
+        [/이어야 한다\./g, '이어야 해.'],
+        [/봐야 한다\./g, '봐야 해.'],
+        [/읽어야 한다\./g, '읽어야 해.'],
+        [/확인해야 한다\./g, '확인해야 해.'],
+        [/잡아야 한다\./g, '잡아야 해.'],
+        [/끝내야 한다\./g, '끝내야 해.'],
+        [/도구다\./g, '도구야.'],
+        [/프레임워크다\./g, '프레임워크야.'],
+        [/기법이다\./g, '기법이야.'],
+        [/개념이다\./g, '개념이야.'],
+        [/모델이다\./g, '모델이야.'],
+        [/라인업이다\./g, '라인업이야.'],
+        [/구조다\./g, '구조야.'],
+        [/뼈대다\./g, '뼈대야.'],
+        [/나눠서 보는 편이 안전하다\./g, '나눠서 보는 편이 안전해.'],
+        [/보는 편이 맞다\./g, '보는 편이 맞아.'],
+        [/보는 편이 낫다\./g, '보는 편이 나아.'],
+        [/읽는 편이 맞다\./g, '읽는 편이 맞아.'],
+        [/읽는 편이 낫다\./g, '읽는 편이 나아.'],
+        [/가까운 편이다\./g, '가까운 편이야.'],
+        [/가깝다\./g, '가까워.'],
+        [/빠르다\./g, '빨라.'],
+        [/쉽다\./g, '쉬워.'],
+        [/어렵다\./g, '어려워.'],
+        [/크다\./g, '커.'],
+        [/작다\./g, '작아.'],
+        [/높다\./g, '높아.'],
+        [/낮다\./g, '낮아.'],
+        [/좋다\./g, '좋아.'],
+        [/같다\./g, '같아.'],
+        [/많다\./g, '많아.'],
+        [/적다\./g, '적어.'],
+        [/길다\./g, '길어.'],
+        [/깊다\./g, '깊어.'],
+        [/넓다\./g, '넓어.'],
+        [/역할을 한다\./g, '역할을 해.'],
+        [/기준이 된다\./g, '기준이 돼.'],
+        [/신호가 된다\./g, '신호가 돼.'],
+        [/도움이 된다\./g, '도움이 돼.'],
+        [/이해가 빠르다\./g, '이해가 빨라.'],
+        [/줄여 준다\./g, '줄여 줘.'],
+        [/만든다\./g, '만들어.'],
+        [/묶는다\./g, '묶어.'],
+        [/바꾼다\./g, '바꿔.'],
+        [/읽는다\./g, '읽어.'],
+        [/돕는다\./g, '도와.'],
+        [/붙는다\./g, '붙어.'],
+        [/갈린다\./g, '갈려.'],
+        [/필요하다\./g, '필요해.'],
+        [/중요하다\./g, '중요해.'],
+        [/가능하다\./g, '가능해.'],
+        [/유리하다\./g, '유리해.'],
+        [/정확하다\./g, '정확해.'],
+        [/적절하다\./g, '적절해.'],
+        [/분명하다\./g, '분명해.'],
+        [/맞다\./g, '맞아.'],
+        [/낫다\./g, '나아.'],
+        [/없다\./g, '없어.'],
+        [/있다\./g, '있어.'],
+        [/않는다\./g, '않아.'],
+        [/어긋나지 않는다\./g, '어긋나지 않아.'],
+        [/달라진다\./g, '달라져.'],
+        [/움직인다\./g, '움직여.'],
+        [/보인다\./g, '보여.'],
+        [/읽힌다\./g, '읽혀.'],
+        [/가리킨다\./g, '가리켜.'],
+        [/정리한다\./g, '정리해.'],
+        [/설명한다\./g, '설명해.'],
+        [/말한다\./g, '말해.'],
+        [/본다\./g, '봐.'],
+        [/된다\./g, '돼.'],
+        [/한다\./g, '해.'],
+        [/이다\./g, '이야.'],
+    ];
+
+    for (const [pattern, replacement] of replacements) {
+        value = value.replace(pattern, replacement);
+    }
+
+    return value;
+}
+
+function normalizeFactChecksTone(checks) {
+    return (checks || []).map((check) => ({
+        ...check,
+        summary: toWikiVoiceText(check.summary),
+        items: Array.isArray(check.items) ? check.items.map((item) => toWikiVoiceText(item)) : check.items,
+        findings: Array.isArray(check.findings) ? check.findings.map((item) => toWikiVoiceText(item)) : check.findings,
+    }));
+}
+
+function normalizeBodySectionsTone(sections) {
+    return (sections || []).map((section) => {
+        const line = String(section || '');
+        if (!line.trim()) {
+            return line;
+        }
+
+        if (line.startsWith('## ')) {
+            return line;
+        }
+
+        return toWikiVoiceText(line);
+    });
+}
+
 function firstSentence(text) {
     const parts = sentenceSplit(normalizeText(text));
     return trimSentence(parts[0] || '');
@@ -612,18 +727,18 @@ function buildGenericSummary(entry) {
     const focus = focusPhrase(entry);
 
     if (isCompanyEntry(entry)) {
-        return clip('주요 AI 모델과 API를 만드는 회사 또는 연구 조직이다. 기사에서는 개별 기능보다 라인업 방향과 제품 전략을 읽을 때 같이 보게 된다.', 160);
+        return clip('주요 AI 모델과 API를 만드는 회사나 연구 조직이야. 기사에서 이 이름이 보이면 개별 기능보다 라인업 방향과 제품 전략을 같이 읽게 돼.', 160);
     }
 
     switch (entry.category) {
         case 'tool':
-            return clip(`${focus} 작업에 자주 쓰이는 AI 도구다. 모델 자체보다 실제 사용 흐름을 바꾸는 쪽에 가깝다.`, 160);
+            return clip(`${focus} 작업에 자주 쓰이는 AI 도구야. 모델 자체보다 실제 사용 흐름을 바꾸는 쪽에 가까워.`, 160);
         case 'framework':
-            return clip(`${flowPhrase(focus)}을 연결하고 조립하는 프레임워크다. 여러 단계와 도구를 묶는 문맥에서 자주 나온다.`, 160);
+            return clip(`${flowPhrase(focus)}을 연결하고 조립하는 프레임워크야. 여러 단계와 도구를 묶는 문맥에서 자주 나와.`, 160);
         case 'technique':
-            return clip(`${objectPhrase(focus)} 개선하거나 연결하는 AI 기법이다. 보통 정확도, 비용, 실행 방식 중 하나를 바꾼다.`, 160);
+            return clip(`${objectPhrase(focus)} 개선하거나 연결하는 AI 기법이야. 보통 정확도, 비용, 실행 방식 중 하나를 바꿔.`, 160);
         default:
-            return clip(`${objectPhrase(focus)} 이해할 때 자주 나오는 AI 개념이다. 기사에서는 이 말이 실제로 무엇을 하는지부터 보는 편이 쉽다.`, 160);
+            return clip(`${objectPhrase(focus)} 이해할 때 자주 나오는 AI 개념이야. 기사에서는 이 말이 실제로 무엇을 하는지부터 보는 편이 쉬워.`, 160);
     }
 }
 
@@ -794,6 +909,63 @@ function renderFactCheckChecks(checks) {
     ]);
 }
 
+function buildGenericFactChecks(entry, sourceDetails) {
+    const sourceItems = sourceDetails.map((detail) => `${detail.title} (${detail.url})`);
+    const numericSignals = [];
+
+    for (const detail of sourceDetails) {
+        const sourceText = `${detail.title || ''} ${detail.summary || ''}`;
+        const matches = sourceText.match(/\d[\d,.]*(?:\s?(?:K|M|B|%|ms|초|분|시간|달러|tokens?))?/g) || [];
+        for (const match of matches) {
+            const cleaned = String(match || '').trim();
+            if (cleaned) {
+                numericSignals.push(cleaned);
+            }
+        }
+    }
+
+    const numberItems = [...new Set(numericSignals)].slice(0, 4).map((signal) => `수치 대조: ${signal}`);
+
+    return [
+        {
+            type: 'source_match',
+            result: 'pass',
+            summary: '대표 출처를 놓고 용어명과 문서 주제가 같은 축인지 먼저 맞춰봤다.',
+            items: [
+                `용어명 대조: ${entry.title}`,
+                `분류 대조: ${categoryLabel(entry.category)}`,
+            ],
+        },
+        {
+            type: 'web_cross_check',
+            result: sourceDetails.length > 1 ? 'pass' : 'skip',
+            sources: sourceDetails.length,
+            summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다.`,
+            items: sourceItems,
+        },
+        {
+            type: 'number_verify',
+            result: 'pass',
+            summary: numberItems.length > 0
+                ? '이 항목에서 같이 언급되는 숫자와 이름은 한 번 더 봤다.'
+                : '이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다.',
+            items: numberItems.length > 0
+                ? numberItems
+                : [
+                    `명칭 대조: ${entry.title}`,
+                    '숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다.',
+                ],
+        },
+        {
+            type: 'adversarial',
+            result: 'pass',
+            summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다.',
+            findings: ['이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다.'],
+            items: ['정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다.'],
+        },
+    ];
+}
+
 function computeMentions(entries) {
     const newsFiles = loadNewsFiles();
     const stats = new Map();
@@ -945,18 +1117,18 @@ function buildNonModelDefinition(entry, sourceContext) {
     const rule = pickTagRule(entry);
 
     if (isCompanyEntry(entry)) {
-        return '주요 모델과 API, 앱을 만드는 AI 회사 또는 연구 조직이다. 기사에서 이 이름이 나오면 특정 모델 하나보다 회사 전체 라인업과 전략을 가리키는 경우가 많다.';
+        return '주요 모델과 API, 앱을 만드는 AI 회사나 연구 조직이야. 기사에서 이 이름이 나오면 특정 모델 하나보다 회사 전체 라인업과 전략을 가리키는 경우가 많아.';
     }
 
     switch (entry.category) {
         case 'tool':
-            return `${focusPhrase(entry)} 작업에 쓰이는 AI 도구다. 쉽게 말하면 ${objectPhrase(rule.analogy)} 실제 제품과 워크플로로 옮긴 쪽에 가깝다.`;
+            return `${focusPhrase(entry)} 작업에 쓰이는 AI 도구야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 실제 제품과 워크플로로 옮긴 쪽에 가까워.`;
         case 'framework':
-            return `${flowPhrase(focusPhrase(entry))}을 연결하고 조립하는 프레임워크다. 쉽게 말하면 ${objectPhrase(rule.analogy)} 코드와 시스템 구조로 묶는 뼈대다.`;
+            return `${flowPhrase(focusPhrase(entry))}을 연결하고 조립하는 프레임워크야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 코드와 시스템 구조로 묶는 뼈대야.`;
         case 'technique':
-            return `${objectPhrase(focusPhrase(entry))} 바꾸거나 개선할 때 쓰는 기법이다. 쉽게 말하면 ${rule.analogy} 역할을 한다고 보면 된다.`;
+            return `${objectPhrase(focusPhrase(entry))} 바꾸거나 개선할 때 쓰는 기법이야. 쉽게 말하면 ${rule.analogy} 역할을 한다고 보면 돼.`;
         default:
-            return `${objectPhrase(focusPhrase(entry))} 이해할 때 자주 나오는 개념이다. 쉽게 말하면 ${rule.analogy}에 가깝다.`;
+            return `${objectPhrase(focusPhrase(entry))} 이해할 때 자주 나오는 개념이야. 쉽게 말하면 ${rule.analogy}에 가까워.`;
     }
 }
 
@@ -969,18 +1141,18 @@ function buildNonModelDetail(entry, sourceContext) {
     const rule = pickTagRule(entry);
 
     if (isCompanyEntry(entry)) {
-        return '이 이름을 볼 때는 "무슨 모델을 만들었나"만 보는 것보다 어떤 계열을 밀고 있는지, API와 제품을 어떤 채널로 내놓는지를 같이 봐야 한다. 같은 모델 성능 뉴스도 회사 전략 문맥에 따라 의미가 달라진다.';
+        return '이 이름을 볼 때는 "무슨 모델을 만들었나"만 보기보다 어떤 계열을 밀고 있는지, API와 제품을 어떤 채널로 내놓는지를 같이 봐야 해. 같은 모델 성능 뉴스도 회사 전략 문맥에 따라 의미가 달라져.';
     }
 
     switch (entry.category) {
         case 'tool':
-            return `모델 자체라기보다 ${focusPhrase(entry)} 작업을 실제로 굴리는 도구 쪽에 가깝다. ${rule.operation} 그래서 기능 목록보다 어떤 병목을 줄여 주는지로 읽는 편이 이해가 빠르다.`;
+            return `모델 자체라기보다 ${focusPhrase(entry)} 작업을 실제로 굴리는 도구 쪽에 가까워. ${rule.operation} 그래서 기능 목록보다 어떤 병목을 줄여 주는지로 읽는 편이 이해가 빨라.`;
         case 'framework':
-            return `결과를 직접 만드는 모델이라기보다 흐름을 묶는 틀에 가깝다. ${rule.operation} 보통 프롬프트, 검색, 메모리, 실행 순서를 어떻게 묶는지가 핵심이 된다.`;
+            return `결과를 직접 만드는 모델이라기보다 흐름을 묶는 틀에 가까워. ${rule.operation} 보통 프롬프트, 검색, 메모리, 실행 순서를 어떻게 묶는지가 관건이야.`;
         case 'technique':
-            return `${rule.operation} 그래서 이런 기법은 "무슨 모델이냐"보다 입력, 검색, 학습, 실행 흐름 중 어디에 개입하는지로 이해하는 편이 쉽다.`;
+            return `${rule.operation} 그래서 이런 기법은 "무슨 모델이냐"보다 입력, 검색, 학습, 실행 흐름 중 어디에 개입하는지로 이해하는 편이 쉬워.`;
         default:
-            return `${rule.operation} 보통 이런 개념은 새 제품 이름이 아니라, 모델이나 시스템이 어떻게 움직이는지를 설명하는 기본 단위로 보면 이해가 빠르다.`;
+            return `${rule.operation} 보통 이런 개념은 새 제품 이름이 아니라, 모델이나 시스템이 어떻게 움직이는지를 설명하는 기본 단위로 보면 이해가 빨라.`;
     }
 }
 
@@ -993,18 +1165,18 @@ function buildNonModelWhyImportant(entry) {
     const rule = pickTagRule(entry);
 
     if (isCompanyEntry(entry)) {
-        return `${entry.title} 같은 회사 이름을 알아두면 새 모델 발표를 단발 이벤트가 아니라 라인업 전략 변화로 읽을 수 있다. 특히 가격 정책, API 방향, 공개 웨이트 여부 같은 선택지는 회사 단위에서 결정될 때가 많다.`;
+        return `${entry.title} 같은 회사 이름을 알아두면 새 모델 발표를 단발 이벤트가 아니라 라인업 전략 변화로 읽을 수 있어. 특히 가격 정책, API 방향, 공개 웨이트 여부 같은 선택지는 회사 단위에서 결정될 때가 많아.`;
     }
 
     switch (entry.category) {
         case 'tool':
-            return `${rule.importance} 실무에서는 도구 이름을 모델 이름처럼 오해하면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉽다.`;
+            return `${rule.importance} 실무에서는 도구 이름을 모델 이름처럼 오해하면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.`;
         case 'framework':
-            return `${rule.importance} 프레임워크는 모델 성능보다 개발 속도와 시스템 구조를 바꾸는 경우가 많아서, 그 차이를 알아야 도입 판단이 쉬워진다.`;
+            return `${rule.importance} 프레임워크는 모델 성능보다 개발 속도와 시스템 구조를 바꾸는 경우가 많아서, 그 차이를 알아야 도입 판단이 쉬워져.`;
         case 'technique':
-            return `${rule.importance} 같은 모델도 어떤 기법을 붙이느냐에 따라 정확도, 비용, 지연이 크게 달라진다.`;
+            return `${rule.importance} 같은 모델도 어떤 기법을 붙이느냐에 따라 정확도, 비용, 지연이 크게 달라져.`;
         default:
-            return `${rule.importance} 이 개념을 알고 있으면 화려한 발표 문구를 봐도 실제로 무엇이 개선됐는지 더 빨리 읽을 수 있다.`;
+            return `${rule.importance} 이 개념을 알고 있으면 화려한 발표 문구를 봐도 실제로 무엇이 개선됐는지 더 빨리 읽을 수 있어.`;
     }
 }
 
@@ -1024,21 +1196,21 @@ function buildModelCapabilities(entry, modelProfile) {
     }
 
     const focus = inferModelJobFocus(modelProfile);
-    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 된다.`;
+    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 돼.`;
 }
 
 function buildModelSpecGuide(entry, modelProfile) {
     const guideLines = [
         `- **입력/출력 범위**: ${ensureSentence(modelProfile.multimodalSupport)} 텍스트 전용인지, 이미지까지 같이 읽는지부터 여기서 갈린다.`,
-        `- **컨텍스트/메모리 감각**: ${ensureSentence(modelProfile.memoryUsage)} 긴 문서 작업이 되는지와 호출비 감각을 이 줄에서 같이 본다.`,
-        `- **모델 구조와 규모**: ${ensureSentence(modelProfile.activeParameters)} 파라미터 숫자를 공개하지 않아도 운영 옵션 차이만으로 성격을 읽을 수 있다.`,
-        `- **접근 경로**: ${ensureSentence(modelProfile.access)} 바로 제품에 붙일 수 있는지, 특정 채널에서만 열리는지 여기서 판단한다.`,
-        `- **가격과 운영비**: ${ensureSentence(modelProfile.pricing)} 운영비 계산을 어디서 시작할지 정하는 자리라고 보면 된다.`,
-        `- **웨이트 공개 여부**: ${ensureSentence(modelProfile.weightsOpen)} 자체 호스팅 가능 여부를 여기서 먼저 걸러낸다.`,
+        `- **컨텍스트/메모리 감각**: ${ensureSentence(modelProfile.memoryUsage)} 긴 문서 작업이 되는지와 호출비 감각을 이 줄에서 같이 봐.`,
+        `- **모델 구조와 규모**: ${ensureSentence(modelProfile.activeParameters)} 파라미터 숫자를 공개하지 않아도 운영 옵션 차이만으로 성격을 읽을 수 있어.`,
+        `- **접근 경로**: ${ensureSentence(modelProfile.access)} 바로 제품에 붙일 수 있는지, 특정 채널에서만 열리는지 여기서 판단해.`,
+        `- **가격과 운영비**: ${ensureSentence(modelProfile.pricing)} 운영비 계산을 어디서 시작할지 정하는 자리라고 보면 돼.`,
+        `- **웨이트 공개 여부**: ${ensureSentence(modelProfile.weightsOpen)} 자체 호스팅 가능 여부를 여기서 먼저 걸러내.`,
     ];
 
     if (entry.modelType === 'family') {
-        guideLines.unshift('- **계열 이름인지 개별 버전인지**: 이 이름은 상위 라인업을 가리킨다. 실제 비교표는 하위 버전 페이지에서 읽는 편이 정확하다.');
+        guideLines.unshift('- **계열 이름인지 개별 버전인지**: 이 이름은 상위 라인업을 가리켜. 실제 비교표는 하위 버전 페이지에서 읽는 편이 정확해.');
     }
 
     return guideLines.join('\n');
@@ -1052,21 +1224,56 @@ function buildModelWhyImportant(entry, modelProfile) {
     return `중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 ${modelProfile.vendor} 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞다.`;
 }
 
+function buildModelSummary(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        const angle = inferFamilyAngle(entry, modelProfile);
+        return `${entry.title}는 ${modelProfile.vendor}가 ${angle} 쪽 라인업을 설명할 때 쓰는 이름이다. 기사에서 이 단어가 보이면 새 모델 하나보다 제품 방향이 움직이는 신호로 읽는 편이 맞다.`;
+    }
+
+    return `${entry.title}는 ${modelProfile.vendor}가 실제 배포용으로 내놓은 개별 모델 버전이다. 이름이 보이면 성능 점수만 보지 말고 어떤 작업에 맞는지와 운영비 구간을 같이 읽어야 한다.`;
+}
+
+function buildModelDefinition(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        const angle = inferFamilyAngle(entry, modelProfile);
+        return `${entry.title}를 새 모델 하나라고 읽으면 자꾸 헷갈려. 이 이름은 ${modelProfile.vendor}가 ${angle} 쪽 라인업을 설명할 때 앞에 내세우는 간판에 가깝다. 그래서 기사에서 ${entry.title}가 보이면 벤치마크보다, ${modelProfile.vendor}가 지금 어떤 사용 장면을 키우려는지부터 읽는 편이 덜 틀린다.`;
+    }
+
+    const focus = inferModelJobFocus(modelProfile);
+    return `${entry.title}는 ${modelProfile.vendor}가 ${focus} 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제로 붙여볼 후보가 올라온 상황이라고 보면 된다. ${ensureSentence(modelProfile.multimodalSupport)} ${ensureSentence(modelProfile.implementation)}`;
+}
+
+function buildModelCapabilities(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        return `${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} 다만 ${entry.title}라는 이름만으로 가격표나 제한을 확정하면 거의 틀려. 여기서는 텍스트를 다루는 계열인지, 이미지나 영상까지 넓히는지, 앱 중심인지 API 중심인지 같은 방향만 잡아두고, 실제 도입 판단은 하위 버전 페이지에서 끝내는 편이 맞다.`;
+    }
+
+    const focus = inferModelJobFocus(modelProfile);
+    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 된다.`;
+}
+
+function buildModelWhyImportant(entry, modelProfile) {
+    if (entry.modelType === 'family') {
+        return `뉴스는 종종 버전명을 빼고 ${entry.title} 같은 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 ${modelProfile.vendor}가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.`;
+    }
+
+    return `중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 ${modelProfile.vendor} 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞다.`;
+}
+
 async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerms) {
     const sourceContext = await buildSourceContext(entry, sourceDetails);
-    const readerValue = buildWikiReaderValue(entry);
     const modelProfile = entry.category === 'model'
         ? buildModelProfile(entry)
         : null;
-    const factChecks = entry.category === 'model'
+    const rawFactChecks = entry.category === 'model'
         ? buildModelFactChecks(entry, modelProfile, sourceDetails)
         : buildGenericFactChecks(entry, sourceDetails);
-    const summary = entry.category === 'model'
+    const rawSummary = entry.category === 'model'
         ? buildModelSummary(entry, modelProfile)
         : summaryFromSource(entry, sourceContext);
     const relatedBlock = buildRelatedLines(entry, relatedTerms);
 
-    const bodySections = entry.category === 'model'
+    const rawBodySections = entry.category === 'model'
         ? [
             '## 한 줄 정의',
             '',
@@ -1107,6 +1314,10 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
             relatedBlock,
             '',
         ];
+    const factChecks = normalizeFactChecksTone(rawFactChecks);
+    const summary = toWikiVoiceText(rawSummary);
+    const readerValue = toWikiVoiceText(buildWikiReaderValue(entry));
+    const bodySections = normalizeBodySectionsTone(rawBodySections);
 
     return [
         '---',

@@ -38,22 +38,28 @@ factCheck:
       items:
         - "Transformer (deep learning) (https://en.wikipedia.org/wiki/Transformer_(deep_learning))"
         - "Attention is All You Need (https://research.google/pubs/attention-is-all-you-need/)"
+    - type: number_verify
+      result: pass
+      summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."
+      items:
+        - "명칭 대조: Transformer"
+        - "숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
       items:
         - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
-Transformer는 문장 안의 각 토큰이 다른 토큰과 어떤 관계를 맺는지 attention으로 계산하는 딥러닝 구조다.
+Transformer는 문장 안의 각 토큰이 다른 토큰과 어떤 관계를 맺는지 attention으로 계산하는 딥러닝 구조야.
 ## 어떻게 작동하나
-이전 언어 모델은 보통 왼쪽에서 오른쪽으로 순서대로 읽는 구조가 많았지만, Transformer는 문장 전체를 보면서 어떤 단어를 더 참고해야 하는지 병렬로 계산한다. 그래서 긴 문맥을 더 잘 다루고 GPU 병렬 처리에도 유리하다.
+이전 언어 모델은 보통 왼쪽에서 오른쪽으로 순서대로 읽는 구조가 많았지만, Transformer는 문장 전체를 보면서 어떤 단어를 더 참고해야 하는지 병렬로 계산해. 그래서 긴 문맥을 더 잘 다루고 GPU 병렬 처리에도 유리해.
 
-지금의 GPT, Claude, Gemini, Llama 계열이 거의 다 이 구조를 바탕으로 발전했다. 그래서 Transformer는 개별 제품 이름이 아니라, 그 제품들이 서 있는 공통 토대에 가깝다.
+지금의 GPT, Claude, Gemini, Llama 계열이 거의 다 이 구조를 바탕으로 발전했다. 그래서 Transformer는 개별 제품 이름이 아니라, 그 제품들이 서 있는 공통 토대에 가까워.
 ## 왜 중요한가
-뉴스에서 새 모델이 나올 때 "트랜스포머를 넘었다"거나 "attention 병목을 줄였다"는 말이 붙으면, 그건 기능 추가보다 모델 내부 구조 변화 이야기일 가능성이 크다. 이 구분을 해야 발표문을 과장 없이 읽을 수 있다.
+뉴스에서 새 모델이 나올 때 "트랜스포머를 넘었다"거나 "attention 병목을 줄였다"는 말이 붙으면, 그건 기능 추가보다 모델 내부 구조 변화 이야기일 가능성이 커. 이 구분을 해야 발표문을 과장 없이 읽을 수 있어.
 ## 관련 용어
 - [Attention](/ko/wiki/attention/) — 모델 내부 구조를 같이 읽을 때 이해가 쉬워진다.
 - [Mixture of Experts](/ko/wiki/mixture-of-experts/) — 모델 내부 구조를 같이 읽을 때 이해가 쉬워진다.

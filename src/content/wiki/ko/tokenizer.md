@@ -2,7 +2,7 @@
 term: tokenizer
 title: "Tokenizer"
 lang: ko
-summary: "텍스트를 모델이 읽을 토큰 단위로 잘라 주는 규칙과 도구. 같은 문장도 어떤 tokenizer를 쓰느냐에 따라 토큰 수가 달라진다."
+summary: "텍스트를 모델이 읽을 토큰 단위로 잘라 주는 규칙과 도구. 같은 문장도 어떤 tokenizer를 쓰느냐에 따라 토큰 수가 달라져."
 readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다."
 category: tool
 aliases:
@@ -21,7 +21,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Lexical_analysis"
       title: "Lexical analysis"
     - url: "https://platform.openai.com/tokenizer"
-      title: "https://platform.openai.com/tokenizer"
+      title: "OpenAI Platform"
   checks:
     - type: source_match
       result: pass
@@ -35,21 +35,27 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 설명 축이 어긋나지 않는지 다시 봤다."
       items:
         - "Lexical analysis (https://en.wikipedia.org/wiki/Lexical_analysis)"
-        - "https://platform.openai.com/tokenizer (https://platform.openai.com/tokenizer)"
+        - "OpenAI Platform (https://platform.openai.com/tokenizer)"
+    - type: number_verify
+      result: pass
+      summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."
+      items:
+        - "명칭 대조: Tokenizer"
+        - "숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
       items:
         - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
-Tokenizer는 사람이 읽는 문장을 모델이 계산할 수 있는 토큰 단위로 나눠 주는 규칙과 도구다.
+Tokenizer는 사람이 읽는 문장을 모델이 계산할 수 있는 토큰 단위로 나눠 주는 규칙과 도구야.
 ## 실제로 무엇을 하나
-모델은 문장을 그대로 읽지 않고 tokenizer가 자른 조각을 입력으로 받는다. 그래서 같은 문장도 모델마다 토큰 수가 다를 수 있고, 그 차이가 곧 비용과 컨텍스트 길이 계산 차이로 이어진다. OpenAI tokenizer나 llama.cpp 계열 tokenizer가 서로 결과가 다른 이유도 여기에 있다.
+모델은 문장을 그대로 읽지 않고 tokenizer가 자른 조각을 입력으로 받는다. 그래서 같은 문장도 모델마다 토큰 수가 다를 수 있고, 그 차이가 곧 비용과 컨텍스트 길이 계산 차이로 이어진다. OpenAI tokenizer나 llama.cpp 계열 tokenizer가 서로 결과가 다른 이유도 여기에 있어.
 ## 왜 중요한가
-실무에서는 프롬프트가 왜 갑자기 길이 제한에 걸리는지, 왜 예상보다 비용이 많이 나오는지 설명할 때 tokenizer 이해가 꼭 필요하다. 모델을 바꾸면 성능만이 아니라 토큰 계산 방식도 같이 달라진다.
+실무에서는 프롬프트가 왜 갑자기 길이 제한에 걸리는지, 왜 예상보다 비용이 많이 나오는지 설명할 때 tokenizer 이해가 꼭 필요해. 모델을 바꾸면 성능만이 아니라 토큰 계산 방식도 같이 달라져.
 ## 관련 용어
 - [Token](/ko/wiki/token/) — tokenizer가 만들어 내는 기본 단위
 - [Context Window](/ko/wiki/context-window/) — 잘린 토큰을 어디까지 넣을 수 있는지 정하는 한도

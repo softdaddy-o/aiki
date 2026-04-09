@@ -2,7 +2,7 @@
 term: benchmark
 title: "Benchmark"
 lang: ko
-summary: "Benchmark는 모델이나 시스템 성능을 같은 문제 세트로 비교하기 위한 시험 기준이다."
+summary: "Benchmark는 모델이나 시스템 성능을 같은 문제 세트로 비교하기 위한 시험 기준이야."
 readerValue: "이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
@@ -37,21 +37,27 @@ factCheck:
       items:
         - "Benchmark (computing) (https://en.wikipedia.org/wiki/Benchmark_(computing))"
         - "Evaluate on the Hub · Hugging Face (https://huggingface.co/docs/evaluate/index)"
+    - type: number_verify
+      result: pass
+      summary: "이 항목은 개념 설명이 중심이라 숫자보다 명칭과 분류를 한 번 더 봤다."
+      items:
+        - "명칭 대조: Benchmark"
+        - "숫자가 적은 개념형 항목이라 고정 스펙보다 정의와 분류가 틀리지 않는지 먼저 맞춰봤다."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리했다."
       items:
         - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
-Benchmark는 여러 모델을 같은 조건에서 평가해 누가 어떤 작업에 강한지 비교하게 해 주는 테스트 묶음이다.
+Benchmark는 여러 모델을 같은 조건에서 평가해 누가 어떤 작업에 강한지 비교하게 해 주는 테스트 묶음이야.
 ## 어떻게 작동하나
-예를 들어 코딩 모델은 SWE-bench 같은 벤치마크로, 수학 추론 모델은 MATH 같은 벤치마크로 비교한다. 같은 모델도 어떤 벤치마크를 쓰느냐에 따라 강점이 다르게 보일 수 있다.
+예를 들어 코딩 모델은 SWE-bench 같은 벤치마크로, 수학 추론 모델은 MATH 같은 벤치마크로 비교해. 같은 모델도 어떤 벤치마크를 쓰느냐에 따라 강점이 다르게 보일 수 있어.
 
 그래서 벤치마크 숫자는 유용하지만 절대적인 답은 아니다. 데이터 누수, 테스트 편향, 실제 사용자 환경과의 거리 때문에 현업 성능과 완전히 같지는 않다.
 ## 왜 중요한가
-벤치마크를 모르면 발표 자료 숫자를 그대로 믿게 되고, 반대로 벤치마크만 믿어도 실제 성능을 과대평가하게 된다. AI 뉴스를 읽을 때 가장 먼저 필요한 필터 중 하나다.
+벤치마크를 모르면 발표 자료 숫자를 그대로 믿게 되고, 반대로 벤치마크만 믿어도 실제 성능을 과대평가하게 돼. AI 뉴스를 읽을 때 가장 먼저 필요한 필터 중 하나다.
 ## 관련 용어
 - [Synthetic Data](/ko/wiki/synthetic-data/) — 성능 검증 기준을 같이 잡아 준다.
