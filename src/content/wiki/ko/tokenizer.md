@@ -2,8 +2,8 @@
 term: tokenizer
 title: "Tokenizer"
 lang: ko
-summary: "Tokenizer는 모델 성능, 제품 전략, 개발 흐름 맥락에서 반복해서 등장하는 AI 도구다."
-readerValue: "Tokenizer가 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다."
+summary: "텍스트를 모델이 읽을 토큰 단위로 잘라 주는 규칙과 도구. 같은 문장도 어떤 tokenizer를 쓰느냐에 따라 토큰 수가 달라진다."
+readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다."
 category: tool
 aliases:
   - "tokenizer"
@@ -16,12 +16,12 @@ tags:
   - preprocessing
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://en.wikipedia.org/wiki/Lexical_analysis"
       title: "Lexical analysis"
     - url: "https://platform.openai.com/tokenizer"
-      title: "https://platform.openai.com/tokenizer"
+      title: "OpenAI Platform"
   checks:
     - type: source_match
       result: pass
@@ -35,24 +35,22 @@ factCheck:
       summary: "관련 출처 2건을 비교해 설명 축이 어긋나지 않는지 확인했다."
       items:
         - "Lexical analysis (https://en.wikipedia.org/wiki/Lexical_analysis)"
-        - "https://platform.openai.com/tokenizer (https://platform.openai.com/tokenizer)"
+        - "OpenAI Platform (https://platform.openai.com/tokenizer)"
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Tokenizer는 개발자나 팀이 바로 써보는 도구에 가까워. 기능 목록보다 중요한 건 이 도구가 모델 성능, 제품 전략, 개발 흐름 쪽 병목을 얼마나 줄여 주느냐야. 그래서 도구 뉴스는 신기능 소개보다 기존 워크플로를 어떻게 바꾸는지로 읽는 편이 맞아.
-## 뉴스에서 왜 자주 나오나
-Tokenizer는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어야. 이유는 간단해. 독자가 결국 궁금해하는 건 모델 성능, 제품 전략, 개발 흐름 쪽 변화이기 때문이야. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워져.
-## 읽을 때 체크포인트
-1. 먼저 Tokenizer가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
-
-2. 다음으로 이 용어가 모델 성능, 제품 전략, 개발 흐름 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 tokenizer 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [context-window](/ko/wiki/context-window/)
+## 한 줄 정의
+Tokenizer는 사람이 읽는 문장을 모델이 계산할 수 있는 토큰 단위로 나눠 주는 규칙과 도구다.
+## 실제로 무엇을 하나
+모델은 문장을 그대로 읽지 않고 tokenizer가 자른 조각을 입력으로 받는다. 그래서 같은 문장도 모델마다 토큰 수가 다를 수 있고, 그 차이가 곧 비용과 컨텍스트 길이 계산 차이로 이어진다. OpenAI tokenizer나 llama.cpp 계열 tokenizer가 서로 결과가 다른 이유도 여기에 있다.
+## 왜 중요한가
+실무에서는 프롬프트가 왜 갑자기 길이 제한에 걸리는지, 왜 예상보다 비용이 많이 나오는지 설명할 때 tokenizer 이해가 꼭 필요하다. 모델을 바꾸면 성능만이 아니라 토큰 계산 방식도 같이 달라진다.
+## 관련 용어
+- [Token](/ko/wiki/token/) — tokenizer가 만들어 내는 기본 단위
+- [Context Window](/ko/wiki/context-window/) — 잘린 토큰을 어디까지 넣을 수 있는지 정하는 한도
+- [LLM](/ko/wiki/llm/) — tokenizer가 자른 토큰을 실제로 처리하는 기반 모델

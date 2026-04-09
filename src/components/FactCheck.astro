@@ -70,28 +70,17 @@ function fallbackItems(check: Check) {
         <span>상태: {statusIcon}</span>
     </div>
 
-    <div class="fc-checks">
-        {checks.map((check) => (
-            <div class="fc-check">
-                <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                    {resultIcon(check.result)}
-                </span>
-                <span>{checkLabel(check.type)}</span>
-                {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
-            </div>
-        ))}
-    </div>
-
     <div class="fc-groups">
         {checks.map((check) => (
             ((check.summary && check.summary.trim()) || fallbackItems(check).length > 0 || (check.findings && check.findings.length > 0) || fallbackSummary(check)) && (
-                <details class="fc-group">
-                    <summary>
+                <div class="fc-group">
+                    <div class="fc-group-header">
                         <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
                             {resultIcon(check.result)}
                         </span>
                         <span>{checkLabel(check.type)}</span>
-                    </summary>
+                        {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
+                    </div>
                     {(check.summary || fallbackSummary(check)) && <p class="fc-group-summary">{check.summary || fallbackSummary(check)}</p>}
                     {fallbackItems(check).length > 0 && (
                         <ul class="fc-group-list">
@@ -107,7 +96,7 @@ function fallbackItems(check: Check) {
                             ))}
                         </ul>
                     )}
-                </details>
+                </div>
             )
         ))}
     </div>
@@ -147,18 +136,6 @@ function fallbackItems(check: Check) {
         margin-bottom: 12px;
         font-size: 12px;
     }
-    .fc-checks {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        margin-bottom: 12px;
-    }
-    .fc-check {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        flex-wrap: wrap;
-    }
     .check-pass {
         color: var(--color-pass);
         font-weight: bold;
@@ -185,16 +162,12 @@ function fallbackItems(check: Check) {
         border-radius: 8px;
         padding: 10px 12px;
     }
-    .fc-group summary {
+    .fc-group-header {
         display: flex;
         gap: 8px;
         align-items: center;
-        cursor: pointer;
+        flex-wrap: wrap;
         font-weight: 600;
-        list-style: none;
-    }
-    .fc-group summary::-webkit-details-marker {
-        display: none;
     }
     .fc-group-summary {
         margin: 10px 0 8px;

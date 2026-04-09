@@ -2,8 +2,8 @@
 term: memory
 title: "Memory"
 lang: ko
-summary: "Memory는 에이전트가 작업을 이어 가는 방식 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "Memory를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
+summary: "Memory는 에이전트나 챗봇이 이전 대화와 작업 결과를 저장해 다음 행동에 다시 쓰게 하는 기억 계층이다."
+readerValue: "이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
   - "agent memory"
@@ -14,14 +14,14 @@ relatedTerms:
   - llamaindex
   - long-context
 firstMentioned: "2026-02-27"
-mentionCount: 16
+mentionCount: 17
 draft: false
 tags:
   - agents
   - context-window
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://docs.anthropic.com/en/docs/agents-and-tools/context-engineering"
       title: "Not Found - Claude API Docs"
@@ -45,22 +45,20 @@ factCheck:
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Memory는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어야. 이 단어를 잡아 두면 에이전트가 작업을 이어 가는 방식 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있어. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 돼.
-## 뉴스에서 왜 자주 나오나
-Memory는 AIKI 기사에서 16번 이상 언급됐고, 가장 이른 기록도 2026-02-27까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 에이전트가 작업을 이어 가는 방식 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 Not Found - Claude API Docs, https://blog.langchain.dev/short-term-memory-agent/ 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.
-## 읽을 때 체크포인트
-1. 먼저 Memory가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
+## 한 줄 정의
+Memory는 모델이나 에이전트가 과거 대화, 사용자 선호, 중간 결과를 저장하고 다음 요청에서 다시 참조하게 만드는 구조다.
+## 어떻게 작동하나
+짧은 메모리는 현재 대화 안에서만 유지되고, 긴 메모리는 여러 세션에 걸쳐 저장될 수 있다. 예를 들어 코딩 에이전트가 방금 수정한 파일 목록을 기억하거나, 개인 비서 앱이 사용자의 일정 선호를 저장하는 식이다.
 
-2. 다음으로 이 용어가 에이전트가 작업을 이어 가는 방식 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 agent memory, ai memory 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [langchain](/ko/wiki/langchain/)
-- [tool-use](/ko/wiki/tool-use/)
-- [llamaindex](/ko/wiki/llamaindex/)
-- [long-context](/ko/wiki/long-context/)
+중요한 점은 메모리가 곧바로 컨텍스트 창과 같지는 않다는 것이다. 컨텍스트는 한 번에 넣을 수 있는 길이이고, 메모리는 필요할 때 다시 불러올 수 있는 저장 구조에 가깝다.
+## 왜 중요한가
+에이전트 제품에서 "기억한다"는 표현이 나오면 단순히 컨텍스트가 길어졌다는 뜻인지, 별도 저장 시스템이 붙었다는 뜻인지 구분해야 한다. 이 차이가 제품 경험을 크게 바꾼다.
+## 관련 용어
+- [LangChain](/ko/wiki/langchain/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 된다.
+- [Tool Use](/ko/wiki/tool-use/) — 외부 도구 실행 맥락을 같이 이해하게 해 준다.
+- [LlamaIndex](/ko/wiki/llamaindex/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [Long Context](/ko/wiki/long-context/) — 토큰과 문맥 길이 쪽 맥락을 같이 잡아 준다.

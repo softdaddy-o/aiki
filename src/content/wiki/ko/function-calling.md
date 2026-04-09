@@ -2,8 +2,8 @@
 term: function-calling
 title: "Function Calling"
 lang: ko
-summary: "Function Calling는 API 연결과 제품 기능 확장 맥락에서 반복해서 등장하는 AI 기법다."
-readerValue: "Function Calling가 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다."
+summary: "Function Calling은 모델이 답변만 생성하는 대신 정해진 함수나 API를 호출하게 만드는 실행 방식이다."
+readerValue: "이 말이 답변 생성 이야기가 아니라 외부 도구 실행과 연결 구조 이야기인지 빠르게 구분하게 해준다."
 category: technique
 aliases:
   - "tool calling"
@@ -20,7 +20,7 @@ tags:
   - api
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://platform.openai.com/docs/guides/function-calling"
       title: "Function calling | OpenAI API"
@@ -44,22 +44,20 @@ factCheck:
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Function Calling는 특정 제품명이 아니라 일을 처리하는 방법에 가까워. 결국 이 기법이 API 연결과 제품 기능 확장 가운데 무엇을 바꾸는지 봐야 해. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라져.
-## 뉴스에서 왜 자주 나오나
-Function Calling는 AIKI 기사에서 1번 이상 언급됐고, 가장 이른 기록도 2026-04-07까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 API 연결과 제품 기능 확장 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 Function calling | OpenAI API, Tool use with Claude 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.
-## 읽을 때 체크포인트
-1. 먼저 Function Calling가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
+## 한 줄 정의
+Function Calling은 LLM이 외부 함수, 도구, API를 선택해 구조화된 인자로 호출하도록 만드는 인터페이스다.
+## 어떻게 작동하나
+예를 들어 사용자가 "서울 날씨 알려줘"라고 하면 모델이 바로 답을 지어내는 대신 weather 함수 호출을 만들어 낸다. 앱은 그 호출을 실행해 실제 날씨 데이터를 받고, 다시 모델이 그 결과를 바탕으로 답을 정리한다.
 
-2. 다음으로 이 용어가 API 연결과 제품 기능 확장 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 tool calling 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [mcp](/ko/wiki/mcp/)
-- [openai-api](/ko/wiki/openai-api/)
-- [anthropic-api](/ko/wiki/anthropic-api/)
-- [openrouter](/ko/wiki/openrouter/)
+핵심은 모델이 직접 외부 세계와 연결되는 게 아니라, 호출할 함수 목록과 인자 형식을 보고 어떤 도구를 쓸지 결정한다는 점이다. 그래서 도구 정확도와 스키마 설계가 매우 중요하다.
+## 왜 중요한가
+Function Calling을 이해하면 "AI가 실제 일을 한다"는 말이 마법이 아니라 API 호출 구조라는 점이 보인다. 에이전트, 업무 자동화, 앱 통합을 읽을 때 필수인 기본 개념이다.
+## 관련 용어
+- [MCP](/ko/wiki/mcp/) — 외부 도구 실행 맥락을 같이 이해하게 해 준다.
+- [OpenAI API](/ko/wiki/openai-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉽다.
+- [Anthropic API](/ko/wiki/anthropic-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉽다.
+- [OpenRouter](/ko/wiki/openrouter/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉽다.

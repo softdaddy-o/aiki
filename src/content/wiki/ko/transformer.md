@@ -2,8 +2,8 @@
 term: transformer
 title: "Transformer"
 lang: ko
-summary: "Transformer는 모델 성능, 제품 전략, 개발 흐름 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "Transformer를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
+summary: "Transformer는 토큰 사이 관계를 한꺼번에 계산하는 방식으로 현대 LLM 대부분의 기반이 된 신경망 아키텍처다."
+readerValue: "이 말이 새 모델 이름이 아니라 내부 구조 변화라는 점을 먼저 읽게 해준다."
 category: concept
 aliases:
   - "Transformer"
@@ -18,7 +18,7 @@ tags:
   - attention
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://en.wikipedia.org/wiki/Transformer_(deep_learning)"
       title: "Transformer (deep learning)"
@@ -42,20 +42,18 @@ factCheck:
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Transformer는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어야. 이 단어를 잡아 두면 모델 성능, 제품 전략, 개발 흐름 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있어. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 돼.
-## 뉴스에서 왜 자주 나오나
-Transformer는 AIKI 기사에서 3번 이상 언급됐고, 가장 이른 기록도 2018-10-11까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 모델 성능, 제품 전략, 개발 흐름 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 Transformer (deep learning), Attention is All You Need 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.
-## 읽을 때 체크포인트
-1. 먼저 Transformer가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
+## 한 줄 정의
+Transformer는 문장 안의 각 토큰이 다른 토큰과 어떤 관계를 맺는지 attention으로 계산하는 딥러닝 구조다.
+## 어떻게 작동하나
+이전 언어 모델은 보통 왼쪽에서 오른쪽으로 순서대로 읽는 구조가 많았지만, Transformer는 문장 전체를 보면서 어떤 단어를 더 참고해야 하는지 병렬로 계산한다. 그래서 긴 문맥을 더 잘 다루고 GPU 병렬 처리에도 유리하다.
 
-2. 다음으로 이 용어가 모델 성능, 제품 전략, 개발 흐름 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 Transformer 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [attention](/ko/wiki/attention/)
-- [mixture-of-experts](/ko/wiki/mixture-of-experts/)
+지금의 GPT, Claude, Gemini, Llama 계열이 거의 다 이 구조를 바탕으로 발전했다. 그래서 Transformer는 개별 제품 이름이 아니라, 그 제품들이 서 있는 공통 토대에 가깝다.
+## 왜 중요한가
+뉴스에서 새 모델이 나올 때 "트랜스포머를 넘었다"거나 "attention 병목을 줄였다"는 말이 붙으면, 그건 기능 추가보다 모델 내부 구조 변화 이야기일 가능성이 크다. 이 구분을 해야 발표문을 과장 없이 읽을 수 있다.
+## 관련 용어
+- [Attention](/ko/wiki/attention/) — 모델 내부 구조를 같이 읽을 때 이해가 쉬워진다.
+- [Mixture of Experts](/ko/wiki/mixture-of-experts/) — 모델 내부 구조를 같이 읽을 때 이해가 쉬워진다.

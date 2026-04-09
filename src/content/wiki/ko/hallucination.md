@@ -2,8 +2,8 @@
 term: hallucination
 title: "Hallucination"
 lang: ko
-summary: "Hallucination는 안전성 제어와 정책 운영 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "Hallucination를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
+summary: "Hallucination은 모델이 사실이 아닌 내용을 그럴듯하게 만들어 내는 현상을 뜻한다."
+readerValue: "이 말이 성능 향상보다 오류와 위험을 줄이는 안전 장치에 가깝다는 점을 구분하게 해준다."
 category: concept
 aliases:
   - "ai hallucination"
@@ -19,7 +19,7 @@ tags:
   - safety
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
       title: "Hallucination (artificial intelligence)"
@@ -43,22 +43,20 @@ factCheck:
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Hallucination는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어야. 이 단어를 잡아 두면 안전성 제어와 정책 운영 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있어. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 돼.
-## 뉴스에서 왜 자주 나오나
-Hallucination는 아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어야. 이유는 간단해. 독자가 결국 궁금해하는 건 안전성 제어와 정책 운영 쪽 변화이기 때문이야. 이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도 어디를 읽어야 하는지 판단이 쉬워져.
-## 읽을 때 체크포인트
-1. 먼저 Hallucination가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
+## 한 줄 정의
+Hallucination은 LLM이 답을 생성할 때 실제 근거가 없거나 틀린 내용을 자신감 있게 출력하는 문제다.
+## 어떻게 작동하나
+모델은 본질적으로 다음 토큰을 예측하는 시스템이라, 모르는 정보가 나와도 "가장 그럴듯한" 문장을 이어 쓰려는 경향이 있다. 그래서 출처가 없는 숫자, 존재하지 않는 논문, 잘못된 코드 API를 지어낼 수 있다.
 
-2. 다음으로 이 용어가 안전성 제어와 정책 운영 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 ai hallucination 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [alignment](/ko/wiki/alignment/)
-- [guardrail](/ko/wiki/guardrail/)
-- [grounding](/ko/wiki/grounding/)
-- [red-teaming](/ko/wiki/red-teaming/)
+이 문제를 줄이기 위해 RAG, 검증 단계, 도구 호출, 가드레일 같은 보완 장치가 같이 쓰인다. 즉 hallucination은 모델 하나의 결함이라기보다 생성형 시스템 전반의 기본 리스크다.
+## 왜 중요한가
+AI를 업무에 붙일수록 중요한 건 "가끔 틀린다"가 아니라 "틀려도 너무 그럴듯하다"는 점이다. Hallucination을 이해해야 검증 비용과 운영 리스크를 제대로 볼 수 있다.
+## 관련 용어
+- [Alignment](/ko/wiki/alignment/) — 안전성·신뢰성 제어 맥락을 같이 이해하게 해 준다.
+- [Guardrail](/ko/wiki/guardrail/) — 안전성·신뢰성 제어 맥락을 같이 이해하게 해 준다.
+- [Grounding](/ko/wiki/grounding/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [Red Teaming](/ko/wiki/red-teaming/) — 안전성·신뢰성 제어 맥락을 같이 이해하게 해 준다.

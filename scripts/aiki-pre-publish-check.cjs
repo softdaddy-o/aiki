@@ -47,6 +47,11 @@ const VALUELESS_PATTERNS = [
     /페이지를 찾을 수 없습니다/,
     /aiki 기사 기준/,
     /최근 ai 뉴스에서/,
+    /반짝 유행어라기보다/u,
+    /먼저 감 잡기/u,
+    /뉴스에서 왜 자주 나오나/u,
+    /읽을 때 체크포인트/u,
+    /같이 봐야 할 용어/u,
 ];
 
 const VALUE_SIGNAL_PATTERNS = [
@@ -75,6 +80,17 @@ const BAD_WIKI_MODEL_BODY_PATTERNS = [
     /특정 회사가 만든 단일 제품명이라기보다/u,
     /아직 기사 출현 빈도가 높지 않아도 앞으로 자주 붙을 가능성이 높은 용어/u,
     /이런 용어를 먼저 잡아 두면 발표문이 조금 과장돼 보여도/u,
+    /모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분/u,
+    /AIKI 기사에서 이미 \d+번 이상 언급/u,
+];
+
+const WIKI_SOURCE_COPY_PATTERNS = [
+    /알아보세요/u,
+    /살펴보세요/u,
+    /연결하세요/u,
+    /learn how/i,
+    /what is /i,
+    /what are /i,
 ];
 
 const VERSION_MODEL_CONTRADICTION_PATTERNS = [
@@ -116,6 +132,10 @@ function parseFrontmatter(content) {
 function extractBody(content) {
     const match = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
     return match ? match[1] : '';
+}
+
+function normalizeLineEndings(text) {
+    return String(text || '').replace(/\r\n/g, '\n');
 }
 
 function getToneResults(body) {
@@ -202,14 +222,16 @@ function listFilesForTarget(target, changedFiles) {
 }
 
 function hasMeaningfulBody(targetName, body) {
-    const compact = String(body || '').replace(/\s+/g, ' ').trim();
-    const paragraphs = String(body || '')
+    const normalized = normalizeLineEndings(body);
+    const compact = normalized.replace(/\s+/g, ' ').trim();
+    const paragraphs = normalized
         .split(/\n{2,}/)
         .map((chunk) => chunk.trim())
         .filter(Boolean);
+    const headingCount = (normalized.match(/^##\s+/gm) || []).length;
 
     if (targetName === 'wiki') {
-        return compact.length >= 260 && paragraphs.length >= 3;
+        return compact.length >= 240 && (paragraphs.length >= 3 || headingCount >= 4);
     }
 
     return compact.length >= 220 && paragraphs.length >= 3;
@@ -222,6 +244,28 @@ function hasReaderValue(frontmatter, body) {
     }
 
     return VALUE_SIGNAL_PATTERNS.some((pattern) => pattern.test(body));
+}
+
+function hasAwkwardForeignReaderValue(frontmatter) {
+    const readerValue = String(frontmatter.readerValue || '').trim();
+    return /^(?:"[^"]+"|[A-Za-z0-9][A-Za-z0-9 .&+\-/]*)이?라는 (말이|이름이|용어를)/.test(readerValue);
+}
+
+function hasKnownBrokenWikiGrammar(text) {
+    const source = normalizeLineEndings(String(text || ''));
+    return [
+        /흐름 흐름/,
+        /배선를/,
+        /계열를/,
+        /운영층를/,
+        /입출력를/,
+        /해석를/,
+    ].some((pattern) => pattern.test(source));
+}
+
+function hasRepeatedAdjacentWord(text) {
+    const source = normalizeLineEndings(String(text || ''));
+    return /(^|[\s"'“”‘’(])([가-힣A-Za-z0-9][가-힣A-Za-z0-9-]*)\s+\2(?=$|[\s"'“”‘’).,!?])/m.test(source);
 }
 
 function bodyContainsValuelessTemplate(body) {
@@ -286,8 +330,12 @@ function containsBlockedSourceText(text) {
     return BLOCKED_SOURCE_PATTERNS.some((pattern) => pattern.test(String(text || '')));
 }
 
+function containsWeakWikiSourceCopy(text) {
+    return WIKI_SOURCE_COPY_PATTERNS.some((pattern) => pattern.test(String(text || '')));
+}
+
 function splitBodySentences(body) {
-    return String(body || '')
+    return normalizeLineEndings(body)
         .replace(/^#{1,6}\s+.+$/gm, '')
         .split(/(?<=[.!?])\s+|\n+/)
         .map((entry) => entry.trim())
@@ -295,21 +343,81 @@ function splitBodySentences(body) {
 }
 
 function validateWikiTone(body) {
-    const sentences = splitBodySentences(body);
-    if (sentences.length < 3) {
+    const normalized = normalizeLineEndings(body);
+    const sentences = splitBodySentences(normalized);
+    if (sentences.length < 2) {
         return ['wiki tone too thin to evaluate'];
     }
 
-    const colloquial = sentences.filter((sentence) => /(이야|거야|해야 해|보면 돼|맞아|갈려|쉬워져|가까워|봐야 해|읽어야 해|잡아줘)\s*[.!?]?\s*$/u.test(sentence));
-    const formal = sentences.filter((sentence) => /(이다|다|한다|된다|맞다|갈린다|정확하다|가깝다|설명한다)\s*[.!?]?\s*$/u.test(sentence));
     const failures = [];
 
-    if (colloquial.length < 2) {
-        failures.push('wiki tone lacks conversational guide cues');
+    if (containsWeakWikiSourceCopy(normalized)) {
+        failures.push('wiki tone still reads like pasted source copy');
     }
 
-    if (formal.length > Math.ceil(sentences.length * 0.55)) {
-        failures.push('wiki tone still reads too formally');
+    return failures;
+}
+
+function validateWikiStructure(frontmatter, body) {
+    const category = String(frontmatter.category || '').toLowerCase();
+    const normalizedBody = normalizeLineEndings(body);
+    const headings = Array.from(normalizedBody.matchAll(/^##\s+(.+)$/gm)).map((match) => match[1].trim());
+    const failures = [];
+
+    if (category === 'model') {
+        const requiredHeadings = ['한 줄 정의', '이 모델로 무엇을 할 수 있나', '스펙을 읽는 법', '왜 중요한가', '같이 보면 좋은 모델'];
+        for (const heading of requiredHeadings) {
+            if (!headings.includes(heading)) {
+                failures.push(`wiki model missing section "${heading}"`);
+            }
+        }
+
+        const specSignals = [
+            /\*\*입력\/출력 범위\*\*/u,
+            /\*\*컨텍스트\/메모리 감각\*\*/u,
+            /\*\*접근 경로\*\*/u,
+            /\*\*가격과 운영비\*\*/u,
+            /\*\*웨이트 공개 여부\*\*/u,
+        ];
+
+        for (const signal of specSignals) {
+            if (!signal.test(String(body || ''))) {
+                failures.push('wiki model spec guide is missing core comparison bullets');
+                break;
+            }
+        }
+    } else {
+        if (!headings.includes('한 줄 정의')) {
+            failures.push('wiki missing section "한 줄 정의"');
+        }
+
+        if (!headings.some((heading) => heading === '어떻게 작동하나' || heading === '실제로 무엇을 하나')) {
+            failures.push('wiki missing explanation section');
+        }
+
+        if (!headings.includes('왜 중요한가')) {
+            failures.push('wiki missing section "왜 중요한가"');
+        }
+
+        if (!headings.includes('관련 용어')) {
+            failures.push('wiki missing section "관련 용어"');
+        }
+    }
+
+    if (/^##\s+(먼저 감 잡기|뉴스에서 왜 자주 나오나|읽을 때 체크포인트|같이 봐야 할 용어)$/m.test(normalizedBody)) {
+        failures.push('wiki still uses deprecated boilerplate headings');
+    }
+
+    if (/모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분/u.test(normalizedBody)) {
+        failures.push('wiki still uses deprecated classification-first template copy');
+    }
+
+    if (/AIKI 기사에서 \d+번 이상 언급/u.test(normalizedBody)) {
+        failures.push('wiki still uses mention-count boilerplate in body');
+    }
+
+    if (containsWeakWikiSourceCopy(`${String(frontmatter.summary || '')}\n${normalizedBody}`)) {
+        failures.push('wiki still contains source-style CTA copy');
     }
 
     return failures;
@@ -506,8 +614,32 @@ for (const target of CONTENT_TARGETS) {
             else errors.push(message);
         }
 
+        if (!isDraft && target.name === 'wiki' && hasAwkwardForeignReaderValue(fm)) {
+            const message = `${target.name}/${filename}: readerValue uses awkward foreign-title particle pattern`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki' && hasKnownBrokenWikiGrammar(`${String(fm.summary || '')}\n${String(fm.readerValue || '')}\n${body}`)) {
+            const message = `${target.name}/${filename}: contains known broken wiki grammar pattern`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && target.name === 'wiki' && hasRepeatedAdjacentWord(`${String(fm.summary || '')}\n${body}`)) {
+            const message = `${target.name}/${filename}: contains repeated adjacent words`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
         if (!isDraft && target.name === 'wiki') {
             for (const failure of validateWikiTone(body)) {
+                const message = `${target.name}/${filename}: ${failure}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
+
+            for (const failure of validateWikiStructure(fm, body)) {
                 const message = `${target.name}/${filename}: ${failure}`;
                 if (checkAll) warnings.push(message);
                 else errors.push(message);

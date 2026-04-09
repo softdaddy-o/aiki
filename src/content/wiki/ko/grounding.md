@@ -2,8 +2,8 @@
 term: grounding
 title: "Grounding"
 lang: ko
-summary: "Grounding는 검색 결과와 메모리 연결 맥락에서 반복해서 등장하는 AI 기법다."
-readerValue: "Grounding가 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다."
+summary: "검색과 외부 지식 연결을 개선하거나 연결하는 AI 기법이다. 보통 정확도, 비용, 실행 방식 중 하나를 바꾼다."
+readerValue: "이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡게 해준다."
 category: technique
 aliases:
   - "retrieval grounding"
@@ -20,10 +20,10 @@ tags:
   - reliability
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://ai.google.dev/gemini-api/docs/grounding"
-      title: "Ancrage avec la recherche Google &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "使用 Google 搜索建立依据 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
       title: "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
   checks:
@@ -38,28 +38,24 @@ factCheck:
       sources: 2
       summary: "관련 출처 2건을 비교해 설명 축이 어긋나지 않는지 확인했다."
       items:
-        - "Ancrage avec la recherche Google &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/grounding)"
+        - "使用 Google 搜索建立依据 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers (https://ai.google.dev/gemini-api/docs/grounding)"
         - "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation (https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)"
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Grounding는 특정 제품명이 아니라 일을 처리하는 방법에 가까워. 결국 이 기법이 검색 결과와 메모리 연결 가운데 무엇을 바꾸는지 봐야 해. 같은 기법이라도 어떤 모델과 데이터 위에 얹히느냐에 따라 무게가 달라져.
-## 뉴스에서 왜 자주 나오나
-Grounding는 AIKI 기사에서 1번 이상 언급됐고, 가장 이른 기록도 2026-03-23까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 검색 결과와 메모리 연결 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 Ancrage avec la recherche Google &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers, Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.
-## 읽을 때 체크포인트
-1. 먼저 Grounding가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
-
-2. 다음으로 이 용어가 검색 결과와 메모리 연결 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 retrieval grounding 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [rag](/ko/wiki/rag/)
-- [llamaindex](/ko/wiki/llamaindex/)
-- [embedding](/ko/wiki/embedding/)
-- [vector-db](/ko/wiki/vector-db/)
+## 한 줄 정의
+검색과 외부 지식 연결을 바꾸거나 개선할 때 쓰는 기법이다. 쉽게 말하면 질문에 맞는 자료를 바깥에서 찾아와 붙이는 검색 레이어 역할을 한다고 보면 된다.
+## 어떻게 작동하나
+핵심은 질문이나 문서를 검색하기 쉬운 형태로 바꾼 뒤, 관련 자료를 찾아 모델 앞에 붙이거나 결과 순서를 다시 정렬하는 데 있다. 그래서 이런 기법은 "무슨 모델이냐"보다 입력, 검색, 학습, 실행 흐름 중 어디에 개입하는지로 이해하는 편이 쉽다.
+## 왜 중요한가
+사내 문서 Q&A, 고객지원, 최신 정보 응답처럼 "모델이 원래 모르던 것"을 다뤄야 하는 서비스에서 바로 체감된다. 같은 모델도 어떤 기법을 붙이느냐에 따라 정확도, 비용, 지연이 크게 달라진다.
+## 관련 용어
+- [RAG](/ko/wiki/rag/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [LlamaIndex](/ko/wiki/llamaindex/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [Embedding](/ko/wiki/embedding/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [Vector Database](/ko/wiki/vector-db/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.

@@ -147,22 +147,52 @@ function buildNewsReaderValue(frontmatter, fileName = '') {
 }
 
 function buildWikiReaderValue(entry) {
-    const title = normalizeText(entry.title || entry.term || '이 용어');
     const category = String(entry.category || '').toLowerCase();
+    const tags = new Set(lowerList(entry.tags));
+
+    const hasAnyTag = (values) => values.some((value) => tags.has(String(value || '').toLowerCase()));
 
     if (category === 'model') {
-        return `${title}가 기사에 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다.`;
+        return '기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다.';
+    }
+
+    if (hasAnyTag(['company', 'model-lab', 'research'])) {
+        return '이 이름이 모델 하나인지, 회사 전체 라인업과 전략 이야기인지 빠르게 구분하게 해준다.';
+    }
+
+    if (hasAnyTag(['retrieval', 'generation', 'search', 'vectors', 'vector-db', 'vector-search'])) {
+        return '이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡게 해준다.';
+    }
+
+    if (hasAnyTag(['architecture', 'transformer', 'attention', 'scaling'])) {
+        return '이 말이 새 모델 이름이 아니라 내부 구조 변화라는 점을 먼저 읽게 해준다.';
+    }
+
+    if (hasAnyTag(['tool-use', 'function-calling', 'protocol'])) {
+        return '이 말이 답변 생성 이야기가 아니라 외부 도구 실행과 연결 구조 이야기인지 빠르게 구분하게 해준다.';
+    }
+
+    if (hasAnyTag(['prompting', 'instruction'])) {
+        return '이 말이 모델 교체가 아니라 입력 설계와 출력 제어를 바꾸는 기법인지 바로 이해하게 해준다.';
+    }
+
+    if (hasAnyTag(['safety', 'policy', 'reliability'])) {
+        return '이 말이 성능 향상보다 오류와 위험을 줄이는 안전 장치에 가깝다는 점을 구분하게 해준다.';
+    }
+
+    if (hasAnyTag(['thinking', 'planning', 'reasoning'])) {
+        return '이 말이 단순 속도 경쟁이 아니라 복잡한 문제 해결 방식 변화를 뜻한다는 점을 먼저 읽게 해준다.';
     }
 
     if (category === 'framework' || category === 'tool') {
-        return `${title}가 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다.`;
+        return '이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다.';
     }
 
     if (category === 'technique') {
-        return `${title}가 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다.`;
+        return '이 말이 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다.';
     }
 
-    return `${title}를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다.`;
+    return '이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다.';
 }
 
 function isBadNewsTitle(frontmatter, fileName = '', body = '') {

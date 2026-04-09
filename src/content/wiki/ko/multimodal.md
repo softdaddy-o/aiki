@@ -2,8 +2,8 @@
 term: multimodal
 title: "Multimodal AI"
 lang: ko
-summary: "Multimodal AI는 멀티모달 입력과 출력 경험 맥락에서 반복해서 등장하는 AI 개념다."
-readerValue: "Multimodal AI를 보면 용어 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
+summary: "Multimodal AI는 텍스트만이 아니라 이미지, 오디오, 비디오 같은 여러 입력과 출력을 함께 다루는 AI를 뜻한다."
+readerValue: "이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다."
 category: concept
 aliases:
   - "multimodal ai"
@@ -20,7 +20,7 @@ tags:
   - audio
 factCheck:
   status: passed
-  date: "2026-04-08"
+  date: "2026-04-09"
   sources:
     - url: "https://en.wikipedia.org/wiki/Multimodal_learning"
       title: "Multimodal learning"
@@ -44,22 +44,20 @@ factCheck:
       result: pass
       summary: "헷갈리기 쉬운 해석 포인트를 따로 점검했다."
       items:
-        - "세부 수치나 가격은 문서 성격상 고정값이 아닐 수 있어 본문에서 과장하지 않도록 제한했다."
+        - "정의와 역할을 먼저 설명하고, 시점에 따라 달라지는 수치나 가격은 본문에서 과장하지 않도록 제한했다."
       findings:
-        - "이 페이지는 용어 방향을 잡는 설명용 항목이라 세부 수치는 개별 기사나 버전 페이지에서 다시 확인해야 한다."
+        - "이 페이지는 개념 이해를 돕는 설명용 항목이라 세부 수치나 정책은 공식 문서와 최신 기사에서 다시 확인해야 한다."
 ---
-## 먼저 감 잡기
-Multimodal AI는 제품 하나보다 여러 발표에서 공통으로 쓰이는 개념어야. 이 단어를 잡아 두면 멀티모달 입력과 출력 경험 얘기가 나올 때 문장을 훨씬 빨리 해석할 수 있어. 쉽게 말해 기사에 흩어진 표현을 하나의 지도 위에 올려놓게 해 주는 공용 언어라고 보면 돼.
-## 뉴스에서 왜 자주 나오나
-Multimodal AI는 AIKI 기사에서 11번 이상 언급됐고, 가장 이른 기록도 2023-03-14까지 올라가 있어. 그만큼 이 용어는 반짝 유행어라기보다 멀티모달 입력과 출력 경험 문제를 설명할 때 계속 재등장하는 기준 단어야. 참고 소스도 Multimodal learning, Gemini 3 — Google DeepMind 쪽으로 모여 있어, 한 번 정리해 두면 이후 뉴스를 읽을 때 해석 속도가 빨라져.
-## 읽을 때 체크포인트
-1. 먼저 Multimodal AI가 모델 이름인지, 제품 기능 이름인지, 운영 방식인지부터 구분하면 돼. 같은 단어라도 붙는 위치에 따라 기사 해석이 크게 달라져.
+## 한 줄 정의
+Multimodal AI는 서로 다른 형태의 데이터를 함께 이해하거나 생성할 수 있는 모델과 시스템을 말한다.
+## 어떻게 작동하나
+예를 들어 사용자가 사진을 올리고 질문하면 모델이 이미지를 읽고 텍스트로 답하거나, 텍스트 지시를 받고 이미지를 생성하는 식이다. 최근에는 음성 입출력까지 같이 묶이는 경우도 많다.
 
-2. 다음으로 이 용어가 멀티모달 입력과 출력 경험 중 어디를 바꾸는지 봐야 해. 성능 숫자를 바꾸는지, 비용을 줄이는지, 아니면 사용 경험만 부드럽게 만드는지 확인하면 과장된 발표를 거를 수 있어.
-
-3. 마지막으로 기사에서 multimodal ai 같은 표현이 함께 나오면 같은 범주인지, 하위 변종인지 확인하면 돼. 이름만 다르고 실질은 비슷한 경우가 많아 여기서 한 번 걸러 두면 발표 내용을 더 차분하게 정리할 수 있어.
-## 같이 봐야 할 용어
-- [vision-language-model](/ko/wiki/vision-language-model/)
-- [whisper](/ko/wiki/whisper/)
-- [speech-to-text](/ko/wiki/speech-to-text/)
-- [text-to-speech](/ko/wiki/text-to-speech/)
+중요한 건 "멀티모달"이 곧 모든 모달리티를 완벽하게 지원한다는 뜻은 아니라는 점이다. 어떤 모델은 이미지 입력만 되고, 어떤 모델은 음성 출력까지 된다. 그래서 실제 지원 범위를 항상 따로 봐야 한다.
+## 왜 중요한가
+멀티모달이라는 말만 보면 다 비슷해 보이지만, 실제 제품 차이는 입력과 출력 범위에서 갈린다. 이 개념을 알아야 "이미지 이해", "오디오 실시간", "비디오 생성" 같은 뉴스를 한 줄로 정리할 수 있다.
+## 관련 용어
+- [Vision-Language Model](/ko/wiki/vision-language-model/) — 멀티모달 생성·해석 흐름을 같이 볼 때 좋다.
+- [Whisper](/ko/wiki/whisper/) — 음성 입출력 맥락을 같이 이해하게 해 준다.
+- [Speech to Text](/ko/wiki/speech-to-text/) — 음성 입출력 맥락을 같이 이해하게 해 준다.
+- [Text to Speech](/ko/wiki/text-to-speech/) — 음성 입출력 맥락을 같이 이해하게 해 준다.
