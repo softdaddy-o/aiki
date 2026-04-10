@@ -1,0 +1,93 @@
+---
+interface Props {
+    title: string;
+    url: string;
+    text?: string;
+    show?: boolean;
+}
+
+const { title, url, text } = Astro.props as Props;
+const { show = false } = Astro.props as Props;
+
+const safeTitle = title.trim();
+const safeText = text?.trim() ?? '';
+const shortText = safeText.length > 120 ? `${safeText.slice(0, 117)}...` : safeText;
+const shareText = `${safeTitle}${shortText ? ` - ${shortText}` : ''}`;
+
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(safeTitle);
+const encodedText = encodeURIComponent(shareText);
+
+const shareLinks = [
+    {
+        name: 'X',
+        href: `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
+    },
+    {
+        name: 'Threads',
+        href: `https://www.threads.net/?url=${encodedUrl}`,
+    },
+    {
+        name: 'Facebook',
+        href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    },
+    {
+        name: 'LinkedIn',
+        href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    },
+    {
+        name: 'Reddit',
+        href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,
+    },
+    {
+        name: 'Bluesky',
+        href: `https://bsky.app/intent/compose?text=${encodedText}%20${encodedUrl}`,
+    },
+];
+---
+
+{show && (
+    <section class="social-share" aria-label="Share this page" data-share-title={safeTitle} data-share-url={url}>
+        <p>Share</p>
+        <div class="social-share-links" role="list">
+            {shareLinks.map((item) => (
+                <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${item.name}`}>
+                    {item.name}
+                </a>
+            ))}
+        </div>
+    </section>
+)}
+
+<style>
+    .social-share {
+        margin-top: 16px;
+        display: grid;
+        gap: 10px;
+    }
+    .social-share > p {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+    .social-share-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .social-share-links a {
+        border: 1px solid var(--color-border-strong);
+        border-radius: 999px;
+        color: var(--color-text);
+        text-decoration: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .social-share-links a:hover {
+        border-color: var(--color-news);
+        transform: translateY(-1px);
+    }
+</style>

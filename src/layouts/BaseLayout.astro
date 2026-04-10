@@ -55,12 +55,12 @@ const navItems = lang === 'en'
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 </head>
 <body data-pagefind-body>
     <nav class="site-nav">
         <a href={`/${lang}/`} class="site-logo" aria-label="Soft Daddy home">
             <img src="/softdaddy-logo.jpg" alt="Soft Daddy" />
-            <span class="site-logo-text">SOFT DADDY</span>
         </a>
         <button class="nav-toggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
@@ -78,7 +78,8 @@ const navItems = lang === 'en'
             class="threads-link"
             aria-label="Soft Daddy Threads"
         >
-            @softdaddy_o
+            <span class="threads-icon" aria-hidden="true">🧵</span>
+            <span class="sr-only">Threads</span>
         </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
             <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -228,12 +229,12 @@ const navItems = lang === 'en'
     .site-logo {
         display: inline-flex;
         align-items: center;
+        gap: 10px;
         font-family: var(--font-heading);
         font-size: 22px;
         font-weight: 700;
         color: var(--color-news);
         text-decoration: none;
-        letter-spacing: 3px;
         text-shadow: 0 0 20px rgba(9, 105, 218, 0.2);
     }
     .site-logo img {
@@ -244,26 +245,46 @@ const navItems = lang === 'en'
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
         border: 1px solid rgba(9, 105, 218, 0.22);
     }
-    .site-logo-text {
-        margin-left: 10px;
-        font-size: 20px;
-        letter-spacing: 2px;
-        font-weight: 700;
+    :global(.sr-only) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
         white-space: nowrap;
-        color: var(--color-news);
+        border: 0;
     }
     html.dark .site-logo {
         text-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
     }
     .threads-link {
-        color: var(--color-text-muted);
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
         text-decoration: none;
-        font-size: 13px;
-        font-weight: 700;
-        padding: 8px 10px;
-        border-radius: 16px;
         border: 1px solid var(--color-border-strong);
+        background: var(--color-surface);
+        padding: 0;
         transition: color 0.2s ease, border-color 0.2s ease;
+        flex-shrink: 0;
+    }
+    .threads-icon {
+        font-size: 18px;
+        line-height: 1;
+        color: #4e4fd8;
+        display: inline-block;
+        transform: rotate(8deg);
+    }
+    .site-logo {
+        font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+        font-size: 34px;
+        letter-spacing: 1px;
+        color: var(--color-text);
     }
     .threads-link:hover {
         color: var(--color-text);
