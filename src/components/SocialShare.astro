@@ -52,7 +52,10 @@ const shareLinks = [
         <p>{label}</p>
         <div class="social-share-links" role="list">
             {shareLinks.map((item) => (
-                <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${item.name}`}>
+                <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${item.name}`}
+                    data-umami-event="share"
+                    data-umami-event-platform={item.name}
+                    data-umami-event-url={url}>
                     {item.name}
                 </a>
             ))}
