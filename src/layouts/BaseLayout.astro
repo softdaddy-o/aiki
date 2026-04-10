@@ -36,6 +36,8 @@ const navItems = lang === 'en'
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{siteTitle}</title>
     <meta name="description" content={siteDesc} />
+    <link rel="icon" type="image/jpeg" href="/softdaddy-logo.jpg" />
+    <link rel="apple-touch-icon" href="/softdaddy-logo.jpg" />
     <link rel="alternate" hreflang={otherLang} href={otherPath} />
     <script is:inline>
         (function() {
@@ -56,7 +58,10 @@ const navItems = lang === 'en'
 </head>
 <body data-pagefind-body>
     <nav class="site-nav">
-        <a href={`/${lang}/`} class="site-logo">AIKI</a>
+        <a href={`/${lang}/`} class="site-logo" aria-label="Soft Daddy home">
+            <img src="/softdaddy-logo.jpg" alt="Soft Daddy" />
+            <span class="site-logo-text">SOFT DADDY</span>
+        </a>
         <button class="nav-toggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </button>
@@ -66,6 +71,15 @@ const navItems = lang === 'en'
             ))}
         </div>
         <Search />
+        <a
+            href="https://www.threads.net/@softdaddy_o"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="threads-link"
+            aria-label="Soft Daddy Threads"
+        >
+            @softdaddy_o
+        </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
             <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -212,6 +226,8 @@ const navItems = lang === 'en'
         background: rgba(10, 10, 26, 0.85);
     }
     .site-logo {
+        display: inline-flex;
+        align-items: center;
         font-family: var(--font-heading);
         font-size: 22px;
         font-weight: 700;
@@ -220,8 +236,38 @@ const navItems = lang === 'en'
         letter-spacing: 3px;
         text-shadow: 0 0 20px rgba(9, 105, 218, 0.2);
     }
+    .site-logo img {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        object-fit: cover;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(9, 105, 218, 0.22);
+    }
+    .site-logo-text {
+        margin-left: 10px;
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        white-space: nowrap;
+        color: var(--color-news);
+    }
     html.dark .site-logo {
         text-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+    }
+    .threads-link {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 8px 10px;
+        border-radius: 16px;
+        border: 1px solid var(--color-border-strong);
+        transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .threads-link:hover {
+        color: var(--color-text);
+        border-color: var(--color-text-muted);
     }
     .nav-links { display: flex; gap: 16px; flex: 1; }
     .nav-links a {
