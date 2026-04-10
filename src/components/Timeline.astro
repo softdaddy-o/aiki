@@ -58,9 +58,8 @@ let globalIndex = 0;
     .timeline-line {
         position: absolute; left: 16px; top: 0; bottom: 0;
         width: 3px;
-        background: linear-gradient(to bottom, var(--color-news), var(--color-wiki), var(--color-tutorial), var(--color-model), var(--color-news));
-        opacity: 0.6;
-        box-shadow: 0 0 6px rgba(79, 195, 247, 0.2);
+        background: var(--color-border-strong);
+        opacity: 0.55;
     }
     .date-header {
         display: flex;
@@ -84,7 +83,6 @@ let globalIndex = 0;
         border-radius: 50%;
         background: var(--color-news);
         border: 3px solid var(--color-bg);
-        box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
         position: absolute;
         left: 16px;
         transform: translateX(-50%);
@@ -100,5 +98,12 @@ let globalIndex = 0;
         letter-spacing: 0.02em;
         font-family: var(--font-heading);
         box-shadow: 0 0 12px rgba(79, 195, 247, 0.1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .date-header {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
     }
 </style>
