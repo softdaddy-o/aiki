@@ -32,6 +32,11 @@ const shareUrl = Astro.url.href;
             )}
         </div>
         <h1>{entry.data.title}</h1>
+        <SocialShare
+            title={entry.data.title}
+            text={entry.data.summary}
+            url={shareUrl}
+        />
         <div class="article-body prose">
             <Content />
         </div>
@@ -42,11 +47,6 @@ const shareUrl = Astro.url.href;
                 ))}
             </div>
         )}
-        <SocialShare
-            title={entry.data.title}
-            text={entry.data.summary}
-            url={shareUrl}
-        />
         {fc && (
             <FactCheck
                 status={fc.status}

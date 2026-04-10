@@ -63,6 +63,11 @@ const shareUrl = Astro.url.href;
             )}
         </div>
         <h1>{entry.data.title}</h1>
+        <SocialShare
+            title={entry.data.title}
+            text={entry.data.summary}
+            url={shareUrl}
+        />
         {entry.data.category === 'model' && entry.data.modelType === 'version' && entry.data.modelProfile && (
             <ModelProfile profile={entry.data.modelProfile} />
         )}
@@ -134,11 +139,6 @@ const shareUrl = Astro.url.href;
         )}
 
         <BackLinks term={entry.data.term.toLowerCase()} minScore={40} />
-        <SocialShare
-            title={entry.data.title}
-            text={entry.data.summary}
-            url={shareUrl}
-        />
         {fc && (
             <FactCheck
                 status={fc.status}
