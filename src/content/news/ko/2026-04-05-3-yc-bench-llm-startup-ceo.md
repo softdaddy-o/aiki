@@ -4,7 +4,7 @@ date: "2026-04-05T11:00:00+09:00"
 lang: ko
 category: news
 summary: 12개 LLM이 시뮬레이션 스타트업 CEO 역할을 수백 턴 동안 수행하는 벤치마크 YC-Bench가 나왔어. Claude Opus 4.6이 평균 127만 달러로 1위, GLM-5는 11분의 1 비용으로 거의 같은 성과를 냈어.
-readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다.
+readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://arxiv.org/abs/2604.01212
 sourceTitle: arXiv
 draft: false
@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지.
         - 제목부터 다시 보면 기사 제목은 "YC-Bench — LLM에게 스타트업 1년 경영을 맡겨봤어"이고, 원문 제목은 "arXiv"로 잡혔어.
@@ -29,19 +29,19 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지.
         - 같이 본 출처로는 arXiv — YC-Bench paper (https://arxiv.org/abs/2604.01212)
         - 같이 본 출처로는 GitHub — YC-Bench repository (https://github.com/collinear-ai/yc-bench)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 1, 12, 4.6, 127 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 논문 성과와 실제 제품 배포 가능성은 같은 뜻으로 읽지 않으려고 따로 갈라 봤어.
         - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지도 한 번 더 의심해봤어.

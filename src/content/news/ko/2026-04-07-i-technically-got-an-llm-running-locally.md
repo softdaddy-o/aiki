@@ -4,7 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: 1998년형 iMac G3와 32MB RAM 환경에서 260K TinyStories 모델을 실제로 구동한 실험이다. 로컬 AI의 하한선을 어디까지 낮출 수 있는지 보여준다.
-readerValue: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다.
+readerValue: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://www.reddit.com/r/LocalLLaMA/comments/1sdnw7l/i_technically_got_an_llm_running_locally_on_a/
 sourceTitle: Reddit r/LocalLLaMA
 draft: false
@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지.
         - 제목부터 다시 보면 기사 제목은 "1998년 iMac G3 32MB RAM에서 LLM을 돌린 실험"이고, 원문 제목은 "Reddit r/LocalLLaMA"로 잡혔어.
@@ -29,19 +29,19 @@ factCheck:
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 확인해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지.
         - 같이 본 출처로는 LocalLLaMA (https://www.reddit.com/r/LocalLLaMA/comments/1sdnw7l/i_technically_got_an_llm_running_locally_on_a/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 1998, G3, 32MB, 260K 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 커뮤니티 반응 수치와 실제 제품 영향력은 같은 뜻이 아니라서 따로 갈라 봤어.
         - 개인 실험이나 후기 성격의 글이라 재현 가능성과 대표성도 따로 의심해봤어.

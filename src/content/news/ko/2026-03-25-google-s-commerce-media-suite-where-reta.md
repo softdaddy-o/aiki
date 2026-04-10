@@ -4,7 +4,7 @@ date: "2026-03-25T12:00:00+09:00"
 lang: ko
 category: news
 summary: Kroger의 쇼핑객 데이터와 YouTube 광고를 한 흐름으로 묶어, 구글이 리테일 미디어 운영권을 어디까지 넓히려는지 보여주는 발표야.
-readerValue: 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지 빠르게 판단하게 해준다.
+readerValue: 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://blog.google/products/marketingplatform/360/googles-commerce-media-suite-where-retailer-insights-meet-the-power-of-youtube/
 sourceTitle: "Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube"
 draft: false
@@ -22,28 +22,28 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지.
-        - "제목부터 다시 보면 기사 제목은 \"Google의 상거래 미디어 제품군: 소매업체의 통찰력과 YouTube의 힘이 만나는 곳\"이고, 원문 제목은 \"Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube\"로 잡혔어."
+        - "제목부터 다시 보면 기사 제목은 \"Google의 상거래 미디어 제품군: 소매업체의 통찰력과 YouTube의 힘이 만나는 곳\"이고, 원문 제목은 \"Google's Commerce Media Suite: Where retailer insights meet the power of YouTube\"로 잡혔어."
         - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
         - 이 글의 축을 다시 보면 이 글의 핵심 축은 agent, reasoning, claude, anthropic로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지.
         - 같이 본 출처로는 blog.google (https://blog.google/products/marketingplatform/360/googles-commerce-media-suite-where-retailer-insights-meet-the-power-of-youtube/)
         - 같이 본 출처로는 Secondary source (https://blog.google/innovation-and-ai/models-and-research/google-research/contrail-avoidance-research/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

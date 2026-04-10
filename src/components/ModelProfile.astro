@@ -1,40 +1,99 @@
 ---
-const { profile } = Astro.props;
+interface ModelProfile {
+    memoryUsage: string;
+    implementation: string;
+    activeParameters: string;
+    multimodalSupport: string;
+    access: string;
+    pricing: string;
+    weightsOpen: string;
+    vendor: string;
+}
+
+const { profile } = Astro.props as { profile: ModelProfile };
 
 const rows = [
-    { label: '메모리 및 구현 방식', value: `${profile.memoryUsage} ${profile.implementation}`.trim() },
-    { label: '활성 파라미터', value: profile.activeParameters },
-    { label: '멀티모달 지원', value: profile.multimodalSupport },
-    { label: '무료 및 유료', value: profile.access },
-    { label: '토큰 비용', value: profile.pricing },
-    { label: '웨이트 오픈', value: profile.weightsOpen },
-    { label: '제작자 및 벤더', value: profile.vendor },
+    {
+        label: '이 모델이 버티는 길이',
+        value: profile.memoryUsage,
+        description: '긴 문서, 긴 대화, 긴 출력이 가능한지 먼저 읽는 칸이다. 실제 호출비와 실패 패턴도 여기서 같이 갈린다.',
+    },
+    {
+        label: '무슨 문제를 풀라고 만든 모델인가',
+        value: profile.implementation,
+        description: '벤치마크 숫자보다 먼저 봐야 할 줄이다. 코딩용인지, 추론용인지, 멀티모달 작업용인지가 여기서 드러난다.',
+    },
+    {
+        label: '크기와 구조를 읽는 단서',
+        value: profile.activeParameters,
+        description: '파라미터를 공개하지 않아도 운영 옵션, 계열 구분, 공개된 숫자에서 모델 성격을 읽을 수 있다.',
+    },
+    {
+        label: '입력과 출력 범위',
+        value: profile.multimodalSupport,
+        description: '텍스트만 받는지, 이미지까지 읽는지, 출력이 어디까지 열려 있는지 이 줄에서 확인하면 된다.',
+    },
+    {
+        label: '어디에 바로 붙일 수 있나',
+        value: profile.access,
+        description: 'API, 제품, 특정 클라우드 채널 가운데 어디로 들어가는지 보여준다. 실제 도입 경로를 고를 때 가장 먼저 쓰인다.',
+    },
+    {
+        label: '운영비 감각',
+        value: profile.pricing,
+        description: '성능이 아니라 예산 기준으로 모델을 걸러낼 때 보는 줄이다. 호출 단가와 캐시 정책 차이도 여기서 읽는다.',
+    },
+    {
+        label: '직접 돌릴 수 있는가',
+        value: profile.weightsOpen,
+        description: '자체 호스팅이 가능한지, 아니면 API로만 써야 하는지 판단하는 자리다.',
+    },
+    {
+        label: '만든 곳',
+        value: profile.vendor,
+        description: '같은 계열명처럼 보여도 실제 벤더가 다르면 접근 방식과 가격표가 완전히 달라질 수 있다.',
+    },
 ];
 ---
 
 <section class="model-profile">
-    <h3>모델 프로필</h3>
+    <div class="model-profile-head">
+        <h3>모델 프로필</h3>
+        <p>이 페이지를 읽을 때 자주 헷갈리는 운영 정보만 먼저 모아뒀어. 아래 카드만 읽어도 어떤 모델인지 큰 윤곽이 바로 잡힌다.</p>
+    </div>
     <div class="model-profile-grid">
         {rows.map((row) => (
-            <div class="model-profile-card">
+            <section class="model-profile-card">
                 <span class="model-profile-label">{row.label}</span>
-                <p>{row.value}</p>
-            </div>
+                <p class="model-profile-value">{row.value}</p>
+                <p class="model-profile-description">{row.description}</p>
+            </section>
         ))}
     </div>
 </section>
 
 <style>
     .model-profile {
-        margin: 24px 0;
+        margin: 8px 0 20px;
         padding: 18px;
         border: 1px solid color-mix(in srgb, var(--color-wiki) 24%, transparent);
         border-radius: 14px;
         background: color-mix(in srgb, var(--color-wiki) 6%, var(--color-surface));
     }
+    .model-profile-head {
+        margin-bottom: 14px;
+        display: grid;
+        gap: 6px;
+    }
     .model-profile h3 {
-        margin: 0 0 14px;
+        margin: 0;
         font-size: 16px;
+    }
+    .model-profile-head p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.65;
+        color: var(--color-text-muted);
     }
     .model-profile-grid {
         display: grid;
@@ -46,20 +105,29 @@ const rows = [
         border-radius: 10px;
         background: var(--color-surface);
         border: 1px solid color-mix(in srgb, var(--color-wiki) 14%, transparent);
+        display: grid;
+        gap: 8px;
     }
     .model-profile-label {
         display: inline-block;
-        margin-bottom: 6px;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.04em;
         text-transform: uppercase;
         color: var(--color-wiki);
     }
-    .model-profile-card p {
+    .model-profile-value,
+    .model-profile-description {
         margin: 0;
+    }
+    .model-profile-value {
         font-size: 13px;
         line-height: 1.65;
         color: var(--color-text);
+    }
+    .model-profile-description {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--color-text-muted);
     }
 </style>

@@ -4,7 +4,7 @@ date: "2026-04-06T13:00:00+09:00"
 lang: ko
 category: news
 summary: USC Dornsife의 Morteza Dehghani 교수 팀이 Trends in Cognitive Sciences에 발표한 연구에 따르면, LLM이 생성한 텍스트는 사람 글보다 변이가 적고, AI를 사용한 그룹이 AI 없는 집단 지성보다 창의적 아이디어를 덜 낸다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://www.cnn.com/2026/04/04/health/ai-impact-college-student-thinking-wellness
 sourceTitle: CNN
 draft: false
@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - "제목부터 다시 보면 기사 제목은 \"USC 연구: AI가 글쓰기 다양성을 줄이고 집단 창의성을 떨어뜨린다\"이고, 원문 제목은 \"CNN\"로 잡혔어."
@@ -29,19 +29,19 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 CNN 보도 (https://www.cnn.com/2026/04/04/health/ai-impact-college-student-thinking-wellness)
         - 같이 본 출처로는 Reddit r/singularity (https://www.reddit.com/r/singularity/comments/1sd4crj/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 2026, 3 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

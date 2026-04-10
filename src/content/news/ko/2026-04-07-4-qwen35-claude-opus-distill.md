@@ -4,7 +4,7 @@ date: "2026-04-07T12:00:00+09:00"
 lang: ko
 category: news
 summary: Jackrong이 Qwen3.5-27B에 Claude 4.6 Opus의 CoT 추론 데이터를 SFT로 이식한 모델을 공개했어. RTX 3090(24GB) 한 장으로 로컬 실행 가능하고, GGUF·AWQ 양자화 버전도 커뮤니티에서 이미 나왔어.
-readerValue: 이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 화제성 공개인지 실제 배포 후보인지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled
 sourceTitle: Hugging Face
 draft: false
@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 모델이 화제성 공개인지 실제 배포 후보인지.
         - 제목부터 다시 보면 기사 제목은 "Claude Opus 추론을 Qwen3.5에 이식 — RTX 3090 한 장으로 실행 가능"이고, 원문 제목은 "Hugging Face"로 잡혔어.
@@ -31,7 +31,7 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 모델이 화제성 공개인지 실제 배포 후보인지.
         - 같이 본 출처로는 HuggingFace — Jackrong Qwen3.5-27B Claude Distilled (https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled)
@@ -39,13 +39,13 @@ factCheck:
         - 같이 본 출처로는 NVIDIA DGX Spark Forum — AWQ test success (https://forums.developer.nvidia.com/t/success-with-quanttrio-qwen3-5-27b-claude-4-6-opus-reasoning-distilled-v2-awq/365416)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 Qwen3.5, 3090, Qwen3.5-27B, 4.6 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

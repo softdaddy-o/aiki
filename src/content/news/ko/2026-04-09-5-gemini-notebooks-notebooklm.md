@@ -4,7 +4,7 @@ date: "2026-04-09T13:00:00+09:00"
 lang: ko
 category: news
 summary: Google이 Gemini 앱에 Notebooks 기능을 추가했다. Gemini에서 나눈 대화와 파일이 NotebookLM과 자동 동기화돼 시각화 자료나 팟캐스트까지 뽑을 수 있다. AI Ultra·Pro·Plus 구독자부터 시작.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/
 sourceTitle: "Google Blog: Gemini Notebooks"
 draft: false
@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - "제목부터 다시 보면 기사 제목은 \"Gemini 채팅이 NotebookLM으로 자동 연결된다\"이고, 원문 제목은 \"Google Blog: Gemini Notebooks\"로 잡혔어."
@@ -31,7 +31,7 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 Google Blog (https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/)
@@ -39,12 +39,12 @@ factCheck:
         - 같이 본 출처로는 Android Gadget Hacks (https://android.gadgethacks.com/news/google-gemini-gets-notebooklm-integration-with-300-sources/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 4, 8, 300 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

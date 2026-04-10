@@ -1,12 +1,12 @@
 ---
-title: "Anthropic Academy, 13개 무료 AI 과정과 수료증을 풀었다"
+title: Anthropic Academy, 13개 무료 AI 과정과 수료증을 풀었다
 date: "2026-04-10T09:00:00+09:00"
 lang: ko
 category: news
-summary: "Anthropic이 Claude 제작사가 직접 만든 13개 무료 AI 과정 Anthropic Academy를 열었다. Claude 101부터 API, MCP, Claude Code까지 다루고, 수료하면 LinkedIn에 붙일 수 있는 공식 수료증도 준다."
-readerValue: "내 AI 역량을 체계적으로 키울 무료 학습 경로가 생겼는지 빠르게 판단하게 해준다"
-sourceUrl: "https://www.anthropic.com/learn"
-sourceTitle: "Anthropic Learn"
+summary: Anthropic이 Claude 제작사가 직접 만든 13개 무료 AI 과정 Anthropic Academy를 열었다. Claude 101부터 API, MCP, Claude Code까지 다루고, 수료하면 LinkedIn에 붙일 수 있는 공식 수료증도 준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
+sourceUrl: https://www.anthropic.com/learn
+sourceTitle: Anthropic Learn
 draft: false
 score: 85
 sourceCount: 3
@@ -14,53 +14,51 @@ factCheck:
   status: passed
   date: "2026-04-10"
   sources:
-    - url: "https://www.anthropic.com/learn"
-      title: "Anthropic Learn"
-    - url: "https://anthropic.skilljar.com/"
-      title: "Anthropic Skilljar 과정 플랫폼"
-    - url: "https://www.classcentral.com/provider/anthropic-academy"
-      title: "Class Central Anthropic Academy"
+    - url: https://www.anthropic.com/learn
+      title: Anthropic Learn
+    - url: https://anthropic.skilljar.com/
+      title: Anthropic Skilljar 과정 플랫폼
+    - url: https://www.classcentral.com/provider/anthropic-academy
+      title: Class Central Anthropic Academy
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제 Anthropic Academy 내용과 맞는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
-        - anthropic.com/learn 페이지에서 'Build with Claude', 'Claude for work', 'Claude for personal' 3개 학습 트랙이 있는 걸 직접 봤어.
-        - anthropic.skilljar.com에서 과정 목록이랑 수료증 발급 기능이 실제로 돌아가는 걸 확인했어.
-        - 13개 과정이라는 숫자는 여러 매체(Medium, Class Central, Labla.org)에서 같은 걸 쓰고 있었어.
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "Anthropic Academy, 13개 무료 AI 과정과 수료증을 풀었다"이고, 원문 제목은 "Anthropic Learn"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 anthropic.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 anthropic, claude, ai-education, free-courses로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 원문 하나만 믿지 않으려고 독립 매체 3곳을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 비교해뒀어.
       items:
-        - Class Central에서 Anthropic Academy provider 페이지가 등록돼 있는 걸 봤어.
-        - Medium 기사에서 13개 과정 전체 목록이랑 수료증 발급 과정을 자세히 설명해뒀어.
-        - Labla.org에서 3개 트랙(AI Fluency, Product Training, Developer Deep-Dives) 구분을 같이 확인했어.
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 Anthropic Learn (https://www.anthropic.com/learn)
+        - 같이 본 출처로는 Anthropic Skilljar 과정 플랫폼 (https://anthropic.skilljar.com/)
+        - 같이 본 출처로는 Class Central Anthropic Academy (https://www.classcentral.com/provider/anthropic-academy)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자들은 따로 떼어서 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
-        - 13개 과정이라는 숫자 — 여러 독립 출처에서 같은 수치를 쓰고 있었어.
-        - API 과정 84강 8시간 분량 — Medium 기사에서 나온 수치야.
-        - 2026년 3월 2일 출시 — 여러 매체에서 같은 날짜를 쓰고 있었어.
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 13, 101, 3, 84 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 좋게만 읽기 쉬운 지점을 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
-        - 무료 교육이 순수 선의가 아니라 Claude 생태계 확장 전략이라는 맥락을 본문에 넣었어.
-        - 수료증의 시장 가치는 아직 초기 단계라 장담하기 어렵다는 점을 고려했어.
-        - 경쟁사(OpenAI, Google) 유사 프로그램과 비교가 빠져 있지만 분량상 생략했어.
+        - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.
       findings:
-        - "Anthropic 자체 플랫폼 교육이라 내용이 Claude 중심으로 편향돼 있을 수 있다"
-        - "수료증의 업계 인정도는 아직 초기 단계라 장기 가치는 미확인"
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.
 tags:
   - anthropic
   - claude
   - ai-education
   - free-courses
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  common: 1.0.0
+  news: 1.0.0
 ---
 
 Anthropic이 [Anthropic Academy](https://www.anthropic.com/learn)를 통해 13개 AI 과정을 전부 무료로 열었어. Claude 101 기초부터 API 개발, [MCP](/ko/wiki/mcp/) 프로토콜, Claude Code 활용까지 — 이메일 가입만 하면 바로 들을 수 있고, 수료하면 LinkedIn에 올릴 수 있는 공식 수료증도 받을 수 있다.

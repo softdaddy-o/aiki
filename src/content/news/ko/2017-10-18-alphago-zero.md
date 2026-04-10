@@ -4,7 +4,7 @@ date: "2017-10-18T12:00:00+09:00"
 lang: ko
 category: news
 summary: 인공지능 연구는 음성 인식, 이미지 분류부터 유전체학, 신약 발견에 이르기까지 다양한 영역에서 급속한 발전을 이루었습니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://deepmind.google/blog/alphago-zero-starting-from-scratch/
 sourceTitle: AlphaGo Zero
 draft: false
@@ -23,7 +23,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 제목부터 다시 보면 기사 제목은 "AlphaGo Zero, 자기학습 강화학습의 분기점"이고, 원문 제목은 "AlphaGo Zero"로 잡혔어.
@@ -32,19 +32,19 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 AlphaGo Zero (https://deepmind.google/blog/alphago-zero-starting-from-scratch/)
         - 같이 본 출처로는 Secondary source (https://en.wikipedia.org/wiki/AlphaGo_Zero)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
         - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.

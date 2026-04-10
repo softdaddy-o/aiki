@@ -29,6 +29,50 @@ function trimSentence(text) {
     return normalizeText(text).replace(/[.!?]+$/g, '').trim();
 }
 
+function rewriteAikiTone(text) {
+    return normalizeText(text)
+        .replace(/활용할 수 있게 해준다/g, '활용할 수 있다')
+        .replace(/활용할 수 있게 해 준다/g, '활용할 수 있다')
+        .replace(/읽게 해준다/g, '읽는 데 도움이 된다')
+        .replace(/읽게 해 준다/g, '읽는 데 도움이 된다')
+        .replace(/읽게 해준다는 점이다/g, '읽는 데 도움이 된다')
+        .replace(/판단하게 해준다/g, '판단하는 데 도움이 된다')
+        .replace(/판단하게 해 준다/g, '판단하는 데 도움이 된다')
+        .replace(/판단하게 해준다는 점이다/g, '판단하는 데 도움이 된다')
+        .replace(/구분하게 해준다/g, '구분하는 데 도움이 된다')
+        .replace(/구분하게 해 준다/g, '구분하는 데 도움이 된다')
+        .replace(/이해하게 해준다/g, '이해하는 데 도움이 된다')
+        .replace(/이해하게 해 준다/g, '이해하는 데 도움이 된다')
+        .replace(/잡게 해준다/g, '큰 흐름을 잡는 데 도움이 된다')
+        .replace(/잡게 해 준다/g, '큰 흐름을 잡는 데 도움이 된다')
+        .replace(/잡게 해 주는 용도/g, '큰 흐름을 잡는 데 도움이 되는 용도')
+        .replace(/가르게 해준다/g, '가르는 기준이 된다')
+        .replace(/가르게 해 준다/g, '가르는 기준이 된다')
+        .replace(/파악하게 해준다/g, '파악하는 데 도움이 된다')
+        .replace(/파악하게 해 준다/g, '파악하는 데 도움이 된다')
+        .replace(/도와준다는 점이다/g, '도움이 된다')
+        .replace(/해준다는 데 있다/g, '도움이 된다')
+        .replace(/해준다는 점이다/g, '도움이 된다')
+        .replace(/나뉜다/g, '갈린다')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function rewriteFactCheckTone(text) {
+    return rewriteAikiTone(text)
+        .replace(/한 번 더 다시 봤다/g, '한 번 더 확인해뒀어')
+        .replace(/한 번 더 봤다/g, '따로 검증해뒀어')
+        .replace(/다시 봤다/g, '비교해뒀어')
+        .replace(/확인해봤다/g, '확인해뒀어')
+        .replace(/맞춰봤다/g, '확인해뒀어')
+        .replace(/걸렀다/g, '걸러뒀어')
+        .replace(/정리했다/g, '정리해뒀어')
+        .replace(/봤다/g, '확인했어')
+        .replace(/정리해뒀다/g, '따로 정리해뒀어')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
 function slugFromFileName(fileName) {
     return String(fileName || '')
         .replace(/^\d{4}-\d{2}-\d{2}-/, '')
@@ -136,18 +180,18 @@ function buildNewsReaderValue(frontmatter, fileName = '') {
     const summary = trimSentence(frontmatter.summary);
 
     if (slug === 'i-technically-got-an-llm-running-locally') {
-        return '로컬 AI 실험을 성능 자랑으로만 볼지, 극단적인 저사양 배포 힌트로 읽을지 빠르게 가르게 해준다.';
+        return '로컬 AI 실험을 성능 자랑으로만 볼지, 극단적인 저사양 배포 힌트로 읽을지 빠르게 가르는 기준이 된다.';
     }
 
     if (slug === 'gemma-4-26b-a3b-is-mindblowingly-good-if') {
-        return '오픈 모델을 볼 때 순위표만 볼지, 실제 설정 난도와 비용 대비 효율까지 같이 봐야 할지 빠르게 판단하게 해준다.';
+        return '오픈 모델을 볼 때 순위표만 볼지, 실제 설정 난도와 비용 대비 효율까지 같이 봐야 할지 빠르게 판단하는 데 도움이 된다.';
     }
 
     if (summary && summary.length < 110 && /실험|공개|출시|업데이트|추가|인수|가이드|벤치마크|논문/u.test(summary)) {
-        return `${focusFromNews(frontmatter)} 빠르게 판단하게 해준다.`;
+        return `${focusFromNews(frontmatter)} 빠르게 판단하는 데 도움이 된다.`;
     }
 
-    return `${focusFromNews(frontmatter)} 빠르게 판단하게 해준다.`;
+    return `${focusFromNews(frontmatter)} 빠르게 판단하는 데 도움이 된다.`;
 }
 
 function buildWikiReaderValue(entry) {
@@ -158,50 +202,50 @@ function buildWikiReaderValue(entry) {
     const hasAnyTag = (values) => values.some((value) => tags.has(String(value || '').toLowerCase()));
 
     if (explicitProblem) {
-        return `${explicitProblem} 먼저 판단하게 해준다.`;
+        return `${explicitProblem} 먼저 판단하는 데 도움이 된다.`;
     }
 
     if (category === 'model') {
-        return '기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽게 해준다.';
+        return '기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['company', 'model-lab', 'research'])) {
-        return '이 이름이 모델 하나인지, 회사 전체 라인업과 전략 이야기인지 빠르게 구분하게 해준다.';
+        return '이 이름이 모델 하나인지, 회사 전체 라인업과 전략 이야기인지 빠르게 구분하는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['retrieval', 'generation', 'search', 'vectors', 'vector-db', 'vector-search'])) {
-        return '이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡게 해준다.';
+        return '이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['architecture', 'transformer', 'attention', 'scaling'])) {
-        return '이 말이 새 모델 이름이 아니라 내부 구조 변화라는 점을 먼저 읽게 해준다.';
+        return '이 말이 새 모델 이름이 아니라 내부 구조 변화라는 점을 먼저 읽는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['tool-use', 'function-calling', 'protocol'])) {
-        return '이 말이 답변 생성 이야기가 아니라 외부 도구 실행과 연결 구조 이야기인지 빠르게 구분하게 해준다.';
+        return '이 말이 답변 생성 이야기가 아니라 외부 도구 실행과 연결 구조 이야기인지 빠르게 구분하는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['prompting', 'instruction'])) {
-        return '이 말이 모델 교체가 아니라 입력 설계와 출력 제어를 바꾸는 기법인지 바로 이해하게 해준다.';
+        return '이 말이 모델 교체가 아니라 입력 설계와 출력 제어를 바꾸는 기법인지 바로 이해하는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['safety', 'policy', 'reliability'])) {
-        return '이 말이 성능 향상보다 오류와 위험을 줄이는 안전 장치에 가깝다는 점을 구분하게 해준다.';
+        return '이 말이 성능 향상보다 오류와 위험을 줄이는 안전 장치에 가깝다는 점을 구분하는 데 도움이 된다.';
     }
 
     if (hasAnyTag(['thinking', 'planning', 'reasoning'])) {
-        return '이 말이 단순 속도 경쟁이 아니라 복잡한 문제 해결 방식 변화를 뜻한다는 점을 먼저 읽게 해준다.';
+        return '이 말이 단순 속도 경쟁이 아니라 복잡한 문제 해결 방식 변화를 뜻한다는 점을 먼저 읽는 데 도움이 된다.';
     }
 
     if (category === 'framework' || category === 'tool') {
-        return '이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하게 해준다.';
+        return '이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 된다.';
     }
 
     if (category === 'technique') {
-        return '이 말이 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다.';
+        return '이 말이 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르는 기준이 된다.';
     }
 
-    return '이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡게 해준다.';
+    return '이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡는 데 도움이 된다.';
 }
 
 function isBadNewsTitle(frontmatter, fileName = '', body = '') {
@@ -274,5 +318,7 @@ module.exports = {
     isBadNewsReaderValue,
     isBadNewsTitle,
     normalizeText,
+    rewriteAikiTone,
+    rewriteFactCheckTone,
     trimSentence,
 };

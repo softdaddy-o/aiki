@@ -4,7 +4,7 @@ date: "2026-03-12T12:00:00+09:00"
 lang: ko
 category: news
 summary: Sora API 기능을 반영하도록 업데이트되었습니다.
-readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://cookbook.openai.com/examples/sora/sora2_prompting_guide
 sourceTitle: Sora 2 Prompting Guide
 draft: false
@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지.
         - 제목부터 다시 보면 기사 제목은 "Sora 2 프롬프트 가이드"이고, 원문 제목은 "Sora 2 Prompting Guide"로 잡혔어.
@@ -29,18 +29,18 @@ factCheck:
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 확인해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지.
         - 같이 본 출처로는 OpenAI Cookbook — Sora 2 Prompting Guide (https://cookbook.openai.com/examples/sora/sora2_prompting_guide)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 2 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
         - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.

@@ -1,3 +1,5 @@
+const { rewriteAikiTone, rewriteFactCheckTone } = require('./aiki-writing-style.cjs');
+
 const VENDOR_LABELS = {
     openai: 'OpenAI',
     anthropic: 'Anthropic',
@@ -484,30 +486,35 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
             {
                 type: 'source_match',
                 result: 'pass',
-                summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
+                summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 확인해뒀어.`,
                 items: [`독자 문제 대조: ${problem}`, ...override.sourceMatch],
             },
             {
                 type: 'web_cross_check',
                 result: sourceDetails.length > 1 ? 'pass' : 'skip',
                 sources: sourceDetails.length,
-                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
+                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 비교해뒀어.`,
                 items: [`비교 기준: ${axis}`, ...override.webCrossCheck],
             },
             {
                 type: 'number_verify',
                 result: 'pass',
-                summary: `숫자와 고유 명칭은 ${axis}를 가를 때 필요한 항목만 따로 빼서 한 번 더 봤다.`,
+                summary: `숫자와 고유 명칭은 ${axis}를 가를 때 필요한 항목만 따로 빼서 검증해뒀어.`,
                 items: override.numberVerify,
             },
             {
                 type: 'adversarial',
                 result: 'pass',
-                summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리했다.`,
+                summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리해뒀어.`,
                 items: [`오해 방지 기준: ${axis}`, ...override.adversarial],
                 findings: override.adversarial.slice(),
             },
-        ];
+        ].map((check) => ({
+            ...check,
+            summary: rewriteFactCheckTone(check.summary),
+            items: (check.items || []).map((item) => rewriteFactCheckTone(rewriteAikiTone(item))),
+            findings: (check.findings || []).map((item) => rewriteFactCheckTone(rewriteAikiTone(item))),
+        }));
     }
 
     const baseItems = [
@@ -532,14 +539,14 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
         {
             type: 'source_match',
             result: 'pass',
-            summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
+            summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 확인해뒀어.`,
             items: baseItems,
         },
         {
             type: 'web_cross_check',
             result: sourceDetails.length > 1 ? 'pass' : 'skip',
             sources: sourceDetails.length,
-            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
+            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 비교해뒀어.`,
             items: [
                 `비교 기준: ${axis}`,
                 ...sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
@@ -548,13 +555,13 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
         {
             type: 'number_verify',
             result: 'pass',
-            summary: `가격, 접근 경로, 입력 범위처럼 ${axis}를 가를 때 필요한 정보는 따로 떼서 한 번 더 봤다.`,
+            summary: `가격, 접근 경로, 입력 범위처럼 ${axis}를 가를 때 필요한 정보는 따로 떼서 검증해뒀어.`,
             items: numberItems,
         },
         {
             type: 'adversarial',
             result: 'pass',
-            summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리했다.`,
+            summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리해뒀어.`,
             items: entry.modelType === 'family'
                 ? [`오해 방지 기준: ${axis}`, '개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.']
                 : [`오해 방지 기준: ${axis}`, '벤치마크 숫자보다 실제 운영 조건이 더 중요하다는 점을 따로 분리해뒀다.'],
@@ -562,7 +569,12 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
                 ? ['계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다.']
                 : ['발표문 숫자만 보면 과대평가하기 쉬워서 가격표와 접근 채널을 같이 보게 만들었다.'],
         },
-    ];
+    ].map((check) => ({
+        ...check,
+        summary: rewriteFactCheckTone(check.summary),
+        items: (check.items || []).map((item) => rewriteFactCheckTone(rewriteAikiTone(item))),
+        findings: (check.findings || []).map((item) => rewriteFactCheckTone(rewriteAikiTone(item))),
+    }));
 }
 
 module.exports = {

@@ -1,4 +1,4 @@
-const { buildNewsProblemStatement } = require('./aiki-writing-style.cjs');
+const { buildNewsProblemStatement, rewriteAikiTone, rewriteFactCheckTone } = require('./aiki-writing-style.cjs');
 
 function rewriteFactCheckLine(text) {
     let value = String(text || '').trim();
@@ -25,6 +25,8 @@ function rewriteFactCheckLine(text) {
     for (const [pattern, replacement] of replacements) {
         value = value.replace(pattern, replacement);
     }
+
+    value = rewriteFactCheckTone(rewriteAikiTone(value));
 
     value = value.replace(
         /^독자가 먼저 갈라 봐야 할 건 (.+?)(?:부터)?\s*갈라 봐야 (?:해|한다)\.?$/u,
@@ -182,7 +184,7 @@ function buildNewsFactChecks(frontmatter, body) {
     const sources = normalizeSourceList(frontmatter);
     const sourceItems = sources.length > 0
         ? sources.map((source, index) => `비교 출처 ${index + 1}: ${source.title} (${source.url})`)
-        : ['비교할 대표 원문 URL이 비어 있지 않은지부터 먼저 맞춰봤다.'];
+        : ['비교 출처: 대표 원문 URL이 비어 있지 않은지부터 먼저 확인해뒀어.'];
     const sourceTitles = unique([
         String(frontmatter.sourceTitle || '').trim(),
         ...sources.map((source) => source.title).filter(Boolean),
@@ -194,7 +196,7 @@ function buildNewsFactChecks(frontmatter, body) {
     const primarySourceTitle = sourceTitles[0] || String(frontmatter.sourceTitle || frontmatter.title || '').trim();
     const titleLine = primarySourceTitle
         ? `제목 대조: 기사 제목은 "${String(frontmatter.title || '').trim()}"이고, 원문 제목은 "${primarySourceTitle}"로 잡혔어.`
-        : `제목 대조: 기사 제목 "${String(frontmatter.title || '').trim()}"이 비어 있지 않은지 먼저 맞춰봤어.`;
+        : `제목 대조: 기사 제목 "${String(frontmatter.title || '').trim()}"이 비어 있지 않은지 먼저 확인해뒀어.`;
 
     return {
         sources,
@@ -202,7 +204,7 @@ function buildNewsFactChecks(frontmatter, body) {
             {
                 type: 'source_match',
                 result: 'pass',
-                summary: '이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.',
+                summary: rewriteFactCheckTone('이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.'),
                 items: unique([
                     `독자 문제 대조: ${buildNewsProblemStatement(frontmatter)}`,
                     titleLine,
@@ -214,9 +216,9 @@ function buildNewsFactChecks(frontmatter, body) {
                 type: 'web_cross_check',
                 result: sources.length > 1 ? 'pass' : 'skip',
                 sources: sources.length,
-                summary: sources.length > 1
-                    ? `원문 하나만 믿지 않으려고 관련 출처 ${sources.length}건을 옆에 두고 다시 봤다.`
-                    : '단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.',
+                summary: rewriteFactCheckTone(sources.length > 1
+                    ? `원문 하나만 믿지 않으려고 관련 출처 ${sources.length}건을 옆에 두고 비교해뒀어.`
+                    : '단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 확인해뒀어.'),
                 items: unique([
                     `비교 기준: ${buildNewsProblemStatement(frontmatter)}`,
                     ...sourceItems,
@@ -225,13 +227,13 @@ function buildNewsFactChecks(frontmatter, body) {
             {
                 type: 'number_verify',
                 result: 'pass',
-                summary: '헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.',
+                summary: rewriteFactCheckTone('헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.'),
                 items: numericItems,
             },
             {
                 type: 'adversarial',
                 result: 'pass',
-                summary: '독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.',
+                summary: rewriteFactCheckTone('독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.'),
                 items: adversarial.items,
                 findings: adversarial.findings,
             },

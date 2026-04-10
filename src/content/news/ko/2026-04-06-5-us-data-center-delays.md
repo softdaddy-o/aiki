@@ -4,7 +4,7 @@ date: "2026-04-06T14:00:00+09:00"
 lang: ko
 category: news
 summary: 2026년 미국에서 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이다. 변압기, 배전반 등 핵심 전기 부품의 리드타임이 최대 5년까지 늘어났고, 상당수가 중국산에 의존하고 있다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers
 sourceTitle: Tom's Hardware
 draft: false
@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 제목부터 다시 보면 기사 제목은 "미국 데이터센터 절반이 지연 또는 취소 — 전력 인프라가 병목"이고, 원문 제목은 "Tom's Hardware"로 잡혔어.
@@ -31,7 +31,7 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 Tom's Hardware 보도 (https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)
@@ -39,12 +39,12 @@ factCheck:
         - 같이 본 출처로는 Futurism 보도 (https://futurism.com/science-energy/data-centers-construction-supply)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 2026, 5, 6500, 6 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

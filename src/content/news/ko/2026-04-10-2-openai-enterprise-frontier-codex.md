@@ -1,12 +1,12 @@
 ---
-title: "OpenAI, 엔터프라이즈 매출 비중 40% 돌파 — Codex 300만 사용자"
+title: OpenAI, 엔터프라이즈 매출 비중 40% 돌파 — Codex 300만 사용자
 date: "2026-04-10T09:30:00+09:00"
 lang: ko
 category: news
-summary: "OpenAI 엔터프라이즈 매출이 전체의 40%를 넘겼고 연말까지 소비자 매출과 동률을 목표로 한다. Codex 주간 활성 사용자는 300만 명을 찍었고, Frontier 플랫폼으로 Oracle·Uber 등이 에이전트를 배포 중이다."
-readerValue: "OpenAI가 B2B로 얼마나 빠르게 전환하고 있는지 파악해서 내 업무 도구 선택에 참고하게 해준다"
-sourceUrl: "https://openai.com/index/next-phase-of-enterprise-ai/"
-sourceTitle: "OpenAI - The next phase of enterprise AI"
+summary: OpenAI 엔터프라이즈 매출이 전체의 40%를 넘겼고 연말까지 소비자 매출과 동률을 목표로 한다. Codex 주간 활성 사용자는 300만 명을 찍었고, Frontier 플랫폼으로 Oracle·Uber 등이 에이전트를 배포 중이다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
+sourceUrl: https://openai.com/index/next-phase-of-enterprise-ai/
+sourceTitle: OpenAI - The next phase of enterprise AI
 draft: false
 score: 80
 sourceCount: 3
@@ -14,53 +14,51 @@ factCheck:
   status: passed
   date: "2026-04-10"
   sources:
-    - url: "https://openai.com/index/next-phase-of-enterprise-ai/"
-      title: "OpenAI - The next phase of enterprise AI"
-    - url: "https://www.coindesk.com/tech/2026/04/01/openai-raises-a-record-usd122-billion-at-as-revenue-crosses-usd2-billion-per-month"
-      title: "CoinDesk - OpenAI raises $122 billion"
-    - url: "https://winbuzzer.com/2026/04/04/openai-switches-codex-pay-as-you-go-pricing-cuts-business-seat-cost-xcxwbn/"
-      title: "WinBuzzer - OpenAI Codex pricing"
+    - url: https://openai.com/index/next-phase-of-enterprise-ai/
+      title: OpenAI - The next phase of enterprise AI
+    - url: https://www.coindesk.com/tech/2026/04/01/openai-raises-a-record-usd122-billion-at-as-revenue-crosses-usd2-billion-per-month
+      title: CoinDesk - OpenAI raises $122 billion
+    - url: https://winbuzzer.com/2026/04/04/openai-switches-codex-pay-as-you-go-pricing-cuts-business-seat-cost-xcxwbn/
+      title: WinBuzzer - OpenAI Codex pricing
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제 OpenAI 발표 내용과 맞는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
-        - 엔터프라이즈 매출 40%+ — OpenAI 공식 블로그랑 Yahoo Finance 보도에서 같은 수치를 쓰고 있었어.
-        - Codex 주간 활성 사용자 300만 명 — OpenAI 공식 발표랑 TechRadar 보도에서 일치했어.
-        - 월 매출 20억 달러 — CoinDesk, CNBC 등 여러 매체에서 같은 수치를 봤어.
+        - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 제목부터 다시 보면 기사 제목은 "OpenAI, 엔터프라이즈 매출 비중 40% 돌파 — Codex 300만 사용자"이고, 원문 제목은 "OpenAI - The next phase of enterprise AI"로 잡혔어.
+        - 출처를 다시 보면 대표 원문 도메인은 openai.com로 잡혔어.
+        - 이 글의 축을 다시 보면 이 글의 핵심 축은 openai, enterprise-ai, codex, ai-business로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 원문 하나만 믿지 않으려고 독립 매체 3곳 이상을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 3건을 옆에 두고 비교해뒀어.
       items:
-        - 1220억 달러 펀딩, 8520억 달러 밸류에이션 — Bloomberg, CNBC, TechCrunch에서 같은 수치를 쓰고 있었어.
-        - Codex 가격 변경(시트당 $20 + 종량제) — WinBuzzer, gHacks에서 같은 내용을 봤어.
-        - Frontier 플랫폼 고객사(Oracle, Uber, State Farm) — OpenAI 블로그와 매체 보도가 일치했어.
+        - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
+        - 같이 본 출처로는 OpenAI - The next phase of enterprise AI (https://openai.com/index/next-phase-of-enterprise-ai/)
+        - 같이 본 출처로는 CoinDesk - OpenAI raises $122 billion (https://www.coindesk.com/tech/2026/04/01/openai-raises-a-record-usd122-billion-at-as-revenue-crosses-usd2-billion-per-month)
+        - 같이 본 출처로는 WinBuzzer - OpenAI Codex pricing (https://winbuzzer.com/2026/04/04/openai-switches-codex-pay-as-you-go-pricing-cuts-business-seat-cost-xcxwbn/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 금액이랑 사용자 수는 따로 떼어서 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
-        - 1220억 달러 펀딩 — Bloomberg 2026-03-31 보도에서 정확히 같은 수치를 확인했어.
-        - 8520억 달러 밸류에이션 — Bloomberg, CNBC에서 같은 수치였어.
-        - 시트당 $25에서 $20 인하 — OpenAI 공식 발표랑 WinBuzzer 보도가 일치했어.
+        - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 40%, 300, 20, 8520 쪽이야.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿기 쉬운 지점을 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
-        - 매출 수치는 OpenAI 자체 발표이고 감사 보고서는 아직 공개 안 됐어.
-        - 300만 주간 활성 사용자의 기준(WAU 정의)이 명확하지 않았어.
-        - 엔터프라이즈 40%라는 수치가 ARR인지 MRR인지 기준이 안 나와 있었어.
+        - 공식 발표 문구와 실제 배포 범위는 같은 말이 아니라서 분리해서 읽었어.
+        - 홍보성 표현보다 출시 채널, 가격, 접근 조건이 본문과 맞는지 다시 맞춰봤어.
       findings:
-        - "OpenAI 자체 발표 매출 수치라 독립 감사 전까지는 참고 수준으로 봐야 해"
-        - "IPO 준비 중인 회사의 성장 수치 발표는 투자자 유치 맥락이 깔려 있다"
+        - 공식 블로그는 가장 빠른 원문이지만 마케팅 문구가 섞일 수 있어서 운영 조건은 따로 봐야 해.
 tags:
   - openai
   - enterprise-ai
   - codex
   - ai-business
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  common: 1.0.0
+  news: 1.0.0
 ---
 
 OpenAI의 엔터프라이즈 매출이 전체의 40%를 넘겼어. 연말까지 소비자 매출과 동률을 맞추겠다는 목표인데, 이 속도면 충분히 가능해 보여. 월 매출은 20억 달러를 찍었고, [1220억 달러 펀딩](https://openai.com/index/accelerating-the-next-phase-ai/)으로 밸류에이션이 8520억 달러까지 올랐다.

@@ -3,30 +3,30 @@ term: eval
 title: "Eval"
 lang: ko
 summary: "평가와 검증을 개선하거나 연결하는 AI 기법이야. 결국 핵심은 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 풀 때 어느 레버를 건드릴지 정하는 데 있어."
-readerValue: "이 말이 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르게 해준다."
+readerValue: "이 말이 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르는 기준이 돼."
 category: technique
 aliases:
   - "evaluation"
 relatedTerms:
   - red-teaming
 firstMentioned: "2026-02-20"
-mentionCount: 8
+mentionCount: 9
 draft: false
 tags:
   - testing
   - benchmark
 factCheck:
   status: passed
-  date: "2026-04-09"
+  date: "2026-04-10"
   sources:
     - url: "https://platform.openai.com/docs/guides/evals"
-      title: "https://platform.openai.com/docs/guides/evals"
+      title: "Working with evals | OpenAI API"
     - url: "https://huggingface.co/docs/evaluate/index"
       title: "Evaluate on the Hub · Hugging Face"
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 문제로 읽어도 되는지 먼저 맞춰봤다."
+      summary: "이 페이지를 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
       items:
         - "독자가 먼저 갈라 봐야 할 건 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
         - "이름을 다시 보면 Eval로 잡혀."
@@ -34,26 +34,26 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 다시 봤다."
+      summary: "관련 출처 2건을 나란히 놓고 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
       items:
         - "여기서 먼저 갈라 볼 기준은 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "같이 본 출처로는 https://platform.openai.com/docs/guides/evals (https://platform.openai.com/docs/guides/evals)"
+        - "같이 본 출처로는 Working with evals | OpenAI API (https://platform.openai.com/docs/guides/evals)"
         - "같이 본 출처로는 Evaluate on the Hub · Hugging Face (https://huggingface.co/docs/evaluate/index)"
     - type: number_verify
       result: pass
-      summary: "숫자가 적은 항목이라도 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 한 번 더 봤다."
+      summary: "숫자가 적은 항목이라도 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."
       items:
         - "숫자보다 먼저 갈라 볼 기준은 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
         - "이름부터 다시 보면 Eval로 고정돼."
         - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 선택 포인트는 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 한 번 더 의심해보고 정리했다."
+      summary: "헷갈리기 쉬운 선택 포인트는 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 한 번 더 의심해보고 정리해뒀어."
       items:
         - "헷갈리지 않으려면 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지부터 먼저 잡아야 해."
         - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
       findings:
-        - "이 페이지는 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이 페이지는 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지부터 빠르게 큰 흐름을 잡는 데 도움이 되는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
 ---
 ## 한 줄 정의
 평가와 검증을 바꾸거나 개선할 때 쓰는 기법이야. 쉽게 말하면 모델 성능을 재는 시험대 역할을 한다고 보면 돼. 결국 평가와 검증를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 풀 때 손대는 레버라고 보면 맞아.

@@ -4,7 +4,7 @@ date: "2026-03-06T12:00:00+09:00"
 lang: ko
 category: news
 summary: "arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 에이전트 AI를 향한 이중 나선 거버넌스 접근 방식."
-readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하게 해준다.
+readerValue: 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://arxiv.org/abs/2603.04390v1
 sourceTitle: A Dual-Helix Governance Approach Towards Reliable Agentic AI for WebGIS Development
 draft: false
@@ -22,7 +22,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지.
         - 제목부터 다시 보면 기사 제목은 "WebGIS 개발을 위한 신뢰할 수 있는 Agentic AI를 향한 이중 나선 거버넌스 접근 방식"이고, 원문 제목은 "A Dual-Helix Governance Approach Towards Reliable Agentic AI for WebGIS Development"로 잡혔어.
@@ -31,20 +31,20 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지.
         - 같이 본 출처로는 cs.AI (https://arxiv.org/abs/2603.04390v1)
         - 같이 본 출처로는 Secondary source (https://arxiv.org/abs/2603.04385v1)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 2603.04390v1 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 논문 성과와 실제 제품 배포 가능성은 같은 뜻으로 읽지 않으려고 따로 갈라 봤어.
         - 평가셋 결과가 실제 서비스 품질을 바로 보장하는지도 한 번 더 의심해봤어.

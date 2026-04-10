@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BackLinks from '../../../components/BackLinks.astro';
 import FactCheck from '../../../components/FactCheck.astro';
 import ModelProfile from '../../../components/ModelProfile.astro';
+import SocialShare from '../../../components/SocialShare.astro';
 import TechStackMap from '../../../components/TechStackMap.tsx';
 import wikiTermsJson from '../../../../data/wiki-terms.json';
 
@@ -50,6 +51,7 @@ const wikiBacklinks = allWikiEntries
             || candidate.data.parentModel === entry.data.term
         ))
     .sort((a, b) => b.data.mentionCount - a.data.mentionCount || a.data.title.localeCompare(b.data.title, 'en'));
+const shareUrl = Astro.url.href;
 ---
 
 <BaseLayout title={entry.data.title}>
@@ -61,11 +63,11 @@ const wikiBacklinks = allWikiEntries
             )}
         </div>
         <h1>{entry.data.title}</h1>
-        <p class="wiki-summary">{entry.data.summary}</p>
-
         {entry.data.category === 'model' && entry.data.modelType === 'version' && entry.data.modelProfile && (
             <ModelProfile profile={entry.data.modelProfile} />
         )}
+
+        <p class="wiki-summary">{entry.data.summary}</p>
 
         {entry.data.category === 'model' && parentEntry && (
             <div class="model-hierarchy">
@@ -132,6 +134,11 @@ const wikiBacklinks = allWikiEntries
         )}
 
         <BackLinks term={entry.data.term.toLowerCase()} minScore={40} />
+        <SocialShare
+            title={entry.data.title}
+            text={entry.data.summary}
+            url={shareUrl}
+        />
         {fc && (
             <FactCheck
                 status={fc.status}

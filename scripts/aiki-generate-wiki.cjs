@@ -11,7 +11,7 @@ const {
     writeUtf8,
     yamlQuote,
 } = require('./lib/content-utils.cjs');
-const { buildWikiReaderValue } = require('./lib/aiki-writing-style.cjs');
+const { buildWikiReaderValue, rewriteAikiTone, rewriteFactCheckTone } = require('./lib/aiki-writing-style.cjs');
 
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
 const WIKI_DIR = path.resolve(__dirname, '../src/content/wiki/ko');
@@ -827,6 +827,8 @@ function toWikiVoiceText(text) {
         return value;
     }
 
+    value = rewriteAikiTone(value);
+
     const replacements = [
         [/한 줄로 줄이면/g, '짧게 잡으면'],
         [/실무에서는/g, '실무에선'],
@@ -970,7 +972,7 @@ function normalizeFactChecksTone(checks) {
             '여기서 먼저 갈라 볼 기준은 $1야',
         );
 
-        value = toWikiVoiceText(value);
+        value = rewriteFactCheckTone(toWikiVoiceText(value));
         if (!/[.!?]$/u.test(value) && !/\)$/u.test(value)) {
             value = `${value}.`;
         }
@@ -980,7 +982,7 @@ function normalizeFactChecksTone(checks) {
 
     return (checks || []).map((check) => ({
         ...check,
-        summary: toWikiVoiceText(check.summary),
+        summary: rewriteFactCheckTone(toWikiVoiceText(check.summary)),
         items: Array.isArray(check.items) ? check.items.map((item) => rewriteFactCheckLine(item)) : check.items,
         findings: Array.isArray(check.findings) ? check.findings.map((item) => rewriteFactCheckLine(item)) : check.findings,
     }));
@@ -1685,10 +1687,6 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
             '## 이 모델로 무엇을 할 수 있나',
             '',
             buildModelCapabilities(entry, modelProfile),
-            '',
-            '## 스펙을 읽는 법',
-            '',
-            buildModelSpecGuide(entry, modelProfile),
             '',
             '## 왜 중요한가',
             '',

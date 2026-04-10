@@ -131,10 +131,39 @@ const FACT_CHECK_TONE_PATTERNS = [
     /걸렀다/u,
 ];
 
+const FACT_CHECK_TONE_PATTERNS_V2 = [
+    /확인해뒀어/u,
+    /비교해뒀어/u,
+    /검증해뒀어/u,
+    /분리해뒀어/u,
+    /정리해뒀어/u,
+    /걸러뒀어/u,
+];
+
 const FACT_CHECK_ITEM_TONE_PATTERNS = [
     /(?:이야|야|해|했어|읽었어|잡혔어|중요해|필요해|같아|갈려|맞아|없어|있어|돼|구분돼|틀려|나아|[가-힣]+(?:았어|었어|였어|됐어|났어|겼어))(?:["')\].!?]+)?$/u,
     /보면\s+/u,
     /봐야 해/u,
+];
+
+const STIFF_TONE_PATTERNS = [
+    /나뉜다/u,
+    /읽게 해준다/u,
+    /판단하게 해준다/u,
+    /구분하게 해준다/u,
+    /이해하게 해준다/u,
+    /잡게 해준다/u,
+    /파악하게 해준다/u,
+];
+
+const FACT_CHECK_STIFF_PATTERNS = [
+    /맞춰봤다/u,
+    /다시 봤다/u,
+    /한 번 더 봤다/u,
+    /한 번 더 다시 봤다/u,
+    /확인해봤다/u,
+    /걸렀다/u,
+    /봤다/u,
 ];
 
 const VERSION_MODEL_CONTRADICTION_PATTERNS = [
@@ -442,6 +471,10 @@ function validateWikiTone(frontmatter, body) {
         failures.push('wiki tone still reads like pasted source copy');
     }
 
+    if (STIFF_TONE_PATTERNS.some((pattern) => pattern.test(combined))) {
+        failures.push('wiki still contains stiff legacy tone phrases');
+    }
+
     if (category === 'model' && modelType === 'version') {
         if (BAD_WIKI_MODEL_SUMMARY_PATTERNS.some((pattern) => pattern.test(String(frontmatter.summary || '')))) {
             failures.push('wiki model summary still uses generic family-level copy');
@@ -472,25 +505,10 @@ function validateWikiStructure(frontmatter, body) {
     const failures = [];
 
     if (category === 'model') {
-        const requiredHeadings = ['한 줄 정의', '이 모델로 무엇을 할 수 있나', '스펙을 읽는 법', '왜 중요한가', '같이 보면 좋은 모델'];
+        const requiredHeadings = ['한 줄 정의', '이 모델로 무엇을 할 수 있나', '왜 중요한가', '같이 보면 좋은 모델'];
         for (const heading of requiredHeadings) {
             if (!headings.includes(heading)) {
                 failures.push(`wiki model missing section "${heading}"`);
-            }
-        }
-
-        const specSignals = [
-            /\*\*입력\/출력 범위\*\*/u,
-            /\*\*컨텍스트\/메모리 감각\*\*/u,
-            /\*\*접근 경로\*\*/u,
-            /\*\*가격과 운영비\*\*/u,
-            /\*\*웨이트 공개 여부\*\*/u,
-        ];
-
-        for (const signal of specSignals) {
-            if (!signal.test(String(body || ''))) {
-                failures.push('wiki model spec guide is missing core comparison bullets');
-                break;
             }
         }
     } else {
@@ -605,8 +623,12 @@ function validateFactCheckTone(frontmatter) {
             failures.push(`factCheck.${type} still uses report-style template copy`);
         }
 
-        if (summary && !FACT_CHECK_TONE_PATTERNS.some((pattern) => pattern.test(summary))) {
+        if (summary && !FACT_CHECK_TONE_PATTERNS_V2.some((pattern) => pattern.test(summary))) {
             failures.push(`factCheck.${type} summary is missing AIKI writing tone`);
+        }
+
+        if (FACT_CHECK_STIFF_PATTERNS.some((pattern) => pattern.test(joined))) {
+            failures.push(`factCheck.${type} still contains stiff legacy fact-check phrasing`);
         }
 
         if (toneTarget) {
@@ -847,6 +869,12 @@ for (const target of CONTENT_TARGETS) {
 
         if (!isDraft && target.name === 'wiki' && hasFormalWikiSummaryEnding(String(fm.summary || ''))) {
             const message = `${target.name}/${filename}: wiki summary still ends in formal report tone`;
+            if (checkAll) warnings.push(message);
+            else errors.push(message);
+        }
+
+        if (!isDraft && STIFF_TONE_PATTERNS.some((pattern) => pattern.test(toneTargetText))) {
+            const message = `${target.name}/${filename}: body still contains stiff legacy tone phrasing`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
         }

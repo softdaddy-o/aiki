@@ -4,7 +4,7 @@ date: "2026-04-06T11:00:00+09:00"
 lang: ko
 category: news
 summary: MiniMax, 지혜AI(GLM), Qwen, Mimo 등 중국 주요 AI 랩들이 최신 모델을 오픈소스로 공개하지 않고 있다. MiniMax-m2.7은 발표 후 14일째 웨이트 미공개. r/LocalLLaMA에서 이례적 동시 중단에 의문이 제기됐다.
-readerValue: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하게 해준다.
+readerValue: 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/
 sourceTitle: r/LocalLLaMA
 draft: false
@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지.
         - 제목부터 다시 보면 기사 제목은 "중국 AI 랩들이 동시에 최신 모델 오픈소스를 멈췄다"이고, 원문 제목은 "r/LocalLLaMA"로 잡혔어.
@@ -29,20 +29,20 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 데모가 재미 요소인지 실제 로컬 배포 힌트인지.
         - 같이 본 출처로는 r/LocalLLaMA 원문 (https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/)
         - 같이 본 출처로는 MiniMax 2.7 지연 관련 별도 글 (https://www.reddit.com/r/LocalLLaMA/comments/1scpvz8/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 숫자를 다시 보면 원문에서 다시 본 숫자나 버전 표기는 MiniMax-m2.7, 14, 4, Qwen3.6 쪽이야.
         - 이름처럼 보이는 숫자 표기는 버전명인지 실제 스펙인지 따로 갈라서 읽었어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 커뮤니티 반응 수치와 실제 제품 영향력은 같은 뜻이 아니라서 따로 갈라 봤어.
         - 개인 실험이나 후기 성격의 글이라 재현 가능성과 대표성도 따로 의심해봤어.

@@ -4,7 +4,7 @@ date: "2026-04-02T12:00:00+09:00"
 lang: ko
 category: news
 summary: Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/
 sourceTitle: "Make the switch: Bring your AI memories and chat history to Gemini"
 draft: false
@@ -20,7 +20,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - "제목부터 다시 보면 기사 제목은 \"전환하세요: AI 추억과 채팅 기록을 Gemini로 가져오세요\"이고, 원문 제목은 \"Make the switch: Bring your AI memories and chat history to Gemini\"로 잡혔어."
@@ -29,18 +29,18 @@ factCheck:
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 확인해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 blog.google (https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FactCheck from '../../../components/FactCheck.astro';
 import ScoreBadge from '../../../components/ScoreBadge.astro';
+import SocialShare from '../../../components/SocialShare.astro';
 
 export async function getStaticPaths() {
     const entries = await getCollection('news', ({ data }) => data.lang === 'ko' && !data.draft);
@@ -16,6 +17,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const lang = 'ko';
 const fc = entry.data.factCheck;
+const shareUrl = Astro.url.href;
 ---
 
 <BaseLayout title={entry.data.title}>
@@ -40,6 +42,11 @@ const fc = entry.data.factCheck;
                 ))}
             </div>
         )}
+        <SocialShare
+            title={entry.data.title}
+            text={entry.data.summary}
+            url={shareUrl}
+        />
         {fc && (
             <FactCheck
                 status={fc.status}

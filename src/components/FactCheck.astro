@@ -39,10 +39,10 @@ function resultIcon(result: string) {
 }
 
 function fallbackSummary(check: Check) {
-    if (check.type === 'source_match') return '이 글이 실제로 같은 대상과 사건을 가리키는지부터 먼저 맞춰봤다.';
-    if (check.type === 'web_cross_check') return `원문 하나만 믿지 않으려고 관련 출처 ${check.sources ?? sources.length}건을 옆에 두고 다시 봤다.`;
-    if (check.type === 'number_verify') return '헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.';
-    if (check.type === 'adversarial') return '독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.';
+    if (check.type === 'source_match') return '이 글이 정말 같은 대상과 사건을 짚는지부터 먼저 확인해뒀어.';
+    if (check.type === 'web_cross_check') return `관련 출처 ${check.sources ?? sources.length}건을 나란히 놓고 설명 축이 어긋나지 않는지 비교해뒀어.`;
+    if (check.type === 'number_verify') return '헷갈리기 쉬운 숫자와 고유 명칭은 따로 검증해뒀어.';
+    if (check.type === 'adversarial') return '오해하기 쉬운 지점은 어디서 잘못 읽히는지까지 따로 분리해뒀어.';
     return '';
 }
 
@@ -62,14 +62,56 @@ function fallbackItems(check: Check) {
     return [];
 }
 
+function normalizeFactCheckText(text: string) {
+    return String(text || '')
+        .replace(/\s+/g, ' ')
+        .replace(/한 번 더 다시 봤다/g, '한 번 더 확인해뒀어')
+        .replace(/한 번 더 봤다/g, '따로 검증해뒀어')
+        .replace(/다시 봤다/g, '비교해뒀어')
+        .replace(/맞춰봤다/g, '확인해뒀어')
+        .replace(/확인해봤다/g, '확인해뒀어')
+        .replace(/걸렀다/g, '걸러뒀어')
+        .replace(/봤다/g, '확인했어')
+        .replace(/해준다/g, '도움이 된다')
+        .replace(/판단하게 도움[이가] 된다/g, '판단하는 데 도움이 된다')
+        .replace(/읽게 도움[이가] 된다/g, '읽는 데 도움이 된다')
+        .replace(/구분하게 도움[이가] 된다/g, '구분하는 데 도움이 된다')
+        .replace(/잡게 도움[이가] 된다/g, '큰 흐름을 잡는 데 도움이 된다')
+        .replace(/나뉜다/g, '갈린다')
+        .replace(/정리해뒀다/g, '따로 정리해뒀어')
+        .trim();
+}
+
+function uniqueStrings(values: string[]) {
+    const seen = new Set<string>();
+    const result: string[] = [];
+
+    for (const value of values) {
+        const normalized = normalizeFactCheckText(value);
+        if (!normalized) continue;
+        const key = normalized.replace(/\s+/g, ' ').trim();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        result.push(normalized);
+    }
+
+    return result;
+}
+
 const visibleChecks = checks
-    .map((check) => ({
-        ...check,
-        label: checkLabel(check.type),
-        preview: String(check.summary || fallbackSummary(check) || '').trim(),
-        detailItems: fallbackItems(check),
-        findingItems: Array.isArray(check.findings) ? check.findings : [],
-    }))
+    .map((check) => {
+        const detailItems = uniqueStrings(fallbackItems(check));
+        const findingItems = uniqueStrings(Array.isArray(check.findings) ? check.findings : []);
+        const preview = normalizeFactCheckText(String(check.summary || fallbackSummary(check) || '').trim());
+
+        return {
+            ...check,
+            label: checkLabel(check.type),
+            preview,
+            detailItems: detailItems.filter((item) => item !== preview),
+            findingItems: findingItems.filter((item) => item !== preview && !detailItems.includes(item)),
+        };
+    })
     .filter((check) => check.preview || check.detailItems.length > 0 || check.findingItems.length > 0);
 ---
 
@@ -180,11 +222,11 @@ const visibleChecks = checks
     }
     .check-pass {
         color: var(--color-pass);
-        font-weight: bold;
+        font-weight: 700;
     }
     .check-fail {
         color: var(--color-fail);
-        font-weight: bold;
+        font-weight: 700;
     }
     .check-skip {
         color: var(--color-text-muted);

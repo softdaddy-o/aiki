@@ -4,7 +4,7 @@ date: "2026-03-19T12:00:00+09:00"
 lang: ko
 category: news
 summary: Google Earth AI가 발병을 예측하고 사전 예방적인 치료를 제공하기 위한 전 세계 보건 커뮤니티의 작업을 어떻게 지원하는지에 대한 개요입니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://blog.google/innovation-and-ai/technology/health/google-earth-ai-global-public-health/
 sourceTitle: How Google Earth AI’s planetary intelligence is supporting global public health
 draft: false
@@ -22,28 +22,28 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
-        - 제목부터 다시 보면 기사 제목은 "Google Earth AI의 행성 지능이 전 세계 공중 보건을 지원하는 방법"이고, 원문 제목은 "How Google Earth AI’s planetary intelligence is supporting global public health"로 잡혔어.
+        - 제목부터 다시 보면 기사 제목은 "Google Earth AI의 행성 지능이 전 세계 공중 보건을 지원하는 방법"이고, 원문 제목은 "How Google Earth AI's planetary intelligence is supporting global public health"로 잡혔어.
         - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
         - 이 글의 축을 다시 보면 이 글의 핵심 축은 llm, openai로 읽었어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 blog.google (https://blog.google/innovation-and-ai/technology/health/google-earth-ai-global-public-health/)
         - 같이 본 출처로는 Secondary source (https://arxiv.org/abs/2603.16825v1)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

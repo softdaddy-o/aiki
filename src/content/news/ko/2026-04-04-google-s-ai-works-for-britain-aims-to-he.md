@@ -4,7 +4,7 @@ date: "2026-04-04T12:00:00+09:00"
 lang: ko
 category: news
 summary: Google은 대중이 기본 프롬프트에서 AI 응용 프로그램의 발전을 촉진할 수 있도록 돕기 위해 영국의 AI Works 기술 향상 이니셔티브를 시작합니다.
-readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하게 해준다.
+readerValue: 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/googles-ai-works-for-britain-aims-to-help-stuck-brits-unlock-progression/
 sourceTitle: Google’s ‘AI Works for Britain’ aims to help stuck Brits unlock progression
 draft: false
@@ -20,27 +20,27 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
-        - 제목부터 다시 보면 기사 제목은 "Google의 'AI Works for Britain'은 정체된 영국인이 진행 상황을 잠금 해제하도록 돕는 것을…"이고, 원문 제목은 "Google’s ‘AI Works for Britain’ aims to help stuck Brits unlock progression"로 잡혔어.
+        - 제목부터 다시 보면 기사 제목은 "Google의 'AI Works for Britain'은 정체된 영국인이 진행 상황을 잠금 해제하도록 돕는 것을…"이고, 원문 제목은 "Google's 'AI Works for Britain' aims to help stuck Brits unlock progression"로 잡혔어.
         - 출처를 다시 보면 대표 원문 도메인은 blog.google로 잡혔어.
         - 이 글의 축을 다시 보면 이 글의 핵심 축은 google, uk, ai-literacy, workforce로 읽었어.
     - type: web_cross_check
       result: skip
       sources: 1
-      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 다시 봤다.
+      summary: 단일 원문이라도 같은 사건을 과장 없이 읽었는지 한 번 더 확인해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지.
         - 같이 본 출처로는 blog.google (https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/googles-ai-works-for-britain-aims-to-help-stuck-brits-unlock-progression/)
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.

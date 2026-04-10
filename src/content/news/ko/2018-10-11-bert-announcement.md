@@ -4,7 +4,7 @@ date: "2018-10-11T12:00:00+09:00"
 lang: ko
 category: news
 summary: 우리는 다양한 기간과 위험 수준에 걸쳐 다양한 유형의 연구에 도움이 되는 환경을 조성하기 위해 노력합니다.
-readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다.
+readerValue: 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하는 데 도움이 된다.
 sourceUrl: https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/
 sourceTitle: BERT
 draft: false
@@ -23,7 +23,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 맞춰봤다.
+      summary: 이 글이 실제로 같은 사건과 제품을 가리키는지부터 먼저 확인해뒀어.
       items:
         - 독자가 먼저 갈라 봐야 할 건 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지.
         - 제목부터 다시 보면 기사 제목은 "BERT 공개, 검색과 NLP 해석 방식의 전환점"이고, 원문 제목은 "BERT"로 잡혔어.
@@ -32,19 +32,19 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 다시 봤다.
+      summary: 원문 하나만 믿지 않으려고 관련 출처 2건을 옆에 두고 비교해뒀어.
       items:
         - 여기서 먼저 갈라 볼 기준은 이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지.
         - 같이 본 출처로는 BERT (https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/)
         - 같이 본 출처로는 Secondary source (https://en.wikipedia.org/wiki/BERT_(language_model))
     - type: number_verify
       result: pass
-      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 한 번 더 봤다.
+      summary: 헷갈리기 쉬운 숫자와 고유 명칭은 따로 떼어 검증해뒀어.
       items:
         - 핵심 수치가 전면에 없는 글이라 숫자보다 이름, 출처, 공개 범위를 먼저 맞춰봤어.
     - type: adversarial
       result: pass
-      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸렀다.
+      summary: 독자가 너무 크게 믿거나 잘못 읽기 쉬운 지점은 따로 의심해보고 걸러뒀어.
       items:
         - 제목의 강한 표현이 실제 영향 범위를 과장하지 않는지 먼저 다시 봤어.
         - 출처 성격상 주장과 해석을 분리해서 독자가 바로 써먹을 판단 기준만 남겼어.
