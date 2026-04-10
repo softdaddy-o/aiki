@@ -41,3 +41,26 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## OG Images
+
+### News thumbnails
+
+After adding a news entry with a `sourceUrl`, run:
+
+    npm run fetch:news-og
+
+This fetches the `og:image` from the source URL and writes it to
+`public/og/news/{slug}.jpg`. Commit that file alongside the markdown.
+
+If a source refuses the fetch it is recorded in `data/og-failures.json`
+and the page falls back to the site default image.
+
+### Wiki cards
+
+Wiki OG cards are generated automatically on every build via `prebuild`.
+They are derived from frontmatter and are gitignored at `public/og/wiki/`.
+
+To regenerate manually:
+
+    npm run gen:wiki-og

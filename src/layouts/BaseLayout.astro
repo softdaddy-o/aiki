@@ -5,12 +5,16 @@ import Search from '../components/Search.astro';
 interface Props {
     title?: string;
     description?: string;
+    ogImage?: string;
+    ogType?: 'website' | 'article';
 }
 
 const lang = getLocaleFromUrl(Astro.url);
-const { title, description } = Astro.props;
+const { title, description, ogImage, ogType = 'website' } = Astro.props;
 const siteTitle = title ? `${title} | ${t(lang, 'site.title')}` : t(lang, 'site.title');
 const siteDesc = description ?? t(lang, 'site.description');
+const siteUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const ogImageUrl = new URL(ogImage ?? '/softdaddy-logo.jpg', Astro.site ?? Astro.url).href;
 const otherLang = lang === 'ko' ? 'en' : 'ko';
 const otherPath = lang === 'ko' ? '/en/' : '/ko/';
 
@@ -36,6 +40,18 @@ const navItems = lang === 'en'
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{siteTitle}</title>
     <meta name="description" content={siteDesc} />
+    <link rel="canonical" href={siteUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={siteDesc} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="AIKI" />
+    <meta property="og:locale" content={lang === 'ko' ? 'ko_KR' : 'en_US'} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={siteDesc} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" type="image/jpeg" href="/softdaddy-logo.jpg" />
     <link rel="apple-touch-icon" href="/softdaddy-logo.jpg" />
     <link rel="alternate" hreflang={otherLang} href={otherPath} />

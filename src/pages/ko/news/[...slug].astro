@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FactCheck from '../../../components/FactCheck.astro';
 import ScoreBadge from '../../../components/ScoreBadge.astro';
@@ -17,10 +19,14 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const lang = 'ko';
 const fc = entry.data.factCheck;
+const slug = entry.id.replace(/^ko\//, '');
+const ogImage = fs.existsSync(path.join(process.cwd(), 'public', 'og', 'news', `${slug}.jpg`))
+    ? `/og/news/${slug}.jpg`
+    : '/softdaddy-logo.jpg';
 const shareUrl = Astro.url.href;
 ---
 
-<BaseLayout title={entry.data.title}>
+<BaseLayout title={entry.data.title} description={entry.data.summary} ogImage={ogImage} ogType="article">
     <article class="news-article">
         <div class="article-meta">
             <span class="article-date">{entry.data.date.split('T')[0]}</span>

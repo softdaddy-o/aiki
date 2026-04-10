@@ -52,9 +52,10 @@ const wikiBacklinks = allWikiEntries
         ))
     .sort((a, b) => b.data.mentionCount - a.data.mentionCount || a.data.title.localeCompare(b.data.title, 'en'));
 const shareUrl = Astro.url.href;
+const ogImage = `/og/wiki/${entry.data.term}.png`;
 ---
 
-<BaseLayout title={entry.data.title}>
+<BaseLayout title={entry.data.title} description={entry.data.summary} ogImage={ogImage} ogType="article">
     <article class="wiki-article">
         <div class="article-meta">
             <span class="category-badge">{categoryLabels[entry.data.category]}</span>

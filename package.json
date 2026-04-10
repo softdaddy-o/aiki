@@ -7,12 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/aiki-pre-publish-check.cjs && node scripts/aiki-pre-publish-check.cjs --all",
+    "prebuild": "node scripts/aiki-pre-publish-check.cjs && node scripts/aiki-pre-publish-check.cjs --all && node scripts/gen-wiki-og.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "validate:content": "node scripts/aiki-prune-news.cjs && node scripts/aiki-generate-wiki.cjs && node scripts/aiki-sync-news-factcheck.cjs && node scripts/aiki-pre-publish-check.cjs && node scripts/aiki-pre-publish-check.cjs --all",
     "generate:wiki": "node scripts/aiki-generate-wiki.cjs",
+    "fetch:news-og": "node scripts/fetch-news-og.mjs",
+    "gen:wiki-og": "node scripts/gen-wiki-og.mjs",
     "prune:news": "node scripts/aiki-prune-news.cjs",
     "sync:news-factcheck": "node scripts/aiki-sync-news-factcheck.cjs",
     "backfill:range": "node scripts/aiki-backfill-range.cjs",
@@ -20,9 +22,13 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.2",
+    "@resvg/resvg-js": "^2.6.2",
     "astro": "^6.1.3",
     "astro-pagefind": "^1.8.6",
+    "gray-matter": "^4.0.3",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "satori": "^0.26.0",
+    "satori-html": "^0.3.2"
   }
 }
