@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { title, url, text } = Astro.props as Props;
-const { show = false } = Astro.props as Props;
+const { show = true } = Astro.props as Props;
 
 const safeTitle = title.trim();
 const safeText = text?.trim() ?? '';
@@ -25,7 +25,7 @@ const shareLinks = [
     },
     {
         name: 'Threads',
-        href: `https://www.threads.net/?url=${encodedUrl}`,
+        href: `https://www.threads.net/intent/post?text=${encodedText}%20${encodedUrl}`,
     },
     {
         name: 'Facebook',
