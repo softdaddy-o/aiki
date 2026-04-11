@@ -13,7 +13,7 @@
   },
   {
     "term": "open-source",
-    "occurrences": 10,
+    "occurrences": 11,
     "kinds": [
       "phrase",
       "tag"
@@ -22,11 +22,11 @@
       "2026-03-02-1-qwen35-small-series-launch",
       "2026-03-16-1-mistral-leanstral-lean4-proof-agent",
       "2026-03-23-1-chinese-llm-scene-2026",
+      "2026-04-09-6-gemma4-llamacpp-stable",
       "2026-04-10-3-qwen35-27b-claude-opus-distilled",
       "2026-04-10-4-16gb-vram-local-llm-landscape",
       "2026-04-10-5-local-llm-mainstream-adoption",
-      "2026-04-11-2-qwen35-claude-opus-distill",
-      "2026-04-11-3-gemma4-mtp-reverse"
+      "2026-04-11-2-qwen35-claude-opus-distill"
     ]
   },
   {
@@ -310,6 +310,22 @@
     ]
   },
   {
+    "term": "Google Blog",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-gemini-25-default",
+      "2026-04-05-1-gemini-api-flex-priority",
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-07-5-gmail-gemini-privacy",
+      "2026-04-08-2-google-colab-learn-mode",
+      "2026-04-09-5-gemini-notebooks-notebooklm",
+      "2026-04-10-6-gemini-3d-interactive-sim"
+    ]
+  },
+  {
     "term": "GPU",
     "occurrences": 7,
     "kinds": [
@@ -504,21 +520,6 @@
     "sourceSlugs": [
       "2026-04-05-3-yc-bench-llm-startup-ceo",
       "2026-04-06-2-chinese-labs-pause-open-source"
-    ]
-  },
-  {
-    "term": "Google Blog",
-    "occurrences": 6,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-04-gemini-25-default",
-      "2026-04-05-1-gemini-api-flex-priority",
-      "2026-04-05-5-google-gemma-4-open-model",
-      "2026-04-07-5-gmail-gemini-privacy",
-      "2026-04-08-2-google-colab-learn-mode",
-      "2026-04-09-5-gemini-notebooks-notebooklm"
     ]
   },
   {
@@ -1538,6 +1539,16 @@
     ]
   },
   {
+    "term": "3d-model",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-6-gemini-3d-interactive-sim"
+    ]
+  },
+  {
     "term": "agentic-coding",
     "occurrences": 1,
     "kinds": [
@@ -1768,6 +1779,16 @@
     ]
   },
   {
+    "term": "deep-research",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-6-gemini-3d-interactive-sim"
+    ]
+  },
+  {
     "term": "enterprise-ai",
     "occurrences": 1,
     "kinds": [
@@ -1828,6 +1849,16 @@
     ]
   },
   {
+    "term": "llama-cpp",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-6-gemma4-llamacpp-stable"
+    ]
+  },
+  {
     "term": "local-ai",
     "occurrences": 1,
     "kinds": [
@@ -1855,16 +1886,6 @@
     ],
     "sourceSlugs": [
       "2026-02-18-1-google-gemini-lyria3-music"
-    ]
-  },
-  {
-    "term": "on-device",
-    "occurrences": 1,
-    "kinds": [
-      "tag"
-    ],
-    "sourceSlugs": [
-      "2026-04-06-real-time-ai-audio-video-in-voice-out-on"
     ]
   },
   {

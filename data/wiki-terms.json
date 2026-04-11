@@ -209,7 +209,9 @@
         "title": "Inference",
         "category": "concept",
         "aliases": [
-            "model inference"
+            "model inference",
+            "추론",
+            "모델 추론"
         ]
     },
     {
@@ -217,7 +219,9 @@
         "title": "Reasoning Model",
         "category": "concept",
         "aliases": [
-            "reasoning model"
+            "reasoning model",
+            "reasoning",
+            "추론 모델"
         ]
     },
     {
@@ -233,7 +237,9 @@
         "title": "Quantization",
         "category": "technique",
         "aliases": [
-            "model quantization"
+            "model quantization",
+            "양자화",
+            "모델 양자화"
         ]
     },
     {
@@ -398,6 +404,16 @@
         "aliases": []
     },
     {
+        "term": "on-device",
+        "title": "On-device AI",
+        "category": "concept",
+        "aliases": [
+            "온디바이스",
+            "on device",
+            "device ai"
+        ]
+    },
+    {
         "term": "local-llm",
         "title": "Local LLM",
         "category": "concept",
@@ -429,6 +445,17 @@
         "title": "GGUF",
         "category": "framework",
         "aliases": []
+    },
+    {
+        "term": "weight",
+        "title": "Model Weights",
+        "category": "concept",
+        "aliases": [
+            "웨이트",
+            "weights",
+            "가중치",
+            "model weights"
+        ]
     },
     {
         "term": "openclaw",
@@ -526,6 +553,16 @@
         "category": "tool",
         "aliases": [
             "triton inference server"
+        ]
+    },
+    {
+        "term": "runtime",
+        "title": "Runtime",
+        "category": "framework",
+        "aliases": [
+            "런타임",
+            "inference runtime",
+            "추론 런타임"
         ]
     },
     {
