@@ -148,6 +148,11 @@ function slugFromPath(mdPath) {
 }
 
 async function main() {
+    if (process.env.AIKI_SKIP_NEWS_OG_FETCH === '1') {
+        console.log('skipped=true reason=AIKI_SKIP_NEWS_OG_FETCH');
+        return;
+    }
+
     fs.mkdirSync(OUT_DIR, { recursive: true });
 
     const failures = fs.existsSync(FAILURES_PATH)
@@ -174,6 +179,10 @@ async function main() {
         const outPath = path.join(OUT_DIR, `${slug}.jpg`);
         if (fs.existsSync(outPath)) {
             delete failures[slug];
+            skipped++;
+            continue;
+        }
+        if (failures[slug]) {
             skipped++;
             continue;
         }

@@ -20,9 +20,13 @@ const { Content } = await render(entry);
 const lang = 'ko';
 const fc = entry.data.factCheck;
 const slug = entry.id.replace(/^ko\//, '');
-const ogImage = fs.existsSync(path.join(process.cwd(), 'public', 'og', 'news', `${slug}.jpg`))
+const externalOgImagePath = path.join(process.cwd(), 'public', 'og', 'news', `${slug}.jpg`);
+const fallbackOgImagePath = path.join(process.cwd(), 'public', 'og', 'news-fallback', `${slug}.png`);
+const ogImage = fs.existsSync(externalOgImagePath)
     ? `/og/news/${slug}.jpg`
-    : '/softdaddy-logo.jpg';
+    : fs.existsSync(fallbackOgImagePath)
+        ? `/og/news-fallback/${slug}.png`
+        : '/softdaddy-logo.jpg';
 const shareUrl = Astro.url.href;
 ---
 

@@ -1,0 +1,1966 @@
+[
+  {
+    "term": "LocalLLaMA",
+    "occurrences": 25,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-23-1-chinese-llm-scene-2026",
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-06-gemma-4-just-casually-destroyed-every-mo",
+      "2026-04-06-real-time-ai-audio-video-in-voice-out-on",
+      "2026-04-07-4chan-data-can-almost-certainly-improve-",
+      "2026-04-07-gemma-4-26b-a3b-is-mindblowingly-good-if",
+      "2026-04-07-i-technically-got-an-llm-running-locally",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Gemini API",
+    "occurrences": 15,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-23-gemini-api-tooling-updates-context-circu",
+      "2026-04-01-1-gemini-api-docs-mcp-agent-skills",
+      "2026-04-04-gemini-25-default",
+      "2026-04-05-1-gemini-api-flex-priority"
+    ]
+  },
+  {
+    "term": "Google AI",
+    "occurrences": 13,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-12-we-re-opening-the-google-ai-center-berli",
+      "2026-03-17-how-ai-can-improve-breast-cancer-detecti",
+      "2026-04-05-our-ai-literacy-day-recap-putting-educat"
+    ]
+  },
+  {
+    "term": "OpenClaw",
+    "occurrences": 12,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-2-anthropic-openclaw-subscription-ban",
+      "2026-04-05-6-openclaw-security-135k-exposed"
+    ]
+  },
+  {
+    "term": "Agentic AI",
+    "occurrences": 10,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-25-agentic-ai-for-scalable-and-robust-optic",
+      "2026-03-06-a-dual-helix-governance-approach-towards",
+      "2026-04-07-6-agentic-ai-job-displacement"
+    ]
+  },
+  {
+    "term": "RTX",
+    "occurrences": 9,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-07-gemma-4-26b-a3b-is-mindblowingly-good-if",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-10-4-16gb-vram-local-llm-landscape",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "TBPN",
+    "occurrences": 9,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-03-1-openai-acquires-tbpn-media"
+    ]
+  },
+  {
+    "term": "ChatGPT",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2022-11-30-chatgpt-launch",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Codex",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-03-codex-prompting-guide",
+      "2026-04-10-2-openai-enterprise-frontier-codex"
+    ]
+  },
+  {
+    "term": "COMIC",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-13-comic-agentic-sketch-comedy-generation"
+    ]
+  },
+  {
+    "term": "Google TV",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-25-3-new-gemini-features-are-coming-to-goog"
+    ]
+  },
+  {
+    "term": "gpt-4",
+    "occurrences": 8,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2023-03-14-gpt-4-launch"
+    ]
+  },
+  {
+    "term": "open-source",
+    "occurrences": 8,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-02-1-qwen35-small-series-launch",
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent",
+      "2026-03-23-1-chinese-llm-scene-2026",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-10-4-16gb-vram-local-llm-landscape",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Pro",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-gemini-25-default",
+      "2026-04-06-gemma-4-just-casually-destroyed-every-mo",
+      "2026-04-09-5-gemini-notebooks-notebooklm"
+    ]
+  },
+  {
+    "term": "Sora API",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-12-1-sora2-prompting-guide",
+      "2026-04-05-sora-2-prompting-guide"
+    ]
+  },
+  {
+    "term": "VRAM",
+    "occurrences": 8,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-10-4-16gb-vram-local-llm-landscape"
+    ]
+  },
+  {
+    "term": "Ads Decoded",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-15-ads-decoded-episode-4-explores-how-to-fu"
+    ]
+  },
+  {
+    "term": "AI Works",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-google-s-ai-works-for-britain-aims-to-he"
+    ]
+  },
+  {
+    "term": "Aletheia",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-26-google-s-aletheia-ai-agent-autonomously-"
+    ]
+  },
+  {
+    "term": "BEVLM",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-10-bevlm-distilling-semantic-knowledge-from"
+    ]
+  },
+  {
+    "term": "Box Maze",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-22-box-maze-a-process-control-architecture-"
+    ]
+  },
+  {
+    "term": "Cascade RL",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-23-nemotron-cascade-2-post-training-llms-wi"
+    ]
+  },
+  {
+    "term": "CrispEdit",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-18-crispedit-low-curvature-projections-for-"
+    ]
+  },
+  {
+    "term": "DARE-bench",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-03-dare-bench-evaluating-modeling-and-instr"
+    ]
+  },
+  {
+    "term": "F2LLM-v2",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-21-f2llm-v2-inclusive-performant-and-effici"
+    ]
+  },
+  {
+    "term": "FinTradeBench",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-22-fintradebench-a-financial-reasoning-benc"
+    ]
+  },
+  {
+    "term": "FirstProof",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-26-google-s-aletheia-ai-agent-autonomously-"
+    ]
+  },
+  {
+    "term": "Flash Live",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-31-gemini-3-1-flash-live-making-audio-ai-mo"
+    ]
+  },
+  {
+    "term": "FlashOptim",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-02-flashoptim-optimizers-for-memory-efficie"
+    ]
+  },
+  {
+    "term": "Gemini Embedding",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-13-gemini-embedding-2-our-first-natively-mu"
+    ]
+  },
+  {
+    "term": "GPU",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-21-sol-execbench-speed-of-light-benchmarkin",
+      "2026-04-06-5-us-data-center-delays",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Groundsource",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-groundsource-using-ai-to-help-communitie"
+    ]
+  },
+  {
+    "term": "LL COOL J",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-watch-james-manyika-talk-ai-and-creativi"
+    ]
+  },
+  {
+    "term": "Loc3R-VLM",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-20-loc3r-vlm-language-based-localization-an"
+    ]
+  },
+  {
+    "term": "Nemotron-Cascade",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-23-nemotron-cascade-2-post-training-llms-wi"
+    ]
+  },
+  {
+    "term": "NotebookLM",
+    "occurrences": 7,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-5-gemini-notebooks-notebooklm"
+    ]
+  },
+  {
+    "term": "PackForcing",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-29-packforcing-short-video-training-suffice"
+    ]
+  },
+  {
+    "term": "PixelSmile",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-28-pixelsmile-toward-fine-grained-facial-ex"
+    ]
+  },
+  {
+    "term": "POET-X",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-09-poet-x-memory-efficient-llm-training-by-"
+    ]
+  },
+  {
+    "term": "PPO",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-24-learning-to-tune-pure-pursuit-in-autonom"
+    ]
+  },
+  {
+    "term": "R-C2",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-28-r-c2-cycle-consistent-reinforcement-lear"
+    ]
+  },
+  {
+    "term": "SciMDR",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-15-scimdr-benchmarking-and-advancing-scient"
+    ]
+  },
+  {
+    "term": "SOL-ExecBench",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-21-sol-execbench-speed-of-light-benchmarkin"
+    ]
+  },
+  {
+    "term": "SpeciesNet",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-how-our-open-source-ai-model-speciesnet-"
+    ]
+  },
+  {
+    "term": "SUREON",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-10-sureon-a-benchmark-and-vision-language-m"
+    ]
+  },
+  {
+    "term": "VideoSeek",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-24-videoseek-long-horizon-video-agent-with-"
+    ]
+  },
+  {
+    "term": "AlphaGo",
+    "occurrences": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2016-03-15-alphago-lee-sedol"
+    ]
+  },
+  {
+    "term": "glm-5",
+    "occurrences": 6,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-3-yc-bench-llm-startup-ceo",
+      "2026-04-06-2-chinese-labs-pause-open-source"
+    ]
+  },
+  {
+    "term": "Google Blog",
+    "occurrences": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-gemini-25-default",
+      "2026-04-05-1-gemini-api-flex-priority",
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-07-5-gmail-gemini-privacy",
+      "2026-04-08-2-google-colab-learn-mode",
+      "2026-04-09-5-gemini-notebooks-notebooklm"
+    ]
+  },
+  {
+    "term": "Google Earth AI",
+    "occurrences": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-19-how-google-earth-ai-s-planetary-intellig"
+    ]
+  },
+  {
+    "term": "gpt-2",
+    "occurrences": 6,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2019-02-14-gpt-2-announcement"
+    ]
+  },
+  {
+    "term": "gpt-3",
+    "occurrences": 6,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2020-05-28-gpt-3-paper"
+    ]
+  },
+  {
+    "term": "gpt-oss",
+    "occurrences": 6,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-02-fine-tuning-with-gpt-oss-and-hugging-fac",
+      "2026-04-03-how-to-run-gpt-oss-locally-with-lm-studi",
+      "2026-04-10-4-16gb-vram-local-llm-landscape"
+    ]
+  },
+  {
+    "term": "Jackrong",
+    "occurrences": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+    ]
+  },
+  {
+    "term": "Meta",
+    "occurrences": 6,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-5-us-data-center-delays",
+      "2026-04-09-2-meta-muse-spark"
+    ]
+  },
+  {
+    "term": "Qwen3.5-27B",
+    "occurrences": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+    ]
+  },
+  {
+    "term": "Scale Space Diffusion",
+    "occurrences": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-11-scale-space-diffusion"
+    ]
+  },
+  {
+    "term": "Agentic Critical Training",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-11-agentic-critical-training"
+    ]
+  },
+  {
+    "term": "Agentic Sketch Comedy Generation",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-13-comic-agentic-sketch-comedy-generation"
+    ]
+  },
+  {
+    "term": "Apache",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+    ]
+  },
+  {
+    "term": "Asta",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-01-understanding-usage-and-engagement-in-ai"
+    ]
+  },
+  {
+    "term": "Colab",
+    "occurrences": 5,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-08-2-google-colab-learn-mode"
+    ]
+  },
+  {
+    "term": "Covenant-72B",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-18-1covenant-covenant-72b-largest-model-so-"
+    ]
+  },
+  {
+    "term": "Demystifing Video Reasoning",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-19-demystifing-video-reasoning"
+    ]
+  },
+  {
+    "term": "Dual-Use",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-01-llm-novice-uplift-on-dual-use-in-silico-"
+    ]
+  },
+  {
+    "term": "GGML",
+    "occurrences": 5,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-02-20-1-ggml-llamacpp-joins-huggingface"
+    ]
+  },
+  {
+    "term": "GitHub",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2021-06-29-github-copilot-preview",
+      "2026-04-09-4-mempalace-open-source-memory"
+    ]
+  },
+  {
+    "term": "Gmail",
+    "occurrences": 5,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-5-gmail-gemini-privacy"
+    ]
+  },
+  {
+    "term": "In Silico Biology Tasks",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-01-llm-novice-uplift-on-dual-use-in-silico-"
+    ]
+  },
+  {
+    "term": "James Manyika",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-watch-james-manyika-talk-ai-and-creativi"
+    ]
+  },
+  {
+    "term": "Leanstral-2603",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-17-mistralai-leanstral-2603-hugging-face"
+    ]
+  },
+  {
+    "term": "Learn Mode",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-08-2-google-colab-learn-mode"
+    ]
+  },
+  {
+    "term": "LLM Novice Uplift",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-01-llm-novice-uplift-on-dual-use-in-silico-"
+    ]
+  },
+  {
+    "term": "local-llm",
+    "occurrences": 5,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-03-how-to-run-gpt-oss-locally-with-lm-studi",
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-10-4-16gb-vram-local-llm-landscape",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Long-Horizon Video Agent",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-24-videoseek-long-horizon-video-agent-with-"
+    ]
+  },
+  {
+    "term": "LVLM",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-22-pushing-the-frontier-of-black-box-lvlm-a"
+    ]
+  },
+  {
+    "term": "Markovian",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-27-the-stochastic-gap-a-markovian-framework"
+    ]
+  },
+  {
+    "term": "MemPalace",
+    "occurrences": 5,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-4-mempalace-open-source-memory"
+    ]
+  },
+  {
+    "term": "Olmo-Hybrid-7B",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-06-allenai-olmo-hybrid-7b-hugging-face"
+    ]
+  },
+  {
+    "term": "OneBitModel",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-24-7mb-binary-weight-mamba-llm-zero-floatin"
+    ]
+  },
+  {
+    "term": "open-model",
+    "occurrences": 5,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2025-01-20-deepseek-r1-open-release",
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-06-gemma-4-just-casually-destroyed-every-mo",
+      "2026-04-07-4chan-data-can-almost-certainly-improve-",
+      "2026-04-08-1-davinci-llm-3b-pretraining-science"
+    ]
+  },
+  {
+    "term": "Phi-4-reasoning-vision-15B",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-05-microsoft-phi-4-reasoning-vision-15b-hug"
+    ]
+  },
+  {
+    "term": "Qwen3.5-4B-GGUF",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-03-unsloth-qwen3-5-4b-gguf-hugging-face"
+    ]
+  },
+  {
+    "term": "Qwen3.5-9B",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-02-1-qwen35-small-series-launch"
+    ]
+  },
+  {
+    "term": "RAM",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-i-technically-got-an-llm-running-locally",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "WebGIS",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-06-a-dual-helix-governance-approach-towards"
+    ]
+  },
+  {
+    "term": "A3B",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-gemma-4-26b-a3b-is-mindblowingly-good-if"
+    ]
+  },
+  {
+    "term": "Adversa AI",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-1-claude-code-permissions-bypass"
+    ]
+  },
+  {
+    "term": "Agent Skills",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-1-gemini-api-docs-mcp-agent-skills"
+    ]
+  },
+  {
+    "term": "AlphaGo Zero",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2017-10-18-alphago-zero"
+    ]
+  },
+  {
+    "term": "App Store",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-3-vibe-coding-app-store-surge"
+    ]
+  },
+  {
+    "term": "BERT",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2018-10-11-bert-announcement"
+    ]
+  },
+  {
+    "term": "Britain",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-google-s-ai-works-for-britain-aims-to-he"
+    ]
+  },
+  {
+    "term": "BrowseComp",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-08-anthropic-in-evaluating-claude-opus-4-6-"
+    ]
+  },
+  {
+    "term": "Claude Code Security",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-21-introducing-claude-code-security-now-in-"
+    ]
+  },
+  {
+    "term": "Claude Managed Agents",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-3-claude-managed-agents"
+    ]
+  },
+  {
+    "term": "Coefficient Bio",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-1-anthropic-coefficient-bio-400m"
+    ]
+  },
+  {
+    "term": "Flex",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-1-gemini-api-flex-priority"
+    ]
+  },
+  {
+    "term": "Frontier",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-22-pushing-the-frontier-of-black-box-lvlm-a",
+      "2026-04-10-2-openai-enterprise-frontier-codex"
+    ]
+  },
+  {
+    "term": "Gemini API Docs MCP",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-1-gemini-api-docs-mcp-agent-skills"
+    ]
+  },
+  {
+    "term": "Gemini Drop",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-find-out-what-s-new-in-the-gemini-app-in"
+    ]
+  },
+  {
+    "term": "Gemini Drops",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-find-out-what-s-new-in-the-gemini-app-in"
+    ]
+  },
+  {
+    "term": "Gemma E2B",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-real-time-ai-audio-video-in-voice-out-on"
+    ]
+  },
+  {
+    "term": "Google Sheets",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-12-gemini-in-google-sheets-just-achieved-st"
+    ]
+  },
+  {
+    "term": "How",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-how-our-open-source-ai-model-speciesnet-",
+      "2026-04-03-how-to-run-gpt-oss-locally-with-lm-studi"
+    ]
+  },
+  {
+    "term": "Lean",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent"
+    ]
+  },
+  {
+    "term": "Leanstral",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent"
+    ]
+  },
+  {
+    "term": "LLM-3B",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-08-1-davinci-llm-3b-pretraining-science"
+    ]
+  },
+  {
+    "term": "M3 Pro",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-real-time-ai-audio-video-in-voice-out-on"
+    ]
+  },
+  {
+    "term": "Making",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-21-introducing-claude-code-security-now-in-",
+      "2026-03-31-gemini-3-1-flash-live-making-audio-ai-mo"
+    ]
+  },
+  {
+    "term": "March",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-find-out-what-s-new-in-the-gemini-app-in",
+      "2026-04-04-the-latest-ai-news-we-announced-in-march"
+    ]
+  },
+  {
+    "term": "Muse Spark",
+    "occurrences": 4,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-2-meta-muse-spark"
+    ]
+  },
+  {
+    "term": "Obsidian",
+    "occurrences": 4,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-3-karpathy-llm-knowledge-bases"
+    ]
+  },
+  {
+    "term": "OLMo-3",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-08-1-davinci-llm-3b-pretraining-science"
+    ]
+  },
+  {
+    "term": "Priority",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-1-gemini-api-flex-priority"
+    ]
+  },
+  {
+    "term": "Prompting Guide",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-12-1-sora2-prompting-guide",
+      "2026-04-05-sora-2-prompting-guide"
+    ]
+  },
+  {
+    "term": "TurboQuant",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-26-turboquant-redefining-ai-efficiency-with"
+    ]
+  },
+  {
+    "term": "Vercept",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-02-27-official-anthropic-acquires-vercept-ai-t"
+    ]
+  },
+  {
+    "term": "AI Studio",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-gemini-25-default"
+    ]
+  },
+  {
+    "term": "Anthropic Academy",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-1-anthropic-academy-free-courses"
+    ]
+  },
+  {
+    "term": "Carlo Buchmann",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-15-ads-decoded-episode-4-explores-how-to-fu"
+    ]
+  },
+  {
+    "term": "Dense",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model"
+    ]
+  },
+  {
+    "term": "developer-tools",
+    "occurrences": 3,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-1-gemini-api-docs-mcp-agent-skills",
+      "2026-04-04-gemini-25-default",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Edward Beeching",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-02-fine-tuning-with-gpt-oss-and-hugging-fac"
+    ]
+  },
+  {
+    "term": "Google Research",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-groundsource-using-ai-to-help-communitie"
+    ]
+  },
+  {
+    "term": "GPT",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2025-08-03-1-openai-reasoning-best-practices"
+    ]
+  },
+  {
+    "term": "HuggingFace",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+    ]
+  },
+  {
+    "term": "Kristina Park",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-15-ads-decoded-episode-4-explores-how-to-fu"
+    ]
+  },
+  {
+    "term": "Kroger",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-25-google-s-commerce-media-suite-where-reta"
+    ]
+  },
+  {
+    "term": "language-model",
+    "occurrences": 3,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2018-10-11-bert-announcement",
+      "2019-02-14-gpt-2-announcement",
+      "2020-05-28-gpt-3-paper"
+    ]
+  },
+  {
+    "term": "Lewis Tunstall OpenAI",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-02-fine-tuning-with-gpt-oss-and-hugging-fac"
+    ]
+  },
+  {
+    "term": "MiniMax-m2.7",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source"
+    ]
+  },
+  {
+    "term": "NLP",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2018-10-11-bert-announcement",
+      "2020-05-28-gpt-3-paper"
+    ]
+  },
+  {
+    "term": "OpenAI Sora",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2024-02-15-openai-sora-preview"
+    ]
+  },
+  {
+    "term": "Opus",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-claude-opus-4-6",
+      "2026-04-07-4-qwen35-claude-opus-distill"
+    ]
+  },
+  {
+    "term": "Project Glasswing",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-1-claude-mythos-glasswing"
+    ]
+  },
+  {
+    "term": "Quentin Gallou",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-02-fine-tuning-with-gpt-oss-and-hugging-fac"
+    ]
+  },
+  {
+    "term": "Qwen3",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-4-16gb-vram-local-llm-landscape",
+      "2026-04-10-5-local-llm-mainstream-adoption"
+    ]
+  },
+  {
+    "term": "Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+    ]
+  },
+  {
+    "term": "SFT",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+    ]
+  },
+  {
+    "term": "Sheets",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-03-12-gemini-in-google-sheets-just-achieved-st"
+    ]
+  },
+  {
+    "term": "The",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-the-latest-ai-news-we-announced-in-march",
+      "2026-04-10-2-openai-enterprise-frontier-codex"
+    ]
+  },
+  {
+    "term": "video-generation",
+    "occurrences": 3,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2024-02-15-openai-sora-preview",
+      "2026-03-12-1-sora2-prompting-guide",
+      "2026-04-05-sora-2-prompting-guide"
+    ]
+  },
+  {
+    "term": "YC-Bench",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-3-yc-bench-llm-startup-ceo"
+    ]
+  },
+  {
+    "term": "coding-agent",
+    "occurrences": 2,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2021-06-29-github-copilot-preview",
+      "2026-04-01-1-gemini-api-docs-mcp-agent-skills"
+    ]
+  },
+  {
+    "term": "MiniMax",
+    "occurrences": 2,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source"
+    ]
+  },
+  {
+    "term": "reinforcement-learning",
+    "occurrences": 2,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2016-03-15-alphago-lee-sedol",
+      "2017-10-18-alphago-zero"
+    ]
+  },
+  {
+    "term": "USC",
+    "occurrences": 2,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-4-usc-ai-writing-homogenization"
+    ]
+  },
+  {
+    "term": "로컬AI",
+    "occurrences": 2,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-02-20-1-ggml-llamacpp-joins-huggingface",
+      "2026-04-09-4-mempalace-open-source-memory"
+    ]
+  },
+  {
+    "term": "agentic-coding",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-claude-opus-4-6"
+    ]
+  },
+  {
+    "term": "ai-business",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-2-openai-enterprise-frontier-codex"
+    ]
+  },
+  {
+    "term": "ai-education",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-1-anthropic-academy-free-courses"
+    ]
+  },
+  {
+    "term": "ai-literacy",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-google-s-ai-works-for-britain-aims-to-he"
+    ]
+  },
+  {
+    "term": "ai-safety",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-4-cognitive-surrender-ai-research"
+    ]
+  },
+  {
+    "term": "AI-글쓰기",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-4-usc-ai-writing-homogenization"
+    ]
+  },
+  {
+    "term": "AI-인프라",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-5-us-data-center-delays"
+    ]
+  },
+  {
+    "term": "AI고용",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-6-agentic-ai-job-displacement"
+    ]
+  },
+  {
+    "term": "AI도구",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-5-gemini-notebooks-notebooklm"
+    ]
+  },
+  {
+    "term": "AI메모리",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-4-mempalace-open-source-memory"
+    ]
+  },
+  {
+    "term": "AI모델",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-2-meta-muse-spark"
+    ]
+  },
+  {
+    "term": "AI보안",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-1-claude-mythos-glasswing"
+    ]
+  },
+  {
+    "term": "AI에이전트",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-09-3-claude-managed-agents"
+    ]
+  },
+  {
+    "term": "AI음악",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-02-18-1-google-gemini-lyria3-music"
+    ]
+  },
+  {
+    "term": "AI전략",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-03-1-openai-acquires-tbpn-media"
+    ]
+  },
+  {
+    "term": "AI코딩교육",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-08-2-google-colab-learn-mode"
+    ]
+  },
+  {
+    "term": "AI프라이버시",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-5-gmail-gemini-privacy"
+    ]
+  },
+  {
+    "term": "alphago-zero",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2017-10-18-alphago-zero"
+    ]
+  },
+  {
+    "term": "app-store",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-3-vibe-coding-app-store-surge"
+    ]
+  },
+  {
+    "term": "china-ai",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-23-1-chinese-llm-scene-2026"
+    ]
+  },
+  {
+    "term": "code-agent",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent"
+    ]
+  },
+  {
+    "term": "cognitive-surrender",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-4-cognitive-surrender-ai-research"
+    ]
+  },
+  {
+    "term": "consumer-ai",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-01-find-out-what-s-new-in-the-gemini-app-in"
+    ]
+  },
+  {
+    "term": "enterprise-ai",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-2-openai-enterprise-frontier-codex"
+    ]
+  },
+  {
+    "term": "formal-verification",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent"
+    ]
+  },
+  {
+    "term": "free-courses",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-1-anthropic-academy-free-courses"
+    ]
+  },
+  {
+    "term": "gemma-4",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model"
+    ]
+  },
+  {
+    "term": "healthcare-ai",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-1-anthropic-coefficient-bio-400m"
+    ]
+  },
+  {
+    "term": "lean4",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent"
+    ]
+  },
+  {
+    "term": "local-ai",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-i-technically-got-an-llm-running-locally"
+    ]
+  },
+  {
+    "term": "music-generation",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-02-18-1-google-gemini-lyria3-music"
+    ]
+  },
+  {
+    "term": "on-device",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-real-time-ai-audio-video-in-voice-out-on"
+    ]
+  },
+  {
+    "term": "retro-computing",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-i-technically-got-an-llm-running-locally"
+    ]
+  },
+  {
+    "term": "small-model",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-03-02-1-qwen35-small-series-launch"
+    ]
+  },
+  {
+    "term": "tiny-model",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-i-technically-got-an-llm-running-locally"
+    ]
+  },
+  {
+    "term": "training-data",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4chan-data-can-almost-certainly-improve-"
+    ]
+  },
+  {
+    "term": "에이전트AI",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-6-agentic-ai-job-displacement"
+    ]
+  },
+  {
+    "term": "중국-AI",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source"
+    ]
+  }
+]
