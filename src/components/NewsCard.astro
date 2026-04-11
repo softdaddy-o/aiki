@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import { t } from '../i18n/utils';
 import ScoreBadge from './ScoreBadge.astro';
 
@@ -18,7 +20,7 @@ interface Props {
     featured?: boolean;
 }
 
-const { title, summary, date, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang, zoomLevel, featured } = Astro.props;
+const { title, summary, category, factCheckStatus, factCheckSourceCount, score, sourceCount, slug, side, lang, zoomLevel, featured } = Astro.props;
 
 const categoryColors: Record<string, string> = {
     news: 'var(--color-news)',
@@ -37,29 +39,40 @@ const categoryLabels: Record<string, string> = {
 };
 
 const color = categoryColors[category] ?? 'var(--color-news)';
+const externalThumbPath = path.join(process.cwd(), 'public', 'og', 'news', `${slug}.jpg`);
+const fallbackThumbPath = path.join(process.cwd(), 'public', 'og', 'news-fallback', `${slug}.png`);
+const thumbSrc = fs.existsSync(externalThumbPath)
+    ? `/og/news/${slug}.jpg`
+    : fs.existsSync(fallbackThumbPath)
+        ? `/og/news-fallback/${slug}.png`
+        : '/og/site-default.png';
 ---
 
 <div class={`timeline-item timeline-${side}${featured ? ' featured' : ''}`} data-zoom-level={zoomLevel || 'daily'}>
     <div class="connector" style={`background: ${color}`}></div>
     <div class="dot" style={`background: ${color}`}></div>
     <a href={`/${lang}/news/${slug}/`} class="card" style={`border-color: ${color}`}>
-        <div class="card-header">
-            <span class="badge" style={`background: ${color}`}>{categoryLabels[category]}</span>
-                    {score > 0 && <ScoreBadge score={score} sourceCount={sourceCount} />}
+        <div class="card-media">
+            <img src={thumbSrc} alt={title} loading="lazy" decoding="async" />
         </div>
-        <h3 class="card-title">{title}</h3>
-        <p class="card-summary">{summary}</p>
-        {factCheckStatus === 'passed' && (
-            <div class="card-fc">
-                <span class="fc-pass">✅ {t(lang, 'factcheck.status.passed')}</span>
-                {factCheckSourceCount && <span class="fc-sources">· 출처 {factCheckSourceCount}건</span>}
+        <div class="card-copy">
+            <div class="card-header">
+                <span class="badge" style={`background: ${color}`}>{categoryLabels[category]}</span>
+                {score > 0 && <ScoreBadge score={score} sourceCount={sourceCount} />}
             </div>
-        )}
+            <h3 class="card-title">{title}</h3>
+            <p class="card-summary">{summary}</p>
+            {factCheckStatus === 'passed' && (
+                <div class="card-fc">
+                    <span class="fc-pass">OK {t(lang, 'factcheck.status.passed')}</span>
+                    {factCheckSourceCount && <span class="fc-sources">· 출처 {factCheckSourceCount}건</span>}
+                </div>
+            )}
+        </div>
     </a>
 </div>
 
 <style>
-    /* Always single-column layout — no left/right zigzag */
     .timeline-item {
         display: flex;
         flex-direction: row;
@@ -76,29 +89,46 @@ const color = categoryColors[category] ?? 'var(--color-news)';
         transform: translateY(0);
     }
     .dot {
-        width: 12px; height: 12px; border-radius: 50%;
-        border: 2px solid var(--color-bg); flex-shrink: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid var(--color-bg);
+        flex-shrink: 0;
         margin-left: 6px;
-        margin-top: 18px; position: relative; z-index: 2;
+        margin-top: 18px;
+        position: relative;
+        z-index: 2;
         box-shadow: 0 0 8px currentColor;
         transition: transform 0.2s ease;
     }
-    .timeline-item:hover .dot { transform: scale(1.4); }
+    .timeline-item:hover .dot {
+        transform: scale(1.4);
+    }
     .connector {
-        width: 16px; height: 2px; opacity: 0.7;
-        flex-shrink: 0; margin-top: 23px;
+        width: 16px;
+        height: 2px;
+        opacity: 0.7;
+        flex-shrink: 0;
+        margin-top: 23px;
     }
     .card {
-        flex: 1; max-width: 720px;
-        background: var(--color-surface); border-radius: 8px;
-        padding: 14px 16px; text-decoration: none; color: inherit;
+        display: grid;
+        grid-template-columns: 172px minmax(0, 1fr);
+        gap: 14px;
+        flex: 1;
+        max-width: 720px;
+        background: var(--color-surface);
+        border-radius: 8px;
+        padding: 14px 16px;
+        text-decoration: none;
+        color: inherit;
         margin-left: 8px;
-        border-left: 3px solid; border-right: none;
+        border-left: 3px solid;
+        border-top: 1px solid var(--color-border);
+        border-right: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
         text-align: left;
         transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        border-top: 1px solid var(--color-border);
-        border-bottom: 1px solid var(--color-border);
-        border-right: 1px solid var(--color-border);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
     .card:hover {
@@ -106,31 +136,75 @@ const color = categoryColors[category] ?? 'var(--color-news)';
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
+    .card-media {
+        position: relative;
+        overflow: hidden;
+        min-height: 108px;
+        border-radius: 8px;
+        background: var(--color-surface-alt);
+        border: 1px solid var(--color-border);
+    }
+    .card-media img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+    .card-copy {
+        min-width: 0;
+    }
     .card-header {
-        display: flex; justify-content: space-between;
-        align-items: center; margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        gap: 8px;
     }
     .badge {
-        color: #000; padding: 3px 10px; border-radius: 4px;
-        font-size: 11px; font-weight: 700;
-        text-transform: uppercase; letter-spacing: 0.03em;
+        color: #000;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
     }
-    .time { color: var(--color-text-muted); font-size: 11px; }
-    .card-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+    .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        line-height: 1.4;
+    }
     .card-summary {
-        font-size: 13px; color: var(--color-text-muted); line-height: 1.5;
-        display: -webkit-box; -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical; overflow: hidden;
+        font-size: 13px;
+        color: var(--color-text-muted);
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
-    .card-fc { display: flex; gap: 6px; margin-top: 6px; font-size: 10px; }
-    .fc-pass { color: var(--color-pass); }
-    .fc-sources { color: var(--color-text-muted); }
+    .card-fc {
+        display: flex;
+        gap: 6px;
+        margin-top: 8px;
+        font-size: 10px;
+    }
+    .fc-pass {
+        color: var(--color-pass);
+    }
+    .fc-sources {
+        color: var(--color-text-muted);
+    }
     .featured .card {
+        grid-template-columns: 204px minmax(0, 1fr);
         background: var(--color-surface-elevated);
         border-color: rgba(79, 195, 247, 0.3);
         box-shadow: 0 4px 16px rgba(79, 195, 247, 0.1), 0 2px 8px rgba(0, 0, 0, 0.3);
     }
-    .featured .card-title { font-size: 22px; }
+    .featured .card-title {
+        font-size: 22px;
+    }
     .featured .card-summary {
         -webkit-line-clamp: 5;
         font-size: 14px;
@@ -140,7 +214,20 @@ const color = categoryColors[category] ?? 'var(--color-news)';
         box-shadow: 0 0 16px currentColor;
     }
     @media (max-width: 640px) {
-        .card-title { font-size: 16px; }
-        .card-summary { -webkit-line-clamp: 2; }
+        .card {
+            grid-template-columns: 1fr;
+        }
+        .card-media {
+            min-height: 170px;
+        }
+        .featured .card {
+            grid-template-columns: 1fr;
+        }
+        .card-title {
+            font-size: 16px;
+        }
+        .card-summary {
+            -webkit-line-clamp: 2;
+        }
     }
 </style>

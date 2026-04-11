@@ -7,14 +7,23 @@ interface Props {
     description?: string;
     ogImage?: string;
     ogType?: 'website' | 'article';
+    ogImageAlt?: string;
 }
 
 const lang = getLocaleFromUrl(Astro.url);
-const { title, description, ogImage, ogType = 'website' } = Astro.props;
+const { title, description, ogImage, ogType = 'website', ogImageAlt } = Astro.props;
 const siteTitle = title ? `${title} | ${t(lang, 'site.title')}` : t(lang, 'site.title');
 const siteDesc = description ?? t(lang, 'site.description');
 const siteUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
-const ogImageUrl = new URL(ogImage ?? '/softdaddy-logo.jpg', Astro.site ?? Astro.url).href;
+const resolvedOgImage = ogImage ?? '/og/site-default.png';
+const ogImageUrl = new URL(resolvedOgImage, Astro.site ?? Astro.url).href;
+const ogImageExt = resolvedOgImage.split('.').pop()?.toLowerCase();
+const ogImageMimeType = ogImageExt === 'png'
+    ? 'image/png'
+    : ogImageExt === 'webp'
+        ? 'image/webp'
+        : 'image/jpeg';
+const socialImageAlt = ogImageAlt ?? title ?? t(lang, 'site.title');
 const otherLang = lang === 'ko' ? 'en' : 'ko';
 const otherPath = lang === 'ko' ? '/en/' : '/ko/';
 
@@ -48,10 +57,14 @@ const navItems = lang === 'en'
     <meta property="og:site_name" content="AIKI" />
     <meta property="og:locale" content={lang === 'ko' ? 'ko_KR' : 'en_US'} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content={ogImageMimeType} />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={siteDesc} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <link rel="icon" type="image/jpeg" href="/softdaddy-logo.jpg" />
     <link rel="apple-touch-icon" href="/softdaddy-logo.jpg" />
     <link rel="alternate" hreflang={otherLang} href={otherPath} />
@@ -394,39 +407,51 @@ const navItems = lang === 'en'
         max-width: 70ch;
         margin-inline: auto;
     }
-    :global(.prose a[data-link-kind]) {
-        color: color-mix(in srgb, var(--color-news) 78%, var(--color-text) 22%);
+    :global(.prose) a[data-link-kind] {
+        font-weight: 600;
         text-decoration-line: underline;
         text-decoration-thickness: 1.5px;
-        text-underline-offset: 0.18em;
+        text-underline-offset: 0.16em;
+        text-decoration-skip-ink: auto;
         transition:
             color 0.15s ease,
+            background-color 0.15s ease,
             text-decoration-color 0.15s ease,
             text-decoration-thickness 0.15s ease;
     }
-    :global(.prose a[data-link-kind="internal"]) {
+    :global(.prose) a[data-link-kind="internal"] {
+        color: color-mix(in srgb, var(--color-wiki) 82%, var(--color-text) 18%);
         text-decoration-style: solid;
-        text-decoration-color: color-mix(in srgb, var(--color-news) 52%, transparent);
+        text-decoration-color: color-mix(in srgb, var(--color-wiki) 58%, transparent);
     }
-    :global(.prose a[data-link-kind="external"]) {
+    :global(.prose) a[data-link-kind="external"] {
+        color: color-mix(in srgb, var(--color-news) 82%, var(--color-text) 18%);
         text-decoration-style: dashed;
         text-decoration-color: color-mix(in srgb, var(--color-news) 62%, transparent);
+        background: color-mix(in srgb, var(--color-news) 8%, transparent);
+        border-radius: 4px;
+        padding-inline: 0.08em;
     }
-    :global(.prose a[data-link-kind="external"]::after) {
+    :global(.prose) a[data-link-kind="external"]::after {
         content: '↗';
         display: inline-block;
-        margin-left: 0.2em;
         font-size: 0.78em;
         font-weight: 700;
         line-height: 1;
         vertical-align: text-top;
         color: color-mix(in srgb, var(--color-text-muted) 72%, var(--color-news) 28%);
     }
-    :global(.prose a[data-link-kind]:hover) {
-        color: var(--color-news);
+    :global(.prose) a[data-link-kind]:hover {
         text-decoration-thickness: 2px;
     }
-    :global(.prose a[data-link-kind]:focus-visible) {
+    :global(.prose) a[data-link-kind="internal"]:hover {
+        color: var(--color-wiki);
+    }
+    :global(.prose) a[data-link-kind="external"]:hover {
+        color: var(--color-news);
+        background: color-mix(in srgb, var(--color-news) 14%, transparent);
+    }
+    :global(.prose) a[data-link-kind]:focus-visible {
         border-radius: 3px;
     }
     .site-footer {
@@ -479,5 +504,55 @@ const navItems = lang === 'en'
         /* Add bottom padding so content doesn't hide behind bottom nav */
         body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
         .site-footer { margin-bottom: 0; padding-bottom: 24px; }
+    }
+</style>
+
+<style is:global>
+    .prose a[data-link-kind] {
+        font-weight: 600;
+        text-decoration-line: underline;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 0.16em;
+        text-decoration-skip-ink: auto;
+        transition:
+            color 0.15s ease,
+            background-color 0.15s ease,
+            text-decoration-color 0.15s ease,
+            text-decoration-thickness 0.15s ease;
+    }
+    .prose a[data-link-kind="internal"] {
+        color: color-mix(in srgb, var(--color-wiki) 82%, var(--color-text) 18%);
+        text-decoration-style: solid;
+        text-decoration-color: color-mix(in srgb, var(--color-wiki) 58%, transparent);
+    }
+    .prose a[data-link-kind="external"] {
+        color: color-mix(in srgb, var(--color-news) 82%, var(--color-text) 18%);
+        text-decoration-style: dashed;
+        text-decoration-color: color-mix(in srgb, var(--color-news) 62%, transparent);
+        background: color-mix(in srgb, var(--color-news) 8%, transparent);
+        border-radius: 4px;
+        padding-inline: 0.08em;
+    }
+    .prose a[data-link-kind="external"]::after {
+        content: '↗';
+        display: inline-block;
+        font-size: 0.78em;
+        font-weight: 700;
+        line-height: 1;
+        vertical-align: text-top;
+        color: color-mix(in srgb, var(--color-text-muted) 72%, var(--color-news) 28%);
+    }
+    .prose a[data-link-kind]:hover {
+        text-decoration-thickness: 2px;
+    }
+    .prose a[data-link-kind="internal"]:hover {
+        color: var(--color-wiki);
+    }
+    .prose a[data-link-kind="external"]:hover {
+        color: var(--color-news);
+        background: color-mix(in srgb, var(--color-news) 14%, transparent);
+    }
+    .prose a[data-link-kind]:focus-visible {
+        border-radius: 3px;
     }
 </style>

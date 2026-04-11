@@ -26,11 +26,11 @@ const ogImage = fs.existsSync(externalOgImagePath)
     ? `/og/news/${slug}.jpg`
     : fs.existsSync(fallbackOgImagePath)
         ? `/og/news-fallback/${slug}.png`
-        : '/softdaddy-logo.jpg';
+        : '/og/site-default.png';
 const shareUrl = Astro.url.href;
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.summary} ogImage={ogImage} ogType="article">
+<BaseLayout title={entry.data.title} description={entry.data.summary} ogImage={ogImage} ogImageAlt={entry.data.title} ogType="article">
     <article class="news-article">
         <div class="article-meta">
             <span class="article-date">{entry.data.date.split('T')[0]}</span>
@@ -48,6 +48,9 @@ const shareUrl = Astro.url.href;
             )}
         </div>
         <h1>{entry.data.title}</h1>
+        <div class="article-cover">
+            <img src={ogImage} alt={entry.data.title} loading="eager" decoding="async" />
+        </div>
         <SocialShare
             title={entry.data.title}
             text={entry.data.summary}
@@ -95,6 +98,20 @@ const shareUrl = Astro.url.href;
         vertical-align: text-top;
     }
     h1 { font-size: 28px; font-weight: 800; margin-bottom: 24px; line-height: 1.35; letter-spacing: -0.01em; }
+    .article-cover {
+        margin-bottom: 20px;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+        background: var(--color-surface-alt);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+    .article-cover img {
+        width: 100%;
+        aspect-ratio: 1200 / 630;
+        display: block;
+        object-fit: cover;
+    }
     .article-body { font-size: 16px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }
     .article-body :global(ul) { padding-left: 20px; margin-bottom: 12px; }
