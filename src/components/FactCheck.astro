@@ -170,7 +170,7 @@ const visibleChecks = checks
         {sources.length > 0 && (
             <div class="fc-sources-list">
                 출처: {sources.map((source, index) => (
-                    <>{index > 0 && ', '}<a href={source.url} target="_blank" rel="noopener">{source.title}</a></>
+                    <>{index > 0 && ', '}<a href={source.url} target="_blank" rel="noopener noreferrer" data-link-kind="external">{source.title}</a></>
                 ))}
             </div>
         )}
@@ -307,6 +307,14 @@ const visibleChecks = checks
     }
     .fc-sources-list a {
         color: var(--color-news);
+    }
+    .fc-sources-list a::after {
+        content: '↗';
+        display: inline-block;
+        margin-left: 0.22em;
+        font-size: 0.78em;
+        line-height: 1;
+        vertical-align: text-top;
     }
     .fc-footer {
         font-size: 11px;

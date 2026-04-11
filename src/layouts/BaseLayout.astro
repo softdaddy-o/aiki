@@ -394,6 +394,41 @@ const navItems = lang === 'en'
         max-width: 70ch;
         margin-inline: auto;
     }
+    :global(.prose a[data-link-kind]) {
+        color: color-mix(in srgb, var(--color-news) 78%, var(--color-text) 22%);
+        text-decoration-line: underline;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 0.18em;
+        transition:
+            color 0.15s ease,
+            text-decoration-color 0.15s ease,
+            text-decoration-thickness 0.15s ease;
+    }
+    :global(.prose a[data-link-kind="internal"]) {
+        text-decoration-style: solid;
+        text-decoration-color: color-mix(in srgb, var(--color-news) 52%, transparent);
+    }
+    :global(.prose a[data-link-kind="external"]) {
+        text-decoration-style: dashed;
+        text-decoration-color: color-mix(in srgb, var(--color-news) 62%, transparent);
+    }
+    :global(.prose a[data-link-kind="external"]::after) {
+        content: '↗';
+        display: inline-block;
+        margin-left: 0.2em;
+        font-size: 0.78em;
+        font-weight: 700;
+        line-height: 1;
+        vertical-align: text-top;
+        color: color-mix(in srgb, var(--color-text-muted) 72%, var(--color-news) 28%);
+    }
+    :global(.prose a[data-link-kind]:hover) {
+        color: var(--color-news);
+        text-decoration-thickness: 2px;
+    }
+    :global(.prose a[data-link-kind]:focus-visible) {
+        border-radius: 3px;
+    }
     .site-footer {
         text-align: center;
         padding: 48px 20px;

@@ -36,7 +36,13 @@ const shareUrl = Astro.url.href;
             <span class="article-date">{entry.data.date.split('T')[0]}</span>
             <ScoreBadge score={entry.data.score} sourceCount={entry.data.sourceCount} />
             {entry.data.sourceUrl && (
-                <a href={entry.data.sourceUrl} target="_blank" rel="noopener" class="article-source">
+                <a
+                    href={entry.data.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="article-source"
+                    data-link-kind="external"
+                >
                     📎 {entry.data.sourceTitle ?? '원문'}
                 </a>
             )}
@@ -76,7 +82,18 @@ const shareUrl = Astro.url.href;
         flex-wrap: wrap; gap: 8px;
         margin-bottom: 16px; font-size: 13px; color: var(--color-text-muted);
     }
-    .article-source { color: var(--color-news); text-decoration: none; }
+    .article-source {
+        color: var(--color-news);
+        text-decoration: none;
+    }
+    .article-source::after {
+        content: '↗';
+        display: inline-block;
+        margin-left: 0.28em;
+        font-size: 0.78em;
+        line-height: 1;
+        vertical-align: text-top;
+    }
     h1 { font-size: 28px; font-weight: 800; margin-bottom: 24px; line-height: 1.35; letter-spacing: -0.01em; }
     .article-body { font-size: 16px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }

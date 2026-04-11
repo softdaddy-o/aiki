@@ -5,7 +5,7 @@ import https from 'node:https';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 
@@ -14,6 +14,12 @@ const ROOT = path.resolve(__dirname, '..');
 const NEWS_DIR = path.join(ROOT, 'src/content/news');
 const OUT_DIR = path.join(ROOT, 'public/og/news');
 const FAILURES_PATH = path.join(ROOT, 'data/og-failures.json');
+const CURL_BIN = process.platform === 'win32' ? 'curl.exe' : 'curl';
+const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36';
+const DEFAULT_CURL_HEADERS = [
+    '-H', `User-Agent: ${BROWSER_UA}`,
+    '-H', 'Accept-Language: en-US,en;q=0.9',
+];
 
 function extractYouTubeId(url) {
     const match = url.match(/(?:youtube\.com\/watch\?(?:.*&)?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
@@ -28,6 +34,18 @@ function resolveUrl(baseUrl, maybeRelativeUrl) {
     }
 }
 
+function fetchHtmlWithCurl(pageUrl) {
+    try {
+        return execFileSync(
+            CURL_BIN,
+            ['-L', '-s', '--max-time', '15', ...DEFAULT_CURL_HEADERS, pageUrl],
+            { encoding: 'utf-8', maxBuffer: 5 * 1024 * 1024 },
+        );
+    } catch {
+        return null;
+    }
+}
+
 function fetchOgImage(pageUrl) {
     const ytId = extractYouTubeId(pageUrl);
     if (ytId) {
@@ -36,6 +54,18 @@ function fetchOgImage(pageUrl) {
 
     if (/reddit\.com\/r\/[^/]+\/comments\/[a-z0-9]+/i.test(pageUrl)) {
         return fetchRedditPreview(pageUrl);
+    }
+
+    const curlHtml = fetchHtmlWithCurl(pageUrl);
+    if (curlHtml) {
+        const match =
+            curlHtml.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+            || curlHtml.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i)
+            || curlHtml.match(/<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["']/i)
+            || curlHtml.match(/<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:image["']/i);
+        if (match) {
+            return Promise.resolve(resolveUrl(pageUrl, match[1].replace(/&amp;/g, '&')));
+        }
     }
 
     return new Promise((resolve) => {
@@ -73,8 +103,9 @@ function fetchRedditPreview(redditUrl) {
     const fullUrl = jsonUrl.startsWith('https://') ? jsonUrl : `https://www.${jsonUrl.replace(/^https?:\/\//, '')}`;
 
     try {
-        const raw = execSync(
-            `curl -s "${fullUrl}" -H "User-Agent: AIKI/1.0" -H "Accept: application/json" --max-time 10`,
+        const raw = execFileSync(
+            CURL_BIN,
+            ['-L', '-s', '--max-time', '10', '-H', 'User-Agent: AIKI/1.0', '-H', 'Accept: application/json', fullUrl],
             { encoding: 'utf-8', maxBuffer: 1024 * 1024 },
         );
         const json = JSON.parse(raw);
@@ -97,6 +128,15 @@ function fetchRedditPreview(redditUrl) {
 }
 
 function downloadFile(fileUrl, destPath) {
+    const curlResult = spawnSync(
+        CURL_BIN,
+        ['-L', '-s', '--fail', '--max-time', '20', ...DEFAULT_CURL_HEADERS, '-o', destPath, fileUrl],
+        { stdio: 'ignore' },
+    );
+    if (curlResult.status === 0 && fs.existsSync(destPath) && fs.statSync(destPath).size > 0) {
+        return Promise.resolve(true);
+    }
+
     return new Promise((resolve) => {
         const lib = fileUrl.startsWith('https:') ? https : http;
         const file = fs.createWriteStream(destPath);
