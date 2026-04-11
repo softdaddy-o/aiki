@@ -1,36 +1,5 @@
 [
   {
-    "term": "LocalLLaMA",
-    "occurrences": 25,
-    "kinds": [
-      "phrase",
-      "tag"
-    ],
-    "sourceSlugs": [
-      "2026-03-23-1-chinese-llm-scene-2026",
-      "2026-04-06-2-chinese-labs-pause-open-source",
-      "2026-04-06-gemma-4-just-casually-destroyed-every-mo",
-      "2026-04-06-real-time-ai-audio-video-in-voice-out-on",
-      "2026-04-07-4chan-data-can-almost-certainly-improve-",
-      "2026-04-07-gemma-4-26b-a3b-is-mindblowingly-good-if",
-      "2026-04-07-i-technically-got-an-llm-running-locally",
-      "2026-04-10-5-local-llm-mainstream-adoption"
-    ]
-  },
-  {
-    "term": "Gemini API",
-    "occurrences": 15,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-03-23-gemini-api-tooling-updates-context-circu",
-      "2026-04-01-1-gemini-api-docs-mcp-agent-skills",
-      "2026-04-04-gemini-25-default",
-      "2026-04-05-1-gemini-api-flex-priority"
-    ]
-  },
-  {
     "term": "Google AI",
     "occurrences": 13,
     "kinds": [
@@ -43,26 +12,45 @@
     ]
   },
   {
-    "term": "OpenClaw",
-    "occurrences": 12,
+    "term": "open-source",
+    "occurrences": 10,
     "kinds": [
-      "phrase"
+      "phrase",
+      "tag"
     ],
     "sourceSlugs": [
-      "2026-04-05-2-anthropic-openclaw-subscription-ban",
-      "2026-04-05-6-openclaw-security-135k-exposed"
+      "2026-03-02-1-qwen35-small-series-launch",
+      "2026-03-16-1-mistral-leanstral-lean4-proof-agent",
+      "2026-03-23-1-chinese-llm-scene-2026",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-10-4-16gb-vram-local-llm-landscape",
+      "2026-04-10-5-local-llm-mainstream-adoption",
+      "2026-04-11-2-qwen35-claude-opus-distill",
+      "2026-04-11-3-gemma4-mtp-reverse"
     ]
   },
   {
-    "term": "Agentic AI",
+    "term": "VRAM",
     "occurrences": 10,
     "kinds": [
       "phrase"
     ],
     "sourceSlugs": [
-      "2026-02-25-agentic-ai-for-scalable-and-robust-optic",
-      "2026-03-06-a-dual-helix-governance-approach-towards",
-      "2026-04-07-6-agentic-ai-job-displacement"
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-10-4-16gb-vram-local-llm-landscape",
+      "2026-04-11-2-qwen35-claude-opus-distill"
+    ]
+  },
+  {
+    "term": "Jackrong",
+    "occurrences": 9,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill"
     ]
   },
   {
@@ -88,28 +76,6 @@
     ],
     "sourceSlugs": [
       "2026-04-03-1-openai-acquires-tbpn-media"
-    ]
-  },
-  {
-    "term": "ChatGPT",
-    "occurrences": 8,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2022-11-30-chatgpt-launch",
-      "2026-04-10-5-local-llm-mainstream-adoption"
-    ]
-  },
-  {
-    "term": "Codex",
-    "occurrences": 8,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-03-codex-prompting-guide",
-      "2026-04-10-2-openai-enterprise-frontier-codex"
     ]
   },
   {
@@ -144,19 +110,16 @@
     ]
   },
   {
-    "term": "open-source",
+    "term": "HuggingFace",
     "occurrences": 8,
     "kinds": [
-      "phrase",
-      "tag"
+      "phrase"
     ],
     "sourceSlugs": [
-      "2026-03-02-1-qwen35-small-series-launch",
-      "2026-03-16-1-mistral-leanstral-lean4-proof-agent",
-      "2026-03-23-1-chinese-llm-scene-2026",
+      "2026-04-06-2-chinese-labs-pause-open-source",
       "2026-04-10-3-qwen35-27b-claude-opus-distilled",
-      "2026-04-10-4-16gb-vram-local-llm-landscape",
-      "2026-04-10-5-local-llm-mainstream-adoption"
+      "2026-04-11-2-qwen35-claude-opus-distill",
+      "2026-04-11-3-gemma4-mtp-reverse"
     ]
   },
   {
@@ -180,17 +143,6 @@
     "sourceSlugs": [
       "2026-03-12-1-sora2-prompting-guide",
       "2026-04-05-sora-2-prompting-guide"
-    ]
-  },
-  {
-    "term": "VRAM",
-    "occurrences": 8,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
-      "2026-04-10-4-16gb-vram-local-llm-landscape"
     ]
   },
   {
@@ -221,6 +173,30 @@
     ],
     "sourceSlugs": [
       "2026-02-26-google-s-aletheia-ai-agent-autonomously-"
+    ]
+  },
+  {
+    "term": "Anthropic Academy",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-1-anthropic-academy-free-courses",
+      "2026-04-11-1-anthropic-academy"
+    ]
+  },
+  {
+    "term": "Apache",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill"
     ]
   },
   {
@@ -437,6 +413,18 @@
     ]
   },
   {
+    "term": "Qwen3.5-27B",
+    "occurrences": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill"
+    ]
+  },
+  {
     "term": "R-C2",
     "occurrences": 7,
     "kinds": [
@@ -579,17 +567,6 @@
     ]
   },
   {
-    "term": "Jackrong",
-    "occurrences": 6,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-07-4-qwen35-claude-opus-distill",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
-    ]
-  },
-  {
     "term": "Meta",
     "occurrences": 6,
     "kinds": [
@@ -602,14 +579,15 @@
     ]
   },
   {
-    "term": "Qwen3.5-27B",
+    "term": "Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
     "occurrences": 6,
     "kinds": [
       "phrase"
     ],
     "sourceSlugs": [
       "2026-04-07-4-qwen35-claude-opus-distill",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill"
     ]
   },
   {
@@ -640,18 +618,6 @@
     ],
     "sourceSlugs": [
       "2026-03-13-comic-agentic-sketch-comedy-generation"
-    ]
-  },
-  {
-    "term": "Apache",
-    "occurrences": 5,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model",
-      "2026-04-06-2-chinese-labs-pause-open-source",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
     ]
   },
   {
@@ -789,20 +755,6 @@
     ]
   },
   {
-    "term": "local-llm",
-    "occurrences": 5,
-    "kinds": [
-      "tag"
-    ],
-    "sourceSlugs": [
-      "2026-04-03-how-to-run-gpt-oss-locally-with-lm-studi",
-      "2026-04-07-4-qwen35-claude-opus-distill",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
-      "2026-04-10-4-16gb-vram-local-llm-landscape",
-      "2026-04-10-5-local-llm-mainstream-adoption"
-    ]
-  },
-  {
     "term": "Long-Horizon Video Agent",
     "occurrences": 5,
     "kinds": [
@@ -841,6 +793,16 @@
     ],
     "sourceSlugs": [
       "2026-04-09-4-mempalace-open-source-memory"
+    ]
+  },
+  {
+    "term": "MTP",
+    "occurrences": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-11-3-gemma4-mtp-reverse"
     ]
   },
   {
@@ -1215,6 +1177,18 @@
     ]
   },
   {
+    "term": "Opus",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-04-claude-opus-4-6",
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-11-2-qwen35-claude-opus-distill"
+    ]
+  },
+  {
     "term": "Priority",
     "occurrences": 4,
     "kinds": [
@@ -1233,6 +1207,18 @@
     "sourceSlugs": [
       "2026-03-12-1-sora2-prompting-guide",
       "2026-04-05-sora-2-prompting-guide"
+    ]
+  },
+  {
+    "term": "Qwen3.5",
+    "occurrences": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill"
     ]
   },
   {
@@ -1266,16 +1252,6 @@
     ]
   },
   {
-    "term": "Anthropic Academy",
-    "occurrences": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-10-1-anthropic-academy-free-courses"
-    ]
-  },
-  {
     "term": "Carlo Buchmann",
     "occurrences": 3,
     "kinds": [
@@ -1283,6 +1259,17 @@
     ],
     "sourceSlugs": [
       "2026-03-15-ads-decoded-episode-4-explores-how-to-fu"
+    ]
+  },
+  {
+    "term": "Claude API",
+    "occurrences": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceSlugs": [
+      "2026-04-10-1-anthropic-academy-free-courses",
+      "2026-04-11-1-anthropic-academy"
     ]
   },
   {
@@ -1335,17 +1322,6 @@
     ],
     "sourceSlugs": [
       "2025-08-03-1-openai-reasoning-best-practices"
-    ]
-  },
-  {
-    "term": "HuggingFace",
-    "occurrences": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-06-2-chinese-labs-pause-open-source",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
     ]
   },
   {
@@ -1422,17 +1398,6 @@
     ]
   },
   {
-    "term": "Opus",
-    "occurrences": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-04-claude-opus-4-6",
-      "2026-04-07-4-qwen35-claude-opus-distill"
-    ]
-  },
-  {
     "term": "Project Glasswing",
     "occurrences": 3,
     "kinds": [
@@ -1461,17 +1426,6 @@
     "sourceSlugs": [
       "2026-04-10-4-16gb-vram-local-llm-landscape",
       "2026-04-10-5-local-llm-mainstream-adoption"
-    ]
-  },
-  {
-    "term": "Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
-    "occurrences": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceSlugs": [
-      "2026-04-07-4-qwen35-claude-opus-distill",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled"
     ]
   },
   {
@@ -1884,6 +1838,16 @@
     ]
   },
   {
+    "term": "multi-token-prediction",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-11-3-gemma4-mtp-reverse"
+    ]
+  },
+  {
     "term": "music-generation",
     "occurrences": 1,
     "kinds": [
@@ -1911,6 +1875,16 @@
     ],
     "sourceSlugs": [
       "2026-04-07-i-technically-got-an-llm-running-locally"
+    ]
+  },
+  {
+    "term": "reverse-engineering",
+    "occurrences": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceSlugs": [
+      "2026-04-11-3-gemma4-mtp-reverse"
     ]
   },
   {

@@ -30,7 +30,7 @@ tags:
   - open-model
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://github.com/deepseek-ai/DeepSeek-R1"
       title: "deepseek-ai/DeepSeek-R1"

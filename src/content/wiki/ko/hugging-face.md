@@ -8,7 +8,7 @@ category: tool
 aliases:
   - "Hugging Face"
 relatedTerms:
-  - llm
+  - localllama
 firstMentioned: "2026-02-20"
 mentionCount: 3
 draft: false
@@ -17,7 +17,7 @@ tags:
   - community
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Hugging_Face"
       title: "Hugging Face"
@@ -62,4 +62,4 @@ factCheck:
 ## 왜 중요한가
 결국 이 용어를 알아두면 발표문에서 무엇이 달라졌는지 더 빠르게 구분할 수 있어. 결국 제품 판단과 구현 맥락에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [LLM](/ko/wiki/llm/) — 기본 언어 모델 개념을 같이 보면 맥락이 훨씬 빨리 잡힌다.
+- [LocalLLaMA](/ko/wiki/localllama/) — Hugging Face를 볼 때 비교 포인트는 제품 판단과 구현 맥락에서 어떤 도구를 붙여야 하는지다.

@@ -18,12 +18,12 @@ tags:
   - model-lab
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/OpenAI"
       title: "OpenAI"
     - url: "https://openai.com/"
-      title: "OpenAI"
+      title: "https://openai.com/"
   checks:
     - type: source_match
       result: pass
@@ -39,7 +39,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지야."
         - "같이 본 출처로는 OpenAI (https://en.wikipedia.org/wiki/OpenAI)"
-        - "같이 본 출처로는 OpenAI (https://openai.com/)"
+        - "같이 본 출처로는 https://openai.com/ (https://openai.com/)"
     - type: number_verify
       result: pass
       summary: "이 항목에서 이 이름이 개별 기능이 아니라 회사 전체 라인업과 전략 변화인지를 가를 때 필요한 숫자와 이름은 따로 검증해뒀어."

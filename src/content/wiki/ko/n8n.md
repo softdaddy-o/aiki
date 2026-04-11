@@ -10,8 +10,8 @@ aliases:
 relatedTerms:
   - agent
   - langchain
+  - agentic-ai
   - langgraph
-  - vibe-coding
 mentionCount: 0
 draft: false
 tags:
@@ -19,7 +19,7 @@ tags:
   - workflow
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/N8n"
       title: "N8n"
@@ -62,4 +62,4 @@ factCheck:
 ## 왜 중요한가
 에이전트나 자동화 제품이 실제 업무에 들어가려면 이런 흐름 관리가 관건이 돼. 결국 자동화와 에이전트 흐름에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [AI Agent](/ko/wiki/agent/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [LangChain](/ko/wiki/langchain/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [LangGraph](/ko/wiki/langgraph/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [Vibe Coding](/ko/wiki/vibe-coding/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼.
+- [AI Agent](/ko/wiki/agent/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [LangChain](/ko/wiki/langchain/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [Agentic AI](/ko/wiki/agentic-ai/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [LangGraph](/ko/wiki/langgraph/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼.

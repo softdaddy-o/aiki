@@ -11,7 +11,7 @@ relatedTerms:
   - mcp
   - openai-api
   - anthropic-api
-  - openrouter
+  - gemini-api
 firstMentioned: "2026-04-07"
 mentionCount: 1
 draft: false
@@ -20,7 +20,7 @@ tags:
   - api
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://platform.openai.com/docs/guides/function-calling"
       title: "Function calling | OpenAI API"
@@ -65,4 +65,4 @@ Function Calling은 LLM이 외부 함수, 도구, API를 선택해 구조화된 
 ## 왜 중요한가
 Function Calling을 이해하면 "AI가 실제 일을 한다"는 말이 마법이 아니라 API 호출 구조라는 점이 보여. 에이전트, 업무 자동화, 앱 통합을 읽을 때 필수인 기본 개념이야.
 ## 관련 용어
-- [MCP](/ko/wiki/mcp/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [OpenAI API](/ko/wiki/openai-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [Anthropic API](/ko/wiki/anthropic-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [OpenRouter](/ko/wiki/openrouter/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.
+- [MCP](/ko/wiki/mcp/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [OpenAI API](/ko/wiki/openai-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [Anthropic API](/ko/wiki/anthropic-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [Gemini API](/ko/wiki/gemini-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.

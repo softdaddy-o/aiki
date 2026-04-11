@@ -11,7 +11,7 @@ relatedTerms:
   - cursor
   - windsurf
   - claude-code
-  - copilot
+  - codex
 firstMentioned: "2026-03-07"
 mentionCount: 1
 draft: false
@@ -20,7 +20,7 @@ tags:
   - editor
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://github.com/continuedev/continue"
       title: "continuedev/continue"
@@ -65,4 +65,4 @@ factCheck:
 ## 왜 중요한가
 실제로는 모델 성능이 비슷할 때 생산성을 가르는 건 이런 도구와 워크플로인 경우가 많아. 결국 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [Cursor](/ko/wiki/cursor/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Windsurf](/ko/wiki/windsurf/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Claude Code](/ko/wiki/claude-code/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [GitHub Copilot](/ko/wiki/copilot/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다.
+- [Cursor](/ko/wiki/cursor/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Windsurf](/ko/wiki/windsurf/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Claude Code](/ko/wiki/claude-code/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Codex](/ko/wiki/codex/) — Continue를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다.

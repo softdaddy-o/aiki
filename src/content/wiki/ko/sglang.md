@@ -19,7 +19,7 @@ tags:
   - serving
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://github.com/sgl-project/sglang"
       title: "sgl-project/sglang"

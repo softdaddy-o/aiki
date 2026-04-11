@@ -18,10 +18,10 @@ modelProfile:
 aliases:
   - "Sora"
 relatedTerms:
+  - chatgpt
+  - codex
   - gpt-4o
   - o3
-  - o1
-  - dall-e
 firstMentioned: "2024-02-15"
 mentionCount: 3
 draft: false
@@ -30,7 +30,7 @@ tags:
   - openai
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)"
       title: "Sora (text-to-video model)"
@@ -77,4 +77,4 @@ Sora를 새 모델 하나라고 읽으면 자꾸 헷갈려. 이 이름은 OpenAI
 ## 왜 중요한가
 뉴스는 종종 버전명을 빼고 Sora 같은 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 OpenAI가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.
 ## 같이 보면 좋은 모델
-- [GPT-4o](/ko/wiki/gpt-4o/) — 비교 대상으로 자주 같이 묶이는 모델 - [o3](/ko/wiki/o3/) — 비교 대상으로 자주 같이 묶이는 모델 - [o1](/ko/wiki/o1/) — 비교 대상으로 자주 같이 묶이는 모델 - [DALL-E](/ko/wiki/dall-e/) — 비교 대상으로 자주 같이 묶이는 모델
+- [ChatGPT](/ko/wiki/chatgpt/) — 멀티모달 생성·해석 흐름을 같이 볼 때 좋아. - [Codex](/ko/wiki/codex/) — 멀티모달 생성·해석 흐름을 같이 볼 때 좋아. - [GPT-4o](/ko/wiki/gpt-4o/) — 비교 대상으로 자주 같이 묶이는 모델 - [o3](/ko/wiki/o3/) — 비교 대상으로 자주 같이 묶이는 모델

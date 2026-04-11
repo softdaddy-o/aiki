@@ -18,7 +18,7 @@ tags:
   - deployment
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Open_Neural_Network_Exchange"
       title: "Open Neural Network Exchange"

@@ -10,8 +10,8 @@ aliases:
 relatedTerms:
   - agent
   - langchain
+  - agentic-ai
   - diffusion
-  - langgraph
 mentionCount: 0
 draft: false
 tags:
@@ -19,7 +19,7 @@ tags:
   - workflow
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://docs.comfy.org/development/core-concepts/workflow"
       title: "Workflow - ComfyUI"

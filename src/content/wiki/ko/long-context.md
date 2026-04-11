@@ -19,7 +19,7 @@ tags:
   - memory
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
       title: "Context windows"

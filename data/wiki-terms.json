@@ -33,6 +33,14 @@
         ]
     },
     {
+        "term": "agentic-ai",
+        "title": "Agentic AI",
+        "category": "concept",
+        "aliases": [
+            "agentic ai"
+        ]
+    },
+    {
         "term": "api",
         "title": "API",
         "category": "concept",
@@ -49,11 +57,25 @@
         ]
     },
     {
+        "term": "chatgpt",
+        "title": "ChatGPT",
+        "category": "tool",
+        "aliases": []
+    },
+    {
         "term": "claude-code",
         "title": "Claude Code",
         "category": "tool",
         "aliases": [
             "claude code"
+        ]
+    },
+    {
+        "term": "codex",
+        "title": "Codex",
+        "category": "tool",
+        "aliases": [
+            "openai codex"
         ]
     },
     {
@@ -376,6 +398,25 @@
         "aliases": []
     },
     {
+        "term": "local-llm",
+        "title": "Local LLM",
+        "category": "concept",
+        "aliases": [
+            "local llm",
+            "local llms",
+            "로컬 llm"
+        ]
+    },
+    {
+        "term": "localllama",
+        "title": "LocalLLaMA",
+        "category": "tool",
+        "aliases": [
+            "r/localllama",
+            "local llama"
+        ]
+    },
+    {
         "term": "llama.cpp",
         "title": "llama.cpp",
         "category": "tool",
@@ -387,6 +428,12 @@
         "term": "gguf",
         "title": "GGUF",
         "category": "framework",
+        "aliases": []
+    },
+    {
+        "term": "openclaw",
+        "title": "OpenClaw",
+        "category": "tool",
         "aliases": []
     },
     {
@@ -542,6 +589,12 @@
     {
         "term": "anthropic-api",
         "title": "Anthropic API",
+        "category": "tool",
+        "aliases": []
+    },
+    {
+        "term": "gemini-api",
+        "title": "Gemini API",
         "category": "tool",
         "aliases": []
     },

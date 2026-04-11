@@ -17,7 +17,7 @@ tags:
   - benchmark
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://platform.openai.com/docs/guides/evals"
       title: "Working with evals | OpenAI API"

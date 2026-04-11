@@ -13,14 +13,14 @@ relatedTerms:
   - alignment
   - fine-tuning
 firstMentioned: "2026-03-23"
-mentionCount: 4
+mentionCount: 5
 draft: false
 tags:
   - training
   - efficiency
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Knowledge_distillation"
       title: "Knowledge distillation"

@@ -13,7 +13,7 @@ const SKIP_NODE_TYPES = new Set(['link', 'linkReference', 'code', 'inlineCode', 
 const ESCAPE_REGEX = /[.*+?^${}()|[\]\\]/g;
 const LINK_PATTERN = LOOKUP.length > 0
     ? new RegExp(
-        `(^|[^\\p{L}\\p{N}])(${LOOKUP.map((entry) => entry.label.replace(ESCAPE_REGEX, '\\$&')).join('|')})(?=$|[^\\p{L}\\p{N}])`,
+        `(^|[^\\p{L}\\p{N}])(${LOOKUP.map((entry) => entry.label.replace(ESCAPE_REGEX, '\\$&')).join('|')})(?=$|[^\\p{L}\\p{N}]|\\p{Script=Hangul})`,
         'giu',
     )
     : null;

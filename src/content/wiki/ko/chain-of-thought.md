@@ -13,14 +13,14 @@ relatedTerms:
   - o3
   - claude-opus
 firstMentioned: "2026-03-08"
-mentionCount: 4
+mentionCount: 5
 draft: false
 tags:
   - reasoning
   - prompting
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Prompt_engineering"
       title: "Prompt engineering"

@@ -30,7 +30,7 @@ tags:
   - open-model
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://ai.google.dev/gemma"
       title: "Gemma — Google DeepMind"

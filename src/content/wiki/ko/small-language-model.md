@@ -10,6 +10,7 @@ aliases:
 relatedTerms:
   - quantization
   - distillation
+  - local-llm
   - prompt-caching
 mentionCount: 0
 draft: false
@@ -18,7 +19,7 @@ tags:
   - on-device
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model"
       title: "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model"
@@ -63,4 +64,4 @@ factCheck:
 ## 왜 중요한가
 같은 모델 계열 안에서도 실사용 성능과 운영비 차이가 크게 나는 이유를 설명해 준다. 이 개념을 알고 있으면 화려한 발표 문구를 봐도 결국 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 더 빨리 읽을 수 있어.
 ## 관련 용어
-- [Quantization](/ko/wiki/quantization/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼. - [Distillation](/ko/wiki/distillation/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼. - [Prompt Caching](/ko/wiki/prompt-caching/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼.
+- [Quantization](/ko/wiki/quantization/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼. - [Distillation](/ko/wiki/distillation/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼. - [Local LLM](/ko/wiki/local-llm/) — Small Language Model를 볼 때 비교 포인트는 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지다. - [Prompt Caching](/ko/wiki/prompt-caching/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼.

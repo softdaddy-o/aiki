@@ -21,7 +21,7 @@ relatedTerms:
   - gemini
   - gemma
   - gemini-2.5
-  - imagen
+  - gemini-api
 firstMentioned: "2026-02-18"
 mentionCount: 1
 draft: false
@@ -30,7 +30,7 @@ tags:
   - google
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://deepmind.google/models/lyria/"
       title: "Lyria 3 — Google DeepMind"
@@ -76,4 +76,4 @@ Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방
 ## 왜 중요한가
 뉴스는 종종 버전명을 빼고 Lyria 같은 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 Google DeepMind가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.
 ## 같이 보면 좋은 모델
-- [Gemini](/ko/wiki/gemini/) — 비교 대상으로 자주 같이 묶이는 모델 - [Gemma](/ko/wiki/gemma/) — 비교 대상으로 자주 같이 묶이는 모델 - [Gemini 2.5](/ko/wiki/gemini-2.5/) — 비교 대상으로 자주 같이 묶이는 모델 - [Imagen](/ko/wiki/imagen/) — 비교 대상으로 자주 같이 묶이는 모델
+- [Gemini](/ko/wiki/gemini/) — 비교 대상으로 자주 같이 묶이는 모델 - [Gemma](/ko/wiki/gemma/) — 비교 대상으로 자주 같이 묶이는 모델 - [Gemini 2.5](/ko/wiki/gemini-2.5/) — 비교 대상으로 자주 같이 묶이는 모델 - [Gemini API](/ko/wiki/gemini-api/) — 멀티모달 생성·해석 흐름을 같이 볼 때 좋아.

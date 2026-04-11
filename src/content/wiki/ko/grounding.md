@@ -20,12 +20,12 @@ tags:
   - reliability
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
       title: "Grounding overview &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
     - url: "https://ai.google.dev/gemini-api/docs/google-search"
-      title: "Grounding con la Ricerca Google &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass

@@ -18,6 +18,7 @@ modelProfile:
 aliases:
   - "Grok"
 relatedTerms:
+  - chatgpt
   - claude
   - perplexity
 mentionCount: 0
@@ -27,7 +28,7 @@ tags:
   - assistant
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Grok_(chatbot)"
       title: "Grok (chatbot)"
@@ -74,4 +75,4 @@ Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방
 ## 왜 중요한가
 뉴스는 종종 버전명을 빼고 Grok 같은 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 xAI가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.
 ## 같이 보면 좋은 모델
-- [Claude](/ko/wiki/claude/) — 비교 대상으로 자주 같이 묶이는 모델 - [Perplexity](/ko/wiki/perplexity/) — 함께 보면 맥락이 더 빨리 잡힌다.
+- [ChatGPT](/ko/wiki/chatgpt/) — 함께 보면 맥락이 더 빨리 잡힌다. - [Claude](/ko/wiki/claude/) — 비교 대상으로 자주 같이 묶이는 모델 - [Perplexity](/ko/wiki/perplexity/) — 함께 보면 맥락이 더 빨리 잡힌다.

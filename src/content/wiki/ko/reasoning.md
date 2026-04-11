@@ -10,14 +10,14 @@ aliases:
 relatedTerms:
   - llm
 firstMentioned: "2025-01-20"
-mentionCount: 24
+mentionCount: 25
 draft: false
 tags:
   - thinking
   - planning
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://platform.openai.com/docs/guides/reasoning-best-practices"
       title: "Reasoning best practices | OpenAI API"

@@ -11,7 +11,7 @@ relatedTerms:
   - llama.cpp
   - vllm
   - gguf
-  - lm-studio
+  - local-llm
 firstMentioned: "2026-04-07"
 mentionCount: 3
 draft: false
@@ -20,7 +20,7 @@ tags:
   - inference
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://docs.ollama.com/api/introduction"
       title: "Introduction - Ollama"

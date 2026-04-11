@@ -19,7 +19,7 @@ tags:
   - safety
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
       title: "Hallucination (artificial intelligence)"

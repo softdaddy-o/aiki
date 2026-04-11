@@ -27,7 +27,7 @@ tags:
   - small-language-model
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Phi_(language_model)"
       title: "Phi (language model)"

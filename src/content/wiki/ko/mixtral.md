@@ -27,7 +27,7 @@ tags:
   - moe
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://mistral.ai/news/mixtral-of-experts"
       title: "Mixtral of experts | Mistral AI"

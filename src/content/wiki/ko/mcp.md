@@ -10,14 +10,14 @@ aliases:
 relatedTerms:
   - function-calling
 firstMentioned: "2026-04-01"
-mentionCount: 2
+mentionCount: 3
 draft: false
 tags:
   - protocol
   - tool-use
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://modelcontextprotocol.io/introduction"
       title: "What is the Model Context Protocol (MCP)? - Model Context Protocol"

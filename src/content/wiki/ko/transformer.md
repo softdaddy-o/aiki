@@ -18,7 +18,7 @@ tags:
   - attention
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Transformer_(deep_learning)"
       title: "Transformer (deep learning)"

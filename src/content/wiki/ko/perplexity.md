@@ -8,6 +8,7 @@ category: tool
 aliases:
   - "Perplexity"
 relatedTerms:
+  - chatgpt
   - claude
   - vector-db
   - grok
@@ -19,7 +20,7 @@ tags:
   - assistant
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Perplexity_AI"
       title: "Perplexity AI"
@@ -64,4 +65,4 @@ factCheck:
 ## 왜 중요한가
 사내 문서 Q&A, 고객지원, 최신 정보 응답처럼 "모델이 원래 모르던 것"을 다뤄야 하는 서비스에서 바로 체감돼. 결국 검색과 외부 지식 연결에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [Claude](/ko/wiki/claude/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다. - [Vector Database](/ko/wiki/vector-db/) — Perplexity를 볼 때 비교 포인트는 검색과 외부 지식 연결에서 어떤 도구를 붙여야 하는지다. - [Grok](/ko/wiki/grok/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.
+- [ChatGPT](/ko/wiki/chatgpt/) — Perplexity를 볼 때 비교 포인트는 검색과 외부 지식 연결에서 어떤 도구를 붙여야 하는지다. - [Claude](/ko/wiki/claude/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다. - [Vector Database](/ko/wiki/vector-db/) — Perplexity를 볼 때 비교 포인트는 검색과 외부 지식 연결에서 어떤 도구를 붙여야 하는지다. - [Grok](/ko/wiki/grok/) — 검색과 외부지식 연결 맥락을 같이 잡아 준다.

@@ -19,7 +19,7 @@ tags:
   - inference
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://github.com/triton-inference-server/server"
       title: "triton-inference-server/server"

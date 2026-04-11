@@ -10,6 +10,7 @@ aliases:
 relatedTerms:
   - llama.cpp
   - ollama
+  - local-llm
   - lm-studio
 firstMentioned: "2026-03-03"
 mentionCount: 3
@@ -19,7 +20,7 @@ tags:
   - model-format
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://github.com/ggerganov/llama.cpp/blob/master/gguf-py/README.md"
       title: "llama.cpp/gguf-py/README.md at master · ggml-org/llama.cpp"
@@ -64,4 +65,4 @@ factCheck:
 ## 왜 중요한가
 비용, 지연 시간, 데이터 통제권을 직접 잡고 싶을 때 핵심이 되는 축이야. 결국 오픈 모델과 로컬 배포 흐름을 어떤 구조로 묶어야 하는지를 어느 구조 문제로 볼지 알아야 도입 판단이 쉬워져.
 ## 관련 용어
-- [llama.cpp](/ko/wiki/llama.cpp/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Ollama](/ko/wiki/ollama/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [LM Studio](/ko/wiki/lm-studio/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [llama.cpp](/ko/wiki/llama.cpp/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Ollama](/ko/wiki/ollama/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Local LLM](/ko/wiki/local-llm/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [LM Studio](/ko/wiki/lm-studio/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.

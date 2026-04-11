@@ -11,14 +11,14 @@ relatedTerms:
   - openai
   - google-deepmind
 firstMentioned: "2026-02-18"
-mentionCount: 21
+mentionCount: 23
 draft: false
 tags:
   - company
   - model-lab
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Anthropic"
       title: "Anthropic"

@@ -11,6 +11,7 @@ relatedTerms:
   - llama.cpp
   - ollama
   - gguf
+  - local-llm
 firstMentioned: "2026-04-03"
 mentionCount: 1
 draft: false
@@ -19,7 +20,7 @@ tags:
   - desktop
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://lmstudio.ai/"
       title: "LM Studio - Local AI on your computer"
@@ -64,4 +65,4 @@ factCheck:
 ## 왜 중요한가
 비용, 지연 시간, 데이터 통제권을 직접 잡고 싶을 때 핵심이 되는 축이야. 결국 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [llama.cpp](/ko/wiki/llama.cpp/) — LM Studio를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다. - [Ollama](/ko/wiki/ollama/) — LM Studio를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다. - [GGUF](/ko/wiki/gguf/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [llama.cpp](/ko/wiki/llama.cpp/) — LM Studio를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다. - [Ollama](/ko/wiki/ollama/) — LM Studio를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다. - [GGUF](/ko/wiki/gguf/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Local LLM](/ko/wiki/local-llm/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.

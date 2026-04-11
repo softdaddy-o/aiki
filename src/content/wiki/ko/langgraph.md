@@ -9,9 +9,9 @@ aliases:
   - "LangGraph"
 relatedTerms:
   - langchain
+  - agentic-ai
   - crewai
   - agent
-  - tool-use
 mentionCount: 0
 draft: false
 tags:
@@ -19,7 +19,7 @@ tags:
   - workflow
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://github.com/langchain-ai/langgraph"
       title: "langchain-ai/langgraph"
@@ -64,4 +64,4 @@ factCheck:
 ## 왜 중요한가
 에이전트나 자동화 제품이 실제 업무에 들어가려면 이런 흐름 관리가 관건이 돼. 결국 자동화와 에이전트 흐름을 어떤 구조로 묶어야 하는지를 어느 구조 문제로 볼지 알아야 도입 판단이 쉬워져.
 ## 관련 용어
-- [LangChain](/ko/wiki/langchain/) — LangGraph를 볼 때 비교 포인트는 자동화와 에이전트 흐름을 어떤 구조로 묶어야 하는지다. - [CrewAI](/ko/wiki/crewai/) — LangGraph를 볼 때 비교 포인트는 자동화와 에이전트 흐름을 어떤 구조로 묶어야 하는지다. - [AI Agent](/ko/wiki/agent/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [Tool Use](/ko/wiki/tool-use/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼.
+- [LangChain](/ko/wiki/langchain/) — LangGraph를 볼 때 비교 포인트는 자동화와 에이전트 흐름을 어떤 구조로 묶어야 하는지다. - [Agentic AI](/ko/wiki/agentic-ai/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼. - [CrewAI](/ko/wiki/crewai/) — LangGraph를 볼 때 비교 포인트는 자동화와 에이전트 흐름을 어떤 구조로 묶어야 하는지다. - [AI Agent](/ko/wiki/agent/) — 자동화와 워크플로 설계를 같이 볼 때 도움이 돼.

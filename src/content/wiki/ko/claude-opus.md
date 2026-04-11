@@ -31,7 +31,7 @@ tags:
   - reasoning
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://www.anthropic.com/claude/opus"
       title: "Claude Opus 4.6"

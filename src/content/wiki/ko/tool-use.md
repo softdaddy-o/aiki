@@ -10,8 +10,8 @@ aliases:
 relatedTerms:
   - langchain
   - llamaindex
+  - agentic-ai
   - langgraph
-  - autogen
 firstMentioned: "2026-02-27"
 mentionCount: 1
 draft: false
@@ -20,7 +20,7 @@ tags:
   - function-calling
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
       title: "Tool use with Claude"
@@ -65,4 +65,4 @@ Tool Use는 LLM이 텍스트 생성만 하지 않고 외부 도구를 불러 결
 ## 왜 중요한가
 에이전트가 단순 챗봇을 넘어서려면 결국 도구를 써야 해. Tool Use를 이해하면 "모델 성능"과 "실행 가능한 시스템"을 분리해서 읽을 수 있어.
 ## 관련 용어
-- [LangChain](/ko/wiki/langchain/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [LlamaIndex](/ko/wiki/llamaindex/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [LangGraph](/ko/wiki/langgraph/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [AutoGen](/ko/wiki/autogen/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.
+- [LangChain](/ko/wiki/langchain/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [LlamaIndex](/ko/wiki/llamaindex/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [Agentic AI](/ko/wiki/agentic-ai/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [LangGraph](/ko/wiki/langgraph/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.

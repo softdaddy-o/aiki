@@ -20,12 +20,12 @@ tags:
   - runtime
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Statistical_inference"
       title: "Statistical inference"
     - url: "https://developers.google.com/machine-learning/glossary#inference"
-      title: "Machine Learning Glossary &nbsp;|&nbsp; Google for Developers"
+      title: "واژه نامه یادگیری ماشین، واژه نامه یادگیری ماشین &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
   checks:
     - type: source_match
       result: pass
@@ -41,7 +41,7 @@ factCheck:
       items:
         - "여기서 먼저 갈라 볼 기준은 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
         - "같이 본 출처로는 Statistical inference (https://en.wikipedia.org/wiki/Statistical_inference)"
-        - "같이 본 출처로는 Machine Learning Glossary &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
+        - "같이 본 출처로는 واژه نامه یادگیری ماشین، واژه نامه یادگیری ماشین &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers (https://developers.google.com/machine-learning/glossary#inference)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 모델 서빙과 추론 성능를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."

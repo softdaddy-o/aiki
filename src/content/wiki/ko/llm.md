@@ -10,14 +10,14 @@ aliases:
 relatedTerms:
   - token
 firstMentioned: "2025-08-03"
-mentionCount: 46
+mentionCount: 47
 draft: false
 tags:
   - language-model
   - foundation-model
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/Large_language_model"
       title: "Large language model"

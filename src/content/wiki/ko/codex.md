@@ -1,38 +1,39 @@
 ---
-term: cursor
-title: "Cursor"
+term: codex
+title: "Codex"
 lang: ko
 summary: "개발 생산성과 코딩 워크플로 작업에 자주 쓰이는 AI 도구야. 결국 많이 갈리는 판단 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지이야."
 readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
 category: tool
 aliases:
-  - "Cursor"
+  - "openai codex"
 relatedTerms:
-  - windsurf
-  - continue
   - claude-code
-  - codex
-firstMentioned: "2026-03-20"
+  - copilot
+  - chatgpt
+  - cursor
+firstMentioned: "2026-04-03"
 mentionCount: 3
 draft: false
 tags:
+  - openai
   - coding-agent
-  - editor
+  - developer-tools
 factCheck:
   status: passed
   date: "2026-04-11"
   sources:
-    - url: "https://www.cursor.com/"
-      title: "The best way to code with AI"
-    - url: "https://docs.cursor.com/"
-      title: "https://docs.cursor.com/"
+    - url: "https://openai.com/index/codex-flexible-pricing-for-teams/"
+      title: "Codex now offers pay-as-you-go pricing for teams"
+    - url: "https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/"
+      title: "Codex Prompting Guide"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
       items:
         - "독자가 먼저 갈라 봐야 할 건 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지야."
-        - "이름을 다시 보면 Cursor로 잡혀."
+        - "이름을 다시 보면 Codex로 잡혀."
         - "분류를 다시 보면 도구로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
@@ -40,14 +41,14 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
       items:
         - "여기서 먼저 갈라 볼 기준은 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지야."
-        - "같이 본 출처로는 The best way to code with AI (https://www.cursor.com/)"
-        - "같이 본 출처로는 https://docs.cursor.com/ (https://docs.cursor.com/)"
+        - "같이 본 출처로는 Codex now offers pay-as-you-go pricing for teams (https://openai.com/index/codex-flexible-pricing-for-teams/)"
+        - "같이 본 출처로는 Codex Prompting Guide (https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/)"
     - type: number_verify
       result: pass
       summary: "숫자가 적은 항목이라도 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."
       items:
         - "숫자보다 먼저 갈라 볼 기준은 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지야."
-        - "이름부터 다시 보면 Cursor로 고정돼."
+        - "이름부터 다시 보면 Codex로 고정돼."
         - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
     - type: adversarial
       result: pass
@@ -65,4 +66,4 @@ factCheck:
 ## 왜 중요한가
 실제로는 모델 성능이 비슷할 때 생산성을 가르는 건 이런 도구와 워크플로인 경우가 많아. 결국 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [Windsurf](/ko/wiki/windsurf/) — Cursor를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Continue](/ko/wiki/continue/) — Cursor를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Claude Code](/ko/wiki/claude-code/) — Cursor를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Codex](/ko/wiki/codex/) — Cursor를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다.
+- [Claude Code](/ko/wiki/claude-code/) — Codex를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [GitHub Copilot](/ko/wiki/copilot/) — Codex를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [ChatGPT](/ko/wiki/chatgpt/) — Codex를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다. - [Cursor](/ko/wiki/cursor/) — Codex를 볼 때 비교 포인트는 개발 생산성과 코딩 워크플로에서 어떤 도구를 붙여야 하는지다.

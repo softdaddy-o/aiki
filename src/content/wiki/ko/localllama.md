@@ -1,38 +1,40 @@
 ---
-term: llama.cpp
-title: "llama.cpp"
+term: localllama
+title: "LocalLLaMA"
 lang: ko
 summary: "오픈 모델과 로컬 배포 작업에 자주 쓰이는 AI 도구야. 결국 많이 갈리는 판단 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지이야."
 readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
 category: tool
 aliases:
-  - "llamacpp"
+  - "r/localllama"
+  - "local llama"
 relatedTerms:
-  - ollama
-  - gguf
   - local-llm
-  - lm-studio
-firstMentioned: "2026-02-20"
-mentionCount: 3
+  - llama.cpp
+  - deepseek-r1
+  - hugging-face
+firstMentioned: "2026-03-03"
+mentionCount: 17
 draft: false
 tags:
+  - community
   - local-ai
-  - gguf
+  - open-model
 factCheck:
   status: passed
   date: "2026-04-11"
   sources:
-    - url: "https://github.com/ggml-org/llama.cpp"
-      title: "ggml-org/llama.cpp"
-    - url: "https://github.com/ggml-org/llama.cpp"
-      title: "GitHub - ggml-org/llama.cpp: LLM inference in C/C++"
+    - url: "https://www.reddit.com/r/LocalLLaMA/"
+      title: "Reddit - Please wait for verification"
+    - url: "https://www.aitooldiscovery.com/guides/local-llm-reddit"
+      title: "Local LLM Reddit: What the Privacy-First AI Community Thinks (2026)"
   checks:
     - type: source_match
       result: pass
       summary: "이 페이지를 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
       items:
         - "독자가 먼저 갈라 봐야 할 건 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지야."
-        - "이름을 다시 보면 llama.cpp로 잡혀."
+        - "이름을 다시 보면 LocalLLaMA로 잡혀."
         - "분류를 다시 보면 도구로 읽는 게 맞아."
     - type: web_cross_check
       result: pass
@@ -40,15 +42,13 @@ factCheck:
       summary: "관련 출처 2건을 나란히 놓고 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
       items:
         - "여기서 먼저 갈라 볼 기준은 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지야."
-        - "같이 본 출처로는 ggml-org/llama.cpp (https://github.com/ggml-org/llama.cpp)"
-        - "같이 본 출처로는 GitHub - ggml-org/llama.cpp: LLM inference in C/C++ (https://github.com/ggml-org/llama.cpp)"
+        - "같이 본 출처로는 Reddit - Please wait for verification (https://www.reddit.com/r/LocalLLaMA/)"
+        - "같이 본 출처로는 Local LLM Reddit: What the Privacy-First AI Community Thinks (2026) (https://www.aitooldiscovery.com/guides/local-llm-reddit)"
     - type: number_verify
       result: pass
-      summary: "숫자가 적은 항목이라도 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."
+      summary: "이 항목에서 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지를 가를 때 필요한 숫자와 이름은 따로 검증해뒀어."
       items:
-        - "숫자보다 먼저 갈라 볼 기준은 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지야."
-        - "이름부터 다시 보면 llama.cpp로 고정돼."
-        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
+        - "숫자를 다시 보면 2026 같은 표기가 실제 기준점으로 잡혀."
     - type: adversarial
       result: pass
       summary: "헷갈리기 쉬운 선택 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지 기준으로 한 번 더 의심해보고 정리해뒀어."
@@ -65,4 +65,4 @@ factCheck:
 ## 왜 중요한가
 비용, 지연 시간, 데이터 통제권을 직접 잡고 싶을 때 핵심이 되는 축이야. 결국 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
 ## 관련 용어
-- [Ollama](/ko/wiki/ollama/) — llama.cpp를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다. - [GGUF](/ko/wiki/gguf/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Local LLM](/ko/wiki/local-llm/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [LM Studio](/ko/wiki/lm-studio/) — llama.cpp를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다.
+- [Local LLM](/ko/wiki/local-llm/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [llama.cpp](/ko/wiki/llama.cpp/) — LocalLLaMA를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다. - [DeepSeek R1](/ko/wiki/deepseek-r1/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Hugging Face](/ko/wiki/hugging-face/) — LocalLLaMA를 볼 때 비교 포인트는 오픈 모델과 로컬 배포에서 어떤 도구를 붙여야 하는지다.

@@ -10,14 +10,14 @@ aliases:
 relatedTerms:
   - llm
 firstMentioned: "2025-01-20"
-mentionCount: 21
+mentionCount: 23
 draft: false
 tags:
   - integration
   - infrastructure
 factCheck:
   status: passed
-  date: "2026-04-10"
+  date: "2026-04-11"
   sources:
     - url: "https://en.wikipedia.org/wiki/API"
       title: "API"
