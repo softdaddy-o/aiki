@@ -89,27 +89,18 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         transform: translateY(0);
     }
     .dot {
-        width: 12px;
-        height: 12px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         border: 2px solid var(--color-bg);
         flex-shrink: 0;
-        margin-left: 6px;
-        margin-top: 18px;
+        margin-left: 8px;
+        margin-top: 20px;
         position: relative;
         z-index: 2;
-        box-shadow: 0 0 8px currentColor;
-        transition: transform 0.2s ease;
-    }
-    .timeline-item:hover .dot {
-        transform: scale(1.4);
     }
     .connector {
-        width: 16px;
-        height: 2px;
-        opacity: 0.7;
-        flex-shrink: 0;
-        margin-top: 23px;
+        display: none;
     }
     .card {
         display: grid;
@@ -129,12 +120,18 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         border-bottom: 1px solid var(--color-border);
         text-align: left;
         transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     }
     .card:hover {
         background: var(--color-surface-alt);
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    html.dark .card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+    html.dark .card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
     }
     .card-media {
         position: relative;
@@ -161,7 +158,7 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         gap: 8px;
     }
     .badge {
-        color: #000;
+        color: #fff;
         padding: 3px 10px;
         border-radius: 4px;
         font-size: 11px;
@@ -199,8 +196,8 @@ const thumbSrc = fs.existsSync(externalThumbPath)
     .featured .card {
         grid-template-columns: 204px minmax(0, 1fr);
         background: var(--color-surface-elevated);
-        border-color: rgba(79, 195, 247, 0.3);
-        box-shadow: 0 4px 16px rgba(79, 195, 247, 0.1), 0 2px 8px rgba(0, 0, 0, 0.3);
+        border-color: var(--color-news);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
     .featured .card-title {
         font-size: 22px;
@@ -210,8 +207,7 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         font-size: 14px;
     }
     .featured .dot {
-        transform: scale(1.35);
-        box-shadow: 0 0 16px currentColor;
+        transform: scale(1.25);
     }
     @media (max-width: 640px) {
         .card {

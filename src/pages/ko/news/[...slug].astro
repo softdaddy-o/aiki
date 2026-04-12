@@ -51,11 +51,6 @@ const shareUrl = Astro.url.href;
         <div class="article-cover">
             <img src={ogImage} alt={entry.data.title} loading="eager" decoding="async" />
         </div>
-        <SocialShare
-            title={entry.data.title}
-            text={entry.data.summary}
-            url={shareUrl}
-        />
         <div class="article-body prose">
             <Content />
         </div>
@@ -66,6 +61,11 @@ const shareUrl = Astro.url.href;
                 ))}
             </div>
         )}
+        <SocialShare
+            title={entry.data.title}
+            text={entry.data.summary}
+            url={shareUrl}
+        />
         {fc && (
             <FactCheck
                 status={fc.status}

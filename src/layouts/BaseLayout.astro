@@ -100,19 +100,6 @@ const navItems = lang === 'en'
             ))}
         </div>
         <Search />
-        <a
-            href="https://www.threads.net/@softdaddy_o"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="threads-link"
-            aria-label="Soft Daddy Threads"
-        >
-            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
-                <path d="M17.05 11.05c-.23-3.37-2.29-5.24-5.65-5.24-3.6 0-5.9 2.32-5.9 5.95 0 3.79 2.39 6.43 6.18 6.43 3.03 0 5.09-1.53 5.69-4.2.21-.93.13-1.77-.22-2.48.66-.38 1.31-.59 1.96-.59 1.23 0 2.05.74 2.05 1.88 0 2.37-2.38 4.61-6.14 4.61-4.71 0-7.93-3.11-7.93-7.56 0-4.17 3.01-7.1 7.34-7.1 3.96 0 6.78 2.31 7.12 6.12.1 1.08-.16 1.83-.5 2.37-.33-1.74-1.65-2.79-3.53-2.79-2.32 0-3.99 1.61-3.99 3.79 0 2.2 1.66 3.69 3.97 3.69 1.35 0 2.35-.47 3.01-1.38.63.81 1.53 1.26 2.62 1.26 1.87 0 3.25-1.34 3.25-3.26 0-2.53-1.8-4.11-4.53-4.11-.81 0-1.6.14-2.4.41Zm-2.47 2.01c0-1.15.83-1.98 2.01-1.98 1.14 0 1.93.79 1.93 1.96 0 1.16-.8 1.97-1.95 1.97-1.14 0-1.99-.84-1.99-1.95Z" fill="currentColor"></path>
-            </svg>
-            <span class="threads-handle">@softdaddy_o</span>
-            <span class="sr-only">Threads</span>
-        </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
             <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -124,6 +111,18 @@ const navItems = lang === 'en'
     </main>
     <footer class="site-footer">
         <p>AIKI — AI-curated, human-verified.</p>
+        <a
+            href="https://www.threads.net/@softdaddy_o"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-threads"
+            aria-label="Soft Daddy on Threads"
+        >
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" focusable="false">
+                <path d="M12.186 24h-.007C5.965 24 2.634 20.07 2.634 15.079c0-5.265 3.601-8.885 8.913-8.885 4.715 0 7.746 2.865 8.037 7.601l-2.46.226c-.2-3.478-2.149-5.46-5.577-5.46-3.752 0-6.14 2.697-6.14 6.465 0 3.797 2.276 6.6 6.4 6.6 2.368 0 4.107-1.006 5.03-2.91l-.004.007c.548-1.131.587-2.19.106-3.065a3.182 3.182 0 00-.12-.19c-.567.244-1.185.413-1.842.498a5.847 5.847 0 01-.692.044c-3.042 0-5.256-2.06-5.256-4.893 0-2.833 2.214-4.893 5.256-4.893 2.794 0 4.794 1.81 5.147 4.51.116.882-.023 1.76-.474 2.477-.358-.037-.71-.092-1.053-.166-.41-.088-.803-.205-1.176-.348.06-.22.088-.45.077-.686-.126-1.46-1.14-2.53-2.938-2.53-1.785 0-3.065 1.283-3.065 3.06 0 1.778 1.28 3.06 3.065 3.06.94 0 1.74-.357 2.317-1.01.006.002.012.003.017.006.58.81 1.467 1.293 2.522 1.293 1.598 0 2.817-1.09 3.16-2.684.338-1.566-.104-3.337-1.401-4.9C18.18 5.696 15.566 3.83 12.186 3.83 7.768 3.83.984 7.46.984 15.08.984 21.218 5.104 24 12.186 24z"/>
+            </svg>
+            @softdaddy_o
+        </a>
     </footer>
     <nav class="bottom-nav" aria-label="Mobile navigation">
         <a href={`/${lang}/`} class="bottom-tab" data-path={`/${lang}/`}>
@@ -134,10 +133,10 @@ const navItems = lang === 'en'
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             <span>위키</span>
         </a>
-        <a href={otherPath} class="bottom-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <span>{otherLang.toUpperCase()}</span>
-        </a>
+        <button class="bottom-tab" id="mobile-search-toggle" aria-label="검색">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>검색</span>
+        </button>
     </nav>
     <script is:inline>
         document.querySelector('.nav-toggle')?.addEventListener('click', () => {
@@ -149,6 +148,14 @@ const navItems = lang === 'en'
             const tabPath = tab.getAttribute('data-path');
             if (tabPath && path === tabPath) {
                 tab.classList.add('active');
+            }
+        });
+        // Mobile search toggle — focus the pagefind input
+        document.getElementById('mobile-search-toggle')?.addEventListener('click', function() {
+            var searchInput = document.querySelector('.pagefind-ui__search-input');
+            if (searchInput) {
+                searchInput.focus();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
         // Theme toggle
@@ -290,30 +297,6 @@ const navItems = lang === 'en'
     }
     html.dark .site-logo {
         text-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
-    }
-    .threads-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        color: var(--color-text-muted);
-        padding: 4px 0;
-        transition: color 0.2s ease, border-color 0.2s ease;
-        flex-shrink: 0;
-    }
-    .threads-link svg {
-        width: 18px;
-        height: 18px;
-        color: #4e4fd8;
-        display: block;
-    }
-    .threads-handle {
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-    }
-    .threads-link:hover {
-        color: var(--color-text);
     }
     .nav-links { display: flex; gap: 16px; flex: 1; }
     .nav-links a {
@@ -461,8 +444,22 @@ const navItems = lang === 'en'
         color: var(--color-text-muted);
         font-size: 13px;
         border-top: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
     .site-footer a { color: var(--color-text-muted); }
+    .footer-threads {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: var(--color-text-muted);
+        font-size: 13px;
+        transition: color 0.15s ease;
+    }
+    .footer-threads:hover { color: var(--color-text); }
     /* Bottom tab bar — mobile only */
     .bottom-nav { display: none; }
     @media (max-width: 640px) {
