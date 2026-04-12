@@ -22,6 +22,7 @@ const encodedText = encodeURIComponent(shareText);
 const shareLinks = [
     {
         name: 'X',
+        label: 'Post',
         href: `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
         brand: '#000',
@@ -29,6 +30,7 @@ const shareLinks = [
     },
     {
         name: 'Threads',
+        label: 'Threads',
         href: `https://www.threads.net/intent/post?text=${encodedText}%20${encodedUrl}`,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007C5.965 24 2.634 20.07 2.634 15.079c0-5.265 3.601-8.885 8.913-8.885 4.715 0 7.746 2.865 8.037 7.601l-2.46.226c-.2-3.478-2.149-5.46-5.577-5.46-3.752 0-6.14 2.697-6.14 6.465 0 3.797 2.276 6.6 6.4 6.6 2.368 0 4.107-1.006 5.03-2.91l-.004.007c.548-1.131.587-2.19.106-3.065a3.182 3.182 0 00-.12-.19c-.567.244-1.185.413-1.842.498a5.847 5.847 0 01-.692.044c-3.042 0-5.256-2.06-5.256-4.893 0-2.833 2.214-4.893 5.256-4.893 2.794 0 4.794 1.81 5.147 4.51.116.882-.023 1.76-.474 2.477-.358-.037-.71-.092-1.053-.166-.41-.088-.803-.205-1.176-.348.06-.22.088-.45.077-.686-.126-1.46-1.14-2.53-2.938-2.53-1.785 0-3.065 1.283-3.065 3.06 0 1.778 1.28 3.06 3.065 3.06.94 0 1.74-.357 2.317-1.01.006.002.012.003.017.006.58.81 1.467 1.293 2.522 1.293 1.598 0 2.817-1.09 3.16-2.684.338-1.566-.104-3.337-1.401-4.9C18.18 5.696 15.566 3.83 12.186 3.83 7.768 3.83.984 7.46.984 15.08.984 21.218 5.104 24 12.186 24z"/></svg>`,
         brand: '#000',
@@ -36,6 +38,7 @@ const shareLinks = [
     },
     {
         name: 'Facebook',
+        label: 'Share',
         href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
         brand: '#1877F2',
@@ -43,6 +46,7 @@ const shareLinks = [
     },
     {
         name: 'LinkedIn',
+        label: 'Share',
         href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
         brand: '#0A66C2',
@@ -50,6 +54,7 @@ const shareLinks = [
     },
     {
         name: 'Reddit',
+        label: 'Reddit',
         href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm6.066 13.5c.037.21.058.424.058.642 0 3.282-3.823 5.942-8.539 5.942S1.047 17.424 1.047 14.142c0-.218.02-.432.058-.642a1.693 1.693 0 01-.63-1.317c0-.938.76-1.698 1.698-1.698.472 0 .898.193 1.206.504 1.187-.813 2.824-1.336 4.678-1.394l.883-4.154a.377.377 0 01.45-.292l2.934.622a1.198 1.198 0 012.195.659 1.198 1.198 0 01-2.394.042l-2.622-.556-.79 3.714c1.835.07 3.45.595 4.623 1.4.308-.31.734-.504 1.206-.504a1.698 1.698 0 011.068 3.016zM8.27 13.8c0 .66.535 1.198 1.198 1.198.66 0 1.198-.535 1.198-1.198 0-.66-.535-1.198-1.198-1.198-.663 0-1.198.535-1.198 1.198zm7.46 3.393c-.077.077-1.007.863-3.724.863s-3.647-.79-3.724-.863a.377.377 0 01.534-.534c.02.02.877.66 3.19.66 2.316 0 3.174-.644 3.19-.66a.377.377 0 01.534.534zm-.263-2.195c.66 0 1.198-.535 1.198-1.198 0-.66-.535-1.198-1.198-1.198-.663 0-1.198.535-1.198 1.198 0 .66.535 1.198 1.198 1.198z"/></svg>`,
         brand: '#FF4500',
@@ -57,6 +62,7 @@ const shareLinks = [
     },
     {
         name: 'Bluesky',
+        label: 'Bluesky',
         href: `https://bsky.app/intent/compose?text=${encodedText}%20${encodedUrl}`,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.643 3.593 3.516 6.204 3.27-3.703.574-6.441 2.27-3.965 6.771 2.904 4.86 6.137-.566 7.137-3.088.137-.345.233-.667.285-.905.052.238.148.56.285.905 1 2.522 4.233 7.948 7.137 3.088 2.476-4.5-.262-6.197-3.965-6.771 2.611.246 5.42-.627 6.204-3.27.246-.828.624-5.79.624-6.479 0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.621-4.3 1.24C12.046 4.747 9.087 8.686 12 10.8z"/></svg>`,
         brand: '#0085FF',
@@ -70,13 +76,14 @@ const shareLinks = [
         <div class="social-share-links" role="list">
             {shareLinks.map((item) => (
                 <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer"
-                    aria-label={`${item.name}에 공유`} title={item.name}
-                    class={`share-btn share-${item.name.toLowerCase()}`}
+                    aria-label={`${item.name}에 공유`}
+                    class={`share-pill share-${item.name.toLowerCase()}`}
                     style={`--brand: ${item.brand}; --brand-dark: ${item.darkBrand};`}
                     data-umami-event="share"
                     data-umami-event-platform={item.name}
                     data-umami-event-url={url}>
                     <Fragment set:html={item.icon} />
+                    <span>{item.label}</span>
                 </a>
             ))}
         </div>
@@ -91,31 +98,46 @@ const shareLinks = [
     }
     .social-share-links {
         display: flex;
-        gap: 2px;
+        flex-wrap: wrap;
+        gap: 8px;
     }
-    .share-btn {
-        display: flex;
+    .share-pill {
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
+        gap: 6px;
+        height: 36px;
+        padding: 0 14px;
+        border-radius: 9999px;
+        border: 1px solid var(--color-border-strong);
+        background: transparent;
         color: var(--color-text-muted);
+        font-size: 13px;
+        font-weight: 500;
         text-decoration: none;
         cursor: pointer;
-        transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .share-btn svg {
-        width: 18px;
-        height: 18px;
+    .share-pill svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
     }
-    .share-btn:hover {
-        color: var(--brand);
-        background: color-mix(in srgb, var(--brand) 8%, transparent);
-        transform: translateY(-2px);
+    .share-pill:hover {
+        border-color: transparent;
+        color: #fff;
+        background: var(--brand);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--brand) 25%, transparent);
     }
-    html.dark .share-btn:hover {
-        color: var(--brand-dark);
-        background: color-mix(in srgb, var(--brand-dark) 12%, transparent);
+    html.dark .share-pill:hover {
+        background: var(--brand-dark);
+        color: #000;
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--brand-dark) 20%, transparent);
+    }
+    /* X/Threads dark hover: dark bg, white text */
+    html.dark .share-x:hover,
+    html.dark .share-threads:hover {
+        background: var(--brand-dark);
+        color: #000;
     }
 </style>

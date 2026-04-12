@@ -396,18 +396,17 @@ const navItems = lang === 'en'
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
         color: var(--color-text-muted);
         text-decoration: none;
         flex-shrink: 0;
-        transition: color 0.15s ease, background 0.15s ease, transform 0.2s ease;
+        transition: color 0.15s ease, background 0.15s ease;
     }
     .nav-social:hover {
         color: var(--color-text);
         background: color-mix(in srgb, var(--color-text) 6%, transparent);
-        transform: rotate(6deg);
     }
     main { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
     :global(.prose) {
