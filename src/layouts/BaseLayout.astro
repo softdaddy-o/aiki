@@ -100,6 +100,18 @@ const navItems = lang === 'en'
             ))}
         </div>
         <Search />
+        <a
+            href="https://www.threads.net/@softdaddy_o"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-icon-link"
+            aria-label="Threads @softdaddy_o"
+            title="@softdaddy_o"
+        >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.186 24h-.007C5.965 24 2.634 20.07 2.634 15.079c0-5.265 3.601-8.885 8.913-8.885 4.715 0 7.746 2.865 8.037 7.601l-2.46.226c-.2-3.478-2.149-5.46-5.577-5.46-3.752 0-6.14 2.697-6.14 6.465 0 3.797 2.276 6.6 6.4 6.6 2.368 0 4.107-1.006 5.03-2.91l-.004.007c.548-1.131.587-2.19.106-3.065a3.182 3.182 0 00-.12-.19c-.567.244-1.185.413-1.842.498a5.847 5.847 0 01-.692.044c-3.042 0-5.256-2.06-5.256-4.893 0-2.833 2.214-4.893 5.256-4.893 2.794 0 4.794 1.81 5.147 4.51.116.882-.023 1.76-.474 2.477-.358-.037-.71-.092-1.053-.166-.41-.088-.803-.205-1.176-.348.06-.22.088-.45.077-.686-.126-1.46-1.14-2.53-2.938-2.53-1.785 0-3.065 1.283-3.065 3.06 0 1.778 1.28 3.06 3.065 3.06.94 0 1.74-.357 2.317-1.01.006.002.012.003.017.006.58.81 1.467 1.293 2.522 1.293 1.598 0 2.817-1.09 3.16-2.684.338-1.566-.104-3.337-1.401-4.9C18.18 5.696 15.566 3.83 12.186 3.83 7.768 3.83.984 7.46.984 15.08.984 21.218 5.104 24 12.186 24z"/>
+            </svg>
+        </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
             <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -111,18 +123,6 @@ const navItems = lang === 'en'
     </main>
     <footer class="site-footer">
         <p>AIKI — AI-curated, human-verified.</p>
-        <a
-            href="https://www.threads.net/@softdaddy_o"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-threads"
-            aria-label="Soft Daddy on Threads"
-        >
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" focusable="false">
-                <path d="M12.186 24h-.007C5.965 24 2.634 20.07 2.634 15.079c0-5.265 3.601-8.885 8.913-8.885 4.715 0 7.746 2.865 8.037 7.601l-2.46.226c-.2-3.478-2.149-5.46-5.577-5.46-3.752 0-6.14 2.697-6.14 6.465 0 3.797 2.276 6.6 6.4 6.6 2.368 0 4.107-1.006 5.03-2.91l-.004.007c.548-1.131.587-2.19.106-3.065a3.182 3.182 0 00-.12-.19c-.567.244-1.185.413-1.842.498a5.847 5.847 0 01-.692.044c-3.042 0-5.256-2.06-5.256-4.893 0-2.833 2.214-4.893 5.256-4.893 2.794 0 4.794 1.81 5.147 4.51.116.882-.023 1.76-.474 2.477-.358-.037-.71-.092-1.053-.166-.41-.088-.803-.205-1.176-.348.06-.22.088-.45.077-.686-.126-1.46-1.14-2.53-2.938-2.53-1.785 0-3.065 1.283-3.065 3.06 0 1.778 1.28 3.06 3.065 3.06.94 0 1.74-.357 2.317-1.01.006.002.012.003.017.006.58.81 1.467 1.293 2.522 1.293 1.598 0 2.817-1.09 3.16-2.684.338-1.566-.104-3.337-1.401-4.9C18.18 5.696 15.566 3.83 12.186 3.83 7.768 3.83.984 7.46.984 15.08.984 21.218 5.104 24 12.186 24z"/>
-            </svg>
-            @softdaddy_o
-        </a>
     </footer>
     <nav class="bottom-nav" aria-label="Mobile navigation">
         <a href={`/${lang}/`} class="bottom-tab" data-path={`/${lang}/`}>
@@ -385,6 +385,17 @@ const navItems = lang === 'en'
         transition: color 0.2s ease, border-color 0.2s ease;
     }
     .lang-switch:hover { color: var(--color-text); border-color: var(--color-text-muted); }
+    .nav-icon-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-muted);
+        padding: 5px;
+        border-radius: 4px;
+        transition: color 0.15s ease;
+        flex-shrink: 0;
+    }
+    .nav-icon-link:hover { color: var(--color-text); }
     main { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
     :global(.prose) {
         max-width: 70ch;
@@ -450,16 +461,6 @@ const navItems = lang === 'en'
         gap: 10px;
     }
     .site-footer a { color: var(--color-text-muted); }
-    .footer-threads {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        text-decoration: none;
-        color: var(--color-text-muted);
-        font-size: 13px;
-        transition: color 0.15s ease;
-    }
-    .footer-threads:hover { color: var(--color-text); }
     /* Bottom tab bar — mobile only */
     .bottom-nav { display: none; }
     @media (max-width: 640px) {

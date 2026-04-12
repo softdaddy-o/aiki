@@ -55,15 +55,13 @@ const shareLinks = [
 
 {show && (
     <section class="social-share" aria-label="Share this page" data-share-title={safeTitle} data-share-url={url}>
-        <p>{label}</p>
         <div class="social-share-links" role="list">
             {shareLinks.map((item) => (
-                <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${item.name}`}
+                <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`${item.name}에 공유`} title={item.name}
                     data-umami-event="share"
                     data-umami-event-platform={item.name}
                     data-umami-event-url={url}>
                     <Fragment set:html={item.icon} />
-                    <span>{item.name}</span>
                 </a>
             ))}
         </div>
@@ -75,42 +73,29 @@ const shareLinks = [
         margin-top: 24px;
         padding-top: 20px;
         border-top: 1px solid var(--color-border);
-        display: grid;
-        gap: 10px;
-    }
-    .social-share > p {
-        font-size: 12px;
-        color: var(--color-text-muted);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
     }
     .social-share-links {
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        gap: 4px;
     }
     .social-share-links a {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 6px;
-        border: 1px solid var(--color-border-strong);
-        border-radius: 999px;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
         color: var(--color-text-muted);
         text-decoration: none;
-        padding: 6px 14px;
-        font-size: 12px;
         cursor: pointer;
-        transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        transition: color 0.15s ease, background 0.15s ease;
     }
     .social-share-links a:hover {
         color: var(--color-text);
-        border-color: var(--color-text-muted);
         background: var(--color-surface-alt);
     }
     .social-share-links svg {
-        width: 14px;
-        height: 14px;
-        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
     }
 </style>
