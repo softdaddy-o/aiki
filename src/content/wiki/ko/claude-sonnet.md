@@ -24,13 +24,13 @@ relatedTerms:
   - chatgpt
   - openai-api
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - anthropic
   - application
 factCheck:
   status: passed
-  date: "2026-04-11"
+  date: "2026-04-13"
   sources:
     - url: "https://www.anthropic.com/claude/sonnet"
       title: "Claude Sonnet 4.6"
@@ -39,7 +39,7 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "원문에서 Claude Sonnet가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 문제로 읽어도 되는지 먼저 확인해뒀어."
+      summary: "이 페이지를 어떤 층위의 모델 설명으로 읽어야 하는지 먼저 확인해뒀어 확인했어."
       items:
         - "독자가 먼저 갈라 봐야 할 건 Claude Sonnet가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
         - "모델 이름부터 다시 보면 Claude Sonnet."
@@ -49,32 +49,34 @@ factCheck:
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스 2건을 나란히 놓고 Claude Sonnet 아래에서 어떤 버전 페이지를 봐야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
+      summary: "공식 소스를 나란히 놓고 접근 채널과 포지션 설명이 어긋나지 않는지 비교해뒀어 확인했어."
       items:
         - "여기서 먼저 갈라 볼 기준은 Claude Sonnet 아래에서 어떤 버전 페이지를 봐야 하는지."
-        - "비교 소스 1: Claude Sonnet 4.6."
-        - "비교 소스 2: Models overview."
+        - "출처 1 대조: anthropic.com."
+        - "출처 2 대조: docs.anthropic.com."
     - type: number_verify
       result: pass
-      summary: "가격, 접근 경로, 입력 범위처럼 Claude Sonnet 아래에서 어떤 버전 페이지를 봐야 하는지를 가를 때 필요한 정보는 따로 떼서 검증해뒀어."
+      summary: "가격, 접근 경로, 입력 범위처럼 실제 도입 판단에 필요한 정보는 따로 떼서 검증해뒀어 확인했어."
       items:
         - "운영 정보 대조: 유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋아."
         - "접근 경로 대조: 무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전해."
         - "입력/출력 범위 대조: 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 Claude Sonnet가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지 기준으로 한 번 더 의심해보고 정리해뒀어."
+      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리해뒀어 확인했어."
       items:
-        - "헷갈리지 않으려면 Claude Sonnet 아래에서 어떤 버전 페이지를 봐야 하는지."
         - "개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 해."
       findings:
         - "계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다."
 ---
 ## 한 줄 정의
-Claude Sonnet를 새 모델 하나라고 읽으면 자꾸 헷갈려. 이 이름은 Anthropic가 멀티모달 생성과 이해를 같이 다루는 라인업 쪽 라인업을 설명할 때 앞에 내세우는 간판에 가까워. 그래서 기사에서 Claude Sonnet가 보이면 벤치마크보다, Anthropic가 지금 어떤 사용 장면을 키우려는지부터 읽는 편이 덜 틀린다.
+Claude Sonnet라는 이름을 새 모델 하나라고 읽으면 자꾸 헷갈려. Anthropic가 멀티모달 생성과 이해를 같이 다루는 라인업 쪽 라인업을 설명할 때 앞에 내세우는 간판에 가깝거든. 그래서 기사에서 이 계열명이 보이면 벤치마크보다 어떤 사용 장면을 키우려는지부터 읽는 편이 덜 틀려.
 ## 이 모델로 무엇을 할 수 있나
-Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해. 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요. 다만 Claude Sonnet라는 이름만으로 가격표나 제한을 확정하면 거의 틀려. 여기서는 텍스트를 다루는 계열인지, 이미지나 영상까지 넓히는지, 앱 중심인지 API 중심인지 같은 방향만 잡아두고, 실제 도입 판단은 하위 버전 페이지에서 끝내는 편이 맞아.
+Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해. 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요. 예를 들어 같은 벤더 모델끼리도 API 채널과 가격표가 다르면 추천 답이 완전히 달라질 수 있어. 다만 계열 이름만으로 가격표나 제한을 확정하면 거의 틀려. 여기서는 텍스트를 다루는 계열인지, 이미지나 영상까지 넓히는지, 앱 중심인지 API 중심인지 같은 방향만 잡아두고, 실제 도입 판단은 하위 버전 페이지에서 끝내는 편이 맞아.
 ## 왜 중요한가
-뉴스는 종종 버전명을 빼고 Claude Sonnet 같은 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 Anthropic가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.
+뉴스는 종종 버전명을 빼고 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 Anthropic가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.
 ## 같이 보면 좋은 모델
-- [Claude](/ko/wiki/claude/) — 비교 대상으로 자주 같이 묶이는 모델 - [Claude Sonnet 4.5](/ko/wiki/claude-sonnet-4-5/) — 비교 대상으로 자주 같이 묶이는 모델 - [ChatGPT](/ko/wiki/chatgpt/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워. - [OpenAI API](/ko/wiki/openai-api/) — 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.
+- [Claude](/ko/wiki/claude/) — Claude와는 벤더, 접근 채널, 사용 장면 차이를 비교하기 쉬워.
+- [Claude Sonnet 4.5](/ko/wiki/claude-sonnet-4-5/) — Claude Sonnet 4.5와는 벤더, 접근 채널, 사용 장면 차이를 비교하기 쉬워.
+- [ChatGPT](/ko/wiki/chatgpt/) — 같이 보면 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.
+- [OpenAI API](/ko/wiki/openai-api/) — 같이 보면 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.

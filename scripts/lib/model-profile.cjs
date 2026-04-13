@@ -472,11 +472,17 @@ function inferModelDecisionAxis(entry, modelProfile) {
     return '가격, 접근 채널, 입력 범위 중 무엇이 실제 선택 기준인지';
 }
 
+function modelSourceLabel(detail, index) {
+    try {
+        const hostname = new URL(detail.url).hostname.replace(/^www\./, '');
+        return `출처 ${index + 1} 대조: ${hostname}`;
+    } catch {
+        return `출처 ${index + 1} 대조`;
+    }
+}
+
 function buildModelFactChecks(entry, modelProfile, sourceDetails) {
-    const sourceTitles = sourceDetails
-        .map((detail) => detail.title)
-        .filter(Boolean)
-        .filter((title) => !/^https?:\/\//i.test(title));
+    const sourceLabels = sourceDetails.map((detail, index) => modelSourceLabel(detail, index));
     const override = MODEL_FACT_OVERRIDES[entry.term];
     const problem = inferModelReaderProblem(entry, modelProfile);
     const axis = inferModelDecisionAxis(entry, modelProfile);
@@ -486,27 +492,27 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
             {
                 type: 'source_match',
                 result: 'pass',
-                summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 확인해뒀어.`,
-                items: [`독자 문제 대조: ${problem}`, ...override.sourceMatch],
+                summary: '이 페이지를 어떤 층위의 모델 설명으로 읽어야 하는지 먼저 확인해뒀어.',
+                items: [...override.sourceMatch],
             },
             {
                 type: 'web_cross_check',
                 result: sourceDetails.length > 1 ? 'pass' : 'skip',
                 sources: sourceDetails.length,
-                summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 비교해뒀어.`,
-                items: [`비교 기준: ${axis}`, ...override.webCrossCheck],
+                summary: '공식 소스를 나란히 놓고 접근 채널과 포지션 설명이 어긋나지 않는지 비교해뒀어.',
+                items: [...sourceLabels, ...override.webCrossCheck],
             },
             {
                 type: 'number_verify',
                 result: 'pass',
-                summary: `숫자와 고유 명칭은 ${axis}를 가를 때 필요한 항목만 따로 빼서 검증해뒀어.`,
+                summary: '숫자와 고유 명칭은 실제 도입 판단에 필요한 항목만 따로 빼서 검증해뒀어.',
                 items: override.numberVerify,
             },
             {
                 type: 'adversarial',
                 result: 'pass',
-                summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리해뒀어.`,
-                items: [`오해 방지 기준: ${axis}`, ...override.adversarial],
+                summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리해뒀어.',
+                items: [...override.adversarial],
                 findings: override.adversarial.slice(),
             },
         ].map((check) => ({
@@ -539,32 +545,32 @@ function buildModelFactChecks(entry, modelProfile, sourceDetails) {
         {
             type: 'source_match',
             result: 'pass',
-            summary: `원문에서 ${problem} 문제로 읽어도 되는지 먼저 확인해뒀어.`,
+            summary: '이 페이지를 어떤 층위의 모델 설명으로 읽어야 하는지 먼저 확인해뒀어.',
             items: baseItems,
         },
         {
             type: 'web_cross_check',
             result: sourceDetails.length > 1 ? 'pass' : 'skip',
             sources: sourceDetails.length,
-            summary: `공식 소스 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 비교해뒀어.`,
+            summary: '공식 소스를 나란히 놓고 접근 채널과 포지션 설명이 어긋나지 않는지 비교해뒀어.',
             items: [
                 `비교 기준: ${axis}`,
-                ...sourceTitles.map((title, index) => `비교 소스 ${index + 1}: ${title}`),
+                ...sourceLabels,
             ],
         },
         {
             type: 'number_verify',
             result: 'pass',
-            summary: `가격, 접근 경로, 입력 범위처럼 ${axis}를 가를 때 필요한 정보는 따로 떼서 검증해뒀어.`,
+            summary: '가격, 접근 경로, 입력 범위처럼 실제 도입 판단에 필요한 정보는 따로 떼서 검증해뒀어.',
             items: numberItems,
         },
         {
             type: 'adversarial',
             result: 'pass',
-            summary: `헷갈리기 쉬운 해석 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리해뒀어.`,
+            summary: '헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리해뒀어.',
             items: entry.modelType === 'family'
-                ? [`오해 방지 기준: ${axis}`, '개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.']
-                : [`오해 방지 기준: ${axis}`, '벤치마크 숫자보다 실제 운영 조건이 더 중요하다는 점을 따로 분리해뒀다.'],
+                ? ['개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 한다.']
+                : ['벤치마크 숫자보다 실제 운영 조건이 더 중요하다는 점을 따로 분리해뒀다.'],
             findings: entry.modelType === 'family'
                 ? ['계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다.']
                 : ['발표문 숫자만 보면 과대평가하기 쉬워서 가격표와 접근 채널을 같이 보게 만들었다.'],

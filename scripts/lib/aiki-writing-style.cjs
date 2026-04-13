@@ -60,15 +60,19 @@ function rewriteAikiTone(text) {
 
 function rewriteFactCheckTone(text) {
     return rewriteAikiTone(text)
-        .replace(/한 번 더 다시 봤다/g, '한 번 더 확인해뒀어')
-        .replace(/한 번 더 봤다/g, '따로 검증해뒀어')
-        .replace(/다시 봤다/g, '비교해뒀어')
-        .replace(/확인해봤다/g, '확인해뒀어')
-        .replace(/맞춰봤다/g, '확인해뒀어')
-        .replace(/걸렀다/g, '걸러뒀어')
-        .replace(/정리했다/g, '정리해뒀어')
-        .replace(/봤다/g, '확인했어')
-        .replace(/정리해뒀다/g, '따로 정리해뒀어')
+        .replace(/한 번 더 다시 봤다/g, '한 번 더 다시 봤어')
+        .replace(/한 번 더 봤다/g, '한 번 더 봤어')
+        .replace(/다시 봤다/g, '다시 봤어')
+        .replace(/확인해봤다/g, '확인해봤어')
+        .replace(/맞춰봤다/g, '맞춰봤어')
+        .replace(/걸렀다/g, '걸렀어')
+        .replace(/정리했다/g, '정리했어')
+        .replace(/비교했다/g, '비교했어')
+        .replace(/검증했다/g, '검증했어')
+        .replace(/확인했다/g, '확인했어')
+        .replace(/정리해뒀다/g, '정리해뒀어')
+        .replace(/걸러뒀다/g, '걸러뒀어')
+        .replace(/봤다/g, '봤어')
         .replace(/\s+/g, ' ')
         .trim();
 }

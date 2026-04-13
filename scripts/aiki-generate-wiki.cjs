@@ -441,15 +441,19 @@ const MANUAL_WIKI_OVERRIDES = {
         ],
     },
     'context-window': {
-        summary: '모델이 한 번의 요청에서 읽고 참고할 수 있는 최대 토큰 범위. 길다고 항상 정확한 것은 아니지만 긴 문서를 다룰 수 있는 상한을 보여 준다.',
-        definition: 'Context Window는 모델이 한 번에 받아서 기억하며 처리할 수 있는 최대 토큰 길이다.',
+        summary: 'Context Window는 모델이 한 번의 요청에서 볼 수 있는 총 토큰 예산이다. 프롬프트, 첨부 문서, 대화 기록, 도구 결과가 전부 이 한도 안에 들어간다.',
+        definition: 'Context Window는 모델이 한 번에 받아서 기억하며 처리할 수 있는 최대 토큰 길이를 뜻한다.',
         explainHeading: '## 어떻게 작동하나',
-        explain: '예를 들어 128K 컨텍스트라면 입력 프롬프트, 첨부 문서, 이전 대화 기록, 도구 결과까지 전부 합친 토큰 수가 그 한도 안에 들어가야 한다. 길이가 길수록 긴 문서를 통째로 넣기 쉬워지지만, 비용과 지연도 같이 늘고 중간 내용을 놓치는 문제도 생길 수 있다.',
-        whyImportant: '뉴스에서 "1M 컨텍스트" 같은 숫자가 크게 보이면, 그건 모델이 긴 입력을 다룰 수 있는 상한이 올라갔다는 뜻이다. 다만 상한이 커졌다고 무조건 품질이 좋아지는 건 아니어서 비용, 속도, 실제 검색 전략까지 같이 봐야 한다.',
+        explain: [
+            '예를 들어 128K 컨텍스트라면 입력 프롬프트, 첨부 문서, 이전 대화 기록, 도구 결과까지 전부 합친 토큰 수가 그 한도 안에 들어가야 해. 길이가 길수록 긴 문서를 통째로 넣기 쉬워지지만, 비용과 지연도 같이 늘고 중간 내용을 놓치는 문제도 생길 수 있어.',
+            '',
+            '그래서 Context Window를 볼 때는 숫자만 외우기보다 실제로 어떤 문서 길이까지 넣을 수 있는지, tokenizer에 따라 체감 길이가 얼마나 달라지는지 같이 봐야 해. 같은 200K라도 문서 구조와 토큰화 방식에 따라 실사용 감각은 꽤 달라질 수 있거든.',
+        ].join('\n'),
+        whyImportant: '뉴스에서 "1M 컨텍스트" 같은 숫자가 크게 보이면, 그건 긴 입력을 다룰 수 있는 상한이 올라갔다는 뜻이야. 다만 상한이 커졌다고 품질이 자동으로 좋아지는 건 아니어서, 실제로는 비용과 지연이 얼마나 늘고 RAG나 메모리 전략을 어디까지 줄일 수 있는지까지 같이 판단해야 해.',
         relatedLines: [
-            '- [Token](/ko/wiki/token/) — 컨텍스트 길이를 계산하는 기본 단위',
-            '- [Tokenizer](/ko/wiki/tokenizer/) — 문장을 토큰으로 자르는 규칙',
-            '- [Long Context](/ko/wiki/long-context/) — 긴 입력 처리 경쟁을 설명할 때 같이 나오는 개념',
+            '- [Token](/ko/wiki/token/) — Context Window를 읽을 때 먼저 비교해야 할 기본 단위라서, 숫자 표기가 실제 길이와 어떻게 연결되는지 이해하는 데 필요해.',
+            '- [Tokenizer](/ko/wiki/tokenizer/) — 같은 문장도 tokenizer가 다르면 토큰 수가 달라져서, 컨텍스트 숫자를 체감 길이로 바꿔 읽을 때 차이를 비교하기 좋아.',
+            '- [Long Context](/ko/wiki/long-context/) — 둘 다 긴 입력 처리 이야기지만, 하나는 상한 개념이고 다른 하나는 그 상한을 실제 제품 경쟁 포인트로 다루는 흐름이라 비교해 보면 층위가 갈려.',
         ],
     },
     agent: {
@@ -538,7 +542,12 @@ const MANUAL_WIKI_OVERRIDES = {
             '',
             '최근의 o1, o3, DeepSeek R1 같은 이름이 이 흐름에 속한다. 겉으로는 다 LLM이지만, 실제 제품 포지션은 "빠른 범용 모델"과 "느리지만 복잡한 추론형 모델"로 나뉘는 셈이다.',
         ].join('\n'),
-        whyImportant: '요즘 모델 뉴스에서 reasoning이 붙으면 단순 성능 향상보다 문제 해결 방식 변화에 가깝다. 이 개념을 알아야 왜 속도와 가격을 희생하면서도 특정 모델이 주목받는지 이해할 수 있다.',
+        whyImportant: '요즘 모델 뉴스에서 reasoning이 붙으면 단순 성능 향상보다 문제 해결 방식 변화에 가깝다. 그래서 이 용어를 보면 "얼마나 빠른가"보다 "수학, 계획, 코드 수정 같은 긴 사고 작업에 실제로 쓸 모델인가"를 먼저 봐야 한다.',
+        relatedLines: [
+            '- [LLM](/ko/wiki/llm/) — 둘 다 언어 모델이지만, Reasoning Model은 중간 사고 단계를 더 길게 쓰는 쪽이라 일반 범용 LLM과 비교 포인트가 다르다.',
+            '- [Chain-of-Thought](/ko/wiki/chain-of-thought/) — 하나는 모델 포지션이고 다른 하나는 프롬프트로 사고 과정을 유도하는 기법이라 같이 보면 층위 차이가 선명해진다.',
+            '- [DeepSeek R1](/ko/wiki/deepseek-r1/) — reasoning 계열이 실제 제품과 모델 이름으로 내려온 대표 사례라서, 개념을 뉴스 문맥으로 연결할 때 좋다.',
+        ],
     },
     benchmark: {
         summary: 'Benchmark는 모델이나 시스템 성능을 같은 문제 세트로 비교하기 위한 시험 기준이다.',
@@ -564,14 +573,20 @@ const MANUAL_WIKI_OVERRIDES = {
     },
     'vector-db': {
         summary: 'Vector Database는 임베딩 벡터를 저장하고 비슷한 벡터를 빠르게 찾도록 만든 검색용 데이터베이스다.',
-        definition: 'Vector Database는 텍스트나 이미지의 임베딩을 저장한 뒤, 의미적으로 가까운 항목을 유사도 검색으로 찾아주는 저장소다.',
+        definition: 'Vector Database는 텍스트나 이미지의 임베딩을 저장한 뒤, 의미적으로 가까운 항목을 유사도 검색 API로 찾아주는 저장소다.',
         explainHeading: '## 실제로 무엇을 하나',
         explain: [
             'RAG에서 가장 흔한 역할은 "사용자 질문과 가까운 문서 조각을 빠르게 꺼내오기"다. 전통적인 SQL 데이터베이스가 정확한 키나 조건 검색에 강하다면, 벡터 데이터베이스는 의미가 비슷한 항목 찾기에 특화돼 있다.',
             '',
-            'Pinecone, Weaviate, Qdrant 같은 이름이 자주 같이 나온다. 제품마다 필터링, 하이브리드 검색, 확장성, 운영 편의성이 달라서 실무 선택지가 갈린다.',
+            '실무에선 단순 저장소라기보다 retrieval pipeline의 핵심 계층으로 쓰인다. Pinecone, Weaviate, Qdrant 같은 제품마다 필터링, 하이브리드 검색, 확장성, 운영 편의성이 달라서 API 응답 품질과 운영 복잡도가 같이 갈린다.',
         ].join('\n'),
         whyImportant: 'RAG 품질은 모델만으로 결정되지 않는다. 어떤 벡터 데이터베이스를 쓰고, 얼마나 빨리 정확한 문서를 찾느냐가 실제 성능을 크게 좌우한다.',
+        relatedLines: [
+            '- [RAG](/ko/wiki/rag/) — Vector Database는 RAG 안의 retrieval 계층이라서, 둘을 비교해 보면 상위 파이프라인과 하위 저장소 역할이 어떻게 갈리는지 바로 보인다.',
+            '- [Embedding](/ko/wiki/embedding/) — 임베딩이 벡터 DB에 들어가는 재료라서, 저장소 선택과 표현 방식 차이를 같이 보면 이해가 빨라진다.',
+            '- [Pinecone](/ko/wiki/pinecone/) — 관리형 벡터 DB 제품을 볼 때 어떤 운영 부담을 넘기는지 비교하기 좋은 대표 사례다.',
+            '- [Weaviate](/ko/wiki/weaviate/) — 같은 벡터 검색 계열이라도 데이터 모델과 운영 방식 차이를 비교하기 쉽다.',
+        ],
     },
     'function-calling': {
         summary: 'Function Calling은 모델이 답변만 생성하는 대신 정해진 함수나 API를 호출하게 만드는 실행 방식이다.',
@@ -627,6 +642,365 @@ const MANUAL_WIKI_OVERRIDES = {
             '그래서 guardrail은 성능을 높이는 기술이라기보다 사고를 줄이는 운영 장치로 보는 편이 맞다. 특히 고객지원, 금융, 의료처럼 규정이 중요한 환경에서 필수로 붙는다.',
         ].join('\n'),
         whyImportant: '좋은 모델을 고르는 것만으로는 서비스 안전성이 보장되지 않는다. Guardrail을 알아야 왜 많은 AI 제품이 모델 바깥에 별도 제어 계층을 두는지 이해할 수 있다.',
+    },
+    'chain-of-thought': {
+        summary: 'Chain-of-Thought는 모델이 답만 바로 내지 않게 하고, 중간 추론 과정을 단계별로 풀어 쓰게 유도하는 프롬프트 기법이다.',
+        definition: 'Chain-of-Thought는 복잡한 문제를 풀 때 모델에게 중간 사고 과정을 드러내게 만들어 정확도를 높이려는 프롬프트 기법이다.',
+        explainHeading: '## 어떻게 작동하나',
+        explain: [
+            '예를 들어 수학 문제나 논리 퍼즐에서 "정답만 말해" 대신 "단계별로 생각해 봐"라고 유도하면, 모델이 중간 판단 과정을 더 길게 쓰면서 실수를 줄이는 경우가 있다. 그래서 Chain-of-Thought는 모델 구조를 바꾸기보다 입력 설계로 사고 흐름을 조정하는 쪽에 가깝다.',
+            '',
+            '다만 무조건 길게 쓰게 한다고 좋아지는 건 아니다. 쉬운 작업에서는 오히려 느려지고 장황해질 수 있고, 민감한 작업에서는 내부 추론을 그대로 노출하지 않는 정책이 더 중요할 수도 있다. 결국 "언제 단계별 사고를 유도할지"가 핵심 포인트다.',
+        ].join('\n'),
+        whyImportant: 'Chain-of-Thought를 이해하면 reasoning 모델과 프롬프트 기법을 헷갈리지 않게 된다. 실무에선 모델 교체 없이도 출력 품질이 달라질 수 있는 대표 레버라서, 수학·코드·계획형 작업을 읽을 때 먼저 비교해 둘 가치가 크다.',
+        relatedLines: [
+            '- [Prompt Engineering](/ko/wiki/prompt-engineering/) — Chain-of-Thought는 프롬프트 엔지니어링의 대표 패턴이라서, 상위 기법과 하위 전술 관계를 비교하기 좋다.',
+            '- [Reasoning Model](/ko/wiki/reasoning/) — 하나는 모델 포지션이고 다른 하나는 입력 설계 기법이라, 같이 보면 "모델이 세졌는지 프롬프트가 바뀐 건지" 구분이 쉬워진다.',
+            '- [DeepSeek R1](/ko/wiki/deepseek-r1/) — 긴 추론을 강조하는 모델 사례라서, Chain-of-Thought 같은 기법이 모델 자체와 어떻게 만나는지 볼 때 좋다.',
+            '- [o3](/ko/wiki/o3/) — reasoning 계열 제품과 프롬프트 전술을 같이 비교할 때 기준점이 된다.',
+        ],
+    },
+    'red-teaming': {
+        summary: 'Red Teaming은 모델이나 에이전트를 일부러 공격자 관점에서 시험해 보고, 위험한 실패 패턴과 우회 경로를 찾아내는 검증 기법이다.',
+        definition: 'Red Teaming은 AI 시스템이 위험한 요청, jailbreak, 악용 시나리오를 얼마나 잘 막는지 공격적으로 시험하는 안전성 검증 기법이다.',
+        explainHeading: '## 어떻게 작동하나',
+        explain: [
+            '예를 들어 금지된 정보를 우회해서 끌어내려 하거나, 역할극 프롬프트로 정책을 무너뜨리거나, 도구 호출 체인을 악용해 시스템 밖으로 새게 만드는 식의 시나리오를 의도적으로 던져 보는 거야. 목표는 점수를 높이는 게 아니라 어떤 방식으로 망가지는지 미리 찾는 데 있어.',
+            '',
+            '그래서 Red Teaming은 일반 eval과 결이 다르다. 정답률을 재는 벤치마크보다 "어떤 악성 입력에 취약한가", "어디서 guardrail이 무너지는가"를 보는 쪽이거든. 특히 공개 배포형 챗봇이나 에이전트 제품에선 출시 전 필수 점검 항목에 가깝다.',
+        ].join('\n'),
+        whyImportant: 'AI 안전성 뉴스에서 red teaming이 나오면 그건 성능 향상 이야기가 아니라 리스크 관리 이야기다. 이 개념을 알아야 jailbreak 사례, 정책 우회, 도구 악용 문제가 단순 버그가 아니라 운영 위험이라는 점을 제대로 읽을 수 있다.',
+        relatedLines: [
+            '- [Eval](/ko/wiki/eval/) — 둘 다 검증이지만, Eval이 평균 성능을 재는 쪽이라면 Red Teaming은 최악의 실패 시나리오를 찾는 쪽이라 비교 포인트가 다르다.',
+            '- [Guardrail](/ko/wiki/guardrail/) — Red Teaming은 guardrail이 실제 공격 입력 앞에서 버티는지 시험하는 대표 방법이라서, 설계와 검증 관계를 같이 보기에 좋다.',
+            '- [Alignment](/ko/wiki/alignment/) — alignment가 목표 상태라면 red teaming은 그 목표가 실제 배포 환경에서 무너지는 지점을 찾는 과정에 가깝다.',
+            '- [Hallucination](/ko/wiki/hallucination/) — 둘 다 위험 요소지만 하나는 사실 오류고 다른 하나는 공격·우회 시나리오 검증이라서 함께 보면 위험 유형이 구분된다.',
+        ],
+    },
+    'google-deepmind': {
+        summary: 'Google DeepMind는 Gemini, Veo, Imagen 같은 모델 라인업과 연구를 함께 이끄는 Google의 AI 연구 조직이다. 개별 모델 이름보다 회사 차원의 방향을 읽을 때 더 자주 등장한다.',
+        definition: 'Google DeepMind는 Google 안에서 대형 모델, 멀티모달 연구, 제품용 AI 라인업을 함께 이끄는 연구 조직이자 브랜드다.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            'AlphaGo 시절의 DeepMind와 Google Brain 계열이 합쳐진 뒤에는 Gemini, Veo, Imagen, Gemma 같은 이름이 이 조직 아래에서 같이 나오기 시작했다. 그래서 Google DeepMind를 볼 때는 모델 하나의 성능보다 어떤 영역에 힘을 싣는지, 연구가 제품과 API로 얼마나 빨리 내려오는지부터 보는 편이 맞다.',
+            '',
+            '예를 들어 같은 생성형 AI 뉴스라도 Gemini API, Veo 영상 생성, Gemma 오픈 모델은 성격이 전부 다르다. 그런데 이 이름 아래 묶여 나오면 Google이 어느 입력 형태와 배포 채널을 밀고 있는지 한 번에 읽을 수 있다. 바로 그 점이 회사 이름 페이지의 핵심 가치다.',
+        ].join('\n'),
+        whyImportant: '회사 이름을 알아두면 "새 모델 출시"를 단발 이벤트가 아니라 라인업 전략 변화로 읽을 수 있다. Google DeepMind는 특히 연구 발표와 제품 발표가 함께 섞여 나오는 편이라서, 이 층위를 구분해야 뉴스를 과장 없이 읽기 쉬워진다.',
+        relatedLines: [
+            '- [OpenAI](/ko/wiki/openai/) — 둘 다 회사 이름이지만 API 중심 배포와 제품 전략이 어떻게 다른지 비교하기 좋다.',
+            '- [Anthropic](/ko/wiki/anthropic/) — 연구 조직과 제품 라인업이 어떤 방식으로 연결되는지 비교할 때 대표적인 상대다.',
+            '- [JAX](/ko/wiki/jax/) — Google DeepMind 연구가 실제로 어떤 프레임워크와 생태계 위에서 굴러가는지 이해할 때 같이 보는 편이 좋다.',
+            '- [Gemini](/ko/wiki/gemini/) — 회사 이름이 실제 모델 라인업으로 어떻게 내려오는지 연결해서 읽기 좋은 대표 사례다.',
+        ],
+    },
+    openclaw: {
+        summary: 'OpenClaw는 상용 모델과 자동화 흐름을 비공식 방식으로 연결해 쓰려는 서드파티 에이전트 도구로 읽는 편이 맞다. 모델 자체가 아니라 연결 방식과 운영 리스크가 핵심인 이름이다.',
+        definition: 'OpenClaw는 Claude 같은 상용 모델을 써드파티 클라이언트나 자동화 흐름으로 연결해 활용하려는 에이전트형 도구다.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            '핵심은 모델을 새로 만드는 게 아니라, 이미 존재하는 상용 모델을 비공식 클라이언트나 자동화 흐름에 붙여 쓰려는 데 있다. 그래서 OpenClaw를 볼 때는 모델 성능보다 연결 방식, 계정 정책, 보안 취약점, 배포 채널이 더 중요하다. 기사에서 CVE나 차단 이슈가 같이 따라붙는 이유도 바로 이 층위 때문이다.',
+            '',
+            '예를 들어 공식 API 대신 우회 경로를 쓰거나, 사용자 계정 자격 증명을 끼워 넣거나, 여러 에이전트 흐름에 연결하는 식의 사용 시나리오는 기능 데모보다 운영 리스크가 더 크게 보일 수 있다. 그래서 이 이름은 "무엇을 할 수 있나"만큼 "어떤 방식으로 붙였나"를 같이 봐야 한다.',
+        ].join('\n'),
+        whyImportant: 'OpenClaw 같은 사례를 보면 모델 자체와 도구 생태계를 분리해서 읽어야 한다는 점이 분명해진다. 실무에서는 특히 공식 API 계약, 보안 취약점, 서비스 약관 리스크가 도입 가능성을 바로 가르기 때문에 기능 데모만 보고 판단하면 쉽게 틀릴 수 있다.',
+        relatedLines: [
+            '- [ChatGPT](/ko/wiki/chatgpt/) — 소비자용 앱과 서드파티 자동화 도구를 같은 층위로 보면 안 된다는 점을 비교하기 좋다.',
+            '- [Claude Sonnet 4.5](/ko/wiki/claude-sonnet-4-5/) — 모델 자체와 그 모델을 감싼 비공식 도구를 분리해서 읽을 때 대표적인 비교 대상이 된다.',
+            '- [OpenAI API](/ko/wiki/openai-api/) — 공식 API 계약 기반 통합과 비공식 연결 방식을 비교할 때 좋은 기준점이다.',
+            '- [LangChain](/ko/wiki/langchain/) — 하나는 공식 통합 프레임워크에 가깝고 다른 하나는 비공식 에이전트 도구 성격이 강해서 운영 책임 차이가 선명하다.',
+        ],
+    },
+    'vibe-coding': {
+        summary: 'Vibe Coding은 명세를 길게 설계하기보다 자연어로 분위기와 의도를 던지고, 모델이 코드를 빠르게 짜게 만든 뒤 사람이 고쳐 가는 개발 방식이다.',
+        definition: 'Vibe Coding은 개발자가 세세한 구현을 먼저 설계하기보다 자연어로 원하는 느낌과 목표를 설명하고, AI가 초안을 만든 뒤 반복해서 다듬는 코딩 방식이다.',
+        explainHeading: '## 어떻게 작동하나',
+        explain: [
+            '예를 들어 "설정 페이지를 깔끔한 카드 UI로 만들어 줘"처럼 의도와 분위기를 먼저 던지면, Claude Code나 Cursor 같은 도구가 여러 파일을 건드려 초안을 빠르게 만든다. 그다음 사람이 출력 코드를 읽고, 구조를 고치고, 테스트를 붙이고, 세부 동작을 보정하는 흐름이 반복된다.',
+            '',
+            '그래서 vibe coding은 "AI가 대신 코딩한다"기보다, 사람이 명령형 구현 대신 방향성과 제약을 주는 방식에 더 가깝다. 작은 프로토타입에서는 속도가 매우 빠르지만, 큰 코드베이스로 갈수록 리뷰와 검증 비용이 더 중요해진다는 점도 같이 봐야 한다.',
+        ].join('\n'),
+        whyImportant: 'Vibe Coding을 이해하면 코딩 에이전트 뉴스가 단순 모델 성능 이야기가 아니라 작업 방식 변화 이야기라는 점이 보인다. 특히 프로토타입 속도와 유지보수 리스크가 동시에 커지는 패턴이라서, "어디까지 AI에 맡길지"를 판단할 때 좋은 기준점이 된다.',
+        relatedLines: [
+            '- [Claude Code](/ko/wiki/claude-code/) — vibe coding 흐름이 실제 터미널 기반 코딩 도구에서 어떻게 구현되는지 보여 주는 대표 사례다.',
+            '- [Cursor](/ko/wiki/cursor/) — 같은 흐름을 IDE 안에서 어떻게 체감하는지 비교하기 좋다.',
+            '- [AI Agent](/ko/wiki/agent/) — vibe coding이 단순 자동완성보다 여러 단계 실행 구조와 만날 때 어떻게 달라지는지 함께 보면 이해가 빨라진다.',
+            '- [LangChain](/ko/wiki/langchain/) — 코드 생성 자체와 에이전트 workflow 프레임워크를 헷갈리지 않게 비교하기 좋은 용어다.',
+        ],
+    },
+    reasoning: {
+        summary: 'Reasoning Model은 답을 바로 찍기보다 중간 추론 단계를 더 오래 쓰도록 설계된 LLM 계열이다.',
+        definition: 'Reasoning Model은 수학, 계획, 코드 수정처럼 단계가 긴 문제를 풀 때 중간 추론을 더 많이 사용하도록 조정된 언어 모델을 가리킨다.',
+        explainHeading: '## 어떻게 작동하나',
+        explain: [
+            '일반 모델이 빠르게 답을 생성하는 데 강하다면, reasoning 계열은 중간 추론 단계가 중요한 작업에서 더 오래 생각하도록 설계된다. 그래서 보통 느리고 비싸지만, 어려운 문제에서는 정확도가 높아질 수 있다.',
+            '',
+            '실무에선 수학 풀이, 장문 계획, 코드 수정처럼 실수 비용이 큰 흐름에 배치하고, 고객 응대나 짧은 분류처럼 속도가 중요한 작업과는 따로 운영하는 식으로 적용한다. o1, o3, DeepSeek R1 같은 이름이 자주 함께 보이는 이유도 같은 층위의 모델 포지션을 가리키기 때문이다.',
+        ].join('\n'),
+        whyImportant: '요즘 모델 뉴스에서 reasoning이 붙으면 단순 성능 향상보다 문제 해결 방식 변화에 가깝다. 그래서 이 용어를 보면 "얼마나 빠른가"보다 "어떤 긴 사고 작업에 실제로 붙일 모델인가"를 먼저 읽는 편이 정확하다.',
+        relatedLines: [
+            '- [LLM](/ko/wiki/llm/) — 둘 다 언어 모델이지만, 하나는 범용 계열이고 다른 하나는 긴 추론을 더 오래 쓰는 쪽이라 비교 기준이 다르다.',
+            '- [Chain-of-Thought](/ko/wiki/chain-of-thought/) — 하나는 모델 포지션이고 다른 하나는 프롬프트 기법이라 함께 보면 층위 차이가 분명해진다.',
+            '- [DeepSeek R1](/ko/wiki/deepseek-r1/) — reasoning 계열이 실제 제품과 모델 이름으로 내려온 사례라서 개념을 뉴스 문맥으로 연결하기 좋다.',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: '이 페이지가 특정 제품이 아니라 모델 포지션을 설명하는 개념 문서인지 먼저 맞춰봤다.',
+                items: [
+                    '용어 대조: OpenAI 가이드가 reasoning을 모델 선택과 운용 방식 차원에서 설명하는지 확인했다.',
+                    '별칭 대조: reasoning model, reasoning, 추론 모델이 같은 대상을 가리키는지 정리했다.',
+                    '범위 대조: 개별 제품명보다 상위 개념을 설명하는 페이지라는 점을 다시 확인했다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: '두 공식 문서를 같이 놓고 추론 모델을 어디에 붙이는지 설명이 엇갈리지 않는지 다시 봤다.',
+                items: [
+                    '출처 1 대조: platform.openai.com reasoning best practices.',
+                    '출처 2 대조: anthropic.com visible extended thinking.',
+                    '용도 비교: 긴 사고가 필요한 작업에 더 적합하다는 설명이 두 문서에서 같은 방향인지 확인했다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '핵심은 숫자보다 적용 조건이라서 어떤 입력과 작업에서 갈리는지 쪽으로 다시 봤다.',
+                items: [
+                    '운용 기준: 수학, 계획, 코드 수정처럼 단계가 긴 작업에서 차이가 드러나는지 확인했다.',
+                    '분리 기준: 속도 우선 작업과 추론 우선 작업을 따로 설정해야 한다는 해석이 맞는지 점검했다.',
+                    '제품 해석: o1, o3, DeepSeek R1 같은 이름이 개념의 실제 예시로 연결되는지 살폈다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '헷갈리기 쉬운 오해를 일부러 세워 보고 어디서 잘못 읽기 쉬운지 정리했다.',
+                items: [
+                    '오해 점검: reasoning을 단순히 "더 좋은 모델"로 읽으면 속도와 비용 차이를 놓치기 쉽다.',
+                    '운영 점검: 일반 모델과 동일한 작업에 무조건 붙이면 오히려 응답 시간이 길어질 수 있다.',
+                ],
+                findings: [
+                    '이 개념은 성능 과장이 아니라 작업 배치와 운용 정책을 읽는 기준으로 보는 편이 정확하다.',
+                ],
+            },
+        ],
+    },
+    'chain-of-thought': {
+        summary: '복잡한 문제에서 모델이 중간 사고 단계를 드러내게 유도하는 프롬프트 기법이다.',
+        definition: 'Chain-of-Thought는 모델 구조를 바꾸지 않고도 단계별 사고 과정을 먼저 펼치게 만드는 입력 설계 기법이다.',
+        explainHeading: '## 어떻게 작동하나',
+        explain: [
+            '예를 들어 수학 문제나 코드 수정 요청에서 "정답만 말해" 대신 "단계별로 풀어라"를 넣으면, 모델이 중간 판단을 더 드러내면서 실수를 줄이는 경우가 있다. 그래서 이 기법은 모델 교체보다 입력 설계를 조정하는 쪽에 가깝다.',
+            '',
+            '실제로는 답을 바로 찍으면 오류가 늘어나는 작업에만 적용하고, 쉬운 작업이나 민감한 작업에서는 장황한 추론을 강제하지 않도록 설정하는 편이 낫다. 결국 핵심은 언제 단계별 사고를 요구할지 구분하는 데 있다.',
+        ].join('\n'),
+        whyImportant: '이 기법을 이해하면 reasoning 모델과 프롬프트 전술을 헷갈리지 않게 된다. 실무에서는 모델을 바꾸지 않고도 출력 품질을 조정하는 대표 레버라서, 수학·코드·계획형 작업을 볼 때 먼저 비교해 둘 가치가 크다.',
+        relatedLines: [
+            '- [Prompt Engineering](/ko/wiki/prompt-engineering/) — 상위 입력 설계 개념 안에서 어디에 놓이는지 비교하기 좋다.',
+            '- [Reasoning Model](/ko/wiki/reasoning/) — 하나는 모델 포지션이고 다른 하나는 입력 기법이라 같이 보면 층위 차이가 선명해진다.',
+            '- [DeepSeek R1](/ko/wiki/deepseek-r1/) — 긴 추론을 강조하는 모델과 프롬프트 기법이 실제로 어떻게 만나는지 보기에 좋다.',
+            '- [o3](/ko/wiki/o3/) — reasoning 계열 제품과 프롬프트 전술을 같이 비교할 때 기준점이 된다.',
+        ],
+    },
+    'google-deepmind': {
+        summary: 'Gemini, Veo, Imagen 같은 모델과 연구를 함께 끌고 가는 Google의 AI 연구 조직이다. 개별 모델 이름보다 회사 차원의 방향과 묶음을 읽을 때 자주 등장한다.',
+        definition: 'Google DeepMind는 Google 안에서 연구와 제품 라인업을 함께 묶는 AI 조직 이름이다.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            'AlphaGo 시절 DeepMind와 Google Brain 계열 흐름이 이어지면서, 지금은 Gemini, Veo, Imagen, Gemma 같은 이름이 한 조직 아래에서 함께 읽히는 경우가 많다. 그래서 이 페이지에서 먼저 볼 것은 특정 모델 성능이 아니라 어떤 연구가 어떤 제품 라인으로 이어지는지다.',
+            '',
+            '예를 들어 같은 생성형 AI 기사라도 어떤 항목은 API 제품이고, 어떤 항목은 연구 발표이며, 어떤 항목은 오픈 웨이트 모델일 수 있다. 이 조직 이름이 붙으면 그런 층위를 한 번에 묶어 읽는 신호로 받아들이는 편이 정확하다.',
+        ].join('\n'),
+        whyImportant: '회사 이름을 알아두면 "새 모델 출시"를 한 번의 이벤트로 읽지 않고, 연구와 제품 묶음이 어떻게 움직이는지로 해석할 수 있다. 그래서 개별 모델 뉴스가 이어질 때도 과장 없이 큰 흐름을 잡아내기 쉬워진다.',
+        relatedLines: [
+            '- [OpenAI](/ko/wiki/openai/) — 둘 다 회사 이름이지만 API와 제품을 묶는 방식이 어떻게 다른지 비교하기 좋다.',
+            '- [Anthropic](/ko/wiki/anthropic/) — 연구 조직과 제품 라인업이 어떤 방식으로 연결되는지 나란히 보기 좋다.',
+            '- [JAX](/ko/wiki/jax/) — 이 조직이 실제로 어떤 연구 스택과 프레임워크를 활용하는지 이해할 때 도움이 된다.',
+            '- [Gemini](/ko/wiki/gemini/) — 회사 이름이 실제 모델 라인업으로 어떻게 이어지는지 연결해서 읽기 좋다.',
+        ],
+        sourceTitles: [
+            '위키 개요',
+            '공식 조직 소개',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: '이 항목이 개별 모델이 아니라 상위 조직을 설명하는 문서인지 먼저 맞춰봤다.',
+                items: [
+                    '독자가 먼저 갈라 봐야 할 건 Google DeepMind가 단일 모델명이 아니라 연구 조직과 제품 라인을 묶는 이름이라는 점이야.',
+                    '연구 조직 소개인지, 특정 모델 소개인지 층위를 먼저 나눠서 읽어야 해.',
+                    'DeepMind와 Google Brain이 통합된 뒤 이름이 이어졌다는 흐름도 같이 봤다.',
+                    'Gemini, Veo, Imagen 같은 라인을 묶는 상위 이름으로 읽는 편이 맞다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: '보조 출처와 공식 소개를 같이 놓고 조직 설명이 서로 어긋나지 않는지 다시 봤다.',
+                items: [
+                    '출처 1 대조: 위키 개요가 연혁과 통합 배경을 어떻게 설명하는지 확인했다.',
+                    '출처 2 대조: 공식 사이트가 현재 조직 정체성과 연구 범위를 어떻게 소개하는지 읽어 봤다.',
+                    '교차 확인: 2023년 통합 서술과 현재 브랜드 설명이 같은 방향인지 맞춰 봤다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '숫자 자체보다 연혁을 읽을 때 놓치기 쉬운 시점을 다시 봤다.',
+                items: [
+                    '연도 확인: 2010년 설립 설명이 배경 문맥과 맞는지 점검했다.',
+                    '인수 확인: 2014년 Google 인수 시점이 외부 요약과 크게 다르지 않은지 살폈다.',
+                    '통합 확인: 2023년 조직 통합 설명이 현재 브랜드 소개와 이어지는지 확인했다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '자주 생기는 오해를 세워 놓고 어디서 잘못 읽기 쉬운지 정리했다.',
+                items: [
+                    '오해 점검: 회사 이름을 개별 모델 이름처럼 읽으면 제품 층위와 연구 층위가 섞이기 쉽다.',
+                    '범위 점검: 조직 소개 문서를 모델 성능 비교 문서처럼 읽으면 뉴스 해석이 과장되기 쉽다.',
+                ],
+                findings: [
+                    '이 이름은 모델 하나를 가리키기보다 연구와 제품 라인업을 묶는 상위 신호로 읽는 편이 정확하다.',
+                ],
+            },
+        ],
+    },
+    'stable-diffusion': {
+        summary: 'Stability AI가 이미지 생성 계열 전체를 묶어 설명할 때 쓰는 라인업 이름이다.',
+        definition: 'Stable Diffusion은 특정 한 버전보다 이미지 생성 모델 계열 전체를 가리킬 때 더 자주 쓰이는 이름이다.',
+        detail: '이 페이지에서 먼저 볼 것은 "이름 하나가 정확히 어느 버전인가"보다 어떤 사용처와 배포 방식이 묶여 있는가다. 텍스트 프롬프트로 이미지를 만들고, 파생 모델과 툴 생태계가 넓게 퍼져 있어서 기사에서는 계열명 자체가 제품 방향 신호처럼 자주 등장한다.\n\n실무에선 API 상품인지, 직접 호스팅 가능한 오픈 계열인지, 특정 체크포인트를 가리키는지부터 분리해서 읽는 편이 안전하다. 같은 이름이 보여도 버전과 라이선스, 배포 채널에 따라 실제 선택지는 크게 달라진다.',
+        whyImportant: '이 이름을 계열명으로 읽으면 "새 모델이 나왔다"는 기사와 "새 버전이 붙었다"는 기사를 구분하기 쉬워진다. 그래서 숫자 비교보다 어떤 사용자 층과 배포 경로를 겨냥하는지 먼저 읽는 기준점이 된다.',
+        sourceTitles: [
+            '위키 개요',
+            'Stability AI 이미지 모델 소개',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: '이 페이지가 특정 체크포인트가 아니라 계열 이름을 설명하는 문서인지 먼저 맞춰봤다.',
+                items: [
+                    '범위 대조: 단일 버전이 아니라 이미지 생성 라인업을 묶는 이름인지 확인했다.',
+                    '벤더 대조: Stability AI가 어떤 맥락에서 이 이름을 쓰는지 살폈다.',
+                    '문서 성격: 상위 계열 설명과 실제 제품 소개가 섞이지 않도록 층위를 다시 봤다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: '보조 출처와 공식 소개를 같이 놓고 계열 해석이 엇갈리지 않는지 다시 봤다.',
+                items: [
+                    '출처 1 대조: 위키 개요에서 계열명 사용 범위를 읽었다.',
+                    '출처 2 대조: stability.ai 소개 페이지에서 현재 제품 연결 방식을 확인했다.',
+                    '교차 확인: 계열 이름과 실제 서비스 채널이 서로 충돌하지 않는지 점검했다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '핵심은 숫자보다 배포 경로와 적용 범위라서 그쪽을 다시 봤다.',
+                items: [
+                    '호스팅 경로: 직접 실행 가능한지와 별도 유료 채널이 있는지 나눠 봤다.',
+                    '사용 범위: 텍스트 기반 이미지 생성 중심인지 살폈다.',
+                    '선택 기준: 실제 비교는 개별 버전 페이지에서 해야 한다는 점을 다시 확인했다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '헷갈리기 쉬운 해석을 세워 놓고 어디서 과장되기 쉬운지 정리했다.',
+                items: [
+                    '오해 점검: 계열명을 특정 최신 버전처럼 읽으면 제품 비교가 흐려진다.',
+                    '배포 점검: 오픈 계열이라는 말만 보고 라이선스와 서비스 경로를 생략하면 운영 판단이 틀어질 수 있다.',
+                ],
+                findings: [
+                    '계열 설명과 개별 버전 선택은 분리해서 읽어야 실제 운영 판단이 선명해진다.',
+                ],
+            },
+        ],
+    },
+    'claude-sonnet-4-5': {
+        definition: 'Anthropic이 Sonnet 계열 안에서 실제 배포 후보로 내놓은 버전 중 하나다. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라 실제로 붙여 볼 모델 후보를 읽는 상황이라고 보면 된다. 텍스트 중심 운용과 코드 작업 적합성이 핵심이라, 벤더 발표보다 접근 채널과 가격표를 같이 보는 편이 중요하다.',
+        detail: '이 페이지에서 먼저 볼 것은 "점수가 몇 점인가"보다 어떤 작업을 맡길 모델인가다. 코드 이해, 수정, 에이전트형 작업에 강점을 두고, Claude API와 AWS Bedrock, Vertex AI 같은 채널에서 접근할 수 있다.\n\n실제 선택에서는 컨텍스트 길이, 채널별 가용성, 입력·출력 비용이 같이 움직인다. 그래서 비슷한 급의 모델과 비교할 때도 벤치마크 숫자만 보지 말고 운영 환경을 같이 읽는 편이 정확하다.',
+        sourceTitles: [
+            '출시 공지',
+            '모델 개요',
+        ],
+    },
+    flux: {
+        summary: 'Black Forest Labs가 실제 배포한 이미지 생성 모델 버전이다. 이름이 보이면 성능 점수보다 어떤 배포 방식과 사용 흐름에 맞는지부터 읽는 편이 정확하다.',
+        definition: 'FLUX.1은 Black Forest Labs가 배포한 텍스트 프롬프트 기반 이미지 생성 모델 버전이다. 기사에서 이 이름이 보이면 상위 계열 설명이 아니라 실제로 써 볼 후보가 올라온 상황으로 보면 된다.',
+        detail: '핵심은 Black Forest Labs가 같은 계열 안에서도 Pro, Dev, Schnell처럼 배포 방식을 나눠 놓았다는 점이다. Pro는 API 중심으로 읽고, Dev와 Schnell은 직접 실행 가능성까지 같이 보는 식으로 나눠야 실제 선택 기준이 선다.\n\n실무에서는 텍스트 출력 모델처럼 토큰 가격만 볼 수 없고, 이미지 1장당 비용과 GPU 여유를 함께 봐야 한다. 그래서 이 이름을 읽을 때도 "예쁜 그림을 만드는가"보다 어느 채널에서 얼마의 운영 부담으로 돌릴 수 있는지를 먼저 따지는 편이 낫다.',
+        whyImportant: '이 모델을 이해하면 이미지 생성 기사에서도 배포 채널과 운영 비용을 같이 읽는 습관이 생긴다. 같은 계열이라도 API형과 직접 실행형이 섞이면 추천 답이 완전히 달라지기 때문에, 제품 선택 기준을 분리해 읽는 데 도움이 된다.',
+        sourceTitles: [
+            '회사 출범 공지',
+            'Hugging Face 조직 페이지',
+        ],
+        factChecks: [
+            {
+                type: 'source_match',
+                result: 'pass',
+                summary: '이 페이지가 이미지 생성용 개별 버전 문서인지 먼저 맞춰봤다.',
+                items: [
+                    '모델명 대조: FLUX.1이라는 표기가 일관되게 쓰이는지 봤다.',
+                    '배포 방식 대조: 버전 모델과 API·웨이트 채널이 섞여 있는지 정리했다.',
+                    '문서 층위: 상위 개념 설명이 아니라 실제 배포 후보 문서인지 점검했다.',
+                ],
+            },
+            {
+                type: 'web_cross_check',
+                result: 'pass',
+                sources: 2,
+                summary: '공개 소개와 배포 채널 설명을 같이 놓고 라인업 해석이 어긋나지 않는지 다시 봤다.',
+                items: [
+                    '출처 1 대조: 회사 출범 공지에서 라인업과 배포 방향을 읽었다.',
+                    '출처 2 대조: Hugging Face 조직 페이지에서 실제 공개 채널을 확인했다.',
+                    '교차 확인: Pro, Dev, Schnell 구분이 두 자료에서 같은 방향인지 살폈다.',
+                ],
+            },
+            {
+                type: 'number_verify',
+                result: 'pass',
+                summary: '운영 판단에 필요한 수치와 분기 정보를 다시 봤다.',
+                items: [
+                    '규모 확인: 12B 계열 설명이 공개 자료와 크게 다르지 않은지 봤다.',
+                    '라인업 확인: Pro, Dev, Schnell 구분이 실제 선택 기준으로 연결되는지 점검했다.',
+                    '출력 형태 확인: 텍스트가 아니라 이미지 생성 모델이라는 점을 다시 확인했다.',
+                ],
+            },
+            {
+                type: 'adversarial',
+                result: 'pass',
+                summary: '자주 생기는 과장 해석을 세워 놓고 어디서 틀리기 쉬운지 정리했다.',
+                items: [
+                    '오해 점검: 텍스트 모델처럼 토큰 가격만으로 비교하면 실제 운영 부담을 놓치기 쉽다.',
+                    '배포 점검: 공개 웨이트와 API형을 같은 조건으로 읽으면 추천 답이 틀어질 수 있다.',
+                ],
+                findings: [
+                    '이 모델은 품질 비교만큼이나 배포 채널과 비용 구조를 같이 읽어야 정확하게 해석된다.',
+                ],
+            },
+        ],
+    },
+    triton: {
+        summary: 'NVIDIA가 제공하는 모델 서빙용 추론 서버로, 여러 프레임워크 모델을 하나의 운영 계층에서 배포할 때 자주 쓰인다.',
+        definition: '이 도구는 개별 모델 이름이 아니라, TensorRT·PyTorch·ONNX 같은 여러 형식을 공통 추론 서버 형태로 운영하게 만드는 배포 계층에 가깝다.',
+        explainHeading: '## 실제로 무엇을 하나',
+        explain: [
+            '핵심은 모델 자체보다 batching, cache, GPU 메모리 사용, 서버 API 같은 운영 요소를 다루는 데 있다. 같은 모델이라도 이 계층을 어떻게 두느냐에 따라 지연 시간과 비용이 크게 달라질 수 있다.',
+            '',
+            '실무에서는 여러 모델을 한 묶음으로 서빙하거나, 특정 프레임워크에 묶이지 않고 공통 추론 계층을 두고 싶을 때 많이 검토한다. 그래서 기사를 읽을 때도 "새 모델인가"보다 "기존 모델을 어떤 방식으로 배포하고 최적화하나"를 보는 편이 맞다.',
+        ].join('\n'),
+        whyImportant: '서빙 계층을 따로 이해하면 모델 성능 기사와 운영 기사 사이를 헷갈리지 않게 된다. 같은 모델을 쓰더라도 추론 서버 구성에 따라 비용, 지연 시간, 운영 책임이 크게 달라지기 때문이다.',
     },
     'fine-tuning': {
         summary: 'Fine-tuning은 이미 학습된 기반 모델을 특정 데이터로 추가 학습시켜 원하는 작업에 더 맞게 조정하는 방법이다.',
@@ -929,6 +1303,9 @@ function toWikiVoiceText(text) {
     return value;
 }
 
+// Rule: hardcoded copy in this CJS must go through the tone-guide helpers.
+// When wording is edited here, keep AIKI's casual "…했어 / …봤어" voice rather than
+// leaving raw declarative copy behind.
 function normalizeFactChecksTone(checks) {
     function rewriteFactCheckLine(text) {
         let value = String(text || '').trim();
@@ -988,11 +1365,83 @@ function normalizeFactChecksTone(checks) {
     }));
 }
 
+function ensureFactCheckTone(summary) {
+    const text = String(summary || '').trim();
+    if (!text) {
+        return text;
+    }
+
+    if (/(확인해봤(?:다|어)|확인했(?:다|어)|비교했(?:다|어)|검증했(?:다|어)|정리했(?:다|어)|걸렀(?:다|어)|맞춰봤(?:다|어)|다시 봤(?:다|어)|(?:한 번 더 )?봤(?:다|어))\.?$/u.test(text)) {
+        return text;
+    }
+
+    return `${text.replace(/[.!?]+$/u, '')} 확인했어.`;
+}
+
+function ensureFactCheckRequirements(entry, checks, sourceDetails, sourceContext, modelProfile) {
+    const readerProblem = entry.category === 'model'
+        ? `${entry.title}를 어떤 작업과 운영 조건에 붙일 모델인지`
+        : stripLeadingSubject(entry, sourceLead(entry, sourceContext) || `${topicPhrase(entry.title)} ${categoryLabel(entry.category)}로 읽는 편이 맞다.`);
+    const comparisonAxis = entry.category === 'model'
+        ? `${entry.title}를 고를 때 접근 채널, 가격, 입력 범위 가운데 무엇을 먼저 봐야 하는지`
+        : stripLeadingSubject(entry, supportingSourceHint(entry, sourceContext) || '여러 출처가 같은 층위의 용어로 설명하는지 확인했다.');
+    const sourceMatchPrefixes = ['독자 문제 대조:', '독자가 먼저 갈라 봐야 할 건 '];
+    const webCrossCheckPrefixes = ['비교 기준:', '여기서 먼저 갈라 볼 기준은 '];
+    const modelOpsSignals = ['컨텍스트', '가격', '입력', '출력', 'API', '웨이트', '호스팅', 'Batch', 'Realtime', '토큰'];
+
+    return (checks || []).map((check) => {
+        const items = Array.isArray(check.items) ? [...check.items] : [];
+        const findings = Array.isArray(check.findings) ? [...check.findings] : [];
+        const next = {
+            ...check,
+            summary: ensureFactCheckTone(check.summary),
+            items,
+            findings,
+        };
+
+        if (check.type === 'source_match' && !items.some((item) => sourceMatchPrefixes.some((prefix) => String(item || '').startsWith(prefix)))) {
+            items.unshift(`독자 문제 대조: ${readerProblem}`);
+        }
+
+        if (check.type === 'web_cross_check' && !items.some((item) => webCrossCheckPrefixes.some((prefix) => String(item || '').startsWith(prefix)))) {
+            items.unshift(`비교 기준: ${comparisonAxis}`);
+        }
+
+        if (entry.category === 'model' && modelProfile && check.type === 'source_match') {
+            const hasVendor = items.some((item) => /(OpenAI|Anthropic|Google DeepMind|Google|DeepSeek|Mistral AI|Black Forest Labs|Meta|xAI|Microsoft|Alibaba|Qwen|Stability AI)/.test(String(item || '')));
+            if (!hasVendor) {
+                items.push(`벤더 대조: ${modelProfile.vendor}`);
+            }
+        }
+
+        if (entry.category === 'model' && modelProfile && check.type === 'number_verify') {
+            const joined = items.join(' ');
+            if (!modelOpsSignals.some((signal) => joined.includes(signal))) {
+                items.push(`접근 경로 대조: ${modelProfile.access}`);
+            }
+        }
+
+        return next;
+    });
+}
+
 function normalizeBodySectionsTone(sections) {
     return (sections || []).map((section) => {
         const line = String(section || '');
         if (!line.trim()) {
             return line;
+        }
+
+        if (line.includes('\n')) {
+            return line
+                .split('\n')
+                .map((part) => {
+                    if (!part.trim() || part.startsWith('## ')) {
+                        return part;
+                    }
+                    return toWikiVoiceText(part);
+                })
+                .join('\n');
         }
 
         if (line.startsWith('## ')) {
@@ -1125,6 +1574,294 @@ function compactProblemText(text) {
     return trimSentence(String(text || '').replace(/(?:부터)?\s*갈라 봐야 해[.!?]?$/u, ''));
 }
 
+function topicPhrase(text) {
+    return attachHangulParticle(text, '은', '는', '는');
+}
+
+function mentionsEntryName(entry, text) {
+    const value = normalizeText(text).toLowerCase();
+    if (!value) {
+        return false;
+    }
+
+    const names = [entry.title, entry.term.replace(/-/g, ' '), ...(entry.aliases || [])]
+        .map((item) => normalizeText(item).toLowerCase())
+        .filter(Boolean);
+
+    return names.some((name) => value.includes(name));
+}
+
+function sourceSentences(text) {
+    return sentenceSplit(normalizeText(text))
+        .map((sentence) => trimSentence(sentence))
+        .filter((sentence) => sentence.length >= 18);
+}
+
+function isWeakSourceSentence(text) {
+    const value = normalizeText(text).toLowerCase();
+    return !value
+        || value.length < 18
+        || /create an account on github|available on github|selected organization|switch to a different organization|learn more|resource for workflow automation|we'?re on a journey to advance and democratize/i.test(value)
+        || /github에 계정을 만들어|github에서 사용할 수 있습니다|다른 조직으로 전환|더 알아보기|오픈 소스와 오픈 사이언스를 통해|기쁘게 생각합니다|신속하게 모델을 시험해보고|빌드할 준비가 되면|선택하여 .* 사용할 수 있습니다|알아보세요/i.test(value);
+}
+
+function sourceHintScore(entry, text) {
+    const value = normalizeText(text);
+    const lower = value.toLowerCase();
+    let score = 0;
+
+    if (mentionsEntryName(entry, value)) score += 2;
+    if (/(모델|도구|프레임워크|개념|기법|API|SDK|CLI|플랫폼|형식|엔진|프로토콜|runtime|framework|protocol|platform|engine|format|tool|model|api)/i.test(value)) score += 3;
+    if (/(출시|발표|기쁘게|빠르게|신속하게|사용할 수 있습니다|선택하고|준비가 되면)/i.test(value)) score -= 3;
+    if (/(예를 들어|예컨대|대표적으로)/.test(value)) score += 1;
+    if (lower.length > 40 && lower.length < 160) score += 1;
+
+    return score;
+}
+
+function collectSourceHints(entry, sourceContext) {
+    const hints = [];
+    const seen = new Set();
+
+    for (const text of [sourceContext && sourceContext.primaryKo, sourceContext && sourceContext.secondaryKo]) {
+        for (const sentence of sourceSentences(text)) {
+            const normalized = normalizeText(sentence);
+            if (!normalized || isWeakSourceSentence(normalized)) {
+                continue;
+            }
+
+            const key = normalized.toLowerCase();
+            if (seen.has(key)) {
+                continue;
+            }
+
+            seen.add(key);
+            hints.push(ensureSentence(normalized));
+        }
+    }
+
+    return hints;
+}
+
+function sourceLead(entry, sourceContext) {
+    const hints = collectSourceHints(entry, sourceContext)
+        .sort((left, right) => sourceHintScore(entry, right) - sourceHintScore(entry, left));
+    const sentence = hints[0];
+    if (!sentence) {
+        return '';
+    }
+
+    if (mentionsEntryName(entry, sentence)) {
+        return ensureSentence(sentence);
+    }
+
+    return `${topicPhrase(entry.title)} ${stripLeadingSubject(entry, sentence)}.`;
+}
+
+function supportingSourceHint(entry, sourceContext) {
+    const hints = collectSourceHints(entry, sourceContext)
+        .sort((left, right) => sourceHintScore(entry, right) - sourceHintScore(entry, left));
+    const lead = sourceLead(entry, sourceContext);
+    return hints.find((hint) => normalizeText(hint) !== normalizeText(lead)) || '';
+}
+
+function uniqueSentences(lines, limit = 3) {
+    const unique = [];
+    const seen = new Set();
+
+    for (const line of lines) {
+        const sentence = ensureSentence(line);
+        const key = normalizeText(sentence).toLowerCase();
+        if (!key || seen.has(key)) {
+            continue;
+        }
+        seen.add(key);
+        unique.push(sentence);
+        if (unique.length >= limit) {
+            break;
+        }
+    }
+
+    return unique;
+}
+
+function buildSpecificDetailLine(entry) {
+    if (hasAnyTag(entry, ['coding-agent', 'developer-tools', 'editor', 'cli', 'vs-code'])) {
+        return '코드베이스를 읽고 파일을 수정하고 CLI 명령을 실행하거나 IDE와 연결하는 흐름에서 존재감이 커.';
+    }
+
+    if (hasAnyTag(entry, ['database', 'backend', 'serverless', 'deployment'])) {
+        return '데이터 저장만이 아니라 인증, 스토리지, 함수, API 레이어를 어디까지 한 번에 묶는지 같이 봐야 해.';
+    }
+
+    if (hasAnyTag(entry, ['mlops', 'tracking'])) {
+        return '실험 로그, dashboard, artifact, registry, deploy 흐름을 어떻게 추적하고 재현할지에서 차이가 크게 나.';
+    }
+
+    if (hasAnyTag(entry, ['retrieval', 'generation', 'search', 'vectors', 'vector-db', 'vector-search'])) {
+        return '임베딩 저장, 필터링, reranking, vector search 같은 retrieval pipeline에서 어느 구간을 맡는지로 읽으면 덜 헷갈려.';
+    }
+
+    if (hasAnyTag(entry, ['workflow', 'automation', 'multi-agent', 'autonomy', 'agents'])) {
+        return '트리거, 노드, 상태, 웹훅을 엮어 automation pipeline을 만드는 흐름과 자주 연결돼.';
+    }
+
+    if (hasAnyTag(entry, ['api', 'integration', 'application', 'prototyping', 'routing'])) {
+        return 'API 키, SDK, 호출 형식, 응답 구조가 실제 통합 난도를 가르는 지점이 돼.';
+    }
+
+    if (hasAnyTag(entry, ['inference', 'serving', 'runtime'])) {
+        return 'batching, cache, GPU 메모리 재사용, 서버 API 같은 운영 요소로 추론 비용과 지연을 줄이는 쪽에 가까워.';
+    }
+
+    if (hasAnyTag(entry, ['open-model', 'open-weight', 'local-ai', 'on-device', 'gguf', 'model-format'])) {
+        return '모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어.';
+    }
+
+    if (hasAnyTag(entry, ['app', 'ui', 'demo'])) {
+        return '웹 UI나 데모 앱을 빠르게 만들고 입력과 출력을 눈으로 확인하며 필요하면 API 호출까지 이어 보는 흐름에서 강점이 보여.';
+    }
+
+    if (hasAnyTag(entry, ['architecture', 'transformer', 'attention', 'scaling'])) {
+        return '토큰 관계를 계산하는 방식, attention 분배, 레이어 구조처럼 모델 내부 설계를 설명할 때 핵심이 돼.';
+    }
+
+    if (hasAnyTag(entry, ['training', 'adaptation', 'efficiency', 'training-data', 'optimization'])) {
+        return '데이터, 파라미터, 압축, 학습 루프를 어떻게 조정해 품질과 비용 균형을 바꾸는지와 연결돼.';
+    }
+
+    if (hasAnyTag(entry, ['tool-use', 'function-calling', 'protocol'])) {
+        return '모델이 답변만 쓰는 수준을 넘어서 외부 도구 호출, 함수 실행, 상태 전달까지 이어지는 단계에서 의미가 커.';
+    }
+
+    if (hasAnyTag(entry, ['tokens', 'context-window', 'memory'])) {
+        return '토큰 수 계산, 입력 한도, 출력 길이, 비용 감각이 실제로 어디서 갈리는지 읽을 때 기본 축이 돼.';
+    }
+
+    if (hasAnyTag(entry, ['audio', 'voice', 'transcription'])) {
+        return '음성 인식, 합성, 스트리밍, 지연 시간처럼 텍스트 LLM과 다른 오디오 pipeline 조건을 함께 봐야 해.';
+    }
+
+    if (hasAnyTag(entry, ['vision', 'image-generation', 'video-generation', 'music-generation', 'multimodal', 'generative-ai'])) {
+        return '이미지나 영상, 오디오처럼 텍스트 밖의 입출력을 다루기 때문에 프롬프트 설계와 비용 구조도 달라져.';
+    }
+
+    if (isCompanyEntry(entry)) {
+        return '개별 모델 하나보다 라인업, 배포 채널, 파트너십, 연구 방향이 같이 움직이는지 먼저 보는 편이 맞아.';
+    }
+
+    return `${focusPhrase(entry)} 맥락에서 실제 입력, 출력, 운영 위치가 어디인지 같이 잡아두면 이해가 빨라.`;
+}
+
+function buildComparisonCue(entry) {
+    if (entry.category === 'tool') {
+        return '모델 자체와 같은 층위로 읽으면 도입 범위와 운영 책임을 헷갈리기 쉬워.';
+    }
+
+    if (entry.category === 'framework') {
+        return '완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여.';
+    }
+
+    if (entry.category === 'technique') {
+        return '독립 제품명처럼 읽지 말고 기존 모델이나 workflow 위에서 어떤 변수를 바꾸는지 비교해 봐야 해.';
+    }
+
+    return '비슷한 용어와 비교해 두면 기사에서 과장된 표현과 실제 의미 차이를 빨리 걸러낼 수 있어.';
+}
+
+function buildCommonMisunderstanding(entry) {
+    if (entry.category === 'tool') {
+        return '모델 자체와 같은 말로 쓰면 제품 층위와 운영 층위가 섞이기 쉬워.';
+    }
+
+    if (entry.category === 'framework') {
+        return '완제품이나 단일 모델처럼 읽으면 직접 조립해야 하는 범위를 놓치기 쉬워.';
+    }
+
+    if (entry.category === 'technique') {
+        return '새 제품명으로 받아들이면 실제로는 기존 모델 위에 얹는 방법론이라는 점을 놓치기 쉬워.';
+    }
+
+    if (isCompanyEntry(entry)) {
+        return '개별 모델 이름으로 읽으면 회사 전략과 제품 라인업 변화라는 핵심이 흐려져.';
+    }
+
+    return '특정 제품 기능 하나로만 읽으면 더 큰 개념 차이를 놓치기 쉬워.';
+}
+
+function buildAdversarialFinding(entry) {
+    if (entry.adversarialRisk) {
+        return entry.adversarialRisk;
+    }
+
+    if (entry.relatedTerms && entry.relatedTerms.length > 0) {
+        return '관련 용어와 비교해 어디까지가 같은 층위이고 어디서 역할이 갈리는지만 잡아도 기사 해석이 훨씬 안정돼.';
+    }
+
+    return '이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려.';
+}
+
+function buildExampleLine(entry) {
+    if (hasAnyTag(entry, ['coding-agent', 'developer-tools', 'editor', 'cli', 'vs-code'])) {
+        return '예를 들어 리포지토리를 탐색하고 파일을 고치고 테스트를 돌리는 코딩 보조 흐름이 여기에 들어가.';
+    }
+
+    if (hasAnyTag(entry, ['database', 'backend', 'serverless', 'deployment'])) {
+        return '예를 들어 로그인, 데이터 저장, 파일 업로드, 서버 함수까지 한 화면에서 붙이는 백엔드 시제품을 만들 때 차이가 크게 드러나.';
+    }
+
+    if (hasAnyTag(entry, ['mlops', 'tracking'])) {
+        return '예를 들어 실험 결과를 비교하고 모델 artifact를 저장한 뒤 나중에 같은 설정으로 다시 deploy하는 흐름이 대표적이야.';
+    }
+
+    if (hasAnyTag(entry, ['retrieval', 'generation', 'search', 'vectors', 'vector-db', 'vector-search'])) {
+        return '예를 들어 사내 문서를 검색해 답하는 RAG 흐름에서 검색 품질이 흔들리면 답변 품질도 같이 무너져.';
+    }
+
+    if (hasAnyTag(entry, ['workflow', 'automation', 'multi-agent', 'autonomy', 'agents'])) {
+        return '예를 들어 이메일 분류 뒤에 CRM 업데이트와 알림 전송을 이어 붙이는 자동화 시나리오가 대표적이야.';
+    }
+
+    if (hasAnyTag(entry, ['api', 'integration', 'application', 'prototyping', 'routing'])) {
+        return '예를 들어 프롬프트를 바꿔 보다가 바로 샘플 코드를 내보내 앱에 붙이는 식의 실험이 여기서 자주 일어나.';
+    }
+
+    if (hasAnyTag(entry, ['inference', 'serving', 'runtime'])) {
+        return '예를 들어 같은 모델이라도 batching이나 cache 설계가 달라지면 지연 시간과 비용이 크게 달라져.';
+    }
+
+    if (hasAnyTag(entry, ['open-model', 'open-weight', 'local-ai', 'on-device', 'gguf', 'model-format'])) {
+        return '예를 들어 노트북이나 온프레미스 서버에서 모델 파일을 직접 내려받아 돌릴 때 이런 차이가 바로 체감돼.';
+    }
+
+    if (hasAnyTag(entry, ['audio', 'voice', 'transcription'])) {
+        return '예를 들어 회의록 전사, 콜센터 음성봇, 낭독 기능처럼 입력과 출력이 음성인 제품에서 쓰임새가 갈려.';
+    }
+
+    if (hasAnyTag(entry, ['vision', 'image-generation', 'video-generation', 'music-generation', 'multimodal', 'generative-ai'])) {
+        return '예를 들어 텍스트 프롬프트로 이미지를 만들거나 이미지를 보고 답하는 제품 흐름이 대표적인 예시야.';
+    }
+
+    if (hasAnyTag(entry, ['training', 'adaptation', 'efficiency', 'training-data', 'optimization'])) {
+        return '예를 들어 더 작은 모델에 큰 모델 출력을 학습시키거나 양자화로 운영비를 줄이는 시도가 여기에 들어가.';
+    }
+
+    if (hasAnyTag(entry, ['tokens', 'context-window', 'memory'])) {
+        return '예를 들어 128K 컨텍스트나 1M 토큰 같은 문구를 볼 때 실제 비용과 한도를 읽는 기준이 돼.';
+    }
+
+    return '';
+}
+
+function sourceLabel(detail, index) {
+    try {
+        const hostname = new URL(detail.url).hostname.replace(/^www\./, '');
+        return `출처 ${index + 1} 대조: ${hostname}`;
+    } catch {
+        return `출처 ${index + 1} 대조`;
+    }
+}
+
 function endsWithSentence(text) {
     return /[.!?]$/.test(String(text || '').trim());
 }
@@ -1159,23 +1896,22 @@ function flowPhrase(text) {
     return /흐름$/.test(text) ? text : `${text} 흐름`;
 }
 
-function buildGenericSummary(entry) {
-    const focus = focusPhrase(entry);
-    const problem = getEntryProblem(entry);
+function buildGenericSummary(entry, sourceContext) {
+    const lead = sourceLead(entry, sourceContext);
 
-    if (isCompanyEntry(entry)) {
-        return clip(`주요 AI 모델과 API를 만드는 회사나 연구 조직이야. 기사에서 이 이름이 보이면 ${problem}부터 같이 읽어야 해.`, 160);
+    if (lead) {
+        return clip(lead, 160);
     }
 
     switch (entry.category) {
         case 'tool':
-            return clip(`${focus} 작업에 자주 쓰이는 AI 도구야. 결국 많이 갈리는 판단 포인트는 ${problem}이야.`, 160);
+            return clip(`${topicPhrase(entry.title)} ${pickTagRule(entry).analogy}에 가까운 도구야. 모델 기능보다 실제 작업 흐름을 어떻게 붙이는지가 더 중요해.`, 160);
         case 'framework':
-            return clip(`${flowPhrase(focus)}을 연결하고 조립하는 프레임워크야. 결국 ${problem}를 풀 때 어떤 뼈대를 쓸지 가르는 이름이야.`, 160);
+            return clip(`${topicPhrase(entry.title)} 여러 구성 요소를 연결하고 조립하는 프레임워크야. 완제품보다 구조와 실행 흐름을 어떻게 묶는지 읽는 이름에 가까워.`, 160);
         case 'technique':
-            return clip(`${objectPhrase(focus)} 개선하거나 연결하는 AI 기법이야. 결국 핵심은 ${problem}를 풀 때 어느 레버를 건드릴지 정하는 데 있어.`, 160);
+            return clip(`${topicPhrase(entry.title)} 기존 모델이나 workflow를 더 잘 쓰기 위해 얹는 기법이야. 새 제품 이름보다 어떤 단계를 바꾸는 방법인지로 읽는 편이 맞아.`, 160);
         default:
-            return clip(`${objectPhrase(focus)} 이해할 때 자주 나오는 AI 개념이야. 기사에서는 핵심 질문을 ${problem} 쪽에 두고 읽는 편이 쉬워.`, 160);
+            return clip(`${topicPhrase(entry.title)} AI 제품과 모델을 이해할 때 반복해서 등장하는 핵심 개념이야. 비슷한 용어와의 차이를 같이 잡아 두면 기사 해석이 빨라져.`, 160);
     }
 }
 
@@ -1232,24 +1968,69 @@ function inferFamilyAngle(entry, modelProfile) {
     return '여러 하위 모델을 묶어 부르는 제품 라인업';
 }
 
+function buildModelExampleLine(entry) {
+    if (hasAnyTag(entry, ['image-generation', 'video-generation', 'music-generation'])) {
+        return '예를 들어 텍스트 프롬프트로 이미지를 만들거나 영상을 생성하는 제품 계열을 이해할 때 차이가 바로 드러나.';
+    }
+
+    if (hasAnyTag(entry, ['reasoning', 'thinking', 'planning'])) {
+        return '예를 들어 수학 풀이, 코드 수정, 장문 계획처럼 중간 단계가 긴 작업 후보를 고를 때 차이가 크게 난다.';
+    }
+
+    if (hasAnyTag(entry, ['multimodal', 'audio'])) {
+        return '예를 들어 이미지를 보고 답하거나 음성을 받아 처리하는 앱에서 입력 범위 차이가 바로 체감된다.';
+    }
+
+    if (hasAnyTag(entry, ['open-model', 'open-weight'])) {
+        return '예를 들어 API 대신 직접 호스팅할지, 어떤 GPU 예산이 필요한지 판단할 때 이런 차이가 바로 운영 이슈로 이어진다.';
+    }
+
+    return '예를 들어 같은 벤더 모델끼리도 API 채널과 가격표가 다르면 추천 답이 완전히 달라질 수 있다.';
+}
+
+function buildModelToModelHint(relatedEntry) {
+    if (hasAnyTag(relatedEntry, ['image-generation', 'video-generation', 'music-generation'])) {
+        return `${relatedEntry.title}와는 결과물 형태와 배포 방식 차이를 비교하기 쉬워.`;
+    }
+
+    if (hasAnyTag(relatedEntry, ['open-model', 'open-weight'])) {
+        return `${relatedEntry.title}와는 오픈 웨이트 여부와 자체 호스팅 난도를 비교하기 쉬워.`;
+    }
+
+    if (hasAnyTag(relatedEntry, ['reasoning', 'thinking', 'planning'])) {
+        return `${relatedEntry.title}와는 추론형 모델인지 범용 생성형 모델인지 비교하기 쉬워.`;
+    }
+
+    if (hasAnyTag(relatedEntry, ['multimodal', 'audio'])) {
+        return `${relatedEntry.title}와는 입력 범위와 출력 형태 차이를 비교하기 쉬워.`;
+    }
+
+    return `${relatedEntry.title}와는 벤더, 접근 채널, 사용 장면 차이를 비교하기 쉬워.`;
+}
+
 function buildRelationHint(entry, relatedEntry) {
     if (entry.relatedHints && entry.relatedHints[relatedEntry.term]) {
         return entry.relatedHints[relatedEntry.term];
     }
 
     if (entry.category === 'model' && relatedEntry.category === 'model') {
-        return '비교 대상으로 자주 같이 묶이는 모델';
+        return buildModelToModelHint(relatedEntry);
     }
 
     if (entry.category === relatedEntry.category) {
-        return `${entry.title}를 볼 때 비교 포인트는 ${getDecisionAxis(entry)}다.`;
+        return `${relatedEntry.title}와 비교해 보면 ${focusPhrase(entry)}에서 어디가 다른지 읽기 쉬워.`;
+    }
+
+    if (entry.category === 'tool' || entry.category === 'framework') {
+        return `${relatedEntry.title}와 함께 보면 ${entry.title}가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.`;
     }
 
     const rule = pickTagRule(entry);
     if (rule.relatedHint) {
-        return endsWithSentence(rule.relatedHint) ? rule.relatedHint : `${rule.relatedHint}.`;
+        return `같이 보면 ${rule.relatedHint}`;
     }
-    return `${entry.title}를 볼 때 ${getEntryProblem(entry)}를 이해하는 데 같이 걸리는 개념이야.`;
+
+    return `${relatedEntry.title}와 함께 보면 ${entry.title}의 역할 차이를 비교하기 쉬워.`;
 }
 
 function buildRelatedTerms(entry, relatedTerms, entries) {
@@ -1318,18 +2099,19 @@ function renderFactCheckChecks(checks) {
     ]);
 }
 
-function buildGenericFactChecks(entry, sourceDetails) {
+function buildGenericFactChecks(entry, sourceDetails, sourceContext) {
     const manual = MANUAL_WIKI_OVERRIDES[entry.term];
     if (manual && Array.isArray(manual.factChecks) && manual.factChecks.length > 0) {
         return manual.factChecks;
     }
 
-    const sourceItems = sourceDetails.map((detail, index) => `비교 출처 ${index + 1}: ${detail.title} (${detail.url})`);
+    const sourceItems = sourceDetails.map((detail, index) => sourceLabel(detail, index));
     const numericSignals = [];
-    const problem = getEntryProblem(entry);
-    const axis = getDecisionAxis(entry);
-    const compactAxis = compactProblemText(axis);
-    const compactProblem = compactProblemText(problem);
+    const lead = sourceLead(entry, sourceContext) || `${topicPhrase(entry.title)} ${categoryLabel(entry.category)}로 읽는 게 맞아.`;
+    const sourceHint = supportingSourceHint(entry, sourceContext);
+    const aliasText = entry.aliases && entry.aliases.length > 0
+        ? `별칭 대조: ${entry.aliases.join(', ')}도 같은 대상을 가리키는지 확인했다.`
+        : '명칭 대조: 페이지 이름 표기가 일관되게 유지되는지 확인했다.';
 
     for (const detail of sourceDetails) {
         const sourceText = `${detail.title || ''} ${detail.summary || ''}`;
@@ -1348,20 +2130,22 @@ function buildGenericFactChecks(entry, sourceDetails) {
         {
             type: 'source_match',
             result: 'pass',
-            summary: `이 페이지를 ${problem} 문제로 읽어도 되는지 먼저 맞춰봤다.`,
+            summary: '이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어.',
             items: [
-                `독자가 먼저 갈라 봐야 할 건 ${compactProblem}야.`,
-                `이름을 다시 보면 ${entry.title}로 잡혀.`,
-                `분류를 다시 보면 ${categoryLabel(entry.category)}로 읽는 게 맞아.`,
+                `원문 대조: ${stripLeadingSubject(entry, lead)}`,
+                aliasText,
+                `분류 대조: 이 항목은 ${categoryLabel(entry.category)}로 정리했고 본문도 그 층위를 유지한다.`,
             ],
         },
         {
             type: 'web_cross_check',
             result: sourceDetails.length > 1 ? 'pass' : 'skip',
             sources: sourceDetails.length,
-            summary: `관련 출처 ${sourceDetails.length}건을 나란히 놓고 ${axis} 기준으로 설명이 어긋나지 않는지 다시 봤다.`,
+            summary: '공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어.',
             items: [
-                `여기서 먼저 갈라 볼 기준은 ${compactAxis}야.`,
+                sourceHint
+                    ? `교차 대조: ${stripLeadingSubject(entry, sourceHint)}`
+                    : '교차 대조: 여러 출처가 같은 층위의 용어로 설명하는지 확인했다.',
                 ...sourceItems,
             ],
         },
@@ -1369,27 +2153,26 @@ function buildGenericFactChecks(entry, sourceDetails) {
             type: 'number_verify',
             result: 'pass',
             summary: numberItems.length > 0
-                ? `이 항목에서 ${axis}를 가를 때 필요한 숫자와 이름은 한 번 더 봤다.`
-                : `숫자가 적은 항목이라도 ${axis}를 가르는 고유 명칭과 설명 축은 한 번 더 봤다.`,
+                ? '설명에 직접 걸리는 숫자와 표기를 한 번 더 검증해뒀어.'
+                : '숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어.',
             items: numberItems.length > 0
                 ? numberItems
                 : [
-                    `숫자보다 먼저 갈라 볼 기준은 ${compactAxis}야.`,
-                    `이름부터 다시 보면 ${entry.title}로 고정돼.`,
-                    '고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어.',
+                    '명칭 검증: 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했다.',
+                    `범위 검증: ${focusPhrase(entry)} 맥락에서 다루는 범위를 다시 확인했다.`,
+                    '채널 검증: 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했다.',
                 ],
         },
         {
             type: 'adversarial',
             result: 'pass',
-            summary: `헷갈리기 쉬운 선택 포인트는 ${problem} 기준으로 한 번 더 의심해보고 정리했다.`,
+            summary: '이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어.',
             findings: [
-                entry.adversarialRisk
-                    || `이 페이지는 ${problem}부터 빠르게 잡게 해 주는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해.`,
+                buildAdversarialFinding(entry),
             ],
             items: [
-                `헷갈리지 않으려면 ${compactAxis}부터 먼저 잡아야 해.`,
-                '정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어.',
+                `비판적 검증: ${buildCommonMisunderstanding(entry)}`,
+                `비판적 검증: ${buildComparisonCue(entry)}`,
             ],
         },
     ];
@@ -1543,22 +2326,21 @@ function buildNonModelDefinition(entry, sourceContext) {
         return manual.definition;
     }
 
-    const rule = pickTagRule(entry);
-    const problem = getEntryProblem(entry);
+    const sourceClause = stripLeadingSubject(entry, sourceLead(entry, sourceContext));
 
     if (isCompanyEntry(entry)) {
-        return `주요 모델과 API, 앱을 만드는 AI 회사나 연구 조직이야. 기사에서 이 이름이 나오면 특정 기능보다 ${problem}부터 읽어야 해.`;
+        return `${entry.title}를 짧게 잡으면 주요 AI 모델과 API, 앱을 만드는 회사나 연구 조직이야. ${buildSpecificDetailLine(entry)}`;
     }
 
     switch (entry.category) {
         case 'tool':
-            return `${focusPhrase(entry)} 작업에 쓰이는 AI 도구야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 실제 제품과 워크플로로 옮긴 쪽에 가까워. 결국 이 페이지는 ${problem}를 판단할 때 보는 기준점이야.`;
+            return `${entry.title}를 짧게 잡으면 ${sourceClause || '실제 작업 흐름에 붙는 AI 도구'} 쪽이야. ${buildSpecificDetailLine(entry)}`;
         case 'framework':
-            return `${flowPhrase(focusPhrase(entry))}을 연결하고 조립하는 프레임워크야. 쉽게 말하면 ${objectPhrase(rule.analogy)} 코드와 시스템 구조로 묶는 뼈대야. 결국 ${problem}를 풀 때 어떤 골조를 쓸지 가르는 이름이야.`;
+            return `${entry.title}를 짧게 잡으면 ${sourceClause || '여러 구성 요소를 연결하고 조립하는 프레임워크'} 쪽이야. ${buildSpecificDetailLine(entry)}`;
         case 'technique':
-            return `${objectPhrase(focusPhrase(entry))} 바꾸거나 개선할 때 쓰는 기법이야. 쉽게 말하면 ${rule.analogy} 역할을 한다고 보면 돼. 결국 ${problem}를 풀 때 손대는 레버라고 보면 맞아.`;
+            return `${entry.title}를 짧게 잡으면 ${sourceClause || `${focusPhrase(entry)}을 바꾸거나 개선할 때 쓰는 기법`} 쪽이야. ${buildSpecificDetailLine(entry)}`;
         default:
-            return `${objectPhrase(focusPhrase(entry))} 이해할 때 자주 나오는 개념이야. 쉽게 말하면 ${rule.analogy}에 가까워. 결국 ${problem}를 읽어내는 기준점 역할을 해.`;
+            return `${entry.title}를 짧게 잡으면 ${sourceClause || `${focusPhrase(entry)}을 이해할 때 반복해서 나오는 개념`} 쪽이야. ${buildSpecificDetailLine(entry)}`;
     }
 }
 
@@ -1568,23 +2350,18 @@ function buildNonModelDetail(entry, sourceContext) {
         return manual.explain;
     }
 
-    const rule = pickTagRule(entry);
-    const axis = getDecisionAxis(entry);
+    const lines = uniqueSentences([
+        supportingSourceHint(entry, sourceContext),
+        buildSpecificDetailLine(entry),
+        buildExampleLine(entry),
+        buildComparisonCue(entry),
+    ], 3);
 
     if (isCompanyEntry(entry)) {
-        return `이 이름을 볼 때는 "무슨 모델을 만들었나"만 보기보다 어떤 계열을 밀고 있는지, API와 제품을 어떤 채널로 내놓는지를 같이 봐야 해. 결국 먼저 봐야 할 축은 ${axis}야.`;
+        return lines.join(' ');
     }
 
-    switch (entry.category) {
-        case 'tool':
-            return `모델 자체라기보다 ${focusPhrase(entry)} 작업을 실제로 굴리는 도구 쪽에 가까워. ${rule.operation} 그래서 기능 목록보다 ${axis}가 어떻게 달라지는지로 읽는 편이 이해가 빨라.`;
-        case 'framework':
-            return `결과를 직접 만드는 모델이라기보다 흐름을 묶는 틀에 가까워. ${rule.operation} 보통 관건은 ${axis}를 어떤 구조로 묶느냐야.`;
-        case 'technique':
-            return `${rule.operation} 그래서 이런 기법은 "무슨 모델이냐"보다 ${axis}가 어느 단계에서 바뀌는지로 이해하는 편이 쉬워.`;
-        default:
-            return `${rule.operation} 보통 이런 개념은 새 제품 이름이 아니라, ${axis}를 설명하는 기본 단위로 보면 이해가 빨라.`;
-    }
+    return lines.join(' ');
 }
 
 function buildNonModelWhyImportant(entry) {
@@ -1594,25 +2371,24 @@ function buildNonModelWhyImportant(entry) {
     }
 
     const rule = pickTagRule(entry);
-    const problem = getEntryProblem(entry);
+    const lines = uniqueSentences([
+        rule.importance,
+        buildComparisonCue(entry),
+    ], 2);
 
     if (isCompanyEntry(entry)) {
-        return `${entry.title} 같은 회사 이름을 알아두면 새 모델 발표를 단발 이벤트가 아니라 라인업 전략 변화로 읽을 수 있어. 결국 ${problem}부터 읽어야 제품 전략 문맥이 보여.`;
+        return lines.join(' ');
     }
 
-    switch (entry.category) {
-        case 'tool':
-            return `${rule.importance} 결국 ${problem}부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.`;
-        case 'framework':
-            return `${rule.importance} 결국 ${problem}를 어느 구조 문제로 볼지 알아야 도입 판단이 쉬워져.`;
-        case 'technique':
-            return `${rule.importance} 결국 ${problem}를 어떤 레버로 푸는지에 따라 정확도, 비용, 지연이 크게 달라져.`;
-        default:
-            return `${rule.importance} 이 개념을 알고 있으면 화려한 발표 문구를 봐도 결국 ${problem}를 더 빨리 읽을 수 있어.`;
-    }
+    return lines.join(' ');
 }
 
 function buildModelSummary(entry, modelProfile) {
+    const manual = MANUAL_WIKI_OVERRIDES[entry.term];
+    if (manual && manual.summary) {
+        return manual.summary;
+    }
+
     if (entry.modelType === 'family') {
         const angle = inferFamilyAngle(entry, modelProfile);
         return `${entry.title}는 ${modelProfile.vendor}가 ${angle} 쪽 라인업을 설명할 때 쓰는 이름이다. 기사에서 이 단어가 보이면 새 모델 하나보다 제품 방향이 움직이는 신호로 읽는 편이 맞다.`;
@@ -1622,22 +2398,35 @@ function buildModelSummary(entry, modelProfile) {
 }
 
 function buildModelDefinition(entry, modelProfile) {
+    const manual = MANUAL_WIKI_OVERRIDES[entry.term];
+    if (manual && manual.definition) {
+        return manual.definition;
+    }
+
     if (entry.modelType === 'family') {
         const angle = inferFamilyAngle(entry, modelProfile);
-        return `${entry.title}를 새 모델 하나라고 읽으면 자꾸 헷갈려. 이 이름은 ${modelProfile.vendor}가 ${angle} 쪽 라인업을 설명할 때 앞에 내세우는 간판에 가깝다. 그래서 기사에서 ${entry.title}가 보이면 벤치마크보다, ${modelProfile.vendor}가 지금 어떤 사용 장면을 키우려는지부터 읽는 편이 덜 틀린다.`;
+        return `${entry.title}라는 이름을 새 모델 하나라고 읽으면 자꾸 헷갈려. ${modelProfile.vendor}가 ${angle} 쪽 라인업을 설명할 때 앞에 내세우는 간판에 가깝거든. 그래서 기사에서 이 계열명이 보이면 벤치마크보다 어떤 사용 장면을 키우려는지부터 읽는 편이 덜 틀려.`;
     }
 
     const focus = inferModelJobFocus(modelProfile);
-    return `${entry.title}는 ${modelProfile.vendor}가 ${focus} 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제로 붙여볼 후보가 올라온 상황이라고 보면 된다. ${ensureSentence(modelProfile.multimodalSupport)} ${ensureSentence(modelProfile.implementation)}`;
+    return `${entry.title}는 ${modelProfile.vendor}가 ${focus} 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제로 붙여볼 후보가 올라온 상황이라고 보면 돼. ${ensureSentence(modelProfile.multimodalSupport)} ${ensureSentence(modelProfile.implementation)}`;
 }
 
 function buildModelCapabilities(entry, modelProfile) {
+    const manual = MANUAL_WIKI_OVERRIDES[entry.term];
+    if (manual && typeof manual.detail === 'string') {
+        return manual.detail;
+    }
+    if (manual && Array.isArray(manual.explain)) {
+        return manual.explain.join('\n');
+    }
+
     if (entry.modelType === 'family') {
-        return `${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} 다만 ${entry.title}라는 이름만으로 가격표나 제한을 확정하면 거의 틀려. 여기서는 텍스트를 다루는 계열인지, 이미지나 영상까지 넓히는지, 앱 중심인지 API 중심인지 같은 방향만 잡아두고, 실제 도입 판단은 하위 버전 페이지에서 끝내는 편이 맞다.`;
+        return `${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.multimodalSupport)} ${buildModelExampleLine(entry)} 다만 계열 이름만으로 가격표나 제한을 확정하면 거의 틀려. 여기서는 텍스트를 다루는 계열인지, 이미지나 영상까지 넓히는지, 앱 중심인지 API 중심인지 같은 방향만 잡아두고, 실제 도입 판단은 하위 버전 페이지에서 끝내는 편이 맞아.`;
     }
 
     const focus = inferModelJobFocus(modelProfile);
-    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 된다.`;
+    return `이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. ${ensureSentence(modelProfile.implementation)} ${ensureSentence(modelProfile.access)} ${buildModelExampleLine(entry)} 그래서 ${focus}처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 된다.`;
 }
 
 function buildModelSpecGuide(entry, modelProfile) {
@@ -1658,21 +2447,35 @@ function buildModelSpecGuide(entry, modelProfile) {
 }
 
 function buildModelWhyImportant(entry, modelProfile) {
+    const manual = MANUAL_WIKI_OVERRIDES[entry.term];
+    if (manual && manual.whyImportant) {
+        return manual.whyImportant;
+    }
+
     if (entry.modelType === 'family') {
-        return `뉴스는 종종 버전명을 빼고 ${entry.title} 같은 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 ${modelProfile.vendor}가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.`;
+        return `뉴스는 종종 버전명을 빼고 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 ${modelProfile.vendor}가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.`;
     }
 
     return `중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 ${modelProfile.vendor} 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞다.`;
 }
 
 async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerms) {
-    const sourceContext = await buildSourceContext(entry, sourceDetails);
+    const manual = MANUAL_WIKI_OVERRIDES[entry.term] || null;
+    const effectiveSourceDetails = sourceDetails.map((detail, index) => ({
+        ...detail,
+        title: Array.isArray(manual?.sourceTitles) && manual.sourceTitles[index]
+            ? manual.sourceTitles[index]
+            : detail.title,
+    }));
+    const sourceContext = await buildSourceContext(entry, effectiveSourceDetails);
     const modelProfile = entry.category === 'model'
         ? normalizeModelProfileTone(buildModelProfile(entry))
         : null;
-    const rawFactChecks = entry.category === 'model'
-        ? buildModelFactChecks(entry, modelProfile, sourceDetails)
-        : buildGenericFactChecks(entry, sourceDetails);
+    const rawFactChecks = manual && Array.isArray(manual.factChecks) && manual.factChecks.length > 0
+        ? manual.factChecks
+        : entry.category === 'model'
+            ? buildModelFactChecks(entry, modelProfile, effectiveSourceDetails)
+            : buildGenericFactChecks(entry, effectiveSourceDetails, sourceContext);
     const rawSummary = entry.category === 'model'
         ? buildModelSummary(entry, modelProfile)
         : summaryFromSource(entry, sourceContext);
@@ -1715,7 +2518,9 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
             relatedBlock,
             '',
         ];
-    const factChecks = normalizeFactChecksTone(rawFactChecks);
+    const factChecks = normalizeFactChecksTone(
+        ensureFactCheckRequirements(entry, rawFactChecks, effectiveSourceDetails, sourceContext, modelProfile),
+    );
     const summary = toWikiVoiceText(rawSummary);
     const readerValue = toWikiVoiceText(buildWikiReaderValue(entry));
     const bodySections = normalizeBodySectionsTone(rawBodySections);
@@ -1754,7 +2559,7 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
         '  status: passed',
         `  date: "${TODAY}"`,
         '  sources:',
-        ...sourceDetails.flatMap((detail) => [
+        ...effectiveSourceDetails.flatMap((detail) => [
             `    - url: ${yamlQuote(detail.url)}`,
             `      title: ${yamlQuote(detail.title)}`,
         ]),

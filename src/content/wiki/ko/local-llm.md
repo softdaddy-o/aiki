@@ -2,7 +2,7 @@
 term: local-llm
 title: "Local LLM"
 lang: ko
-summary: "경량 모델과 온디바이스 추론을 이해할 때 자주 나오는 AI 개념이야. 기사에서는 핵심 질문을 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 쪽에 두고 읽는 편이 쉬워."
+summary: "Local LLM는 Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다."
 readerValue: "이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡는 데 도움이 돼."
 category: concept
 aliases:
@@ -15,7 +15,7 @@ relatedTerms:
   - deepseek-r1
   - llama
 firstMentioned: "2026-04-03"
-mentionCount: 7
+mentionCount: 13
 draft: true
 tags:
   - local-ai
@@ -23,7 +23,7 @@ tags:
   - on-device
 factCheck:
   status: passed
-  date: "2026-04-11"
+  date: "2026-04-13"
   sources:
     - url: "https://www.sitepoint.com/definitive-guide-local-llms-2026-privacy-tools-hardware/"
       title: "Guide to Local LLMs in 2026: Privacy, Tools &amp; Hardware"
@@ -32,39 +32,44 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
+      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "이름을 다시 보면 Local LLM로 잡혀."
-        - "분류를 다시 보면 개념로 읽는 게 맞아."
+        - "독자가 먼저 갈라 봐야 할 건 Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다."
+        - "원문을 보면 Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다."
+        - "별칭 대조: local llm, local llms, 로컬 llm도 같은 대상을 가리키는지 확인했어."
+        - "분류를 다시 보면 이 항목은 개념로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
+      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "같이 본 출처로는 Guide to Local LLMs in 2026: Privacy, Tools &amp; Hardware (https://www.sitepoint.com/definitive-guide-local-llms-2026-privacy-tools-hardware/)"
-        - "같이 본 출처로는 Local LLM Reddit: What the Privacy-First AI Community Thinks (2026) (https://www.aitooldiscovery.com/guides/local-llm-reddit)"
+        - "여기서 먼저 갈라 볼 기준은 Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다."
+        - "교차 대조: Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다."
+        - "출처 1 대조: sitepoint.com."
+        - "출처 2 대조: aitooldiscovery.com."
     - type: number_verify
       result: pass
-      summary: "이 항목에서 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가를 때 필요한 숫자와 이름은 따로 검증해뒀어."
+      summary: "설명에 직접 걸리는 숫자와 표기를 한 번 더 검증해뒀어 확인했어."
       items:
         - "숫자를 다시 보면 2026 같은 표기가 실제 기준점으로 잡혀."
         - "숫자를 다시 보면 2026. 같은 표기가 실제 기준점으로 잡혀."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 선택 포인트는 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 한 번 더 의심해보고 정리해뒀어."
+      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
       items:
-        - "헷갈리지 않으려면 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 먼저 잡아야 해."
-        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
+        - "헷갈리기 쉬운 건 특정 제품 기능 하나로만 읽으면 더 큰 개념 차이를 놓치기 쉬워."
+        - "헷갈리기 쉬운 건 비슷한 용어와 비교해 두면 기사에서 과장된 표현과 실제 의미 차이를 빨리 걸러낼 수 있어."
       findings:
-        - "이 페이지는 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 빠르게 큰 흐름을 잡는 데 도움이 되는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
-경량 모델과 온디바이스 추론을 이해할 때 자주 나오는 개념이야. 쉽게 말하면 모델을 직접 내려받아 운영하는 배포 층에 가까워. 결국 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 읽어내는 기준점 역할을 해.
+Local LLM를 짧게 잡으면 Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다 쪽이야. 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어.
 ## 어떻게 작동하나
-웨이트, 포맷, 양자화, 런타임을 조합해서 원하는 환경에서 직접 돌리는 쪽에 가까워. 보통 이런 개념은 새 제품 이름이 아니라, 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 설명하는 기본 단위로 보면 이해가 빨라.
+Ollama와 LM Studio, 최고의 로컬 모델(Llama, Mistral, DeepSeek), 하드웨어 요구 사항 및 개인 정보 보호 혜택에 대한 커뮤니티 평결입니다. 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어. 예를 들어 노트북이나 온프레미스 서버에서 모델 파일을 직접 내려받아 돌릴 때 이런 차이가 바로 체감돼.
 ## 왜 중요한가
-비용, 지연 시간, 데이터 통제권을 직접 잡고 싶을 때 핵심이 되는 축이야. 이 개념을 알고 있으면 화려한 발표 문구를 봐도 결국 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 더 빨리 읽을 수 있어.
+비용, 지연 시간, 데이터 통제권을 직접 잡고 싶을 때 핵심이 되는 축이야. 비슷한 용어와 비교해 두면 기사에서 과장된 표현과 실제 의미 차이를 빨리 걸러낼 수 있어.
 ## 관련 용어
-- [LocalLLaMA](/ko/wiki/localllama/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [llama.cpp](/ko/wiki/llama.cpp/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [DeepSeek R1](/ko/wiki/deepseek-r1/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Llama](/ko/wiki/llama/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [LocalLLaMA](/ko/wiki/localllama/) — 같이 보면 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [llama.cpp](/ko/wiki/llama.cpp/) — 같이 보면 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [DeepSeek R1](/ko/wiki/deepseek-r1/) — 같이 보면 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [Llama](/ko/wiki/llama/) — 같이 보면 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.

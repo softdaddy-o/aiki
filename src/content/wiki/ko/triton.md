@@ -2,7 +2,7 @@
 term: triton
 title: "Triton Inference Server"
 lang: ko
-summary: "모델 서빙과 추론 성능 작업에 자주 쓰이는 AI 도구야. 결국 많이 갈리는 판단 포인트는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지이야."
+summary: "NVIDIA가 제공하는 모델 서빙용 추론 서버로, 여러 프레임워크 모델을 하나의 운영 계층에서 배포할 때 자주 쓰여."
 readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
 category: tool
 aliases:
@@ -13,13 +13,13 @@ relatedTerms:
   - ollama
   - inference
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - serving
   - inference
 factCheck:
   status: passed
-  date: "2026-04-11"
+  date: "2026-04-13"
   sources:
     - url: "https://github.com/triton-inference-server/server"
       title: "triton-inference-server/server"
@@ -28,40 +28,47 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
+      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지야."
-        - "이름을 다시 보면 Triton Inference Server로 잡혀."
-        - "분류를 다시 보면 도구로 읽는 게 맞아."
+        - "독자가 먼저 갈라 봐야 할 건 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
+        - "원문을 보면 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
+        - "별칭 대조: triton inference server도 같은 대상을 가리키는지 확인했어."
+        - "분류를 다시 보면 이 항목은 도구로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
+      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지야."
-        - "같이 본 출처로는 triton-inference-server/server (https://github.com/triton-inference-server/server)"
-        - "같이 본 출처로는 NVIDIA Dynamo-Triton (https://developer.nvidia.com/triton-inference-server)"
+        - "여기서 먼저 갈라 볼 기준은 여러 출처가 같은 층위의 용어로 설명하는지 확인했어."
+        - "교차 대조: 여러 출처가 같은 층위의 용어로 설명하는지 확인했어."
+        - "출처 1 대조: github.com."
+        - "출처 2 대조: developer.nvidia.com."
     - type: number_verify
       result: pass
-      summary: "숫자가 적은 항목이라도 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."
+      summary: "숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어 확인했어."
       items:
-        - "숫자보다 먼저 갈라 볼 기준은 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지야."
-        - "이름부터 다시 보면 Triton Inference Server로 고정돼."
-        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
+        - "이름부터 다시 보면 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했어."
+        - "범위를 다시 보면 모델 서빙과 추론 성능 맥락에서 다루는 범위를 다시 확인했어."
+        - "접근 채널을 보면 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 선택 포인트는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지 기준으로 한 번 더 의심해보고 정리해뒀어."
+      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
       items:
-        - "헷갈리지 않으려면 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지부터 먼저 잡아야 해."
-        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
+        - "헷갈리기 쉬운 건 모델 자체와 같은 말로 쓰면 제품 층위와 운영 층위가 섞이기 쉬워."
+        - "헷갈리기 쉬운 건 모델 자체와 같은 층위로 읽으면 도입 범위와 운영 책임을 헷갈리기 쉬워."
       findings:
-        - "이 페이지는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지부터 빠르게 큰 흐름을 잡는 데 도움이 되는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
-모델 서빙과 추론 성능 작업에 쓰이는 AI 도구야. 쉽게 말하면 모델을 빠르고 안정적으로 서빙하는 추론 런타임을 실제 제품과 워크플로로 옮긴 쪽에 가까워. 결국 이 페이지는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지를 판단할 때 보는 기준점이야.
+이 도구는 개별 모델 이름이 아니라, TensorRT·PyTorch·ONNX 같은 여러 형식을 공통 추론 서버 형태로 운영하게 만드는 배포 계층에 가까워.
 ## 실제로 무엇을 하나
-모델 자체라기보다 모델 서빙과 추론 성능 작업을 실제로 굴리는 도구 쪽에 가까워. 요청을 배치로 묶고, 메모리를 재사용하고, GPU 자원을 효율적으로 써서 같은 모델도 더 싸고 빠르게 서비스하게 만들어. 그래서 기능 목록보다 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지가 어떻게 달라지는지로 읽는 편이 이해가 빨라.
+핵심은 모델 자체보다 batching, cache, GPU 메모리 사용, 서버 API 같은 운영 요소를 다루는 데 있어. 같은 모델이라도 이 계층을 어떻게 두느냐에 따라 지연 시간과 비용이 크게 달라질 수 있어.
+
+실무에선 여러 모델을 한 묶음으로 서빙하거나, 특정 프레임워크에 묶이지 않고 공통 추론 계층을 두고 싶을 때 많이 검토해. 그래서 기사를 읽을 때도 "새 모델인가"보다 "기존 모델을 어떤 방식으로 배포하고 최적화하나"를 보는 편이 맞아.
 ## 왜 중요한가
-실무에선 모델 자체보다 추론 스택이 지연 시간과 비용을 좌우하는 경우가 많아. 결국 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지부터 못 잡으면 실제 도입 범위와 필요한 연결 작업을 잘못 보기 쉬워.
+서빙 계층을 따로 이해하면 모델 성능 기사와 운영 기사 사이를 헷갈리지 않게 돼. 같은 모델을 쓰더라도 추론 서버 구성에 따라 비용, 지연 시간, 운영 책임이 크게 달라지기 때문이야.
 ## 관련 용어
-- [vLLM](/ko/wiki/vllm/) — Triton Inference Server를 볼 때 비교 포인트는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지다. - [SGLang](/ko/wiki/sglang/) — Triton Inference Server를 볼 때 비교 포인트는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지다. - [Ollama](/ko/wiki/ollama/) — Triton Inference Server를 볼 때 비교 포인트는 모델 서빙과 추론 성능에서 어떤 도구를 붙여야 하는지다. - [Inference](/ko/wiki/inference/) — 추론 서빙과 운영 성능 맥락을 같이 읽는 데 도움이 돼.
+- [vLLM](/ko/wiki/vllm/) — vLLM와 비교해 보면 모델 서빙과 추론 성능에서 어디가 다른지 읽기 쉬워.
+- [SGLang](/ko/wiki/sglang/) — SGLang와 비교해 보면 모델 서빙과 추론 성능에서 어디가 다른지 읽기 쉬워.
+- [Ollama](/ko/wiki/ollama/) — Ollama와 비교해 보면 모델 서빙과 추론 성능에서 어디가 다른지 읽기 쉬워.
+- [Inference](/ko/wiki/inference/) — Inference와 함께 보면 Triton Inference Server가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.

@@ -14,13 +14,13 @@ relatedTerms:
   - langgraph
 firstMentioned: "2026-02-27"
 mentionCount: 1
-draft: true
+draft: false
 tags:
   - agents
   - function-calling
 factCheck:
   status: passed
-  date: "2026-04-11"
+  date: "2026-04-13"
   sources:
     - url: "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
       title: "Tool use with Claude"
@@ -29,40 +29,47 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
+      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "이름을 다시 보면 Tool Use로 잡혀."
-        - "분류를 다시 보면 기법로 읽는 게 맞아."
+        - "독자가 먼저 갈라 봐야 할 건 Claude를 외부 도구 및 API에 연결하세요."
+        - "원문을 보면 Claude를 외부 도구 및 API에 연결하세요."
+        - "별칭 대조: tool use도 같은 대상을 가리키는지 확인했어."
+        - "분류를 다시 보면 이 항목은 기법로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
+      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "같이 본 출처로는 Tool use with Claude (https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)"
-        - "같이 본 출처로는 Function calling | OpenAI API (https://platform.openai.com/docs/guides/function-calling)"
+        - "여기서 먼저 갈라 볼 기준은 Claude를 외부 도구 및 API에 연결하세요."
+        - "교차 대조: Claude를 외부 도구 및 API에 연결하세요."
+        - "출처 1 대조: docs.anthropic.com."
+        - "출처 2 대조: platform.openai.com."
     - type: number_verify
       result: pass
-      summary: "숫자가 적은 항목이라도 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."
+      summary: "숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어 확인했어."
       items:
-        - "숫자보다 먼저 갈라 볼 기준은 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지야."
-        - "이름부터 다시 보면 Tool Use로 고정돼."
-        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
+        - "이름부터 다시 보면 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했어."
+        - "범위를 다시 보면 도구 호출과 실행 연결 맥락에서 다루는 범위를 다시 확인했어."
+        - "접근 채널을 보면 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 선택 포인트는 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지 기준으로 한 번 더 의심해보고 정리해뒀어."
+      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
       items:
-        - "헷갈리지 않으려면 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지부터 먼저 잡아야 해."
-        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
+        - "헷갈리기 쉬운 건 새 제품명으로 받아들이면 실제로는 기존 모델 위에 얹는 방법론이라는 점을 놓치기 쉬워."
+        - "헷갈리기 쉬운 건 독립 제품명처럼 읽지 말고 기존 모델이나 workflow 위에서 어떤 변수를 바꾸는지 비교해 봐야 해."
       findings:
-        - "이 페이지는 도구 호출과 실행 연결를 정확도, 비용, 실행 흐름 중 어디서 바꿔야 하는지부터 빠르게 큰 흐름을 잡는 데 도움이 되는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
 Tool Use는 LLM이 텍스트 생성만 하지 않고 외부 도구를 불러 결과를 받아 다시 사용하는 실행 패턴이야.
 ## 어떻게 작동하나
-모델은 우선 어떤 도구가 필요한지 판단하고, 해당 도구를 호출한 뒤, 반환된 결과를 다음 추론 단계에 반영해. 검색 엔진, 계산기, 데이터베이스 조회, 웹 브라우징이 대표적인 예다. Function Calling이 도구 호출 인터페이스 자체를 가리킨다면, Tool Use는 그 인터페이스를 포함해 실제 작업 흐름 안에서 도구를 활용하는 더 넓은 개념으로 보면 이해하기 쉬워.
+모델은 우선 어떤 도구가 필요한지 판단하고, 해당 도구를 호출한 뒤, 반환된 결과를 다음 추론 단계에 반영해. 검색 엔진, 계산기, 데이터베이스 조회, 웹 브라우징이 대표적인 예다.
+
+Function Calling이 도구 호출 인터페이스 자체를 가리킨다면, Tool Use는 그 인터페이스를 포함해 실제 작업 흐름 안에서 도구를 활용하는 더 넓은 개념으로 보면 이해하기 쉬워.
 ## 왜 중요한가
 에이전트가 단순 챗봇을 넘어서려면 결국 도구를 써야 해. Tool Use를 이해하면 "모델 성능"과 "실행 가능한 시스템"을 분리해서 읽을 수 있어.
 ## 관련 용어
-- [LangChain](/ko/wiki/langchain/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [LlamaIndex](/ko/wiki/llamaindex/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [Agentic AI](/ko/wiki/agentic-ai/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼. - [LangGraph](/ko/wiki/langgraph/) — 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.
+- [LangChain](/ko/wiki/langchain/) — 같이 보면 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.
+- [LlamaIndex](/ko/wiki/llamaindex/) — 같이 보면 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.
+- [Agentic AI](/ko/wiki/agentic-ai/) — 같이 보면 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.
+- [LangGraph](/ko/wiki/langgraph/) — 같이 보면 외부 도구 실행 맥락을 같이 이해하는 데 도움이 돼.

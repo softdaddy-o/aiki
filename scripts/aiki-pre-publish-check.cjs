@@ -132,11 +132,20 @@ const FACT_CHECK_TONE_PATTERNS = [
 ];
 
 const FACT_CHECK_TONE_PATTERNS_V2 = [
+    /맞춰봤어/u,
+    /다시 봤어/u,
+    /한 번 더 봤어/u,
+    /확인해봤어/u,
     /확인해뒀어/u,
+    /확인했어/u,
     /비교해뒀어/u,
+    /비교했어/u,
     /검증해뒀어/u,
+    /검증했어/u,
     /분리해뒀어/u,
+    /정리했어/u,
     /정리해뒀어/u,
+    /걸렀어/u,
     /걸러뒀어/u,
 ];
 

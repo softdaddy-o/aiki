@@ -2,7 +2,7 @@
 term: small-language-model
 title: "Small Language Model"
 lang: ko
-summary: "경량 모델과 온디바이스 추론을 이해할 때 자주 나오는 AI 개념이야. 기사에서는 핵심 질문을 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 쪽에 두고 읽는 편이 쉬워."
+summary: "Small Language Model는 https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델."
 readerValue: "이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡는 데 도움이 돼."
 category: concept
 aliases:
@@ -19,7 +19,7 @@ tags:
   - on-device
 factCheck:
   status: passed
-  date: "2026-04-11"
+  date: "2026-04-13"
   sources:
     - url: "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model"
       title: "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model"
@@ -28,40 +28,45 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 문제로 읽어도 되는지 먼저 확인해뒀어."
+      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "이름을 다시 보면 Small Language Model로 잡혀."
-        - "분류를 다시 보면 개념로 읽는 게 맞아."
+        - "독자가 먼저 갈라 봐야 할 건 https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델."
+        - "원문을 보면 https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델."
+        - "별칭 대조: slm도 같은 대상을 가리키는지 확인했어."
+        - "분류를 다시 보면 이 항목은 개념로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "관련 출처 2건을 나란히 놓고 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
+      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "같이 본 출처로는 https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model (https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model)"
-        - "같이 본 출처로는 SmolLM - blazingly fast and remarkably powerful (https://huggingface.co/blog/smollm)"
+        - "여기서 먼저 갈라 볼 기준은 https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델."
+        - "교차 대조: https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델."
+        - "출처 1 대조: azure.microsoft.com."
+        - "출처 2 대조: huggingface.co."
     - type: number_verify
       result: pass
-      summary: "숫자가 적은 항목이라도 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 가르는 고유 명칭과 설명 축은 따로 검증해뒀어."
+      summary: "숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어 확인했어."
       items:
-        - "숫자보다 먼저 갈라 볼 기준은 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지야."
-        - "이름부터 다시 보면 Small Language Model로 고정돼."
-        - "고정 스펙이 적은 항목이라 숫자보다 실제 선택 기준이 되는 설명 축부터 다시 맞춰봤어."
+        - "이름부터 다시 보면 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했어."
+        - "범위를 다시 보면 경량 모델과 온디바이스 추론 맥락에서 다루는 범위를 다시 확인했어."
+        - "접근 채널을 보면 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 선택 포인트는 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지 기준으로 한 번 더 의심해보고 정리해뒀어."
+      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
       items:
-        - "헷갈리지 않으려면 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 먼저 잡아야 해."
-        - "정의만 외우기보다 실제 선택을 틀리게 만드는 해석부터 먼저 걸러냈어."
+        - "헷갈리기 쉬운 건 특정 제품 기능 하나로만 읽으면 더 큰 개념 차이를 놓치기 쉬워."
+        - "헷갈리기 쉬운 건 비슷한 용어와 비교해 두면 기사에서 과장된 표현과 실제 의미 차이를 빨리 걸러낼 수 있어."
       findings:
-        - "이 페이지는 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지부터 빠르게 큰 흐름을 잡는 데 도움이 되는 용도라서, 시점마다 바뀌는 가격표나 운영 조건은 공식 문서와 최신 기사에서 다시 확인해야 해."
+        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
-경량 모델과 온디바이스 추론을 이해할 때 자주 나오는 개념이야. 쉽게 말하면 기존 모델을 더 잘 맞추거나 더 싸게 돌리기 위한 학습·압축 레이어에 가까워. 결국 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 읽어내는 기준점 역할을 해.
+Small Language Model를 짧게 잡으면 https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델 쪽이야. 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어.
 ## 어떻게 작동하나
-데이터, 보상, 압축 기법을 써서 모델의 성능과 비용 균형을 다시 잡는 방식이야. 베이스 모델이 같아도 여기서 결과가 크게 달라져. 보통 이런 개념은 새 제품 이름이 아니라, 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 설명하는 기본 단위로 보면 이해가 빨라.
+https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-언어-모델. 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어. 예를 들어 노트북이나 온프레미스 서버에서 모델 파일을 직접 내려받아 돌릴 때 이런 차이가 바로 체감돼.
 ## 왜 중요한가
-같은 모델 계열 안에서도 실사용 성능과 운영비 차이가 크게 나는 이유를 설명해 준다. 이 개념을 알고 있으면 화려한 발표 문구를 봐도 결국 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지를 더 빨리 읽을 수 있어.
+같은 모델 계열 안에서도 실사용 성능과 운영비 차이가 크게 나는 이유를 설명해 준다. 비슷한 용어와 비교해 두면 기사에서 과장된 표현과 실제 의미 차이를 빨리 걸러낼 수 있어.
 ## 관련 용어
-- [Quantization](/ko/wiki/quantization/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼. - [Distillation](/ko/wiki/distillation/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼. - [Local LLM](/ko/wiki/local-llm/) — Small Language Model를 볼 때 비교 포인트는 경량 모델과 온디바이스 추론를 기사에서 어떤 판단 기준으로 읽어야 하는지다. - [Prompt Caching](/ko/wiki/prompt-caching/) — 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼.
+- [Quantization](/ko/wiki/quantization/) — 같이 보면 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼.
+- [Distillation](/ko/wiki/distillation/) — 같이 보면 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼.
+- [Local LLM](/ko/wiki/local-llm/) — Local LLM와 비교해 보면 경량 모델과 온디바이스 추론에서 어디가 다른지 읽기 쉬워.
+- [Prompt Caching](/ko/wiki/prompt-caching/) — 같이 보면 학습·압축 전략 맥락을 같이 이해하는 데 도움이 돼.

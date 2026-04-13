@@ -2,7 +2,7 @@
 term: flux
 title: "FLUX.1"
 lang: ko
-summary: "FLUX.1는 Black Forest Labs가 실제 배포용으로 내놓은 개별 모델 버전이야. 이름이 보이면 성능 점수만 보지 말고 어떤 작업에 맞는지와 운영비 구간을 같이 읽어야 해."
+summary: "Black Forest Labs가 실제 배포한 이미지 생성 모델 버전이야. 이름이 보이면 성능 점수보다 어떤 배포 방식과 사용 흐름에 맞는지부터 읽는 편이 정확해."
 readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽는 데 도움이 돼."
 category: model
 modelType: version
@@ -23,57 +23,63 @@ relatedTerms:
   - stable-diffusion
   - dall-e
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - image-generation
   - open-weight
 factCheck:
   status: passed
-  date: "2026-04-11"
+  date: "2026-04-13"
   sources:
     - url: "https://blackforestlabs.ai/announcing-black-forest-labs/"
-      title: "Announcing Black Forest Labs"
+      title: "회사 출범 공지"
     - url: "https://huggingface.co/black-forest-labs"
-      title: "black-forest-labs (Black Forest Labs)"
+      title: "Hugging Face 조직 페이지"
   checks:
     - type: source_match
       result: pass
-      summary: "원문에서 FLUX.1를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 문제로 읽어도 되는지 먼저 확인해뒀어."
+      summary: "이 페이지가 이미지 생성용 개별 버전 문서인지 먼저 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 FLUX.1를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지."
-        - "모델 이름부터 다시 보면 FLUX.1."
+        - "독자가 먼저 갈라 봐야 할 건 FLUX.1를 어떤 작업과 운영 조건에 붙일 모델인지."
+        - "모델 이름부터 다시 보면 FLUX.1이라는 표기가 일관되게 쓰이는지 봤어."
+        - "배포 방식 대조: 버전 모델과 API·웨이트 채널이 섞여 있는지 정리했어."
+        - "문서 층위: 상위 개념 설명이 아니라 실제 배포 후보 문서인지 점검했다."
         - "만든 쪽을 다시 보면 Black Forest Labs."
-        - "배포 유형 대조: version 모델 / API + 오픈 웨이트 혼합."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스 2건을 나란히 놓고 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지 기준으로 설명이 어긋나지 않는지 비교해뒀어."
+      summary: "공개 소개와 배포 채널 설명을 같이 놓고 라인업 해석이 어긋나지 않는지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지."
-        - "공식 소스 1: Black Forest Labs launch."
-        - "공식 소스 2: Hugging Face 배포 페이지."
-        - "비교 확인: Pro, Dev, Schnell 배포 방식 차이가 소스 간 일치."
+        - "여기서 먼저 갈라 볼 기준은 FLUX.1를 고를 때 접근 채널, 가격, 입력 범위 가운데 무엇을 먼저 봐야 하는지."
+        - "출처 1 대조: 회사 출범 공지에서 라인업과 배포 방향을 읽었다."
+        - "출처 2 대조: Hugging Face 조직 페이지에서 실제 공개 채널을 확인했어."
+        - "교차 확인: Pro, Dev, Schnell 구분이 두 자료에서 같은 방향인지 살폈다."
     - type: number_verify
       result: pass
-      summary: "숫자와 고유 명칭은 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지를 가를 때 필요한 항목만 따로 빼서 검증해뒀어."
+      summary: "운영 판단에 필요한 수치와 분기 정보를 다시 봤어."
       items:
-        - "파라미터: 12B."
-        - "라인업: Pro / Dev / Schnell."
-        - "출력 유형: 텍스트-이미지 생성."
+        - "규모 확인: 12B 계열 설명이 공개 자료와 크게 다르지 않은지 봤어."
+        - "라인업 확인: Pro, Dev, Schnell 구분이 실제 선택 기준으로 연결되는지 점검했다."
+        - "출력 형태 확인: 텍스트가 아니라 이미지 생성 모델이라는 점을 다시 확인했어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 FLUX.1를 텍스트만이 아니라 이미지나 오디오가 섞인 작업에 붙여도 되는지 기준으로 한 번 더 의심해보고 정리해뒀어."
+      summary: "자주 생기는 과장 해석을 세워 놓고 어디서 틀리기 쉬운지 정리했어."
       items:
-        - "헷갈리지 않으려면 입력 범위, 출력 형태, 접근 채널 중 어디가 실제 선택 기준인지."
-        - "토큰 가격표가 없는 대신 GPU 점유와 이미지 1장당 비용을 따로 봐야 해."
+        - "오해 점검: 텍스트 모델처럼 토큰 가격만으로 비교하면 실제 운영 부담을 놓치기 쉬워."
+        - "배포 점검: 공개 웨이트와 API형을 같은 조건으로 읽으면 추천 답이 틀어질 수 있어."
       findings:
-        - "토큰 가격표가 없는 대신 GPU 점유와 이미지 1장당 비용을 따로 봐야 해."
+        - "이 모델은 품질 비교만큼이나 배포 채널과 비용 구조를 같이 읽어야 정확하게 해석돼."
 ---
 ## 한 줄 정의
-FLUX.1는 Black Forest Labs가 텍스트만이 아니라 이미지 맥락까지 같이 읽는 작업 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제로 붙여볼 후보가 올라온 상황이라고 보면 돼. 텍스트 프롬프트를 받아 이미지를 생성하는 모델이야. 텍스트 출력형 LLM과는 사용 방식이 다르다. Black Forest Labs의 rectified flow transformer 계열 이미지 생성 모델이야. Pro, Dev, Schnell처럼 배포 방식이 갈려.
+FLUX.1은 Black Forest Labs가 배포한 텍스트 프롬프트 기반 이미지 생성 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 설명이 아니라 실제로 써 볼 후보가 올라온 상황으로 보면 돼.
 ## 이 모델로 무엇을 할 수 있나
-이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. Black Forest Labs의 rectified flow transformer 계열 이미지 생성 모델이야. Pro, Dev, Schnell처럼 배포 방식이 갈려. Pro는 API 중심이고, Dev와 Schnell은 오픈 웨이트로 받아 직접 실행할 수 있어. 그래서 텍스트만이 아니라 이미지 맥락까지 같이 읽는 작업처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 돼.
+핵심은 Black Forest Labs가 같은 계열 안에서도 Pro, Dev, Schnell처럼 배포 방식을 나눠 놓았다는 점이야. Pro는 API 중심으로 읽고, Dev와 Schnell은 직접 실행 가능성까지 같이 보는 식으로 나눠야 실제 선택 기준이 선다.
+
+실무에선 텍스트 출력 모델처럼 토큰 가격만 볼 수 없고, 이미지 1장당 비용과 GPU 여유를 함께 봐야 해. 그래서 이 이름을 읽을 때도 "예쁜 그림을 만드는가"보다 어느 채널에서 얼마의 운영 부담으로 돌릴 수 있는지를 먼저 따지는 편이 나아.
 ## 왜 중요한가
-중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 Black Forest Labs 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞아.
+이 모델을 이해하면 이미지 생성 기사에서도 배포 채널과 운영 비용을 같이 읽는 습관이 생긴다. 같은 계열이라도 API형과 직접 실행형이 섞이면 추천 답이 완전히 달라지기 때문에, 제품 선택 기준을 분리해 읽는 데 도움이 돼.
 ## 같이 보면 좋은 모델
-- [Mistral](/ko/wiki/mistral/) — 비교 대상으로 자주 같이 묶이는 모델 - [Diffusion Model](/ko/wiki/diffusion/) — 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼. - [Stable Diffusion](/ko/wiki/stable-diffusion/) — 비교 대상으로 자주 같이 묶이는 모델 - [DALL-E](/ko/wiki/dall-e/) — 비교 대상으로 자주 같이 묶이는 모델
+- [Mistral](/ko/wiki/mistral/) — Mistral와는 오픈 웨이트 여부와 자체 호스팅 난도를 비교하기 쉬워.
+- [Diffusion Model](/ko/wiki/diffusion/) — 같이 보면 로컬 배포와 오픈 모델 맥락을 같이 읽는 데 도움이 돼.
+- [Stable Diffusion](/ko/wiki/stable-diffusion/) — Stable Diffusion와는 결과물 형태와 배포 방식 차이를 비교하기 쉬워.
+- [DALL-E](/ko/wiki/dall-e/) — DALL-E와는 결과물 형태와 배포 방식 차이를 비교하기 쉬워.
