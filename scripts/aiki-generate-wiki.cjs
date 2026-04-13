@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
+// Legacy deterministic generator.
+// For wiki v2 pages, prefer scripts/aiki-rewrite-wiki-llm.cjs so the body is authored
+// end-to-end by an LLM instead of being assembled from script templates.
+
 const { catalog } = require('./lib/wiki-catalog.cjs');
 const { buildModelProfile, buildModelFactChecks } = require('./lib/model-profile.cjs');
 const {
