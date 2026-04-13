@@ -339,6 +339,28 @@ function listFilesForTarget(target, changedFiles) {
     return all.filter((file) => file.startsWith(today));
 }
 
+function collectDraftStats(target) {
+    const files = fs.readdirSync(target.dir).filter((file) => file.endsWith('.md'));
+    let published = 0;
+    let drafts = 0;
+
+    for (const filename of files) {
+        const filepath = path.join(target.dir, filename);
+        const content = fs.readFileSync(filepath, 'utf8');
+        const fm = parseFrontmatter(content);
+
+        if (!fm) continue;
+        if (fm.draft === true) drafts += 1;
+        else published += 1;
+    }
+
+    return {
+        total: files.length,
+        published,
+        drafts,
+    };
+}
+
 function hasMeaningfulBody(targetName, body) {
     const normalized = normalizeLineEndings(body);
     const compact = normalized.replace(/\s+/g, ' ').trim();
@@ -920,6 +942,21 @@ for (const target of CONTENT_TARGETS) {
                     warnings.push(message);
                 }
             }
+        }
+    }
+}
+
+if (checkAll) {
+    const wikiTarget = CONTENT_TARGETS.find((target) => target.name === 'wiki');
+    if (wikiTarget) {
+        const stats = collectDraftStats(wikiTarget);
+        const minimumPublished = stats.total >= 50 ? Math.ceil(stats.total * 0.8) : 0;
+
+        if (minimumPublished > 0 && stats.published < minimumPublished) {
+            errors.push(
+                `wiki publish coverage collapsed: ${stats.published}/${stats.total} published (draft ${stats.drafts}). ` +
+                `Expected at least ${minimumPublished} published wiki pages.`,
+            );
         }
     }
 }
