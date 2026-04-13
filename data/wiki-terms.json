@@ -1,7 +1,7 @@
 [
     {
         "term": "rag",
-        "title": "RAG",
+        "title": "RAG (검색 증강 생성)",
         "category": "technique",
         "aliases": [
             "retrieval augmented generation"
@@ -9,7 +9,7 @@
     },
     {
         "term": "llm",
-        "title": "LLM",
+        "title": "LLM (거대 언어 모델)",
         "category": "concept",
         "aliases": [
             "large language model"
@@ -17,7 +17,7 @@
     },
     {
         "term": "mcp",
-        "title": "MCP",
+        "title": "MCP (모델 컨텍스트 프로토콜)",
         "category": "framework",
         "aliases": [
             "model context protocol"
@@ -25,7 +25,7 @@
     },
     {
         "term": "agent",
-        "title": "AI Agent",
+        "title": "AI Agent (AI 에이전트)",
         "category": "concept",
         "aliases": [
             "ai agent",
@@ -42,7 +42,7 @@
     },
     {
         "term": "api",
-        "title": "API",
+        "title": "API (애플리케이션 프로그래밍 인터페이스)",
         "category": "concept",
         "aliases": [
             "application programming interface"
@@ -206,7 +206,7 @@
     },
     {
         "term": "inference",
-        "title": "Inference",
+        "title": "Inference (추론)",
         "category": "concept",
         "aliases": [
             "model inference",
@@ -216,7 +216,7 @@
     },
     {
         "term": "reasoning",
-        "title": "Reasoning Model",
+        "title": "Reasoning Model (추론 모델)",
         "category": "concept",
         "aliases": [
             "reasoning model",
@@ -415,7 +415,7 @@
     },
     {
         "term": "local-llm",
-        "title": "Local LLM",
+        "title": "Local LLM (로컬 LLM)",
         "category": "concept",
         "aliases": [
             "local llm",
