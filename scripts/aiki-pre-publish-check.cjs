@@ -165,6 +165,38 @@ const STIFF_TONE_PATTERNS = [
     /파악하게 해준다/u,
 ];
 
+const HONORIFIC_WIKI_PATTERNS = [
+    /합니다(?:[.!?]|$)/u,
+    /입니다(?:[.!?]|$)/u,
+    /됩니다(?:[.!?]|$)/u,
+    /있습니다(?:[.!?]|$)/u,
+    /없습니다(?:[.!?]|$)/u,
+    /보입니다(?:[.!?]|$)/u,
+    /가리킵니다(?:[.!?]|$)/u,
+    /의미합니다(?:[.!?]|$)/u,
+    /필요합니다(?:[.!?]|$)/u,
+    /중요합니다(?:[.!?]|$)/u,
+    /가능합니다(?:[.!?]|$)/u,
+    /사용합니다(?:[.!?]|$)/u,
+    /설명합니다(?:[.!?]|$)/u,
+    /보세요/u,
+    /하세요/u,
+    /주세요/u,
+    /하십시오/u,
+    /하셔야/u,
+];
+
+const BEGINNER_FIRST_DEFINITION_PATTERNS = [
+    /(?:은|는)\s+.*(?:방법|방식|기법|개념|기술|형식|표현)\s*이야/u,
+    /(?:은|는)\s+.*(?:바꾸는|줄이는|낮추는)\s+.*(?:방법|방식)\s*이야/u,
+    /(?:비트|정밀도|숫자 표현).*(?:바꾸는|줄이는).*(?:방법|방식|기법)\s*이야/u,
+    /쉽게 말해/u,
+    /부르는 말이야/u,
+    /가리켜/u,
+    /뜻해/u,
+    /라고 보면 돼/u,
+];
+
 const FACT_CHECK_STIFF_PATTERNS = [
     /맞춰봤다/u,
     /다시 봤다/u,
@@ -274,6 +306,74 @@ function normalizeComparableText(text) {
         .replace(/[.!?]+$/g, '')
         .trim()
         .toLowerCase();
+}
+
+function escapeRegExp(value) {
+    return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function getWikiGuideVersion(frontmatter) {
+    return String(frontmatter && frontmatter.guideVersion && frontmatter.guideVersion.wiki || '').trim();
+}
+
+function isWikiGuideVersionAtLeast(frontmatter, major) {
+    const match = getWikiGuideVersion(frontmatter).match(/^(\d+)/);
+    return match ? Number(match[1]) >= major : false;
+}
+
+function extractSectionContent(body, heading) {
+    const normalized = normalizeLineEndings(body);
+    const headingPattern = new RegExp(`^##\\s+${escapeRegExp(heading)}\\s*$`, 'm');
+    const headingMatch = headingPattern.exec(normalized);
+    if (!headingMatch) {
+        return '';
+    }
+
+    const afterHeading = normalized.slice(headingMatch.index + headingMatch[0].length).replace(/^\s+/, '');
+    const nextHeadingMatch = /^##\s+.+$/m.exec(afterHeading);
+    return nextHeadingMatch ? afterHeading.slice(0, nextHeadingMatch.index).trim() : afterHeading.trim();
+}
+
+function extractFirstParagraph(text) {
+    return normalizeLineEndings(text)
+        .split(/\n{2,}/)
+        .map((chunk) => chunk.trim())
+        .find((chunk) => chunk && !chunk.startsWith('- ') && !/^\d+\.\s/.test(chunk)) || '';
+}
+
+function collectWikiFactCheckText(frontmatter) {
+    const checks = Array.isArray(frontmatter && frontmatter.factCheck && frontmatter.factCheck.checks)
+        ? frontmatter.factCheck.checks
+        : [];
+
+    return checks.flatMap((check) => [
+        String(check && check.summary || ''),
+        ...(Array.isArray(check && check.items) ? check.items.map((item) => String(item || '')) : []),
+        ...(Array.isArray(check && check.findings) ? check.findings.map((item) => String(item || '')) : []),
+    ]).join('\n');
+}
+
+function containsHonorificWikiTone(text) {
+    return HONORIFIC_WIKI_PATTERNS.some((pattern) => pattern.test(String(text || '')));
+}
+
+function hasBilingualWikiTitle(title) {
+    const value = String(title || '').trim();
+    if (!/[A-Za-z]/.test(value)) {
+        return true;
+    }
+
+    return /[가-힣]/.test(value);
+}
+
+function hasBeginnerFirstDefinition(body) {
+    const definitionSection = extractSectionContent(body, '한 줄 정의');
+    const firstParagraph = extractFirstParagraph(definitionSection);
+    if (!firstParagraph) {
+        return false;
+    }
+
+    return BEGINNER_FIRST_DEFINITION_PATTERNS.some((pattern) => pattern.test(firstParagraph));
 }
 
 function extractFirstSentence(body) {
@@ -496,10 +596,14 @@ function validateWikiTone(frontmatter, body) {
     const failures = [];
     const category = String(frontmatter.category || '').toLowerCase();
     const modelType = String(frontmatter.modelType || '').toLowerCase();
-    const combined = `${String(frontmatter.summary || '')}\n${normalized}`;
+    const combined = `${String(frontmatter.summary || '')}\n${String(frontmatter.readerValue || '')}\n${normalized}\n${collectWikiFactCheckText(frontmatter)}`;
 
     if (containsWeakWikiSourceCopy(normalized)) {
         failures.push('wiki tone still reads like pasted source copy');
+    }
+
+    if (containsHonorificWikiTone(combined)) {
+        failures.push('wiki still contains honorific tone');
     }
 
     if (STIFF_TONE_PATTERNS.some((pattern) => pattern.test(combined))) {
@@ -574,6 +678,16 @@ function validateWikiStructure(frontmatter, body) {
 
     if (containsWeakWikiSourceCopy(`${String(frontmatter.summary || '')}\n${normalizedBody}`)) {
         failures.push('wiki still contains source-style CTA copy');
+    }
+
+    if (isWikiGuideVersionAtLeast(frontmatter, 2)) {
+        if (!hasBilingualWikiTitle(frontmatter.title)) {
+            failures.push('wiki v2 english title missing Korean companion');
+        }
+
+        if (!hasBeginnerFirstDefinition(normalizedBody)) {
+            failures.push('wiki v2 definition must open with a beginner-first concept explanation');
+        }
     }
 
     const relatedSectionMatch = normalizedBody.match(/##\s+관련 용어\s*\n([\s\S]*)$/m);

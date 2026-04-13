@@ -29,23 +29,57 @@ for (const cat of Object.keys(grouped)) {
 
 <BaseLayout title="AI 용어 사전">
     <h1 class="page-title">AI 용어 사전</h1>
-    <p class="page-desc">AI 뉴스에서 자주 등장하는 용어를 쉽게 풀어놓았습니다.</p>
+    <p class="page-desc">AI 뉴스에서 자주 나오는 용어를 빠르게 찾고, 바로 이해할 수 있게 정리했어.</p>
 
-    {categoryOrder.filter(cat => grouped[cat]?.length).map(cat => (
-        <section class="wiki-section">
+    <section class="wiki-search-panel" aria-labelledby="wiki-search-title">
+        <div class="wiki-search-copy">
+            <h2 id="wiki-search-title" class="wiki-search-title">위키 검색</h2>
+            <p class="wiki-search-desc">용어 이름, 한글 병기, 요약, 별칭으로 바로 찾을 수 있어.</p>
+        </div>
+        <label class="wiki-search-input-wrap" for="wiki-filter">
+            <span class="sr-only">위키 검색어</span>
+            <input
+                id="wiki-filter"
+                type="search"
+                placeholder="예: 양자화, RAG, Claude, 벡터 데이터베이스"
+                autocomplete="off"
+                spellcheck="false"
+            />
+        </label>
+        <div class="wiki-search-meta">
+            <p class="wiki-search-count"><strong id="wiki-visible-count">{allWiki.length}</strong>개 표시 중</p>
+            <button type="button" id="wiki-filter-reset" class="wiki-search-reset" hidden>검색 지우기</button>
+        </div>
+    </section>
+
+    <p id="wiki-empty-state" class="wiki-empty-state" hidden>검색 결과가 없어. 다른 이름이나 한글 표현으로 다시 찾아봐.</p>
+
+    {categoryOrder.filter((cat) => grouped[cat]?.length).map((cat) => (
+        <section class="wiki-section" data-wiki-section={cat}>
             <h2 class="section-title">
                 <span class="section-badge">{categoryLabels[cat]}</span>
             </h2>
             <div class="wiki-grid">
-                {grouped[cat].map(entry => {
+                {grouped[cat].map((entry) => {
                     const slug = entry.id.replace(/^ko\//, '');
                     return (
-                        <a href={`/ko/wiki/${slug}/`} class="wiki-card">
+                        <a
+                            href={`/ko/wiki/${slug}/`}
+                            class="wiki-card"
+                            data-wiki-card
+                            data-title={entry.data.title}
+                            data-summary={entry.data.summary}
+                            data-aliases={(entry.data.aliases || []).join(' ')}
+                            data-category={categoryLabels[cat]}
+                        >
                             <h3 class="wiki-card-title">{entry.data.title}</h3>
                             <p class="wiki-card-summary">{entry.data.summary}</p>
-                            {entry.data.mentionCount > 0 && (
-                                <span class="mention-count">{entry.data.mentionCount}회 언급</span>
-                            )}
+                            <div class="wiki-card-meta">
+                                <span class="wiki-card-category">{categoryLabels[cat]}</span>
+                                {entry.data.mentionCount > 0 && (
+                                    <span class="mention-count">{entry.data.mentionCount}회 언급</span>
+                                )}
+                            </div>
                         </a>
                     );
                 })}
@@ -54,24 +88,157 @@ for (const cat of Object.keys(grouped)) {
     ))}
 </BaseLayout>
 
+<script is:inline>
+    const filterInput = document.getElementById('wiki-filter');
+    const resetButton = document.getElementById('wiki-filter-reset');
+    const visibleCount = document.getElementById('wiki-visible-count');
+    const emptyState = document.getElementById('wiki-empty-state');
+    const cards = Array.from(document.querySelectorAll('[data-wiki-card]'));
+    const sections = Array.from(document.querySelectorAll('[data-wiki-section]'));
+
+    function normalize(value) {
+        return String(value || '').toLowerCase().trim();
+    }
+
+    function applyWikiFilter() {
+        const query = normalize(filterInput && filterInput.value);
+        let matches = 0;
+
+        cards.forEach((card) => {
+            const haystack = normalize([
+                card.getAttribute('data-title'),
+                card.getAttribute('data-summary'),
+                card.getAttribute('data-aliases'),
+                card.getAttribute('data-category'),
+            ].join(' '));
+            const matched = !query || haystack.includes(query);
+            card.hidden = !matched;
+            if (matched) matches += 1;
+        });
+
+        sections.forEach((section) => {
+            const hasVisibleCard = Array.from(section.querySelectorAll('[data-wiki-card]')).some((card) => !card.hidden);
+            section.hidden = !hasVisibleCard;
+        });
+
+        if (visibleCount) visibleCount.textContent = String(matches);
+        if (emptyState) emptyState.hidden = matches !== 0;
+        if (resetButton) resetButton.hidden = !query;
+    }
+
+    filterInput?.addEventListener('input', applyWikiFilter);
+    resetButton?.addEventListener('click', () => {
+        if (!filterInput) return;
+        filterInput.value = '';
+        filterInput.focus();
+        applyWikiFilter();
+    });
+</script>
+
 <style>
     .page-title {
         text-align: center;
         font-size: 24px;
         margin-bottom: 8px;
     }
+
     .page-desc {
         text-align: center;
         color: var(--color-text-muted);
         font-size: 14px;
-        margin-bottom: 32px;
+        margin-bottom: 28px;
     }
+
+    .wiki-search-panel {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        margin-bottom: 28px;
+        border: 1px solid var(--color-border);
+        border-radius: 14px;
+        background:
+            linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 84%, white 16%), var(--color-surface)),
+            radial-gradient(circle at top right, color-mix(in srgb, var(--color-wiki) 12%, transparent), transparent 46%);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .wiki-search-title {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .wiki-search-desc {
+        font-size: 13px;
+        color: var(--color-text-muted);
+    }
+
+    .wiki-search-input-wrap {
+        display: block;
+    }
+
+    .wiki-search-input-wrap input {
+        width: 100%;
+        border: 1px solid var(--color-border-strong);
+        background: var(--color-surface-elevated);
+        color: var(--color-text);
+        border-radius: 12px;
+        padding: 14px 16px;
+        font: inherit;
+        font-size: 14px;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .wiki-search-input-wrap input:focus {
+        border-color: var(--color-wiki);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-wiki) 18%, transparent);
+        outline: none;
+    }
+
+    .wiki-search-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .wiki-search-count {
+        font-size: 13px;
+        color: var(--color-text-muted);
+    }
+
+    .wiki-search-reset {
+        border: 1px solid var(--color-border-strong);
+        background: transparent;
+        color: var(--color-text);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font: inherit;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .wiki-search-reset:hover {
+        background: var(--color-surface-alt);
+    }
+
+    .wiki-empty-state {
+        margin-bottom: 24px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        border: 1px dashed var(--color-border-strong);
+        color: var(--color-text-muted);
+        background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    }
+
     .wiki-section {
         margin-bottom: 32px;
     }
+
     .section-title {
         margin-bottom: 12px;
     }
+
     .section-badge {
         background: var(--color-wiki);
         color: #000;
@@ -80,12 +247,15 @@ for (const cat of Object.keys(grouped)) {
         font-size: 13px;
         font-weight: bold;
     }
+
     .wiki-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 16px;
     }
+
     .wiki-card {
+        display: block;
         background: var(--color-surface);
         border: 1px solid var(--color-border);
         border-left: 3px solid var(--color-wiki);
@@ -96,27 +266,56 @@ for (const cat of Object.keys(grouped)) {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .wiki-card:hover {
         background: var(--color-surface-alt);
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
-    @media (max-width: 640px) {
-        .wiki-grid { grid-template-columns: 1fr; }
-    }
+
     .wiki-card-title {
         font-size: 15px;
         font-weight: bold;
         margin-bottom: 6px;
     }
+
     .wiki-card-summary {
         font-size: 12px;
         color: var(--color-text-muted);
-        line-height: 1.5;
-        margin-bottom: 6px;
+        line-height: 1.55;
+        margin-bottom: 10px;
     }
+
+    .wiki-card-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .wiki-card-category {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-wiki) 12%, transparent);
+        color: var(--color-wiki);
+        font-size: 11px;
+        font-weight: 700;
+    }
+
     .mention-count {
         font-size: 11px;
         color: var(--color-wiki);
+    }
+
+    @media (max-width: 640px) {
+        .wiki-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .wiki-search-panel {
+            padding: 16px;
+        }
     }
 </style>
