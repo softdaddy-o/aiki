@@ -23,7 +23,7 @@ relatedTerms:
   - gemini-2.5
   - gemini-api
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - image-generation
   - google

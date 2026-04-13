@@ -22,7 +22,7 @@ relatedTerms:
   - flux
 firstMentioned: "2026-03-16"
 mentionCount: 3
-draft: true
+draft: false
 tags:
   - mistral
   - open-weight

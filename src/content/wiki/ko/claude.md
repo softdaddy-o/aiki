@@ -24,7 +24,7 @@ relatedTerms:
   - claude-sonnet-4-5
 firstMentioned: "2026-02-18"
 mentionCount: 36
-draft: true
+draft: false
 tags:
   - anthropic
   - assistant

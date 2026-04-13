@@ -13,7 +13,7 @@ relatedTerms:
   - memory
 firstMentioned: "2026-03-27"
 mentionCount: 2
-draft: true
+draft: false
 tags:
   - context-window
   - memory

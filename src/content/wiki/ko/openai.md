@@ -12,7 +12,7 @@ relatedTerms:
   - google-deepmind
 firstMentioned: "2019-02-14"
 mentionCount: 24
-draft: true
+draft: false
 tags:
   - company
   - model-lab

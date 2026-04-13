@@ -16,7 +16,7 @@ relatedTerms:
   - runtime
 firstMentioned: "2026-03-26"
 mentionCount: 8
-draft: true
+draft: false
 tags:
   - efficiency
   - deployment

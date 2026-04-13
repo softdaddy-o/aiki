@@ -24,7 +24,7 @@ relatedTerms:
   - chatgpt
   - openai-api
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - anthropic
   - application

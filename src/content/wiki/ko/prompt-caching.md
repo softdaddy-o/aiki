@@ -13,7 +13,7 @@ relatedTerms:
   - quantization
   - distillation
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - efficiency
   - inference

@@ -14,7 +14,7 @@ relatedTerms:
   - grok
 firstMentioned: "2026-03-18"
 mentionCount: 3
-draft: true
+draft: false
 tags:
   - search
   - assistant

@@ -13,7 +13,7 @@ relatedTerms:
   - qdrant
   - rag
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - vector-db
   - retrieval

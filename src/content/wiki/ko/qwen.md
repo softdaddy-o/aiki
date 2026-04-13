@@ -24,7 +24,7 @@ relatedTerms:
   - local-llm
 firstMentioned: "2026-03-02"
 mentionCount: 17
-draft: true
+draft: false
 tags:
   - alibaba
   - open-model

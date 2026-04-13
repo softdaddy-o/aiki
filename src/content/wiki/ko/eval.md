@@ -11,7 +11,7 @@ relatedTerms:
   - red-teaming
 firstMentioned: "2026-02-20"
 mentionCount: 9
-draft: true
+draft: false
 tags:
   - testing
   - benchmark

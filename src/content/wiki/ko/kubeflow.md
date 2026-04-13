@@ -11,7 +11,7 @@ relatedTerms:
   - weights-and-biases
   - mlflow
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - mlops
   - kubernetes
@@ -37,8 +37,8 @@ factCheck:
       sources: 2
       summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 여러 출처가 같은 층위의 용어로 설명하는지 확인했어."
-        - "교차 대조: 여러 출처가 같은 층위의 용어로 설명하는지 확인했어."
+        - "여기서 먼저 갈라 볼 기준은 Kubernetes용 머신 러닝 툴킷."
+        - "교차 대조: Kubernetes용 머신 러닝 툴킷."
         - "출처 1 대조: github.com."
         - "출처 2 대조: kubeflow.org."
     - type: number_verify
@@ -60,7 +60,7 @@ factCheck:
 ## 한 줄 정의
 Kubeflow를 짧게 잡으면 를 사용하면 Kubernetes에 ML 워크플로를 간단하고 자동화하여 배포할 수 있습니다 쪽이야. 실험 로그, dashboard, artifact, registry, deploy 흐름을 어떻게 추적하고 재현할지에서 차이가 크게 나.
 ## 실제로 무엇을 하나
-실험 로그, dashboard, artifact, registry, deploy 흐름을 어떻게 추적하고 재현할지에서 차이가 크게 나. 예를 들어 실험 결과를 비교하고 모델 artifact를 저장한 뒤 나중에 같은 설정으로 다시 deploy하는 흐름이 대표적이야. 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여.
+Kubernetes용 머신 러닝 툴킷. 실험 로그, dashboard, artifact, registry, deploy 흐름을 어떻게 추적하고 재현할지에서 차이가 크게 나. 예를 들어 실험 결과를 비교하고 모델 artifact를 저장한 뒤 나중에 같은 설정으로 다시 deploy하는 흐름이 대표적이야.
 ## 왜 중요한가
 팀 규모가 커질수록 모델 그 자체보다 운영 체계가 더 큰 병목이 돼. 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여.
 ## 관련 용어

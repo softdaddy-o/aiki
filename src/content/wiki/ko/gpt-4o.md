@@ -23,7 +23,7 @@ relatedTerms:
   - codex
   - o3
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - openai
   - multimodal

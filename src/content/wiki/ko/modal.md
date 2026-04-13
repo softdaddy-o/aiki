@@ -14,7 +14,7 @@ relatedTerms:
   - on-device
 firstMentioned: "2023-03-14"
 mentionCount: 11
-draft: true
+draft: false
 tags:
   - deployment
   - serverless

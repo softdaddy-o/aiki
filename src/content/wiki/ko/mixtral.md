@@ -21,7 +21,7 @@ aliases:
 relatedTerms:
   - mistral
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - mistral
   - moe

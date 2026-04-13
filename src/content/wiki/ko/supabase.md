@@ -11,7 +11,7 @@ relatedTerms:
   - llm
 firstMentioned: "2026-03-11"
 mentionCount: 1
-draft: true
+draft: false
 tags:
   - database
   - backend

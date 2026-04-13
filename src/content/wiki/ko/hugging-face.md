@@ -11,7 +11,7 @@ relatedTerms:
   - localllama
 firstMentioned: "2026-02-20"
 mentionCount: 3
-draft: true
+draft: false
 tags:
   - model-hub
   - community

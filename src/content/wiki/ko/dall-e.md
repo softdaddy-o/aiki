@@ -23,7 +23,7 @@ relatedTerms:
   - gpt-4o
   - o3
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - image-generation
   - openai

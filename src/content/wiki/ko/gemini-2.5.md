@@ -24,7 +24,7 @@ relatedTerms:
   - gemma
   - o3
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - google
   - reasoning

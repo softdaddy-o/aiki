@@ -24,7 +24,7 @@ relatedTerms:
   - gemini-api
 firstMentioned: "2026-02-18"
 mentionCount: 23
-draft: true
+draft: false
 tags:
   - google
   - multimodal

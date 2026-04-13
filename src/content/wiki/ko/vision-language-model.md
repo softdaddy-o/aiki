@@ -13,7 +13,7 @@ relatedTerms:
   - multimodal
 firstMentioned: "2026-02-22"
 mentionCount: 5
-draft: true
+draft: false
 tags:
   - multimodal
   - vision

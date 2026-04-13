@@ -14,7 +14,7 @@ relatedTerms:
   - distillation
 firstMentioned: "2026-04-11"
 mentionCount: 1
-draft: true
+draft: false
 tags:
   - training
   - deep-learning

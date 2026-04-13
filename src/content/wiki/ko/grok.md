@@ -22,7 +22,7 @@ relatedTerms:
   - claude
   - perplexity
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - xai
   - assistant

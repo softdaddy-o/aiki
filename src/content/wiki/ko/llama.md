@@ -24,7 +24,7 @@ relatedTerms:
   - local-llm
 firstMentioned: "2026-02-20"
 mentionCount: 32
-draft: true
+draft: false
 tags:
   - meta
   - open-model

@@ -12,7 +12,7 @@ relatedTerms:
   - attention
 firstMentioned: "2026-03-21"
 mentionCount: 6
-draft: true
+draft: false
 tags:
   - architecture
   - scaling

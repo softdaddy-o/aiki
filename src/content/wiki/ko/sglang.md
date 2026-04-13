@@ -13,7 +13,7 @@ relatedTerms:
   - ollama
   - inference
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - inference
   - serving

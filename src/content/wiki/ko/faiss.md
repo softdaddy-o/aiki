@@ -13,7 +13,7 @@ relatedTerms:
   - embedding
   - vector-db
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - vector-search
   - retrieval

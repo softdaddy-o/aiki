@@ -13,7 +13,7 @@ relatedTerms:
   - local-llm
   - prompt-caching
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - efficiency
   - on-device

@@ -2,7 +2,7 @@
 term: llama.cpp
 title: "llama.cpp"
 lang: ko
-summary: "ggml-org/llama.cpp."
+summary: "llama.cpp는 모델을 직접 내려받아 운영하는 배포 층에 가까운 도구야. 모델 기능보다 실제 작업 흐름을 어떻게 붙이는지가 더 중요해."
 readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
 category: tool
 aliases:
@@ -14,7 +14,7 @@ relatedTerms:
   - lm-studio
 firstMentioned: "2026-02-20"
 mentionCount: 7
-draft: true
+draft: false
 tags:
   - local-ai
   - gguf
@@ -31,8 +31,8 @@ factCheck:
       result: pass
       summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 ggml-org/llama.cpp."
-        - "원문을 보면 ggml-org/llama.cpp."
+        - "독자가 먼저 갈라 봐야 할 건 도구로 읽는 편이 맞다."
+        - "원문을 보면 도구로 읽는 게 맞아."
         - "별칭 대조: llamacpp도 같은 대상을 가리키는지 확인했어."
         - "분류를 다시 보면 이 항목은 도구로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
@@ -61,7 +61,7 @@ factCheck:
         - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
-llama.cpp를 짧게 잡으면 ggml-org/llama.cpp 쪽이야. 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어.
+llama.cpp를 짧게 잡으면 실제 작업 흐름에 붙는 AI 도구 쪽이야. 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어.
 ## 실제로 무엇을 하나
 모델 파일 포맷, 양자화, 런타임 호환성, 로컬 CLI 배포처럼 직접 운영할 때 바로 부딪히는 문제와 붙어 있어. 예를 들어 노트북이나 온프레미스 서버에서 모델 파일을 직접 내려받아 돌릴 때 이런 차이가 바로 체감돼. 모델 자체와 같은 층위로 읽으면 도입 범위와 운영 책임을 헷갈리기 쉬워.
 ## 왜 중요한가

@@ -14,7 +14,7 @@ relatedTerms:
   - local-llm
 firstMentioned: "2026-04-03"
 mentionCount: 1
-draft: true
+draft: false
 tags:
   - local-ai
   - desktop

@@ -13,7 +13,7 @@ relatedTerms:
   - quantization
   - inference
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - serving
   - deployment

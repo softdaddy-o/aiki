@@ -23,7 +23,7 @@ relatedTerms:
   - text-to-speech
 firstMentioned: "2026-02-21"
 mentionCount: 2
-draft: true
+draft: false
 tags:
   - audio
   - transcription

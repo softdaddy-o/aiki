@@ -16,7 +16,7 @@ relatedTerms:
   - gguf
 firstMentioned: "2026-03-02"
 mentionCount: 2
-draft: true
+draft: false
 tags:
   - local-ai
   - edge-ai
@@ -26,7 +26,8 @@ factCheck:
   date: "2026-04-13"
   sources:
     - url: "https://developers.google.com/machine-learning/glossary#on-device_inference"
-      title: "Глоссарий машинного обучения,Глоссарий машинного обучения &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
+      title: "อภิธานศัพท์เกี่ยวกับแมชชีนเลิร์นนิง
+   &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers"
     - url: "https://developer.apple.com/documentation/coreml"
       title: "Core ML | Apple Developer Documentation"
   checks:

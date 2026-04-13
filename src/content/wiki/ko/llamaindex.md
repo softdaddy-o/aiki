@@ -2,7 +2,7 @@
 term: llamaindex
 title: "LlamaIndex"
 lang: ko
-summary: "LlamaIndex는 여러 구성 요소를 연결하고 조립하는 프레임워크야. 완제품보다 구조와 실행 흐름을 어떻게 묶는지 읽는 이름에 가까워."
+summary: "LlamaIndex는 최고의 문서 에이전트이자 OCR 플랫폼입니다."
 readerValue: "이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡는 데 도움이 돼."
 category: framework
 aliases:
@@ -13,7 +13,7 @@ relatedTerms:
   - tool-use
   - embedding
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - retrieval
   - agents
@@ -30,8 +30,8 @@ factCheck:
       result: pass
       summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 프레임워크로 읽는 편이 맞다."
-        - "원문을 보면 프레임워크로 읽는 게 맞아."
+        - "독자가 먼저 갈라 봐야 할 건 최고의 문서 에이전트이자 OCR 플랫폼입니다."
+        - "원문을 보면 최고의 문서 에이전트이자 OCR 플랫폼입니다."
         - "명칭 대조: 페이지 이름 표기가 일관되게 유지되는지 확인했어."
         - "분류를 다시 보면 이 항목은 프레임워크로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
@@ -60,7 +60,7 @@ factCheck:
         - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
-LlamaIndex를 짧게 잡으면 여러 구성 요소를 연결하고 조립하는 프레임워크 쪽이야. 임베딩 저장, 필터링, reranking, vector search 같은 retrieval pipeline에서 어느 구간을 맡는지로 읽으면 덜 헷갈려.
+LlamaIndex를 짧게 잡으면 최고의 문서 에이전트이자 OCR 플랫폼입니다 쪽이야. 임베딩 저장, 필터링, reranking, vector search 같은 retrieval pipeline에서 어느 구간을 맡는지로 읽으면 덜 헷갈려.
 ## 실제로 무엇을 하나
 임베딩 저장, 필터링, reranking, vector search 같은 retrieval pipeline에서 어느 구간을 맡는지로 읽으면 덜 헷갈려. 예를 들어 사내 문서를 검색해 답하는 RAG 흐름에서 검색 품질이 흔들리면 답변 품질도 같이 무너져. 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여.
 ## 왜 중요한가

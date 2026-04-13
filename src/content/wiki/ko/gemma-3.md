@@ -24,7 +24,7 @@ relatedTerms:
   - deepseek-r1
   - llama
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - google
   - open-model

@@ -17,7 +17,7 @@ relatedTerms:
   - quantization
 firstMentioned: "2026-03-23"
 mentionCount: 4
-draft: true
+draft: false
 tags:
   - model-files
   - open-model

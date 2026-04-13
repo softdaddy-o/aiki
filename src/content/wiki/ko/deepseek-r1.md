@@ -24,7 +24,7 @@ relatedTerms:
   - qwen
 firstMentioned: "2025-01-20"
 mentionCount: 1
-draft: true
+draft: false
 tags:
   - reasoning
   - open-model

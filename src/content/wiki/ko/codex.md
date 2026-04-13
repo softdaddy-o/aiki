@@ -14,7 +14,7 @@ relatedTerms:
   - cursor
 firstMentioned: "2026-04-03"
 mentionCount: 3
-draft: true
+draft: false
 tags:
   - openai
   - coding-agent

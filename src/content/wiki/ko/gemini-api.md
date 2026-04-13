@@ -14,7 +14,7 @@ relatedTerms:
   - chatgpt
 firstMentioned: "2026-03-23"
 mentionCount: 3
-draft: true
+draft: false
 tags:
   - google
   - api

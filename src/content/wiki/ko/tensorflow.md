@@ -13,7 +13,7 @@ relatedTerms:
   - fine-tuning
   - distillation
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - training
   - deep-learning

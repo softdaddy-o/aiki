@@ -14,7 +14,7 @@ relatedTerms:
   - fine-tuning
 firstMentioned: "2026-03-23"
 mentionCount: 5
-draft: true
+draft: false
 tags:
   - training
   - efficiency

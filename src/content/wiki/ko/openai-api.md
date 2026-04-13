@@ -13,7 +13,7 @@ relatedTerms:
   - chatgpt
   - claude-sonnet-4-5
 mentionCount: 0
-draft: true
+draft: false
 tags:
   - api
   - application
@@ -22,7 +22,7 @@ factCheck:
   date: "2026-04-13"
   sources:
     - url: "https://platform.openai.com/docs/overview"
-      title: "https://platform.openai.com/docs/overview"
+      title: "OpenAI Platform"
     - url: "https://platform.openai.com/docs/api-reference"
       title: "API Overview"
   checks:

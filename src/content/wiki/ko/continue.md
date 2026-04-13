@@ -2,7 +2,7 @@
 term: continue
 title: "Continue"
 lang: ko
-summary: "Continue는 ⌘ K Docs 블로그 로그인 확인 CLI IDE 확장 프로그램 시작하기 계속이란 무엇입니까."
+summary: "오픈 소스 Continue CLI로 구동."
 readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
 category: tool
 aliases:
@@ -14,7 +14,7 @@ relatedTerms:
   - codex
 firstMentioned: "2026-03-07"
 mentionCount: 1
-draft: true
+draft: false
 tags:
   - coding-agent
   - editor
@@ -31,8 +31,8 @@ factCheck:
       result: pass
       summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 ⌘ K Docs 블로그 로그인 확인 CLI IDE 확장 프로그램 시작하기 계속이란 무엇입니까."
-        - "원문을 보면 ⌘ K Docs 블로그 로그인 확인 CLI IDE 확장 프로그램 시작하기 계속이란 무엇입니까."
+        - "독자가 먼저 갈라 봐야 할 건 오픈 소스 Continue CLI로 구동."
+        - "원문을 보면 오픈 소스 Continue CLI로 구동."
         - "명칭 대조: 페이지 이름 표기가 일관되게 유지되는지 확인했어."
         - "분류를 다시 보면 이 항목은 도구로 정리했고 본문도 그 층위를 유지해."
     - type: web_cross_check
@@ -61,7 +61,7 @@ factCheck:
         - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
 ---
 ## 한 줄 정의
-Continue를 짧게 잡으면 ⌘ K Docs 블로그 로그인 확인 CLI IDE 확장 프로그램 시작하기 계속이란 무엇입니까 쪽이야. 코드베이스를 읽고 파일을 수정하고 CLI 명령을 실행하거나 IDE와 연결하는 흐름에서 존재감이 커.
+Continue를 짧게 잡으면 오픈 소스 Continue CLI로 구동 쪽이야. 코드베이스를 읽고 파일을 수정하고 CLI 명령을 실행하거나 IDE와 연결하는 흐름에서 존재감이 커.
 ## 실제로 무엇을 하나
 ⌘ K Docs 블로그 로그인 확인 CLI IDE 확장 프로그램 시작하기 계속이란 무엇입니까. 코드베이스를 읽고 파일을 수정하고 CLI 명령을 실행하거나 IDE와 연결하는 흐름에서 존재감이 커. 예를 들어 리포지토리를 탐색하고 파일을 고치고 테스트를 돌리는 코딩 보조 흐름이 여기에 들어가.
 ## 왜 중요한가

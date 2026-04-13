@@ -24,7 +24,7 @@ relatedTerms:
   - o3
 firstMentioned: "2024-02-15"
 mentionCount: 3
-draft: true
+draft: false
 tags:
   - video-generation
   - openai
@@ -35,7 +35,7 @@ factCheck:
     - url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)"
       title: "Sora (text-to-video model)"
     - url: "https://openai.com/sora"
-      title: "https://openai.com/sora"
+      title: "Sora"
   checks:
     - type: source_match
       result: pass
