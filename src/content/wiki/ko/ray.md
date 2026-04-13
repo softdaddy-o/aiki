@@ -14,7 +14,7 @@ relatedTerms:
   - distillation
 firstMentioned: "2026-03-27"
 mentionCount: 2
-draft: false
+draft: true
 tags:
   - distributed
   - training

@@ -10,7 +10,7 @@ aliases:
 relatedTerms:
   - gradio
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - app
   - ui

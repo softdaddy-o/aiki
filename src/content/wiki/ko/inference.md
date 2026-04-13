@@ -16,7 +16,7 @@ relatedTerms:
   - bentoml
 firstMentioned: "2026-02-16"
 mentionCount: 9
-draft: false
+draft: true
 tags:
   - serving
   - runtime

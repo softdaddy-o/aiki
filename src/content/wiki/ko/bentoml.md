@@ -13,7 +13,7 @@ relatedTerms:
   - inference
   - onnx
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - serving
   - deployment

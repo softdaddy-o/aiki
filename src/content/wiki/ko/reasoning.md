@@ -13,7 +13,7 @@ relatedTerms:
   - llm
 firstMentioned: "2025-01-20"
 mentionCount: 25
-draft: false
+draft: true
 tags:
   - thinking
   - planning

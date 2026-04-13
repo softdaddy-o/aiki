@@ -14,7 +14,7 @@ relatedTerms:
   - gpt-4o
 firstMentioned: "2022-11-30"
 mentionCount: 3
-draft: false
+draft: true
 tags:
   - openai
   - assistant

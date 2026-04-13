@@ -11,7 +11,7 @@ relatedTerms:
   - token
 firstMentioned: "2025-08-03"
 mentionCount: 47
-draft: false
+draft: true
 tags:
   - language-model
   - foundation-model

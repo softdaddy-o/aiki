@@ -10,7 +10,7 @@ aliases:
 relatedTerms:
   - streamlit
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - demo
   - ui

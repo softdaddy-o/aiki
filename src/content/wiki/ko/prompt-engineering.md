@@ -10,7 +10,7 @@ aliases:
 relatedTerms:
   - chain-of-thought
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - prompting
   - instruction

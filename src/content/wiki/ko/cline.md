@@ -14,7 +14,7 @@ relatedTerms:
   - copilot
 firstMentioned: "2026-02-26"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - coding-agent
   - vs-code

@@ -14,7 +14,7 @@ relatedTerms:
   - aider
 firstMentioned: "2026-02-21"
 mentionCount: 10
-draft: false
+draft: true
 tags:
   - coding-agent
   - developer-tools

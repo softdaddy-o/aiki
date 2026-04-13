@@ -13,7 +13,7 @@ relatedTerms:
   - embedding
   - pinecone
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - retrieval
   - search

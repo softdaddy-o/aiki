@@ -14,7 +14,7 @@ relatedTerms:
   - codex
 firstMentioned: "2026-03-20"
 mentionCount: 3
-draft: false
+draft: true
 tags:
   - coding-agent
   - editor

@@ -1747,7 +1747,7 @@ async function buildWikiDocument(entry, sourceDetails, mentionStats, relatedTerm
         ...(relatedTerms.length > 0 ? relatedTerms.map((term) => `  - ${term}`) : ['  - llm']),
         mentionStats.firstMentioned ? `firstMentioned: "${mentionStats.firstMentioned}"` : null,
         `mentionCount: ${mentionStats.mentionCount}`,
-        'draft: false',
+        `draft: ${MANUAL_WIKI_OVERRIDES[entry.term] ? 'false' : 'true'}`,
         'tags:',
         ...(entry.tags.length > 0 ? entry.tags.map((tag) => `  - ${tag}`) : ['  - ai']),
         'factCheck:',

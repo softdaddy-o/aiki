@@ -13,7 +13,7 @@ relatedTerms:
   - claude-code
   - codex
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - coding-agent
   - editor

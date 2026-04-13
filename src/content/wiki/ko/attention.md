@@ -12,7 +12,7 @@ relatedTerms:
   - mixture-of-experts
 firstMentioned: "2026-02-23"
 mentionCount: 6
-draft: false
+draft: true
 tags:
   - architecture
   - transformer

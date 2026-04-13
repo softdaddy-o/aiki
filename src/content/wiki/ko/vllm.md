@@ -14,7 +14,7 @@ relatedTerms:
   - inference
 firstMentioned: "2026-03-09"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - inference
   - serving

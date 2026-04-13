@@ -10,7 +10,7 @@ aliases:
 relatedTerms:
   - context-window
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - tokens
   - preprocessing

@@ -14,7 +14,7 @@ relatedTerms:
   - rag
 firstMentioned: "2026-04-09"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - vector-db
   - retrieval

@@ -14,7 +14,7 @@ relatedTerms:
   - langgraph
 firstMentioned: "2026-02-27"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - agents
   - function-calling

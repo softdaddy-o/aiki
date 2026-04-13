@@ -16,7 +16,7 @@ relatedTerms:
   - llama
 firstMentioned: "2026-04-03"
 mentionCount: 7
-draft: false
+draft: true
 tags:
   - local-ai
   - open-model

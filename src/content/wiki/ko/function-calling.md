@@ -14,7 +14,7 @@ relatedTerms:
   - gemini-api
 firstMentioned: "2026-04-07"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - tool-use
   - api

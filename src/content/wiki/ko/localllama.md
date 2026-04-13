@@ -15,7 +15,7 @@ relatedTerms:
   - hugging-face
 firstMentioned: "2026-03-03"
 mentionCount: 17
-draft: false
+draft: true
 tags:
   - community
   - local-ai

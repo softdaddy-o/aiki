@@ -13,7 +13,7 @@ relatedTerms:
   - chatgpt
   - claude-sonnet-4-5
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - api
   - application

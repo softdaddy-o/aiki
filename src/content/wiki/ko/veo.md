@@ -23,7 +23,7 @@ relatedTerms:
   - sora
   - gemini-2.5
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - video-generation
   - google

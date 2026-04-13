@@ -14,7 +14,7 @@ relatedTerms:
   - imagen
 firstMentioned: "2026-02-23"
 mentionCount: 2
-draft: false
+draft: true
 tags:
   - image-generation
   - generative-ai

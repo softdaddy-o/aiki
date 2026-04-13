@@ -14,7 +14,7 @@ relatedTerms:
   - lm-studio
 firstMentioned: "2026-03-03"
 mentionCount: 3
-draft: false
+draft: true
 tags:
   - local-ai
   - model-format

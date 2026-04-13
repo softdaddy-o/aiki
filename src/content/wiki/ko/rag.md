@@ -14,7 +14,7 @@ relatedTerms:
   - pinecone
 firstMentioned: "2026-02-16"
 mentionCount: 12
-draft: false
+draft: true
 tags:
   - retrieval
   - generation

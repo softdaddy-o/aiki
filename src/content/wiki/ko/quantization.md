@@ -16,7 +16,7 @@ relatedTerms:
   - modal
 firstMentioned: "2026-03-26"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - efficiency
   - deployment

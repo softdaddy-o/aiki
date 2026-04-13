@@ -23,7 +23,7 @@ relatedTerms:
   - gemma
   - qwen
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - image-generation
   - open-model

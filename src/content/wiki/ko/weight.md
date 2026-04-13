@@ -16,7 +16,7 @@ relatedTerms:
   - gguf
   - onnx
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - model-files
   - open-model

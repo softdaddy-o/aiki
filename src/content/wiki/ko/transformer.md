@@ -12,7 +12,7 @@ relatedTerms:
   - mixture-of-experts
 firstMentioned: "2018-10-11"
 mentionCount: 3
-draft: false
+draft: true
 tags:
   - architecture
   - attention

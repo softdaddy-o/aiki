@@ -24,7 +24,7 @@ relatedTerms:
   - gemini-api
 firstMentioned: "2026-02-18"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - music-generation
   - google

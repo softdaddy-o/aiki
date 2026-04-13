@@ -25,7 +25,7 @@ relatedTerms:
   - o3
 firstMentioned: "2026-04-04"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - anthropic
   - reasoning

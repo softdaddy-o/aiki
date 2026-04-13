@@ -21,7 +21,7 @@ relatedTerms:
   - llm
 firstMentioned: "2026-03-05"
 mentionCount: 1
-draft: false
+draft: true
 tags:
   - microsoft
   - small-language-model

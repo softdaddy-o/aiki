@@ -14,7 +14,7 @@ relatedTerms:
   - openai-api
 firstMentioned: "2026-04-05"
 mentionCount: 2
-draft: false
+draft: true
 tags:
   - agents
   - security

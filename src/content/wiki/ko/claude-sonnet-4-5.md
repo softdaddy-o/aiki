@@ -24,7 +24,7 @@ relatedTerms:
   - claude
   - openai-api
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - anthropic
   - application

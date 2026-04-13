@@ -23,7 +23,7 @@ relatedTerms:
   - stable-diffusion
   - dall-e
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - image-generation
   - open-weight

@@ -14,7 +14,7 @@ relatedTerms:
   - hallucination
 firstMentioned: "2026-02-22"
 mentionCount: 3
-draft: false
+draft: true
 tags:
   - safety
   - training

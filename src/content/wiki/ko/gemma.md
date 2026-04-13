@@ -24,7 +24,7 @@ relatedTerms:
   - llama
 firstMentioned: "2026-03-19"
 mentionCount: 6
-draft: false
+draft: true
 tags:
   - open-model
   - google

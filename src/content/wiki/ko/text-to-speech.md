@@ -12,7 +12,7 @@ relatedTerms:
   - whisper
   - speech-to-text
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - audio
   - voice

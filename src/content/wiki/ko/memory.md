@@ -15,7 +15,7 @@ relatedTerms:
   - long-context
 firstMentioned: "2026-02-27"
 mentionCount: 17
-draft: false
+draft: true
 tags:
   - agents
   - context-window

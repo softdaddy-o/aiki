@@ -13,7 +13,7 @@ relatedTerms:
   - bentoml
 firstMentioned: "2023-03-14"
 mentionCount: 11
-draft: false
+draft: true
 tags:
   - deployment
   - serverless
