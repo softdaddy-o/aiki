@@ -1,10 +1,13 @@
 ---
 term: runtime
-title: "Runtime"
+title: "Runtime(런타임)"
 lang: ko
-summary: "Runtime는 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
-readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
+summary: "Runtime(런타임)은 저장된 모델을 실제 하드웨어에서 돌려서 응답을 뽑아내는 실행 계층이야."
+readerValue: "이 말을 보면 모델 이름이 아니라, 모델을 실제로 돌리는 엔진 쪽 이야기라는 걸 바로 잡을 수 있어."
 category: framework
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
   - "런타임"
   - "inference runtime"
@@ -23,7 +26,7 @@ tags:
   - systems
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-14"
   sources:
     - url: "https://onnxruntime.ai/"
       title: "ONNX Runtime | Home"
@@ -32,45 +35,42 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
+      sources: 2
+      summary: "실행 계층이라는 설명이 원문 축이랑 맞는지 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
-        - "원문을 보면 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
-        - "별칭 대조: 런타임, inference runtime, 추론 런타임도 같은 대상을 가리키는지 확인했어."
-        - "분류를 다시 보면 이 항목은 프레임워크로 정리했고 본문도 그 층위를 유지해."
+        - "독자 문제 대조: 이 글은 런타임을 먼저 모델을 실제로 돌리는 엔진으로 잡아서 모델명처럼 읽히지 않게 했어."
+        - "원문 대조: ONNX Runtime과 Triton 소개 모두 실행, 가속, 추론 제공이라는 공통 역할을 보여 주고 있었어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
+      summary: "서로 다른 도구 설명을 비교해도 같은 층위인지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
-        - "교차 대조: 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다."
-        - "출처 1 대조: onnxruntime.ai."
-        - "출처 2 대조: developer.nvidia.com."
+        - "비교 기준: ONNX Runtime과 Triton 설명이 모두 추론 실행 계층을 가리키는지 비교해 봤어."
+        - "교차검증: 범위는 조금 다르지만 둘 다 모델을 실제로 돌려서 응답을 내는 쪽이라는 점은 같았어."
     - type: number_verify
       result: pass
-      summary: "숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어 확인했어."
+      sources: 2
+      summary: "환경 따라 달라지는 성능 수치는 본문에서 줄였어."
       items:
-        - "이름부터 다시 보면 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했어."
-        - "범위를 다시 보면 모델 서빙과 추론 성능 맥락에서 다루는 범위를 다시 확인했어."
-        - "접근 채널을 보면 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했어."
+        - "숫자 점검: latency, throughput, QPS 같은 값은 하드웨어와 설정에 따라 크게 달라져서 본문에 안 넣었어."
+        - "표현 점검: 숫자 대신 실행 엔진, 메모리 관리, 배치 처리 같은 구조적 역할만 남겼어."
     - type: adversarial
       result: pass
-      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
+      summary: "서빙 플랫폼 전체와 같은 말로 섞이는 오해는 막았어."
       items:
-        - "헷갈리기 쉬운 건 완제품이나 단일 모델처럼 읽으면 직접 조립해야 하는 범위를 놓치기 쉬워."
-        - "헷갈리기 쉬운 건 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여."
-      findings:
-        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
+        - "흔한 오해 점검: 런타임을 배포 플랫폼 전체와 같은 말로 쓰면 도구 선택 기준이 흐려지기 쉬워."
+        - "반례 점검: 어떤 도구는 실행 엔진에 가깝고 어떤 도구는 운영 레이어까지 포함한다는 구분을 본문에 남겼어."
 ---
 ## 한 줄 정의
-Runtime를 짧게 잡으면 이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다 쪽이야. 데이터 저장만이 아니라 인증, 스토리지, 함수, API 레이어를 어디까지 한 번에 묶는지 같이 봐야 해.
-## 실제로 무엇을 하나
-이전 NVIDIA Triton Inference Server였던 NVIDIA Dynamo-Triton을 사용하면 TensorRT, PyTorch, ONNX 등을 포함한 주요 프레임워크 전반에 걸쳐 AI 모델을 배포할 수 있습니다. 데이터 저장만이 아니라 인증, 스토리지, 함수, API 레이어를 어디까지 한 번에 묶는지 같이 봐야 해. 예를 들어 로그인, 데이터 저장, 파일 업로드, 서버 함수까지 한 화면에서 붙이는 백엔드 시제품을 만들 때 차이가 크게 드러나.
+Runtime은 저장된 모델 파일을 실제 하드웨어에서 돌려서 추론 결과를 내는 실행 계층이야. 모델 자체가 아니라 모델을 먹여서 응답을 꺼내는 엔진 쪽이라고 보면 돼.
+## 어떻게 작동하나
+런타임은 모델 그래프와 가중치를 읽고, 연산을 어떤 CPU나 GPU 커널로 돌릴지 정하고, 메모리와 배치 처리도 관리해. 실무에선 API 요청이 들어왔을 때 이 계층이 실제 추론을 수행해서 결과를 돌려주는 역할을 맡아.
 ## 왜 중요한가
-실무에선 모델 자체보다 추론 스택이 지연 시간과 비용을 좌우하는 경우가 많아. 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여.
+모델 품질이 비슷해도 어떤 런타임을 쓰느냐에 따라 응답 속도, 동시 처리량, 운영 비용이 크게 갈려. 그래서 제품 성능을 올릴 때는 모델 선택만큼이나 실행 엔진 선택이 중요해.
+## 주의해서 볼 점
+런타임을 서빙 플랫폼 전체랑 같은 말로 쓰면 범위가 쉽게 섞여. 어떤 도구는 순수 실행 엔진에 가깝고, 어떤 도구는 배포와 스케줄링까지 포함하니 어디까지 책임지는지 나눠서 봐야 해.
 ## 관련 용어
-- [BentoML](/ko/wiki/bentoml/) — BentoML와 함께 보면 Runtime가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [vLLM](/ko/wiki/vllm/) — vLLM와 함께 보면 Runtime가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [Quantization](/ko/wiki/quantization/) — Quantization와 함께 보면 Runtime가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [Inference](/ko/wiki/inference/) — Inference와 함께 보면 Runtime가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
+- [BentoML](/ko/wiki/bentoml/)은 런타임보다 더 넓은 서빙과 운영 레이어를 다루는 도구로 자주 읽혀. 그래서 실행 엔진과 배포 플랫폼을 구분할 때 같이 보면 좋아.
+- [vLLM](/ko/wiki/vllm/)은 특히 LLM 추론 최적화에 초점을 둔 런타임 계열이야. 범용 엔진과 무엇이 다른지 볼 때 좋은 비교점이 돼.
+- [Quantization](/ko/wiki/quantization/)은 같은 런타임 위에서도 속도와 메모리 사용을 바꾸는 최적화 기법이야. 런타임 선택과 수치 최적화는 별개 층위야.
+- [Inference](/ko/wiki/inference/)는 결과를 내는 행위 자체야. 런타임은 그 행위를 실제 시스템에서 수행하게 만드는 계층이야.

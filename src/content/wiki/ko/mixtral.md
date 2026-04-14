@@ -1,23 +1,15 @@
 ---
 term: mixtral
-title: "Mixtral"
+title: "Mixtral(믹스트랄)"
 lang: ko
-summary: "Mixtral는 Mistral AI가 실제 배포용으로 내놓은 개별 모델 버전이야. 이름이 보이면 성능 점수만 보지 말고 어떤 작업에 맞는지와 운영비 구간을 같이 읽어야 해."
-readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽는 데 도움이 돼."
+summary: "Mixtral은 Mistral AI가 만든 sparse MoE 계열 오픈 웨이트 언어 모델이야."
+readerValue: "Mixtral이 보이면 벤치마크 숫자만이 아니라 Mistral AI가 어떤 오픈 모델 전략을 미는지 읽는 데 도움 돼."
 category: model
-modelType: version
-parentModel: mistral
-modelProfile:
-  memoryUsage: "Mixtral 8x7B v0.1 기준 32K 컨텍스트를 지원해. 총 파라미터 수는 46.7B지만 토큰당 활성 파라미터가 더 적어 dense 40B대 모델과는 메모리 감각이 다르다."
-  implementation: "Mistral AI의 sparse mixture-of-experts 모델이야. 8개 expert 중 일부만 활성화하는 구조라 MoE 이해가 관건이야."
-  activeParameters: "공식 발표 기준 총 46.7B 파라미터, 토큰당 활성 12.9B다."
-  multimodalSupport: "텍스트 중심 모델이야. 이미지·오디오 입력을 기대하는 계열은 아니다."
-  access: "오픈 웨이트 모델이라 허깅페이스에서 바로 받아 로컬이나 자체 인프라에 올릴 수 있어."
-  pricing: "직접 호스팅이면 GPU 비용이 관건이야. API 재판매 채널을 쓸 때만 별도 토큰 단가를 비교하면 돼."
-  weightsOpen: "오픈 웨이트 공개"
-  vendor: "Mistral AI"
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
-  - "Mixtral"
+  - "Mixtral(믹스트랄)"
 relatedTerms:
   - mistral
 mentionCount: 0
@@ -27,7 +19,7 @@ tags:
   - moe
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-14"
   sources:
     - url: "https://mistral.ai/news/mixtral-of-experts"
       title: "Mixtral of experts | Mistral AI"
@@ -36,43 +28,39 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 어떤 층위의 모델 설명으로 읽어야 하는지 먼저 확인해뒀어 확인했어."
+      summary: "Mixtral을 Mistral AI의 sparse MoE 모델로 잡은 정의를 소스 설명에 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 Mixtral를 어떤 작업과 운영 조건에 붙일 모델인지."
-        - "모델 이름부터 다시 보면 Mixtral 8x7B 계열."
-        - "만든 쪽을 다시 보면 Mistral AI."
-        - "배포 유형 대조: version 모델 / 오픈 웨이트."
+        - "독자 문제 대조: Mixtral이 회사 이름이 아니라 Mistral AI가 낸 모델 계열이라는 점부터 먼저 확인했어."
+        - "Mistral AI 소개 글의 sparse mixture-of-experts 설명과 Hugging Face 모델 페이지가 같은 대상을 가리키는지 같이 봤어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스를 나란히 놓고 접근 채널과 포지션 설명이 어긋나지 않는지 비교해뒀어 확인했어."
+      summary: "회사 소개 글과 배포 페이지가 같은 제품 축을 말하는지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 Mixtral를 고를 때 접근 채널, 가격, 입력 범위 가운데 무엇을 먼저 봐야 하는지."
-        - "출처 1 대조: mistral.ai."
-        - "출처 2 대조: huggingface.co."
-        - "공식 소스 1: Mixtral of Experts 발표."
-        - "공식 소스 2: Hugging Face 모델 카드."
-        - "비교 확인: MoE 구조와 공개 웨이트 배포가 일치."
+        - "비교 기준: Mixtral을 연구 개념으로만 볼지, 실제로 받아서 운영할 수 있는 오픈 웨이트 모델로 볼지 나눠서 비교했어."
+        - "Mistral AI 쪽은 구조 설명을 주고 Hugging Face 쪽은 배포 경로를 보여 줘서, 본문에서 vendor와 운영 포인트를 함께 적어도 되는지 확인했어."
     - type: number_verify
       result: pass
-      summary: "숫자와 고유 명칭은 실제 도입 판단에 필요한 항목만 따로 빼서 검증해뒀어 확인했어."
+      summary: "모델 이름과 배포 식별자처럼 헷갈리기 쉬운 표기만 따로 맞춰봤어."
       items:
-        - "총 파라미터: 46.7B."
-        - "활성 파라미터: 12.9B."
-        - "컨텍스트: 32K."
+        - "Mistral AI가 vendor라는 점과 `Mixtral-8x7B-v0.1` 표기가 실제 공개 모델 식별자로 쓰이는 점을 확인했어."
+        - "컨텍스트 길이나 가격처럼 소스 요약에 직접 없는 숫자는 본문에 넣지 않고 배포 경로 정보만 남겼어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리해뒀어 확인했어."
+      summary: "Mixtral을 벤치마크 숫자 하나로만 읽는 오해를 막았어."
       items:
-        - "dense 모델과 단순 파라미터 수 비교만 하면 실제 추론 비용 감각이 틀어질 수 있어."
+        - "MoE 구조를 모르면 왜 비용 대비 성능 이야기가 같이 붙는지 놓치기 쉬워서 그 맥락을 앞에 세웠어."
+        - "오픈 웨이트 모델이라는 점을 빼면 실제 실무 사용처와 배포 전략이 흐려져서 로컬 운영 가능성도 같이 남겼어."
       findings:
-        - "dense 모델과 단순 파라미터 수 비교만 하면 실제 추론 비용 감각이 틀어질 수 있어."
+        - "Mixtral을 그냥 또 하나의 채팅 모델 이름으로만 읽으면 Mistral AI의 아키텍처 전략을 놓치기 쉬워."
+        - "오픈 웨이트라는 점을 빼면 API 전용 모델처럼 오해하기 쉬워."
 ---
 ## 한 줄 정의
-Mixtral는 Mistral AI가 텍스트만이 아니라 이미지 맥락까지 같이 읽는 작업 쪽 문제를 풀려고 내놓은 개별 모델 버전이야. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라, 실제로 붙여볼 후보가 올라온 상황이라고 보면 돼. 텍스트 중심 모델이야. 이미지·오디오 입력을 기대하는 계열은 아니다. Mistral AI의 sparse mixture-of-experts 모델이야. 8개 expert 중 일부만 활성화하는 구조라 MoE 이해가 관건이야.
+Mixtral은 Mistral AI가 만든 sparse mixture-of-experts 구조 언어 모델이야. 모든 파라미터를 매번 다 쓰지 않고 필요한 expert 일부만 켜서 큰 모델급 품질과 추론 효율을 같이 노리는 점이 중요해.
 ## 이 모델로 무엇을 할 수 있나
-이 페이지에서 먼저 볼 건 "성능이 높다"보다 "어떤 일을 맡길 모델인가"야. Mistral AI의 sparse mixture-of-experts 모델이야. 8개 expert 중 일부만 활성화하는 구조라 MoE 이해가 관건이야. 오픈 웨이트 모델이라 허깅페이스에서 바로 받아 로컬이나 자체 인프라에 올릴 수 있어. 예를 들어 같은 벤더 모델끼리도 API 채널과 가격표가 다르면 추천 답이 완전히 달라질 수 있어. 그래서 텍스트만이 아니라 이미지 맥락까지 같이 읽는 작업처럼 한 단계씩 풀어야 하는 작업에 맞는지, 아니면 더 가볍고 싼 모델로도 충분한지 가르는 기준이 돼.
+실무에서는 긴 문서 요약, 질의응답, 코드 초안, 지식베이스 보조 같은 텍스트 작업에 붙여 쓰기 좋아. Hugging Face에 `mistralai/Mixtral-8x7B-v0.1` 같은 공개 가중치가 있어서 API만 쓰는 대신 직접 서버에 올리거나 로컬 실험 환경에서 돌려볼 수 있어.
 ## 왜 중요한가
-중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 Mistral AI 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞아.
+Mixtral이 중요한 건 오픈 웨이트 모델도 아키텍처를 잘 고르면 비용 대비 품질을 크게 끌어올릴 수 있다는 신호를 줬기 때문이야. 기사에서 Mixtral이 나오면 단순 성능표보다 Mistral AI가 dense 모델 대신 sparse MoE 전략으로 어디를 치고 들어오는지 같이 읽어야 맥락이 보여.
 ## 같이 보면 좋은 모델
-- [Mistral](/ko/wiki/mistral/) — Mistral와는 오픈 웨이트 여부와 자체 호스팅 난도를 비교하기 쉬워.
+- Mistral: Mixtral은 Mistral AI 라인업 안의 MoE 축이라서 Mistral 계열 dense 모델과 나란히 보면 포지션이 더 또렷해져. 같은 회사 모델인데도 구조와 운영 감각이 어떻게 갈리는지 보기 좋아.
+- 다른 dense 오픈 모델: dense 모델은 모든 파라미터를 매번 쓰고 Mixtral은 필요한 expert 일부만 골라 쓰는 쪽이야. 그래서 같은 오픈 모델 기사라도 추론 효율을 어떻게 가져가려는지 읽는 눈이 달라져.

@@ -6,3 +6,6 @@ dist/
 # Generated wiki OG cards (deterministic, regenerated each build)
 public/og/wiki/
 public/og/news-fallback/
+
+# Local LLM rewrite batch inputs/outputs
+.tmp/

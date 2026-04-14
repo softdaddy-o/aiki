@@ -1,10 +1,13 @@
 ---
 term: grounding
-title: "Grounding"
+title: "Grounding (그라운딩)"
 lang: ko
-summary: "Grounding은 모델 답변을 외부의 검증 가능한 정보원에 붙여 주는 기법이야. 단순히 검색을 붙이는 것보다 넓은 개념이고, 모델을 더 학습시키는 대신 실행 시점에 근거를 연결한다는 점이 관건이야."
-readerValue: "모델이 원래 더 똑똑한 경우와, 실행 시점에 외부 근거를 붙이는 경우를 구분해야 하는지 먼저 판단하는 데 도움이 돼."
+summary: "Grounding은 모델 답변을 외부 근거와 연결해서 말하게 만드는 방법이야. 모델이 원래 알고 있던 것만 꺼내게 두지 않고, 실행 시점의 검색 결과나 내부 문서를 붙여 정확도를 끌어올리는 쪽에 가깝지."
+readerValue: "Grounding을 알면 모델이 똑똑한 건지, 검색과 근거 붙이기가 잘 된 건지 구분하는 데 도움돼. 최신 정보나 사내 문서를 다루는 제품을 볼 때 특히 유용해."
 category: technique
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
   - "retrieval grounding"
 relatedTerms:
@@ -20,59 +23,61 @@ tags:
   - reliability
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-14"
   sources:
     - url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"
-      title: "グラウンディングの概要 &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
+      title: "接地總覽 &nbsp;|&nbsp; Generative AI on Vertex AI &nbsp;|&nbsp; Google Cloud Documentation"
     - url: "https://ai.google.dev/gemini-api/docs/google-search"
-      title: "使用 Google 搜索建立依据 &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Grounding with Google Search &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
   checks:
     - type: source_match
       result: pass
-      summary: "grounding을 모델 학습이 아니라 외부 근거 연결 기법으로 읽는 게 맞는지부터 먼저 맞춰봤어."
+      sources: 2
+      summary: "Grounding을 외부 근거 연결 방식으로 설명한 핵심 정의를 Google 계열 문서 흐름에 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 모델이 원래 더 똑똑한 경우와, 실행 시점에 외부 근거를 붙여 답변을 안정시키는 경우를 먼저 나눠 봐야 해."
-        - "원문을 보면 Vertex AI 문서는 grounding을 모델 출력을 검증 가능한 소스와 연결하는 방식으로 설명해."
-        - "정체성을 보면 fine-tuning이나 pretraining이 아니라 inference 시점의 연결 기법이라는 해석과 맞는다."
-        - "분류를 잡을 때는 technique로 두고, 본문에서는 search 자체보다 evidence attachment 계층이라는 점을 먼저 잡았다."
+        - "독자 문제 대조: Grounding을 추가 학습이나 파인튜닝으로 오해하지 않게, 실행 시점의 근거 연결이라고 먼저 적었어."
+        - "Google 문서가 말하는 Search 연결, world knowledge 연결, citations 향상 맥락을 본문에 반영했어."
+      findings:
+        - "근거 연결과 응답 사실성 개선이라는 중심축이 잘 맞았어."
+        - "학습 기법처럼 읽히는 표현은 덜어냈어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "Vertex와 Gemini 문서를 같이 놓고 grounding을 단순 검색 기능으로 축소하지 않았는지 다시 봤어."
+      summary: "Vertex AI 문서와 Gemini API 문서를 비교해서, Grounding의 실무 의미를 너무 좁히지 않았는지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 검색 API, RAG, grounding 가운데 어떤 것이 근거 연결 전체를 설명하는지 봐야 해."
-        - "공식 자료를 같이 보면 Vertex 문서는 Google Search, Vertex AI Search, RAG Engine, Maps, 외부 파트너 검색까지 여러 grounding 경로를 포괄해."
-        - "공식 자료를 같이 보면 Gemini 문서는 grounding 결과와 함께 citation, web search query, grounding metadata를 반환하는 흐름을 설명해."
-        - "그래서 grounding은 검색 붙이기보다 넓고, RAG는 그 안의 한 구현 패턴으로 보는 편이 정확해."
+        - "비교 기준: 검색 결과 연결, 최신 정보 반영, 사실성 향상, 인용 가능성이라는 네 축을 맞춰봤어."
+        - "Google Search 전용 기능으로만 읽히지 않게, broader retrieval 구조로 설명 범위를 조정했어."
+      findings:
+        - "검색 기반 Grounding이 대표 사례지만 개념 자체는 더 넓게 써도 괜찮았어."
+        - "특정 제품 API 이름은 과하게 넣지 않고 줄였어."
     - type: number_verify
       result: pass
-      summary: "문서에 직접 나오는 필드 이름과 단계 정보도 한 번 더 봤어."
+      sources: 1
+      summary: "정확도 향상 비율 같은 숫자 주장은 근거가 분산돼 있어서 본문에서 뺐어."
       items:
-        - "필드 검증: Gemini 문서는 groundingMetadata, groundingChunks, groundingSupports, webSearchQueries 같은 응답 필드를 예시로 보여 준다."
-        - "범위를 다시 보면 Vertex overview는 여러 grounding source 유형을 한 umbrella 개념 아래에서 다룬다."
-        - "이름부터 다시 보면 grounding은 retrieval 자체와 동의어가 아니라, 답변을 근거와 묶는 더 넓은 용어다."
+        - "몇 퍼센트 더 정확하다는 식의 수치는 데이터셋과 설정에 따라 크게 달라져서 넣지 않았어."
+        - "독자에게 더 중요한 건 구조적 차이라서 개념 설명에 집중했어."
+      findings:
+        - "수치 과장 없이도 Grounding의 역할이 보이게 남겼어."
     - type: adversarial
       result: pass
-      summary: "grounding을 설명할 때 자주 생기는 축소 해석을 어떻게 걸러야 하는지 의심해보고 정리했어."
+      summary: "Grounding이 붙으면 무조건 사실이라는 오해를 막았어."
       items:
-        - "헷갈리기 쉬운 건 grounding은 RAG의 다른 이름이 아니다."
-        - "헷갈리기 쉬운 건 grounding을 붙였다고 답변이 항상 사실이 되는 것은 아니고, 어떤 소스를 붙이느냐가 여전히 중요해."
-        - "헷갈리기 쉬운 건 더 좋은 모델을 쓰는 문제와, 외부 근거를 답변에 연결하는 문제는 층위가 다르다."
+        - "검색 결과가 틀리거나 낡으면 그 오류가 그대로 답변에 실릴 수 있다는 점을 주의 항목에 넣었어."
+        - "또 모델 자체가 좋아진 것과 검색층이 좋아진 걸 헷갈리기 쉬워서 둘을 구분해 적었어."
       findings:
-        - "grounding의 핵심은 모델 성능을 마법처럼 끌어올리는 데 있지 않고, 답변을 어떤 근거 체계에 묶을지 설계하는 데 있어."
+        - "근거 기반 답변과 진실 보증을 같은 말로 읽지 않게 막았어."
 ---
 ## 한 줄 정의
-Grounding은 모델 답변을 외부의 검증 가능한 정보원에 연결해, 답변에 근거를 붙이는 기법이야.
+Grounding은 모델이 허공에서 답을 짓지 않게, 검색 결과나 데이터베이스, 문서 같은 외부 근거에 답변을 연결하는 방식이야. 쉽게 말하면 모델 자체를 다시 훈련하는 게 아니라, 답변 직전에 발밑에 근거를 깔아 주는 절차라고 보면 돼.
 ## 어떻게 작동하나
-Grounding을 이해할 때 가장 먼저 버려야 할 오해는 "모델이 더 똑똑해지는 기술"이라는 생각이야. grounding은 학습 단계가 아니라 실행 단계에서 작동하거든. 질문이 들어오면 웹 검색, 사내 검색, 지도 데이터, 문서 저장소 같은 외부 소스를 조회하고, 그 결과를 모델 답변과 연결해.
-
-그래서 grounding의 핵심은 검색 자체보다 근거 연결 방식에 있어. 검색 결과를 그냥 참고만 하는 것이 아니라, 어떤 소스를 바탕으로 답했는지 citation과 metadata를 함께 남길 수 있어야 하거든. Gemini와 Vertex 문서가 grounding metadata를 따로 강조하는 이유도 여기에 있어.
+질문이 들어오면 먼저 웹 검색, 사내 검색, 벡터 검색 같은 단계에서 관련 자료를 가져오고, 그 내용을 프롬프트나 컨텍스트에 넣어 모델이 그 근거를 바탕으로 답하게 만들어. 어떤 시스템은 인용 링크나 출처 텍스트까지 같이 보여 줘서 사용자가 답의 근거를 직접 확인하게 하고, 어떤 시스템은 보이지 않더라도 내부적으로 같은 구조를 써.
 ## 왜 중요한가
-Grounding이 중요한 이유는 많은 AI 제품의 문제를 "모델 성능 부족"으로만 오해하기 쉽기 때문이야. 실제로는 모델이 모르는 최신 정보, 조직 내부 정보, 특정 도메인 데이터가 필요한 경우가 훨씬 많아. 이때 필요한 것은 더 큰 모델이 아니라, 외부 근거를 안전하게 붙이는 설계일 수 있어.
-
-또 grounding은 제품 판단에도 영향을 줘. 같은 검색을 붙여도 citation이 필요한지, 웹 기반 최신성이 중요한지, 사내 문서 중심인지에 따라 구현 방식이 달라져. 그래서 grounding을 이해하면 RAG, 검색 API, 벡터 DB를 어디에 써야 할지 구분이 쉬워진다.
+모델은 최신 사건이나 조직 내부 문서를 기본적으로 모르기 때문에, 실서비스에 들어가면 Grounding이 거의 필수처럼 붙는 경우가 많아. 특히 검색 결과를 붙이면 사실성, 시의성, 추적 가능성이 같이 올라가서, 그냥 그럴듯한 답보다 검증 가능한 답에 더 가까워져.
+## 주의해서 볼 점
+Grounding을 붙였다고 무조건 참이 되진 않아. 잘못 검색한 문서나 낡은 자료를 붙이면 오히려 틀린 답을 근거 있어 보이게 만들 수 있고, 검색 품질이 낮으면 모델 자체보다 검색층이 병목이 되기도 해.
 ## 관련 용어
-- [RAG](/ko/wiki/rag/) — grounding의 대표 구현 패턴 중 하나라서 같이 보되, grounding 전체를 RAG로 축소하면 범위를 잘못 잡게 돼.
-- [LlamaIndex](/ko/wiki/llamaindex/) — grounding을 실제 문서 연결 흐름으로 구현할 때 자주 등장하는 프레임워크라서, 추상 개념이 코드로 내려오는 방식을 보기 좋아.
-- [Embedding](/ko/wiki/embedding/) — grounding에서 검색 후보를 고르는 단계와 자주 연결되므로, retrieval 품질이 어디서 갈리는지 이해할 때 필요해.
-- [Vector Database](/ko/wiki/vector-db/) — grounding이 문서 검색 계층과 만나는 대표 지점이라서, 외부 근거를 어떤 저장소에서 꺼내는지 이해하는 데 도움이 돼.
+- `RAG`: Grounding을 구현하는 대표 패턴이야. 자료를 찾고, 그 자료를 붙여 답하게 만드는 전체 흐름을 말해.
+- `LlamaIndex`: Grounding 파이프라인을 코드로 짜는 데 자주 쓰이는 도구야. 어떤 문서를 어떻게 연결할지 설계할 때 많이 등장해.
+- `Embedding`: 어떤 문서가 질문과 가까운지 찾는 핵심 표현 방식이야. Grounding의 검색 품질을 크게 좌우해.
+- `Vector DB`: 임베딩을 저장하고 꺼내는 저장소야. Grounding 시스템에서 검색 속도와 운영 편의성을 받쳐 줘.

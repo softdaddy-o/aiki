@@ -1,22 +1,15 @@
 ---
 term: whisper
-title: "Whisper"
+title: "Whisper (위스퍼)"
 lang: ko
-summary: "Whisper는 OpenAI가 멀티모달 생성과 이해를 같이 다루는 라인업 쪽 라인업을 설명할 때 쓰는 이름이야. 기사에서 이 단어가 보이면 새 모델 하나보다 제품 방향이 움직이는 신호로 읽는 편이 맞아."
-readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽는 데 도움이 돼."
+summary: "Whisper (위스퍼)는 OpenAI가 공개한 음성 인식 모델이야. 오디오를 텍스트로 옮기고 여러 언어 음성을 영어로 번역하는 데 많이 써."
+readerValue: "Whisper를 채팅 모델이 아니라 STT용 공개 모델로 읽어야 기사랑 제품 얘기가 덜 헷갈려."
 category: model
-modelType: family
-modelProfile:
-  memoryUsage: "서비스형 모델이면 서버 메모리 요구량이 공개되지 않을 수 있어, 배포 메모리 대신 컨텍스트와 출력 한도를 같이 보는 편이 나아."
-  implementation: "Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해."
-  activeParameters: "공개 자료 기준 활성 파라미터 수 확인 필요"
-  multimodalSupport: "오디오 입력 또는 음성 처리 지원으로 읽는 편이 맞아."
-  access: "무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전해."
-  pricing: "유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋아."
-  weightsOpen: "비공개 또는 서비스/API 제공 중심"
-  vendor: "OpenAI"
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
-  - "Whisper"
+  - "Whisper (위스퍼)"
 relatedTerms:
   - speech-to-text
   - multimodal
@@ -29,7 +22,7 @@ tags:
   - transcription
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-14"
   sources:
     - url: "https://en.wikipedia.org/wiki/Whisper_(speech_recognition_system)"
       title: "Whisper (speech recognition system)"
@@ -38,43 +31,47 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 어떤 층위의 모델 설명으로 읽어야 하는지 먼저 확인해뒀어 확인했어."
+      sources: 2
+      summary: "Whisper가 정확히 어떤 모델인지 공식 소개와 백과 요약을 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 Whisper가 개별 모델 하나가 아니라 어떤 작업군을 묶는 라인업 이름인지."
-        - "모델 이름부터 다시 보면 Whisper."
-        - "만든 쪽을 다시 보면 OpenAI."
-        - "상위 계열로는 최상위 라인업."
-        - "페이지 성격: 개별 스냅샷이 아니라 상위 계열 안내 페이지."
+        - "독자 문제 대조: Whisper를 범용 LLM이 아니라 OpenAI의 음성 인식 모델로 읽어야 하는지 확인했어."
+        - "OpenAI 공식 소개는 Whisper를 automatic speech recognition system이라고 설명해."
+        - "위키 요약도 speech recognition and transcription 모델이라고 적어."
+        - "그래서 본문은 STT와 음성 번역 중심 모델이라는 정의로 맞췄어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스를 나란히 놓고 접근 채널과 포지션 설명이 어긋나지 않는지 비교해뒀어 확인했어."
+      summary: "공식 소개와 백과 요약을 나란히 놓고 Whisper의 사용처 설명이 엇나가지 않는지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 Whisper 아래에서 어떤 버전 페이지를 봐야 하는지."
-        - "출처 1 대조: en.wikipedia.org."
-        - "출처 2 대조: openai.com."
+        - "비교 기준: Whisper를 채팅 모델로 볼지, 음성 전사와 번역 모델로 볼지 비교했어."
+        - "두 출처 모두 핵심 기능을 speech recognition과 transcription으로 잡아."
+        - "OpenAI 쪽은 다국어 전사와 영어 번역, 공개 코드까지 더 분명하게 말해."
+        - "그래서 본문도 회의 녹취, 자막, 음성 인터페이스 전처리 같은 실사용 쪽으로 옮겼어."
     - type: number_verify
       result: pass
-      summary: "가격, 접근 경로, 입력 범위처럼 실제 도입 판단에 필요한 정보는 따로 떼서 검증해뒀어 확인했어."
+      sources: 2
+      summary: "학습 데이터 규모와 공개 시점처럼 공식 문서에 박힌 수치만 남기고 맞춰봤어."
       items:
-        - "운영 정보 대조: 유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋아."
-        - "접근 경로 대조: 무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전해."
-        - "입력/출력 범위 대조: 오디오 입력 또는 음성 처리 지원으로 읽는 편이 맞아."
+        - "OpenAI 공식 소개는 Whisper가 680,000시간의 다국어·멀티태스크 데이터로 학습됐다고 적어."
+        - "공식 소개 게시일은 2022년 9월 21일이야."
+        - "최신 벤치마크 점수는 시기와 셋업에 따라 달라지니 본문에 넣지 않았어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리해뒀어 확인했어."
+      sources: 2
+      summary: "Whisper를 챗봇이나 음성 합성 모델로 잘못 읽는 지점을 따로 막았어."
       items:
-        - "개별 가격과 컨텍스트는 하위 버전 페이지에서 확인해야 해."
+        - "Whisper라는 이름만 보고 채팅이나 생성형 대화 모델로 오해하기 쉬운데, 핵심은 음성 받아쓰기야."
+        - "또 텍스트를 음성으로 읽어 주는 TTS 모델과도 반대 방향이라서, 음성 관련 기능이라고 한데 묶어 읽으면 헷갈려."
       findings:
-        - "계열 페이지의 일반 설명을 특정 버전 스펙처럼 읽지 않도록 분리했다."
+        - "Whisper는 오디오 입력을 텍스트로 바꾸는 공개 STT 모델이라는 점을 남겼어."
 ---
 ## 한 줄 정의
-Whisper라는 이름을 새 모델 하나라고 읽으면 자꾸 헷갈려. OpenAI가 멀티모달 생성과 이해를 같이 다루는 라인업 쪽 라인업을 설명할 때 앞에 내세우는 간판에 가깝거든. 그래서 기사에서 이 계열명이 보이면 벤치마크보다 어떤 사용 장면을 키우려는지부터 읽는 편이 덜 틀려.
+Whisper는 OpenAI가 공개한 자동 음성 인식 모델이야. 채팅을 잘하는 모델이 아니라, 사람 목소리나 녹음 파일을 받아 텍스트로 옮기는 데 초점이 있는 모델로 보면 돼.
 ## 이 모델로 무엇을 할 수 있나
-Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해. 오디오 입력 또는 음성 처리 지원으로 읽는 편이 맞아. 예를 들어 이미지를 보고 답하거나 음성을 받아 처리하는 앱에서 입력 범위 차이가 바로 체감돼. 다만 계열 이름만으로 가격표나 제한을 확정하면 거의 틀려. 여기서는 텍스트를 다루는 계열인지, 이미지나 영상까지 넓히는지, 앱 중심인지 API 중심인지 같은 방향만 잡아두고, 실제 도입 판단은 하위 버전 페이지에서 끝내는 편이 맞아.
+회의 녹취, 자막 초안, 고객센터 통화 기록 정리, 음성 인터페이스 전처리처럼 오디오를 먼저 글로 바꿔야 하는 일에 바로 붙일 수 있어. OpenAI 소개 기준으로 다국어 전사와 영어 번역을 지원하고, 공개된 모델과 inference code를 직접 돌려서 로컬 파이프라인이나 서버 처리 흐름에 넣는 식의 활용도 많아.
 ## 왜 중요한가
-뉴스는 종종 버전명을 빼고 계열명만 남겨. 이걸 모르면 "또 새 모델이 나왔네" 정도로 읽고 지나가는데, 계열 성격을 먼저 잡아두면 OpenAI가 이번에 어디에 힘을 싣는지 훨씬 빨리 보여. 그래서 이 페이지는 스펙표를 외우는 곳이 아니라, 이후 기사 해석 속도를 올리는 기준점 역할을 해.
+Whisper는 공개된 STT 모델 중에서 실무 체감이 큰 이름이라서, 음성 기능이 필요한 제품들이 자체 파이프라인을 만들 때 자주 기준점으로 삼아. 특히 68만 시간 규모의 다국어 데이터로 학습됐다는 공식 설명 덕분에, 잡음이나 억양이 섞인 환경에서도 비교적 강인한 공개 모델이라는 인식이 넓게 퍼졌어.
 ## 같이 보면 좋은 모델
-- [Speech to Text](/ko/wiki/speech-to-text/) — 같이 보면 음성 입출력 맥락을 같이 이해하는 데 도움이 돼.
-- [Multimodal AI](/ko/wiki/multimodal/) — 같이 보면 음성 입출력 맥락을 같이 이해하는 데 도움이 돼.
-- [Text to Speech](/ko/wiki/text-to-speech/) — 같이 보면 음성 입출력 맥락을 같이 이해하는 데 도움이 돼.
+- [Speech to Text](/ko/wiki/speech-to-text/)는 Whisper가 들어가는 작업 범주 자체를 설명해. Whisper는 그 범주 안에서 가장 널리 알려진 구체적인 모델 사례 중 하나야.
+- [Multimodal AI](/ko/wiki/multimodal/)는 여러 입력 형식을 함께 다루는 시스템을 가리켜. Whisper는 그중에서도 오디오를 텍스트로 바꾸는 단일 축에 더 집중한 모델이야.
+- [Text to Speech](/ko/wiki/text-to-speech/)는 글을 소리로 바꾸는 반대 방향 기술이야. Whisper와 같이 보면 음성 입출력 파이프라인의 앞뒤가 어떻게 나뉘는지 감이 와.

@@ -1,10 +1,13 @@
 ---
 term: vercel-ai-sdk
-title: "Vercel AI SDK"
+title: "Vercel AI SDK(버셀 AI SDK)"
 lang: ko
-summary: "Next.js 제작자가 만든 AI SDK는 AI 기반 애플리케이션과 에이전트를 구축하기 위한 무료 오픈 소스 라이브러리입니다."
-readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
+summary: "Vercel AI SDK(버셀 AI SDK)는 여러 AI API를 앱 코드에 붙이고 스트리밍 UI까지 연결하기 쉽게 만든 TypeScript 툴킷이야."
+readerValue: "이 이름을 보면 모델이 아니라, 여러 제공자 API를 앱 안에서 묶어 다루는 통합 레이어라는 걸 빨리 이해할 수 있어."
 category: framework
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
   - "ai sdk"
 relatedTerms:
@@ -19,7 +22,7 @@ tags:
   - frontend
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-14"
   sources:
     - url: "https://github.com/vercel/ai"
       title: "vercel/ai"
@@ -28,45 +31,41 @@ factCheck:
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
+      sources: 2
+      summary: "툴킷 성격과 역할이 원문 축이랑 맞는지 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 Next.js 제작자가 만든 AI SDK는 AI 기반 애플리케이션과 에이전트를 구축하기 위한 무료 오픈 소스 라이브러리입니다."
-        - "원문을 보면 Next.js 제작자가 만든 AI SDK는 AI 기반 애플리케이션과 에이전트를 구축하기 위한 무료 오픈 소스 라이브러리입니다."
-        - "별칭 대조: ai sdk도 같은 대상을 가리키는지 확인했어."
-        - "분류를 다시 보면 이 항목은 프레임워크로 정리했고 본문도 그 층위를 유지해."
+        - "독자 문제 대조: 이 글은 Vercel AI SDK를 먼저 앱에 AI를 붙이는 TypeScript 툴킷으로 잡아서 모델이나 서비스 자체로 오해하지 않게 했어."
+        - "원문 대조: GitHub 소개와 공식 문서 모두 AI applications와 agents를 만드는 TypeScript toolkit이라는 점을 공통으로 말하고 있었어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
+      summary: "저장소 설명과 공식 문서가 같은 역할을 가리키는지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 React, Next.js, Vue, Svelte, Node.js 등을 사용하여 AI 애플리케이션 및 에이전트를 구축하기 위한 TypeScript 도구 키트입니다."
-        - "교차 대조: React, Next.js, Vue, Svelte, Node.js 등을 사용하여 AI 애플리케이션 및 에이전트를 구축하기 위한 TypeScript 도구 키트입니다."
-        - "출처 1 대조: github.com."
-        - "출처 2 대조: sdk.vercel.ai."
+        - "비교 기준: GitHub 소개와 공식 문서가 모두 앱 통합용 SDK라는 같은 층위를 말하는지 비교해 봤어."
+        - "교차검증: 둘 다 여러 프레임워크에서 AI 앱과 에이전트를 만들게 돕는 도구라고 설명하고 있었어."
     - type: number_verify
       result: pass
-      summary: "숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어 확인했어."
+      sources: 2
+      summary: "지원 개수와 버전 숫자는 본문에서 줄였어."
       items:
-        - "이름부터 다시 보면 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했어."
-        - "범위를 다시 보면 API 연결과 제품 통합 맥락에서 다루는 범위를 다시 확인했어."
-        - "접근 채널을 보면 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했어."
+        - "숫자 점검: 지원 프레임워크 수나 릴리스 버전 범위처럼 자주 바뀌는 숫자는 본문에 안 넣었어."
+        - "표현 점검: 숫자 대신 스트리밍 UI 연결과 제공자 통합이라는 핵심 역할만 남겼어."
     - type: adversarial
       result: pass
-      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
+      summary: "모델 제공자 자체로 착각하는 부분은 막았어."
       items:
-        - "헷갈리기 쉬운 건 완제품이나 단일 모델처럼 읽으면 직접 조립해야 하는 범위를 놓치기 쉬워."
-        - "헷갈리기 쉬운 건 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여."
-      findings:
-        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
+        - "흔한 오해 점검: Vercel AI SDK를 OpenAI나 Anthropic 같은 제공자와 같은 층위로 읽으면 역할이 섞여."
+        - "반례 점검: 실제 모델 API와 그 위를 감싸는 SDK 레이어를 분리해서 본문에 남겼어."
 ---
 ## 한 줄 정의
-Vercel AI SDK를 짧게 잡으면 Next.js 제작자가 만든 AI SDK는 AI 기반 애플리케이션과 에이전트를 구축하기 위한 무료 오픈 소스 라이브러리입니다 쪽이야. API 키, SDK, 호출 형식, 응답 구조가 실제 통합 난도를 가르는 지점이 돼.
-## 실제로 무엇을 하나
-AI SDK는 React, Next.js, Vue, Svelte, Node.js 등을 사용하여 AI 애플리케이션 및 에이전트를 구축하기 위한 TypeScript 도구 키트입니다. API 키, SDK, 호출 형식, 응답 구조가 실제 통합 난도를 가르는 지점이 돼. 예를 들어 프롬프트를 바꿔 보다가 바로 샘플 코드를 내보내 앱에 붙이는 식의 실험이 여기서 자주 일어나.
+Vercel AI SDK는 여러 AI API를 앱 코드에 붙이는 일을 단순하게 해 주는 TypeScript 툴킷이야. 모델 자체를 만드는 게 아니라 채팅, 스트리밍 응답, 도구 호출 같은 기능을 앱 안에 묶는 공통 레이어에 가까워.
+## 어떻게 작동하나
+React, Next.js, Vue, Svelte, Node.js 같은 환경에서 비슷한 패턴으로 모델 호출과 스트리밍 UI를 연결하게 도와줘. 제공자마다 다른 응답 포맷과 호출 방식 일부를 감싸 줘서 모델을 바꾸거나 섞을 때 반복 코드가 줄어.
 ## 왜 중요한가
-성능이 좋아도 API와 제품 구조가 안 맞으면 실제 서비스에는 붙일 수 없어. 완제품이나 모델 이름과 비교해 두면 어디까지 직접 조립해야 하는지 차이가 더 또렷하게 보여.
+AI 기능은 모델 성능만큼 앱에 얼마나 빨리 붙이고 바꾸기 쉬운지도 중요해서 이런 SDK 계층이 개발 속도를 크게 바꿔. 특히 프런트엔드에서 스트리밍 채팅 UI를 붙일 때 체감 차이가 커.
+## 주의해서 볼 점
+모든 제공자 차이를 완전히 없애 주는 건 아니라서, 가격 구조나 모델별 고유 기능은 여전히 따로 봐야 해. 공통 API만 믿고 가면 나중에 특정 제공자 기능이나 응답 포맷에서 막힐 수 있어.
 ## 관련 용어
-- [ChatGPT](/ko/wiki/chatgpt/) — ChatGPT와 함께 보면 Vercel AI SDK가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [Claude Sonnet 4.5](/ko/wiki/claude-sonnet-4-5/) — Claude Sonnet 4.5와 함께 보면 Vercel AI SDK가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [OpenAI API](/ko/wiki/openai-api/) — OpenAI API와 함께 보면 Vercel AI SDK가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [Anthropic API](/ko/wiki/anthropic-api/) — Anthropic API와 함께 보면 Vercel AI SDK가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
+- [ChatGPT](/ko/wiki/chatgpt/)는 최종 사용자용 제품에 더 가까워. Vercel AI SDK는 그런 경험을 앱 안에 구현할 때 쓰는 개발 도구야.
+- [Claude Sonnet 4.5](/ko/wiki/claude-sonnet-4-5/)는 실제로 호출하는 모델이야. Vercel AI SDK는 그런 모델을 갈아 끼우거나 묶어 쓰게 해 주는 레이어야.
+- [OpenAI API](/ko/wiki/openai-api/)와 [Anthropic API](/ko/wiki/anthropic-api/)는 실제 모델 호출 계층이야. Vercel AI SDK는 그 위를 정리해 주는 통합 도구라고 보면 돼.

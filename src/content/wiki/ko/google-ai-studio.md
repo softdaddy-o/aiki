@@ -1,12 +1,15 @@
 ---
 term: google-ai-studio
-title: "Google AI Studio"
+title: "Google AI Studio(구글 AI 스튜디오)"
 lang: ko
-summary: "Google AI Studio를 사용하면 모델을 시험해보고 다양한 프롬프트를 실험할 수 있습니다."
-readerValue: "이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 돼."
+summary: "Google AI Studio(구글 AI 스튜디오)는 Gemini를 브라우저에서 시험해 보고, 괜찮은 프롬프트를 바로 코드 호출로 이어 보는 실험 공간이야."
+readerValue: "이 이름을 보면 API 제공자 자체인지, Gemini를 만져보는 앞단 작업 공간인지 바로 가를 수 있어."
 category: tool
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
-  - "Google AI Studio"
+  - "Google AI Studio(구글 AI 스튜디오)"
 relatedTerms:
   - function-calling
   - openai-api
@@ -19,54 +22,50 @@ tags:
   - prototyping
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-14"
   sources:
     - url: "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart"
-      title: "คู่มือเริ่มใช้งาน Google AI Studio อย่างรวดเร็ว &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+      title: "Google AI Studio quickstart &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
     - url: "https://aistudio.google.com/"
       title: "Google AI Studio"
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지의 분류와 설명이 공식 문서와 어긋나지 않는지 먼저 확인해뒀어 확인했어."
+      sources: 2
+      summary: "실험용 작업 공간이라는 설명이 원문 축이랑 맞는지 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 를 사용하면 모델을 시험해보고 다양한 프롬프트를 실험할 수 있습니다."
-        - "원문을 보면 를 사용하면 모델을 시험해보고 다양한 프롬프트를 실험할 수 있습니다."
-        - "명칭 대조: 페이지 이름 표기가 일관되게 유지되는지 확인했어."
-        - "분류를 다시 보면 이 항목은 도구로 정리했고 본문도 그 층위를 유지해."
+        - "독자 문제 대조: 이 글은 Google AI Studio를 먼저 Gemini를 시험해 보는 브라우저 작업 공간으로 잡아서 API 제공자 자체로 오해하지 않게 했어."
+        - "원문 대조: quickstart 문서와 제품 소개 모두 빠른 실험과 코드 연결 흐름을 공통으로 강조하고 있었어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 문서와 보조 출처를 같이 놓고 핵심 역할이 서로 어긋나지 않는지 비교해뒀어 확인했어."
+      summary: "공식 문서와 제품 메시지가 같은 역할을 가리키는지 다시 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 Gemini를 통해 프롬프트에서 생산까지 가장 빠른 경로."
-        - "교차 대조: Gemini를 통해 프롬프트에서 생산까지 가장 빠른 경로."
-        - "출처 1 대조: ai.google.dev."
-        - "출처 2 대조: aistudio.google.com."
+        - "비교 기준: quickstart 문서와 AI Studio 랜딩 메시지가 모두 실험과 코드 연결을 핵심으로 두는지 비교해 봤어."
+        - "교차검증: 둘 다 Gemini를 빠르게 시험하고, 괜찮으면 코드 호출로 이어 가는 경로라는 점에서 맞아 떨어졌어."
     - type: number_verify
       result: pass
-      summary: "숫자보다 명칭과 채널이 중요한 항목이라 고유 정보 위주로 다시 확인해뒀어 확인했어."
+      sources: 2
+      summary: "무료 한도나 지원 모델 수 같은 숫자는 본문에서 줄였어."
       items:
-        - "이름부터 다시 보면 이름과 표기가 다른 도구나 모델과 섞이지 않는지 확인했어."
-        - "범위를 다시 보면 API 연결과 제품 통합 맥락에서 다루는 범위를 다시 확인했어."
-        - "접근 채널을 보면 공식 문서와 제품 소개에서 어떤 사용 경로로 연결되는지 비교했어."
+        - "숫자 점검: 사용량 한도, 가격, 지원 모델 수처럼 자주 바뀌는 값은 본문에 안 넣었어."
+        - "표현 점검: 숫자 대신 실험 공간과 운영 환경의 역할 차이만 남겼어."
     - type: adversarial
       result: pass
-      summary: "이 용어를 읽을 때 가장 흔하게 섞이는 오해가 무엇인지 따로 의심해보고 정리해뒀어 확인했어."
+      summary: "프로덕션 운영 도구로 과대해석하는 부분은 막았어."
       items:
-        - "헷갈리기 쉬운 건 모델 자체와 같은 말로 쓰면 제품 층위와 운영 층위가 섞이기 쉬워."
-        - "헷갈리기 쉬운 건 모델 자체와 같은 층위로 읽으면 도입 범위와 운영 책임을 헷갈리기 쉬워."
-      findings:
-        - "이름만 외우기보다 실제 입력, 출력, 운영 위치를 같이 봐야 덜 헷갈려."
+        - "흔한 오해 점검: AI Studio가 실제 배포와 운영까지 전부 해결해 준다고 생각하면 책임 범위를 잘못 잡기 쉬워."
+        - "반례 점검: 실험 화면과 운영 환경은 다른 층위라는 점을 본문에 남겼어."
 ---
 ## 한 줄 정의
-Google AI Studio를 짧게 잡으면 를 사용하면 모델을 시험해보고 다양한 프롬프트를 실험할 수 있습니다 쪽이야. API 키, SDK, 호출 형식, 응답 구조가 실제 통합 난도를 가르는 지점이 돼.
-## 실제로 무엇을 하나
-Gemini를 통해 프롬프트에서 생산까지 가장 빠른 경로. API 키, SDK, 호출 형식, 응답 구조가 실제 통합 난도를 가르는 지점이 돼. 예를 들어 프롬프트를 바꿔 보다가 바로 샘플 코드를 내보내 앱에 붙이는 식의 실험이 여기서 자주 일어나.
+Google AI Studio는 Gemini 모델을 브라우저에서 시험해 보고 그 결과를 코드 사용으로 이어 가게 해 주는 개발 도구야. 완성형 서비스라기보다 프롬프트 실험과 초기 통합을 위한 작업 공간에 가까워.
+## 어떻게 작동하나
+프롬프트를 넣고 응답을 확인하면서 설정을 바꾸고, 필요하면 API 호출 예시 코드도 바로 가져갈 수 있어. 그래서 아이디어 검증, 프롬프트 조정, 함수 호출 실험 같은 초반 작업을 한 화면에서 빠르게 굴리기 좋아.
 ## 왜 중요한가
-성능이 좋아도 API와 제품 구조가 안 맞으면 실제 서비스에는 붙일 수 없어. 모델 자체와 같은 층위로 읽으면 도입 범위와 운영 책임을 헷갈리기 쉬워.
+AI 기능을 붙이는 초반엔 모델 성능 자체보다 실험 속도가 더 중요할 때가 많아. 특히 Gemini를 처음 붙이는 팀은 문서만 읽는 것보다 AI Studio에서 직접 돌려 보면서 감을 잡는 편이 훨씬 빨라.
+## 주의해서 볼 점
+Google AI Studio는 프로토타이핑과 탐색엔 강하지만 실제 운영 환경의 인증, 비용 통제, 세부 배포 구조까지 전부 대신해 주는 건 아니야. 화면에서 잘 되던 설정이 실제 API 통합 코드에서도 그대로 끝난다고 생각하면 과하게 낙관하게 돼.
 ## 관련 용어
-- [Function Calling](/ko/wiki/function-calling/) — Function Calling와 함께 보면 Google AI Studio가 제품, 개념, 모델 가운데 어느 층위인지 비교하기 쉬워.
-- [OpenAI API](/ko/wiki/openai-api/) — OpenAI API와 비교해 보면 API 연결과 제품 통합에서 어디가 다른지 읽기 쉬워.
-- [Anthropic API](/ko/wiki/anthropic-api/) — Anthropic API와 비교해 보면 API 연결과 제품 통합에서 어디가 다른지 읽기 쉬워.
-- [Gemini API](/ko/wiki/gemini-api/) — Gemini API와 비교해 보면 API 연결과 제품 통합에서 어디가 다른지 읽기 쉬워.
+- [Gemini API](/ko/wiki/gemini-api/)는 실제 서비스 코드가 붙는 호출 계층이야. Google AI Studio는 그 API를 실험하고 이해하는 앞단 도구에 더 가까워.
+- [Function Calling](/ko/wiki/function-calling/)은 AI Studio에서 자주 시험해 보는 기능 흐름 중 하나야. 외부 도구 연결 감각을 익히는 데 좋아.
+- [OpenAI API](/ko/wiki/openai-api/)와 [Anthropic API](/ko/wiki/anthropic-api/)를 같이 보면, AI Studio가 제공자 자체가 아니라 특정 제공자의 실험 공간이라는 점이 더 선명해져.

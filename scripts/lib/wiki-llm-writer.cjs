@@ -108,9 +108,10 @@ function getCurrentDocInfo(filePath) {
 
 function renderFactCheckChecks(checks) {
     return safeArray(checks).flatMap((check) => {
+        const result = ['pass', 'fail', 'skip'].includes(check.result) ? check.result : 'skip';
         const lines = [
             `    - type: ${check.type}`,
-            `      result: ${check.result || 'pass'}`,
+            `      result: ${result}`,
         ];
 
         if (check.sources) {
@@ -596,13 +597,17 @@ Rules:
 - Assume the reader is hearing the term for the first time.
 - The first section must explain what the term is before features, caveats, comparisons, or market meaning.
 - Use casual Korean banmal only. No honorifics.
+- Do not end summary or readerValue in formal report tone like "~다.", "~된다.", "~가깝다.", "~중요하다.".
+- Prefer endings like "~이야.", "~야.", "~해.", "~돼.", "~볼 수 있어.", "~도움이 돼.".
 - If the title is English, include Korean right next to it in parentheses.
 - Do not use script-template filler or repeated boilerplate.
 - For model pages, follow the provided sectionPlan exactly and explain what the model is used for in practice.
+- For model pages, explicitly mention both the vendor and one practical operating detail such as API, price, context window, license, deployment path, local run, cloud availability, or device target.
 - For non-model pages, follow the provided sectionPlan exactly and keep the first paragraph concept-first.
 - "source_match" first item must start with "독자 문제 대조:".
 - "web_cross_check" first item must start with "비교 기준:".
-- fact-check summaries must also be in casual banmal.
+- fact-check summaries must also be in casual banmal and should usually end like "~맞춰봤어.", "~다시 봤어.", "~줄였어.", "~막았어.", "~남겼어.".
+- Avoid vague fact-check summaries like "정리했어" alone. Say what you checked or trimmed.
 - Each section body must have at least two sentences.
 - The related-term section body should be markdown bullet lines.
 

@@ -64,7 +64,7 @@
     },
     {
         "term": "claude-code",
-        "title": "Claude Code",
+        "title": "Claude Code(클로드 코드)",
         "category": "tool",
         "aliases": [
             "claude code"
@@ -80,7 +80,7 @@
     },
     {
         "term": "gemini",
-        "title": "Gemini",
+        "title": "Gemini(제미니)",
         "category": "model",
         "aliases": [
             "google gemini"
@@ -120,7 +120,7 @@
     },
     {
         "term": "prompt-engineering",
-        "title": "Prompt Engineering (프롬프트 엔지니어링)",
+        "title": "Prompt Engineering(프롬프트 엔지니어링)",
         "category": "technique",
         "aliases": [
             "prompt engineering"
@@ -142,7 +142,7 @@
     },
     {
         "term": "rlhf",
-        "title": "RLHF",
+        "title": "RLHF(인간 피드백 기반 강화학습)",
         "category": "technique",
         "aliases": [
             "reinforcement learning from human feedback"
@@ -150,7 +150,7 @@
     },
     {
         "term": "diffusion",
-        "title": "Diffusion Model",
+        "title": "Diffusion Model(확산 모델)",
         "category": "concept",
         "aliases": [
             "diffusion model"
@@ -166,7 +166,7 @@
     },
     {
         "term": "vibe-coding",
-        "title": "Vibe Coding",
+        "title": "Vibe Coding(바이브 코딩)",
         "category": "technique",
         "aliases": [
             "vibe coding"
@@ -182,7 +182,7 @@
     },
     {
         "term": "tokenizer",
-        "title": "Tokenizer",
+        "title": "Tokenizer(토크나이저)",
         "category": "tool",
         "aliases": [
             "tokenizer"
@@ -244,7 +244,7 @@
     },
     {
         "term": "synthetic-data",
-        "title": "Synthetic Data",
+        "title": "Synthetic Data (합성 데이터)",
         "category": "technique",
         "aliases": [
             "synthetic data"
@@ -268,7 +268,7 @@
     },
     {
         "term": "guardrail",
-        "title": "Guardrail",
+        "title": "Guardrail(가드레일)",
         "category": "technique",
         "aliases": [
             "guardrails"
@@ -284,7 +284,7 @@
     },
     {
         "term": "red-teaming",
-        "title": "Red Teaming",
+        "title": "Red Teaming (레드 티밍)",
         "category": "technique",
         "aliases": [
             "red teaming"
@@ -292,7 +292,7 @@
     },
     {
         "term": "function-calling",
-        "title": "Function Calling",
+        "title": "Function Calling(함수 호출)",
         "category": "technique",
         "aliases": [
             "tool calling"
@@ -316,7 +316,7 @@
     },
     {
         "term": "chain-of-thought",
-        "title": "Chain-of-Thought",
+        "title": "Chain-of-Thought(연쇄 추론 유도)",
         "category": "technique",
         "aliases": [
             "cot"
@@ -324,7 +324,7 @@
     },
     {
         "term": "prompt-caching",
-        "title": "Prompt Caching",
+        "title": "Prompt Caching(프롬프트 캐싱)",
         "category": "technique",
         "aliases": [
             "cache reuse"
@@ -332,7 +332,7 @@
     },
     {
         "term": "speech-to-text",
-        "title": "Speech to Text",
+        "title": "Speech to Text(음성 인식)",
         "category": "technique",
         "aliases": [
             "asr"
@@ -340,7 +340,7 @@
     },
     {
         "term": "text-to-speech",
-        "title": "Text to Speech",
+        "title": "Text to Speech(음성 합성)",
         "category": "technique",
         "aliases": [
             "tts"
@@ -348,7 +348,7 @@
     },
     {
         "term": "grounding",
-        "title": "Grounding",
+        "title": "Grounding (그라운딩)",
         "category": "technique",
         "aliases": [
             "retrieval grounding"
@@ -356,7 +356,7 @@
     },
     {
         "term": "memory",
-        "title": "Memory",
+        "title": "Memory(메모리)",
         "category": "concept",
         "aliases": [
             "agent memory",
@@ -365,7 +365,7 @@
     },
     {
         "term": "vision-language-model",
-        "title": "Vision-Language Model",
+        "title": "Vision-Language Model (비전-언어 모델)",
         "category": "concept",
         "aliases": [
             "vlm"
@@ -373,7 +373,7 @@
     },
     {
         "term": "small-language-model",
-        "title": "Small Language Model",
+        "title": "Small Language Model(소형 언어 모델)",
         "category": "concept",
         "aliases": [
             "slm"
@@ -393,7 +393,7 @@
     },
     {
         "term": "vllm",
-        "title": "vLLM(대규모 언어 모델 추론·서빙 엔진)",
+        "title": "vLLM(브이엘엘엠)",
         "category": "tool",
         "aliases": []
     },
@@ -405,7 +405,7 @@
     },
     {
         "term": "on-device",
-        "title": "On-device AI",
+        "title": "On-device AI (온디바이스 AI)",
         "category": "concept",
         "aliases": [
             "온디바이스",
@@ -425,7 +425,7 @@
     },
     {
         "term": "localllama",
-        "title": "LocalLLaMA",
+        "title": "LocalLLaMA (로컬라마)",
         "category": "tool",
         "aliases": [
             "r/localllama",
@@ -442,13 +442,13 @@
     },
     {
         "term": "gguf",
-        "title": "GGUF",
+        "title": "GGUF(GGUF 모델 파일 형식)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "weight",
-        "title": "Model Weights",
+        "title": "Model Weights(웨이트)",
         "category": "concept",
         "aliases": [
             "웨이트",
@@ -459,25 +459,25 @@
     },
     {
         "term": "openclaw",
-        "title": "OpenClaw",
+        "title": "OpenClaw(오픈클로)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "openrouter",
-        "title": "OpenRouter",
+        "title": "OpenRouter(오픈라우터)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "cursor",
-        "title": "Cursor",
+        "title": "Cursor(커서)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "windsurf",
-        "title": "Windsurf",
+        "title": "Windsurf(윈드서프)",
         "category": "tool",
         "aliases": []
     },
@@ -489,37 +489,37 @@
     },
     {
         "term": "cline",
-        "title": "Cline",
+        "title": "Cline(클라인)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "continue",
-        "title": "Continue",
+        "title": "Continue(컨티뉴)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "lm-studio",
-        "title": "LM Studio",
+        "title": "LM Studio(엘엠 스튜디오)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "comfyui",
-        "title": "ComfyUI",
+        "title": "ComfyUI (컴피유아이)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "gradio",
-        "title": "Gradio",
+        "title": "Gradio (그라디오)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "streamlit",
-        "title": "Streamlit",
+        "title": "Streamlit(스트림릿)",
         "category": "framework",
         "aliases": []
     },
@@ -531,25 +531,25 @@
     },
     {
         "term": "tensorflow",
-        "title": "TensorFlow",
+        "title": "TensorFlow(텐서플로)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "jax",
-        "title": "JAX",
+        "title": "JAX(잭스)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "onnx",
-        "title": "ONNX",
+        "title": "ONNX(오닉스)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "triton",
-        "title": "Triton Inference Server",
+        "title": "Triton Inference Server(트리톤 추론 서버)",
         "category": "tool",
         "aliases": [
             "triton inference server"
@@ -557,7 +557,7 @@
     },
     {
         "term": "runtime",
-        "title": "Runtime",
+        "title": "Runtime(런타임)",
         "category": "framework",
         "aliases": [
             "런타임",
@@ -567,31 +567,31 @@
     },
     {
         "term": "ray",
-        "title": "Ray",
+        "title": "Ray(레이)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "kubeflow",
-        "title": "Kubeflow",
+        "title": "Kubeflow (큐브플로)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "mlflow",
-        "title": "MLflow",
+        "title": "MLflow(엠엘플로우)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "bentoml",
-        "title": "BentoML",
+        "title": "BentoML (벤토엠엘)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "weights-and-biases",
-        "title": "Weights & Biases",
+        "title": "Weights & Biases(웨이츠 앤 바이어시스)",
         "category": "tool",
         "aliases": [
             "wandb"
@@ -599,19 +599,19 @@
     },
     {
         "term": "modal",
-        "title": "Modal",
+        "title": "Modal (모달)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "replicate",
-        "title": "Replicate",
+        "title": "Replicate(레플리케이트)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "vercel-ai-sdk",
-        "title": "Vercel AI SDK",
+        "title": "Vercel AI SDK(버셀 AI SDK)",
         "category": "framework",
         "aliases": [
             "ai sdk"
@@ -631,13 +631,13 @@
     },
     {
         "term": "gemini-api",
-        "title": "Gemini API",
+        "title": "Gemini API(제미니 API)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "google-ai-studio",
-        "title": "Google AI Studio",
+        "title": "Google AI Studio(구글 AI 스튜디오)",
         "category": "tool",
         "aliases": []
     },
@@ -649,86 +649,86 @@
     },
     {
         "term": "sglang",
-        "title": "SGLang",
+        "title": "SGLang(에스지랭)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "deepspeed",
-        "title": "DeepSpeed",
+        "title": "DeepSpeed (딥스피드)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "langgraph",
-        "title": "LangGraph",
+        "title": "LangGraph(랭그래프)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "autogen",
-        "title": "AutoGen",
+        "title": "AutoGen(오토젠)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "crewai",
-        "title": "CrewAI",
+        "title": "CrewAI(크루에이아이)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "n8n",
-        "title": "n8n",
+        "title": "n8n(엔에잇엔)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "supabase",
-        "title": "Supabase",
+        "title": "Supabase(수파베이스)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "pinecone",
-        "title": "Pinecone",
+        "title": "Pinecone(파인콘)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "weaviate",
-        "title": "Weaviate",
+        "title": "Weaviate (위비에이트)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "chroma",
-        "title": "Chroma",
+        "title": "Chroma (크로마)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "faiss",
-        "title": "FAISS",
+        "title": "FAISS (페이스)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "qdrant",
-        "title": "Qdrant",
+        "title": "Qdrant (큐드런트)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "gpt-4o",
-        "title": "GPT-4o (지피티-4o)",
+        "title": "GPT-4o(지피티-4o)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
     },
     {
         "term": "o1",
-        "title": "o1",
+        "title": "o1(OpenAI 추론 모델)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
@@ -742,7 +742,7 @@
     },
     {
         "term": "claude",
-        "title": "Claude",
+        "title": "Claude(클로드)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -763,7 +763,7 @@
     },
     {
         "term": "claude-sonnet-4-5",
-        "title": "Claude Sonnet 4.5",
+        "title": "Claude Sonnet 4.5(클로드 소네트 4.5)",
         "category": "model",
         "aliases": [
             "claude sonnet 4.5"
@@ -772,14 +772,14 @@
     },
     {
         "term": "deepseek-r1",
-        "title": "DeepSeek R1 (딥시크 R1)",
+        "title": "DeepSeek R1(딥시크 R1)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
     },
     {
         "term": "qwen",
-        "title": "Qwen(큐원)",
+        "title": "Qwen (큐원)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -793,28 +793,28 @@
     },
     {
         "term": "mistral",
-        "title": "Mistral",
+        "title": "Mistral(미스트랄 모델 계열)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "mixtral",
-        "title": "Mixtral",
+        "title": "Mixtral(믹스트랄)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
     },
     {
         "term": "phi",
-        "title": "Phi",
+        "title": "Phi(파이)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "grok",
-        "title": "Grok",
+        "title": "Grok (그록)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -828,63 +828,63 @@
     },
     {
         "term": "whisper",
-        "title": "Whisper",
+        "title": "Whisper(위스퍼)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "dall-e",
-        "title": "DALL-E",
+        "title": "DALL-E(달리)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "stable-diffusion",
-        "title": "Stable Diffusion",
+        "title": "Stable Diffusion(스테이블 디퓨전)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "flux",
-        "title": "FLUX.1",
+        "title": "FLUX.1(플럭스 원)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
     },
     {
         "term": "veo",
-        "title": "Veo",
+        "title": "Veo (비오)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "lyria",
-        "title": "Lyria",
+        "title": "Lyria(리리아)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "imagen",
-        "title": "Imagen",
+        "title": "Imagen (이마젠)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "gemini-2.5",
-        "title": "Gemini 2.5",
+        "title": "Gemini 2.5 (제미나이 2.5)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
     },
     {
         "term": "gemma-3",
-        "title": "Gemma 3",
+        "title": "Gemma 3 (젬마 3)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
@@ -897,7 +897,7 @@
     },
     {
         "term": "anthropic",
-        "title": "Anthropic(앤트로픽)",
+        "title": "Anthropic (앤스로픽)",
         "category": "tool",
         "aliases": []
     },
@@ -909,13 +909,13 @@
     },
     {
         "term": "copilot",
-        "title": "GitHub Copilot",
+        "title": "GitHub Copilot (깃허브 코파일럿)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "perplexity",
-        "title": "Perplexity",
+        "title": "Perplexity (퍼플렉시티)",
         "category": "tool",
         "aliases": []
     }

@@ -373,7 +373,39 @@ function hasBeginnerFirstDefinition(body) {
         return false;
     }
 
-    return BEGINNER_FIRST_DEFINITION_PATTERNS.some((pattern) => pattern.test(firstParagraph));
+    const beginnerFirstPatterns = [
+        /^[^\n]{0,140}(?:은|는)\s.+(?:이야|야|뜻해|말해|가리켜|접근이야|방식이야|기술이야|개념이야|도구야|프레임워크야|인터페이스야|모델이야|제품군이야|데이터베이스야|프로토콜이야)\.?/u,
+        /^[^\n]{0,140}(?:이란|란)\s.+(?:이야|야|뜻해|말해)\.?/u,
+    ];
+
+    return beginnerFirstPatterns.some((pattern) => pattern.test(firstParagraph));
+}
+
+function hasFactCheckToneV2(summary) {
+    const normalized = String(summary || '').trim();
+    if (!normalized) return false;
+    if (containsHonorificWikiTone(normalized)) return false;
+    if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(normalized))) return false;
+
+    const casualEndingPatterns = [
+        /(?:이야|야|해|돼|맞아|일치해|있어|없어|봤어|했어|였어|됐어|췄어|줬어|했지|가리켜|보여|남겨|눌러|막아|줄여|넣어|빼|실어|적어|써|읽혀|갈려|이어져|길어져|달랐어|같았어|맞췄어|정리했어|줄였어|낮췄어|막았어|점검했어|확인했어|비교했어|검증했어|정리해뒀어|비교해뒀어|확인해뒀어|맞춰뒀어|걸러뒀어|남겼어|눌렀어|실었어|썼어)\.?$/u,
+        /다시 맞춰봤어/u,
+        /비교 기준/u,
+        /독자 문제 대조/u,
+    ];
+
+    if (casualEndingPatterns.some((pattern) => pattern.test(normalized))) {
+        return true;
+    }
+
+    const toneFailures = getToneResults(normalized)
+        .filter((result) => result.severity === 'FAIL' && /^T/.test(result.id));
+
+    if (toneFailures.length > 0) {
+        return false;
+    }
+
+    return /(?:어|아|야|해|돼)\.?$/u.test(normalized);
 }
 
 function extractFirstSentence(body) {
@@ -551,8 +583,8 @@ function hasWeakModelSpecificity(frontmatter, body) {
     }
 
     const combined = `${String(frontmatter.summary || '')}\n${String(body || '')}`;
-    const hasVendor = /(OpenAI|Anthropic|Google DeepMind|Google|DeepSeek|Mistral AI|Black Forest Labs|Meta|xAI|Microsoft|Alibaba|Qwen|Stability AI)/.test(combined);
-    const hasOpsSignal = /(컨텍스트|가격|입력|출력|API|웨이트|호스팅|Batch|Realtime|토큰)/.test(combined);
+    const hasVendor = /(OpenAI|Anthropic|Google DeepMind|Google|DeepSeek|Mistral AI|Black Forest Labs|Meta|xAI|Microsoft|Alibaba|Qwen|Stability AI|MiniMax|Amazon|NVIDIA)/.test(combined);
+    const hasOpsSignal = /(컨텍스트|가격|입력|출력|API|웨이트|호스팅|Batch|Realtime|토큰|라이선스|배포|로컬|클라우드|온디바이스|기기|앱|검색|호출|서비스형|직접 내려받아|직접 실행|공개형)/.test(combined);
 
     return !hasVendor || !hasOpsSignal;
 }
@@ -768,7 +800,7 @@ function validateFactCheckTone(frontmatter) {
             failures.push(`factCheck.${type} still uses report-style template copy`);
         }
 
-        if (summary && !FACT_CHECK_TONE_PATTERNS_V2.some((pattern) => pattern.test(summary))) {
+        if (summary && !hasFactCheckToneV2(summary)) {
             failures.push(`factCheck.${type} summary is missing AIKI writing tone`);
         }
 
