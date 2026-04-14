@@ -1,23 +1,18 @@
 ---
 term: claude-sonnet-4-5
-title: "Claude Sonnet 4.5"
+title: "Claude Sonnet 4.5 (클로드 소네트 4.5)"
 lang: ko
-summary: "Claude Sonnet 4.5는 Anthropic가 실제 배포용으로 내놓은 개별 모델 버전이야. 이름이 보이면 성능 점수만 보지 말고 어떤 작업에 맞는지와 운영비 구간을 같이 읽어야 해."
-readerValue: "기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽는 데 도움이 돼."
+summary: "Claude Sonnet 4.5는 Anthropic이 Claude 제품군 안에서 코딩, 복잡한 에이전트, 컴퓨터 사용 작업을 전면에 내세워 내놓은 개별 모델 버전이야. 기사에서 이 이름이 나오면 단순 성능 자랑보다 어떤 업무 흐름과 배포 채널을 밀고 있는지 같이 읽어야 해."
+readerValue: "벤치마크 숫자보다 이 모델이 실제로 어디에 붙는지, Anthropic이 어떤 제품 전략으로 밀고 있는지 읽는 기준을 잡을 수 있어."
 category: model
-modelType: version
-parentModel: claude-sonnet
-modelProfile:
-  memoryUsage: "Claude API 기준 200K 컨텍스트 계열로 운영해. 자체 웨이트가 공개되지 않으므로 서버 메모리보다 컨텍스트와 출력 정책을 먼저 봐."
-  implementation: "Anthropic의 Sonnet 라인업 중 코딩과 에이전트 작업을 겨냥한 서비스형 모델이야. 병렬 툴 실행과 긴 코드베이스 작업 성능을 강조해."
-  activeParameters: "활성 파라미터 수는 비공개다. 대신 API 식별자 `claude-sonnet-4-5`와 상위 Sonnet 라인업 내 포지션이 실사용 기준이 돼."
-  multimodalSupport: "텍스트 중심 모델로 보되, Claude 계열의 일반 입력 기능과 함께 읽는 편이 맞아. 핵심 포인트는 코드 이해와 장문 맥락 유지다."
-  access: "Claude API, AWS Bedrock, Vertex AI 같은 서비스 채널에서 접근하는 폐쇄형 모델이야."
-  pricing: "Anthropic 발표 기준 Claude Sonnet 4와 같은 가격으로 유지되며, 1M 토큰당 입력 $3, 출력 $15다."
-  weightsOpen: "오픈 웨이트 미공개, API 제공 중심"
-  vendor: "Anthropic"
+guideVersion:
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
+  - "claude-sonnet-4-5"
+  - "Claude Sonnet 4.5"
   - "claude sonnet 4.5"
+  - "클로드 소네트 4.5"
 relatedTerms:
   - claude-sonnet
   - chatgpt
@@ -28,59 +23,62 @@ draft: false
 tags:
   - anthropic
   - application
+  - model
 factCheck:
   status: passed
   date: "2026-04-13"
   sources:
     - url: "https://www.anthropic.com/news/claude-sonnet-4-5"
-      title: "출시 공지"
+      title: "Introducing Claude Sonnet 4.5"
     - url: "https://docs.anthropic.com/en/docs/about-claude/models"
-      title: "모델 개요"
+      title: "Models overview"
   checks:
     - type: source_match
       result: pass
-      summary: "이 페이지를 어떤 층위의 모델 설명으로 읽어야 하는지 먼저 확인해뒀어 확인했어."
+      summary: "제목, 모델 계열 위치, 코딩·에이전트·컴퓨터 사용 중심 설명이 제공된 출처 요약과 어긋나지 않는지 맞춰봤어."
       items:
-        - "독자가 먼저 갈라 봐야 할 건 Claude Sonnet 4.5를 어떤 작업과 운영 조건에 붙일 모델인지."
-        - "모델 이름부터 다시 보면 Claude Sonnet 4.5."
-        - "만든 쪽을 다시 보면 Anthropic."
-        - "배포 유형 대조: version 모델 / 폐쇄형 API."
+        - "독자 문제 대조: 벤치마크보다 사용처와 제품 전략을 읽게 해 달라는 요구에 맞춰, 코딩·에이전트·컴퓨터 사용이라는 포지셔닝을 본문 중심에 뒀어."
+        - "Anthropic 뉴스 요약의 핵심 주장인 '코딩', '복잡한 에이전트', '컴퓨터 사용'을 그대로 사실 축으로 삼고, 우월성 표현은 벤더 주장으로 낮춰 적었어."
+        - "Models overview 요약에 맞게 Claude를 모델 제품군으로, Claude Sonnet 4.5를 그 안의 개별 모델 버전으로 구분했어."
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 소스를 나란히 놓고 접근 채널과 포지션 설명이 어긋나지 않는지 비교해뒀어 확인했어."
+      summary: "제공된 두 웹 출처가 서로 충돌하지 않는지 한 번 더 봤어."
       items:
-        - "여기서 먼저 갈라 볼 기준은 Claude Sonnet 4.5를 고를 때 접근 채널, 가격, 입력 범위 가운데 무엇을 먼저 봐야 하는지."
-        - "출처 1 대조: anthropic.com."
-        - "출처 2 대조: docs.anthropic.com."
-        - "공식 소스 1: Introducing Claude Sonnet 4.5."
-        - "공식 소스 2: Claude models overview."
-        - "비교 확인: Sonnet 라인업 내 위치와 배포 채널 설명이 두 소스에서 일치."
+        - "비교 기준: Anthropic 뉴스 글의 개별 모델 소개와 Anthropic 문서의 전체 모델 제품군 설명이 같은 층위에서 이어지는지 확인했어."
+        - "뉴스 글은 Claude Sonnet 4.5의 강점과 포지셔닝을 말하고, 모델 문서는 Claude 전체 제품군 구조를 설명해서 서로 보완 관계야."
+        - "두 출처 모두 Claude를 Anthropic의 모델 제품군으로 다루고 있어서, 본문의 '브랜드 대 개별 모델' 구분은 일관돼."
     - type: number_verify
       result: pass
-      summary: "숫자와 고유 명칭은 실제 도입 판단에 필요한 항목만 따로 빼서 검증해뒀어 확인했어."
+      summary: "버전 표기와 출처 개수처럼 눈에 띄는 숫자 표현을 다시 봤어."
       items:
-        - "컨텍스트: 200K 계열."
-        - "가격: 입력 $3 / 출력 $15 per 1M tokens."
-        - "채널: Claude API / AWS Bedrock / Vertex AI."
+        - "모델명 숫자는 4.5로 통일했고, 4나 4.0처럼 바꿔 쓰지 않았어."
+        - "웹 출처는 2개로 처리했고, fact-check의 web_cross_check sources 값도 2로 맞췄어."
+        - "본문에는 근거 없는 가격, 토큰 길이, 벤치마크 점수 같은 숫자를 추가하지 않았어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석 포인트는 한 번 더 의심해보고 정리해뒀어 확인했어."
+      summary: "헷갈리기 쉬운 해석을 막는 표현이 충분한지 한 번 더 봤어."
       items:
-        - "활성 파라미터 수는 공개되지 않아 벤치마크 기사에서 추정 수치를 사실처럼 쓰면 안 돼."
+        - "'Sonnet' 계열명과 'Claude Sonnet 4.5' 개별 모델명을 분리해서 설명했어."
+        - "'세계 최고' 같은 표현을 객관 사실이 아니라 벤더 포지셔닝으로 읽게 정리했어."
+        - "기사 해석에서 제품 이름, 모델 이름, API 인터페이스를 섞지 않도록 관련 용어 비교를 넣었어."
       findings:
-        - "활성 파라미터 수는 공개되지 않아 벤치마크 기사에서 추정 수치를 사실처럼 쓰면 안 돼."
+        - "ChatGPT는 사용자용 제품 이름 중심이고 Claude Sonnet 4.5는 개별 모델 이름 중심이라, 둘을 같은 층위의 항목처럼 읽으면 오해가 생길 수 있어."
+        - "OpenAI API와 Claude Sonnet 4.5는 둘 다 기술 기사에 같이 나오지만 하나는 플랫폼 인터페이스 성격이 강하고 다른 하나는 모델 자체라서 역할이 다르다."
 ---
 ## 한 줄 정의
-Anthropic이 Sonnet 계열 안에서 실제 배포 후보로 내놓은 버전 중 하나다. 기사에서 이 이름이 보이면 상위 계열 소개가 아니라 실제로 붙여 볼 모델 후보를 읽는 상황이라고 보면 돼. 텍스트 중심 운용과 코드 작업 적합성이 핵심이라, 벤더 발표보다 접근 채널과 가격표를 같이 보는 편이 중요해.
-## 이 모델로 무엇을 할 수 있나
-이 페이지에서 먼저 볼 것은 "점수가 몇 점인가"보다 어떤 작업을 맡길 모델인가다. 코드 이해, 수정, 에이전트형 작업에 강점을 두고, Claude API와 AWS Bedrock, Vertex AI 같은 채널에서 접근할 수 있어.
-
-실제 선택에서는 컨텍스트 길이, 채널별 가용성, 입력·출력 비용이 같이 움직여. 그래서 비슷한 급의 모델과 비교할 때도 벤치마크 숫자만 보지 말고 운영 환경을 같이 읽는 편이 정확해.
+Claude Sonnet 4.5는 Anthropic이 Claude 계열 안에서 내놓은 개별 모델 버전이야. 이름에 Sonnet이 붙었다고 해서 계열 소개를 말하는 게 아니라, 실제 제품과 API에서 선택할 수 있는 구체적인 모델 후보를 가리킨다고 보면 돼.
+## 어떻게 작동하나
+Anthropic은 Claude를 여러 모델로 나눠 제공하고, Claude Sonnet 4.5는 그중에서도 코딩, 복잡한 에이전트 작업, 컴퓨터 사용 능력을 강하게 내세운 버전으로 소개해. 실제로는 애플리케이션이나 API가 이 모델을 호출해서 텍스트를 처리하고, 코드 작성이나 수정, 여러 단계를 거치는 작업 계획, 도구를 붙인 에이전트 흐름 같은 일을 맡기는 식으로 쓴다.
+중요한 건 이름만 보는 게 아니라 이 모델이 어떤 역할로 배치되는지 읽는 거야. Anthropic 발표문에서는 성능 우위를 강조하지만, 제품 문맥에서는 '어떤 작업을 안정적으로 맡길 모델인가'가 더 핵심이야.
 ## 왜 중요한가
-중요한 건 발표문에선 성능 숫자가 앞에 나오지만, 실제 도입은 컨텍스트·출력 한도·지원 API·가격표에서 갈린다는 점이야. 같은 Anthropic 모델이어도 여기 값이 달라지면 추천 답이 완전히 바뀐다. 그래서 이 페이지는 "얼마나 똑똑한가"보다 "우리 제품에 붙일 수 있는가"를 판단하는 용도로 읽는 편이 맞아.
-## 같이 보면 좋은 모델
-- [Claude Sonnet](/ko/wiki/claude-sonnet/) — Claude Sonnet와는 벤더, 접근 채널, 사용 장면 차이를 비교하기 쉬워.
-- [ChatGPT](/ko/wiki/chatgpt/) — 같이 보면 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.
-- [Claude](/ko/wiki/claude/) — Claude와는 벤더, 접근 채널, 사용 장면 차이를 비교하기 쉬워.
-- [OpenAI API](/ko/wiki/openai-api/) — 같이 보면 앱 연결과 통합 관점에서 같이 보면 이해가 쉬워.
+실무에서는 모델 이름이 새로 나왔다고 해서 곧바로 바꿔 쓰지 않아. 코딩 품질, 에이전트 작업 적합성, 컴퓨터 사용 같은 사용처를 어떻게 묶어서 홍보하는지 보면 Anthropic이 어디에 힘을 싣는지 읽을 수 있어.
+기사 해석에서도 이 점이 중요해. Claude Sonnet 4.5가 언급되면 단순히 '더 똑똑해졌다'보다 개발 도구, 에이전트형 제품, 업무 자동화 같은 영역을 겨냥한 모델 포지셔닝으로 보는 편이 맞아. 그래서 벤치마크 숫자보다 어떤 제품군에 붙고 어떤 업무를 대신하려는지 먼저 읽어야 의미가 잡혀.
+## 주의해서 볼 점
+Anthropic 뉴스 글의 '세계 최고' 같은 표현은 벤더가 자기 모델을 어떻게 밀고 있는지 보여주는 문장이지, 모든 환경에서 언제나 같은 결과가 나온다는 뜻은 아니야. 실제 선택에서는 응답 스타일, 지연 시간, 비용, 연결 가능한 도구, 배포 채널이 같이 영향을 준다.
+또 Sonnet이라는 계열 이름과 4.5라는 개별 버전을 섞어 읽으면 헷갈리기 쉬워. 계열 설명은 대략적인 성격을 알려주지만, 4.5처럼 버전이 붙은 이름은 특정 시점의 실제 모델 SKU에 더 가깝다. 기사나 문서를 읽을 때는 발표 문구와 운영 조건을 분리해서 봐야 해.
+## 관련 용어
+- [Claude Sonnet](/ko/wiki/claude-sonnet/) — Sonnet은 계열 이름이고, Claude Sonnet 4.5는 그 계열 안의 구체적인 모델 버전이야. 계열 성격을 설명할 때는 전자가 맞고, 실제 배포 후보를 말할 때는 후자가 더 정확해.
+- [Claude](/ko/wiki/claude/) — Claude는 Anthropic의 전체 모델·제품 브랜드를 가리켜. Claude Sonnet 4.5는 그 안에 들어 있는 한 모델이라서, 브랜드 이름과 개별 모델 이름을 구분해야 문서를 덜 헷갈려.
+- [ChatGPT](/ko/wiki/chatgpt/) — ChatGPT는 OpenAI의 사용자용 제품 이름이 중심이고, Claude Sonnet 4.5는 Anthropic 쪽의 개별 모델 이름이 중심이야. 둘 다 기사에서 자주 같이 나오지만 제품 이름과 모델 이름이라는 층위가 다르다.
+- [OpenAI API](/ko/wiki/openai-api/) — OpenAI API는 모델을 외부 앱에 붙이는 인터페이스라는 점이 핵심이야. Claude Sonnet 4.5는 그 인터페이스로 호출되는 대상에 가까워서, 플랫폼과 모델의 차이를 비교할 때 같이 봐야 해.

@@ -5,7 +5,7 @@ const path = require('path');
 const matter = require('gray-matter');
 
 const { catalog } = require('./lib/wiki-catalog.cjs');
-const { rewriteWikiEntryWithLlm, buildBilingualTitle } = require('./lib/wiki-llm-writer.cjs');
+const { rewriteWikiEntriesWithLlm, buildBilingualTitle } = require('./lib/wiki-llm-writer.cjs');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const WIKI_DIR = path.join(REPO_ROOT, 'src/content/wiki/ko');
@@ -56,7 +56,9 @@ function parseArgs() {
     const only = onlyIndex >= 0 ? String(args[onlyIndex + 1] || '').split(',').map((v) => v.trim()).filter(Boolean) : [];
     const modelIndex = args.indexOf('--model');
     const model = modelIndex >= 0 ? String(args[modelIndex + 1] || '').trim() : '';
-    return { all, staleOnly, limit, only, model };
+    const batchSizeIndex = args.indexOf('--batch-size');
+    const batchSize = batchSizeIndex >= 0 ? Number(args[batchSizeIndex + 1]) : 8;
+    return { all, staleOnly, limit, only, model, batchSize };
 }
 
 function listTargets(options) {
@@ -105,6 +107,51 @@ function updateTermsFile(updatedTitles) {
     return changed;
 }
 
+function chunkList(values, chunkSize) {
+    const size = Number.isFinite(chunkSize) && chunkSize > 0 ? chunkSize : 8;
+    const chunks = [];
+    for (let index = 0; index < values.length; index += size) {
+        chunks.push(values.slice(index, index + size));
+    }
+    return chunks;
+}
+
+async function rewriteChunk(chunk, options, updatedTitles, failures) {
+    const requestItems = chunk.map(({ entry, filePath }) => ({
+        entry: {
+            ...entry,
+            title: buildBilingualTitle(entry),
+        },
+        filePath,
+        mentionStats: getMentionStats(filePath),
+        relatedTerms: getRelatedTerms(filePath, entry),
+        model: options.model,
+    }));
+
+    const summary = chunk.map(({ entry }) => entry.term).join(', ');
+    console.log(`Rewriting batch (${chunk.length}): ${summary}`);
+
+    try {
+        const results = await rewriteWikiEntriesWithLlm(requestItems, { model: options.model });
+        for (const result of results) {
+            updatedTitles.set(result.term, result.payload.title || buildBilingualTitle(chunk.find(({ entry }) => entry.term === result.term).entry));
+        }
+        return;
+    } catch (error) {
+        if (chunk.length === 1) {
+            const { entry } = chunk[0];
+            failures.push({ term: entry.term, error: error.message || String(error) });
+            console.error(`Failed ${entry.term}: ${error.message || error}`);
+            return;
+        }
+
+        const mid = Math.ceil(chunk.length / 2);
+        console.error(`Batch failed for [${summary}], splitting chunk: ${error.message || error}`);
+        await rewriteChunk(chunk.slice(0, mid), options, updatedTitles, failures);
+        await rewriteChunk(chunk.slice(mid), options, updatedTitles, failures);
+    }
+}
+
 async function main() {
     const options = parseArgs();
     const targets = listTargets(options);
@@ -116,27 +163,24 @@ async function main() {
 
     const updatedTitles = new Map();
 
-    for (const { entry, filePath } of targets) {
-        const mentionStats = getMentionStats(filePath);
-        const relatedTerms = getRelatedTerms(filePath, entry);
-        console.log(`Rewriting ${entry.term}...`);
-        await rewriteWikiEntryWithLlm({
-            entry: {
-                ...entry,
-                title: buildBilingualTitle(entry),
-            },
-            filePath,
-            mentionStats,
-            relatedTerms,
-            model: options.model,
-        });
+    const failures = [];
 
-        const nextFrontmatter = readFrontmatter(filePath);
-        updatedTitles.set(entry.term, nextFrontmatter.title || buildBilingualTitle(entry));
+    const chunks = chunkList(targets, options.batchSize);
+
+    for (const chunk of chunks) {
+        await rewriteChunk(chunk, options, updatedTitles, failures);
     }
 
     const changed = updateTermsFile(updatedTitles);
     console.log(`Rewrote ${targets.length} wiki page(s). Updated ${changed} term title(s).`);
+
+    if (failures.length > 0) {
+        console.error(`Failures: ${failures.length}`);
+        for (const failure of failures) {
+            console.error(` - ${failure.term}: ${failure.error}`);
+        }
+        process.exitCode = 1;
+    }
 }
 
 main().catch((error) => {

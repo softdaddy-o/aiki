@@ -34,7 +34,7 @@
     },
     {
         "term": "agentic-ai",
-        "title": "Agentic AI",
+        "title": "Agentic AI(에이전틱 AI)",
         "category": "concept",
         "aliases": [
             "agentic ai"
@@ -50,7 +50,7 @@
     },
     {
         "term": "benchmark",
-        "title": "Benchmark",
+        "title": "Benchmark (벤치마크)",
         "category": "concept",
         "aliases": [
             "evaluation benchmark"
@@ -89,7 +89,7 @@
     },
     {
         "term": "gemma",
-        "title": "Gemma",
+        "title": "Gemma (젬마)",
         "category": "model",
         "aliases": [
             "google gemma"
@@ -98,7 +98,7 @@
     },
     {
         "term": "token",
-        "title": "Token",
+        "title": "Token (토큰)",
         "category": "concept",
         "aliases": [
             "tokenization"
@@ -106,13 +106,13 @@
     },
     {
         "term": "transformer",
-        "title": "Transformer",
+        "title": "Transformer (트랜스포머)",
         "category": "concept",
         "aliases": []
     },
     {
         "term": "fine-tuning",
-        "title": "Fine-tuning",
+        "title": "Fine-tuning (파인튜닝)",
         "category": "technique",
         "aliases": [
             "fine tuning"
@@ -120,7 +120,7 @@
     },
     {
         "term": "prompt-engineering",
-        "title": "Prompt Engineering",
+        "title": "Prompt Engineering (프롬프트 엔지니어링)",
         "category": "technique",
         "aliases": [
             "prompt engineering"
@@ -128,7 +128,7 @@
     },
     {
         "term": "embedding",
-        "title": "Embedding",
+        "title": "Embedding (임베딩)",
         "category": "concept",
         "aliases": [
             "vector embedding"
@@ -136,7 +136,7 @@
     },
     {
         "term": "attention",
-        "title": "Attention",
+        "title": "Attention (어텐션)",
         "category": "concept",
         "aliases": []
     },
@@ -158,7 +158,7 @@
     },
     {
         "term": "multimodal",
-        "title": "Multimodal AI",
+        "title": "Multimodal AI(멀티모달 AI)",
         "category": "concept",
         "aliases": [
             "multimodal ai"
@@ -174,7 +174,7 @@
     },
     {
         "term": "vector-db",
-        "title": "Vector Database",
+        "title": "Vector Database (벡터 데이터베이스)",
         "category": "tool",
         "aliases": [
             "vector database"
@@ -190,7 +190,7 @@
     },
     {
         "term": "context-window",
-        "title": "Context Window",
+        "title": "Context Window(컨텍스트 윈도우)",
         "category": "concept",
         "aliases": [
             "context length"
@@ -260,7 +260,7 @@
     },
     {
         "term": "alignment",
-        "title": "Alignment",
+        "title": "Alignment(정렬)",
         "category": "concept",
         "aliases": [
             "ai alignment"
@@ -300,7 +300,7 @@
     },
     {
         "term": "tool-use",
-        "title": "Tool Use",
+        "title": "Tool Use(도구 사용)",
         "category": "technique",
         "aliases": [
             "tool use"
@@ -308,7 +308,7 @@
     },
     {
         "term": "long-context",
-        "title": "Long Context",
+        "title": "Long Context (긴 문맥)",
         "category": "concept",
         "aliases": [
             "long context"
@@ -387,19 +387,19 @@
     },
     {
         "term": "llamaindex",
-        "title": "LlamaIndex",
+        "title": "LlamaIndex (라마인덱스)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "vllm",
-        "title": "vLLM",
+        "title": "vLLM(대규모 언어 모델 추론·서빙 엔진)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "ollama",
-        "title": "Ollama",
+        "title": "Ollama(올라마)",
         "category": "tool",
         "aliases": []
     },
@@ -483,7 +483,7 @@
     },
     {
         "term": "aider",
-        "title": "Aider",
+        "title": "Aider(에이더)",
         "category": "tool",
         "aliases": []
     },
@@ -525,7 +525,7 @@
     },
     {
         "term": "pytorch",
-        "title": "PyTorch",
+        "title": "PyTorch(파이토치)",
         "category": "framework",
         "aliases": []
     },
@@ -619,13 +619,13 @@
     },
     {
         "term": "openai-api",
-        "title": "OpenAI API",
+        "title": "OpenAI API(오픈에이아이 API)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "anthropic-api",
-        "title": "Anthropic API",
+        "title": "Anthropic API(앤트로픽 API)",
         "category": "tool",
         "aliases": []
     },
@@ -643,7 +643,7 @@
     },
     {
         "term": "hugging-face",
-        "title": "Hugging Face",
+        "title": "Hugging Face(허깅 페이스)",
         "category": "tool",
         "aliases": []
     },
@@ -721,7 +721,7 @@
     },
     {
         "term": "gpt-4o",
-        "title": "GPT-4o",
+        "title": "GPT-4o (지피티-4o)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
@@ -735,7 +735,7 @@
     },
     {
         "term": "o3",
-        "title": "o3",
+        "title": "o3 (오쓰리)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
@@ -749,14 +749,14 @@
     },
     {
         "term": "claude-opus",
-        "title": "Claude Opus",
+        "title": "Claude Opus (클로드 오퍼스)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "claude-sonnet",
-        "title": "Claude Sonnet",
+        "title": "Claude Sonnet (클로드 소넷)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -772,21 +772,21 @@
     },
     {
         "term": "deepseek-r1",
-        "title": "DeepSeek R1",
+        "title": "DeepSeek R1 (딥시크 R1)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
     },
     {
         "term": "qwen",
-        "title": "Qwen",
+        "title": "Qwen(큐원)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "llama",
-        "title": "Llama",
+        "title": "Llama (라마)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -821,7 +821,7 @@
     },
     {
         "term": "sora",
-        "title": "Sora",
+        "title": "Sora (소라)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -891,13 +891,13 @@
     },
     {
         "term": "openai",
-        "title": "OpenAI",
+        "title": "OpenAI(오픈에이아이)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "anthropic",
-        "title": "Anthropic",
+        "title": "Anthropic(앤트로픽)",
         "category": "tool",
         "aliases": []
     },
