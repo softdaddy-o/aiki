@@ -244,7 +244,7 @@
     },
     {
         "term": "synthetic-data",
-        "title": "Synthetic Data (합성 데이터)",
+        "title": "Synthetic Data(합성 데이터)",
         "category": "technique",
         "aliases": [
             "synthetic data"
@@ -284,7 +284,7 @@
     },
     {
         "term": "red-teaming",
-        "title": "Red Teaming (레드 티밍)",
+        "title": "Red Teaming (레드 팀잉)",
         "category": "technique",
         "aliases": [
             "red teaming"
@@ -405,7 +405,7 @@
     },
     {
         "term": "on-device",
-        "title": "On-device AI (온디바이스 AI)",
+        "title": "On-device AI(온디바이스)",
         "category": "concept",
         "aliases": [
             "온디바이스",
@@ -507,7 +507,7 @@
     },
     {
         "term": "comfyui",
-        "title": "ComfyUI (컴피유아이)",
+        "title": "ComfyUI(컴피유아이)",
         "category": "tool",
         "aliases": []
     },
@@ -531,13 +531,13 @@
     },
     {
         "term": "tensorflow",
-        "title": "TensorFlow(텐서플로)",
+        "title": "TensorFlow (텐서플로)",
         "category": "framework",
         "aliases": []
     },
     {
         "term": "jax",
-        "title": "JAX(잭스)",
+        "title": "JAX (잭스)",
         "category": "framework",
         "aliases": []
     },
@@ -573,7 +573,7 @@
     },
     {
         "term": "kubeflow",
-        "title": "Kubeflow (큐브플로)",
+        "title": "Kubeflow(쿠브플로우)",
         "category": "framework",
         "aliases": []
     },
@@ -585,7 +585,7 @@
     },
     {
         "term": "bentoml",
-        "title": "BentoML (벤토엠엘)",
+        "title": "BentoML(벤토엠엘)",
         "category": "tool",
         "aliases": []
     },
@@ -599,7 +599,7 @@
     },
     {
         "term": "modal",
-        "title": "Modal (모달)",
+        "title": "Modal(모달)",
         "category": "tool",
         "aliases": []
     },
@@ -655,7 +655,7 @@
     },
     {
         "term": "deepspeed",
-        "title": "DeepSpeed (딥스피드)",
+        "title": "DeepSpeed(딥스피드)",
         "category": "framework",
         "aliases": []
     },
@@ -673,7 +673,7 @@
     },
     {
         "term": "crewai",
-        "title": "CrewAI(크루에이아이)",
+        "title": "CrewAI (크루에이아이)",
         "category": "framework",
         "aliases": []
     },
@@ -691,19 +691,19 @@
     },
     {
         "term": "pinecone",
-        "title": "Pinecone(파인콘)",
+        "title": "Pinecone (파인콘)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "weaviate",
-        "title": "Weaviate (위비에이트)",
+        "title": "Weaviate(위비에이트)",
         "category": "tool",
         "aliases": []
     },
     {
         "term": "chroma",
-        "title": "Chroma (크로마)",
+        "title": "Chroma(크로마)",
         "category": "tool",
         "aliases": []
     },
@@ -807,7 +807,7 @@
     },
     {
         "term": "phi",
-        "title": "Phi(파이)",
+        "title": "Phi (파이)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -828,14 +828,14 @@
     },
     {
         "term": "whisper",
-        "title": "Whisper(위스퍼)",
+        "title": "Whisper (위스퍼)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
     },
     {
         "term": "dall-e",
-        "title": "DALL-E(달리)",
+        "title": "DALL-E (달리)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -849,7 +849,7 @@
     },
     {
         "term": "flux",
-        "title": "FLUX.1(플럭스 원)",
+        "title": "FLUX.1 (플럭스 원)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
@@ -863,7 +863,7 @@
     },
     {
         "term": "lyria",
-        "title": "Lyria(리리아)",
+        "title": "Lyria (리리아)",
         "category": "model",
         "aliases": [],
         "modelType": "family"
@@ -884,7 +884,7 @@
     },
     {
         "term": "gemma-3",
-        "title": "Gemma 3 (젬마 3)",
+        "title": "Gemma 3(젬마 3)",
         "category": "model",
         "aliases": [],
         "modelType": "version"
