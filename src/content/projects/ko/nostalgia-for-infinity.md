@@ -1,0 +1,92 @@
+---
+title: "NostalgiaForInfinity"
+slug: "nostalgia-for-infinity"
+lang: "ko"
+category: "bot"
+summary: "Freqtrade 암호화폐 트레이딩 봇에서 쓰는 커뮤니티 기반 전략 묶음입니다."
+readerValue: "Freqtrade 전략을 실제로 운용하거나 백테스트하려는 사람이 NFI의 전략 계보, 필수 설정, 보호 장치, 업데이트 흐름을 한 화면에서 점검할 수 있습니다."
+githubUrl: "https://github.com/iterativv/NostalgiaForInfinity"
+showcaseComponent: "nfi"
+tags: ["freqtrade", "crypto", "trading-bot", "strategy"]
+stars: 3100
+license: "GPL-3.0"
+version: "v2"
+contentStatus: "draft"
+draft: false
+date: "2026-04-15"
+edition: "ai"
+factCheck:
+  status: "pending"
+  date: "2026-04-15"
+  sources:
+    - url: "https://github.com/iterativv/NostalgiaForInfinity"
+      title: "iterativv/NostalgiaForInfinity GitHub repository"
+    - url: "https://iterativv.github.io/NostalgiaForInfinity/"
+      title: "NostalgiaForInfinity official documentation"
+    - url: "https://github.com/iterativv/NostalgiaForInfinity/releases/tag/v17.3.1079"
+      title: "NostalgiaForInfinity v17.3.1079 release"
+  checks:
+    - type: "source_match"
+      result: "pass"
+      sources: 3
+      summary: "README, official docs, and release page were used for the current public draft."
+      items:
+        - "기준 버전: Projects showcase v2. 다른 세션에서 제작 중인 v3 기준 내용은 아직 반영하지 않았습니다."
+        - "프로젝트 설명, 권장 설정, 문서 링크, 최신 릴리스 표기는 공개 GitHub/문서 페이지 기준입니다."
+    - type: "web_cross_check"
+      result: "pass"
+      sources: 2
+      summary: "Repository README and documentation agree that NFI is a Freqtrade crypto bot strategy project."
+      items:
+        - "공식 문서는 backtesting 데이터 다운로드와 실행 흐름을 별도 페이지에서 안내합니다."
+        - "GitHub README는 5m timeframe, 6~12 open trades, 40~80 pairlist 권장을 명시합니다."
+    - type: "number_verify"
+      result: "pass"
+      sources: 1
+      summary: "Public repository metrics were captured at draft creation time and should be refreshed before final status."
+      items:
+        - "GitHub 표시값 기준 약 3.1k stars, 704 forks, 87 watchers, 21,757 commits로 기록했습니다."
+        - "최신 릴리스는 v17.3.1079, 2026-04-09 공개로 기록했습니다."
+    - type: "adversarial"
+      result: "skip"
+      sources: 0
+      summary: "이 페이지는 전략 성과를 보증하지 않는 드래프트입니다."
+      items:
+        - "쇼케이스의 signal weight와 전략 계보 설명은 운용 이해를 돕는 큐레이션이며 투자 조언이나 실거래 추천이 아닙니다."
+---
+
+## NostalgiaForInfinity란?
+
+NostalgiaForInfinity, 줄여서 NFI는 오픈소스 암호화폐 트레이딩 봇 Freqtrade에서 실행하는 전략 저장소입니다. 단일 매매 아이디어라기보다는 여러 세대의 전략 파일과 설정, 블랙리스트, 문서, 테스트 보조 도구를 함께 관리하는 프로젝트에 가깝습니다.
+
+저장소의 README는 5분 봉(timeframe 5m), 6~12개 수준의 동시 거래, 40~80개 페어의 볼륨 기반 pairlist, USDT/USDC 같은 스테이블 코인 마켓, 레버리지 토큰 블랙리스트를 강하게 권장합니다. 이 조건을 벗어나면 백테스트 숫자가 좋아 보여도 실거래 리스크가 크게 달라질 수 있습니다.
+
+## 핵심 구조
+
+- **전략 파일 계보**: `NostalgiaForInfinityX.py`부터 `X7`까지 여러 전략 변형을 저장소 루트에서 관리합니다.
+- **Freqtrade 통합**: Docker Compose, 설정 예시, 사용자 데이터 디렉터리, 테스트 스크립트를 함께 제공합니다.
+- **자동 업데이트**: Docker 사용자는 `nfi-updater` 사이드카로 전략, 블랙리스트, pairlist 변경을 주기적으로 따라갈 수 있습니다.
+- **보호 장치 중심 변경**: 최신 릴리스 로그는 다수의 signal에 protection을 추가하는 식의 리스크 제어 변경이 자주 등장합니다.
+
+## 이 페이지에서 보는 것
+
+아래 인터랙티브 쇼케이스는 GitHub 페이지와 공식 문서에서 확인한 공개 정보를 바탕으로 NFI를 운용 관점에서 재구성합니다. 전략 계보, 추천 설정, 보호 장치, 최근 릴리스 변화, 백테스트 체크리스트를 한 화면에서 비교할 수 있게 만들었습니다.
+
+실거래 신호를 추천하는 페이지가 아닙니다. 암호화폐 자동매매 전략은 시장 국면, 거래소 수수료, 슬리피지, 페어 구성, 설정 오버라이드에 따라 결과가 크게 달라지므로, 여기서는 프로젝트의 구조와 점검 포인트만 다룹니다.
+
+## 용어 가이드
+
+EMA
+: 지수이동평균. 최근 가격에 더 큰 가중치를 주는 이동평균으로, 추세 판단과 필터링에 자주 쓰입니다.
+
+Drawdown
+: 고점 대비 계좌 가치가 얼마나 내려갔는지를 보는 리스크 지표입니다. 자동매매에서는 수익률보다 먼저 확인해야 할 숫자입니다.
+
+Stoploss
+: 손실이 특정 수준을 넘으면 포지션을 닫는 방어 규칙입니다. 전략 신호가 틀렸을 때 손실을 제한하는 마지막 장치로 쓰입니다.
+
+Pairlist
+: 봇이 거래 대상으로 삼는 코인 페어 목록입니다. NFI는 너무 좁거나 레버리지 토큰이 섞인 목록을 피하라고 안내합니다.
+
+Protection
+: Freqtrade에서 cooldown, max drawdown 같은 조건으로 과도한 재진입이나 연속 손실을 막는 보호 로직입니다.

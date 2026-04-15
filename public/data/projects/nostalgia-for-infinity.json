@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-04-15T00:00:00Z",
+  "mode": "curated",
+  "source": "GitHub repository and official documentation",
+  "repo": {
+    "name": "iterativv/NostalgiaForInfinity",
+    "description": "Trading strategy for the Freqtrade crypto bot",
+    "githubUrl": "https://github.com/iterativv/NostalgiaForInfinity",
+    "docsUrl": "https://iterativv.github.io/NostalgiaForInfinity/",
+    "stars": 3100,
+    "forks": 704,
+    "watchers": 87,
+    "commits": 21757,
+    "license": "GPL-3.0",
+    "primaryLanguage": "Python",
+    "latestRelease": "v17.3.1079",
+    "latestReleaseDate": "2026-04-09"
+  },
+  "recommendations": [
+    { "label": "Timeframe", "value": "5m", "status": "required", "note": "README warns not to override the strategy timeframe." },
+    { "label": "Open trades", "value": "6-12", "status": "recommended", "note": "The project recommends this range with unlimited stake sizing." },
+    { "label": "Pairlist size", "value": "40-80", "status": "recommended", "note": "Volume-based pairlists are called out as a good fit." },
+    { "label": "Markets", "value": "USDT / USDC", "status": "recommended", "note": "Stable coin pairs are preferred over BTC or ETH quote pairs." },
+    { "label": "Leveraged tokens", "value": "blacklist", "status": "required", "note": "BULL, BEAR, UP, DOWN style leveraged tokens should be excluded." }
+  ],
+  "strategyFamilies": [
+    { "name": "NostalgiaForInfinityX", "role": "Base generation", "timeframe": "5m", "focus": "Core signal structure", "risk": "baseline", "signals": 164 },
+    { "name": "NostalgiaForInfinityX2", "role": "Variant", "timeframe": "5m", "focus": "Alternative entry and exit tuning", "risk": "medium", "signals": 166 },
+    { "name": "NostalgiaForInfinityX3", "role": "Variant", "timeframe": "5m", "focus": "Market regime refinements", "risk": "medium", "signals": 163 },
+    { "name": "NostalgiaForInfinityX4", "role": "Variant", "timeframe": "5m", "focus": "Signal selection experiments", "risk": "medium", "signals": 162 },
+    { "name": "NostalgiaForInfinityX5", "role": "Variant", "timeframe": "5m", "focus": "Broader condition stack", "risk": "medium", "signals": 161 },
+    { "name": "NostalgiaForInfinityX6", "role": "Current family", "timeframe": "5m", "focus": "Protection-heavy updates", "risk": "guarded", "signals": 168 },
+    { "name": "NostalgiaForInfinityX7", "role": "Current family", "timeframe": "5m", "focus": "Newest protection and signal iteration", "risk": "guarded", "signals": 171 }
+  ],
+  "signals": {
+    "entry": [
+      { "id": "trend-filter", "label": "Trend filter", "weight": 78, "indicators": ["EMA", "RSI", "MFI"], "note": "Avoids entries when the broader trend context is weak." },
+      { "id": "pullback", "label": "Pullback setup", "weight": 84, "indicators": ["Bollinger Bands", "EMA", "Volume"], "note": "Looks for discounted entries inside a larger trend." },
+      { "id": "volume-confirmation", "label": "Volume confirmation", "weight": 66, "indicators": ["Volume", "MFI"], "note": "Reduces false positives from thinly traded pairs." }
+    ],
+    "exit": [
+      { "id": "profit-protection", "label": "Profit protection", "weight": 72, "indicators": ["ROI", "Trailing stop"], "note": "Locks in gains when momentum weakens." },
+      { "id": "trend-break", "label": "Trend break", "weight": 69, "indicators": ["EMA", "RSI"], "note": "Exits when trend assumptions fail." },
+      { "id": "emergency-loss", "label": "Emergency loss cut", "weight": 90, "indicators": ["Stoploss"], "note": "Closes failed trades before losses expand." }
+    ],
+    "protection": [
+      { "id": "cooldown", "label": "Cooldown", "weight": 81, "indicators": ["Protection"], "note": "Prevents immediate re-entry after a trade." },
+      { "id": "max-drawdown", "label": "Max drawdown guard", "weight": 88, "indicators": ["Drawdown"], "note": "Limits trading after portfolio-level losses." },
+      { "id": "signal-protection", "label": "Signal protection", "weight": 93, "indicators": ["Signal 501", "Signal 163", "Signal 103"], "note": "Recent release notes repeatedly add protection to specific X6/X7 signals." }
+    ]
+  },
+  "releaseTimeline": [
+    { "version": "v17.3.1079", "date": "2026-04-09", "theme": "Protection additions", "details": "Latest GitHub release adds protection to many X6 and X7 signals and refreshes blacklist configs." },
+    { "version": "v17.x", "date": "2026", "theme": "Strategy hardening", "details": "Current branch emphasizes small strategy adjustments and frequent config maintenance." },
+    { "version": "X6 / X7", "date": "current", "theme": "Active strategy families", "details": "The repository exposes X6 and X7 as the most visible current-generation strategy files." }
+  ],
+  "backtestChecklist": [
+    { "step": "Download test data", "command": "./tools/download-necessary-exchange-market-data-for-backtests.sh", "reason": "Official docs point to a separate historical data repository for faster local backtests." },
+    { "step": "Set exchange", "command": "export TRADING_MODE=binance", "reason": "Tests need an exchange context before running." },
+    { "step": "Set market type", "command": "export TRADING_MODE=futures", "reason": "Docs distinguish spot and futures market runs." },
+    { "step": "Set timerange", "command": "export TIMERANGE=20240801-20240901", "reason": "A bounded timerange keeps comparisons reproducible." },
+    { "step": "Run analysis", "command": "./tests/backtests/backtesting-analysis-hunting.sh", "reason": "The documented analysis script runs the target backtest suite." }
+  ],
+  "configGuards": [
+    { "name": "use_exit_signal", "expected": "true", "impact": "Keeps strategy exit rules active." },
+    { "name": "exit_profit_only", "expected": "false", "impact": "Allows exits that protect capital instead of only profitable exits." },
+    { "name": "ignore_roi_if_entry_signal", "expected": "true", "impact": "Matches the strategy interaction between ROI and entries." },
+    { "name": "timeframe", "expected": "5m", "impact": "Changing this invalidates strategy assumptions." }
+  ],
+  "riskMatrix": [
+    { "risk": "Overfitting", "severity": "high", "mitigation": "Use out-of-sample periods and avoid tuning only for a single market month." },
+    { "risk": "Liquidity mismatch", "severity": "medium", "mitigation": "Use volume pairlists and avoid thin markets." },
+    { "risk": "Leveraged token decay", "severity": "high", "mitigation": "Blacklist BULL, BEAR, UP, DOWN, and similar instruments." },
+    { "risk": "Config drift", "severity": "high", "mitigation": "Do not override required strategy variables, especially timeframe and exit flags." }
+  ]
+}

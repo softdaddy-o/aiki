@@ -92,9 +92,12 @@ const projects = defineCollection({
         tags: z.array(z.string()).default([]),
         stars: z.number().default(0),
         license: z.string().default('MIT'),
+        version: z.string().default('v1'),
+        contentStatus: z.enum(['draft', 'final']).default('final'),
         draft: z.boolean().default(false),
         date: z.string(),
         edition: z.string().default('ai'),
+        factCheck: factCheckSchema.optional(),
     }),
 });
 

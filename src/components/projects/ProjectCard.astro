@@ -9,11 +9,14 @@ interface Props {
     tags: string[];
     stars: number;
     license: string;
+    version: string;
+    contentStatus: string;
     lang: string;
 }
 
-const { title, slug, summary, category, tags, stars, license, lang } = Astro.props;
+const { title, slug, summary, category, tags, stars, license, version, contentStatus, lang } = Astro.props;
 const categoryLabel = t(lang, `projects.category.${category}`);
+const statusLabel = contentStatus === 'draft' ? 'Draft' : 'Final';
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -48,6 +51,8 @@ function formatStars(value: number): string {
                 {formatStars(stars)}
             </span>
             <span class="license-badge">{license}</span>
+            <span class="version-badge">{version}</span>
+            <span class={`status-badge ${contentStatus}`}>{statusLabel}</span>
         </div>
     </div>
 </a>
@@ -125,7 +130,9 @@ function formatStars(value: number): string {
     }
 
     .tag-pill,
-    .license-badge {
+    .license-badge,
+    .version-badge,
+    .status-badge {
         border-radius: 5px;
         font-size: 11px;
         line-height: 1.3;
@@ -140,6 +147,8 @@ function formatStars(value: number): string {
     .card-stats {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         flex-shrink: 0;
         gap: 8px;
     }
@@ -157,5 +166,27 @@ function formatStars(value: number): string {
         padding: 2px 6px;
         border: 1px solid var(--color-border);
         color: var(--color-text-muted);
+    }
+
+    .version-badge {
+        padding: 2px 6px;
+        border: 1px solid var(--color-border);
+        color: var(--color-text-muted);
+    }
+
+    .status-badge {
+        padding: 2px 6px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .status-badge.draft {
+        background: color-mix(in srgb, var(--color-model) 16%, transparent);
+        color: var(--color-model);
+    }
+
+    .status-badge.final {
+        background: color-mix(in srgb, var(--color-pass) 16%, transparent);
+        color: var(--color-pass);
     }
 </style>
