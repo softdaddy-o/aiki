@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseSectionNav from '../ShowcaseSectionNav';
 
 interface YfinanceShowcaseProps {
     slug: string;
@@ -56,17 +57,17 @@ interface MarketData {
 }
 
 const SECTION_LABELS = [
-    ['universes', 'Universes'],
-    ['batch', 'Batch'],
-    ['discovery', 'Discovery'],
-    ['deep-dives', 'Deep Dives'],
-    ['coverage', 'Coverage'],
+    { id: 'universes', label: 'Markets', description: '지역·자산군 샘플' },
+    { id: 'batch', label: 'Batch', description: '여러 종목 다운로드' },
+    { id: 'discovery', label: 'Discovery', description: '검색·스크리너' },
+    { id: 'deep-dives', label: 'Deep Dives', description: '종목별 상세 표면' },
+    { id: 'coverage', label: 'Coverage', description: '테스트한 API 범위' },
 ] as const;
 
 export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
     const [data, setData] = useState<MarketData | null>(null);
     const [error, setError] = useState<string | null>(null);
-    const [activeSection, setActiveSection] = useState<(typeof SECTION_LABELS)[number][0]>('universes');
+    const [activeSection, setActiveSection] = useState<(typeof SECTION_LABELS)[number]['id']>('universes');
 
     useEffect(() => {
         const controller = new AbortController();
@@ -138,18 +139,17 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                 )}
             </section>
 
-            <nav className="yf-tabs" aria-label="Showcase sections">
-                {SECTION_LABELS.map(([id, label]) => (
-                    <button
-                        className={activeSection === id ? 'active' : ''}
-                        key={id}
-                        type="button"
-                        onClick={() => setActiveSection(id)}
-                    >
-                        {label}
-                    </button>
-                ))}
-            </nav>
+            <ShowcaseSectionNav
+                activeId={activeSection}
+                items={SECTION_LABELS}
+                onSelect={setActiveSection}
+            />
+
+            <div className="yf-current-section" aria-live="polite">
+                <span>Now viewing</span>
+                <strong>{SECTION_LABELS.find((item) => item.id === activeSection)?.label}</strong>
+                <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
+            </div>
 
             {activeSection === 'universes' && <UniversesSection groups={data.marketUniverses || []} />}
             {activeSection === 'batch' && <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />}
@@ -574,32 +574,30 @@ const showcaseCss = `
     color: var(--color-text-muted);
     font-size: 0.86rem;
 }
-.yf-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 18px 0;
-}
-.yf-tabs button {
-    min-height: 34px;
-    padding: 0 13px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background: var(--color-surface);
-    color: var(--color-text-muted);
-    cursor: pointer;
-    font: inherit;
-    font-size: 0.86rem;
-    font-weight: 700;
-}
-.yf-tabs button.active {
-    border-color: var(--color-projects);
-    background: var(--color-projects);
-    color: #fff;
-}
 .yf-stack {
     display: grid;
     gap: 16px;
+}
+.yf-current-section {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 14px;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+}
+.yf-current-section span {
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.yf-current-section strong {
+    color: var(--color-projects);
+    font-size: 1rem;
+}
+.yf-current-section em {
+    font-style: normal;
 }
 .yf-section-heading {
     margin-bottom: 14px;

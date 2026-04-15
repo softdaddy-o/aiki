@@ -25,10 +25,6 @@ const { Content } = await render(entry);
 const { title, summary, category, githubUrl, tags, stars, license, showcaseComponent } = entry.data;
 const categoryLabel = categoryLabels[category] ?? category;
 const repoPath = githubUrl.replace(/^https:\/\/github\.com\//, '').replace(/\/$/, '');
-const [githubOwner, githubRepo] = repoPath.split('/');
-const githubApiUrl = githubOwner && githubRepo ? `https://api.github.com/repos/${githubOwner}/${githubRepo}` : '';
-const licenseUrl = githubOwner && githubRepo ? `${githubUrl}/blob/HEAD/LICENSE` : githubUrl;
-const githubDocsUrl = 'https://docs.github.com/en/rest/repos/repos#get-a-repository';
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -45,53 +41,62 @@ function formatStars(value: number): string {
         <header class="project-hero">
             <div class="hero-top">
                 <span class="category-badge">{categoryLabel}</span>
-                <span class="stars-badge" title="GitHub Stars">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"/></svg>
-                    {formatStars(stars)}
-                </span>
             </div>
             <h1 class="project-title">{title}</h1>
             <p class="project-summary">{summary}</p>
-            <div class="hero-actions">
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="btn-github">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                    GitHub
-                </a>
-            </div>
+            <section class="model-card" aria-label="프로젝트 기본 정보">
+                <div class="model-card-head">
+                    <span class="github-mark" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    </span>
+                    <div>
+                        <p class="model-card-kicker">Project Card</p>
+                        <h2>GitHub 기본 정보</h2>
+                    </div>
+                </div>
+                <dl class="model-card-grid">
+                    <div>
+                        <dt>Repository</dt>
+                        <dd>{repoPath}</dd>
+                    </div>
+                    <div>
+                        <dt>Stars</dt>
+                        <dd>{formatStars(stars)}</dd>
+                    </div>
+                    <div>
+                        <dt>License</dt>
+                        <dd>{license}</dd>
+                    </div>
+                    <div>
+                        <dt>Category</dt>
+                        <dd>{categoryLabel}</dd>
+                    </div>
+                    <div>
+                        <dt>Data Surface</dt>
+                        <dd>Yahoo Finance public market data</dd>
+                    </div>
+                    <div>
+                        <dt>Affiliation</dt>
+                        <dd>Yahoo, Inc.와 별도 관계 없음</dd>
+                    </div>
+                </dl>
+            </section>
             <div class="hero-tags">
                 {tags.map((tag) => <span class="tag-pill">{tag}</span>)}
-                <span class="license-pill">{license}</span>
             </div>
         </header>
-
-        <section class="project-info" aria-label="프로젝트 기본 정보" data-github-api={githubApiUrl}>
-            <div class="info-cell">
-                <span class="info-label">GitHub</span>
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="info-value">{repoPath}</a>
-            </div>
-            <div class="info-cell">
-                <span class="info-label">Stars</span>
-                <span class="info-value" data-github-stars>{formatStars(stars)}</span>
-            </div>
-            <div class="info-cell">
-                <span class="info-label">License</span>
-                <a href={licenseUrl} target="_blank" rel="noopener noreferrer" class="info-value" data-github-license>{license}</a>
-            </div>
-            <div class="info-cell">
-                <span class="info-label">Source</span>
-                <a href={githubDocsUrl} target="_blank" rel="noopener noreferrer" class="info-value">GitHub REST API</a>
-            </div>
-            <p class="info-note" data-github-meta>
-                별 수와 라이선스는 빌드 시점 값을 먼저 보여주고, 브라우저에서 GitHub REST API 응답을 받으면 최신 값으로 갱신합니다.
-            </p>
-        </section>
 
         <div class="project-body prose">
             <Content />
         </div>
 
         {showcaseComponent === 'yfinance' && (
-            <section class="showcase-area" aria-label={`${title} interactive showcase`}>
+            <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
+                <header class="showcase-intro">
+                    <p>Interactive Showcase</p>
+                    <h2>yfinance로 실제로 열어볼 수 있는 데이터</h2>
+                    <span>아래 플로팅 버튼을 눌러 시장 샘플, 배치 다운로드, 검색/스크리너, 종목 딥다이브, API 커버리지를 오가며 볼 수 있어.</span>
+                </header>
                 <YfinanceShowcase client:load slug={entry.data.slug} />
             </section>
         )}
@@ -101,43 +106,6 @@ function formatStars(value: number): string {
         </footer>
     </article>
 </BaseLayout>
-
-<script>
-    const infoPanel = document.querySelector('[data-github-api]');
-    const githubApiUrl = infoPanel?.getAttribute('data-github-api');
-    const starsNode = infoPanel?.querySelector('[data-github-stars]');
-    const licenseNode = infoPanel?.querySelector('[data-github-license]');
-    const metaNode = infoPanel?.querySelector('[data-github-meta]');
-
-    function compactNumber(value) {
-        return new Intl.NumberFormat('en', {
-            notation: 'compact',
-            maximumFractionDigits: 1,
-        }).format(value).toLowerCase();
-    }
-
-    if (githubApiUrl && starsNode && licenseNode && metaNode) {
-        fetch(githubApiUrl, {
-            headers: { Accept: 'application/vnd.github+json' },
-        })
-            .then((response) => {
-                if (!response.ok) throw new Error(`GitHub API ${response.status}`);
-                return response.json();
-            })
-            .then((repo) => {
-                if (typeof repo.stargazers_count === 'number') {
-                    starsNode.textContent = compactNumber(repo.stargazers_count);
-                }
-                if (repo.license?.spdx_id) {
-                    licenseNode.textContent = repo.license.spdx_id;
-                }
-                metaNode.textContent = 'GitHub REST API에서 최신 저장소 메타데이터를 불러왔습니다. API 한도나 네트워크 문제 시 빌드 시점 값을 유지합니다.';
-            })
-            .catch(() => {
-                metaNode.textContent = 'GitHub REST API를 불러오지 못해 빌드 시점 저장소 메타데이터를 표시합니다.';
-            });
-    }
-</script>
 
 <style>
     .project-page {
@@ -166,15 +134,6 @@ function formatStars(value: number): string {
         font-weight: 700;
     }
 
-    .stars-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        color: var(--color-model);
-        font-size: var(--text-sm);
-        font-weight: 700;
-    }
-
     .project-title {
         margin-bottom: 8px;
         font-size: var(--text-4xl);
@@ -188,49 +147,13 @@ function formatStars(value: number): string {
         font-size: var(--text-lg);
     }
 
-    .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 16px;
-    }
-
-    .btn-github {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        min-height: 38px;
-        padding: 0 16px;
-        border-radius: 8px;
-        background: #24292f;
-        color: #fff;
-        font-size: var(--text-sm);
-        font-weight: 700;
-        text-decoration: none;
-        transition: background 0.15s ease;
-    }
-
-    .btn-github:hover {
-        background: #32383f;
-    }
-
-    :global(html.dark) .btn-github {
-        background: #f0f6fc;
-        color: #24292f;
-    }
-
-    :global(html.dark) .btn-github:hover {
-        background: #d0d7de;
-    }
-
     .hero-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
     }
 
-    .tag-pill,
-    .license-pill {
+    .tag-pill {
         padding: 3px 9px;
         border-radius: 5px;
         font-size: 12px;
@@ -241,58 +164,75 @@ function formatStars(value: number): string {
         color: var(--color-text-muted);
     }
 
-    .license-pill {
-        border: 1px solid var(--color-border);
-        color: var(--color-text-muted);
-    }
-
-    .project-info {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-        margin-bottom: 34px;
-        padding: 14px;
+    .model-card {
+        max-width: 760px;
+        margin: 22px 0 16px;
+        padding: 18px;
         border: 1px solid var(--color-border);
         border-radius: 8px;
         background: var(--color-surface-alt);
     }
 
-    .info-cell {
+    .model-card-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .github-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: #24292f;
+        color: #fff;
+        flex-shrink: 0;
+    }
+
+    .model-card-kicker {
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .model-card h2 {
+        margin: 2px 0 0;
+        font-size: var(--text-lg);
+    }
+
+    .model-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 0;
+    }
+
+    .model-card-grid div {
         min-width: 0;
         padding: 10px;
         border-radius: 7px;
         background: var(--color-surface);
     }
 
-    .info-label {
-        display: block;
+    .model-card-grid dt {
         margin-bottom: 5px;
         color: var(--color-text-muted);
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
         text-transform: uppercase;
     }
 
-    .info-value {
-        display: block;
-        overflow-wrap: anywhere;
-        color: var(--color-text);
-        font-size: var(--text-sm);
-        font-weight: 800;
-        text-decoration: none;
-    }
-
-    a.info-value:hover {
-        color: var(--color-projects);
-        text-decoration: underline;
-    }
-
-    .info-note {
-        grid-column: 1 / -1;
+    .model-card-grid dd {
         margin: 0;
-        color: var(--color-text-muted);
-        font-size: var(--text-xs);
-        line-height: 1.5;
+        overflow-wrap: anywhere;
+        font-size: var(--text-sm);
+        font-weight: 750;
     }
 
     .project-body {
@@ -333,10 +273,39 @@ function formatStars(value: number): string {
     .showcase-area {
         margin-right: calc(-50vw + 50%);
         margin-left: calc(-50vw + 50%);
-        padding: 36px 20px;
+        margin-top: 52px;
+        padding: 0 20px 42px;
         border-top: 1px solid var(--color-border);
         border-bottom: 1px solid var(--color-border);
         background: var(--color-surface-alt);
+    }
+
+    .showcase-intro {
+        max-width: 960px;
+        margin: 0 auto 24px;
+        padding: 30px 0 8px;
+    }
+
+    .showcase-intro p {
+        margin: 0 0 8px;
+        color: var(--color-projects);
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .showcase-intro h2 {
+        margin: 0 0 8px;
+        font-size: var(--text-2xl);
+        line-height: 1.25;
+    }
+
+    .showcase-intro span {
+        display: block;
+        max-width: 680px;
+        color: var(--color-text-muted);
+        line-height: 1.65;
     }
 
     .project-footer {
@@ -365,12 +334,16 @@ function formatStars(value: number): string {
             font-size: var(--text-base);
         }
 
-        .showcase-area {
-            padding: 24px 12px;
+        .model-card-grid {
+            grid-template-columns: 1fr;
         }
 
-        .project-info {
-            grid-template-columns: 1fr;
+        .showcase-area {
+            padding: 0 12px 30px;
+        }
+
+        .showcase-intro {
+            padding-top: 24px;
         }
     }
 </style>
