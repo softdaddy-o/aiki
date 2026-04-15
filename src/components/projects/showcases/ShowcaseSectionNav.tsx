@@ -43,7 +43,7 @@ const navCss = `
     top: 96px;
     z-index: 20;
     grid-column: 1;
-    grid-row: 1 / span 2;
+    grid-row: 2 / span 2;
     align-self: start;
     display: flex;
     flex-direction: column;

@@ -512,6 +512,7 @@ const showcaseCss = `
 }
 .yf-showcase-main {
     grid-column: 2;
+    grid-row: 2;
     min-width: 0;
 }
 .yf-header,
@@ -768,6 +769,7 @@ const showcaseCss = `
 @media (max-width: 840px) {
     .yf-showcase-main {
         grid-column: 1;
+        grid-row: auto;
     }
     .yf-stat-grid,
     .yf-info-grid.two,

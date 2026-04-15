@@ -286,15 +286,16 @@ function formatStars(value: number): string {
         display: grid;
         grid-template-columns: 180px minmax(0, 1fr);
         align-items: start;
-        gap: 18px;
+        column-gap: 18px;
+        row-gap: 12px;
         max-width: 1180px;
         margin: 0 auto;
         padding-top: 40px;
     }
 
     .showcase-intro {
-        grid-column: 2;
-        margin: 0 0 28px;
+        grid-column: 1 / -1;
+        margin: 0;
         padding: 0 0 12px;
     }
 
@@ -366,8 +367,8 @@ function formatStars(value: number): string {
         }
 
         .showcase-intro {
-            grid-column: 1;
-            margin-bottom: 6px;
+            grid-column: 1 / -1;
+            margin-bottom: 0;
             padding-bottom: 0;
         }
 
