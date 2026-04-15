@@ -24,6 +24,11 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { title, summary, category, githubUrl, tags, stars, license, showcaseComponent } = entry.data;
 const categoryLabel = categoryLabels[category] ?? category;
+const repoPath = githubUrl.replace(/^https:\/\/github\.com\//, '').replace(/\/$/, '');
+const [githubOwner, githubRepo] = repoPath.split('/');
+const githubApiUrl = githubOwner && githubRepo ? `https://api.github.com/repos/${githubOwner}/${githubRepo}` : '';
+const licenseUrl = githubOwner && githubRepo ? `${githubUrl}/blob/HEAD/LICENSE` : githubUrl;
+const githubDocsUrl = 'https://docs.github.com/en/rest/repos/repos#get-a-repository';
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -59,6 +64,28 @@ function formatStars(value: number): string {
             </div>
         </header>
 
+        <section class="project-info" aria-label="프로젝트 기본 정보" data-github-api={githubApiUrl}>
+            <div class="info-cell">
+                <span class="info-label">GitHub</span>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="info-value">{repoPath}</a>
+            </div>
+            <div class="info-cell">
+                <span class="info-label">Stars</span>
+                <span class="info-value" data-github-stars>{formatStars(stars)}</span>
+            </div>
+            <div class="info-cell">
+                <span class="info-label">License</span>
+                <a href={licenseUrl} target="_blank" rel="noopener noreferrer" class="info-value" data-github-license>{license}</a>
+            </div>
+            <div class="info-cell">
+                <span class="info-label">Source</span>
+                <a href={githubDocsUrl} target="_blank" rel="noopener noreferrer" class="info-value">GitHub REST API</a>
+            </div>
+            <p class="info-note" data-github-meta>
+                별 수와 라이선스는 빌드 시점 값을 먼저 보여주고, 브라우저에서 GitHub REST API 응답을 받으면 최신 값으로 갱신합니다.
+            </p>
+        </section>
+
         <div class="project-body prose">
             <Content />
         </div>
@@ -74,6 +101,43 @@ function formatStars(value: number): string {
         </footer>
     </article>
 </BaseLayout>
+
+<script>
+    const infoPanel = document.querySelector('[data-github-api]');
+    const githubApiUrl = infoPanel?.getAttribute('data-github-api');
+    const starsNode = infoPanel?.querySelector('[data-github-stars]');
+    const licenseNode = infoPanel?.querySelector('[data-github-license]');
+    const metaNode = infoPanel?.querySelector('[data-github-meta]');
+
+    function compactNumber(value) {
+        return new Intl.NumberFormat('en', {
+            notation: 'compact',
+            maximumFractionDigits: 1,
+        }).format(value).toLowerCase();
+    }
+
+    if (githubApiUrl && starsNode && licenseNode && metaNode) {
+        fetch(githubApiUrl, {
+            headers: { Accept: 'application/vnd.github+json' },
+        })
+            .then((response) => {
+                if (!response.ok) throw new Error(`GitHub API ${response.status}`);
+                return response.json();
+            })
+            .then((repo) => {
+                if (typeof repo.stargazers_count === 'number') {
+                    starsNode.textContent = compactNumber(repo.stargazers_count);
+                }
+                if (repo.license?.spdx_id) {
+                    licenseNode.textContent = repo.license.spdx_id;
+                }
+                metaNode.textContent = 'GitHub REST API에서 최신 저장소 메타데이터를 불러왔습니다. API 한도나 네트워크 문제 시 빌드 시점 값을 유지합니다.';
+            })
+            .catch(() => {
+                metaNode.textContent = 'GitHub REST API를 불러오지 못해 빌드 시점 저장소 메타데이터를 표시합니다.';
+            });
+    }
+</script>
 
 <style>
     .project-page {
@@ -182,6 +246,55 @@ function formatStars(value: number): string {
         color: var(--color-text-muted);
     }
 
+    .project-info {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 34px;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        background: var(--color-surface-alt);
+    }
+
+    .info-cell {
+        min-width: 0;
+        padding: 10px;
+        border-radius: 7px;
+        background: var(--color-surface);
+    }
+
+    .info-label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--color-text-muted);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .info-value {
+        display: block;
+        overflow-wrap: anywhere;
+        color: var(--color-text);
+        font-size: var(--text-sm);
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    a.info-value:hover {
+        color: var(--color-projects);
+        text-decoration: underline;
+    }
+
+    .info-note {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: var(--text-xs);
+        line-height: 1.5;
+    }
+
     .project-body {
         max-width: 680px;
         margin-bottom: 40px;
@@ -202,6 +315,19 @@ function formatStars(value: number): string {
     .project-body :global(ol) {
         margin-bottom: 14px;
         padding-left: 20px;
+    }
+
+    .project-body :global(blockquote) {
+        margin: 20px 0;
+        padding: 14px 16px;
+        border-left: 3px solid var(--color-projects);
+        border-radius: 0 8px 8px 0;
+        background: var(--color-surface-alt);
+        color: var(--color-text-muted);
+    }
+
+    .project-body :global(blockquote p:last-child) {
+        margin-bottom: 0;
     }
 
     .showcase-area {
@@ -241,6 +367,10 @@ function formatStars(value: number): string {
 
         .showcase-area {
             padding: 24px 12px;
+        }
+
+        .project-info {
+            grid-template-columns: 1fr;
         }
     }
 </style>
