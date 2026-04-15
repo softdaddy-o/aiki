@@ -139,30 +139,33 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                 )}
             </section>
 
-            <ShowcaseSectionNav
-                activeId={activeSection}
-                items={SECTION_LABELS}
-                onSelect={setActiveSection}
-            />
-
-            <div className="yf-current-section" aria-live="polite">
-                <span>Now viewing</span>
-                <strong>{SECTION_LABELS.find((item) => item.id === activeSection)?.label}</strong>
-                <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
-            </div>
-
-            {activeSection === 'universes' && <UniversesSection groups={data.marketUniverses || []} />}
-            {activeSection === 'batch' && <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />}
-            {activeSection === 'discovery' && (
-                <DiscoverySection
-                    searchLabs={data.searchLabs || []}
-                    screeners={data.screeners || []}
-                    markets={data.marketOverviews || []}
-                    sectorIndustry={data.sectorIndustry}
+            <div className="yf-showcase-grid">
+                <ShowcaseSectionNav
+                    activeId={activeSection}
+                    items={SECTION_LABELS}
+                    onSelect={setActiveSection}
                 />
-            )}
-            {activeSection === 'deep-dives' && <DeepDivesSection dives={data.deepDives || []} />}
-            {activeSection === 'coverage' && <CoverageSection features={data.featureCoverage || []} />}
+                <div className="yf-showcase-content">
+                    <div className="yf-current-section" aria-live="polite">
+                        <span>Now viewing</span>
+                        <strong>{SECTION_LABELS.find((item) => item.id === activeSection)?.label}</strong>
+                        <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
+                    </div>
+
+                    {activeSection === 'universes' && <UniversesSection groups={data.marketUniverses || []} />}
+                    {activeSection === 'batch' && <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />}
+                    {activeSection === 'discovery' && (
+                        <DiscoverySection
+                            searchLabs={data.searchLabs || []}
+                            screeners={data.screeners || []}
+                            markets={data.marketOverviews || []}
+                            sectorIndustry={data.sectorIndustry}
+                        />
+                    )}
+                    {activeSection === 'deep-dives' && <DeepDivesSection dives={data.deepDives || []} />}
+                    {activeSection === 'coverage' && <CoverageSection features={data.featureCoverage || []} />}
+                </div>
+            </div>
         </ShowcaseShell>
     );
 }
@@ -505,7 +508,7 @@ function formatDate(value?: string): string {
 
 const showcaseCss = `
 .yf-showcase {
-    max-width: 1120px;
+    max-width: 1180px;
     margin: 0 auto;
     color: var(--color-text);
 }
@@ -522,7 +525,12 @@ const showcaseCss = `
 .yf-panel,
 .yf-detail {
     border-radius: 12px;
-    padding: 18px;
+    padding: 20px;
+}
+.yf-header {
+    margin-bottom: 22px;
+    padding: 22px;
+    border-radius: 14px;
 }
 .yf-stat-grid,
 .yf-quote-grid,
@@ -557,7 +565,7 @@ const showcaseCss = `
     margin-top: 6px;
     color: var(--color-projects);
     font-family: var(--font-heading);
-    font-size: 1.65rem;
+    font-size: 1.8rem;
     line-height: 1.1;
 }
 .yf-meta {
@@ -573,6 +581,15 @@ const showcaseCss = `
     margin-top: 14px;
     color: var(--color-text-muted);
     font-size: 0.86rem;
+}
+.yf-showcase-grid {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+}
+.yf-showcase-content {
+    min-width: 0;
 }
 .yf-stack {
     display: grid;
@@ -756,6 +773,10 @@ const showcaseCss = `
     margin-top: 16px;
 }
 @media (max-width: 840px) {
+    .yf-showcase-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
     .yf-stat-grid,
     .yf-info-grid.two,
     .yf-detail-body {
@@ -767,6 +788,9 @@ const showcaseCss = `
     .yf-panel,
     .yf-detail {
         padding: 14px;
+    }
+    .yf-header {
+        margin-bottom: 16px;
     }
     .yf-stat-grid,
     .yf-info-grid.two,

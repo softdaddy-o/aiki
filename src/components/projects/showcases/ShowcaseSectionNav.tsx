@@ -40,12 +40,13 @@ export default function ShowcaseSectionNav<T extends string>({
 const navCss = `
 .showcase-section-nav {
     position: sticky;
-    top: 82px;
+    top: 96px;
     z-index: 20;
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-self: start;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
-    margin: 0 0 18px;
+    margin: 0;
     padding: 8px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -112,10 +113,9 @@ const navCss = `
 }
 @media (max-width: 900px) {
     .showcase-section-nav {
-        top: auto;
-        grid-template-columns: none;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(160px, 1fr);
+        position: sticky;
+        top: 72px;
+        flex-direction: row;
         overflow-x: auto;
         overscroll-behavior-x: contain;
         scroll-snap-type: x proximity;
