@@ -42,6 +42,8 @@ const navCss = `
     position: sticky;
     top: 96px;
     z-index: 20;
+    grid-column: 1;
+    grid-row: 1 / span 2;
     align-self: start;
     display: flex;
     flex-direction: column;
@@ -115,6 +117,8 @@ const navCss = `
     .showcase-section-nav {
         position: sticky;
         top: 72px;
+        grid-column: 1;
+        grid-row: auto;
         flex-direction: row;
         overflow-x: auto;
         overscroll-behavior-x: contain;

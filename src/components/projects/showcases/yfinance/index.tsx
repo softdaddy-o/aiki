@@ -118,53 +118,52 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
 
     return (
         <ShowcaseShell>
-            <section className="yf-header" aria-label="yfinance generated data summary">
-                <div className="yf-stat-grid">
-                    {stats.map(([label, value]) => (
-                        <div className="yf-stat" key={label}>
-                            <span>{label}</span>
-                            <strong>{formatCompact(value)}</strong>
+            <ShowcaseSectionNav
+                activeId={activeSection}
+                items={SECTION_LABELS}
+                onSelect={setActiveSection}
+            />
+
+            <div className="yf-showcase-main">
+                <section className="yf-header" aria-label="yfinance generated data summary">
+                    <div className="yf-stat-grid">
+                        {stats.map(([label, value]) => (
+                            <div className="yf-stat" key={label}>
+                                <span>{label}</span>
+                                <strong>{formatCompact(value)}</strong>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="yf-meta">
+                        <span>Mode: <strong>{data.mode || 'unknown'}</strong></span>
+                        <span>Generated: {formatDate(data.generatedAt)}</span>
+                        <span>yfinance {data.libraryVersion || 'unknown'}</span>
+                    </div>
+                    {data.notes && data.notes.length > 0 && (
+                        <div className="yf-notes">
+                            {data.notes.map((note) => <p key={note}>{note}</p>)}
                         </div>
-                    ))}
-                </div>
-                <div className="yf-meta">
-                    <span>Mode: <strong>{data.mode || 'unknown'}</strong></span>
-                    <span>Generated: {formatDate(data.generatedAt)}</span>
-                    <span>yfinance {data.libraryVersion || 'unknown'}</span>
-                </div>
-                {data.notes && data.notes.length > 0 && (
-                    <div className="yf-notes">
-                        {data.notes.map((note) => <p key={note}>{note}</p>)}
-                    </div>
-                )}
-            </section>
-
-            <div className="yf-showcase-grid">
-                <ShowcaseSectionNav
-                    activeId={activeSection}
-                    items={SECTION_LABELS}
-                    onSelect={setActiveSection}
-                />
-                <div className="yf-showcase-content">
-                    <div className="yf-current-section" aria-live="polite">
-                        <span>Now viewing</span>
-                        <strong>{SECTION_LABELS.find((item) => item.id === activeSection)?.label}</strong>
-                        <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
-                    </div>
-
-                    {activeSection === 'universes' && <UniversesSection groups={data.marketUniverses || []} />}
-                    {activeSection === 'batch' && <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />}
-                    {activeSection === 'discovery' && (
-                        <DiscoverySection
-                            searchLabs={data.searchLabs || []}
-                            screeners={data.screeners || []}
-                            markets={data.marketOverviews || []}
-                            sectorIndustry={data.sectorIndustry}
-                        />
                     )}
-                    {activeSection === 'deep-dives' && <DeepDivesSection dives={data.deepDives || []} />}
-                    {activeSection === 'coverage' && <CoverageSection features={data.featureCoverage || []} />}
+                </section>
+
+                <div className="yf-current-section" aria-live="polite">
+                    <span>Now viewing</span>
+                    <strong>{SECTION_LABELS.find((item) => item.id === activeSection)?.label}</strong>
+                    <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
                 </div>
+
+                {activeSection === 'universes' && <UniversesSection groups={data.marketUniverses || []} />}
+                {activeSection === 'batch' && <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />}
+                {activeSection === 'discovery' && (
+                    <DiscoverySection
+                        searchLabs={data.searchLabs || []}
+                        screeners={data.screeners || []}
+                        markets={data.marketOverviews || []}
+                        sectorIndustry={data.sectorIndustry}
+                    />
+                )}
+                {activeSection === 'deep-dives' && <DeepDivesSection dives={data.deepDives || []} />}
+                {activeSection === 'coverage' && <CoverageSection features={data.featureCoverage || []} />}
             </div>
         </ShowcaseShell>
     );
@@ -508,9 +507,12 @@ function formatDate(value?: string): string {
 
 const showcaseCss = `
 .yf-showcase {
-    max-width: 1180px;
-    margin: 0 auto;
+    display: contents;
     color: var(--color-text);
+}
+.yf-showcase-main {
+    grid-column: 2;
+    min-width: 0;
 }
 .yf-header,
 .yf-panel,
@@ -581,15 +583,6 @@ const showcaseCss = `
     margin-top: 14px;
     color: var(--color-text-muted);
     font-size: 0.86rem;
-}
-.yf-showcase-grid {
-    display: grid;
-    grid-template-columns: 180px minmax(0, 1fr);
-    align-items: start;
-    gap: 18px;
-}
-.yf-showcase-content {
-    min-width: 0;
 }
 .yf-stack {
     display: grid;
@@ -773,9 +766,8 @@ const showcaseCss = `
     margin-top: 16px;
 }
 @media (max-width: 840px) {
-    .yf-showcase-grid {
-        display: grid;
-        grid-template-columns: 1fr;
+    .yf-showcase-main {
+        grid-column: 1;
     }
     .yf-stat-grid,
     .yf-info-grid.two,

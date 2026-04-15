@@ -92,12 +92,14 @@ function formatStars(value: number): string {
 
         {showcaseComponent === 'yfinance' && (
             <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
-                <header class="showcase-intro">
-                    <p>Interactive Showcase</p>
-                    <h2>yfinance로 실제로 열어볼 수 있는 데이터</h2>
-                    <span>아래 플로팅 버튼을 눌러 시장 샘플, 배치 다운로드, 검색/스크리너, 종목 딥다이브, API 커버리지를 오가며 볼 수 있어.</span>
-                </header>
-                <YfinanceShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-frame">
+                    <header class="showcase-intro">
+                        <p>Interactive Showcase</p>
+                        <h2>yfinance로 실제로 열어볼 수 있는 데이터</h2>
+                        <span>아래 플로팅 버튼을 눌러 시장 샘플, 배치 다운로드, 검색/스크리너, 종목 딥다이브, API 커버리지를 오가며 볼 수 있어.</span>
+                    </header>
+                    <YfinanceShowcase client:load slug={entry.data.slug} />
+                </div>
             </section>
         )}
 
@@ -280,10 +282,20 @@ function formatStars(value: number): string {
         background: var(--color-surface-alt);
     }
 
-    .showcase-intro {
+    .showcase-frame {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        align-items: start;
+        gap: 18px;
         max-width: 1180px;
-        margin: 0 auto 28px;
-        padding: 40px 0 12px;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+
+    .showcase-intro {
+        grid-column: 2;
+        margin: 0 0 28px;
+        padding: 0 0 12px;
     }
 
     .showcase-intro p {
@@ -347,8 +359,16 @@ function formatStars(value: number): string {
             padding: 0 12px 30px;
         }
 
-        .showcase-intro {
+        .showcase-frame {
+            grid-template-columns: 1fr;
+            gap: 14px;
             padding-top: 24px;
+        }
+
+        .showcase-intro {
+            grid-column: 1;
+            margin-bottom: 6px;
+            padding-bottom: 0;
         }
 
         .showcase-intro p {
