@@ -1,0 +1,218 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectCard from '../../../components/projects/ProjectCard.astro';
+import { t } from '../../../i18n/utils';
+
+const lang = 'ko';
+const allProjects = await getCollection('projects', ({ data }) => data.lang === lang && !data.draft);
+const projects = allProjects.sort((a, b) => b.data.stars - a.data.stars || a.data.title.localeCompare(b.data.title, 'en'));
+const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot'] as const;
+---
+
+<BaseLayout title={t(lang, 'projects.title')} description="AI 도구와 라이브러리를 직접 만져볼 수 있는 프로젝트 쇼케이스">
+    <section class="projects-catalog" aria-labelledby="projects-catalog-title">
+        <div class="catalog-heading">
+            <h1 id="projects-catalog-title" class="catalog-title">{t(lang, 'projects.title')}</h1>
+            <p class="catalog-desc">AI 개발자가 실제로 써볼 만한 오픈소스 프로젝트를 기능별 데모와 함께 정리합니다.</p>
+        </div>
+
+        <div class="catalog-controls">
+            <label class="search-wrap" for="project-search">
+                <span class="sr-only">{t(lang, 'projects.search_placeholder')}</span>
+                <input
+                    type="search"
+                    id="project-search"
+                    class="project-search"
+                    placeholder={t(lang, 'projects.search_placeholder')}
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+            </label>
+            <div class="category-tabs" aria-label="Project categories">
+                <button type="button" class="cat-tab active" data-filter="all">{t(lang, 'filter.all')}</button>
+                {categories.map((category) => {
+                    const count = projects.filter((project) => project.data.category === category).length;
+                    return count > 0 ? (
+                        <button type="button" class="cat-tab" data-filter={category}>{t(lang, `projects.category.${category}`)}</button>
+                    ) : null;
+                })}
+            </div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+            {projects.map((project) => (
+                <ProjectCard
+                    title={project.data.title}
+                    slug={project.data.slug}
+                    summary={project.data.summary}
+                    category={project.data.category}
+                    tags={project.data.tags}
+                    stars={project.data.stars}
+                    license={project.data.license}
+                    lang={lang}
+                />
+            ))}
+        </div>
+
+        <p class="empty-state" id="empty-state" hidden>검색 결과가 없습니다.</p>
+    </section>
+</BaseLayout>
+
+<script is:inline>
+    const searchInput = document.getElementById('project-search');
+    const cards = Array.from(document.querySelectorAll('[data-project-card]'));
+    const tabs = Array.from(document.querySelectorAll('.cat-tab'));
+    const emptyState = document.getElementById('empty-state');
+    let activeFilter = 'all';
+
+    function normalize(value) {
+        return String(value || '').toLowerCase().trim();
+    }
+
+    function filterCards() {
+        const query = normalize(searchInput && searchInput.value);
+        let visible = 0;
+
+        cards.forEach((card) => {
+            const matchCategory = activeFilter === 'all' || card.getAttribute('data-category') === activeFilter;
+            const haystack = normalize([
+                card.getAttribute('data-title'),
+                card.getAttribute('data-summary'),
+                card.getAttribute('data-tags'),
+                card.getAttribute('data-category'),
+            ].join(' '));
+            const show = matchCategory && (!query || haystack.includes(query));
+            card.hidden = !show;
+            if (show) visible += 1;
+        });
+
+        if (emptyState) emptyState.hidden = visible !== 0;
+    }
+
+    searchInput?.addEventListener('input', filterCards);
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            tabs.forEach((item) => item.classList.remove('active'));
+            tab.classList.add('active');
+            activeFilter = tab.getAttribute('data-filter') || 'all';
+            filterCards();
+        });
+    });
+</script>
+
+<style>
+    .projects-catalog {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .catalog-heading {
+        margin-bottom: 24px;
+    }
+
+    .catalog-title {
+        font-size: var(--text-3xl);
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .catalog-desc {
+        max-width: 680px;
+        color: var(--color-text-muted);
+        font-size: var(--text-sm);
+    }
+
+    .catalog-controls {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 28px;
+        padding: 18px;
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        background: var(--color-surface);
+    }
+
+    .search-wrap {
+        display: block;
+    }
+
+    .project-search {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--color-border-strong);
+        border-radius: 8px;
+        background: var(--color-surface-elevated);
+        color: var(--color-text);
+        font: inherit;
+        font-size: var(--text-sm);
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .project-search:focus {
+        border-color: var(--color-projects);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-projects) 16%, transparent);
+    }
+
+    .category-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .cat-tab {
+        min-height: 34px;
+        padding: 0 13px;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        background: var(--color-surface-elevated);
+        color: var(--color-text-muted);
+        cursor: pointer;
+        font: inherit;
+        font-size: var(--text-sm);
+        font-weight: 600;
+        transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .cat-tab:hover {
+        border-color: var(--color-border-strong);
+        color: var(--color-text);
+    }
+
+    .cat-tab.active {
+        border-color: var(--color-projects);
+        background: var(--color-projects);
+        color: #fff;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .empty-state {
+        margin-top: 24px;
+        padding: 28px 20px;
+        border: 1px dashed var(--color-border-strong);
+        border-radius: 10px;
+        color: var(--color-text-muted);
+        text-align: center;
+    }
+
+    @media (max-width: 640px) {
+        .catalog-title {
+            font-size: var(--text-2xl);
+        }
+
+        .catalog-controls {
+            padding: 14px;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

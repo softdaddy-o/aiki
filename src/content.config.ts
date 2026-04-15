@@ -78,4 +78,24 @@ const wiki = defineCollection({
     }),
 });
 
-export const collections = { news, wiki };
+const projects = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+    schema: z.object({
+        title: z.string(),
+        slug: z.string(),
+        lang: z.enum(['ko', 'en']).default('ko'),
+        category: z.enum(['library', 'framework', 'agent', 'model', 'tool', 'bot']).default('library'),
+        summary: z.string(),
+        readerValue: z.string().min(20),
+        githubUrl: z.string(),
+        showcaseComponent: z.string(),
+        tags: z.array(z.string()).default([]),
+        stars: z.number().default(0),
+        license: z.string().default('MIT'),
+        draft: z.boolean().default(false),
+        date: z.string(),
+        edition: z.string().default('ai'),
+    }),
+});
+
+export const collections = { news, wiki, projects };

@@ -1,0 +1,704 @@
+{
+  "generatedAt": "2026-04-15T07:38:12Z",
+  "mode": "demo",
+  "source": "Bundled sample data",
+  "libraryVersion": "demo",
+  "notes": [
+    "Demo mode keeps the page renderable without installing yfinance.",
+    "Live mode generates a richer payload using the same schema."
+  ],
+  "summaryStats": {
+    "marketGroups": 3,
+    "featureTests": 31,
+    "deepDives": 2,
+    "instrumentCount": 4
+  },
+  "featureCoverage": [
+    {
+      "feature": "Ticker.info",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.fast_info",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.history",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Tickers batch container",
+      "sample": "AAPL MSFT NVDA 005930.KS BTC-USD",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "download",
+      "sample": "AAPL MSFT 005930.KS BTC-USD",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Search",
+      "sample": "Samsung Electronics",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Lookup",
+      "sample": "Samsung Electronics",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "screen",
+      "sample": "most_actives",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Sector",
+      "sample": "technology",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Industry",
+      "sample": "semiconductors",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Market",
+      "sample": "US / ASIA / EUROPE / ...",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.calendar",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.earnings_dates",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.recommendations",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.analyst_price_targets",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.income_stmt",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.balance_sheet",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.cashflow",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.major_holders",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.institutional_holders",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.mutualfund_holders",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.insider_transactions",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.insider_purchases",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.insider_roster_holders",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.upgrades_downgrades",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.sec_filings",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.news",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.options + option_chain",
+      "sample": "AAPL",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "Ticker.funds_data",
+      "sample": "SPY",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "WebSocket class availability",
+      "sample": "yfinance.WebSocket",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    },
+    {
+      "feature": "AsyncWebSocket class availability",
+      "sample": "yfinance.AsyncWebSocket",
+      "status": "ok",
+      "note": "Bundled demo payload."
+    }
+  ],
+  "marketUniverses": [
+    {
+      "id": "korea_equities",
+      "title": "Korea Market",
+      "description": "Bundled Korea market sample data.",
+      "quotes": [
+        {
+          "symbol": "005930.KS",
+          "name": "Samsung Electronics Co., Ltd.",
+          "assetType": "EQUITY",
+          "currency": "KRW",
+          "exchange": "KSC",
+          "price": 84300,
+          "previousClose": 83600,
+          "change": 700,
+          "changePercent": 0.8373,
+          "dayHigh": 84800,
+          "dayLow": 83200,
+          "marketCap": 503000000000000,
+          "fiftyTwoWeekHigh": 91000,
+          "fiftyTwoWeekLow": 66200,
+          "history": [
+            80200,
+            81100,
+            82300,
+            83600,
+            84300
+          ]
+        }
+      ]
+    },
+    {
+      "id": "us_equities",
+      "title": "US Equities",
+      "description": "Bundled U.S. market sample data.",
+      "quotes": [
+        {
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "assetType": "EQUITY",
+          "currency": "USD",
+          "exchange": "NasdaqGS",
+          "price": 259.2,
+          "previousClose": 260.48,
+          "change": -1.28,
+          "changePercent": -0.4914,
+          "dayHigh": 260.18,
+          "dayLow": 256.66,
+          "marketCap": 3809702576128,
+          "fiftyTwoWeekHigh": 277.32,
+          "fiftyTwoWeekLow": 164.08,
+          "history": [
+            250.5,
+            253.9,
+            258.9,
+            260.48,
+            259.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crypto",
+      "title": "Crypto",
+      "description": "Bundled crypto sample data.",
+      "quotes": [
+        {
+          "symbol": "BTC-USD",
+          "name": "Bitcoin USD",
+          "assetType": "CRYPTOCURRENCY",
+          "currency": "USD",
+          "exchange": "CCC",
+          "price": 74484.64,
+          "previousClose": 74442.23,
+          "change": 42.41,
+          "changePercent": 0.057,
+          "dayHigh": 74930.42,
+          "dayLow": 74145.92,
+          "marketCap": null,
+          "fiftyTwoWeekHigh": 89123.11,
+          "fiftyTwoWeekLow": 40123.44,
+          "history": [
+            70122.1,
+            71543.3,
+            72880.5,
+            74442.23,
+            74484.64
+          ]
+        }
+      ]
+    }
+  ],
+  "batchQuotes": {
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "005930.KS"
+    ],
+    "quotes": [
+      {
+        "symbol": "005930.KS",
+        "name": "Samsung Electronics Co., Ltd.",
+        "assetType": "EQUITY",
+        "currency": "KRW",
+        "exchange": "KSC",
+        "price": 84300,
+        "previousClose": 83600,
+        "change": 700,
+        "changePercent": 0.8373,
+        "dayHigh": 84800,
+        "dayLow": 83200,
+        "marketCap": 503000000000000,
+        "fiftyTwoWeekHigh": 91000,
+        "fiftyTwoWeekLow": 66200,
+        "history": [
+          80200,
+          81100,
+          82300,
+          83600,
+          84300
+        ]
+      }
+    ]
+  },
+  "bulkDownload": {
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "005930.KS",
+      "BTC-USD"
+    ],
+    "rows": [
+      {
+        "date": "2026-04-10",
+        "values": {
+          "AAPL": 258.9,
+          "MSFT": 374.33,
+          "005930.KS": 198400,
+          "BTC-USD": 71910.1
+        }
+      },
+      {
+        "date": "2026-04-11",
+        "values": {
+          "AAPL": 260.48,
+          "MSFT": 370.87,
+          "005930.KS": 201000,
+          "BTC-USD": 74442.23
+        }
+      },
+      {
+        "date": "2026-04-14",
+        "values": {
+          "AAPL": 259.2,
+          "MSFT": 384.37,
+          "005930.KS": 206500,
+          "BTC-USD": 74484.64
+        }
+      }
+    ]
+  },
+  "searchLabs": [
+    {
+      "query": "Samsung Electronics",
+      "label": "Korea large-cap",
+      "lookupCounts": {
+        "stock": 23,
+        "etf": 6,
+        "currency": 0,
+        "index": 0
+      },
+      "topResults": [
+        {
+          "symbol": "005930.KS",
+          "shortName": "Samsung Electronics",
+          "exchange": "KSC",
+          "type": "EQUITY"
+        }
+      ],
+      "topNews": [
+        {
+          "title": "Samsung preview headline",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com"
+        }
+      ]
+    }
+  ],
+  "screeners": [
+    {
+      "name": "most_actives",
+      "title": "Most Actives",
+      "description": "Demo screener payload.",
+      "total": 25,
+      "quotes": [
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA",
+          "price": 189.31,
+          "changePercent": 0.3,
+          "volume": 126951527,
+          "marketCap": 4601179799552
+        }
+      ]
+    }
+  ],
+  "marketOverviews": [
+    {
+      "code": "US",
+      "status": "closed",
+      "message": "Demo market payload.",
+      "timezone": "America/New_York",
+      "entries": [
+        {
+          "venue": "NMS",
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "price": 259.2,
+          "changePercent": -0.49,
+          "marketState": "CLOSED"
+        }
+      ]
+    },
+    {
+      "code": "ASIA",
+      "status": "closed",
+      "message": "Demo market payload.",
+      "timezone": "Asia/Seoul",
+      "entries": [
+        {
+          "venue": "KSC",
+          "symbol": "^KS11",
+          "name": "KOSPI Composite",
+          "price": 2765.4,
+          "changePercent": 0.72,
+          "marketState": "CLOSED"
+        }
+      ]
+    }
+  ],
+  "sectorIndustry": {
+    "sector": {
+      "name": "Technology",
+      "overview": {
+        "companies_count": 500,
+        "market_cap": 12000000000000.0,
+        "description": "Demo sector payload."
+      },
+      "topCompanies": [
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA Corporation",
+          "rating": "Strong Buy",
+          "market weight": 0.2
+        }
+      ],
+      "industries": [
+        {
+          "key": "semiconductors",
+          "name": "Semiconductors",
+          "symbol": "^YH31130020",
+          "market weight": 0.37
+        }
+      ],
+      "topEtfs": {
+        "XLK": "Technology Select Sector SPDR Fund"
+      },
+      "topMutualFunds": {
+        "FSPTX": "Fidelity Select Technology Portfolio"
+      }
+    },
+    "industry": {
+      "name": "Semiconductors",
+      "overview": {
+        "companies_count": 47,
+        "market_cap": 5600000000000.0,
+        "description": "Demo industry payload."
+      },
+      "topCompanies": [
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA Corporation",
+          "rating": "Strong Buy",
+          "market weight": 0.53
+        }
+      ],
+      "topGrowthCompanies": [
+        {
+          "symbol": "MU",
+          "name": "Micron Technology, Inc.",
+          "ytd return": 0.49,
+          "growth estimate": 5.84
+        }
+      ],
+      "topPerformingCompanies": [
+        {
+          "symbol": "QUIK",
+          "name": "QuickLogic Corporation",
+          "ytd return": 0.87,
+          "last price": 11.28,
+          "target price": 9.67
+        }
+      ]
+    }
+  },
+  "deepDives": [
+    {
+      "symbol": "AAPL",
+      "title": "US Equity Deep Dive",
+      "assetType": "US equity",
+      "quote": {
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "assetType": "EQUITY",
+        "currency": "USD",
+        "exchange": "NasdaqGS",
+        "price": 259.2,
+        "previousClose": 260.48,
+        "change": -1.28,
+        "changePercent": -0.4914,
+        "dayHigh": 260.18,
+        "dayLow": 256.66,
+        "marketCap": 3809702576128,
+        "fiftyTwoWeekHigh": 277.32,
+        "fiftyTwoWeekLow": 164.08,
+        "history": [
+          250.5,
+          253.9,
+          258.9,
+          260.48,
+          259.2
+        ]
+      },
+      "highlights": {
+        "sector": "Technology",
+        "industry": "Consumer Electronics",
+        "country": "United States",
+        "website": "https://www.apple.com"
+      },
+      "historyRows": [
+        {
+          "date": "2026-04-10",
+          "value": 258.9
+        },
+        {
+          "date": "2026-04-11",
+          "value": 260.48
+        },
+        {
+          "date": "2026-04-14",
+          "value": 259.2
+        }
+      ],
+      "actions": [],
+      "dividends": [],
+      "splits": [],
+      "calendar": {
+        "Earnings Date": [
+          "2026-05-01",
+          "2026-05-05"
+        ]
+      },
+      "financials": {
+        "incomeStatement": [
+          {
+            "lineItem": "Total Revenue",
+            "2025-09-30": 391000000000
+          }
+        ],
+        "quarterlyIncomeStatement": [],
+        "balanceSheet": [
+          {
+            "lineItem": "Total Assets",
+            "2025-09-30": 352000000000
+          }
+        ],
+        "cashflow": [
+          {
+            "lineItem": "Operating Cash Flow",
+            "2025-09-30": 120000000000
+          }
+        ]
+      },
+      "research": {
+        "earningsDates": [],
+        "recommendations": [],
+        "analystTargets": {
+          "current": 259.2,
+          "mean": 271.4
+        },
+        "upgradesDowngrades": []
+      },
+      "ownership": {
+        "majorHolders": [],
+        "institutionalHolders": [],
+        "mutualFundHolders": [],
+        "insiderTransactions": [],
+        "insiderPurchases": [],
+        "insiderRoster": []
+      },
+      "filings": [],
+      "news": [
+        {
+          "title": "Apple sample headline",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com"
+        }
+      ],
+      "options": {
+        "available": true,
+        "expiration": "2026-04-15",
+        "calls": [],
+        "puts": []
+      },
+      "fundData": {
+        "note": "Not applicable for this asset type."
+      }
+    },
+    {
+      "symbol": "005930.KS",
+      "title": "Korea Equity Deep Dive",
+      "assetType": "Korea equity",
+      "quote": {
+        "symbol": "005930.KS",
+        "name": "Samsung Electronics Co., Ltd.",
+        "assetType": "EQUITY",
+        "currency": "KRW",
+        "exchange": "KSC",
+        "price": 84300,
+        "previousClose": 83600,
+        "change": 700,
+        "changePercent": 0.8373,
+        "dayHigh": 84800,
+        "dayLow": 83200,
+        "marketCap": 503000000000000,
+        "fiftyTwoWeekHigh": 91000,
+        "fiftyTwoWeekLow": 66200,
+        "history": [
+          80200,
+          81100,
+          82300,
+          83600,
+          84300
+        ]
+      },
+      "highlights": {
+        "sector": "Technology",
+        "industry": "Consumer Electronics",
+        "country": "South Korea",
+        "website": "https://www.samsung.com"
+      },
+      "historyRows": [
+        {
+          "date": "2026-04-10",
+          "value": 82300
+        },
+        {
+          "date": "2026-04-11",
+          "value": 83600
+        },
+        {
+          "date": "2026-04-14",
+          "value": 84300
+        }
+      ],
+      "actions": [],
+      "dividends": [],
+      "splits": [],
+      "calendar": {},
+      "financials": {
+        "incomeStatement": [],
+        "quarterlyIncomeStatement": [],
+        "balanceSheet": [],
+        "cashflow": []
+      },
+      "research": {
+        "earningsDates": [],
+        "recommendations": [],
+        "analystTargets": {},
+        "upgradesDowngrades": []
+      },
+      "ownership": {
+        "majorHolders": [],
+        "institutionalHolders": [],
+        "mutualFundHolders": [],
+        "insiderTransactions": [],
+        "insiderPurchases": [],
+        "insiderRoster": []
+      },
+      "filings": [],
+      "news": [],
+      "options": {
+        "available": false,
+        "note": "No options chain in bundled demo mode."
+      },
+      "fundData": {
+        "note": "Not applicable for this asset type."
+      }
+    }
+  ]
+}
