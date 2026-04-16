@@ -1,0 +1,493 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Timeline from '../../../components/Timeline.astro';
+import ZoomTabs from '../../../components/ZoomTabs.astro';
+import {
+    DAILY_RETENTION_DAYS,
+    WEEKLY_RETENTION_DAYS,
+    MONTHLY_RETENTION_DAYS,
+    isWithinRetention,
+    isYearlyMilestoneCandidate,
+} from '../../../../scripts/lib/content-policy.cjs';
+
+const lang = 'ko';
+const allNews = await getCollection('news', ({ data }) => data.lang === lang && !data.draft);
+const sorted = allNews.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const items = sorted.map(entry => ({
+    title: entry.data.title,
+    summary: entry.data.summary,
+    date: entry.data.date,
+    category: entry.data.category,
+    factCheckStatus: entry.data.factCheck?.status,
+    factCheckSourceCount: entry.data.factCheck?.sources?.length,
+    slug: entry.id.replace(/^ko\//, ''),
+    score: entry.data.score ?? 0,
+    sourceCount: entry.data.sourceCount,
+    sourceUrl: entry.data.sourceUrl || '',
+    tags: entry.data.tags || [],
+}));
+
+// --- Zoom-level grouping ---
+
+// Helper: ISO week number
+function getISOWeek(dateStr: string): string {
+    const d = new Date(dateStr);
+    const tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    tmp.setUTCDate(tmp.getUTCDate() + 4 - (tmp.getUTCDay() || 7));
+    const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+    const weekNo = Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+    return `${tmp.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+}
+
+const dailyCandidates = items.filter(item => isWithinRetention(item.date, DAILY_RETENTION_DAYS));
+const weeklyCandidates = items.filter(item => isWithinRetention(item.date, WEEKLY_RETENTION_DAYS));
+const monthlyCandidates = items.filter(item => isWithinRetention(item.date, MONTHLY_RETENTION_DAYS));
+const yearlyCandidates = items.filter(item =>
+    isWithinRetention(item.date, MONTHLY_RETENTION_DAYS) && isYearlyMilestoneCandidate(item)
+);
+const dailySet = new Set(dailyCandidates.map(item => item.slug));
+
+// Weekly: highest score per day, only if score > 70
+const dailyGroups = new Map<string, typeof items>();
+for (const item of dailyCandidates) {
+    const day = item.date.split('T')[0];
+    if (!dailyGroups.has(day)) dailyGroups.set(day, []);
+    dailyGroups.get(day)!.push(item);
+}
+const weeklySet = new Set<string>();
+for (const [, group] of dailyGroups) {
+    const eligible = group.filter(item => item.score > 70);
+    if (eligible.length === 0) continue;
+    const best = eligible.reduce((a, b) => (a.score >= b.score ? a : b));
+    weeklySet.add(best.slug);
+}
+
+// Monthly: only score >= 90
+const weeklyGroups = new Map<string, typeof items>();
+for (const item of monthlyCandidates) {
+    const week = getISOWeek(item.date);
+    if (!weeklyGroups.has(week)) weeklyGroups.set(week, []);
+    weeklyGroups.get(week)!.push(item);
+}
+const monthlySet = new Set<string>();
+for (const [, group] of weeklyGroups) {
+    const eligible = group.filter(item => item.score >= 90);
+    for (const item of eligible) monthlySet.add(item.slug);
+}
+
+// Yearly: milestone-class official/model-release items across the full archive
+const monthGroups = new Map<string, typeof items>();
+for (const item of yearlyCandidates) {
+    const month = item.date.substring(0, 7);
+    if (!monthGroups.has(month)) monthGroups.set(month, []);
+    monthGroups.get(month)!.push(item);
+}
+const yearlySet = new Set<string>();
+for (const [, group] of monthGroups) {
+    for (const item of group) yearlySet.add(item.slug);
+}
+
+// Assign zoom levels
+const itemsWithZoom = items.flatMap(item => {
+    const levels: string[] = [];
+    if (dailySet.has(item.slug)) levels.push('daily');
+    if (weeklySet.has(item.slug)) levels.push('weekly');
+    if (monthlySet.has(item.slug)) levels.push('monthly');
+    if (yearlySet.has(item.slug)) levels.push('yearly');
+    if (levels.length === 0) return [];
+    return [{ ...item, zoomLevel: levels.join(',') }];
+});
+
+// Date formatting helpers
+const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+const CURRENT_YEAR = new Date().getFullYear();
+function formatDateHeader(dateStr: string): string {
+    const d = new Date(dateStr);
+    const year = d.getFullYear();
+    const month = d.getMonth() + 1;
+    const day = d.getDate();
+    const dow = dayNames[d.getDay()];
+    if (year !== CURRENT_YEAR) return `${year}년 ${month}월 ${day}일 ${dow}요일`;
+    return `${month}월 ${day}일 ${dow}요일`;
+}
+
+// Format helpers for zoom levels
+function isoWeekToDate(weekStr: string): Date {
+    const [yearStr, wStr] = weekStr.split('-W');
+    const year = parseInt(yearStr);
+    const week = parseInt(wStr);
+    const jan4 = new Date(Date.UTC(year, 0, 4));
+    const dayOfWeek = jan4.getUTCDay() || 7;
+    const monday = new Date(jan4.getTime());
+    monday.setUTCDate(jan4.getUTCDate() - dayOfWeek + 1 + (week - 1) * 7);
+    return monday;
+}
+
+function formatWeekHeader(weekStr: string): string {
+    const monday = isoWeekToDate(weekStr);
+    const sunday = new Date(monday.getTime());
+    sunday.setUTCDate(monday.getUTCDate() + 6);
+    const y1 = monday.getUTCFullYear();
+    const m1 = monday.getUTCMonth() + 1;
+    const d1 = monday.getUTCDate();
+    const m2 = sunday.getUTCMonth() + 1;
+    const d2 = sunday.getUTCDate();
+    const yearPrefix = y1 !== CURRENT_YEAR ? `${y1}년 ` : '';
+    if (m1 === m2) return `${yearPrefix}${m1}월 ${d1}일 ~ ${d2}일`;
+    return `${yearPrefix}${m1}월 ${d1}일 ~ ${m2}월 ${d2}일`;
+}
+
+function formatMonthHeader(monthStr: string): string {
+    const [y, m] = monthStr.split('-');
+    return `${y}년 ${parseInt(m)}월`;
+}
+
+function formatYearHeader(yearStr: string): string {
+    return `${yearStr}년`;
+}
+
+// Group items by date for date headers
+const dateGroups: { date: string; label: string; items: typeof itemsWithZoom }[] = [];
+let currentDate = '';
+for (const item of itemsWithZoom) {
+    const day = item.date.split('T')[0];
+    if (day !== currentDate) {
+        currentDate = day;
+        dateGroups.push({ date: day, label: formatDateHeader(item.date), items: [] });
+    }
+    dateGroups[dateGroups.length - 1].items.push(item);
+}
+
+// Build period headers for weekly/monthly/yearly zoom levels
+const weeklyHeaders = new Map<string, string>();
+const monthlyHeaders = new Map<string, string>();
+const yearlyHeaders = new Map<string, string>();
+for (const item of itemsWithZoom) {
+    const week = getISOWeek(item.date);
+    if (!weeklyHeaders.has(week)) weeklyHeaders.set(week, formatWeekHeader(week));
+    const month = item.date.substring(0, 7);
+    if (!monthlyHeaders.has(month)) monthlyHeaders.set(month, formatMonthHeader(month));
+    const year = item.date.substring(0, 4);
+    if (!yearlyHeaders.has(year)) yearlyHeaders.set(year, formatYearHeader(year));
+}
+
+// Assign period keys to items for JS matching
+const itemsWithPeriods = itemsWithZoom.map(item => ({
+    ...item,
+    weekKey: getISOWeek(item.date),
+    monthKey: item.date.substring(0, 7),
+    yearKey: item.date.substring(0, 4),
+}));
+---
+
+<BaseLayout title="AI 뉴스" description="AI 업계 핵심 뉴스를 팩트체크해서 전달합니다">
+    <div class="hero">
+        <h1 class="hero-title">AI 뉴스</h1>
+        <p class="hero-subtitle">AI 업계 핵심 뉴스를 팩트체크해서 전달합니다</p>
+    </div>
+    <ZoomTabs lang={lang} />
+    <Timeline items={itemsWithZoom} lang={lang} dateGroups={dateGroups} />
+    {/* Period headers for zoom levels — hidden by default, shown by JS */}
+    <div id="period-headers" style="display:none">
+        {[...weeklyHeaders.entries()].map(([key, label]) => (
+            <div data-period-type="weekly" data-period-key={key} data-period-label={label}></div>
+        ))}
+        {[...monthlyHeaders.entries()].map(([key, label]) => (
+            <div data-period-type="monthly" data-period-key={key} data-period-label={label}></div>
+        ))}
+        {[...yearlyHeaders.entries()].map(([key, label]) => (
+            <div data-period-type="yearly" data-period-key={key} data-period-label={label}></div>
+        ))}
+    </div>
+</BaseLayout>
+
+<script>
+    // ISO week helper (client-side)
+    function getISOWeekClient(dateStr: string): string {
+        const d = new Date(dateStr);
+        const tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+        tmp.setUTCDate(tmp.getUTCDate() + 4 - (tmp.getUTCDay() || 7));
+        const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+        const weekNo = Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+        return `${tmp.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+    }
+
+    // Load period headers from hidden data
+    function getPeriodHeaders(): Map<string, Map<string, string>> {
+        const result = new Map<string, Map<string, string>>();
+        document.querySelectorAll('#period-headers [data-period-type]').forEach(el => {
+            const htmlEl = el as HTMLElement;
+            const type = htmlEl.dataset.periodType!;
+            const key = htmlEl.dataset.periodKey!;
+            const label = htmlEl.dataset.periodLabel!;
+            if (!result.has(type)) result.set(type, new Map());
+            result.get(type)!.set(key, label);
+        });
+        return result;
+    }
+
+    const periodHeaders = getPeriodHeaders();
+
+    function applyZoom(level: string) {
+        document.querySelectorAll('.zoom-tab').forEach(t => t.classList.remove('active'));
+        document.querySelector(`.zoom-tab[data-zoom="${level}"]`)?.classList.add('active');
+
+        // Remove old period headers
+        document.querySelectorAll('.period-header').forEach(el => el.remove());
+
+        // Show/hide date-headers (daily only)
+        document.querySelectorAll('.date-header').forEach(el => {
+            (el as HTMLElement).style.display = level === 'daily' ? '' : 'none';
+        });
+
+        // Filter items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            const el = item as HTMLElement;
+            const levels = (el.dataset.zoomLevel || 'daily').split(',');
+            const shouldShow = levels.includes(level);
+            if (shouldShow) {
+                el.style.display = '';
+                el.style.opacity = '0';
+                requestAnimationFrame(() => { el.style.opacity = '1'; });
+            } else {
+                el.style.display = 'none';
+            }
+        });
+
+        // Insert period headers for non-daily zoom levels
+        if (level !== 'daily') {
+            const headers = periodHeaders.get(level);
+            if (!headers) return;
+
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+
+            const visibleItems = Array.from(document.querySelectorAll('.timeline-item')) as HTMLElement[];
+            let lastPeriodKey = '';
+
+            for (const item of visibleItems) {
+                if (item.style.display === 'none') continue;
+
+                const cardLink = item.querySelector('a.card') as HTMLAnchorElement;
+                const href = cardLink?.getAttribute('href') || '';
+                const dateMatch = href.match(/(\d{4}-\d{2}-\d{2})/);
+                if (!dateMatch) continue;
+                const dateStr = dateMatch[1];
+
+                let periodKey = '';
+                if (level === 'weekly') periodKey = getISOWeekClient(dateStr);
+                else if (level === 'monthly') periodKey = dateStr.substring(0, 7);
+                else if (level === 'yearly') periodKey = dateStr.substring(0, 4);
+
+                if (periodKey !== lastPeriodKey) {
+                    lastPeriodKey = periodKey;
+                    const label = headers.get(periodKey) || periodKey;
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'date-header period-header visible';
+                    headerDiv.innerHTML = `<div class="date-marker"></div><span class="date-label">${label}</span>`;
+                    item.parentNode?.insertBefore(headerDiv, item);
+                }
+            }
+        }
+    }
+
+    // Read initial state from URL
+    const params = new URLSearchParams(window.location.search);
+    const initialZoom = params.get('period') || 'daily';
+    applyZoom(initialZoom);
+
+    document.querySelectorAll('.zoom-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const level = (tab as HTMLElement).dataset.zoom!;
+            const url = new URL(window.location.href);
+            if (level === 'daily') {
+                url.searchParams.delete('period');
+            } else {
+                url.searchParams.set('period', level);
+            }
+            window.history.replaceState({}, '', url.toString());
+            applyZoom(level);
+            hideAllInitially();
+        });
+    });
+
+    // ── Infinite scroll: show BATCH_SIZE items initially, load more on scroll ──
+    const BATCH_SIZE = 10;
+    const MAX_BEFORE_PAGINATE = 50;
+    let lazyItems = [] as HTMLElement[];
+    let visibleCount = 0;
+    let nextLazyIndex = 0;
+    let isBatchLoading = false;
+    let loadMoreBtn: HTMLElement | null = null;
+
+    function hideAllInitially() {
+        lazyItems = Array.from(
+            document.querySelectorAll('.timeline > .timeline-item, .timeline > .date-header:not(.period-header)')
+        ).filter((el) => (el as HTMLElement).style.display !== 'none') as HTMLElement[];
+
+        lazyItems.forEach((el, i) => {
+            const shouldShow = i < BATCH_SIZE;
+            el.style.display = shouldShow ? '' : 'none';
+            el.dataset.lazyHidden = shouldShow ? 'false' : 'true';
+        });
+        visibleCount = Math.min(BATCH_SIZE, lazyItems.length);
+        nextLazyIndex = visibleCount;
+        updateLoadMoreBtn();
+    }
+
+    function showNextBatch() {
+        if (isBatchLoading || nextLazyIndex >= lazyItems.length) {
+            return false;
+        }
+        isBatchLoading = true;
+        let shown = 0;
+        const endIndex = Math.min(nextLazyIndex + BATCH_SIZE, lazyItems.length);
+        for (let i = nextLazyIndex; i < endIndex; i++) {
+            const el = lazyItems[i];
+            el.style.display = '';
+            el.dataset.lazyHidden = 'false';
+            el.classList.add('visible');
+            shown++;
+        }
+        nextLazyIndex = endIndex;
+        visibleCount = nextLazyIndex;
+        isBatchLoading = false;
+        updateLoadMoreBtn();
+        return shown > 0;
+    }
+
+    function getHiddenCount() {
+        return Math.max(lazyItems.length - nextLazyIndex, 0);
+    }
+
+    function updateLoadMoreBtn() {
+        const hidden = getHiddenCount();
+        if (hidden === 0 && loadMoreBtn) {
+            loadMoreBtn.remove();
+            loadMoreBtn = null;
+        }
+        if (hidden > 0 && visibleCount >= MAX_BEFORE_PAGINATE && !loadMoreBtn) {
+            loadMoreBtn = document.createElement('div');
+            loadMoreBtn.className = 'load-more-container';
+            loadMoreBtn.innerHTML = `<button class="load-more-btn">더보기 (${hidden}건 남음)</button>`;
+            document.querySelector('.timeline')?.appendChild(loadMoreBtn);
+            loadMoreBtn.querySelector('button')?.addEventListener('click', () => {
+                showNextBatch();
+            });
+        }
+        if (loadMoreBtn) {
+            const btn = loadMoreBtn.querySelector('button');
+            const remaining = getHiddenCount();
+            if (btn && remaining > 0) {
+                btn.textContent = `더보기 (${remaining}건 남음)`;
+            }
+        }
+    }
+
+    // Infinite scroll trigger
+    const scrollSentinel = document.createElement('div');
+    scrollSentinel.className = 'scroll-sentinel';
+    document.querySelector('.timeline')?.appendChild(scrollSentinel);
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && visibleCount < MAX_BEFORE_PAGINATE && !isBatchLoading && !loadMoreBtn) {
+            showNextBatch();
+        }
+    }, { rootMargin: '200px' });
+
+    hideAllInitially();
+    scrollObserver.observe(scrollSentinel);
+
+    // Scroll-triggered entrance animations with stagger (respects prefers-reduced-motion)
+    const animTargets = '.timeline-item, .date-header';
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let staggerIndex = 0;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = staggerIndex * 60;
+                    staggerIndex++;
+                    setTimeout(() => entry.target.classList.add('visible'), delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(animTargets).forEach(item => {
+            if ((item as HTMLElement).dataset.lazyHidden !== 'true') {
+                observer.observe(item);
+            }
+        });
+        const mutObserver = new MutationObserver(() => {
+            document.querySelectorAll(animTargets).forEach(item => {
+                const el = item as HTMLElement;
+                if (el.dataset.lazyHidden === 'false' && !el.classList.contains('visible')) {
+                    observer.observe(el);
+                }
+            });
+        });
+        mutObserver.observe(document.querySelector('.timeline')!, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-lazy-hidden'] });
+    } else {
+        document.querySelectorAll(animTargets).forEach(item => item.classList.add('visible'));
+    }
+</script>
+
+<style>
+    .hero { text-align: center; padding: 32px 0 28px; }
+    .hero-title {
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, var(--color-news), var(--color-wiki));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+        animation: fadeUp 0.6s ease-out;
+    }
+    .hero-subtitle {
+        animation: fadeUp 0.6s ease-out 0.1s both;
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-subtitle {
+        font-size: var(--text-lg);
+        color: var(--color-text-muted);
+        line-height: 1.5;
+    }
+    .load-more-container {
+        text-align: center;
+        padding: 32px 0;
+        position: relative;
+        z-index: 5;
+    }
+    .load-more-btn {
+        background: var(--color-surface);
+        color: var(--color-news);
+        border: 1px solid rgba(79, 195, 247, 0.3);
+        padding: 12px 32px;
+        border-radius: 24px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .load-more-btn:hover {
+        background: var(--color-surface-alt);
+        box-shadow: 0 4px 16px rgba(79, 195, 247, 0.2);
+        transform: translateY(-1px);
+    }
+    .scroll-sentinel {
+        height: 1px;
+        visibility: hidden;
+    }
+    @media (max-width: 640px) {
+        .hero { padding: 24px 0 16px; }
+        .hero-title { font-size: var(--text-3xl); }
+        .hero-subtitle { font-size: var(--text-base); }
+    }
+</style>
