@@ -37,9 +37,8 @@ function truncate(text, maxLength) {
     return `${normalized.slice(0, maxLength - 1).trimEnd()}\u2026`;
 }
 
-function buildCardMarkup({ title, summary, date, tag }) {
+function buildCardMarkup({ title, date, tag }) {
     const safeTitle = truncate(title, 54);
-    const safeSummary = truncate(summary, 120);
     const safeTag = truncate(tag || 'AI NEWS', 20).toUpperCase();
 
     return html`
@@ -52,13 +51,11 @@ function buildCardMarkup({ title, summary, date, tag }) {
                     ${date}
                 </div>
             </div>
-            <div style="display:flex; font-size:78px; font-weight:700; line-height:1.13; margin-top:54px; letter-spacing:-0.03em;">
-                ${safeTitle}
+            <div style="display:flex; flex-grow:1; align-items:center;">
+                <div style="display:flex; font-size:78px; font-weight:700; line-height:1.13; letter-spacing:-0.03em;">
+                    ${safeTitle}
+                </div>
             </div>
-            <div style="display:flex; font-size:34px; line-height:1.45; color:#dbe4f3; margin-top:30px;">
-                ${safeSummary}
-            </div>
-            <div style="display:flex; flex-grow:1;"></div>
             <div style="display:flex; justify-content:space-between; align-items:center; border-top:2px solid rgba(191,219,254,0.24); padding-top:26px;">
                 <div style="display:flex; font-size:28px; color:#bfdbfe;">aiki.softdaddy-o.com</div>
                 <div style="display:flex; font-size:42px; font-weight:700; letter-spacing:0.08em;">AIKI</div>
@@ -98,7 +95,6 @@ async function main() {
         try {
             const markup = buildCardMarkup({
                 title: frontmatter.title ?? slug,
-                summary: frontmatter.summary ?? '',
                 date: String(frontmatter.date || '').slice(0, 10),
                 tag: frontmatter.tags?.[0] || 'AI News',
             });
