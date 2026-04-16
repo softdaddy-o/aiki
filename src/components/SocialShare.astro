@@ -5,9 +5,10 @@ interface Props {
     text?: string;
     show?: boolean;
     label?: string;
+    iconOnly?: boolean;
 }
 
-const { title, url, text, label = 'Share this page' } = Astro.props as Props;
+const { title, url, text, label = 'Share this page', iconOnly = false } = Astro.props as Props;
 const { show = true } = Astro.props as Props;
 
 const safeTitle = title.trim();
@@ -73,7 +74,7 @@ const shareLinks = [
 
 {show && (
     <section class="social-share" aria-label={label} data-share-title={safeTitle} data-share-url={url}>
-        <div class="social-share-links" role="list">
+        <div class={`social-share-links${iconOnly ? ' social-share-links-icon-only' : ''}`} role="list">
             {shareLinks.map((item) => (
                 <a
                     role="listitem"
@@ -81,16 +82,17 @@ const shareLinks = [
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Share on ${item.name}`}
-                    class={`share-pill share-${item.name.toLowerCase()}`}
+                    class={`share-pill share-${item.name.toLowerCase()}${iconOnly ? ' share-pill-icon-only' : ''}`}
                     style={`--brand: ${item.brand}; --brand-dark: ${item.darkBrand};`}
                     data-umami-event="share"
                     data-umami-event-platform={item.name}
                     data-umami-event-url={url}
+                    title={item.name}
                 >
                     <span class="share-icon" aria-hidden="true">
                         <Fragment set:html={item.icon} />
                     </span>
-                    <span>{item.label}</span>
+                    {!iconOnly && <span>{item.label}</span>}
                 </a>
             ))}
         </div>
@@ -112,9 +114,9 @@ const shareLinks = [
     .share-pill {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        min-height: 42px;
-        padding: 0 14px;
+        gap: 7px;
+        min-height: 36px;
+        padding: 0 11px;
         border-radius: 9999px;
         border: none;
         background: color-mix(in srgb, var(--brand) 12%, var(--color-surface-elevated) 88%);
@@ -156,6 +158,20 @@ const shareLinks = [
         transform: translateY(-0.5px);
     }
 
+    .social-share-links-icon-only {
+        gap: 6px;
+    }
+
+    .share-pill-icon-only {
+        justify-content: center;
+        width: 32px;
+        min-width: 32px;
+        min-height: 32px;
+        padding: 0;
+        gap: 0;
+        border-radius: 11px;
+    }
+
     .share-threads :global(svg) {
         width: 13px;
         height: 13px;
@@ -188,9 +204,16 @@ const shareLinks = [
 
     @media (max-width: 640px) {
         .share-pill {
-            min-height: 40px;
-            padding: 0 12px;
+            min-height: 34px;
+            padding: 0 10px;
             font-size: 12px;
+        }
+
+        .share-pill-icon-only {
+            width: 30px;
+            min-width: 30px;
+            min-height: 30px;
+            padding: 0;
         }
     }
 </style>

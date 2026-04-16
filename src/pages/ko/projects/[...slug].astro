@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FactCheck from '../../../components/FactCheck.astro';
+import SocialShare from '../../../components/SocialShare.astro';
 import YfinanceShowcase from '../../../components/projects/showcases/yfinance/index.tsx';
 import NfiShowcase from '../../../components/projects/showcases/nfi/index.tsx';
 import NautilusShowcase from '../../../components/projects/showcases/nautilus-trader/index.tsx';
@@ -46,6 +47,8 @@ function formatStars(value: number): string {
     }
     return String(value);
 }
+
+const shareUrl = Astro.url.href;
 ---
 
 <BaseLayout title={title} description={summary} ogImage={`/og/projects/${entry.data.slug}.png`}>
@@ -53,6 +56,14 @@ function formatStars(value: number): string {
         <header class="project-hero">
             <div class="hero-top">
                 <span class="category-badge">{categoryLabel}</span>
+                <div class="hero-share">
+                    <SocialShare
+                        title={title}
+                        text={summary}
+                        url={shareUrl}
+                        iconOnly={true}
+                    />
+                </div>
             </div>
             <h1 class="project-title">{title}</h1>
             <p class="project-summary">{summary}</p>
@@ -158,9 +169,14 @@ function formatStars(value: number): string {
     .hero-top {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 10px 14px;
         margin-bottom: 12px;
+    }
+
+    .hero-share {
+        margin-left: auto;
     }
 
     .category-badge {
@@ -449,6 +465,11 @@ function formatStars(value: number): string {
     }
 
     @media (max-width: 640px) {
+        .hero-share {
+            width: 100%;
+            margin-left: 0;
+        }
+
         .project-title {
             font-size: var(--text-2xl);
         }

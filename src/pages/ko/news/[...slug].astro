@@ -33,29 +33,32 @@ const shareUrl = Astro.url.href;
 <BaseLayout title={entry.data.title} description={entry.data.summary} ogImage={ogImage} ogImageAlt={entry.data.title} ogType="article">
     <article class="news-article">
         <div class="article-meta">
-            <span class="article-date">{entry.data.date.split('T')[0]}</span>
-            <ScoreBadge score={entry.data.score} sourceCount={entry.data.sourceCount} />
-            {entry.data.sourceUrl && (
-                <a
-                    href={entry.data.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="article-source"
-                    data-link-kind="external"
-                >
-                    원문 {entry.data.sourceTitle ?? '보기'}
-                </a>
-            )}
+            <div class="article-meta-primary">
+                <span class="article-date">{entry.data.date.split('T')[0]}</span>
+                <ScoreBadge score={entry.data.score} sourceCount={entry.data.sourceCount} />
+                {entry.data.sourceUrl && (
+                    <a
+                        href={entry.data.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="article-source"
+                        data-link-kind="external"
+                    >
+                        원문 {entry.data.sourceTitle ?? '보기'}
+                    </a>
+                )}
+            </div>
+            <div class="article-share article-share-header">
+                <SocialShare
+                    title={entry.data.title}
+                    text={entry.data.summary}
+                    url={shareUrl}
+                    iconOnly={true}
+                />
+            </div>
         </div>
         <h1>{entry.data.title}</h1>
         <p class="article-summary">{entry.data.summary}</p>
-        <div class="article-share">
-            <SocialShare
-                title={entry.data.title}
-                text={entry.data.summary}
-                url={shareUrl}
-            />
-        </div>
         <div class="article-cover">
             <img src={ogImage} alt={entry.data.title} loading="eager" decoding="async" />
         </div>
@@ -87,12 +90,20 @@ const shareUrl = Astro.url.href;
     .article-meta {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 10px 14px;
         margin-bottom: 14px;
         font-size: 13px;
         color: var(--color-text-muted);
+    }
+
+    .article-meta-primary {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        min-width: 0;
     }
 
     .article-source {
@@ -124,8 +135,8 @@ const shareUrl = Astro.url.href;
         line-height: 1.7;
     }
 
-    .article-share {
-        margin-bottom: 20px;
+    .article-share-header {
+        margin-left: auto;
     }
 
     .article-cover {
@@ -157,5 +168,16 @@ const shareUrl = Astro.url.href;
         border-radius: 4px;
         font-size: 12px;
         color: var(--color-text-muted);
+    }
+
+    @media (max-width: 640px) {
+        .article-meta {
+            align-items: stretch;
+        }
+
+        .article-share-header {
+            width: 100%;
+            margin-left: 0;
+        }
     }
 </style>
