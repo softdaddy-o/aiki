@@ -1,3 +1,21 @@
 ---
-return Astro.redirect('/ko/');
+const target = '/ko/';
 ---
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Redirecting to AIKI Korean Home</title>
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href={`https://aiki.softdaddy-o.com${target}`} />
+        <meta http-equiv="refresh" content={`0;url=${target}`} />
+        <script is:inline>
+            window.location.replace('/ko/');
+        </script>
+    </head>
+    <body>
+        <a href={target}>Redirecting to {target}</a>
+    </body>
+</html>
