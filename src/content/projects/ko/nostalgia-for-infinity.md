@@ -39,7 +39,7 @@ factCheck:
       summary: "README와 공식 문서를 대조해서 NFI를 Freqtrade용 크립토 전략 프로젝트로 설명해도 어긋나지 않는지 확인했어."
       items:
         - "공식 문서는 backtesting 데이터 다운로드와 실행 흐름을 별도 페이지에서 안내합니다."
-        - "GitHub README는 5m timeframe, 6~12 open trades, 40~80 pairlist 권장을 명시합니다."
+        - "GitHub README는 5분봉 타임프레임, 동시 거래 6~12개, 페어리스트 40~80개 권장을 명시합니다."
     - type: "number_verify"
       result: "pass"
       sources: 1
@@ -59,34 +59,17 @@ factCheck:
 
 NostalgiaForInfinity, 줄여서 NFI는 오픈소스 암호화폐 트레이딩 봇 Freqtrade에서 실행하는 전략 저장소입니다. 단일 매매 아이디어라기보다는 여러 세대의 전략 파일과 설정, 블랙리스트, 문서, 테스트 보조 도구를 함께 관리하는 프로젝트에 가깝습니다.
 
-저장소의 README는 5분 봉(timeframe 5m), 6~12개 수준의 동시 거래, 40~80개 페어의 볼륨 기반 pairlist, USDT/USDC 같은 스테이블 코인 마켓, 레버리지 토큰 블랙리스트를 강하게 권장합니다. 이 조건을 벗어나면 백테스트 숫자가 좋아 보여도 실거래 리스크가 크게 달라질 수 있습니다.
+저장소의 README는 5분 봉(<span class="term-hint"><span class="term-hint__label">타임프레임</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">캔들 하나가 몇 분 단위인지 뜻해. 전략이 5분봉 기준으로 짜였으면 다른 값으로 바꾸는 순간 신호 의미가 달라질 수 있어.</span></span> 5m), 6~12개 수준의 동시 거래, 40~80개 페어의 볼륨 기반 <span class="term-hint"><span class="term-hint__label">페어리스트</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">봇이 매매 대상으로 삼는 코인 목록이야. 너무 좁거나 거래가 적은 코인이 많으면 전략이 흔들릴 수 있어.</span></span>, USDT/USDC 같은 스테이블 코인 마켓, 레버리지 토큰 블랙리스트를 강하게 권장합니다. 이 조건을 벗어나면 백테스트 숫자가 좋아 보여도 실거래 리스크가 크게 달라질 수 있습니다.
 
 ## 핵심 구조
 
 - **전략 파일 계보**: `NostalgiaForInfinityX.py`부터 `X7`까지 여러 전략 변형을 저장소 루트에서 관리합니다.
 - **Freqtrade 통합**: Docker Compose, 설정 예시, 사용자 데이터 디렉터리, 테스트 스크립트를 함께 제공합니다.
-- **자동 업데이트**: Docker 사용자는 `nfi-updater` 사이드카로 전략, 블랙리스트, pairlist 변경을 주기적으로 따라갈 수 있습니다.
-- **보호 장치 중심 변경**: 최신 릴리스 로그는 다수의 signal에 protection을 추가하는 식의 리스크 제어 변경이 자주 등장합니다.
+- **자동 업데이트**: Docker 사용자는 `nfi-updater` 사이드카로 전략, 블랙리스트, 페어리스트 변경을 주기적으로 따라갈 수 있습니다.
+- **보호 장치 중심 변경**: 최신 릴리스 로그는 다수의 signal에 <span class="term-hint"><span class="term-hint__label">프로텍션</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">연속 손실이나 과도한 재진입을 막기 위해 잠시 거래를 쉬게 하거나 진입을 제한하는 보호 규칙이야.</span></span>을 추가하는 식의 리스크 제어 변경이 자주 등장합니다.
 
 ## 이 페이지에서 보는 것
 
 아래 인터랙티브 쇼케이스는 GitHub 페이지와 공식 문서에서 확인한 공개 정보를 바탕으로 NFI를 운용 관점에서 재구성합니다. 전략 계보, 추천 설정, 보호 장치, 최근 릴리스 변화, 백테스트 체크리스트를 한 화면에서 비교할 수 있게 만들었습니다.
 
 실거래 신호를 추천하는 페이지가 아닙니다. 암호화폐 자동매매 전략은 시장 국면, 거래소 수수료, 슬리피지, 페어 구성, 설정 오버라이드에 따라 결과가 크게 달라지므로, 여기서는 프로젝트의 구조와 점검 포인트만 다룹니다.
-
-## 용어 가이드
-
-EMA
-: 지수이동평균. 최근 가격에 더 큰 가중치를 주는 이동평균으로, 추세 판단과 필터링에 자주 쓰입니다.
-
-Drawdown
-: 고점 대비 계좌 가치가 얼마나 내려갔는지를 보는 리스크 지표입니다. 자동매매에서는 수익률보다 먼저 확인해야 할 숫자입니다.
-
-Stoploss
-: 손실이 특정 수준을 넘으면 포지션을 닫는 방어 규칙입니다. 전략 신호가 틀렸을 때 손실을 제한하는 마지막 장치로 쓰입니다.
-
-Pairlist
-: 봇이 거래 대상으로 삼는 코인 페어 목록입니다. NFI는 너무 좁거나 레버리지 토큰이 섞인 목록을 피하라고 안내합니다.
-
-Protection
-: Freqtrade에서 cooldown, max drawdown 같은 조건으로 과도한 재진입이나 연속 손실을 막는 보호 로직입니다.

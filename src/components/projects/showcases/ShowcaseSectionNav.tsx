@@ -117,24 +117,34 @@ const navCss = `
     .showcase-section-nav {
         position: sticky;
         top: 72px;
-        grid-column: 1;
+        grid-column: 1 / -1;
         grid-row: auto;
+        width: 100%;
+        max-width: 100%;
         flex-direction: row;
         overflow-x: auto;
         overscroll-behavior-x: contain;
         scroll-snap-type: x proximity;
     }
     .showcase-section-nav button {
+        flex: 0 0 auto;
+        min-width: max-content;
         scroll-snap-align: start;
     }
 }
 @media (max-width: 640px) {
     .showcase-section-nav {
+        gap: 6px;
+        padding: 6px;
         margin-right: -4px;
         margin-left: -4px;
     }
     .showcase-section-nav button {
-        min-height: 52px;
+        min-height: 48px;
+        padding: 8px 9px;
+    }
+    .showcase-section-nav em {
+        display: none;
     }
 }
 `;

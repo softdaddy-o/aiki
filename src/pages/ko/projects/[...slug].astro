@@ -34,8 +34,6 @@ const {
     stars,
     license,
     showcaseComponent,
-    version,
-    contentStatus,
     factCheck,
 } = entry.data;
 const categoryLabel = categoryLabels[category] ?? category;
@@ -48,7 +46,6 @@ function formatStars(value: number): string {
     }
     return String(value);
 }
-
 ---
 
 <BaseLayout title={title} description={summary} ogImage={`/og/projects/${entry.data.slug}.png`}>
@@ -65,21 +62,21 @@ function formatStars(value: number): string {
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                     </span>
                     <div>
-                        <p class="model-card-kicker">Project Card</p>
+                        <p class="model-card-kicker">프로젝트 카드</p>
                         <h2>GitHub 기본 정보</h2>
                     </div>
                 </div>
                 <dl class="model-card-grid">
                     <div>
-                        <dt>Repository</dt>
+                        <dt>저장소</dt>
                         <dd>{repoPath}</dd>
                     </div>
                     <div>
-                        <dt>Stars</dt>
+                        <dt>스타</dt>
                         <dd>{formatStars(stars)}</dd>
                     </div>
                     <div>
-                        <dt>License</dt>
+                        <dt>라이선스</dt>
                         <dd>{license}</dd>
                     </div>
                 </dl>
@@ -94,12 +91,12 @@ function formatStars(value: number): string {
         </div>
 
         {showcaseComponent === 'yfinance' && (
-            <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
+            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
-                        <p>Interactive Showcase</p>
-                        <h2>yfinance로 실제로 열어볼 수 있는 데이터</h2>
-                        <span>아래 플로팅 버튼을 눌러 시장 샘플, 배치 다운로드, 검색/스크리너, 종목 딥다이브, API 커버리지를 오가며 볼 수 있어.</span>
+                        <p>인터랙티브 쇼케이스</p>
+                        <h2>yfinance로 바로 훑어보는 시장 데이터 흐름</h2>
+                        <span>시장 샘플, 묶음 조회, 검색 탐색, 종목 상세, 확인한 API 범위를 한 화면에서 이어서 볼 수 있어.</span>
                     </header>
                     <YfinanceShowcase client:load slug={entry.data.slug} />
                 </div>
@@ -107,10 +104,10 @@ function formatStars(value: number): string {
         )}
 
         {showcaseComponent === 'nfi' && (
-            <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
+            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
-                        <p>Interactive Showcase</p>
+                        <p>인터랙티브 쇼케이스</p>
                         <h2>NostalgiaForInfinity 운용 구조를 한 화면에서 보기</h2>
                         <span>전략 계보, 권장 설정, 보호 장치, 백테스트 체크리스트를 공개 문서 기준으로 정리했어.</span>
                     </header>
@@ -120,10 +117,10 @@ function formatStars(value: number): string {
         )}
 
         {showcaseComponent === 'nautilus-trader' && (
-            <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
+            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
-                        <p>Interactive Showcase</p>
+                        <p>인터랙티브 쇼케이스</p>
                         <h2>NautilusTrader 아키텍처와 거래소 연동을 한 화면에서 보기</h2>
                         <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했어.</span>
                     </header>
@@ -143,7 +140,7 @@ function formatStars(value: number): string {
         )}
 
         <footer class="project-footer">
-            <a href="/ko/projects/" class="back-link">&larr; AI 프로젝트 쇼케이스</a>
+            <a href="/ko/projects/" class="back-link">&larr; AI 프로젝트 리스트</a>
         </footer>
     </article>
 </BaseLayout>
@@ -175,7 +172,6 @@ function formatStars(value: number): string {
         font-weight: 700;
     }
 
-
     .project-title {
         margin-bottom: 8px;
         font-size: var(--text-4xl);
@@ -198,12 +194,9 @@ function formatStars(value: number): string {
     .tag-pill {
         padding: 3px 9px;
         border-radius: 5px;
-        font-size: 12px;
-    }
-
-    .tag-pill {
         background: var(--color-surface-alt);
         color: var(--color-text-muted);
+        font-size: 12px;
     }
 
     .model-card {
@@ -312,6 +305,67 @@ function formatStars(value: number): string {
         margin-bottom: 0;
     }
 
+    .project-page :global(.term-hint) {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        vertical-align: baseline;
+        white-space: normal;
+    }
+
+    .project-page :global(.term-hint__label) {
+        color: var(--color-projects);
+        font-weight: 700;
+    }
+
+    .project-page :global(.term-hint__button) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        border: 1px solid color-mix(in srgb, var(--color-projects) 44%, transparent);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-projects) 12%, transparent);
+        color: var(--color-projects);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1;
+        cursor: help;
+    }
+
+    .project-page :global(.term-hint__tooltip) {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 10px);
+        z-index: 12;
+        width: min(280px, calc(100vw - 48px));
+        padding: 10px 12px;
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--color-surface) 96%, #000 4%);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+        color: var(--color-text);
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.55;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(4px);
+        transition:
+            opacity 140ms ease,
+            transform 140ms ease;
+    }
+
+    .project-page :global(.term-hint:hover .term-hint__tooltip),
+    .project-page :global(.term-hint:focus-within .term-hint__tooltip) {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .showcase-area {
         margin-right: calc(-50vw + 50%);
         margin-left: calc(-50vw + 50%);
@@ -369,7 +423,6 @@ function formatStars(value: number): string {
         line-height: 1.65;
     }
 
-
     .project-footer {
         margin-top: 40px;
         padding-top: 20px;
@@ -385,6 +438,14 @@ function formatStars(value: number): string {
 
     .back-link:hover {
         text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+        .showcase-frame {
+            grid-template-columns: 1fr;
+            gap: 14px;
+            padding-top: 32px;
+        }
     }
 
     @media (max-width: 640px) {
@@ -425,6 +486,5 @@ function formatStars(value: number): string {
         .showcase-intro span {
             font-size: var(--text-base);
         }
-
     }
 </style>

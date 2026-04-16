@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface NautilusShowcaseProps {
@@ -81,6 +82,28 @@ const SECTIONS = [
 ];
 
 const SECTION_PREFIX = 'nt-section-';
+const TEXT_LABELS: Record<string, string> = {
+    'GitHub repository and official website': 'GitHub 저장소와 공식 웹사이트 기준 정리',
+    'curated project data': '큐레이션한 프로젝트 데이터',
+    'Production-grade Rust-native trading engine with deterministic event-driven architecture': '결정론적 이벤트 흐름을 중심으로 설계한 Rust 기반 트레이딩 엔진이야.',
+    active: '연결됨',
+    Spot: '현물',
+    Futures: '선물',
+    Perpetuals: '무기한 선물',
+    Options: '옵션',
+    Equities: '주식',
+    Stocks: '주식',
+    Traditional: '전통 선물',
+    Derivatives: '파생상품',
+    FX: '외환',
+    Sports: '스포츠 베팅',
+    '5M+ rows/sec': '초당 500만 행 이상',
+    Beta: '베타',
+    'Research-to-Live Parity': '리서치와 실거래 코드 일치',
+    'Deterministic Execution': '결정론적 실행',
+    'Modular Architecture': '모듈형 아키텍처',
+    'Type Safety': '타입 안정성',
+};
 
 export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
     const [data, setData] = useState<NautilusData | null>(null);
@@ -111,9 +134,9 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
     const repoStats = useMemo(() => {
         const repo = data?.repo || {};
         return [
-            ['Stars', repo.stars],
-            ['Forks', repo.forks],
-            ['Watchers', repo.watchers],
+            ['스타', repo.stars],
+            ['포크', repo.forks],
+            ['워처', repo.watchers],
         ];
     }, [data]);
 
@@ -125,20 +148,20 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
             <ShowcaseSectionNav items={SECTIONS} activeId={activeSection} onSelect={scrollToSection} />
 
             <div className="nt-showcase-main">
-                <section className="nt-hero" aria-label="NautilusTrader repository summary">
+                <section className="nt-hero" aria-label="NautilusTrader 저장소 요약">
                     <div className="nt-hero-copy">
-                        <p className="nt-kicker">Algorithmic Trading Engine</p>
+                        <p className="nt-kicker">멀티에셋 트레이딩 엔진</p>
                         <h2>{data.repo?.name || 'NautilusTrader'}</h2>
-                        <p>{data.repo?.description || ''}</p>
+                        <p>{localizeText(data.repo?.description || '')}</p>
                         <div className="nt-link-row">
                             {data.repo?.githubUrl && <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>}
-                            {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">Docs</a>}
+                            {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>}
                         </div>
                     </div>
                     <div className="nt-repo-card">
                         <div className="nt-release">
-                            <span>Latest release</span>
-                            <strong>{data.repo?.latestRelease || 'N/A'}</strong>
+                            <span>최신 릴리스</span>
+                            <strong>{data.repo?.latestRelease || '없음'}</strong>
                             <em>{formatDate(data.repo?.latestReleaseDate)}</em>
                         </div>
                         <div className="nt-stat-grid">
@@ -173,7 +196,7 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
                     <QuickstartSection data={data} />
                 </section>
 
-                <p className="nt-source">Source: {data.source || 'curated project data'} · Generated {formatDate(data.generatedAt)}</p>
+                <p className="nt-source">출처: {localizeText(data.source || 'curated project data')} · 생성일 {formatDate(data.generatedAt)}</p>
             </div>
         </Shell>
     );
@@ -182,7 +205,10 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
 function ArchitectureSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="이벤트 드리븐 아키텍처" description="NautilusTrader를 이루는 핵심 컴포넌트들이야.">
+            <Panel
+                title="이벤트 드리븐 아키텍처"
+                description={<>시장 이벤트가 들어오면 순서대로 처리하는 <TermHint term="이벤트 드리븐" description="가격 변화, 주문 체결, 타이머 같은 사건이 생길 때마다 다음 동작을 이어 붙이는 설계 방식이야." /> 구조를 한눈에 본다.</>}
+            >
                 <div className="nt-arch-grid">
                     {(data.architecture || []).map((comp, index) => (
                         <article className="nt-arch-card" key={comp.name}>
@@ -190,7 +216,7 @@ function ArchitectureSection({ data }: { data: NautilusData }) {
                                 <span className="nt-arch-index">{String(index + 1).padStart(2, '0')}</span>
                                 <div>
                                     <h3>{comp.name}</h3>
-                                    <span className="nt-role-badge">{comp.role}</span>
+                                    <span className="nt-role-badge">{localizeText(comp.role)}</span>
                                 </div>
                             </div>
                             <p>{comp.description}</p>
@@ -198,11 +224,14 @@ function ArchitectureSection({ data }: { data: NautilusData }) {
                     ))}
                 </div>
             </Panel>
-            <Panel title="설계 원칙" description="아키텍처를 관통하는 핵심 설계 철학이야.">
+            <Panel
+                title="설계 원칙"
+                description={<>백테스트와 실거래를 같은 코드로 이어 주는 <TermHint term="결정론적 실행" description="입력이 같으면 이벤트 순서와 결과도 같게 유지해서, 테스트 결과를 실거래와 최대한 비슷하게 맞추는 방식이야." /> 중심 설계야.</>}
+            >
                 <div className="nt-principle-grid">
                     {(data.designPrinciples || []).map((p) => (
                         <article className="nt-principle" key={p.name}>
-                            <h3>{p.name}</h3>
+                            <h3>{localizeText(p.name)}</h3>
                             <p>{p.description}</p>
                         </article>
                     ))}
@@ -215,13 +244,16 @@ function ArchitectureSection({ data }: { data: NautilusData }) {
 function AssetsSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="지원 자산 클래스" description="단일 인터페이스로 여러 자산군을 한데 다룰 수 있어.">
+            <Panel
+                title="지원 자산 클래스"
+                description={<>하나의 엔진으로 여러 자산을 묶어 다루는 <TermHint term="멀티에셋" description="주식, 선물, 옵션처럼 성격이 다른 자산을 같은 시스템 안에서 함께 운용하는 뜻이야." /> 구성이야.</>}
+            >
                 <div className="nt-asset-grid">
                     {(data.assetClasses || []).map((asset) => (
                         <article className="nt-asset-card" key={asset.name}>
-                            <h3>{asset.name}</h3>
+                            <h3>{localizeText(asset.name)}</h3>
                             <div className="nt-chip-row">
-                                {asset.types.map((t) => <span key={t}>{t}</span>)}
+                                {asset.types.map((t) => <span key={t}>{localizeText(t)}</span>)}
                             </div>
                             <p>{asset.features}</p>
                         </article>
@@ -237,16 +269,19 @@ function VenuesSection({ data }: { data: NautilusData }) {
     const otherVenues = (data.venues || []).filter((v) => v.type !== 'crypto');
     return (
         <div className="nt-section">
-            <Panel title="암호화폐 거래소" description="바로 연결 가능한 암호화폐 거래소들이야.">
+            <Panel
+                title="암호화폐 거래소"
+                description={<>공식으로 제공하는 거래소 <TermHint term="어댑터" description="거래소마다 다른 주문 API와 데이터 형식을 NautilusTrader 방식으로 맞춰 주는 연결 모듈이야." />를 묶어 보여줘.</>}
+            >
                 <div className="nt-venue-grid">
                     {cryptoVenues.map((venue) => (
                         <article className="nt-venue-card" key={venue.name}>
                             <div className="nt-venue-head">
                                 <h3>{venue.name}</h3>
-                                <span className={`nt-status ${venue.status}`}>{venue.status}</span>
+                                <span className={`nt-status ${venue.status}`}>{localizeText(venue.status)}</span>
                             </div>
                             <div className="nt-chip-row">
-                                {venue.assets.map((a) => <span key={a}>{a}</span>)}
+                                {venue.assets.map((a) => <span key={a}>{localizeText(a)}</span>)}
                             </div>
                         </article>
                     ))}
@@ -258,10 +293,10 @@ function VenuesSection({ data }: { data: NautilusData }) {
                         <article className="nt-venue-card" key={venue.name}>
                             <div className="nt-venue-head">
                                 <h3>{venue.name}</h3>
-                                <span className={`nt-status ${venue.status}`}>{venue.status}</span>
+                                <span className={`nt-status ${venue.status}`}>{localizeText(venue.status)}</span>
                             </div>
                             <div className="nt-chip-row">
-                                {venue.assets.map((a) => <span key={a}>{a}</span>)}
+                                {venue.assets.map((a) => <span key={a}>{localizeText(a)}</span>)}
                             </div>
                         </article>
                     ))}
@@ -286,12 +321,15 @@ function VenuesSection({ data }: { data: NautilusData }) {
 function PerformanceSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="성능 프로파일" description="공식 문서에서 발표한 성능 지표들이야.">
+            <Panel
+                title="성능 프로파일"
+                description={<>시간을 매우 잘게 쪼개는 <TermHint term="나노초 해상도" description="1초를 10억 개로 나눈 수준까지 이벤트 시점을 기록하는 뜻이야. 빠른 체결 순서를 재현할 때 중요해." />와 대용량 처리 성능을 같이 본다.</>}
+            >
                 <div className="nt-perf-grid">
                     {(data.performance || []).map((m) => (
                         <article className="nt-perf-card" key={m.metric}>
                             <span>{m.metric}</span>
-                            <strong>{m.value}</strong>
+                            <strong>{localizeText(m.value)}</strong>
                             <p>{m.note}</p>
                         </article>
                     ))}
@@ -316,7 +354,10 @@ function PerformanceSection({ data }: { data: NautilusData }) {
 function QuickstartSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="시작하기" description="설치에서 첫 백테스트까지의 스텝들이야.">
+            <Panel
+                title="시작하기"
+                description={<>설치부터 첫 <TermHint term="백테스트" description="과거 시장 데이터를 넣어서 전략이 예전에 어떻게 움직였을지 미리 돌려 보는 실험이야." />까지 가장 짧은 흐름만 추렸어.</>}
+            >
                 <div className="nt-qs-grid">
                     {(data.quickstart || []).map((item, index) => (
                         <article className="nt-qs-card" key={item.step}>
@@ -341,7 +382,7 @@ function Shell({ children }: { children: ReactNode }) {
     );
 }
 
-function Panel({ title, description, children }: { title: string; description: string; children: ReactNode }) {
+function Panel({ title, description, children }: { title: string; description: ReactNode; children: ReactNode }) {
     return (
         <section className="nt-panel">
             <div className="nt-section-heading">
@@ -354,15 +395,20 @@ function Panel({ title, description, children }: { title: string; description: s
 }
 
 function formatCompact(value?: number): string {
-    if (value === undefined || Number.isNaN(Number(value))) return 'N/A';
+    if (value === undefined || Number.isNaN(Number(value))) return '없음';
     return new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 }).format(Number(value));
 }
 
 function formatDate(value?: string): string {
-    if (!value) return 'N/A';
+    if (!value) return '없음';
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return value;
     return date.toLocaleDateString('ko-KR', { dateStyle: 'medium' });
+}
+
+function localizeText(value?: string): string {
+    if (!value) return '';
+    return TEXT_LABELS[value] || value;
 }
 
 const showcaseCss = `

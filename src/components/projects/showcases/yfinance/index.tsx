@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface YfinanceShowcaseProps {
@@ -58,14 +59,130 @@ interface MarketData {
 }
 
 const SECTION_LABELS = [
-    { id: 'universes', label: 'Markets', description: '지역·자산군 샘플' },
-    { id: 'batch', label: 'Batch', description: '여러 종목 다운로드' },
-    { id: 'discovery', label: 'Discovery', description: '검색·스크리너' },
-    { id: 'deep-dives', label: 'Deep Dives', description: '종목별 상세 표면' },
-    { id: 'coverage', label: 'Coverage', description: '테스트한 API 범위' },
+    { id: 'universes', label: '시장 샘플', description: '지역별 자산군 샘플' },
+    { id: 'batch', label: '묶음 조회', description: '여러 종목을 한 번에 확인' },
+    { id: 'discovery', label: '검색 탐색', description: '검색과 스크리너 흐름' },
+    { id: 'deep-dives', label: '종목 상세', description: '티커별 상세 화면' },
+    { id: 'coverage', label: '기능 범위', description: '확인한 API 범위' },
 ] as const;
 
 const SECTION_PREFIX = 'yf-section-';
+const COLUMN_LABELS: Record<string, string> = {
+    date: '날짜',
+    value: '값',
+    symbol: '심볼',
+    shortName: '이름',
+    exchange: '거래소',
+    type: '유형',
+    venue: '시장',
+    name: '이름',
+    price: '가격',
+    changePercent: '등락률',
+    marketState: '시장 상태',
+    sector: '섹터',
+    industry: '산업',
+    country: '국가',
+    website: '웹사이트',
+    lineItem: '항목',
+    current: '현재가',
+    mean: '평균 목표가',
+    publisher: '제공처',
+    link: '링크',
+    rating: '평가',
+    'market weight': '비중',
+    companies_count: '기업 수',
+    market_cap: '시가총액',
+    'ytd return': '연초 대비 수익률',
+    'growth estimate': '성장 추정치',
+    'last price': '최근 가격',
+    'target price': '목표가',
+    'Earnings Date': '실적 발표 예정일',
+    stock: '주식',
+    etf: 'ETF',
+    currency: '통화',
+    index: '지수',
+};
+
+const TEXT_LABELS: Record<string, string> = {
+    demo: '데모',
+    unknown: '알 수 없음',
+    'Bundled sample data': '빌드에 함께 넣은 데모 데이터',
+    'Demo mode keeps the page renderable without installing yfinance.': 'yfinance를 설치하지 않아도 화면을 확인할 수 있게 데모 데이터로 구성했어.',
+    'Live mode generates a richer payload using the same schema.': '라이브 모드에서는 같은 구조로 더 풍부한 실제 데이터를 채워 넣어.',
+    'Bundled demo payload.': '데모 데이터로 미리 채운 샘플 결과야.',
+    'Korea Market': '한국 시장',
+    'Bundled Korea market sample data.': '한국 시장 샘플 데이터를 묶어서 보여줘.',
+    'US Equities': '미국 주식',
+    'Bundled U.S. market sample data.': '미국 주식 샘플 데이터를 묶어서 보여줘.',
+    Crypto: '암호화폐',
+    'Bundled crypto sample data.': '암호화폐 샘플 데이터를 묶어서 보여줘.',
+    'Korea large-cap': '한국 대형주 검색 샘플',
+    'Samsung preview headline': '삼성전자 샘플 헤드라인',
+    'Most Actives': '거래 활발 종목',
+    'Demo screener payload.': '스크리너 데모 결과야.',
+    'Demo market payload.': '시장 개요 데모 결과야.',
+    US: '미국',
+    ASIA: '아시아',
+    Technology: '기술',
+    Semiconductors: '반도체',
+    'Demo sector payload.': '섹터 데모 설명이야.',
+    'Demo industry payload.': '산업 데모 설명이야.',
+    'Strong Buy': '강력 매수',
+    'US Equity Deep Dive': '미국 주식 상세 보기',
+    'US equity': '미국 주식',
+    'Korea Equity Deep Dive': '한국 주식 상세 보기',
+    'Korea equity': '한국 주식',
+    'Consumer Electronics': '소비자 전자',
+    'United States': '미국',
+    'South Korea': '대한민국',
+    'Apple sample headline': '애플 샘플 헤드라인',
+    'Not applicable for this asset type.': '이 자산 유형에는 해당하지 않는 항목이야.',
+    'No options chain in bundled demo mode.': '데모 모드에는 옵션 체인 샘플이 들어 있지 않아.',
+    CLOSED: '마감',
+    closed: '마감',
+    ok: '확인됨',
+    warn: '주의',
+    bad: '제한',
+    UNKNOWN: '유형 미확인',
+    EQUITY: '주식',
+    CRYPTOCURRENCY: '암호화폐',
+    Search: '검색',
+    Lookup: '조회',
+    screen: '스크리너',
+    Sector: '섹터',
+    Industry: '산업',
+    Market: '시장',
+    'Ticker.info': 'Ticker.info 기본 정보',
+    'Ticker.fast_info': 'Ticker.fast_info 빠른 요약',
+    'Ticker.history': 'Ticker.history 가격 이력',
+    'Tickers batch container': 'Tickers 묶음 컨테이너',
+    download: 'download 일괄 다운로드',
+    'Ticker.calendar': 'Ticker.calendar 일정 정보',
+    'Ticker.earnings_dates': 'Ticker.earnings_dates 실적 일정',
+    'Ticker.recommendations': 'Ticker.recommendations 리서치 의견',
+    'Ticker.analyst_price_targets': 'Ticker.analyst_price_targets 목표가',
+    'Ticker.income_stmt': 'Ticker.income_stmt 손익계산서',
+    'Ticker.balance_sheet': 'Ticker.balance_sheet 대차대조표',
+    'Ticker.cashflow': 'Ticker.cashflow 현금흐름표',
+    'Ticker.major_holders': 'Ticker.major_holders 주요 보유자',
+    'Ticker.institutional_holders': 'Ticker.institutional_holders 기관 보유',
+    'Ticker.mutualfund_holders': 'Ticker.mutualfund_holders 펀드 보유',
+    'Ticker.insider_transactions': 'Ticker.insider_transactions 내부자 거래',
+    'Ticker.insider_purchases': 'Ticker.insider_purchases 내부자 매수',
+    'Ticker.insider_roster_holders': 'Ticker.insider_roster_holders 내부자 명단',
+    'Ticker.upgrades_downgrades': 'Ticker.upgrades_downgrades 투자의견 변경',
+    'Ticker.sec_filings': 'Ticker.sec_filings 공시 문서',
+    'Ticker.news': 'Ticker.news 뉴스 목록',
+    'Ticker.options + option_chain': 'Ticker.options + option_chain 옵션 체인',
+    'Ticker.funds_data': 'Ticker.funds_data 펀드 데이터',
+    'WebSocket class availability': 'WebSocket 클래스 제공 여부',
+    'AsyncWebSocket class availability': 'AsyncWebSocket 클래스 제공 여부',
+    most_actives: '거래 활발 종목',
+    technology: '기술',
+    semiconductors: '반도체',
+    EUROPE: '유럽',
+    'Samsung Electronics': '삼성전자',
+};
 
 export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
     const [data, setData] = useState<MarketData | null>(null);
@@ -100,10 +217,10 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
     const stats = useMemo(() => {
         const summary = data?.summaryStats || {};
         return [
-            ['Feature Tests', summary.featureTests],
-            ['Market Groups', summary.marketGroups],
-            ['Instruments', summary.instrumentCount],
-            ['Deep Dives', summary.deepDives],
+            ['확인한 기능', summary.featureTests],
+            ['시장 묶음', summary.marketGroups],
+            ['샘플 종목', summary.instrumentCount],
+            ['상세 종목', summary.deepDives],
         ];
     }, [data]);
 
@@ -132,7 +249,7 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
             />
 
             <div className="yf-showcase-main">
-                <section className="yf-header" aria-label="yfinance generated data summary">
+                <section className="yf-header" aria-label="yfinance 생성 데이터 요약">
                     <div className="yf-stat-grid">
                         {stats.map(([label, value]) => (
                             <div className="yf-stat" key={label}>
@@ -142,19 +259,19 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                         ))}
                     </div>
                     <div className="yf-meta">
-                        <span>Mode: <strong>{data.mode || 'unknown'}</strong></span>
-                        <span>Generated: {formatDate(data.generatedAt)}</span>
-                        <span>yfinance {data.libraryVersion || 'unknown'}</span>
+                        <span>모드: <strong>{localizeText(data.mode || 'unknown')}</strong></span>
+                        <span>생성 시각: {formatDate(data.generatedAt)}</span>
+                        <span>yfinance {localizeText(data.libraryVersion || 'unknown')}</span>
                     </div>
                     {data.notes && data.notes.length > 0 && (
                         <div className="yf-notes">
-                            {data.notes.map((note) => <p key={note}>{note}</p>)}
+                            {data.notes.map((note) => <p key={note}>{localizeText(note)}</p>)}
                         </div>
                     )}
                 </section>
 
                 <div className="yf-current-section" aria-live="polite">
-                    <span>Now viewing</span>
+                    <span>지금 보는 구역</span>
                     <strong>{SECTION_LABELS.find((item) => item.id === activeSection)?.label}</strong>
                     <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
                 </div>
@@ -231,13 +348,13 @@ function ShowcaseSectionLead({ index, title, description }: { index: number; tit
 }
 
 function UniversesSection({ groups }: { groups: MarketUniverse[] }) {
-    if (!groups.length) return <EmptyBox label="No market universe data." />;
+    if (!groups.length) return <EmptyBox label="시장 샘플 데이터가 아직 없어." />;
 
     return (
         <div className="yf-stack">
             {groups.map((group) => (
                 <section className="yf-panel" key={group.id}>
-                    <SectionHeading title={group.title} description={group.description} />
+                    <SectionHeading title={localizeText(group.title)} description={localizeText(group.description)} />
                     <div className="yf-quote-grid">
                         {(group.quotes || []).map((quote) => <QuoteCard quote={quote} key={quote.symbol} />)}
                     </div>
@@ -253,15 +370,21 @@ function BatchSection({ batch, bulk }: { batch?: MarketData['batchQuotes']; bulk
     return (
         <div className="yf-stack">
             <section className="yf-panel">
-                <SectionHeading title="Batch Quotes" description={(batch?.symbols || []).join(', ')} />
+                <SectionHeading
+                    title="묶음 시세"
+                    description={<>여러 <TermHint term="티커" description="종목이나 자산을 구분하는 짧은 코드야. 주식 심볼이나 코인 페어 이름을 떠올리면 돼." />를 한 번에 내려받은 결과야.</>}
+                />
                 <div className="yf-quote-grid">
                     {(batch?.quotes || []).map((quote) => <QuoteCard quote={quote} key={quote.symbol} />)}
                 </div>
-                {!(batch?.quotes || []).length && <EmptyBox label="No batch quote data." />}
+                {!(batch?.quotes || []).length && <EmptyBox label="묶음 시세 데이터가 아직 없어." />}
             </section>
             <section className="yf-panel">
-                <SectionHeading title="Bulk Download Matrix" description={(bulk?.symbols || []).join(', ')} />
-                <DataTable rows={bulkRows} emptyLabel="No bulk download data." />
+                <SectionHeading
+                    title="일괄 다운로드 표"
+                    description={<>여러 종목을 같은 날짜 축으로 묶어 비교하는 표야.</>}
+                />
+                <DataTable rows={bulkRows} emptyLabel="일괄 다운로드 데이터가 아직 없어." />
             </section>
         </div>
     );
@@ -284,59 +407,68 @@ function DiscoverySection({
     return (
         <div className="yf-stack">
             <section className="yf-panel">
-                <SectionHeading title="Search And Lookup" description="Yahoo Finance search and lookup surfaces." />
+                <SectionHeading
+                    title="검색과 조회"
+                    description={<>Yahoo Finance에서 종목을 찾고 비슷한 결과를 좁혀 가는 흐름이야.</>}
+                />
                 <div className="yf-info-grid">
                     {searchLabs.map((lab) => (
                         <article className="yf-info" key={String(lab.query)}>
-                            <h4>{String(lab.query || 'Search')}</h4>
-                            <p className="yf-muted">{String(lab.label || '')}</p>
-                            <DataTable rows={(lab.topResults as RecordValue[]) || []} emptyLabel="No search results." />
+                            <h4>{String(lab.query || '검색')}</h4>
+                            <p className="yf-muted">{localizeText(String(lab.label || ''))}</p>
+                            <DataTable rows={(lab.topResults as RecordValue[]) || []} emptyLabel="검색 결과가 아직 없어." />
                         </article>
                     ))}
                 </div>
             </section>
 
             <section className="yf-panel">
-                <SectionHeading title="Screeners" description="Predefined yfinance screeners sampled at build time." />
+                <SectionHeading
+                    title="스크리너"
+                    description={<>미리 정한 조건으로 종목을 추려 주는 <TermHint term="스크리너" description="가격, 거래량, 업종 같은 조건을 넣어 관심 종목 후보를 자동으로 좁혀 주는 필터야." /> 결과야.</>}
+                />
                 <div className="yf-info-grid">
                     {screeners.map((item) => (
                         <article className="yf-info" key={String(item.name)}>
-                            <h4>{String(item.title || item.name || 'Screener')}</h4>
-                            <p className="yf-muted">{String(item.description || '')}</p>
-                            <DataTable rows={(item.quotes as RecordValue[]) || []} emptyLabel="No screener rows." />
+                            <h4>{localizeText(String(item.title || item.name || '스크리너'))}</h4>
+                            <p className="yf-muted">{localizeText(String(item.description || ''))}</p>
+                            <DataTable rows={(item.quotes as RecordValue[]) || []} emptyLabel="스크리너 결과가 아직 없어." />
                         </article>
                     ))}
                 </div>
             </section>
 
             <section className="yf-panel">
-                <SectionHeading title="Market Overviews" description="Regional market snapshots." />
+                <SectionHeading title="시장 개요" description="지역별 시장 상태를 짧게 훑어보는 구역이야." />
                 <div className="yf-info-grid">
                     {markets.map((market) => (
                         <article className="yf-info" key={String(market.code)}>
                             <div className="yf-info-head">
-                                <h4>{String(market.code || 'Market')}</h4>
+                                <h4>{localizeText(String(market.code || '시장'))}</h4>
                                 <StatusPill status={String(market.status || 'unknown')} />
                             </div>
-                            <p className="yf-muted">{String(market.message || '')}</p>
-                            <DataTable rows={(market.entries as RecordValue[]) || []} emptyLabel="No market rows." />
+                            <p className="yf-muted">{localizeText(String(market.message || ''))}</p>
+                            <DataTable rows={(market.entries as RecordValue[]) || []} emptyLabel="시장 개요 데이터가 아직 없어." />
                         </article>
                     ))}
                 </div>
             </section>
 
             <section className="yf-panel">
-                <SectionHeading title="Sector And Industry" description="Technology sector and semiconductor industry samples." />
+                <SectionHeading
+                    title="섹터와 산업"
+                    description={<>기업을 큰 주제별로 나눈 <TermHint term="섹터" description="기술, 금융처럼 넓은 산업 묶음을 뜻해. 종목 성격을 빠르게 파악할 때 자주 쓰는 분류야." />와 더 좁은 산업 분류를 같이 보여줘.</>}
+                />
                 <div className="yf-info-grid two">
                     <article className="yf-info">
-                        <h4>{String(sector.name || 'Sector')}</h4>
-                        <p className="yf-muted">{String((sector.overview as RecordValue | undefined)?.description || '')}</p>
-                        <DataTable rows={(sector.topCompanies as RecordValue[]) || []} emptyLabel="No sector company rows." />
+                        <h4>{localizeText(String(sector.name || '섹터'))}</h4>
+                        <p className="yf-muted">{localizeText(String((sector.overview as RecordValue | undefined)?.description || ''))}</p>
+                        <DataTable rows={(sector.topCompanies as RecordValue[]) || []} emptyLabel="섹터 대표 종목 데이터가 아직 없어." />
                     </article>
                     <article className="yf-info">
-                        <h4>{String(industry.name || 'Industry')}</h4>
-                        <p className="yf-muted">{String((industry.overview as RecordValue | undefined)?.description || '')}</p>
-                        <DataTable rows={(industry.topCompanies as RecordValue[]) || []} emptyLabel="No industry company rows." />
+                        <h4>{localizeText(String(industry.name || '산업'))}</h4>
+                        <p className="yf-muted">{localizeText(String((industry.overview as RecordValue | undefined)?.description || ''))}</p>
+                        <DataTable rows={(industry.topCompanies as RecordValue[]) || []} emptyLabel="산업 대표 종목 데이터가 아직 없어." />
                     </article>
                 </div>
             </section>
@@ -345,7 +477,7 @@ function DiscoverySection({
 }
 
 function DeepDivesSection({ dives }: { dives: Array<RecordValue & { symbol?: string; title?: string; assetType?: string; quote?: Quote }> }) {
-    if (!dives.length) return <EmptyBox label="No deep dive data." />;
+    if (!dives.length) return <EmptyBox label="종목 상세 데이터가 아직 없어." />;
 
     return (
         <div className="yf-stack">
@@ -357,23 +489,23 @@ function DeepDivesSection({ dives }: { dives: Array<RecordValue & { symbol?: str
                     <details className="yf-detail" open={index === 0} key={String(dive.symbol)}>
                         <summary>
                             <span>
-                                <strong>{String(dive.symbol || 'Ticker')}</strong>
-                                <em>{String(dive.title || dive.assetType || '')}</em>
+                                <strong>{String(dive.symbol || '티커')}</strong>
+                                <em>{localizeText(String(dive.title || dive.assetType || ''))}</em>
                             </span>
                             <span>{formatNumber(dive.quote?.price, dive.quote?.currency)}</span>
                         </summary>
                         <div className="yf-detail-body">
                             {dive.quote && <QuoteCard quote={dive.quote} />}
-                            <InfoBlock title="Highlights" rows={[dive.highlights as RecordValue]} />
-                            <InfoBlock title="Price History" rows={(dive.historyRows as RecordValue[]) || []} />
-                            <InfoBlock title="Income Statement" rows={(financials.incomeStatement as RecordValue[]) || []} />
-                            <InfoBlock title="Balance Sheet" rows={(financials.balanceSheet as RecordValue[]) || []} />
-                            <InfoBlock title="Cashflow" rows={(financials.cashflow as RecordValue[]) || []} />
-                            <InfoBlock title="Research" rows={(research.earningsDates as RecordValue[]) || []} />
-                            <InfoBlock title="Analyst Targets" rows={[research.analystTargets as RecordValue]} />
-                            <InfoBlock title="Ownership" rows={(ownership.institutionalHolders as RecordValue[]) || []} />
-                            <InfoBlock title="Filings" rows={(dive.filings as RecordValue[]) || []} />
-                            <InfoBlock title="News" rows={(dive.news as RecordValue[]) || []} />
+                            <InfoBlock title="핵심 정보" rows={[dive.highlights as RecordValue]} />
+                            <InfoBlock title="가격 이력" rows={(dive.historyRows as RecordValue[]) || []} />
+                            <InfoBlock title="손익계산서" rows={(financials.incomeStatement as RecordValue[]) || []} />
+                            <InfoBlock title="대차대조표" rows={(financials.balanceSheet as RecordValue[]) || []} />
+                            <InfoBlock title="현금흐름표" rows={(financials.cashflow as RecordValue[]) || []} />
+                            <InfoBlock title="리서치 일정" rows={(research.earningsDates as RecordValue[]) || []} />
+                            <InfoBlock title="애널리스트 목표가" rows={[research.analystTargets as RecordValue]} />
+                            <InfoBlock title="기관 보유" rows={(ownership.institutionalHolders as RecordValue[]) || []} />
+                            <InfoBlock title="공시" rows={(dive.filings as RecordValue[]) || []} />
+                            <InfoBlock title="뉴스" rows={(dive.news as RecordValue[]) || []} />
                         </div>
                     </details>
                 );
@@ -383,18 +515,18 @@ function DeepDivesSection({ dives }: { dives: Array<RecordValue & { symbol?: str
 }
 
 function CoverageSection({ features }: { features: Array<{ feature?: string; sample?: string; status?: string; note?: string }> }) {
-    if (!features.length) return <EmptyBox label="No feature coverage data." />;
+    if (!features.length) return <EmptyBox label="기능 확인 데이터가 아직 없어." />;
 
     return (
         <div className="yf-coverage-grid">
             {features.map((feature) => (
                 <article className="yf-coverage" key={`${feature.feature}-${feature.sample}`}>
                     <div className="yf-info-head">
-                        <h4>{feature.feature}</h4>
+                        <h4>{localizeText(feature.feature)}</h4>
                         <StatusPill status={feature.status || 'unknown'} />
                     </div>
-                    <p className="yf-muted">Sample: {feature.sample}</p>
-                    <p>{feature.note}</p>
+                    <p className="yf-muted">샘플: {localizeText(feature.sample)}</p>
+                    <p>{localizeText(feature.note)}</p>
                 </article>
             ))}
         </div>
@@ -405,12 +537,12 @@ function InfoBlock({ title, rows }: { title: string; rows: RecordValue[] }) {
     return (
         <section className="yf-info">
             <h4>{title}</h4>
-            <DataTable rows={rows} emptyLabel={`No ${title.toLowerCase()} data.`} />
+            <DataTable rows={rows} emptyLabel={`${title} 데이터가 아직 없어.`} />
         </section>
     );
 }
 
-function SectionHeading({ title, description }: { title: string; description?: string }) {
+function SectionHeading({ title, description }: { title: string; description?: ReactNode }) {
     return (
         <div className="yf-section-heading">
             <h3>{title}</h3>
@@ -428,7 +560,7 @@ function QuoteCard({ quote }: { quote: Quote }) {
                 <div>
                     <p className="yf-symbol">{quote.symbol}</p>
                     <h4>{quote.name || quote.symbol}</h4>
-                    <p className="yf-muted">{quote.assetType || 'UNKNOWN'} · {quote.exchange || 'N/A'}</p>
+                    <p className="yf-muted">{formatAssetTypeLabel(quote.assetType)} · {quote.exchange || '없음'}</p>
                 </div>
                 <span className={positive ? 'yf-change positive' : 'yf-change negative'}>
                     {formatPercent(quote.changePercent)}
@@ -437,10 +569,10 @@ function QuoteCard({ quote }: { quote: Quote }) {
             <p className="yf-price">{formatNumber(quote.price, quote.currency)}</p>
             <Sparkline values={quote.history || []} positive={positive} />
             <dl className="yf-mini-stats">
-                <div><dt>Prev</dt><dd>{formatNumber(quote.previousClose, quote.currency)}</dd></div>
-                <div><dt>Day</dt><dd>{formatRange(quote.dayLow, quote.dayHigh, quote.currency)}</dd></div>
-                <div><dt>52w</dt><dd>{formatRange(quote.fiftyTwoWeekLow, quote.fiftyTwoWeekHigh, quote.currency)}</dd></div>
-                <div><dt>Mkt Cap</dt><dd>{formatCompact(quote.marketCap)}</dd></div>
+                <div><dt>전일 종가</dt><dd>{formatNumber(quote.previousClose, quote.currency)}</dd></div>
+                <div><dt>당일 범위</dt><dd>{formatRange(quote.dayLow, quote.dayHigh, quote.currency)}</dd></div>
+                <div><dt>52주 범위</dt><dd>{formatRange(quote.fiftyTwoWeekLow, quote.fiftyTwoWeekHigh, quote.currency)}</dd></div>
+                <div><dt><TermHint term="시가총액" description="회사 전체 가치를 주가 기준으로 계산한 값이야. 규모를 비교할 때 가장 자주 보는 숫자 중 하나야." /></dt><dd>{formatCompact(quote.marketCap)}</dd></div>
             </dl>
         </article>
     );
@@ -465,7 +597,7 @@ function Sparkline({ values, positive }: { values: number[]; positive: boolean }
         .join(' ');
 
     return (
-        <svg className="yf-sparkline" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" role="img" aria-label="Price history">
+        <svg className="yf-sparkline" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" role="img" aria-label="가격 이력">
             <polyline points={points} className={positive ? 'positive' : 'negative'} />
         </svg>
     );
@@ -480,7 +612,7 @@ function DataTable({ rows, emptyLabel }: { rows: RecordValue[]; emptyLabel: stri
         <div className="yf-table-wrap">
             <table className="yf-table">
                 <thead>
-                    <tr>{columns.map((column) => <th key={column}>{column}</th>)}</tr>
+                    <tr>{columns.map((column) => <th key={column}>{COLUMN_LABELS[column] || column}</th>)}</tr>
                 </thead>
                 <tbody>
                     {cleanedRows.slice(0, 8).map((row, rowIndex) => (
@@ -505,19 +637,19 @@ function StatusPill({ status }: { status: string }) {
         : normalized === 'warn'
             ? 'warn'
             : 'bad';
-    return <span className={`yf-status ${className}`}>{status}</span>;
+    return <span className={`yf-status ${className}`}>{formatStatusLabel(status)}</span>;
 }
 
 function cellText(value: unknown): string {
-    if (value === null || value === undefined) return 'N/A';
+    if (value === null || value === undefined) return '없음';
     if (Array.isArray(value)) return value.map(cellText).join(', ');
     if (typeof value === 'object') return JSON.stringify(value);
     if (typeof value === 'number') return Math.abs(value) >= 100000 ? formatCompact(value) : formatNumber(value);
-    return String(value);
+    return localizeText(String(value));
 }
 
 function formatNumber(value?: number | null, currency?: string): string {
-    if (value === null || value === undefined || Number.isNaN(value)) return 'N/A';
+    if (value === null || value === undefined || Number.isNaN(value)) return '없음';
     try {
         if (currency) {
             return new Intl.NumberFormat('en-US', {
@@ -533,7 +665,7 @@ function formatNumber(value?: number | null, currency?: string): string {
 }
 
 function formatCompact(value?: number | null): string {
-    if (value === null || value === undefined || Number.isNaN(Number(value))) return 'N/A';
+    if (value === null || value === undefined || Number.isNaN(Number(value))) return '없음';
     return new Intl.NumberFormat('en-US', {
         notation: 'compact',
         maximumFractionDigits: 2,
@@ -541,7 +673,7 @@ function formatCompact(value?: number | null): string {
 }
 
 function formatPercent(value?: number | null): string {
-    if (value === null || value === undefined || Number.isNaN(value)) return 'N/A';
+    if (value === null || value === undefined || Number.isNaN(value)) return '없음';
     const sign = value > 0 ? '+' : '';
     return `${sign}${value.toFixed(2)}%`;
 }
@@ -551,10 +683,23 @@ function formatRange(low?: number | null, high?: number | null, currency?: strin
 }
 
 function formatDate(value?: string): string {
-    if (!value) return 'N/A';
+    if (!value) return '없음';
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return value;
     return date.toLocaleString('ko-KR', { dateStyle: 'medium', timeStyle: 'short' });
+}
+
+function localizeText(value?: string): string {
+    if (!value) return '';
+    return TEXT_LABELS[value] || value;
+}
+
+function formatStatusLabel(status?: string): string {
+    return localizeText(status || 'unknown');
+}
+
+function formatAssetTypeLabel(assetType?: string): string {
+    return localizeText(assetType || 'UNKNOWN');
 }
 
 const showcaseCss = `

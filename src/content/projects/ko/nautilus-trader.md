@@ -55,9 +55,9 @@ factCheck:
 
 ## NautilusTrader란?
 
-NautilusTrader는 Rust로 작성된 고성능 코어와 Python API를 결합한 오픈소스 알고리즘 트레이딩 엔진이야. 백테스트에서 라이브 트레이딩까지 동일한 전략 코드를 그대로 쓸 수 있는 결정론적 이벤트 드리븐 아키텍처가 핵심이야.
+NautilusTrader는 Rust로 작성된 고성능 코어와 Python API를 결합한 오픈소스 알고리즘 트레이딩 엔진이야. 백테스트에서 라이브 트레이딩까지 동일한 전략 코드를 그대로 쓸 수 있는 <span class="term-hint"><span class="term-hint__label">결정론적</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">같은 입력을 넣으면 같은 순서와 같은 결과가 나오도록 만드는 성질이야. 테스트 결과를 믿을 수 있게 해 주는 핵심 전제야.</span></span> <span class="term-hint"><span class="term-hint__label">이벤트 드리븐</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">가격 변화, 주문 체결, 타이머 같은 사건이 생길 때마다 다음 동작이 이어지는 설계 방식이야.</span></span> 아키텍처가 핵심이야.
 
-단순한 백테스트 라이브러리가 아니라, 나노초 단위 시간 해상도와 멀티에셋·멀티베뉴 지원을 갖춘 프로덕션 수준의 트레이딩 플랫폼이야.
+단순한 백테스트 라이브러리가 아니라, <span class="term-hint"><span class="term-hint__label">나노초 단위 시간 해상도</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">1초를 10억 개로 나눈 수준까지 이벤트 시점을 기록하는 뜻이야. 빠른 체결 순서를 재현할 때 중요해.</span></span>와 <span class="term-hint"><span class="term-hint__label">멀티에셋·멀티베뉴</span><button class="term-hint__button" type="button" aria-label="용어 설명 보기">?</button><span class="term-hint__tooltip">주식, 선물, 암호화폐 같은 여러 자산과 여러 거래소를 하나의 시스템 안에서 함께 다루는 구조야.</span></span> 지원을 갖춘 프로덕션 수준의 트레이딩 플랫폼이야.
 
 ## 뭘 해볼 수 있나
 
