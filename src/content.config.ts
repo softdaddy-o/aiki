@@ -27,6 +27,13 @@ const modelProfileSchema = z.object({
     vendor: z.string(),
 });
 
+const reviewStampSchema = z.object({
+    panelVersion: z.string(),
+    agentVersions: z.record(z.string(), z.string()).default({}),
+    panelVerdict: z.enum(['pass', 'revise', 'fail']),
+    reviewedAt: z.string(),
+});
+
 const news = defineCollection({
     loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
     schema: z.object({
@@ -49,6 +56,7 @@ const news = defineCollection({
             common: z.string(),
             news: z.string(),
         }).optional(),
+        reviewStamp: reviewStampSchema.optional(),
     }),
 });
 
@@ -75,6 +83,7 @@ const wiki = defineCollection({
             common: z.string(),
             wiki: z.string(),
         }).optional(),
+        reviewStamp: reviewStampSchema.optional(),
     }),
 });
 
@@ -98,6 +107,11 @@ const projects = defineCollection({
         date: z.string(),
         edition: z.string().default('ai'),
         factCheck: factCheckSchema.optional(),
+        guideVersion: z.object({
+            common: z.string(),
+            projects: z.string(),
+        }).optional(),
+        reviewStamp: reviewStampSchema.optional(),
     }),
 });
 

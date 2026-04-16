@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["term", "title", "summary", "readerValue", "sections", "factCheckChecks"],
+  "properties": {
+    "term": { "type": "string" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "readerValue": { "type": "string" },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "sections": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["heading", "body"],
+        "properties": {
+          "heading": { "type": "string" },
+          "body": { "type": "string" }
+        }
+      }
+    },
+    "factCheckChecks": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["type", "result", "summary", "items"],
+        "properties": {
+          "type": { "enum": ["source_match", "web_cross_check", "number_verify", "adversarial"] },
+          "result": { "enum": ["pass", "fail", "skip"] },
+          "sources": {},
+          "summary": { "type": "string" },
+          "items": { "type": "array", "items": { "type": "string" } },
+          "findings": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

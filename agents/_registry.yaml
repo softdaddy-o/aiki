@@ -1,0 +1,87 @@
+version: 3.0.0
+
+panels:
+  wiki-review:
+    version: "1.0.0"
+    description: "AIKI wiki content v3 editorial review panel"
+    agents:
+      - beginner-editor
+      - fact-checker
+      - skeptical-critic
+      - tone-editor
+      - structure-editor
+    execution: parallel
+    verdictRule: all_pass
+    outputSchema: schemas/panel-result.json
+
+  news-review:
+    version: "1.0.0"
+    description: "AIKI news content review panel"
+    agents:
+      - beginner-editor
+      - fact-checker
+      - skeptical-critic
+      - tone-editor
+      - structure-editor
+    execution: parallel
+    verdictRule: all_pass
+    outputSchema: schemas/panel-result.json
+
+  project-review:
+    version: "1.0.0"
+    description: "AIKI project content review panel"
+    agents:
+      - beginner-editor
+      - fact-checker
+      - skeptical-critic
+      - tone-editor
+      - structure-editor
+    execution: parallel
+    verdictRule: all_pass
+    outputSchema: schemas/panel-result.json
+
+pipelines:
+  wiki-writer:
+    description: "AIKI wiki content generation"
+    agents:
+      - wiki-writer
+      - fact-check-writer
+    execution: sequential
+
+agents:
+  beginner-editor:
+    path: review/beginner-editor.md
+    category: review
+  fact-checker:
+    path: review/fact-checker.md
+    category: review
+  skeptical-critic:
+    path: review/skeptical-critic.md
+    category: review
+  tone-editor:
+    path: review/tone-editor.md
+    category: review
+  structure-editor:
+    path: review/structure-editor.md
+    category: review
+  wiki-writer:
+    path: pipeline/wiki-writer.md
+    category: pipeline
+  tone-converter:
+    path: pipeline/tone-converter.md
+    category: pipeline
+  reader-value-builder:
+    path: pipeline/reader-value-builder.md
+    category: pipeline
+  fact-check-writer:
+    path: pipeline/fact-check-writer.md
+    category: pipeline
+  content-evaluator:
+    path: ops/content-evaluator.md
+    category: ops
+  seo-optimizer:
+    path: ops/seo-optimizer.md
+    category: ops
+  technical-explainer:
+    path: ops/technical-explainer.md
+    category: ops

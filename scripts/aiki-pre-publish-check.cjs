@@ -41,6 +41,11 @@ const CONTENT_TARGETS = [
         dir: path.join(REPO_ROOT, 'src/content/wiki/ko'),
         requiredFields: ['term', 'title', 'lang', 'category', 'summary', 'readerValue'],
     },
+    {
+        name: 'projects',
+        dir: path.join(REPO_ROOT, 'src/content/projects/ko'),
+        requiredFields: ['title', 'slug', 'lang', 'category', 'summary', 'readerValue', 'githubUrl'],
+    },
 ];
 
 const VALUELESS_PATTERNS = [
@@ -238,13 +243,13 @@ const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : 
 const checkAll = args.includes('--all');
 
 function parseFrontmatter(content) {
-    const match = content.match(/^---\n([\s\S]*?)\n---/);
+    const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!match) return null;
     return yaml.load(match[1], { schema: yaml.FAILSAFE_SCHEMA }) || null;
 }
 
 function extractBody(content) {
-    const match = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
+    const match = content.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?([\s\S]*)$/);
     return match ? match[1] : '';
 }
 
@@ -859,6 +864,129 @@ function validateModelProfileTone(frontmatter) {
         .map((result) => `modelProfile tone fail [${result.id}] ${result.name}`);
 }
 
+function toFinding(source, severity, rule, message) {
+    return { source, severity, rule, message };
+}
+
+function collectFileFindings(filepath, contentType) {
+    if (!fs.existsSync(filepath)) return [];
+
+    const normalizedPath = path.normalize(filepath);
+    const target = CONTENT_TARGETS.find((entry) => (
+        contentType ? entry.name === contentType : normalizedPath.startsWith(path.normalize(entry.dir))
+    ));
+    const targetName = target ? target.name : (contentType || 'wiki');
+    const filename = path.basename(filepath);
+    const content = fs.readFileSync(filepath, 'utf8');
+    const fm = parseFrontmatter(content);
+    const findings = [];
+
+    if (!fm) {
+        return [toFinding('pre-publish', 'fail', 'frontmatter-parse', `${targetName}/${filename}: frontmatter parse failed`)];
+    }
+
+    const isDraft = fm.draft === true;
+    const isBackfill = fm.backfilled === true;
+    const body = extractBody(content);
+    const signalText = `${String(fm.title || '').toLowerCase()} ${String(fm.summary || '').toLowerCase()} ${body.toLowerCase()}`;
+    const sourceUrl = String(fm.sourceUrl || '').toLowerCase();
+    const filenameDate = extractDateFromFilename(filename);
+    const fmDate = extractFrontmatterDate(fm.date);
+    const normalizedTitle = normalizeComparableText(fm.title);
+    const normalizedSummary = normalizeComparableText(fm.summary);
+    const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
+    const toneTargetText = [String(fm.summary || '').trim(), String(body || '').trim()]
+        .filter(Boolean)
+        .join('\n\n');
+    const toneResults = getToneResults(toneTargetText);
+
+    const push = (severity, rule, message) => findings.push(toFinding('pre-publish', severity, rule, `${targetName}/${filename}: ${message}`));
+
+    for (const field of (target && target.requiredFields) || []) {
+        if (!fm[field]) push('fail', 'required-field', `missing required field "${field}"`);
+    }
+
+    const brokenFieldSamples = [
+        ['title', fm.title],
+        ['summary', fm.summary],
+        ['readerValue', fm.readerValue],
+        ['sourceTitle', fm.sourceTitle],
+        ['body', body],
+    ];
+
+    for (const [fieldName, fieldValue] of brokenFieldSamples) {
+        if (containsBrokenCopy(fieldValue)) push('fail', 'broken-copy', `${fieldName} contains broken or mojibake text`);
+        if (containsBlockedSourceText(fieldValue)) push('fail', 'blocked-source', `${fieldName} contains blocked-page or verification text`);
+    }
+
+    if (FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(String(fm.readerValue || '')))) {
+        push('fail', 'forbidden-reader-value-copy', 'readerValue uses forbidden copy phrasing');
+    }
+
+    if (targetName === 'news' && isRedditMediaUrl(fm.sourceUrl) && findPostByUrl(fm.sourceUrl)) {
+        push('fail', 'reddit-media-source', 'reddit media URL used as sourceUrl; use the scraper postUrl instead');
+    }
+
+    if (!isDraft && targetName === 'news') {
+        const fcStatus = fm.factCheck && fm.factCheck.status;
+        if (!fcStatus || fcStatus === 'pending') push('fail', 'factcheck-status', 'factCheck.status missing or pending');
+        if (fm.score === undefined || fm.score === null || fm.score === 0 || fm.score === '') push('fail', 'score-missing', 'missing publishable score');
+        if (fm.score && fm.score < 40) push('warn', 'low-score', `low score ${fm.score} (recommended 40+)`);
+        if (isClearlyOffTopic(signalText, sourceUrl)) push('fail', 'off-topic', 'appears off-topic for AIKI scope');
+    }
+
+    if (!isDraft && targetName !== 'projects') {
+        for (const failure of validateFactCheckDetails(targetName, fm)) push('fail', 'factcheck-details', failure);
+        for (const failure of validateFactCheckTone(fm)) push('fail', 'factcheck-tone', failure);
+    }
+
+    if (!isBackfill && filenameDate && fmDate && filenameDate !== fmDate) {
+        push('fail', 'date-mismatch', `filename date ${filenameDate} does not match frontmatter date ${fmDate}`);
+    }
+
+    if (!isBackfill && fm.date) {
+        const articleDate = fm.date.substring(0, 10);
+        if (articleDate > getTodayString()) push('warn', 'future-date', `future date ${articleDate}`);
+    }
+
+    if (!isDraft && normalizedTitle && normalizedTitle === normalizedSummary) push('fail', 'title-summary-duplicate', 'title matches summary exactly');
+    if (!isDraft && normalizedTitle && normalizedTitle === normalizedFirstSentence) push('fail', 'title-first-sentence-duplicate', 'title matches first sentence exactly');
+    if (!isDraft && targetName === 'news' && isBadNewsTitle(fm, filename, body)) push('fail', 'news-title-copy', 'title still looks like copied source copy');
+    if (!isDraft && targetName === 'news' && isBadNewsReaderValue(fm)) push('fail', 'news-reader-value-copy', 'readerValue still uses template or copied source phrasing');
+
+    if (!isDraft && targetName === 'wiki' && hasGenericWikiModelCopy(fm, body)) push('fail', 'generic-model-copy', 'model page still uses generic template copy');
+    if (!isDraft && targetName === 'wiki' && hasModelTypeContradiction(fm, body)) push('fail', 'model-type-contradiction', 'model copy contradicts modelType');
+    if (!isDraft && targetName === 'wiki' && hasWeakModelSpecificity(fm, body)) push('fail', 'weak-model-specificity', 'model page lacks vendor or operating-detail specificity');
+    if (!isDraft && bodyContainsValuelessTemplate(body)) push('fail', 'valueless-template', 'body still contains low-value template phrasing');
+    if (!isDraft && !hasMeaningfulBody(targetName, body)) push('fail', 'thin-body', 'body is too thin to be useful');
+    if (!isDraft && !hasReaderValue(fm, body)) push('fail', 'reader-value-missing', 'missing explicit reader outcome');
+    if (!isDraft && targetName === 'wiki' && hasAwkwardForeignReaderValue(fm)) push('fail', 'awkward-reader-value', 'readerValue uses awkward foreign-title particle pattern');
+    if (!isDraft && targetName === 'wiki' && hasKnownBrokenWikiGrammar(`${String(fm.summary || '')}\n${String(fm.readerValue || '')}\n${body}`)) push('fail', 'broken-wiki-grammar', 'contains known broken wiki grammar pattern');
+    if (!isDraft && targetName === 'wiki' && hasRepeatedAdjacentWord(`${String(fm.summary || '')}\n${body}`)) push('fail', 'repeated-adjacent-word', 'contains repeated adjacent words');
+    if (!isDraft && targetName === 'wiki' && hasFormalWikiSummaryEnding(String(fm.summary || ''))) push('fail', 'formal-wiki-summary', 'wiki summary still ends in formal report tone');
+    if (!isDraft && STIFF_TONE_PATTERNS.some((pattern) => pattern.test(toneTargetText))) push('fail', 'stiff-tone', 'body still contains stiff legacy tone phrasing');
+
+    if (!isDraft && targetName === 'wiki') {
+        for (const failure of validateModelProfileTone(fm)) push('fail', 'model-profile-tone', failure);
+        for (const failure of validateWikiTone(fm, body)) push('fail', 'wiki-tone', failure);
+        for (const failure of validateWikiStructure(fm, body)) push('fail', 'wiki-structure', failure);
+    }
+
+    if (!isDraft && toneResults.length > 0) {
+        for (const result of toneResults) {
+            findings.push(toFinding(
+                'pre-publish',
+                result.severity === 'FAIL' ? 'fail' : 'warn',
+                `tone-${result.id}`,
+                `${targetName}/${filename}: tone ${result.severity.toLowerCase()} [${result.id}] ${result.name} - ${result.msg}`,
+            ));
+        }
+    }
+
+    return findings;
+}
+
+function runCli() {
 const changedFiles = getChangedFiles();
 const today = getTodayString();
 const errors = [];
@@ -949,7 +1077,7 @@ for (const target of CONTENT_TARGETS) {
             }
         }
 
-        if (!isDraft) {
+        if (!isDraft && target.name !== 'projects') {
             for (const failure of validateFactCheckDetails(target.name, fm)) {
                 const message = `${target.name}/${filename}: ${failure}`;
                 if (checkAll) warnings.push(message);
@@ -1130,3 +1258,12 @@ if (errors.length === 0 && warnings.length === 0) {
 
 console.log('');
 process.exit(errors.length > 0 ? 1 : 0);
+}
+
+if (require.main === module) {
+    runCli();
+}
+
+module.exports = {
+    collectFileFindings,
+};

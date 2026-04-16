@@ -1,0 +1,44 @@
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+
+const { collectFindings } = require('../scripts/lib/script-findings.cjs');
+
+describe('script-findings', () => {
+    it('returns an empty array for missing files', () => {
+        const missing = path.join(os.tmpdir(), `aiki-missing-${Date.now()}.md`);
+        assert.deepStrictEqual(collectFindings(missing, 'wiki'), []);
+    });
+
+    it('collects pre-publish findings for a malformed wiki file', () => {
+        const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aiki-findings-'));
+        const file = path.join(dir, 'thin.md');
+
+        fs.writeFileSync(file, [
+            '---',
+            'term: thin',
+            'title: Thin',
+            'lang: ko',
+            'category: concept',
+            'summary: Thin',
+            'readerValue: x',
+            '---',
+            '',
+            'Too short.',
+            '',
+        ].join('\n'), 'utf8');
+
+        try {
+            const findings = collectFindings(file, 'wiki');
+            assert.ok(Array.isArray(findings));
+            assert.ok(findings.length > 0);
+            assert.ok(findings.every((finding) => finding.source));
+            assert.ok(findings.every((finding) => finding.severity));
+            assert.ok(findings.every((finding) => finding.message));
+        } finally {
+            fs.rmSync(dir, { recursive: true, force: true });
+        }
+    });
+});

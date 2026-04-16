@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["term", "contentType", "frontmatter", "body"],
+  "properties": {
+    "term": { "type": "string" },
+    "contentType": { "enum": ["wiki", "news", "projects"] },
+    "frontmatter": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "readerValue": { "type": "string" },
+        "slug": { "type": "string" },
+        "category": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "githubUrl": { "type": "string" },
+        "showcaseComponent": { "type": "string" },
+        "modelType": { "type": "string" },
+        "parentModel": { "type": "string" },
+        "relatedTerms": { "type": "array", "items": { "type": "string" } },
+        "factCheck": { "type": "object" }
+      }
+    },
+    "body": { "type": "string" },
+    "catalogMeta": {
+      "type": "object",
+      "properties": {
+        "adversarialRisk": { "type": "string" },
+        "userProblem": { "type": "string" },
+        "decisionAxis": { "type": "string" },
+        "relatedHints": { "type": "object" }
+      }
+    },
+    "internalLinkCandidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": { "type": "string" },
+          "title": { "type": "string" },
+          "aliases": { "type": "array", "items": { "type": "string" } },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "scriptFindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "severity", "message"],
+        "properties": {
+          "source": { "enum": ["pre-publish", "quality-scoring"] },
+          "rule": { "type": "string" },
+          "severity": { "enum": ["fail", "warn"] },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}

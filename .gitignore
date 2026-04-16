@@ -9,3 +9,4 @@ public/og/news-fallback/
 
 # Local LLM rewrite batch inputs/outputs
 .tmp/
+data/review-batch/

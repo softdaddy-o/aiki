@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["role", "verdict", "score", "findings"],
+  "properties": {
+    "role": {
+      "enum": ["beginner_editor", "fact_checker", "skeptical_critic", "tone_editor", "structure_editor"]
+    },
+    "verdict": { "enum": ["pass", "fail", "warn"] },
+    "score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "findings": { "type": "array", "items": { "type": "string" } },
+    "mustFix": { "type": "array", "items": { "type": "string" } },
+    "niceToHave": { "type": "array", "items": { "type": "string" } }
+  }
+}
