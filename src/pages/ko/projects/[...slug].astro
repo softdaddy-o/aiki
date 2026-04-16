@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import YfinanceShowcase from '../../../components/projects/showcases/yfinance/index.tsx';
 import NfiShowcase from '../../../components/projects/showcases/nfi/index.tsx';
+import NautilusShowcase from '../../../components/projects/showcases/nautilus-trader/index.tsx';
 
 const categoryLabels: Record<string, string> = {
     library: '라이브러리',
@@ -134,6 +135,19 @@ function formatStars(value: number): string {
                         <span>전략 계보, 권장 설정, 보호 장치, 백테스트 체크리스트를 공개 문서 기준으로 정리했습니다.</span>
                     </header>
                     <NfiShowcase client:load slug={entry.data.slug} />
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'nautilus-trader' && (
+            <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
+                <div class="showcase-frame">
+                    <header class="showcase-intro">
+                        <p>Interactive Showcase</p>
+                        <h2>NautilusTrader 아키텍처와 거래소 연동을 한 화면에서 보기</h2>
+                        <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했습니다.</span>
+                    </header>
+                    <NautilusShowcase client:load slug={entry.data.slug} />
                 </div>
             </section>
         )}

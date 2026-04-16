@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-04-16T00:00:00Z",
+  "mode": "curated",
+  "source": "GitHub repository and official website",
+  "repo": {
+    "name": "nautechsystems/nautilus_trader",
+    "description": "Production-grade Rust-native trading engine with deterministic event-driven architecture",
+    "githubUrl": "https://github.com/nautechsystems/nautilus_trader",
+    "docsUrl": "https://nautilustrader.io",
+    "stars": 21983,
+    "forks": 2659,
+    "watchers": 184,
+    "license": "LGPL-3.0",
+    "primaryLanguage": "Rust",
+    "secondaryLanguage": "Python",
+    "latestRelease": "v1.225.0",
+    "latestReleaseDate": "2026-04-06"
+  },
+  "architecture": [
+    { "name": "Clock", "role": "시간 관리", "description": "나노초 해상도의 시뮬레이션/라이브 시계를 제공하고 타이머 이벤트를 트리거합니다." },
+    { "name": "Cache", "role": "상태 저장소", "description": "주문, 포지션, 계좌, 시장 데이터 등 시스템 전체의 상태를 중앙에서 캐싱합니다." },
+    { "name": "MessageBus", "role": "이벤트 라우팅", "description": "컴포넌트 간 메시지를 비동기로 전달하는 pub/sub 버스입니다." },
+    { "name": "Portfolio", "role": "포트폴리오 관리", "description": "멀티베뉴, 멀티에셋 포지션과 잔고를 통합 추적합니다." },
+    { "name": "Actor", "role": "전략 기반 단위", "description": "데이터 소비, 이벤트 핸들링, 주문 제출의 기본 빌딩 블록입니다." },
+    { "name": "Strategy", "role": "트레이딩 로직", "description": "Actor를 확장해 진입/청산 시그널과 포지션 관리 로직을 구현합니다." }
+  ],
+  "assetClasses": [
+    { "name": "Crypto", "types": ["Spot", "Futures", "Perpetuals", "Options"], "features": "정규화된 심볼 정의, 펀딩레이트 지원" },
+    { "name": "Equities", "types": ["Stocks", "ETFs"], "features": "공매도 제한, 현금/마진 계좌, 라운드 랏" },
+    { "name": "Futures", "types": ["Traditional", "Crypto"], "features": "계약 활성화/만기 시뮬레이션" },
+    { "name": "Options", "types": ["Equity", "Crypto"], "features": "그릭스 계산, 시그널 생성" },
+    { "name": "FX", "types": ["Spot", "Derivatives"], "features": "멀티통화 지원" },
+    { "name": "Betting", "types": ["Sports"], "features": "Betfair 어댑터 연동" }
+  ],
+  "venues": [
+    { "name": "Binance", "type": "crypto", "status": "active", "assets": ["Spot", "Futures", "Perpetuals"] },
+    { "name": "Bybit", "type": "crypto", "status": "active", "assets": ["Spot", "Futures", "Perpetuals"] },
+    { "name": "OKX", "type": "crypto", "status": "active", "assets": ["Spot", "Futures"] },
+    { "name": "Kraken", "type": "crypto", "status": "active", "assets": ["Spot"] },
+    { "name": "Deribit", "type": "crypto", "status": "active", "assets": ["Options", "Futures"] },
+    { "name": "dYdX", "type": "crypto", "status": "active", "assets": ["Perpetuals"] },
+    { "name": "Hyperliquid", "type": "crypto", "status": "active", "assets": ["Perpetuals"] },
+    { "name": "BitMEX", "type": "crypto", "status": "active", "assets": ["Futures", "Perpetuals"] },
+    { "name": "Interactive Brokers", "type": "traditional", "status": "active", "assets": ["Equities", "Futures", "Options", "FX"] },
+    { "name": "Betfair", "type": "betting", "status": "active", "assets": ["Sports"] }
+  ],
+  "dataProviders": [
+    { "name": "Tardis", "description": "암호화폐 시장 데이터 히스토리 제공" },
+    { "name": "Deutsche Börse", "description": "유럽 거래소 시장 데이터 제공" }
+  ],
+  "performance": [
+    { "metric": "데이터 처리 속도", "value": "5M+ rows/sec", "note": "RAM 용량을 초과하는 데이터셋도 처리 가능" },
+    { "metric": "시간 해상도", "value": "나노초", "note": "이벤트 타이밍을 나노초 단위로 추적" },
+    { "metric": "코어 언어", "value": "Rust", "note": "메모리 안전성과 저지연 실행 보장" },
+    { "metric": "API 언어", "value": "Python", "note": "ML/AI 프레임워크와 자연스러운 통합" }
+  ],
+  "releaseTimeline": [
+    { "version": "v1.225.0", "date": "2026-04-06", "theme": "Beta", "details": "최신 베타 릴리스. API 개선과 버그 수정 포함." },
+    { "version": "v1.2xx", "date": "2026", "theme": "안정화", "details": "Rust 코어 마이그레이션 완료 후 안정화 단계 진행 중." },
+    { "version": "v1.x", "date": "2024-2025", "theme": "Rust 전환", "details": "Python/Cython 코어에서 Rust 네이티브로 대규모 전환." }
+  ],
+  "quickstart": [
+    { "step": "pip 설치", "command": "pip install -U nautilus_trader", "reason": "미리 빌드된 바이너리로 빠르게 설치할 수 있습니다." },
+    { "step": "환경 확인", "command": "python -c \"import nautilus_trader; print(nautilus_trader.__version__)\"", "reason": "설치와 버전을 확인합니다." },
+    { "step": "백테스트 실행", "command": "백테스트 예제 노트북 실행", "reason": "공식 문서의 Getting Started 가이드를 따릅니다." },
+    { "step": "어댑터 설정", "command": "거래소 API 키 설정", "reason": "라이브 트레이딩 연결을 위해 거래소별 어댑터를 구성합니다." }
+  ],
+  "designPrinciples": [
+    { "name": "Research-to-Live Parity", "description": "백테스트 코드를 수정 없이 라이브 환경에서 그대로 실행할 수 있습니다." },
+    { "name": "Deterministic Execution", "description": "동일한 입력에 대해 항상 같은 이벤트 순서와 결과를 보장합니다." },
+    { "name": "Modular Architecture", "description": "컴포넌트를 독립적으로 교체하거나 확장할 수 있습니다." },
+    { "name": "Type Safety", "description": "Rust의 타입 시스템으로 런타임 오류를 컴파일 타임에 방지합니다." }
+  ]
+}
