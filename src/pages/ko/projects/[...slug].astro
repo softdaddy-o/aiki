@@ -82,26 +82,6 @@ function formatStars(value: number): string {
                         <dt>License</dt>
                         <dd>{license}</dd>
                     </div>
-                    <div>
-                        <dt>Version</dt>
-                        <dd>{version}</dd>
-                    </div>
-                    <div>
-                        <dt>Status</dt>
-                        <dd><span class={`status-badge ${contentStatus}`}>{statusLabel}</span></dd>
-                    </div>
-                    <div>
-                        <dt>Category</dt>
-                        <dd>{categoryLabel}</dd>
-                    </div>
-                    <div>
-                        <dt>Data Surface</dt>
-                        <dd>Project repository and curated showcase data</dd>
-                    </div>
-                    <div>
-                        <dt>Affiliation</dt>
-                        <dd>Independent open source project; verify upstream docs before use</dd>
-                    </div>
                 </dl>
             </section>
             <div class="hero-tags">
@@ -165,6 +145,20 @@ function formatStars(value: number): string {
                         <span class={`factcheck-status ${factCheck.status}`}>{factCheck.status}</span>
                     </div>
                 </div>
+                <dl class="factcheck-page-meta">
+                    <div>
+                        <dt>Category</dt>
+                        <dd>{categoryLabel}</dd>
+                    </div>
+                    <div>
+                        <dt>Data Surface</dt>
+                        <dd>Project repository and curated showcase data</dd>
+                    </div>
+                    <div>
+                        <dt>Affiliation</dt>
+                        <dd>Independent open source project; verify upstream docs before use</dd>
+                    </div>
+                </dl>
                 <p class="factcheck-date">검증일: {factCheck.date}</p>
                 {factCheck.sources.length > 0 && (
                     <div class="factcheck-sources">
@@ -490,6 +484,35 @@ function formatStars(value: number): string {
         gap: 6px;
     }
 
+    .factcheck-page-meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 14px 0;
+    }
+
+    .factcheck-page-meta div {
+        min-width: 0;
+        padding: 10px;
+        border-radius: 7px;
+        background: var(--color-surface-alt);
+    }
+
+    .factcheck-page-meta dt {
+        margin-bottom: 5px;
+        color: var(--color-text-muted);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .factcheck-page-meta dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+        font-size: var(--text-sm);
+        font-weight: 750;
+    }
+
     .factcheck-date {
         margin: 10px 0;
         color: var(--color-text-muted);
@@ -565,7 +588,8 @@ function formatStars(value: number): string {
             font-size: var(--text-base);
         }
 
-        .model-card-grid {
+        .model-card-grid,
+        .factcheck-page-meta {
             grid-template-columns: 1fr;
         }
 
