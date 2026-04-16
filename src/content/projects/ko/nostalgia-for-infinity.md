@@ -29,21 +29,21 @@ factCheck:
     - type: "source_match"
       result: "pass"
       sources: 3
-      summary: "README, official docs, and release page were used for the current public draft."
+      summary: "현재 공개 초안은 README, 공식 문서, 최신 릴리스 페이지를 기준으로 맞춰뒀어."
       items:
         - "기준 버전: Projects showcase v2. 다른 세션에서 제작 중인 v3 기준 내용은 아직 반영하지 않았습니다."
         - "프로젝트 설명, 권장 설정, 문서 링크, 최신 릴리스 표기는 공개 GitHub/문서 페이지 기준입니다."
     - type: "web_cross_check"
       result: "pass"
       sources: 2
-      summary: "Repository README and documentation agree that NFI is a Freqtrade crypto bot strategy project."
+      summary: "README와 공식 문서를 대조해서 NFI를 Freqtrade용 크립토 전략 프로젝트로 설명해도 어긋나지 않는지 확인했어."
       items:
         - "공식 문서는 backtesting 데이터 다운로드와 실행 흐름을 별도 페이지에서 안내합니다."
         - "GitHub README는 5m timeframe, 6~12 open trades, 40~80 pairlist 권장을 명시합니다."
     - type: "number_verify"
       result: "pass"
       sources: 1
-      summary: "Public repository metrics were captured at draft creation time and should be refreshed before final status."
+      summary: "저장소 지표는 초안 작성 시점 기준으로 잡았고, 최종 확정 전에는 한 번 더 새로 확인해야 해."
       items:
         - "GitHub 표시값 기준 약 3.1k stars, 704 forks, 87 watchers, 21,757 commits로 기록했습니다."
         - "최신 릴리스는 v17.3.1079, 2026-04-09 공개로 기록했습니다."

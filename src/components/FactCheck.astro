@@ -21,95 +21,136 @@ interface Props {
     lang: string;
 }
 
-const { status, date, checks, sources } = Astro.props as Props;
-const statusIcon = status === 'passed' ? 'OK' : status === 'failed' ? 'FAIL' : 'PENDING';
+type Locale = 'ko' | 'en';
+
+const { status, date, checks, sources, lang } = Astro.props as Props;
+const locale: Locale = lang === 'ko' ? 'ko' : 'en';
+
+const copy = {
+    ko: {
+        title: '팩트 체크',
+        generated: '검증 생성',
+        generatedMethod: 'AI + 편집 검토',
+        status: '상태',
+        sourceCount: '검증 출처',
+        sources: '출처',
+        lastChecked: '마지막 검증',
+        reportIssue: '오류 제보',
+        expandAll: '전체 보기',
+        collapseAll: '전체 접기',
+        statuses: {
+            passed: '통과',
+            failed: '실패',
+            pending: '검토 중',
+        },
+        results: {
+            pass: '통과',
+            skip: '보류',
+            fail: '실패',
+        },
+        labels: {
+            source_match: '원문 대조',
+            web_cross_check: '교차 검증',
+            number_verify: '수치 검증',
+            adversarial: '비판 검토',
+        },
+        fallbackSummary: (check: Check) => {
+            if (check.type === 'source_match') return '본문 설명이 원문 출처와 같은 대상을 가리키는지 먼저 맞춰봤어.';
+            if (check.type === 'web_cross_check') return `관련 출처 ${check.sources ?? sources.length}건을 나란히 놓고 핵심 주장 충돌이 없는지 다시 봤어.`;
+            if (check.type === 'number_verify') return '숫자, 버전, 고유명칭처럼 틀리기 쉬운 항목만 따로 떼어 확인했어.';
+            if (check.type === 'adversarial') return '독자가 과하게 받아들일 수 있는 부분이 없는지 일부러 비판적으로 다시 읽었어.';
+            return '';
+        },
+    },
+    en: {
+        title: 'Fact Check',
+        generated: 'Verification',
+        generatedMethod: 'AI + editorial review',
+        status: 'Status',
+        sourceCount: 'Sources',
+        sources: 'Sources',
+        lastChecked: 'Last checked',
+        reportIssue: 'Report an issue',
+        expandAll: 'Expand all',
+        collapseAll: 'Collapse all',
+        statuses: {
+            passed: 'Passed',
+            failed: 'Failed',
+            pending: 'Pending',
+        },
+        results: {
+            pass: 'PASS',
+            skip: 'SKIP',
+            fail: 'FAIL',
+        },
+        labels: {
+            source_match: 'Source Match',
+            web_cross_check: 'Cross Verification',
+            number_verify: 'Number Verification',
+            adversarial: 'Adversarial Review',
+        },
+        fallbackSummary: (check: Check) => {
+            if (check.type === 'source_match') return 'The core description was compared against the primary source before publishing.';
+            if (check.type === 'web_cross_check') return `The main claim was cross-checked against ${check.sources ?? sources.length} public sources.`;
+            if (check.type === 'number_verify') return 'Numbers, versions, and named entities were verified separately.';
+            if (check.type === 'adversarial') return 'The copy was reread with a skeptical lens to catch overclaiming.';
+            return '';
+        },
+    },
+}[locale];
 
 function checkLabel(type: string) {
-    if (type === 'source_match') return '원문 대조';
-    if (type === 'web_cross_check') return '교차검증';
-    if (type === 'number_verify') return '숫자·명칭 검증';
-    if (type === 'adversarial') return '비판적 검증';
-    return type;
+    return copy.labels[type as keyof typeof copy.labels] ?? type;
 }
 
-function resultIcon(result: string) {
-    if (result === 'pass') return 'OK';
-    if (result === 'skip') return 'SKIP';
-    return 'FAIL';
+function resultLabel(result: string) {
+    return copy.results[result as keyof typeof copy.results] ?? result.toUpperCase();
 }
 
-function fallbackSummary(check: Check) {
-    if (check.type === 'source_match') return '이 글이 정말 같은 대상과 사건을 짚는지부터 먼저 확인해뒀어.';
-    if (check.type === 'web_cross_check') return `관련 출처 ${check.sources ?? sources.length}건을 나란히 놓고 설명 축이 어긋나지 않는지 비교해뒀어.`;
-    if (check.type === 'number_verify') return '헷갈리기 쉬운 숫자와 고유 명칭은 따로 검증해뒀어.';
-    if (check.type === 'adversarial') return '오해하기 쉬운 지점은 어디서 잘못 읽히는지까지 따로 분리해뒀어.';
-    return '';
+function statusLabel(value: string) {
+    return copy.statuses[value as keyof typeof copy.statuses] ?? value;
 }
 
-function fallbackItems(check: Check) {
-    if (check.items && check.items.length > 0) {
-        return check.items;
-    }
-
-    if (check.type === 'source_match') {
-        return sources.slice(0, 2).map((source) => `${source.title} (${source.url})`);
-    }
-
-    if (check.type === 'web_cross_check') {
-        return sources.map((source, index) => `비교 출처 ${index + 1}: ${source.title}`);
-    }
-
-    return [];
-}
-
-function normalizeFactCheckText(text: string) {
-    return String(text || '')
-        .replace(/\s+/g, ' ')
-        .replace(/한 번 더 다시 봤다/g, '한 번 더 확인해뒀어')
-        .replace(/한 번 더 봤다/g, '따로 검증해뒀어')
-        .replace(/다시 봤다/g, '비교해뒀어')
-        .replace(/맞춰봤다/g, '확인해뒀어')
-        .replace(/확인해봤다/g, '확인해뒀어')
-        .replace(/걸렀다/g, '걸러뒀어')
-        .replace(/봤다/g, '확인했어')
-        .replace(/해준다/g, '도움이 된다')
-        .replace(/판단하게 도움[이가] 된다/g, '판단하는 데 도움이 된다')
-        .replace(/읽게 도움[이가] 된다/g, '읽는 데 도움이 된다')
-        .replace(/구분하게 도움[이가] 된다/g, '구분하는 데 도움이 된다')
-        .replace(/잡게 도움[이가] 된다/g, '큰 흐름을 잡는 데 도움이 된다')
-        .replace(/나뉜다/g, '갈린다')
-        .replace(/정리해뒀다/g, '따로 정리해뒀어')
-        .trim();
+function cleanText(text?: string) {
+    return String(text || '').replace(/\s+/g, ' ').trim();
 }
 
 function uniqueStrings(values: string[]) {
     const seen = new Set<string>();
-    const result: string[] = [];
+    const normalizedValues: string[] = [];
 
     for (const value of values) {
-        const normalized = normalizeFactCheckText(value);
+        const normalized = cleanText(value);
         if (!normalized) continue;
-        const key = normalized.replace(/\s+/g, ' ').trim();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        result.push(normalized);
+        if (seen.has(normalized)) continue;
+        seen.add(normalized);
+        normalizedValues.push(normalized);
     }
 
-    return result;
+    return normalizedValues;
+}
+
+function fallbackItems(check: Check) {
+    if (Array.isArray(check.items) && check.items.length > 0) return check.items;
+    if (check.type === 'source_match') return sources.slice(0, 2).map((source) => source.title);
+    if (check.type === 'web_cross_check') return sources.map((source) => source.title);
+    return [];
 }
 
 const visibleChecks = checks
     .map((check) => {
-        const detailItems = uniqueStrings(fallbackItems(check));
-        const findingItems = uniqueStrings(Array.isArray(check.findings) ? check.findings : []);
-        const preview = normalizeFactCheckText(String(check.summary || fallbackSummary(check) || '').trim());
+        const preview = cleanText(check.summary || copy.fallbackSummary(check));
+        const detailItems = uniqueStrings(fallbackItems(check)).filter((item) => item !== preview);
+        const findingItems = uniqueStrings(Array.isArray(check.findings) ? check.findings : []).filter(
+            (item) => item !== preview && !detailItems.includes(item),
+        );
 
         return {
             ...check,
             label: checkLabel(check.type),
             preview,
-            detailItems: detailItems.filter((item) => item !== preview),
-            findingItems: findingItems.filter((item) => item !== preview && !detailItems.includes(item)),
+            detailItems,
+            findingItems,
         };
     })
     .filter((check) => check.preview || check.detailItems.length > 0 || check.findingItems.length > 0);
@@ -118,18 +159,20 @@ const visibleChecks = checks
 <section class="factcheck">
     <div class="fc-header">
         <div>
-            <div class="fc-title">팩트 체크</div>
-            <div class="fc-meta-inline">상태 {statusIcon} · {date} KST</div>
+            <div class="fc-title">{copy.title}</div>
+            <div class="fc-meta-inline">{statusLabel(status)} · {date} KST</div>
         </div>
         {visibleChecks.length > 0 && (
-            <button type="button" class="fc-expand-all" data-fc-toggle-all aria-expanded="false">전체 보기</button>
+            <button type="button" class="fc-expand-all" data-fc-toggle-all aria-expanded="false">
+                {copy.expandAll}
+            </button>
         )}
     </div>
 
     <div class="fc-body">
         <div class="fc-meta">
-            <span>검증 생성: AI + 수집 스크립트 · {date}</span>
-            <span>상태: {statusIcon}</span>
+            <span>{copy.generated}: {copy.generatedMethod} · {date}</span>
+            <span>{copy.status}: {statusLabel(status)}</span>
         </div>
 
         {visibleChecks.length > 0 && (
@@ -138,11 +181,16 @@ const visibleChecks = checks
                     <details class="fc-summary-card" data-fc-item>
                         <summary class="fc-summary-toggle">
                             <div class="fc-summary-head">
-                                <span class={check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail'}>
-                                    {resultIcon(check.result)}
+                                <span class:list={[
+                                    'fc-result-badge',
+                                    check.result === 'pass' ? 'check-pass' : check.result === 'skip' ? 'check-skip' : 'check-fail',
+                                ]}>
+                                    {resultLabel(check.result)}
                                 </span>
                                 <span class="fc-summary-title">{check.label}</span>
-                                {typeof check.sources === 'number' && <span class="check-detail">검토 출처 {check.sources}건</span>}
+                                {typeof check.sources === 'number' && (
+                                    <span class="check-detail">{copy.sourceCount} {check.sources}</span>
+                                )}
                             </div>
                             {check.preview && <div class="fc-summary-preview">{check.preview}</div>}
                         </summary>
@@ -169,15 +217,19 @@ const visibleChecks = checks
 
         {sources.length > 0 && (
             <div class="fc-sources-list">
-                출처: {sources.map((source, index) => (
-                    <>{index > 0 && ', '}<a href={source.url} target="_blank" rel="noopener noreferrer" data-link-kind="external">{source.title}</a></>
+                {copy.sources}:{' '}
+                {sources.map((source, index) => (
+                    <>
+                        {index > 0 && ', '}
+                        <a href={source.url} target="_blank" rel="noopener noreferrer" data-link-kind="external">{source.title}</a>
+                    </>
                 ))}
             </div>
         )}
 
         <div class="fc-footer">
-            마지막 검증 {date} KST ·
-            <a href="https://github.com/softdaddy-o/aiki/issues/new"> 오류 제보</a>
+            {copy.lastChecked} {date} KST ·
+            <a href="https://github.com/softdaddy-o/aiki/issues/new"> {copy.reportIssue}</a>
         </div>
     </div>
 </section>
@@ -187,7 +239,7 @@ const visibleChecks = checks
         margin-top: 40px;
         padding: 20px 24px;
         background: var(--color-surface);
-        border-radius: 10px;
+        border-radius: 12px;
         border: 1px solid var(--color-border);
         font-size: 13px;
     }
@@ -205,35 +257,31 @@ const visibleChecks = checks
         gap: 12px;
     }
     .fc-title {
-        font-size: 14px;
         margin-bottom: 4px;
+        font-size: 14px;
+        font-weight: 800;
     }
-    .fc-meta-inline {
+    .fc-meta-inline,
+    .fc-meta,
+    .check-detail,
+    .fc-summary-preview,
+    .fc-group-list,
+    .fc-sources-list,
+    .fc-footer {
         color: var(--color-text-muted);
+    }
+    .fc-meta-inline,
+    .fc-meta,
+    .check-detail,
+    .fc-summary-preview,
+    .fc-sources-list {
         font-size: 12px;
     }
     .fc-meta {
         display: flex;
         flex-direction: column;
         gap: 4px;
-        color: var(--color-text-muted);
         margin-bottom: 12px;
-        font-size: 12px;
-    }
-    .check-pass {
-        color: var(--color-pass);
-        font-weight: 700;
-    }
-    .check-fail {
-        color: var(--color-fail);
-        font-weight: 700;
-    }
-    .check-skip {
-        color: var(--color-text-muted);
-    }
-    .check-detail {
-        color: var(--color-text-muted);
-        font-size: 12px;
     }
     .fc-summary-grid {
         display: grid;
@@ -243,18 +291,12 @@ const visibleChecks = checks
     .fc-summary-card {
         background: var(--color-surface-alt);
         border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
-        border-radius: 8px;
+        border-radius: 10px;
     }
     .fc-summary-toggle {
         display: block;
         cursor: pointer;
         padding: 12px;
-    }
-    .fc-summary-card summary {
-        list-style: none;
-    }
-    .fc-summary-card summary::-webkit-details-marker {
-        display: none;
     }
     .fc-summary-head {
         display: flex;
@@ -263,12 +305,21 @@ const visibleChecks = checks
         gap: 8px;
         margin-bottom: 6px;
     }
+    .fc-result-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.1;
+    }
     .fc-summary-title {
         font-weight: 700;
     }
     .fc-summary-preview {
-        color: var(--color-text-muted);
-        font-size: 12px;
         line-height: 1.6;
     }
     .fc-summary-body {
@@ -285,27 +336,36 @@ const visibleChecks = checks
         line-height: 1.2;
         cursor: pointer;
     }
-    .fc-expand-all:hover {
+    .fc-expand-all:hover,
+    .fc-expand-all:focus-visible {
         border-color: var(--color-news);
+        outline: none;
+    }
+    .check-pass {
+        background: color-mix(in srgb, var(--color-pass) 18%, transparent);
+        color: var(--color-pass);
+    }
+    .check-fail {
+        background: color-mix(in srgb, var(--color-fail) 18%, transparent);
+        color: var(--color-fail);
+    }
+    .check-skip {
+        background: color-mix(in srgb, var(--color-text-muted) 14%, transparent);
+        color: var(--color-text-muted);
     }
     .fc-group-list {
         margin: 0;
         padding-left: 18px;
-        font-size: 12px;
-        color: var(--color-text-muted);
+        line-height: 1.6;
     }
-    .fc-group-list li {
-        margin-bottom: 5px;
+    .fc-group-list li + li {
+        margin-top: 5px;
     }
     .fc-findings {
         margin-top: 8px;
     }
-    .fc-sources-list {
-        font-size: 12px;
-        color: var(--color-text-muted);
-        margin-bottom: 8px;
-    }
-    .fc-sources-list a {
+    .fc-sources-list a,
+    .fc-footer a {
         color: var(--color-news);
     }
     .fc-sources-list a::after {
@@ -318,12 +378,16 @@ const visibleChecks = checks
     }
     .fc-footer {
         font-size: 11px;
-        color: var(--color-text-muted);
         padding-top: 8px;
-        border-top: 1px solid #333;
+        border-top: 1px solid var(--color-border);
     }
-    .fc-footer a {
-        color: var(--color-news);
+    @media (max-width: 640px) {
+        .factcheck {
+            padding: 16px;
+        }
+        .fc-header {
+            flex-direction: column;
+        }
     }
 </style>
 
@@ -331,12 +395,19 @@ const visibleChecks = checks
     document.querySelectorAll('[data-fc-toggle-all]').forEach((button) => {
         const container = button.closest('.factcheck');
         if (!container) return;
+
         const items = Array.from(container.querySelectorAll('[data-fc-item]'));
         if (items.length === 0) return;
 
+        const expandLabel = button.textContent?.trim() || 'Expand all';
+        const collapseLabel = button.getAttribute('data-collapse-label')
+            || (expandLabel === '전체 보기' ? '전체 접기' : 'Collapse all');
+
+        button.setAttribute('data-collapse-label', collapseLabel);
+
         const syncLabel = () => {
             const allOpen = items.every((item) => item.open);
-            button.textContent = allOpen ? '전체 닫기' : '전체 보기';
+            button.textContent = allOpen ? collapseLabel : expandLabel;
             button.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
         };
 
@@ -348,9 +419,7 @@ const visibleChecks = checks
             syncLabel();
         });
 
-        items.forEach((item) => {
-            item.addEventListener('toggle', syncLabel);
-        });
+        items.forEach((item) => item.addEventListener('toggle', syncLabel));
 
         syncLabel();
     });
