@@ -136,7 +136,7 @@ export default function NfiShowcase({ slug }: NfiShowcaseProps) {
                 </div>
             </section>
 
-            <Panel title="운용 전제" description="README가 직접 강조하는 설정 조건입니다.">
+            <Panel title="운용 전제" description="README가 직접 강조하는 설정 조건이야.">
                 <div className="nfi-rec-grid">
                     {(data.recommendations || []).map((item) => (
                         <article className="nfi-rec" key={item.label}>
@@ -149,7 +149,7 @@ export default function NfiShowcase({ slug }: NfiShowcaseProps) {
                 </div>
             </Panel>
 
-            <Panel title="전략 계보" description="저장소 루트의 X 계열 전략을 운용 관점으로 나눈 지도입니다.">
+            <Panel title="전략 계보" description="저장소 루트의 X 계열 전략을 운용 관점으로 나눈 지도야.">
                 <div className="nfi-family-grid">
                     {(data.strategyFamilies || []).map((family) => (
                         <article className="nfi-family" key={family.name}>
@@ -238,7 +238,7 @@ export default function NfiShowcase({ slug }: NfiShowcaseProps) {
                 </div>
             </Panel>
 
-            <Panel title="리스크 매트릭스" description="자동매매 전략 검토 때 놓치기 쉬운 위험입니다.">
+            <Panel title="리스크 매트릭스" description="자동매매 전략 검토 때 놓치기 쉬운 위험이야.">
                 <div className="nfi-risk-grid">
                     {(data.riskMatrix || []).map((item) => (
                         <article className="nfi-risk-card" key={item.risk}>

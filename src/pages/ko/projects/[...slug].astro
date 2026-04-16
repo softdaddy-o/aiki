@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FactCheck from '../../../components/FactCheck.astro';
 import YfinanceShowcase from '../../../components/projects/showcases/yfinance/index.tsx';
 import NfiShowcase from '../../../components/projects/showcases/nfi/index.tsx';
 import NautilusShowcase from '../../../components/projects/showcases/nautilus-trader/index.tsx';
@@ -39,7 +40,6 @@ const {
 } = entry.data;
 const categoryLabel = categoryLabels[category] ?? category;
 const repoPath = githubUrl.replace(/^https:\/\/github\.com\//, '').replace(/\/$/, '');
-const statusLabel = contentStatus === 'draft' ? 'Draft' : 'Final';
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -112,7 +112,7 @@ function formatStars(value: number): string {
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
                         <h2>NostalgiaForInfinity 운용 구조를 한 화면에서 보기</h2>
-                        <span>전략 계보, 권장 설정, 보호 장치, 백테스트 체크리스트를 공개 문서 기준으로 정리했습니다.</span>
+                        <span>전략 계보, 권장 설정, 보호 장치, 백테스트 체크리스트를 공개 문서 기준으로 정리했어.</span>
                     </header>
                     <NfiShowcase client:load slug={entry.data.slug} />
                 </div>
@@ -125,7 +125,7 @@ function formatStars(value: number): string {
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
                         <h2>NautilusTrader 아키텍처와 거래소 연동을 한 화면에서 보기</h2>
-                        <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했습니다.</span>
+                        <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했어.</span>
                     </header>
                     <NautilusShowcase client:load slug={entry.data.slug} />
                 </div>
@@ -133,57 +133,13 @@ function formatStars(value: number): string {
         )}
 
         {factCheck && (
-            <section class="project-factcheck" aria-labelledby="project-factcheck-title">
-                <div class="factcheck-head">
-                    <div>
-                        <p class="factcheck-kicker">Verification</p>
-                        <h2 id="project-factcheck-title">팩트체크 및 게시 상태</h2>
-                    </div>
-                    <div class="factcheck-meta">
-                        <span class={`status-badge ${contentStatus}`}>{statusLabel}</span>
-                        <span class="version-badge">{version}</span>
-                        <span class={`factcheck-status ${factCheck.status}`}>{factCheck.status}</span>
-                    </div>
-                </div>
-                <dl class="factcheck-page-meta">
-                    <div>
-                        <dt>Category</dt>
-                        <dd>{categoryLabel}</dd>
-                    </div>
-                    <div>
-                        <dt>Data Surface</dt>
-                        <dd>Project repository and curated showcase data</dd>
-                    </div>
-                    <div>
-                        <dt>Affiliation</dt>
-                        <dd>Independent open source project; verify upstream docs before use</dd>
-                    </div>
-                </dl>
-                <p class="factcheck-date">검증일: {factCheck.date}</p>
-                {factCheck.sources.length > 0 && (
-                    <div class="factcheck-sources">
-                        {factCheck.sources.map((source) => (
-                            <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a>
-                        ))}
-                    </div>
-                )}
-                <div class="factcheck-checks">
-                    {factCheck.checks.map((check) => (
-                        <article class="factcheck-card">
-                            <div class="factcheck-card-head">
-                                <strong>{check.type}</strong>
-                                <span class={`factcheck-result ${check.result}`}>{check.result}</span>
-                            </div>
-                            {check.summary && <p>{check.summary}</p>}
-                            {check.items.length > 0 && (
-                                <ul>
-                                    {check.items.map((item) => <li>{item}</li>)}
-                                </ul>
-                            )}
-                        </article>
-                    ))}
-                </div>
-            </section>
+            <FactCheck
+                status={factCheck.status}
+                date={factCheck.date}
+                checks={factCheck.checks}
+                sources={factCheck.sources}
+                lang="ko"
+            />
         )}
 
         <footer class="project-footer">
@@ -219,44 +175,6 @@ function formatStars(value: number): string {
         font-weight: 700;
     }
 
-    .version-badge,
-    .status-badge,
-    .factcheck-status,
-    .factcheck-result {
-        display: inline-flex;
-        align-items: center;
-        min-height: 24px;
-        padding: 2px 8px;
-        border-radius: 6px;
-        font-size: var(--text-xs);
-        font-weight: 800;
-        text-transform: uppercase;
-    }
-
-    .version-badge {
-        border: 1px solid var(--color-border);
-        color: var(--color-text-muted);
-    }
-
-    .status-badge.draft,
-    .factcheck-status.pending,
-    .factcheck-result.skip {
-        background: color-mix(in srgb, var(--color-model) 16%, transparent);
-        color: var(--color-model);
-    }
-
-    .status-badge.final,
-    .factcheck-status.passed,
-    .factcheck-result.pass {
-        background: color-mix(in srgb, var(--color-pass) 16%, transparent);
-        color: var(--color-pass);
-    }
-
-    .factcheck-status.failed,
-    .factcheck-result.fail {
-        background: color-mix(in srgb, var(--color-fail) 16%, transparent);
-        color: var(--color-fail);
-    }
 
     .project-title {
         margin-bottom: 8px;
@@ -447,120 +365,6 @@ function formatStars(value: number): string {
         line-height: 1.65;
     }
 
-    .project-factcheck {
-        margin-top: 34px;
-        padding: 18px;
-        border: 1px solid var(--color-border);
-        border-radius: 10px;
-        background: var(--color-surface);
-    }
-
-    .factcheck-head,
-    .factcheck-card-head {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-    }
-
-    .factcheck-kicker {
-        margin: 0 0 4px;
-        color: var(--color-projects);
-        font-size: var(--text-xs);
-        font-weight: 800;
-        letter-spacing: 0;
-        text-transform: uppercase;
-    }
-
-    .factcheck-head h2 {
-        margin: 0;
-        font-size: var(--text-xl);
-    }
-
-    .factcheck-meta,
-    .factcheck-sources {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-
-    .factcheck-page-meta {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        margin: 14px 0;
-    }
-
-    .factcheck-page-meta div {
-        min-width: 0;
-        padding: 10px;
-        border-radius: 7px;
-        background: var(--color-surface-alt);
-    }
-
-    .factcheck-page-meta dt {
-        margin-bottom: 5px;
-        color: var(--color-text-muted);
-        font-size: 11px;
-        font-weight: 800;
-        text-transform: uppercase;
-    }
-
-    .factcheck-page-meta dd {
-        margin: 0;
-        overflow-wrap: anywhere;
-        font-size: var(--text-sm);
-        font-weight: 750;
-    }
-
-    .factcheck-date {
-        margin: 10px 0;
-        color: var(--color-text-muted);
-        font-size: var(--text-sm);
-    }
-
-    .factcheck-sources {
-        margin-bottom: 14px;
-    }
-
-    .factcheck-sources a {
-        color: var(--color-projects);
-        font-size: var(--text-sm);
-        font-weight: 700;
-        text-decoration: none;
-    }
-
-    .factcheck-sources a:hover {
-        text-decoration: underline;
-    }
-
-    .factcheck-checks {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 12px;
-    }
-
-    .factcheck-card {
-        padding: 14px;
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
-        background: var(--color-surface-alt);
-    }
-
-    .factcheck-card p {
-        margin: 10px 0 0;
-        color: var(--color-text-muted);
-        font-size: var(--text-sm);
-        line-height: 1.6;
-    }
-
-    .factcheck-card ul {
-        margin: 10px 0 0;
-        padding-left: 18px;
-        color: var(--color-text-muted);
-        font-size: var(--text-sm);
-        line-height: 1.6;
-    }
 
     .project-footer {
         margin-top: 40px;
@@ -588,8 +392,7 @@ function formatStars(value: number): string {
             font-size: var(--text-base);
         }
 
-        .model-card-grid,
-        .factcheck-page-meta {
+        .model-card-grid {
             grid-template-columns: 1fr;
         }
 
@@ -619,10 +422,5 @@ function formatStars(value: number): string {
             font-size: var(--text-base);
         }
 
-        .factcheck-head,
-        .factcheck-card-head {
-            flex-direction: column;
-            align-items: flex-start;
-        }
     }
 </style>

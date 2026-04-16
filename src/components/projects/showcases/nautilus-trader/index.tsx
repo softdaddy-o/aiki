@@ -163,7 +163,7 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
 function ArchitectureSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="이벤트 드리븐 아키텍처" description="NautilusTrader를 구성하는 핵심 컴포넌트입니다.">
+            <Panel title="이벤트 드리븐 아키텍처" description="NautilusTrader를 이루는 핵심 컴포넌트들이야.">
                 <div className="nt-arch-grid">
                     {(data.architecture || []).map((comp, index) => (
                         <article className="nt-arch-card" key={comp.name}>
@@ -179,7 +179,7 @@ function ArchitectureSection({ data }: { data: NautilusData }) {
                     ))}
                 </div>
             </Panel>
-            <Panel title="설계 원칙" description="아키텍처를 관통하는 핵심 설계 철학입니다.">
+            <Panel title="설계 원칙" description="아키텍처를 관통하는 핵심 설계 철학이야.">
                 <div className="nt-principle-grid">
                     {(data.designPrinciples || []).map((p) => (
                         <article className="nt-principle" key={p.name}>
@@ -196,7 +196,7 @@ function ArchitectureSection({ data }: { data: NautilusData }) {
 function AssetsSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="지원 자산 클래스" description="단일 인터페이스로 다루는 자산군과 기능입니다.">
+            <Panel title="지원 자산 클래스" description="단일 인터페이스로 여러 자산군을 한데 다룰 수 있어.">
                 <div className="nt-asset-grid">
                     {(data.assetClasses || []).map((asset) => (
                         <article className="nt-asset-card" key={asset.name}>
@@ -218,7 +218,7 @@ function VenuesSection({ data }: { data: NautilusData }) {
     const otherVenues = (data.venues || []).filter((v) => v.type !== 'crypto');
     return (
         <div className="nt-section">
-            <Panel title="암호화폐 거래소" description="지원되는 암호화폐 거래소 어댑터입니다.">
+            <Panel title="암호화폐 거래소" description="바로 연결 가능한 암호화폐 거래소들이야.">
                 <div className="nt-venue-grid">
                     {cryptoVenues.map((venue) => (
                         <article className="nt-venue-card" key={venue.name}>
@@ -233,7 +233,7 @@ function VenuesSection({ data }: { data: NautilusData }) {
                     ))}
                 </div>
             </Panel>
-            <Panel title="전통 시장 및 기타" description="주식, 선물, 옵션, 베팅 시장 어댑터입니다.">
+            <Panel title="전통 시장 및 기타" description="주식, 선물, 옵션, 베팅 시장 어댑터야.">
                 <div className="nt-venue-grid">
                     {otherVenues.map((venue) => (
                         <article className="nt-venue-card" key={venue.name}>
@@ -249,7 +249,7 @@ function VenuesSection({ data }: { data: NautilusData }) {
                 </div>
             </Panel>
             {(data.dataProviders || []).length > 0 && (
-                <Panel title="데이터 제공자" description="히스토리 데이터 소스로 연결 가능한 제공자입니다.">
+                <Panel title="데이터 제공자" description="히스토리 데이터 소스로 연결할 수 있는 제공자들이야.">
                     <div className="nt-venue-grid">
                         {(data.dataProviders || []).map((dp) => (
                             <article className="nt-venue-card" key={dp.name}>
@@ -267,7 +267,7 @@ function VenuesSection({ data }: { data: NautilusData }) {
 function PerformanceSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="성능 프로파일" description="공식 웹사이트에 표기된 성능 지표입니다.">
+            <Panel title="성능 프로파일" description="공식 문서에서 발표한 성능 지표들이야.">
                 <div className="nt-perf-grid">
                     {(data.performance || []).map((m) => (
                         <article className="nt-perf-card" key={m.metric}>
@@ -278,7 +278,7 @@ function PerformanceSection({ data }: { data: NautilusData }) {
                     ))}
                 </div>
             </Panel>
-            <Panel title="릴리스 흐름" description="최근 릴리스 히스토리입니다.">
+            <Panel title="릴리스 흐름" description="최근 버전 업데이트 흐름이야.">
                 <ol className="nt-timeline">
                     {(data.releaseTimeline || []).map((item) => (
                         <li key={`${item.version}-${item.date}`}>
@@ -297,7 +297,7 @@ function PerformanceSection({ data }: { data: NautilusData }) {
 function QuickstartSection({ data }: { data: NautilusData }) {
     return (
         <div className="nt-section">
-            <Panel title="시작하기" description="설치부터 첫 백테스트까지의 흐름입니다.">
+            <Panel title="시작하기" description="설치에서 첫 백테스트까지의 스텝들이야.">
                 <div className="nt-qs-grid">
                     {(data.quickstart || []).map((item, index) => (
                         <article className="nt-qs-card" key={item.step}>
