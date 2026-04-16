@@ -95,7 +95,7 @@ function formatStars(value: number): string {
 
         {showcaseComponent === 'yfinance' && (
             <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
-                <div class="showcase-frame">
+                <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
                         <h2>yfinance로 실제로 열어볼 수 있는 데이터</h2>
@@ -121,7 +121,7 @@ function formatStars(value: number): string {
 
         {showcaseComponent === 'nautilus-trader' && (
             <section class="showcase-area" aria-label={`${title} interactive showcase`} id="showcase">
-                <div class="showcase-frame">
+                <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
                         <h2>NautilusTrader 아키텍처와 거래소 연동을 한 화면에서 보기</h2>
@@ -331,6 +331,10 @@ function formatStars(value: number): string {
         max-width: 1180px;
         margin: 0 auto;
         padding-top: 40px;
+    }
+
+    .showcase-frame-with-nav {
+        max-width: 1378px;
     }
 
     .showcase-intro {

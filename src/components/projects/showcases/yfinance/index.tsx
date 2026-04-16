@@ -160,12 +160,27 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                 </div>
 
                 <section className="yf-section-block" id={`${SECTION_PREFIX}universes`}>
+                    <ShowcaseSectionLead
+                        index={1}
+                        title={SECTION_LABELS[0].label}
+                        description={SECTION_LABELS[0].description}
+                    />
                     <UniversesSection groups={data.marketUniverses || []} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}batch`}>
+                    <ShowcaseSectionLead
+                        index={2}
+                        title={SECTION_LABELS[1].label}
+                        description={SECTION_LABELS[1].description}
+                    />
                     <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}discovery`}>
+                    <ShowcaseSectionLead
+                        index={3}
+                        title={SECTION_LABELS[2].label}
+                        description={SECTION_LABELS[2].description}
+                    />
                     <DiscoverySection
                         searchLabs={data.searchLabs || []}
                         screeners={data.screeners || []}
@@ -174,9 +189,19 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                     />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}deep-dives`}>
+                    <ShowcaseSectionLead
+                        index={4}
+                        title={SECTION_LABELS[3].label}
+                        description={SECTION_LABELS[3].description}
+                    />
                     <DeepDivesSection dives={data.deepDives || []} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}coverage`}>
+                    <ShowcaseSectionLead
+                        index={5}
+                        title={SECTION_LABELS[4].label}
+                        description={SECTION_LABELS[4].description}
+                    />
                     <CoverageSection features={data.featureCoverage || []} />
                 </section>
             </div>
@@ -190,6 +215,18 @@ function ShowcaseShell({ children }: { children: ReactNode }) {
             <style>{showcaseCss}</style>
             {children}
         </div>
+    );
+}
+
+function ShowcaseSectionLead({ index, title, description }: { index: number; title: string; description: string }) {
+    return (
+        <header className="yf-section-lead">
+            <span className="yf-section-index">{String(index).padStart(2, '0')}</span>
+            <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+        </header>
     );
 }
 
@@ -608,6 +645,34 @@ const showcaseCss = `
     display: grid;
     gap: 16px;
     scroll-margin-top: 120px;
+}
+.yf-section-lead {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 4px 2px 0;
+}
+.yf-section-index {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--color-projects) 12%, transparent);
+    color: var(--color-projects);
+    font-size: 0.75rem;
+    font-weight: 850;
+    flex-shrink: 0;
+}
+.yf-section-lead h3 {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.2;
+}
+.yf-section-lead p {
+    margin: 4px 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.86rem;
 }
 .yf-section-block + .yf-section-block {
     margin-top: 6px;

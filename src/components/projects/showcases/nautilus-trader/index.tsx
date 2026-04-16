@@ -388,7 +388,7 @@ const showcaseCss = `
 .nt-stat{border-radius:8px;padding:14px;background:var(--color-surface)}
 .nt-stat strong{display:block;margin-top:4px;color:var(--color-model);font-family:var(--font-heading);font-size:1.35rem}
 .nt-meta span,.nt-chip-row span{border-radius:6px;background:var(--color-surface-alt);padding:4px 8px;font-size:.78rem}
-.nt-section{grid-column:2}
+.nt-section{min-width:0}
 .nt-section-block{display:grid;gap:16px;scroll-margin-top:120px}
 .nt-section-block+.nt-section-block{margin-top:6px}
 .nt-panel{margin-top:18px}
