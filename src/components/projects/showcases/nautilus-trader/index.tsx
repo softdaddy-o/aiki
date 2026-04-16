@@ -115,47 +115,49 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
 
     return (
         <Shell>
-            <section className="nt-hero" aria-label="NautilusTrader repository summary">
-                <div className="nt-hero-copy">
-                    <p className="nt-kicker">Algorithmic Trading Engine</p>
-                    <h2>{data.repo?.name || 'NautilusTrader'}</h2>
-                    <p>{data.repo?.description || ''}</p>
-                    <div className="nt-link-row">
-                        {data.repo?.githubUrl && <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>}
-                        {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">Docs</a>}
-                    </div>
-                </div>
-                <div className="nt-repo-card">
-                    <div className="nt-release">
-                        <span>Latest release</span>
-                        <strong>{data.repo?.latestRelease || 'N/A'}</strong>
-                        <em>{formatDate(data.repo?.latestReleaseDate)}</em>
-                    </div>
-                    <div className="nt-stat-grid">
-                        {repoStats.map(([label, value]) => (
-                            <div className="nt-stat" key={label}>
-                                <span>{label}</span>
-                                <strong>{formatCompact(value)}</strong>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="nt-meta">
-                        <span>{data.repo?.primaryLanguage || 'Rust'}</span>
-                        <span>{data.repo?.secondaryLanguage || 'Python'}</span>
-                        <span>{data.repo?.license || 'LGPL-3.0'}</span>
-                    </div>
-                </div>
-            </section>
-
             <ShowcaseSectionNav items={SECTIONS} activeId={activeSection} onSelect={setActiveSection} />
 
-            {activeSection === 'architecture' && <ArchitectureSection data={data} />}
-            {activeSection === 'assets' && <AssetsSection data={data} />}
-            {activeSection === 'venues' && <VenuesSection data={data} />}
-            {activeSection === 'performance' && <PerformanceSection data={data} />}
-            {activeSection === 'quickstart' && <QuickstartSection data={data} />}
+            <div className="nt-showcase-main">
+                <section className="nt-hero" aria-label="NautilusTrader repository summary">
+                    <div className="nt-hero-copy">
+                        <p className="nt-kicker">Algorithmic Trading Engine</p>
+                        <h2>{data.repo?.name || 'NautilusTrader'}</h2>
+                        <p>{data.repo?.description || ''}</p>
+                        <div className="nt-link-row">
+                            {data.repo?.githubUrl && <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>}
+                            {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">Docs</a>}
+                        </div>
+                    </div>
+                    <div className="nt-repo-card">
+                        <div className="nt-release">
+                            <span>Latest release</span>
+                            <strong>{data.repo?.latestRelease || 'N/A'}</strong>
+                            <em>{formatDate(data.repo?.latestReleaseDate)}</em>
+                        </div>
+                        <div className="nt-stat-grid">
+                            {repoStats.map(([label, value]) => (
+                                <div className="nt-stat" key={label}>
+                                    <span>{label}</span>
+                                    <strong>{formatCompact(value)}</strong>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="nt-meta">
+                            <span>{data.repo?.primaryLanguage || 'Rust'}</span>
+                            <span>{data.repo?.secondaryLanguage || 'Python'}</span>
+                            <span>{data.repo?.license || 'LGPL-3.0'}</span>
+                        </div>
+                    </div>
+                </section>
 
-            <p className="nt-source">Source: {data.source || 'curated project data'} · Generated {formatDate(data.generatedAt)}</p>
+                {activeSection === 'architecture' && <ArchitectureSection data={data} />}
+                {activeSection === 'assets' && <AssetsSection data={data} />}
+                {activeSection === 'venues' && <VenuesSection data={data} />}
+                {activeSection === 'performance' && <PerformanceSection data={data} />}
+                {activeSection === 'quickstart' && <QuickstartSection data={data} />}
+
+                <p className="nt-source">Source: {data.source || 'curated project data'} · Generated {formatDate(data.generatedAt)}</p>
+            </div>
         </Shell>
     );
 }
@@ -347,11 +349,13 @@ function formatDate(value?: string): string {
 }
 
 const showcaseCss = `
-.nt-showcase{max-width:1120px;margin:0 auto;color:var(--color-text)}
+.nt-showcase{display:contents;color:var(--color-text)}
+.nt-showcase-main{grid-column:2;grid-row:2;min-width:0}
 .nt-hero,.nt-panel,.nt-arch-card,.nt-asset-card,.nt-venue-card,.nt-perf-card,.nt-principle,.nt-qs-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .nt-hero,.nt-panel{border-radius:12px;padding:20px}
 .nt-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
-.nt-hero-copy h2{margin:0 0 10px;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.1}
+.nt-hero-copy,.nt-repo-card{min-width:0}
+.nt-hero-copy h2{margin:0 0 10px;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.1;overflow-wrap:anywhere}
 .nt-hero-copy p{max-width:650px;color:var(--color-text-muted);line-height:1.7}
 .nt-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:800;letter-spacing:0;text-transform:uppercase}
 .nt-link-row,.nt-meta,.nt-chip-row{display:flex;flex-wrap:wrap;gap:8px}
@@ -398,6 +402,6 @@ const showcaseCss = `
 .nt-qs-card code{overflow-wrap:anywhere;border-radius:6px;background:var(--color-surface-alt);padding:4px 6px;color:var(--color-projects);font-size:.78rem}
 .nt-source,.nt-empty{margin-top:16px;font-size:.82rem}
 .nt-empty{padding:16px;border:1px dashed var(--color-border-strong);border-radius:8px}
-@media (max-width:840px){.nt-hero{grid-template-columns:1fr}.nt-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:840px){.nt-showcase-main{grid-column:1;grid-row:auto}.nt-hero{grid-template-columns:1fr}.nt-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.nt-hero,.nt-panel{padding:14px}.nt-stat-grid{grid-template-columns:1fr}}
 `;
