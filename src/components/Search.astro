@@ -13,12 +13,13 @@ const {
     <div id="search"></div>
 </div>
 
-<link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
 <script is:inline>
     window.addEventListener('DOMContentLoaded', () => {
         const searchRoot = document.getElementById('search');
         const searchContainer = document.querySelector('.search-container');
-        if (!searchRoot || !searchContainer) {
+        if (!searchRoot || !searchContainer || typeof PagefindUI !== 'function') {
             return;
         }
 
