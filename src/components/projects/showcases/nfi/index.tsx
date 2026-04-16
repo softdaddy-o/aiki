@@ -104,6 +104,7 @@ export default function NfiShowcase({ slug }: NfiShowcaseProps) {
 
     return (
         <ShowcaseShell>
+            <div className="nfi-showcase-main">
             <section className="nfi-hero" aria-label="NostalgiaForInfinity repository summary">
                 <div className="nfi-hero-copy">
                     <p className="nfi-kicker">Freqtrade strategy suite</p>
@@ -251,6 +252,7 @@ export default function NfiShowcase({ slug }: NfiShowcaseProps) {
             </Panel>
 
             <p className="nfi-source">Source: {data.source || 'curated project data'} · Generated {formatDate(data.generatedAt)}</p>
+            </div>
         </ShowcaseShell>
     );
 }
@@ -331,7 +333,8 @@ function formatDate(value?: string): string {
 }
 
 const showcaseCss = `
-.nfi-showcase{max-width:1120px;margin:0 auto;color:var(--color-text)}
+.nfi-showcase{display:contents;color:var(--color-text)}
+.nfi-showcase-main{grid-column:1 / -1;min-width:0}
 .nfi-hero,.nfi-panel,.nfi-rec,.nfi-family,.nfi-signal,.nfi-guard,.nfi-check,.nfi-risk-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .nfi-hero,.nfi-panel{border-radius:12px;padding:20px}
 .nfi-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
@@ -400,6 +403,6 @@ const showcaseCss = `
 .nfi-check>span{display:inline-grid;width:28px;height:28px;place-items:center;border-radius:999px;background:var(--color-projects);color:#fff;font-size:.78rem;font-weight:800}
 .nfi-source,.nfi-empty{margin-top:16px;font-size:.82rem}
 .nfi-empty{padding:16px;border:1px dashed var(--color-border-strong);border-radius:8px}
-@media (max-width:840px){.nfi-hero,.nfi-signal-layout,.nfi-two-col{grid-template-columns:1fr}}
+@media (max-width:840px){.nfi-showcase-main{grid-column:1}.nfi-hero,.nfi-signal-layout,.nfi-two-col{grid-template-columns:1fr}}
 @media (max-width:640px){.nfi-hero,.nfi-panel{padding:14px}.nfi-market-caption{flex-direction:column;align-items:flex-start}.nfi-stat-grid,.nfi-guard{grid-template-columns:1fr}.nfi-market svg{min-height:190px}}
 `;

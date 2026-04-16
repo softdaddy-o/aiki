@@ -7,7 +7,7 @@ interface Props {
     label?: string;
 }
 
-const { title, url, text, label = '공유' } = Astro.props as Props;
+const { title, url, text, label = 'Share this page' } = Astro.props as Props;
 const { show = true } = Astro.props as Props;
 
 const safeTitle = title.trim();
@@ -32,7 +32,7 @@ const shareLinks = [
         name: 'Threads',
         label: 'Threads',
         href: `https://www.threads.net/intent/post?text=${encodedText}%20${encodedUrl}`,
-        icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007C5.965 24 2.634 20.07 2.634 15.079c0-5.265 3.601-8.885 8.913-8.885 4.715 0 7.746 2.865 8.037 7.601l-2.46.226c-.2-3.478-2.149-5.46-5.577-5.46-3.752 0-6.14 2.697-6.14 6.465 0 3.797 2.276 6.6 6.4 6.6 2.368 0 4.107-1.006 5.03-2.91l-.004.007c.548-1.131.587-2.19.106-3.065a3.182 3.182 0 00-.12-.19c-.567.244-1.185.413-1.842.498a5.847 5.847 0 01-.692.044c-3.042 0-5.256-2.06-5.256-4.893 0-2.833 2.214-4.893 5.256-4.893 2.794 0 4.794 1.81 5.147 4.51.116.882-.023 1.76-.474 2.477-.358-.037-.71-.092-1.053-.166-.41-.088-.803-.205-1.176-.348.06-.22.088-.45.077-.686-.126-1.46-1.14-2.53-2.938-2.53-1.785 0-3.065 1.283-3.065 3.06 0 1.778 1.28 3.06 3.065 3.06.94 0 1.74-.357 2.317-1.01.006.002.012.003.017.006.58.81 1.467 1.293 2.522 1.293 1.598 0 2.817-1.09 3.16-2.684.338-1.566-.104-3.337-1.401-4.9C18.18 5.696 15.566 3.83 12.186 3.83 7.768 3.83.984 7.46.984 15.08.984 21.218 5.104 24 12.186 24z"/></svg>`,
+        icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg>`,
         brand: '#000',
         darkBrand: '#e7e9ea',
     },
@@ -72,17 +72,24 @@ const shareLinks = [
 ---
 
 {show && (
-    <section class="social-share" aria-label="Share this page" data-share-title={safeTitle} data-share-url={url}>
+    <section class="social-share" aria-label={label} data-share-title={safeTitle} data-share-url={url}>
         <div class="social-share-links" role="list">
             {shareLinks.map((item) => (
-                <a role="listitem" href={item.href} target="_blank" rel="noopener noreferrer"
-                    aria-label={`${item.name}에 공유`}
+                <a
+                    role="listitem"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Share on ${item.name}`}
                     class={`share-pill share-${item.name.toLowerCase()}`}
                     style={`--brand: ${item.brand}; --brand-dark: ${item.darkBrand};`}
                     data-umami-event="share"
                     data-umami-event-platform={item.name}
-                    data-umami-event-url={url}>
-                    <Fragment set:html={item.icon} />
+                    data-umami-event-url={url}
+                >
+                    <span class="share-icon" aria-hidden="true">
+                        <Fragment set:html={item.icon} />
+                    </span>
                     <span>{item.label}</span>
                 </a>
             ))}
@@ -92,52 +99,100 @@ const shareLinks = [
 
 <style>
     .social-share {
-        margin-top: 28px;
-        padding-top: 20px;
-        border-top: 1px solid var(--color-border);
+        display: grid;
+        gap: 8px;
     }
+
     .social-share-links {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
     }
+
     .share-pill {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        height: 36px;
-        padding: 0 14px;
+        gap: 7px;
+        min-height: 42px;
+        padding: 0 11px 0 9px;
         border-radius: 9999px;
         border: 1px solid var(--color-border-strong);
-        background: transparent;
-        color: var(--color-text-muted);
-        font-size: 13px;
-        font-weight: 500;
+        background: color-mix(in srgb, var(--color-surface-elevated) 84%, transparent);
+        color: var(--color-text);
+        font-size: 12.5px;
+        font-weight: 700;
+        line-height: 1;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
     }
-    .share-pill :global(svg) {
-        width: 15px;
-        height: 15px;
+
+    .share-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--brand) 12%, transparent);
+        color: var(--brand);
         flex-shrink: 0;
     }
+
+    html.dark .share-icon {
+        background: color-mix(in srgb, var(--brand-dark) 18%, transparent);
+        color: var(--brand-dark);
+    }
+
+    .share-pill :global(svg) {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+    }
+
+    .share-pill span:last-child {
+        transform: translateY(-0.5px);
+    }
+
+    .share-threads :global(svg) {
+        width: 11px;
+        height: 11px;
+    }
+
     .share-pill:hover {
-        border-color: transparent;
-        color: #fff;
-        background: var(--brand);
+        border-color: color-mix(in srgb, var(--brand) 40%, var(--color-border-strong));
+        background: color-mix(in srgb, var(--brand) 10%, var(--color-surface-elevated));
+        color: var(--color-text);
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px color-mix(in srgb, var(--brand) 25%, transparent);
+        box-shadow: 0 6px 18px color-mix(in srgb, var(--brand) 14%, transparent);
     }
+
+    .share-pill:hover .share-icon {
+        background: var(--brand);
+        color: #fff;
+    }
+
     html.dark .share-pill:hover {
-        background: var(--brand-dark);
-        color: #000;
-        box-shadow: 0 4px 12px color-mix(in srgb, var(--brand-dark) 20%, transparent);
+        border-color: color-mix(in srgb, var(--brand-dark) 50%, var(--color-border-strong));
+        background: color-mix(in srgb, var(--brand-dark) 12%, var(--color-surface-elevated));
+        box-shadow: 0 6px 18px color-mix(in srgb, var(--brand-dark) 12%, transparent);
     }
-    /* X/Threads dark hover: dark bg, white text */
-    html.dark .share-x:hover,
-    html.dark .share-threads:hover {
+
+    html.dark .share-pill:hover .share-icon {
         background: var(--brand-dark);
         color: #000;
+    }
+
+    .share-pill:focus-visible {
+        outline: 2px solid color-mix(in srgb, var(--brand) 55%, var(--color-news));
+        outline-offset: 2px;
+    }
+
+    @media (max-width: 640px) {
+        .share-pill {
+            min-height: 40px;
+            padding: 0 10px 0 8px;
+            font-size: 12px;
+        }
     }
 </style>

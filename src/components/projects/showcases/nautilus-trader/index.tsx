@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface NautilusShowcaseProps {
     slug: string;
@@ -79,10 +80,16 @@ const SECTIONS = [
     { id: 'quickstart' as const, label: '시작하기', description: '설치와 첫 실행' },
 ];
 
+const SECTION_PREFIX = 'nt-section-';
+
 export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
     const [data, setData] = useState<NautilusData | null>(null);
     const [error, setError] = useState<string | null>(null);
-    const [activeSection, setActiveSection] = useState<SectionId>('architecture');
+    const { activeId: activeSection, scrollToSection } = useShowcaseSectionNav({
+        ids: SECTIONS.map((item) => item.id),
+        initialId: 'architecture',
+        sectionPrefix: SECTION_PREFIX,
+    });
 
     useEffect(() => {
         const controller = new AbortController();
@@ -115,7 +122,7 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
 
     return (
         <Shell>
-            <ShowcaseSectionNav items={SECTIONS} activeId={activeSection} onSelect={setActiveSection} />
+            <ShowcaseSectionNav items={SECTIONS} activeId={activeSection} onSelect={scrollToSection} />
 
             <div className="nt-showcase-main">
                 <section className="nt-hero" aria-label="NautilusTrader repository summary">
@@ -150,11 +157,21 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
                     </div>
                 </section>
 
-                {activeSection === 'architecture' && <ArchitectureSection data={data} />}
-                {activeSection === 'assets' && <AssetsSection data={data} />}
-                {activeSection === 'venues' && <VenuesSection data={data} />}
-                {activeSection === 'performance' && <PerformanceSection data={data} />}
-                {activeSection === 'quickstart' && <QuickstartSection data={data} />}
+                <section className="nt-section-block" id={`${SECTION_PREFIX}architecture`}>
+                    <ArchitectureSection data={data} />
+                </section>
+                <section className="nt-section-block" id={`${SECTION_PREFIX}assets`}>
+                    <AssetsSection data={data} />
+                </section>
+                <section className="nt-section-block" id={`${SECTION_PREFIX}venues`}>
+                    <VenuesSection data={data} />
+                </section>
+                <section className="nt-section-block" id={`${SECTION_PREFIX}performance`}>
+                    <PerformanceSection data={data} />
+                </section>
+                <section className="nt-section-block" id={`${SECTION_PREFIX}quickstart`}>
+                    <QuickstartSection data={data} />
+                </section>
 
                 <p className="nt-source">Source: {data.source || 'curated project data'} · Generated {formatDate(data.generatedAt)}</p>
             </div>
@@ -372,6 +389,8 @@ const showcaseCss = `
 .nt-stat strong{display:block;margin-top:4px;color:var(--color-model);font-family:var(--font-heading);font-size:1.35rem}
 .nt-meta span,.nt-chip-row span{border-radius:6px;background:var(--color-surface-alt);padding:4px 8px;font-size:.78rem}
 .nt-section{grid-column:2}
+.nt-section-block{display:grid;gap:16px;scroll-margin-top:120px}
+.nt-section-block+.nt-section-block{margin-top:6px}
 .nt-panel{margin-top:18px}
 .nt-section-heading{margin-bottom:16px}
 .nt-section-heading h2{margin:0;font-size:1.16rem}

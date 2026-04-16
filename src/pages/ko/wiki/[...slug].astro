@@ -64,16 +64,18 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
             )}
         </div>
         <h1>{entry.data.title}</h1>
-        <SocialShare
-            title={entry.data.title}
-            text={entry.data.summary}
-            url={shareUrl}
-        />
         {entry.data.category === 'model' && entry.data.modelType === 'version' && entry.data.modelProfile && (
             <ModelProfile profile={entry.data.modelProfile} />
         )}
 
         <p class="wiki-summary">{entry.data.summary}</p>
+        <div class="article-share">
+            <SocialShare
+                title={entry.data.title}
+                text={entry.data.summary}
+                url={shareUrl}
+            />
+        </div>
 
         {entry.data.category === 'model' && parentEntry && (
             <div class="model-hierarchy">
@@ -105,7 +107,7 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         )}
 
         <div class="tech-stack-section">
-            <h3 style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 8px;">📍 AI 기술 맵에서의 위치</h3>
+            <h3 class="tech-stack-title">전체 AI 기술 맵에서의 위치</h3>
             <TechStackMap
                 client:visible
                 activeTerm={entry.data.term.toLowerCase()}
@@ -154,10 +156,14 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
 
 <style>
     .wiki-article { max-width: 680px; margin: 0 auto; }
+
     .article-meta {
-        display: flex; gap: 10px; align-items: center;
+        display: flex;
+        gap: 10px;
+        align-items: center;
         margin-bottom: 12px;
     }
+
     .category-badge {
         background: var(--color-wiki);
         color: #000;
@@ -166,17 +172,31 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         font-size: 12px;
         font-weight: bold;
     }
+
     .mention-count {
         color: var(--color-text-muted);
         font-size: 12px;
     }
-    h1 { font-size: 28px; font-weight: 800; margin-bottom: 16px; line-height: 1.35; letter-spacing: -0.01em; }
+
+    h1 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+    }
+
     .wiki-summary {
         font-size: 15px;
         color: var(--color-text-muted);
-        margin-bottom: 16px;
-        line-height: 1.6;
+        margin: 0 0 14px;
+        line-height: 1.65;
     }
+
+    .article-share {
+        margin-bottom: 20px;
+    }
+
     .aliases {
         display: flex;
         gap: 6px;
@@ -184,17 +204,21 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         flex-wrap: wrap;
         margin-bottom: 20px;
     }
+
     .model-hierarchy {
         margin: 20px 0 24px;
     }
+
     .model-hierarchy h3 {
         font-size: 16px;
         margin-bottom: 10px;
     }
+
     .aliases-label {
         font-size: 12px;
         color: var(--color-text-muted);
     }
+
     .alias {
         background: var(--color-surface-alt);
         padding: 2px 8px;
@@ -202,29 +226,41 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         font-size: 12px;
         color: var(--color-text-muted);
     }
+
     .tech-stack-section {
         margin-bottom: 24px;
     }
+
+    .tech-stack-title {
+        font-size: 14px;
+        color: var(--color-text-muted);
+        margin-bottom: 8px;
+    }
+
     .article-body { font-size: 15px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }
     .article-body :global(ul), .article-body :global(ol) { padding-left: 20px; margin-bottom: 12px; }
     .article-body :global(li) { margin-bottom: 4px; }
     .article-body :global(h2) { font-size: 18px; margin: 24px 0 12px; }
     .article-body :global(h3) { font-size: 16px; margin: 20px 0 8px; }
+
     .related-terms {
         border-top: 1px solid #333;
         margin-top: 32px;
         padding-top: 20px;
     }
+
     .related-terms h3 {
         font-size: 16px;
         margin-bottom: 10px;
     }
+
     .related-list {
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
     }
+
     .related-link {
         background: var(--color-surface);
         border: 1px solid var(--color-wiki);
@@ -234,6 +270,7 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         color: var(--color-wiki);
         text-decoration: none;
     }
+
     .related-link:hover {
         background: var(--color-surface-alt);
     }

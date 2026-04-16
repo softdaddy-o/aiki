@@ -43,11 +43,19 @@ const shareUrl = Astro.url.href;
                     class="article-source"
                     data-link-kind="external"
                 >
-                    📎 {entry.data.sourceTitle ?? '원문'}
+                    원문 {entry.data.sourceTitle ?? '보기'}
                 </a>
             )}
         </div>
         <h1>{entry.data.title}</h1>
+        <p class="article-summary">{entry.data.summary}</p>
+        <div class="article-share">
+            <SocialShare
+                title={entry.data.title}
+                text={entry.data.summary}
+                url={shareUrl}
+            />
+        </div>
         <div class="article-cover">
             <img src={ogImage} alt={entry.data.title} loading="eager" decoding="async" />
         </div>
@@ -61,11 +69,6 @@ const shareUrl = Astro.url.href;
                 ))}
             </div>
         )}
-        <SocialShare
-            title={entry.data.title}
-            text={entry.data.summary}
-            url={shareUrl}
-        />
         {fc && (
             <FactCheck
                 status={fc.status}
@@ -80,15 +83,23 @@ const shareUrl = Astro.url.href;
 
 <style>
     .news-article { max-width: 680px; margin: 0 auto; padding-top: 16px; }
+
     .article-meta {
-        display: flex; justify-content: space-between; align-items: center;
-        flex-wrap: wrap; gap: 8px;
-        margin-bottom: 16px; font-size: 13px; color: var(--color-text-muted);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+        font-size: 13px;
+        color: var(--color-text-muted);
     }
+
     .article-source {
         color: var(--color-news);
         text-decoration: none;
     }
+
     .article-source::after {
         content: '↗';
         display: inline-block;
@@ -97,28 +108,54 @@ const shareUrl = Astro.url.href;
         line-height: 1;
         vertical-align: text-top;
     }
-    h1 { font-size: 28px; font-weight: 800; margin-bottom: 24px; line-height: 1.35; letter-spacing: -0.01em; }
-    .article-cover {
+
+    h1 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+    }
+
+    .article-summary {
+        margin: 0 0 14px;
+        color: var(--color-text-muted);
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .article-share {
         margin-bottom: 20px;
+    }
+
+    .article-cover {
+        margin-bottom: 18px;
         border-radius: 14px;
         overflow: hidden;
         border: 1px solid var(--color-border);
         background: var(--color-surface-alt);
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
     }
+
     .article-cover img {
         width: 100%;
         aspect-ratio: 1200 / 630;
         display: block;
         object-fit: cover;
     }
+
     .article-body { font-size: 16px; line-height: 1.8; }
     .article-body :global(p) { margin-bottom: 12px; }
     .article-body :global(ul) { padding-left: 20px; margin-bottom: 12px; }
     .article-body :global(li) { margin-bottom: 4px; }
+
     .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 20px; }
+
     .tag {
-        background: var(--color-surface-alt); padding: 4px 8px;
-        border-radius: 4px; font-size: 12px; color: var(--color-text-muted);
+        background: var(--color-surface-alt);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: var(--color-text-muted);
     }
 </style>

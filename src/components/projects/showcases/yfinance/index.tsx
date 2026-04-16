@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface YfinanceShowcaseProps {
     slug: string;
@@ -64,10 +65,16 @@ const SECTION_LABELS = [
     { id: 'coverage', label: 'Coverage', description: '테스트한 API 범위' },
 ] as const;
 
+const SECTION_PREFIX = 'yf-section-';
+
 export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
     const [data, setData] = useState<MarketData | null>(null);
     const [error, setError] = useState<string | null>(null);
-    const [activeSection, setActiveSection] = useState<(typeof SECTION_LABELS)[number]['id']>('universes');
+    const { activeId: activeSection, scrollToSection } = useShowcaseSectionNav({
+        ids: SECTION_LABELS.map((item) => item.id),
+        initialId: 'universes',
+        sectionPrefix: SECTION_PREFIX,
+    });
 
     useEffect(() => {
         const controller = new AbortController();
@@ -121,7 +128,7 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
             <ShowcaseSectionNav
                 activeId={activeSection}
                 items={SECTION_LABELS}
-                onSelect={setActiveSection}
+                onSelect={scrollToSection}
             />
 
             <div className="yf-showcase-main">
@@ -152,18 +159,26 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                     <em>{SECTION_LABELS.find((item) => item.id === activeSection)?.description}</em>
                 </div>
 
-                {activeSection === 'universes' && <UniversesSection groups={data.marketUniverses || []} />}
-                {activeSection === 'batch' && <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />}
-                {activeSection === 'discovery' && (
+                <section className="yf-section-block" id={`${SECTION_PREFIX}universes`}>
+                    <UniversesSection groups={data.marketUniverses || []} />
+                </section>
+                <section className="yf-section-block" id={`${SECTION_PREFIX}batch`}>
+                    <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />
+                </section>
+                <section className="yf-section-block" id={`${SECTION_PREFIX}discovery`}>
                     <DiscoverySection
                         searchLabs={data.searchLabs || []}
                         screeners={data.screeners || []}
                         markets={data.marketOverviews || []}
                         sectorIndustry={data.sectorIndustry}
                     />
-                )}
-                {activeSection === 'deep-dives' && <DeepDivesSection dives={data.deepDives || []} />}
-                {activeSection === 'coverage' && <CoverageSection features={data.featureCoverage || []} />}
+                </section>
+                <section className="yf-section-block" id={`${SECTION_PREFIX}deep-dives`}>
+                    <DeepDivesSection dives={data.deepDives || []} />
+                </section>
+                <section className="yf-section-block" id={`${SECTION_PREFIX}coverage`}>
+                    <CoverageSection features={data.featureCoverage || []} />
+                </section>
             </div>
         </ShowcaseShell>
     );
@@ -588,6 +603,14 @@ const showcaseCss = `
 .yf-stack {
     display: grid;
     gap: 16px;
+}
+.yf-section-block {
+    display: grid;
+    gap: 16px;
+    scroll-margin-top: 120px;
+}
+.yf-section-block + .yf-section-block {
+    margin-top: 6px;
 }
 .yf-current-section {
     display: flex;
