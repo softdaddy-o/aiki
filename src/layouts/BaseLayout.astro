@@ -75,7 +75,7 @@ const navItems = lang === 'en'
                 var v = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
                 return v ? v.pop() : '';
             }
-            if (getCookie('theme') === 'dark') {
+            if (getCookie('theme') !== 'light') {
                 document.documentElement.classList.add('dark');
             }
         })();
