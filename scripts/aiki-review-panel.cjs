@@ -14,6 +14,7 @@ const PROJECTS_DIR = path.join(REPO_ROOT, 'src', 'content', 'projects', 'ko');
 const BATCH_DIR = path.join(REPO_ROOT, 'data', 'review-batch');
 const TODAY = new Date().toISOString().slice(0, 10);
 const MAX_ROUNDS = 3;
+const RUN_ID = `${TODAY}-${process.pid}`;
 
 function parseListArg(args, name) {
     const index = args.indexOf(name);
@@ -49,6 +50,7 @@ function parseArgs() {
         batchSize,
         maxRounds,
         markDrafts: !args.includes('--no-draft'),
+        autoRevise: !args.includes('--no-revise'),
         model: parseValueArg(args, '--model', undefined),
         dryRun: args.includes('--dry-run'),
     };
@@ -338,6 +340,94 @@ function executeReview(prompt, model) {
     }
 }
 
+function sanitizeFileSegment(value) {
+    return String(value || '')
+        .replace(/[^a-zA-Z0-9._-]+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '') || 'run';
+}
+
+function getReviewArtifactsBase(round) {
+    return `${sanitizeFileSegment(RUN_ID)}-round${round}`;
+}
+
+function formatRevisionNotes(result) {
+    const lines = [];
+
+    for (const review of Array.isArray(result.reviews) ? result.reviews : []) {
+        if (Array.isArray(review.mustFix) && review.mustFix.length > 0) {
+            lines.push(`- ${review.role} mustFix: ${review.mustFix.join(' | ')}`);
+        }
+        if (Array.isArray(review.findings) && review.findings.length > 0) {
+            lines.push(`- ${review.role} findings: ${review.findings.join(' | ')}`);
+        }
+    }
+
+    return lines.length > 0 ? lines.join('\n') : '- No reviewer notes were provided.';
+}
+
+function buildRevisionPrompt(target, result, reviewInput) {
+    const filePath = path.relative(REPO_ROOT, target.filepath).replace(/\\/g, '/');
+    const contentType = reviewInput.contentType;
+    const fixList = (result.topMustFix || []).map((item) => `- ${item}`).join('\n') || '- No topMustFix items were provided.';
+    const linkHints = (reviewInput.internalLinkCandidates || [])
+        .map((candidate) => `- ${candidate.title}: ${candidate.url}`)
+        .join('\n') || '- No internal link candidates were provided.';
+    const scriptHints = (reviewInput.scriptFindings || [])
+        .map((item) => `- [${item.severity}] ${item.rule}: ${item.message}`)
+        .join('\n') || '- No script findings were provided.';
+
+    return `
+You are fixing an AIKI ${contentType} markdown file after editorial panel review.
+
+Edit this file in place:
+- ${filePath}
+
+Requirements:
+- Apply the must-fix items from the review to the actual file content.
+- Keep valid frontmatter and markdown structure.
+- Preserve factual claims unless the review explicitly says the claim is weak or unclear.
+- Use Korean prose for user-facing sentences.
+- Add inline links when the review says links are missing and the candidate list below is relevant.
+- Do not invent new sections unless needed to satisfy the review. If a compare/limits section is needed, add it cleanly.
+- Do not output the full file. Edit the file in place and print a short confirmation only.
+
+Panel topMustFix:
+${fixList}
+
+Reviewer details:
+${formatRevisionNotes(result)}
+
+Internal link candidates:
+${linkHints}
+
+Script findings:
+${scriptHints}
+`.trim();
+}
+
+function executeRevision(target, result, reviewInput, model) {
+    const llmModel = model || process.env.AIKI_WIKI_LLM_MODEL || 'gpt-5.4';
+    const prompt = buildRevisionPrompt(target, result, reviewInput);
+
+    const args = [
+        'exec',
+        '--sandbox', 'workspace-write',
+        '--skip-git-repo-check',
+        '--model', llmModel,
+        '-',
+    ];
+
+    cp.execFileSync('codex', args, {
+        cwd: REPO_ROOT,
+        stdio: 'pipe',
+        encoding: 'utf8',
+        shell: true,
+        input: prompt,
+        maxBuffer: 1024 * 1024 * 20,
+    });
+}
+
 function getContentTypeFromFilepath(filepath) {
     const normalized = path.normalize(filepath);
     if (normalized.startsWith(path.normalize(NEWS_DIR))) return 'news';
@@ -406,16 +496,23 @@ function markAsDraft(filepath) {
     fs.writeFileSync(filepath, matter.stringify(parsed.content, parsed.data), 'utf8');
 }
 
-function writeBatchInput(reviewInputs) {
+function refreshTarget(target) {
+    const raw = fs.readFileSync(target.filepath, 'utf8');
+    const parsed = matter(raw);
+    target.frontmatter = parsed.data || {};
+    target.body = parsed.content.trim();
+}
+
+function writeBatchInput(reviewInputs, artifactBase) {
     fs.mkdirSync(BATCH_DIR, { recursive: true });
-    const batchInputPath = path.join(BATCH_DIR, 'batch-input.json');
+    const batchInputPath = path.join(BATCH_DIR, `batch-input-${artifactBase}.json`);
     fs.writeFileSync(batchInputPath, `${JSON.stringify({ pages: reviewInputs }, null, 2)}\n`, 'utf8');
     return batchInputPath;
 }
 
-function writePanelOutput(response) {
+function writePanelOutput(response, artifactBase) {
     fs.mkdirSync(BATCH_DIR, { recursive: true });
-    const outputPath = path.join(BATCH_DIR, 'panel-output.json');
+    const outputPath = path.join(BATCH_DIR, `panel-output-${artifactBase}.json`);
     fs.writeFileSync(outputPath, `${JSON.stringify(response, null, 2)}\n`, 'utf8');
     return outputPath;
 }
@@ -430,8 +527,9 @@ async function main() {
         return;
     }
 
+    const initialArtifactBase = getReviewArtifactsBase(1);
     const reviewInputs = targets.map((target) => buildReviewInput(target, options.target));
-    const batchInputPath = writeBatchInput(reviewInputs);
+    const batchInputPath = writeBatchInput(reviewInputs, initialArtifactBase);
     const batchInputRelativePath = path.relative(REPO_ROOT, batchInputPath).replace(/\\/g, '/');
     const prompt = composeReviewPrompt(panel, batchInputRelativePath);
 
@@ -439,6 +537,7 @@ async function main() {
     console.log(`Targets: ${targets.length}`);
     console.log(`Max rounds: ${options.maxRounds}`);
     console.log(`Draft on final fail: ${options.markDrafts ? 'yes' : 'no'}`);
+    console.log(`Auto revise: ${options.autoRevise ? 'yes' : 'no'}`);
     console.log(`Batch input: ${batchInputRelativePath}`);
 
     if (options.dryRun) {
@@ -448,12 +547,19 @@ async function main() {
     }
 
     for (let round = 1; round <= options.maxRounds; round++) {
+        const artifactBase = getReviewArtifactsBase(round);
+        const reviewInputs = targets.map((target) => buildReviewInput(target, options.target));
+        const batchInputPath = writeBatchInput(reviewInputs, artifactBase);
+        const batchInputRelativePath = path.relative(REPO_ROOT, batchInputPath).replace(/\\/g, '/');
+        const prompt = composeReviewPrompt(panel, batchInputRelativePath);
+
         console.log(`\nRound ${round}/${options.maxRounds}`);
         const response = executeReview(prompt, options.model);
-        const panelOutputPath = writePanelOutput(response);
+        const panelOutputPath = writePanelOutput(response, artifactBase);
         console.log(`Panel output: ${path.relative(REPO_ROOT, panelOutputPath).replace(/\\/g, '/')}`);
         const results = Array.isArray(response.results) ? response.results : [];
         let allPassed = true;
+        const failedTargets = [];
 
         for (const result of results) {
             result.round = result.round || round;
@@ -467,6 +573,8 @@ async function main() {
                 writeReviewStamp(target.filepath, result, panel);
             } else {
                 allPassed = false;
+                const reviewInput = reviewInputs.find((item) => item.term === result.term);
+                failedTargets.push({ target, result, reviewInput });
                 for (const fix of (result.topMustFix || []).slice(0, 3)) {
                     console.log(`  mustFix: ${fix}`);
                 }
@@ -476,6 +584,16 @@ async function main() {
         if (allPassed) {
             console.log(`\nAll ${results.length} page(s) passed.`);
             return;
+        }
+
+        if (round < options.maxRounds && options.autoRevise) {
+            console.log('\nApplying revisions to failing pages...');
+            for (const item of failedTargets) {
+                executeRevision(item.target, item.result, item.reviewInput, options.model);
+                refreshTarget(item.target);
+                console.log(`- ${item.result.term}: revised`);
+            }
+            continue;
         }
 
         if (round === options.maxRounds && options.markDrafts) {
@@ -507,5 +625,6 @@ module.exports = {
     listTargets,
     buildReviewInput,
     composeReviewPrompt,
+    buildRevisionPrompt,
     writeReviewStamp,
 };
