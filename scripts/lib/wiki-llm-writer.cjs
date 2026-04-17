@@ -9,11 +9,16 @@ const {
     writeUtf8,
     yamlQuote,
 } = require('./content-utils.cjs');
+const { buildModelProfile } = require('./model-profile.cjs');
 const {
     buildWikiReaderValue,
     rewriteAikiTone,
     rewriteFactCheckTone,
 } = require('./aiki-writing-style.cjs');
+const {
+    RELATED_SECTION_HEADINGS,
+    linkRelatedBulletBlock,
+} = require('./wiki-related-links.cjs');
 
 const TODAY = new Date().toISOString().slice(0, 10);
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -135,6 +140,21 @@ function renderFactCheckChecks(checks) {
     });
 }
 
+function renderSectionBody(section) {
+    const body = String(section.body || '').trim();
+    if (!body) {
+        return [];
+    }
+
+    const normalized = RELATED_SECTION_HEADINGS.has(String(section.heading || '').trim())
+        ? linkRelatedBulletBlock(body).content
+        : body;
+
+    return normalized
+        .split('\n')
+        .map((line) => line.replace(/\s+$/g, ''));
+}
+
 function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payload) {
     const title = payload.title || buildBilingualTitle(entry);
     const summary = rewriteAikiTone(payload.summary || '');
@@ -143,6 +163,9 @@ function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payloa
     const tags = safeArray(payload.tags).length > 0 ? safeArray(payload.tags) : safeArray(entry.tags);
     const sections = safeArray(payload.sections);
     const checks = safeArray(payload.factCheckChecks);
+    const modelProfile = String(entry.category || '').toLowerCase() === 'model'
+        ? buildModelProfile(entry)
+        : null;
 
     return [
         '---',
@@ -152,6 +175,19 @@ function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payloa
         `summary: ${yamlQuote(summary)}`,
         `readerValue: ${yamlQuote(readerValue)}`,
         `category: ${entry.category}`,
+        ...(entry.modelType ? [`modelType: ${entry.modelType}`] : []),
+        ...(entry.parentModel ? [`parentModel: ${entry.parentModel}`] : []),
+        ...(modelProfile ? [
+            'modelProfile:',
+            `  memoryUsage: ${yamlQuote(modelProfile.memoryUsage)}`,
+            `  implementation: ${yamlQuote(modelProfile.implementation)}`,
+            `  activeParameters: ${yamlQuote(modelProfile.activeParameters)}`,
+            `  multimodalSupport: ${yamlQuote(modelProfile.multimodalSupport)}`,
+            `  access: ${yamlQuote(modelProfile.access)}`,
+            `  pricing: ${yamlQuote(modelProfile.pricing)}`,
+            `  weightsOpen: ${yamlQuote(modelProfile.weightsOpen)}`,
+            `  vendor: ${yamlQuote(modelProfile.vendor)}`,
+        ] : []),
         'guideVersion:',
         '  common: "1.0.0"',
         '  wiki: "2.0.0"',
@@ -179,10 +215,7 @@ function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payloa
         ...sections.flatMap((section) => [
             `## ${section.heading}`,
             '',
-            ...String(section.body || '')
-                .trim()
-                .split('\n')
-                .map((line) => line.replace(/\s+$/g, '')),
+            ...renderSectionBody(section),
             '',
         ]),
     ].filter(Boolean).join('\n');
@@ -233,6 +266,7 @@ function buildPromptV2(entry, sourceDetails, currentDoc, mentionStats, relatedTe
 - fact-check summary는 모두 반말로 끝내.
 - 각 섹션은 최소 2문장 이상 써.
 - 관련 용어 섹션은 마크다운 리스트로 써.
+- 관련 용어/같이 보면 좋은 모델 섹션의 각 항목은 \`- [용어명](/ko/wiki/slug/): 설명\` 형식으로 써. 이름 부분만 링크하면 돼.
 - category가 model이면 일반 개념 설명보다 "이 모델을 실제로 어디에 쓰는지"를 더 직접적으로 설명해.
 
 문서 구조:
@@ -267,6 +301,7 @@ ${sectionSchemaSnippet}
 - mentionCount: ${mentionStats.mentionCount}
 - firstMentioned: ${mentionStats.firstMentioned || '(없음)'}
 - relatedTerms: ${relatedTerms.join(', ') || '(없음)'}
+- related term bullet format: \`- [DeepSeek R1](/ko/wiki/deepseek-r1/): why this term matters here.\`
 - reader focus: ${buildWikiReaderValue(entry)}
 
 출처 요약:
@@ -364,6 +399,7 @@ ${String(currentDoc.content || '').slice(0, 1800)}
 - "이 용어를 보면", "빠르게 판단", "바로 잡는 데 도움" 같은 문구를 남발하지 마.
 - 본문 각 섹션은 최소 2문장 이상.
 - 관련 용어 섹션은 마크다운 리스트로 작성해.
+- 관련 용어/같이 보면 좋은 모델 섹션은 \`- [용어명](/ko/wiki/slug/): 설명\` 형식으로 작성해.
 - "왜 중요한가"에는 실무/기사 해석 관점이 들어가야 해.
 `.trim();
 }

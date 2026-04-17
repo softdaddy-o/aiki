@@ -1,21 +1,23 @@
 ---
 term: codex
-title: "Codex(코덱스)"
+title: Codex(코덱스)
 lang: ko
-summary: "Codex는 OpenAI의 코딩 작업 도구야. 코드 수정, 테스트, 리뷰, 자동화까지 이어져서 단순 추천 기능보다 팀의 개발 흐름을 다시 짜게 만드는 쪽에 더 가까워."
-readerValue: "Codex를 단순한 코딩 도구 이름으로 읽을지, 팀의 개발 흐름과 배포 전후 자동화까지 묶는 작업 축으로 읽을지 가르는 기준을 줘."
+summary: >-
+  Codex는 OpenAI의 코딩 작업 도구야. 코드 수정, 테스트, 리뷰, 자동화까지 이어져서 단순 추천 기능보다 팀의 개발 흐름을 다시
+  짜게 만드는 쪽에 더 가까워.
+readerValue: 'Codex를 단순한 코딩 도구 이름으로 읽을지, 팀의 개발 흐름과 배포 전후 자동화까지 묶는 작업 축으로 읽을지 가르는 기준을 줘.'
 category: tool
 guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
+  common: 1.0.0
+  wiki: 2.0.0
 aliases:
-  - "openai codex"
+  - openai codex
 relatedTerms:
   - claude-code
   - copilot
   - chatgpt
   - cursor
-firstMentioned: "2026-04-03"
+firstMentioned: '2026-04-03'
 mentionCount: 3
 draft: false
 tags:
@@ -24,45 +26,48 @@ tags:
   - developer-tools
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: '2026-04-13'
   sources:
-    - url: "https://openai.com/index/codex-flexible-pricing-for-teams/"
-      title: "Codex now offers pay-as-you-go pricing for teams"
-    - url: "https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/"
-      title: "Codex Prompting Guide"
+    - url: 'https://openai.com/index/codex-flexible-pricing-for-teams/'
+      title: Codex now offers pay-as-you-go pricing for teams
+    - url: >-
+        https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/
+      title: Codex Prompting Guide
   checks:
     - type: source_match
       result: pass
-      summary: "제품 정의와 문서 범위를 본문 설명에 맞춰봤어."
+      summary: 제품 정의와 문서 범위를 본문 설명에 맞춰봤어.
       items:
-        - "독자 문제 대조: Codex를 단순 이름표가 아니라 코드 작업과 팀 흐름을 건드리는 도구로 설명했는지 확인했어."
-        - "제품 정의는 코딩 에이전트와 작업 표면 범위 안에만 두고, 범용 AI 전체나 일반 채팅 제품으로 넓히지 않았어."
-        - "모델 이름에 붙는 Codex 표기는 보조 설명으로만 처리해서, 도구와 모델을 같은 층위로 섞지 않았어."
+        - '독자 문제 대조: Codex를 단순 이름표가 아니라 코드 작업과 팀 흐름을 건드리는 도구로 설명했는지 확인했어.'
+        - '제품 정의는 코딩 에이전트와 작업 표면 범위 안에만 두고, 범용 AI 전체나 일반 채팅 제품으로 넓히지 않았어.'
+        - '모델 이름에 붙는 Codex 표기는 보조 설명으로만 처리해서, 도구와 모델을 같은 층위로 섞지 않았어.'
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 제품 페이지와 개발자 문서를 서로 대조해서 다시 봤어."
+      summary: 공식 제품 페이지와 개발자 문서를 서로 대조해서 다시 봤어.
       items:
-        - "비교 기준: openai.com의 제품 페이지는 Codex를 코딩 에이전트와 작업 표면으로 설명하고, 개발자 문서와 공식 헬프 문서는 앱·CLI·IDE·요금 체계까지 포함한 사용 경로를 설명해."
-        - "본문의 핵심 기능은 코드 읽기, 수정, 명령 실행, 병렬 작업, 자동화처럼 여러 공식 문서에 공통으로 잡히는 내용만 남겼어."
-        - "팀 도입 맥락은 2026년 4월 2일 가격 공지의 Codex-only seat와 종량제 설명에 맞춰 적었어."
+        - >-
+          비교 기준: openai.com의 제품 페이지는 Codex를 코딩 에이전트와 작업 표면으로 설명하고, 개발자 문서와 공식 헬프
+          문서는 앱·CLI·IDE·요금 체계까지 포함한 사용 경로를 설명해.
+        - '본문의 핵심 기능은 코드 읽기, 수정, 명령 실행, 병렬 작업, 자동화처럼 여러 공식 문서에 공통으로 잡히는 내용만 남겼어.'
+        - 팀 도입 맥락은 2026년 4월 2일 가격 공지의 Codex-only seat와 종량제 설명에 맞춰 적었어.
     - type: number_verify
       result: pass
-      summary: "숫자와 범위 표현은 과장 없이 한 번 더 봤어."
+      summary: 숫자와 범위 표현은 과장 없이 한 번 더 봤어.
       items:
-        - "앱, IDE, CLI라는 세 표면 구분은 공식 제품·개발자 문서에 있는 설명 범위 안에서만 썼어."
-        - "팀 가격 변화는 2026년 4월 2일 공지의 범위대로 Business·Enterprise용 종량제 좌석 추가로만 적었어."
-        - "후기 사례에 나온 30~50% 같은 절감 수치는 본문 주장으로 끌어오지 않고 제외했어."
+        - '앱, IDE, CLI라는 세 표면 구분은 공식 제품·개발자 문서에 있는 설명 범위 안에서만 썼어.'
+        - 팀 가격 변화는 2026년 4월 2일 공지의 범위대로 Business·Enterprise용 종량제 좌석 추가로만 적었어.
+        - 후기 사례에 나온 30~50% 같은 절감 수치는 본문 주장으로 끌어오지 않고 제외했어.
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 해석을 따로 세워서 다시 봤어."
+      summary: 헷갈리기 쉬운 해석을 따로 세워서 다시 봤어.
       items:
-        - "Codex를 그냥 모델 이름으로만 읽는 오해를 막으려고, 제품 표면과 팀 작업 흐름 설명을 먼저 배치했어."
-        - "Codex를 만능 자동 배포 도구처럼 과장하지 않으려고, 권한·테스트·리뷰·CI/CD에 따라 성과가 달라진다고 못 박았어."
-        - "Copilot류 보조 기능과 같은 선에서만 읽는 오해를 막으려고, 병렬 작업·자동화·팀 비용 운영 맥락을 따로 설명했어."
+        - 'Codex를 그냥 모델 이름으로만 읽는 오해를 막으려고, 제품 표면과 팀 작업 흐름 설명을 먼저 배치했어.'
+        - 'Codex를 만능 자동 배포 도구처럼 과장하지 않으려고, 권한·테스트·리뷰·CI/CD에 따라 성과가 달라진다고 못 박았어.'
+        - 'Copilot류 보조 기능과 같은 선에서만 읽는 오해를 막으려고, 병렬 작업·자동화·팀 비용 운영 맥락을 따로 설명했어.'
       findings:
-        - "Codex는 도구이면서 동시에 일부 모델 이름에도 붙어서, 문맥을 안 나누면 기사 해석이 쉽게 틀어져."
-        - "팀용 가격 정책이 붙었다는 건 개인 보조 도구 소개보다 운영 단위 도입 신호에 더 가까워."
+        - 'Codex는 도구이면서 동시에 일부 모델 이름에도 붙어서, 문맥을 안 나누면 기사 해석이 쉽게 틀어져.'
+        - 팀용 가격 정책이 붙었다는 건 개인 보조 도구 소개보다 운영 단위 도입 신호에 더 가까워.
 ---
 ## 한 줄 정의
 Codex는 OpenAI가 만든 코딩 에이전트야. 사람 대신 전부 알아서 끝내는 자동화 봇이라기보다, 코드베이스를 읽고 파일을 고치고 명령을 실행하면서 개발자가 맡기거나 같이 끌고 가는 작업 표면에 가까워.
@@ -77,7 +82,7 @@ Codex는 OpenAI가 만든 코딩 에이전트야. 사람 대신 전부 알아서
 Codex를 그냥 GPT 계열 모델 이름으로만 읽으면 실제 제품 범위를 놓치기 쉬워. 반대로 모든 걸 자동 배포해 주는 만능 에이전트처럼 보면 또 과장인데, 실제 성과는 저장소 권한, 테스트 체계, 리뷰 규칙, CI/CD 연결 상태에 많이 좌우돼.
 또 Codex가 일을 많이 대신해 준다고 해서 검증 책임이 사라지는 건 아니야. 특히 코드 리뷰와 테스트를 생략하면 속도는 빨라져도 팀 기준과 배포 안정성은 금방 흔들릴 수 있어.
 ## 관련 용어
-- `Claude Code(클로드 코드)`: 둘 다 터미널과 코드베이스를 직접 다루는 코딩 에이전트지만, Codex는 OpenAI의 앱·IDE·CLI 묶음과 팀 운영 기능 쪽 설명이 더 강해.
+- [Claude Code(클로드 코드)](/ko/wiki/claude-code/): 둘 다 터미널과 코드베이스를 직접 다루는 코딩 에이전트지만, Codex는 OpenAI의 앱·IDE·CLI 묶음과 팀 운영 기능 쪽 설명이 더 강해.
 - `GitHub Copilot(깃허브 코파일럿)`: Copilot은 편집 중 제안과 자동완성의 비중이 크고, Codex는 한 작업을 통째로 맡겨 끝까지 밀어주는 흐름에 더 가까워.
-- `ChatGPT(챗지피티)`: ChatGPT는 범용 대화와 업무 허브에 가깝고, Codex는 그 계정 위에서 돌아가는 코딩 전용 작업 표면으로 보는 편이 더 정확해.
-- `Cursor(커서)`: Cursor는 에디터 중심 경험이 핵심이고, Codex는 에디터 밖 앱과 터미널, 병렬 작업 환경까지 포함해 읽어야 차이가 선명해져.
+- [ChatGPT(챗지피티)](/ko/wiki/chatgpt/): ChatGPT는 범용 대화와 업무 허브에 가깝고, Codex는 그 계정 위에서 돌아가는 코딩 전용 작업 표면으로 보는 편이 더 정확해.
+- [Cursor(커서)](/ko/wiki/cursor/): Cursor는 에디터 중심 경험이 핵심이고, Codex는 에디터 밖 앱과 터미널, 병렬 작업 환경까지 포함해 읽어야 차이가 선명해져.
