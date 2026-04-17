@@ -9,9 +9,50 @@ const VENDOR_LABELS = {
     microsoft: 'Microsoft',
     deepseek: 'DeepSeek',
     alibaba: 'Alibaba / Qwen',
+    moonshot: 'Moonshot AI / Kimi',
+    kimi: 'Moonshot AI / Kimi',
+    zai: 'Z.AI',
+    'z-ai': 'Z.AI',
     xai: 'xAI',
     github: 'GitHub',
 };
+
+const MODEL_PROFILE_TONE_KEYS = [
+    'memoryUsage',
+    'implementation',
+    'activeParameters',
+    'multimodalSupport',
+    'access',
+    'pricing',
+    'weightsOpen',
+];
+
+function rewriteModelProfileToneValue(text) {
+    const normalized = rewriteAikiTone(String(text || ''))
+        .replace(/입니다(?=[.!?\s]|$)/gu, '이야')
+        .replace(/이다(?=[.!?\s]|$)/gu, '이야')
+        .replace(/된다(?=[.!?\s]|$)/gu, '돼')
+        .replace(/본다(?=[.!?\s]|$)/gu, '봐')
+        .replace(/맞다(?=[.!?\s]|$)/gu, '맞아')
+        .replace(/없다(?=[.!?\s]|$)/gu, '없어')
+        .replace(/있다(?=[.!?\s]|$)/gu, '있어')
+        .replace(/필요하다(?=[.!?\s]|$)/gu, '필요해')
+        .replace(/중요하다(?=[.!?\s]|$)/gu, '중요해')
+        .replace(/정확하다(?=[.!?\s]|$)/gu, '정확해')
+        .replace(/가능하다(?=[.!?\s]|$)/gu, '가능해')
+        .replace(/적합하다(?=[.!?\s]|$)/gu, '잘 맞아')
+        .trim();
+
+    if (!normalized) {
+        return normalized;
+    }
+
+    if (/(?:이야|어|아|해|돼|봐|맞아|없어|있어|필요해|중요해|정확해|가능해|잘 맞아)(?:[.!?])?$/u.test(normalized)) {
+        return normalized;
+    }
+
+    return `${normalized}${/[.!?]$/.test(normalized) ? '' : '.'} 이렇게 보면 돼.`;
+}
 
 const MODEL_PROFILE_OVERRIDES = {
     'gpt-4o': {
@@ -101,6 +142,96 @@ const MODEL_PROFILE_OVERRIDES = {
         multimodalSupport: '텍스트와 이미지 입력, 텍스트 출력을 지원한다. 140개 이상 언어 지원과 128K 컨텍스트가 공식 포인트다.',
         access: '오픈 웨이트 모델이라 Hugging Face, Kaggle, Vertex Model Garden 등에서 내려받아 직접 실행할 수 있다.',
         pricing: '모델 자체 라이선스와 호스팅 비용이 핵심이다. API 토큰 과금보다 GPU 사양과 추론 속도를 먼저 계산하는 편이 맞다.',
+        weightsOpen: '오픈 웨이트 공개',
+        vendor: 'Google DeepMind',
+    },
+    'gpt-oss': {
+        memoryUsage: 'gpt-oss는 120B와 20B 두 계열로 공개됐고, 공식 발표 기준 120B는 80GB 메모리, 20B는 16GB 메모리 안에서 돌릴 수 있게 맞춰졌다. API 과금보다 어떤 GPU 한 장으로 돌릴 수 있는지가 먼저 눈에 들어오는 타입이다.',
+        implementation: 'OpenAI가 낸 오픈 웨이트 reasoning MoE 계열이다. 툴 사용과 코딩, 문제 해결 쪽을 염두에 둔 라인업이고, PyTorch·Metal·llama.cpp·vLLM 같은 실행 경로가 같이 준비됐다.',
+        activeParameters: '공식 자료 기준 gpt-oss-120b는 총 117B에 토큰당 5.1B 활성, gpt-oss-20b는 총 21B에 토큰당 3.6B 활성이다. family 페이지에서는 보통 20B와 120B 중 어느 쪽을 말하는지부터 같이 봐야 한다.',
+        multimodalSupport: '현재 공개 라인업은 텍스트 중심 reasoning 모델로 보는 편이 맞다. 공식 설명도 STEM, coding, tool use와 일반 지식 쪽에 초점이 맞춰져 있다.',
+        access: 'Hugging Face에서 웨이트를 받고 로컬이나 자체 인프라에 올릴 수 있고, Ollama·LM Studio·llama.cpp·vLLM 같은 배포 채널이 런치부터 붙어 있다.',
+        pricing: 'OpenAI가 API 과금형으로 파는 모델이 아니라 Apache 2.0 오픈 웨이트다. 비용은 토큰표보다 호스팅 GPU와 추론 스택 선택에서 갈린다.',
+        weightsOpen: 'Apache 2.0 기반 오픈 웨이트 공개',
+        vendor: 'OpenAI',
+    },
+    'claude-opus-4-5': {
+        memoryUsage: 'Claude Opus 4.5는 자체 호스팅형이 아니라 앱·API 중심으로 쓰는 상위 모델이다. 로컬 VRAM보다 긴 컨텍스트 작업과 장시간 에이전트 흐름에서 호출비를 어떻게 감당할지가 더 중요하다.',
+        implementation: 'Anthropic이 Opus 라인에서 코딩, 컴퓨터 사용, 장기 에이전트 작업을 밀어붙일 때 앞세운 frontier 모델이다. Claude Code와 실무용 에이전트 흐름을 같이 밀어준 시기 모델로 읽으면 된다.',
+        activeParameters: '활성 파라미터 수는 공개되지 않았다. 대신 Opus 4.5라는 버전명이 Claude Opus 계열의 특정 스냅샷이라는 점이 운영상 더 중요하다.',
+        multimodalSupport: '텍스트 중심 reasoning과 코딩 워크로드에 최적화된 상위 모델로 보는 편이 맞다. 실제 입력 범위와 제품 통합 방식은 당시 Claude 앱과 API 문서를 같이 봐야 한다.',
+        access: 'Claude.ai, Anthropic API, 주요 클라우드 채널에서 접근하는 상위 티어 모델로 읽으면 된다.',
+        pricing: 'Opus 계열답게 예산이 큰 편이라 운영 전에 현재 채널별 가격표를 같이 확인해야 한다. 앱 구독과 API 토큰 과금, 클라우드 리셀 가격이 완전히 같다고 보면 안 된다.',
+        weightsOpen: '오픈 웨이트 미공개, 서비스형 제공 중심',
+        vendor: 'Anthropic',
+    },
+    'claude-opus-4-6': {
+        memoryUsage: 'Claude Opus 4.6은 장기 지식 작업과 코딩, 에이전트 작업을 겨냥한 상위 모델이다. 자체 호스팅형 웨이트가 아니라 긴 작업을 얼마나 안정적으로 이어가는지가 운영 포인트다.',
+        implementation: 'Anthropic 투명성 허브 기준 하이브리드 reasoning 대형 모델이다. 코딩, knowledge work, agent 쪽 고난도 태스크를 묶어서 밀 때 보는 버전이다.',
+        activeParameters: '활성 파라미터 수는 비공개다. 대신 Opus 4.6이라는 버전명과 배포 시점이 분명해서, 기사에서 Opus 계열을 계열명으로 말하는지 이 버전을 말하는지 구분하기 좋다.',
+        multimodalSupport: '공식 요약 기준 텍스트와 이미지 입력을 이해하고, 텍스트·다이어그램·텍스트 음성 변환 출력을 지원한다.',
+        access: 'Claude.ai, Anthropic API, Amazon Bedrock, Google Vertex AI, Microsoft Azure AI Foundry로 열려 있다.',
+        pricing: '상위 Opus 티어라 운영비가 큰 축이다. 다만 실제 토큰 가격은 채널별 문서가 갈릴 수 있어서 예산 계산은 현재 가격표를 다시 확인하는 편이 안전하다.',
+        weightsOpen: '오픈 웨이트 미공개, 서비스형 제공 중심',
+        vendor: 'Anthropic',
+    },
+    'claude-opus-4-7': {
+        memoryUsage: 'Claude Opus 4.7은 Opus 라인의 최신 고성능 버전을 추적할 때 보는 페이지다. 자체 호스팅형 모델이 아니라 긴 코드베이스와 장기 에이전트 흐름에서 어느 정도까지 버티는지가 더 중요하다.',
+        implementation: 'Anthropic이 Opus 계열을 한 단계 더 밀어붙인 최신 frontier reasoning/coding 모델로 읽으면 된다. 계열명만으로는 안 보이는 배포 시점과 제품 맥락을 잡는 용도다.',
+        activeParameters: '활성 파라미터 수는 비공개다. 대신 4.7이라는 버전 표기 자체가 비교 축이라, Opus 4.5·4.6과 구분해서 읽어야 기사 해석이 덜 틀린다.',
+        multimodalSupport: 'Claude Opus 최신 계열답게 텍스트 중심 고난도 작업과 멀티모달 입력 확장 쪽을 같이 보는 편이 맞다. 세부 범위는 공개 뉴스와 모델 허브를 같이 확인해야 한다.',
+        access: '공식 뉴스와 Claude 모델 채널을 통해 공개되는 상위 티어 모델로 읽으면 된다. 실제 접근 채널은 Claude.ai·API·주요 클라우드 문서를 같이 확인해야 한다.',
+        pricing: '최상위 Opus 티어 예산이 필요하다는 감각으로 보는 편이 맞다. 정확한 토큰 가격은 현재 배포 채널 문서를 다시 확인해야 한다.',
+        weightsOpen: '오픈 웨이트 미공개, 서비스형 제공 중심',
+        vendor: 'Anthropic',
+    },
+    'qwen-3.5': {
+        memoryUsage: 'Qwen 3.5는 크기별 편차가 큰 family다. 예를 들어 35B-A3B는 총 35B에 3B 활성 구조고, 기본 컨텍스트는 262,144 토큰이며 1,010,000 토큰까지 확장할 수 있다.',
+        implementation: 'Qwen 팀이 공개한 멀티모달·agent 지향 오픈 모델 계열이다. thinking 모드, 툴 사용, 긴 컨텍스트, 다국어를 한 묶음으로 밀어붙인 세대라고 보면 된다.',
+        activeParameters: '35B-A3B는 256개 expert 중 8 routed + 1 shared가 활성화되는 MoE 구조다. family 페이지에서는 9B, 35B-A3B, 397B-A17B처럼 어떤 크기를 가리키는지 먼저 확인해야 한다.',
+        multimodalSupport: '공식 모델 카드 기준 텍스트와 비전 입력을 함께 다루는 멀티모달 foundation 모델이다. 201개 언어·방언 지원과 툴 사용/agent 성향이 같이 강조된다.',
+        access: '공식 Hugging Face 웨이트를 받아 Transformers, vLLM, SGLang, KTransformers 같은 스택으로 직접 서빙할 수 있다. 관리형 추론은 Alibaba Cloud Model Studio 쪽을 같이 본다.',
+        pricing: '오픈 웨이트라 토큰표보다 직접 서빙 비용과 추론 프레임워크 선택이 먼저다. 다만 관리형으로 쓸 땐 Qwen API 상품군이 별도로 붙는다.',
+        weightsOpen: '오픈 웨이트 공개',
+        vendor: 'Alibaba / Qwen',
+    },
+    'glm-5': {
+        memoryUsage: 'GLM 5 라인은 로컬 경량 모델보다 클라우드형 장기 에이전트 작업 쪽에 맞춰져 있다. 200K급 긴 컨텍스트와 장시간 실행 흐름을 같이 보는 편이 맞다.',
+        implementation: 'Z.AI가 Agentic Engineering이라고 직접 밀고 있는 foundation 계열이다. 백엔드 리팩터링, 긴 계획 실행, 깊은 디버깅 같은 엔지니어링 흐름을 겨냥한다.',
+        activeParameters: '공식 소개 기준 GLM 5 foundation은 744B 총 파라미터에 40B 활성 구조다. family 페이지에서는 GLM 5, GLM 5-Turbo, GLM 5.1처럼 하위 버전 차이를 같이 봐야 한다.',
+        multimodalSupport: '현재 핵심 라인은 텍스트 중심 coding/reasoning/agent 모델로 읽는 편이 맞다. 별도 vision 파생 모델과 섞지 않는 게 안전하다.',
+        access: 'Z.AI 개발자 문서와 OpenAI 호환 API를 통해 붙일 수 있는 서비스형 모델이다. 자체 제품군과 코딩 플랜 쪽 통합도 같이 밀고 있다.',
+        pricing: 'GLM 5 계열은 서비스형 가격표를 따로 본다. family 페이지에서는 세부 버전별 입력·출력 가격이 갈리므로 현재 과금표를 다시 확인하는 편이 안전하다.',
+        weightsOpen: '핵심 GLM 5 계열은 서비스형 제공 중심',
+        vendor: 'Z.AI',
+    },
+    'glm-5.1': {
+        memoryUsage: 'GLM 5.1은 공식 문서 기준 최대 컨텍스트 200K, 최대 출력 128K를 지원한다. 긴 코딩 에이전트 루프를 한 번에 이어가는 용도로 읽으면 된다.',
+        implementation: 'GLM 5.1은 장기 수평 작업을 위한 coding/agent 특화 업데이트다. Z.AI 릴리스 노트 기준 한 번의 실행으로 최대 8시간까지 독립적으로 일할 수 있는 모델로 소개된다.',
+        activeParameters: '정확한 활성 파라미터 수는 5.1 페이지에서 따로 강조하지 않는다. 대신 GLM 5 foundation을 잇는 상위 코딩 모델이라는 포지션과 스트리밍 툴 호출 지원이 더 중요하다.',
+        multimodalSupport: '현재 핵심 포지션은 텍스트 중심 coding과 tool use다. thinking 모드와 스트리밍 tool call을 공식적으로 지원한다.',
+        access: 'Z.AI API에서 `glm-5.1` 식별자로 바로 붙일 수 있고, 마이그레이션 문서와 코딩 플랜 문서가 따로 있다.',
+        pricing: '정확한 과금표는 Z.AI 현재 가격표를 다시 확인해야 한다. 긴 컨텍스트와 긴 실행 시간을 같이 쓰는 모델이라 출력 비용과 캐시 정책까지 같이 보는 편이 낫다.',
+        weightsOpen: '서비스형 제공 중심',
+        vendor: 'Z.AI',
+    },
+    'kimi-k2': {
+        memoryUsage: 'Kimi K2 계열은 0711 preview 기준 1T 총 파라미터에 32B 활성 구조이고, 0905 preview와 thinking 계열은 256K 컨텍스트까지 올라간다. family 페이지라 어떤 서브모델을 쓰는지 먼저 봐야 한다.',
+        implementation: 'Moonshot AI가 코드와 agent 작업에 맞춰 공개한 MoE 계열이다. K2, K2 turbo, K2 thinking처럼 같은 뿌리에서 응답 속도와 추론 깊이를 나눠 가져간다.',
+        activeParameters: '공식 문서에서 가장 구체적인 수치는 kimi-k2-0711-preview의 1T 총 / 32B 활성이다. 최신 0905 계열은 컨텍스트와 coding 실전성을 더 키운 라인으로 읽으면 된다.',
+        multimodalSupport: 'K2 본체는 코딩·agent 작업 중심이고, 최신 K2.5 쪽에서 비전까지 넓어진다. K2 family 페이지에서는 thinking/non-thinking과 turbo 유무를 같이 봐야 한다.',
+        access: 'Kimi API 플랫폼에서 여러 K2 파생 모델을 선택해 쓸 수 있다. Claude Code/Cline류 설정 가이드도 같이 제공돼서 개발 도구 연결이 빠른 편이다.',
+        pricing: 'K2 계열은 API 서비스형 가격표를 본다. turbo와 thinking 모델은 속도와 비용이 다르니 family 이름만 보고 예산을 고정하면 안 된다.',
+        weightsOpen: '서비스형 제공 중심',
+        vendor: 'Moonshot AI / Kimi',
+    },
+    'gemma-4': {
+        memoryUsage: 'Gemma 4는 small 128K, medium 256K 컨텍스트 구성을 가진 오픈 웨이트 family다. 26B A4B MoE와 31B Dense까지 있어 같은 Gemma 4라도 필요한 메모리가 크게 갈린다.',
+        implementation: 'Google DeepMind가 낸 멀티모달 오픈 모델 세대다. 텍스트와 이미지 입력을 처리하고, 작은 모델은 오디오 입력까지 지원하며, 로컬 실행과 agent 작업을 같이 겨냥한다.',
+        activeParameters: '공식 모델 카드 기준 31B Dense와 26B A4B MoE가 핵심 축이다. 26B A4B는 총 25.2B에 활성 3.8B, 31B Dense는 30.7B 규모다.',
+        multimodalSupport: '텍스트와 이미지 입력, 텍스트 출력을 기본으로 보고, 작은 모델에서는 오디오 입력도 지원한다. 140개 이상 언어 지원과 함수 호출, agent 성향이 같이 강조된다.',
+        access: '오픈 웨이트라 로컬과 자체 호스팅 경로가 열려 있다. 노트북·모바일 같은 온디바이스 실행을 공식적으로 같이 밀고 있는 점이 Gemma 3와의 큰 차이다.',
+        pricing: 'API 토큰표보다 하드웨어 비용과 배포 경로가 핵심이다. 오픈 웨이트라 직접 서빙 기준 GPU 메모리와 양자화 전략을 먼저 계산하게 된다.',
         weightsOpen: '오픈 웨이트 공개',
         vendor: 'Google DeepMind',
     },
@@ -424,12 +555,19 @@ function buildModelProfile(entry) {
         vendor: inferVendor(entry),
     };
     const overrides = MODEL_PROFILE_OVERRIDES[entry.term] || null;
-
-    return {
+    const merged = {
         ...inferred,
         ...(overrides || {}),
         ...entry.modelProfile,
     };
+
+    for (const key of MODEL_PROFILE_TONE_KEYS) {
+        if (typeof merged[key] === 'string') {
+            merged[key] = rewriteModelProfileToneValue(merged[key]);
+        }
+    }
+
+    return merged;
 }
 
 function inferModelReaderProblem(entry, modelProfile) {

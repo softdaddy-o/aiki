@@ -1,15 +1,35 @@
 ---
 term: gpt-4o
-title: "GPT-4o(지피티-4o)"
+title: GPT-4o(지피티-4o)
 lang: ko
-summary: "GPT-4o는 OpenAI가 만든 범용 멀티모달 모델이고, OpenAI API와 ChatGPT 흐름에서 텍스트·이미지·음성을 함께 다루는 데 쓰여. 기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용자 경험과 제품 전략을 밀고 있는지 먼저 보는 편이 맞아."
-readerValue: "기사에서 GPT-4o가 나오면 점수표보다 음성 대화, 이미지 이해, 범용 서비스 배포 같은 실제 사용처를 먼저 읽게 해줘."
+summary: >-
+  GPT-4o는 OpenAI가 만든 범용 멀티모달 모델이고, OpenAI API와 ChatGPT 흐름에서 텍스트·이미지·음성을 함께 다루는 데
+  쓰여. 기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용자 경험과 제품 전략을 밀고 있는지 먼저 보는 편이 맞아.
+readerValue: '기사에서 GPT-4o가 나오면 점수표보다 음성 대화, 이미지 이해, 범용 서비스 배포 같은 실제 사용처를 먼저 읽게 해줘.'
 category: model
+modelType: version
+modelProfile:
+  memoryUsage: >-
+    OpenAI API 기준 컨텍스트 128K, 최대 출력 16,384토큰이야. 자체 호스팅형 웨이트가 아니라 GPU 메모리 계산보다 요청당
+    토큰 예산을 먼저 봐.
+  implementation: >-
+    OpenAI의 범용 멀티모달 GPT 계열이야. 텍스트와 이미지 입력, 텍스트 출력, 함수 호출, 구조화 출력, 파인튜닝까지 공식
+    지원한다. 이렇게 보면 돼.
+  activeParameters: >-
+    활성 파라미터 수는 비공개다. 대신 gpt-4o, gpt-4o-2024-08-06, gpt-4o-2024-11-20처럼 스냅샷을 고정해
+    운영할 수 있어.
+  multimodalSupport: '텍스트와 이미지 입력, 텍스트 출력이 기본이야. 오디오 입출력은 별도 GPT-4o Audio 계열과 구분해서 보는 편이 정확해.'
+  access: >-
+    Responses API, Chat Completions, Batch, Realtime에 바로 붙일 수 있어. 범용 프로덕션 기본 모델로
+    쓰기 쉬운 타입이야.
+  pricing: 'OpenAI API 기준 1M 토큰당 입력 $2.50, 캐시 입력 $1.25, 출력 $10.00이야.'
+  weightsOpen: '오픈 웨이트 미공개, API 제공 중심. 이렇게 보면 돼.'
+  vendor: OpenAI
 guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
+  common: 1.0.0
+  wiki: 2.0.0
 aliases:
-  - "GPT-4o(지피티-4o)"
+  - GPT-4o(지피티-4o)
 relatedTerms:
   - gemini
   - chatgpt
@@ -22,43 +42,47 @@ tags:
   - multimodal
 factCheck:
   status: passed
-  date: "2026-04-14"
+  date: '2026-04-14'
   sources:
-    - url: "https://en.wikipedia.org/wiki/GPT-4o"
-      title: "GPT-4o"
-    - url: "https://openai.com/index/hello-gpt-4o/"
-      title: "Hello GPT-4o"
+    - url: 'https://en.wikipedia.org/wiki/GPT-4o'
+      title: GPT-4o
+    - url: 'https://openai.com/index/hello-gpt-4o/'
+      title: Hello GPT-4o
   checks:
     - type: source_match
       result: pass
-      summary: "공식 소개와 보조 출처가 겹쳐 말하는 멀티모달 범위를 기준으로 잡았어."
+      summary: 공식 소개와 보조 출처가 겹쳐 말하는 멀티모달 범위를 기준으로 잡았어.
       items:
-        - "독자 문제 대조: 이 이름이 그냥 새 성능 모델인지, 실제 서비스용 기본 멀티모달 모델인지 구분하게 만드는 데 초점을 맞췄어."
-        - "OpenAI 소개 글의 핵심인 audio, vision, text 통합과 omni 방향을 한 줄 정의와 실사용 섹션에 반영했어."
-        - "위키 개요가 말하는 멀티모달 모델이라는 큰 틀도 본문 설명과 충돌하지 않게 유지했어."
+        - '독자 문제 대조: 이 이름이 그냥 새 성능 모델인지, 실제 서비스용 기본 멀티모달 모델인지 구분하게 만드는 데 초점을 맞췄어.'
+        - >-
+          OpenAI 소개 글의 핵심인 audio, vision, text 통합과 omni 방향을 한 줄 정의와 실사용 섹션에
+          반영했어.
+        - 위키 개요가 말하는 멀티모달 모델이라는 큰 틀도 본문 설명과 충돌하지 않게 유지했어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "공식 글과 보조 출처가 겹치는 주장만 남기고 나머지는 과감히 뺐어."
+      summary: 공식 글과 보조 출처가 겹치는 주장만 남기고 나머지는 과감히 뺐어.
       items:
-        - "비교 기준: OpenAI 공식 글의 출시 맥락과 위키 개요의 멀티모달 설명이 같은 대상과 범위를 가리키는지 확인했어."
-        - "두 출처 모두 GPT-4o를 텍스트, 이미지, 오디오를 다루는 OpenAI의 멀티모달 모델로 설명해."
-        - "그래서 본문도 세부 가용성보다 범용 멀티모달 성격과 제품 전략 신호에 집중했어."
+        - '비교 기준: OpenAI 공식 글의 출시 맥락과 위키 개요의 멀티모달 설명이 같은 대상과 범위를 가리키는지 확인했어.'
+        - '두 출처 모두 GPT-4o를 텍스트, 이미지, 오디오를 다루는 OpenAI의 멀티모달 모델로 설명해.'
+        - 그래서 본문도 세부 가용성보다 범용 멀티모달 성격과 제품 전략 신호에 집중했어.
     - type: number_verify
       result: pass
-      summary: "필수 시점 정보만 남기고 변동 큰 수치는 본문에서 뺐어."
+      summary: 필수 시점 정보만 남기고 변동 큰 수치는 본문에서 뺐어.
       items:
-        - "본문에 남긴 명시 숫자는 공개 시점인 2024년 5월 13일뿐이야."
-        - "공식 글에 있는 반응 속도나 비용 절감 수치는 출시 자료 성격이 강해서 핵심 정의와 실사용 설명에는 넣지 않았어."
+        - 본문에 남긴 명시 숫자는 공개 시점인 2024년 5월 13일뿐이야.
+        - 공식 글에 있는 반응 속도나 비용 절감 수치는 출시 자료 성격이 강해서 핵심 정의와 실사용 설명에는 넣지 않았어.
     - type: adversarial
       result: pass
-      summary: "제품 이름과 모델 이름을 섞어 읽는 오해를 먼저 막았어."
+      summary: 제품 이름과 모델 이름을 섞어 읽는 오해를 먼저 막았어.
       items:
-        - "GPT-4o를 ChatGPT와 같은 제품 이름처럼 읽는 오해를 막으려고 ChatGPT와의 층위 차이를 관련 모델 섹션에 넣었어."
-        - "모든 모달리티가 항상 동일하게 바로 열린다고 단정하지 않게 단계적 공개와 실제 가용성 차이를 문장에 반영했어."
+        - >-
+          GPT-4o를 ChatGPT와 같은 제품 이름처럼 읽는 오해를 막으려고 ChatGPT와의 층위 차이를 관련 모델 섹션에
+          넣었어.
+        - 모든 모달리티가 항상 동일하게 바로 열린다고 단정하지 않게 단계적 공개와 실제 가용성 차이를 문장에 반영했어.
       findings:
-        - "GPT-4o를 무조건 OpenAI 최고 모델로 읽으면 실제 기사에서 말하는 제품 포지션을 놓치기 쉬워."
-        - "GPT-4o를 텍스트 챗봇의 새 이름 정도로 축소하면 음성, 이미지 경험을 묶으려는 전략이 빠져."
+        - GPT-4o를 무조건 OpenAI 최고 모델로 읽으면 실제 기사에서 말하는 제품 포지션을 놓치기 쉬워.
+        - 'GPT-4o를 텍스트 챗봇의 새 이름 정도로 축소하면 음성, 이미지 경험을 묶으려는 전략이 빠져.'
 ---
 ## 한 줄 정의
 GPT-4o는 OpenAI가 만든 범용 멀티모달 모델이야. OpenAI API와 ChatGPT 음성·비전 흐름에서 텍스트, 이미지, 음성을 한 엔진으로 묶어 쓰게 하려는 기본 모델로 보면 돼.
