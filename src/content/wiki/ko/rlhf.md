@@ -1,15 +1,17 @@
 ---
 term: rlhf
-title: "RLHF(인간 피드백 기반 강화학습)"
+title: RLHF(인간 피드백 기반 강화학습)
 lang: ko
-summary: "RLHF는 사람이 더 낫다고 고른 답을 바탕으로 모델 행동을 다듬는 학습 방식이야. 똑똑함 자체를 키운다기보다 사람 선호와 안전 기준 쪽으로 모델을 정렬하는 과정에 가까워."
-readerValue: "RLHF를 알면 기사에서 새 모델 성능 얘기인지, 모델 말투와 거절 방식, 안전성 같은 정렬 공정 얘기인지 빨리 가를 수 있어."
+summary: >-
+  RLHF는 사람이 더 낫다고 고른 답을 바탕으로 모델 행동을 다듬는 학습 방식이야. 똑똑함 자체를 키운다기보다 사람 선호와 안전 기준 쪽으로
+  모델을 정렬하는 과정에 가까워.
+readerValue: 'RLHF를 알면 기사에서 새 모델 성능 얘기인지, 모델 말투와 거절 방식, 안전성 같은 정렬 공정 얘기인지 빨리 가를 수 있어.'
 category: technique
 guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
+  common: 1.0.0
+  wiki: 2.0.0
 aliases:
-  - "reinforcement learning from human feedback"
+  - reinforcement learning from human feedback
 relatedTerms:
   - pytorch
   - alignment
@@ -22,52 +24,52 @@ tags:
   - training
 factCheck:
   status: passed
-  date: "2026-04-14"
+  date: '2026-04-14'
   sources:
-    - url: "https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback"
-      title: "Reinforcement learning from human feedback"
-    - url: "https://huggingface.co/blog/rlhf"
-      title: "Illustrating Reinforcement Learning from Human Feedback (RLHF)"
+    - url: 'https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback'
+      title: Reinforcement learning from human feedback
+    - url: 'https://huggingface.co/blog/rlhf'
+      title: Illustrating Reinforcement Learning from Human Feedback (RLHF)
   checks:
     - type: source_match
       result: pass
       sources: 2
-      summary: "RLHF의 핵심 단계를 다시 맞춰봤어."
+      summary: RLHF의 핵심 단계를 다시 맞춰봤어.
       items:
-        - "독자 문제 대조: RLHF를 성능 트릭이 아니라 사람 선호를 반영해 모델 행동을 조정하는 학습 방식으로 잡았어."
-        - "허깅페이스 설명의 핵심인 선호 데이터 수집, 보상 모델 학습, RL 기반 조정 흐름을 본문에 반영했어."
-        - "OpenAI의 인간 선호 학습 맥락과 맞게 '사람이 쓰기 좋은 답' 쪽으로 정렬된다는 점을 강조했어."
+        - '독자 문제 대조: RLHF를 성능 트릭이 아니라 사람 선호를 반영해 모델 행동을 조정하는 학습 방식으로 잡았어.'
+        - '허깅페이스 설명의 핵심인 선호 데이터 수집, 보상 모델 학습, RL 기반 조정 흐름을 본문에 반영했어.'
+        - OpenAI의 인간 선호 학습 맥락과 맞게 '사람이 쓰기 좋은 답' 쪽으로 정렬된다는 점을 강조했어.
       findings:
-        - "RLHF는 약어 설명보다 사람 선호를 학습 신호로 바꾸는 과정이 핵심이었어."
+        - RLHF는 약어 설명보다 사람 선호를 학습 신호로 바꾸는 과정이 핵심이었어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "허깅페이스 정리와 OpenAI 초기 인간 선호 학습 문맥을 같이 맞춰봤어."
+      summary: 허깅페이스 정리와 OpenAI 초기 인간 선호 학습 문맥을 같이 맞춰봤어.
       items:
-        - "비교 기준: RLHF를 이론 약어로만 둘지, 실제 서비스 정렬 공정으로 설명할지 맞춰봤어."
-        - "허깅페이스 문서는 RLHF를 다단계 파이프라인으로 풀고, OpenAI 글은 인간 선호에서 보상을 배우는 구조를 설명했어."
-        - "그래서 본문도 수식보다 서비스에서 말투와 안전 반응이 달라지는 이유를 읽게 만드는 쪽으로 정리했어."
+        - '비교 기준: RLHF를 이론 약어로만 둘지, 실제 서비스 정렬 공정으로 설명할지 맞춰봤어.'
+        - '허깅페이스 문서는 RLHF를 다단계 파이프라인으로 풀고, OpenAI 글은 인간 선호에서 보상을 배우는 구조를 설명했어.'
+        - 그래서 본문도 수식보다 서비스에서 말투와 안전 반응이 달라지는 이유를 읽게 만드는 쪽으로 정리했어.
       findings:
-        - "개념 문서와 초기 사례를 같이 보니 정렬 공정이라는 설명이 더 단단해졌어."
+        - 개념 문서와 초기 사례를 같이 보니 정렬 공정이라는 설명이 더 단단해졌어.
     - type: number_verify
       result: pass
       sources: 1
-      summary: "단계 수 같은 핵심 숫자만 남기고 과한 수치는 줄였어."
+      summary: 단계 수 같은 핵심 숫자만 남기고 과한 수치는 줄였어.
       items:
-        - "허깅페이스 RLHF 설명의 큰 틀인 세 단계 구조를 확인했어."
-        - "실험 규모나 모델 파라미터 수는 논문마다 크게 달라서 일반 설명에서는 빼고, 단계 구조만 남겼어."
+        - 허깅페이스 RLHF 설명의 큰 틀인 세 단계 구조를 확인했어.
+        - '실험 규모나 모델 파라미터 수는 논문마다 크게 달라서 일반 설명에서는 빼고, 단계 구조만 남겼어.'
       findings:
-        - "숫자는 많았지만 독자에게 오래 남는 건 단계 구조였어."
+        - 숫자는 많았지만 독자에게 오래 남는 건 단계 구조였어.
     - type: adversarial
       result: pass
       sources: 2
-      summary: "RLHF를 만능 안전 장치처럼 읽는 오해를 막았어."
+      summary: RLHF를 만능 안전 장치처럼 읽는 오해를 막았어.
       items:
-        - "RLHF를 거치면 무조건 사실성이 올라가고 위험이 사라진다는 식의 표현을 피했어."
-        - "DPO 같은 다른 선호 최적화 방식과 RLHF를 같은 말처럼 섞는 오해도 경계했어."
-        - "사람 피드백이 들어간다고 해서 편향이 자동으로 없어지는 건 아니라는 점도 남겼어."
+        - RLHF를 거치면 무조건 사실성이 올라가고 위험이 사라진다는 식의 표현을 피했어.
+        - DPO 같은 다른 선호 최적화 방식과 RLHF를 같은 말처럼 섞는 오해도 경계했어.
+        - 사람 피드백이 들어간다고 해서 편향이 자동으로 없어지는 건 아니라는 점도 남겼어.
       findings:
-        - "RLHF를 안전 보증서처럼 읽는 오해를 제일 먼저 막았어."
+        - RLHF를 안전 보증서처럼 읽는 오해를 제일 먼저 막았어.
 ---
 ## 한 줄 정의
 RLHF는 사람이 선호하는 응답을 기준으로 모델 행동을 조정하는 학습 방식이야. 모델을 처음부터 다시 만드는 말이라기보다, 이미 학습된 모델을 사람 기준에 더 맞게 다듬는 후반 정렬 공정이라고 보면 돼.
@@ -82,7 +84,7 @@ RLHF는 사람이 선호하는 응답을 기준으로 모델 행동을 조정하
 RLHF가 자동으로 진실성과 안전을 보장해 주는 건 아니야. 사람이 준 피드백이 편향돼 있으면 그 편향도 더 세게 학습할 수 있고, 보상 해킹 같은 문제도 생길 수 있어.
 그리고 요즘은 DPO처럼 다른 선호 최적화 방식도 많이 써. 그래서 RLHF를 모든 정렬 기법의 총칭처럼 쓰면 금방 헷갈려.
 ## 관련 용어
-- pytorch: RLHF 파이프라인을 실제로 구현할 때 자주 쓰는 학습 프레임워크야. 개념과 구현 층위를 나눠 보는 데 도움이 돼.
-- alignment: RLHF가 왜 필요한지 설명하는 상위 목표야. 모델을 사람 의도와 정책에 맞추는 큰 문맥이 여기야.
-- fine-tuning: RLHF도 넓게 보면 추가 학습이지만, 사람 선호 신호를 쓰는 점이 일반 지도 미세조정과 달라.
-- distillation: 큰 모델의 행동을 더 작은 모델로 옮기는 기법이야. RLHF처럼 행동을 다듬는 말과 목적이 섞이지 않게 같이 보면 좋아.
+- [pytorch](/ko/wiki/pytorch/): RLHF 파이프라인을 실제로 구현할 때 자주 쓰는 학습 프레임워크야. 개념과 구현 층위를 나눠 보는 데 도움이 돼.
+- [alignment](/ko/wiki/alignment/): RLHF가 왜 필요한지 설명하는 상위 목표야. 모델을 사람 의도와 정책에 맞추는 큰 문맥이 여기야.
+- [fine-tuning](/ko/wiki/fine-tuning/): RLHF도 넓게 보면 추가 학습이지만, 사람 선호 신호를 쓰는 점이 일반 지도 미세조정과 달라.
+- [distillation](/ko/wiki/distillation/): 큰 모델의 행동을 더 작은 모델로 옮기는 기법이야. RLHF처럼 행동을 다듬는 말과 목적이 섞이지 않게 같이 보면 좋아.

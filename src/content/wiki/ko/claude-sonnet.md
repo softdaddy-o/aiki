@@ -1,15 +1,32 @@
 ---
 term: claude-sonnet
-title: "Claude Sonnet (클로드 소넷)"
+title: Claude Sonnet (클로드 소넷)
 lang: ko
-summary: "Claude Sonnet은 Anthropic이 Claude 제품군 안에서 코딩, 에이전트, 업무 자동화 같은 실제 배포용 작업에 앞세우는 주력 모델 계열이야. 기사에서 버전명이 빠져 있으면 성능표보다 어떤 사용처와 제품 전략을 밀고 있는지 읽는 단서로 보는 편이 맞아."
-readerValue: "Claude Sonnet이 나오면 최고점 경쟁 기사인지, 아니면 Anthropic의 기본 실전형 모델선 이야기인지 먼저 구분할 수 있어."
+summary: >-
+  Claude Sonnet은 Anthropic이 Claude 제품군 안에서 코딩, 에이전트, 업무 자동화 같은 실제 배포용 작업에 앞세우는
+  주력 모델 계열이야. 기사에서 버전명이 빠져 있으면 성능표보다 어떤 사용처와 제품 전략을 밀고 있는지 읽는 단서로 보는 편이 맞아.
+readerValue: 'Claude Sonnet이 나오면 최고점 경쟁 기사인지, 아니면 Anthropic의 기본 실전형 모델선 이야기인지 먼저 구분할 수 있어.'
 category: model
+modelType: family
+parentModel: claude
+modelProfile:
+  memoryUsage: >-
+    서비스형 모델이면 서버 메모리 요구량이 공개되지 않을 수 있어, 배포 메모리 대신 컨텍스트와 출력 한도를 같이 보는 편이 낫다. 이렇게
+    보면 돼.
+  implementation: 'Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해.'
+  activeParameters: 공개 자료 기준 활성 파라미터 수 확인 필요. 이렇게 보면 돼.
+  multimodalSupport: 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요. 이렇게 보면 돼.
+  access: '무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전하다. 이렇게 보면 돼.'
+  pricing: >-
+    유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋다. 이렇게 보면
+    돼.
+  weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
+  vendor: Anthropic
 guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
+  common: 1.0.0
+  wiki: 2.0.0
 aliases:
-  - "Claude Sonnet (클로드 소넷)"
+  - Claude Sonnet (클로드 소넷)
 relatedTerms:
   - claude
   - claude-sonnet-4-5
@@ -22,49 +39,53 @@ tags:
   - application
 factCheck:
   status: passed
-  date: "2026-04-14"
+  date: '2026-04-14'
   sources:
-    - url: "https://www.anthropic.com/claude/sonnet"
-      title: "Claude Sonnet 4.6"
-    - url: "https://docs.anthropic.com/en/docs/about-claude/models"
-      title: "Models overview"
+    - url: 'https://www.anthropic.com/claude/sonnet'
+      title: Claude Sonnet 4.6
+    - url: 'https://docs.anthropic.com/en/docs/about-claude/models'
+      title: Models overview
   checks:
     - type: source_match
       result: pass
       sources: 2
-      summary: "Claude Sonnet을 주력 실전형 계열로 설명한 방향을 공식 설명에 맞춰봤어."
+      summary: Claude Sonnet을 주력 실전형 계열로 설명한 방향을 공식 설명에 맞춰봤어.
       items:
-        - "독자 문제 대조: 벤치마크 숫자보다 사용처와 제품 전략을 먼저 읽게 해달라는 요구에 맞춰 실전형 기본선이라는 점을 앞세웠어."
-        - "코딩과 에이전트 맥락을 실제 사용 장면 중심으로 풀었어."
+        - '독자 문제 대조: 벤치마크 숫자보다 사용처와 제품 전략을 먼저 읽게 해달라는 요구에 맞춰 실전형 기본선이라는 점을 앞세웠어.'
+        - 코딩과 에이전트 맥락을 실제 사용 장면 중심으로 풀었어.
       findings:
-        - "Claude 전체 브랜드와 Sonnet 계열명을 같은 것으로 쓰지 않게 갈랐어."
+        - Claude 전체 브랜드와 Sonnet 계열명을 같은 것으로 쓰지 않게 갈랐어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "제품 소개와 모델 개요 문서가 겹치는 공통 포지션만 남겼어."
+      summary: 제품 소개와 모델 개요 문서가 겹치는 공통 포지션만 남겼어.
       items:
-        - "비교 기준: Sonnet 제품 페이지는 현재 사용처를, 모델 개요 문서는 Claude 가족 안에서의 자리를 보여 준다는 점을 놓고 비교했어."
-        - "두 출처 모두 Sonnet을 코딩과 에이전트, 실사용 업무 흐름에 강한 라인으로 놓는 점은 같았어."
+        - >-
+          비교 기준: Sonnet 제품 페이지는 현재 사용처를, 모델 개요 문서는 Claude 가족 안에서의 자리를 보여 준다는 점을
+          놓고 비교했어.
+        - '두 출처 모두 Sonnet을 코딩과 에이전트, 실사용 업무 흐름에 강한 라인으로 놓는 점은 같았어.'
       findings:
-        - "버전 고유 사양은 계열 일반론으로 올리지 않고 주력 실전형이라는 공통 의미만 유지했어."
+        - 버전 고유 사양은 계열 일반론으로 올리지 않고 주력 실전형이라는 공통 의미만 유지했어.
     - type: number_verify
       result: pass
       sources: 2
-      summary: "버전에 따라 바뀌는 숫자는 계열 전체 사실처럼 적지 않았어."
+      summary: 버전에 따라 바뀌는 숫자는 계열 전체 사실처럼 적지 않았어.
       items:
-        - "컨텍스트 길이나 가격 같은 수치는 계열 공통값으로 쓰지 않았어."
-        - "Sonnet 4.5나 4.6 같은 숫자는 버전 예시로만 다뤘어."
+        - 컨텍스트 길이나 가격 같은 수치는 계열 공통값으로 쓰지 않았어.
+        - Sonnet 4.5나 4.6 같은 숫자는 버전 예시로만 다뤘어.
       findings:
-        - "실전 사용처를 설명하는 데 필요 없는 세부 수치는 빼서 문장을 줄였어."
+        - 실전 사용처를 설명하는 데 필요 없는 세부 수치는 빼서 문장을 줄였어.
     - type: adversarial
       result: pass
       sources: 2
-      summary: "처음 읽는 사람이 가장 많이 하는 오해를 먼저 막았어."
+      summary: 처음 읽는 사람이 가장 많이 하는 오해를 먼저 막았어.
       items:
-        - "Claude Sonnet을 앱 이름처럼 읽지 않게 제품군과 계열을 분리했어."
-        - "Sonnet을 숫자 없는 단일 모델명으로 굳히지 않게 버전 확인 필요성을 남겼어."
+        - Claude Sonnet을 앱 이름처럼 읽지 않게 제품군과 계열을 분리했어.
+        - Sonnet을 숫자 없는 단일 모델명으로 굳히지 않게 버전 확인 필요성을 남겼어.
       findings:
-        - "기사 문맥에서 Claude Sonnet은 최신 Sonnet 버전을 느슨하게 부르는 표현일 수 있어서 실제 도입 판단은 구체 버전까지 내려가야 해."
+        - >-
+          기사 문맥에서 Claude Sonnet은 최신 Sonnet 버전을 느슨하게 부르는 표현일 수 있어서 실제 도입 판단은 구체
+          버전까지 내려가야 해.
 ---
 ## 한 줄 정의
 Claude Sonnet은 Anthropic이 Claude 안에서 주력 범용 모델선으로 내세우는 계열 이름이야. 특정 버전 하나를 가리킬 때도 있지만, 기사에서는 보통 코딩과 실무 자동화에 넓게 쓰는 Sonnet 라인 전체를 뜻하는 경우가 많아.
