@@ -45,6 +45,9 @@ const navCss = `
     grid-column: 1;
     grid-row: 2 / span 2;
     align-self: start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -55,11 +58,13 @@ const navCss = `
     background: color-mix(in srgb, var(--color-surface) 88%, transparent);
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
     backdrop-filter: blur(18px);
+    overflow: hidden;
 }
 .showcase-section-nav button {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
     min-width: 0;
     min-height: 56px;
     padding: 8px 10px;
@@ -71,6 +76,11 @@ const navCss = `
     font: inherit;
     text-align: left;
     transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    overflow: hidden;
+}
+.showcase-section-nav button > span:last-child {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 .showcase-section-nav button:hover,
 .showcase-section-nav button:focus-visible {

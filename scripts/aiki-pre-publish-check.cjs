@@ -170,6 +170,10 @@ const STIFF_TONE_PATTERNS = [
     /파악하게 해준다/u,
 ];
 
+const PROJECT_REPORT_ENDING_PATTERNS = [
+    /(?:합니다|습니다|입니다|됩니다|할 수 있습니다|도움이 됩니다|좋다|크다|빠르다|중요하다|필요하다|가능하다|유리하다|잡힌다|나뉘어 있다)\.?$/u,
+];
+
 const HONORIFIC_WIKI_PATTERNS = [
     /합니다(?:[.!?]|$)/u,
     /입니다(?:[.!?]|$)/u,
@@ -358,8 +362,41 @@ function collectWikiFactCheckText(frontmatter) {
     ]).join('\n');
 }
 
-function containsHonorificWikiTone(text) {
+function containsHonorificTone(text) {
     return HONORIFIC_WIKI_PATTERNS.some((pattern) => pattern.test(String(text || '')));
+}
+
+function containsHonorificWikiTone(text) {
+    return containsHonorificTone(text);
+}
+
+function validateProjectTone(frontmatter, body) {
+    const failures = [];
+    const summary = String(frontmatter && frontmatter.summary || '');
+    const readerValue = String(frontmatter && frontmatter.readerValue || '');
+    const toneTarget = [summary, readerValue, String(body || '')].join('\n');
+
+    if (containsHonorificTone(summary)) {
+        failures.push('summary still contains honorific or formal report tone');
+    }
+
+    if (containsHonorificTone(readerValue)) {
+        failures.push('readerValue still contains honorific or formal report tone');
+    }
+
+    if (PROJECT_REPORT_ENDING_PATTERNS.some((pattern) => pattern.test(summary.trim()))) {
+        failures.push('summary still ends in report-style declarative tone');
+    }
+
+    if (PROJECT_REPORT_ENDING_PATTERNS.some((pattern) => pattern.test(readerValue.trim()))) {
+        failures.push('readerValue still ends in report-style declarative tone');
+    }
+
+    if (STIFF_TONE_PATTERNS.some((pattern) => pattern.test(toneTarget))) {
+        failures.push('project page still contains stiff legacy tone phrasing');
+    }
+
+    return failures;
 }
 
 function hasBilingualWikiTitle(title) {
@@ -879,7 +916,7 @@ function collectFileFindings(filepath, contentType) {
     const normalizedTitle = normalizeComparableText(fm.title);
     const normalizedSummary = normalizeComparableText(fm.summary);
     const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-    const toneTargetText = [String(fm.summary || '').trim(), String(body || '').trim()]
+    const toneTargetText = [String(fm.summary || '').trim(), String(fm.readerValue || '').trim(), String(body || '').trim()]
         .filter(Boolean)
         .join('\n\n');
     const toneResults = getToneResults(toneTargetText);
@@ -911,15 +948,18 @@ function collectFileFindings(filepath, contentType) {
         push('fail', 'reddit-media-source', 'reddit media URL used as sourceUrl; use the scraper postUrl instead');
     }
 
-    if (!isDraft && targetName === 'news') {
+    if (!isDraft && (targetName === 'news' || targetName === 'projects')) {
         const fcStatus = fm.factCheck && fm.factCheck.status;
         if (!fcStatus || fcStatus === 'pending') push('fail', 'factcheck-status', 'factCheck.status missing or pending');
+    }
+
+    if (!isDraft && targetName === 'news') {
         if (fm.score === undefined || fm.score === null || fm.score === 0 || fm.score === '') push('fail', 'score-missing', 'missing publishable score');
         if (fm.score && fm.score < 40) push('warn', 'low-score', `low score ${fm.score} (recommended 40+)`);
         if (isClearlyOffTopic(signalText, sourceUrl)) push('fail', 'off-topic', 'appears off-topic for AIKI scope');
     }
 
-    if (!isDraft && targetName !== 'projects') {
+    if (!isDraft) {
         for (const failure of validateFactCheckDetails(targetName, fm)) push('fail', 'factcheck-details', failure);
         for (const failure of validateFactCheckTone(fm)) push('fail', 'factcheck-tone', failure);
     }
@@ -954,6 +994,10 @@ function collectFileFindings(filepath, contentType) {
         for (const failure of validateModelProfileTone(fm)) push('fail', 'model-profile-tone', failure);
         for (const failure of validateWikiTone(fm, body)) push('fail', 'wiki-tone', failure);
         for (const failure of validateWikiStructure(fm, body)) push('fail', 'wiki-structure', failure);
+    }
+
+    if (!isDraft && targetName === 'projects') {
+        for (const failure of validateProjectTone(fm, body)) push('fail', 'project-tone', failure);
     }
 
     if (!isDraft && toneResults.length > 0) {
@@ -1002,7 +1046,7 @@ for (const target of CONTENT_TARGETS) {
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-        const toneTargetText = [String(fm.summary || '').trim(), String(body || '').trim()]
+        const toneTargetText = [String(fm.summary || '').trim(), String(fm.readerValue || '').trim(), String(body || '').trim()]
             .filter(Boolean)
             .join('\n\n');
         const toneResults = getToneResults(toneTargetText);
@@ -1041,12 +1085,14 @@ for (const target of CONTENT_TARGETS) {
             errors.push(`${target.name}/${filename}: reddit media URL used as sourceUrl; use the scraper postUrl instead`);
         }
 
-        if (!isDraft && target.name === 'news') {
+        if (!isDraft && (target.name === 'news' || target.name === 'projects')) {
             const fcStatus = fm.factCheck && fm.factCheck.status;
             if (!fcStatus || fcStatus === 'pending') {
                 errors.push(`${target.name}/${filename}: factCheck.status missing or pending`);
             }
+        }
 
+        if (!isDraft && target.name === 'news') {
             const score = fm.score;
             if (score === undefined || score === null || score === 0 || score === '') {
                 errors.push(`${target.name}/${filename}: missing publishable score`);
@@ -1061,7 +1107,7 @@ for (const target of CONTENT_TARGETS) {
             }
         }
 
-        if (!isDraft && target.name !== 'projects') {
+        if (!isDraft) {
             for (const failure of validateFactCheckDetails(target.name, fm)) {
                 const message = `${target.name}/${filename}: ${failure}`;
                 if (checkAll) warnings.push(message);
@@ -1184,6 +1230,14 @@ for (const target of CONTENT_TARGETS) {
             }
 
             for (const failure of validateWikiStructure(fm, body)) {
+                const message = `${target.name}/${filename}: ${failure}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
+        }
+
+        if (!isDraft && target.name === 'projects') {
+            for (const failure of validateProjectTone(fm, body)) {
                 const message = `${target.name}/${filename}: ${failure}`;
                 if (checkAll) warnings.push(message);
                 else errors.push(message);

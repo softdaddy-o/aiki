@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const cp = require('child_process');
+const crypto = require('crypto');
 const matter = require('gray-matter');
 
 const { loadPanel } = require('./lib/agent-loader.cjs');
@@ -73,11 +74,33 @@ function getTargetKey(target) {
     return target.frontmatter.term || target.frontmatter.slug || path.basename(target.filename, '.md');
 }
 
-function needsReview(frontmatter, currentPanelVersion) {
+function getReviewContentHashFromRaw(raw) {
+    const parsed = matter(raw);
+    const frontmatter = { ...(parsed.data || {}) };
+    delete frontmatter.reviewStamp;
+    const canonical = matter.stringify(parsed.content, frontmatter);
+    return crypto.createHash('sha256').update(canonical, 'utf8').digest('hex').slice(0, 16);
+}
+
+function getReviewContentHash(filepath) {
+    return getReviewContentHashFromRaw(fs.readFileSync(filepath, 'utf8'));
+}
+
+function hasCurrentAgentVersions(stamp, panel) {
+    if (!stamp || !stamp.agentVersions || typeof stamp.agentVersions !== 'object') {
+        return false;
+    }
+
+    return panel.agents.every((agent) => stamp.agentVersions[agent.id] === agent.version);
+}
+
+function needsReview(frontmatter, panel, filepath) {
     if (!frontmatter.reviewStamp) return true;
     if (frontmatter.reviewStamp.panelVerdict !== 'pass') return true;
-    if (frontmatter.reviewStamp.panelVersion !== currentPanelVersion) return true;
-    return false;
+    if (frontmatter.reviewStamp.panelVersion !== panel.version) return true;
+    if (!hasCurrentAgentVersions(frontmatter.reviewStamp, panel)) return true;
+    if (!frontmatter.reviewStamp.contentHash) return true;
+    return frontmatter.reviewStamp.contentHash !== getReviewContentHash(filepath);
 }
 
 function listTargets(options, panel) {
@@ -99,7 +122,7 @@ function listTargets(options, panel) {
             if (!options.only.includes(key) && !options.only.includes(path.basename(filename, '.md')) && !options.only.includes(title)) {
                 continue;
             }
-        } else if (options.staleOnly && !needsReview(frontmatter, panel.version)) {
+        } else if (options.staleOnly && !needsReview(frontmatter, panel, filepath)) {
             continue;
         }
 
@@ -450,15 +473,6 @@ function writeReviewStamp(filepath, panelResult, panel) {
         agentVersions[agent.id] = agent.version;
     }
 
-    const stamp = [
-        'reviewStamp:',
-        `  panelVersion: "${panel.version}"`,
-        '  agentVersions:',
-        ...Object.entries(agentVersions).map(([id, version]) => `    ${id}: "${version}"`),
-        `  panelVerdict: ${panelResult.panelVerdict}`,
-        `  reviewedAt: "${TODAY}"`,
-    ].join('\n');
-
     const match = raw.match(/^(---\r?\n[\s\S]*?\r?\n---)(\r?\n[\s\S]*)$/);
     if (!match) {
         throw new Error(`frontmatter not found: ${filepath}`);
@@ -482,6 +496,21 @@ function writeReviewStamp(filepath, panelResult, panel) {
 
         frontmatter = frontmatter.replace(/\r?\ndraft:\s*true(?=\r?\n)/, '\ndraft: false');
     }
+
+    if (/\r?\nreviewStamp:\r?\n/.test(frontmatter)) {
+        frontmatter = frontmatter.replace(/\r?\nreviewStamp:\r?\n[\s\S]*?(?=\r?\n---$)/, '');
+    }
+
+    const contentHash = getReviewContentHashFromRaw(frontmatter + body);
+    const stamp = [
+        'reviewStamp:',
+        `  panelVersion: "${panel.version}"`,
+        '  agentVersions:',
+        ...Object.entries(agentVersions).map(([id, version]) => `    ${id}: "${version}"`),
+        `  panelVerdict: ${panelResult.panelVerdict}`,
+        `  contentHash: "${contentHash}"`,
+        `  reviewedAt: "${TODAY}"`,
+    ].join('\n');
 
     if (/\r?\nreviewStamp:\r?\n/.test(frontmatter)) {
         frontmatter = frontmatter.replace(/\r?\nreviewStamp:\r?\n[\s\S]*?(?=\r?\n---$)/, `\n${stamp}`);

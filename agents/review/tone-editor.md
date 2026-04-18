@@ -1,7 +1,7 @@
 ---
 id: tone-editor
 name: Tone Editor
-version: "1.0.0"
+version: "1.1.0"
 lastUpdated: "2026-04-15"
 category: review
 input:
@@ -32,6 +32,7 @@ Evaluate these criteria:
 8. Avoid monotonous sentence endings and repeated syntax.
 9. Community references should be paraphrased, not quoted or treated as direct proof unless a quote is intentionally used.
 10. The title and headings must be concise and active, especially for news content in later phases.
+11. For project pages, readerValue and key section copy should not end in neat report-style declaratives like "~좋다.", "~잡힌다.", "~나뉘어 있다.", "~도움이 됩니다." Prefer the same casual AIKI cadence used in the body.
 
 Fail the review when any of these are true:
 

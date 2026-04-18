@@ -31,6 +31,7 @@ const reviewStampSchema = z.object({
     panelVersion: z.string(),
     agentVersions: z.record(z.string(), z.string()).default({}),
     panelVerdict: z.enum(['pass', 'revise', 'fail']),
+    contentHash: z.string().optional(),
     reviewedAt: z.string(),
 });
 

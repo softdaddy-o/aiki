@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
+const crypto = require('crypto');
 const matter = require('gray-matter');
 
 const { loadPanel } = require('./lib/agent-loader.cjs');
@@ -45,7 +46,22 @@ function runGit(args) {
 function getChangedFiles() {
     const tracked = runGit(['diff', '--name-only', '--diff-filter=ACMRT', 'HEAD', '--']);
     const untracked = runGit(['ls-files', '--others', '--exclude-standard']);
-    return new Set([...tracked, ...untracked].map(toPosix));
+    const workingTreeFiles = [...tracked, ...untracked];
+
+    if (workingTreeFiles.length > 0) {
+        return new Set(workingTreeFiles.map(toPosix));
+    }
+
+    const headCommitFiles = runGit(['diff-tree', '--no-commit-id', '--name-only', '-r', 'HEAD', '--']);
+    return new Set(headCommitFiles.map(toPosix));
+}
+
+function getReviewContentHash(filePath) {
+    const parsed = matter(fs.readFileSync(filePath, 'utf8'));
+    const frontmatter = { ...(parsed.data || {}) };
+    delete frontmatter.reviewStamp;
+    const canonical = matter.stringify(parsed.content, frontmatter);
+    return crypto.createHash('sha256').update(canonical, 'utf8').digest('hex').slice(0, 16);
 }
 
 function listMarkdownFiles(targetName, mode) {
@@ -65,12 +81,24 @@ function listMarkdownFiles(targetName, mode) {
     });
 }
 
-function isReviewCurrent(frontmatter, panelVersion) {
+function hasCurrentAgentVersions(stamp, panel) {
+    if (!stamp || !stamp.agentVersions || typeof stamp.agentVersions !== 'object') {
+        return false;
+    }
+
+    return panel.agents.every((agent) => stamp.agentVersions[agent.id] === agent.version);
+}
+
+function isReviewCurrent(frontmatter, panel, filePath) {
     const stamp = frontmatter.reviewStamp;
     return Boolean(
         stamp
         && stamp.panelVerdict === 'pass'
-        && stamp.panelVersion === panelVersion,
+        && stamp.contentHash
+        && stamp.panelVersion === panel.version
+        && hasCurrentAgentVersions(stamp, panel)
+        && filePath
+        && stamp.contentHash === getReviewContentHash(filePath),
     );
 }
 
@@ -85,7 +113,7 @@ function checkTarget(targetName, mode) {
         const frontmatter = parsed.data || {};
         if (frontmatter.draft === true) continue;
 
-        if (!isReviewCurrent(frontmatter, panel.version)) {
+        if (!isReviewCurrent(frontmatter, panel, file)) {
             failures.push({
                 target: targetName,
                 file: toPosix(path.relative(ROOT, file)),
