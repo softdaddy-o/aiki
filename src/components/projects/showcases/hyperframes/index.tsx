@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { createElement, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
@@ -8,7 +8,7 @@ interface HyperFramesShowcaseProps {
     slug: string;
 }
 
-type SectionId = 'prompt' | 'timeline' | 'packages' | 'catalog';
+type SectionId = 'runtime' | 'prompt' | 'timeline' | 'packages' | 'catalog';
 
 interface Layer {
     id: string;
@@ -31,6 +31,7 @@ interface Scenario {
 }
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
+    { id: 'runtime', label: '실행 결과', description: '실제 HyperFrames composition 임베드' },
     { id: 'prompt', label: '프롬프트', description: '에이전트가 받는 지시' },
     { id: 'timeline', label: '타임라인', description: 'HTML 레이어가 시간축에 놓이는 방식' },
     { id: 'packages', label: '패키지', description: 'CLI에서 렌더까지 흐름' },
@@ -38,6 +39,7 @@ const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: strin
 ] as const;
 
 const SECTION_PREFIX = 'hyperframes-section-';
+const LIVE_RUNTIME_SRC = '/hyperframes/showcase-runtime/index.html';
 
 const SCENARIOS: Scenario[] = [
     {
@@ -148,6 +150,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                         <p>
                             저장소 설명처럼 HTML을 쓰고 영상을 렌더하는 흐름을 그대로 작은 제작 콘솔처럼 풀어낸 쇼케이스야.
                             Node.js 22+, FFmpeg, preview, render, catalog, skills까지 실제 도입 포인트만 남겼다.
+                            첫 패널은 실제 HyperFrames composition을 정적 임베드한 결과고, 아래 패널은 그 구조를 읽기 쉽게 해설한 부분이다.
                         </p>
                         <div className="hf-chip-row">
                             <span>{slug}</span>
@@ -162,6 +165,40 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                         <Stat label="출력" value="MP4" />
                         <Stat label="제작 방식" value="deterministic" />
                     </div>
+                </section>
+
+                <section className="hf-section-block" id={`${SECTION_PREFIX}runtime`}>
+                    <Panel
+                        title="실제 HyperFrames composition 임베드"
+                        description="이 패널은 HyperFrames CLI로 스캐폴드한 composition HTML을 정적 파일로 두고, @hyperframes/player로 재생하는 실제 실행 결과다."
+                    >
+                        <div className="hf-runtime-layout">
+                            <article className="hf-runtime-card">
+                                <span className="hf-label">Embedded Player</span>
+                                <div className="hf-runtime-player-shell">
+                                    {createElement('hyperframes-player', {
+                                        src: LIVE_RUNTIME_SRC,
+                                        controls: true,
+                                        muted: true,
+                                        loop: true,
+                                        style: { width: '100%', aspectRatio: '16 / 9', display: 'block' },
+                                    })}
+                                </div>
+                            </article>
+                            <article className="hf-runtime-card">
+                                <span className="hf-label">Runtime Notes</span>
+                                <ul className="hf-command-list">
+                                    <li><code>npx hyperframes init my-video --example blank</code></li>
+                                    <li><code>npx hyperframes lint</code></li>
+                                    <li><code>npx hyperframes render</code></li>
+                                    <li><code>{LIVE_RUNTIME_SRC}</code></li>
+                                </ul>
+                                <p>
+                                    여기 보이는 플레이어는 개발용 `preview` 서버를 그대로 올린 게 아니라, 실제 composition HTML을 정적 파일로 배포해 다시 재생하는 방식이다.
+                                </p>
+                            </article>
+                        </div>
+                    </Panel>
                 </section>
 
                 <section className="hf-section-block" id={`${SECTION_PREFIX}prompt`}>
@@ -360,15 +397,15 @@ function Stat({ label, value }: { label: string; value: string }) {
 const showcaseCss = `
 .hf-showcase{display:contents;color:var(--color-text)}
 .hf-main{grid-column:2;grid-row:2;display:grid;gap:18px;min-width:0}
-.hf-hero,.hf-panel,.hf-stat,.hf-prompt-card,.hf-code-card,.hf-preview-card,.hf-package-card,.hf-catalog-card{border:1px solid var(--color-border);background:var(--color-surface)}
+.hf-hero,.hf-panel,.hf-stat,.hf-prompt-card,.hf-code-card,.hf-preview-card,.hf-package-card,.hf-catalog-card,.hf-runtime-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .hf-hero,.hf-panel{border-radius:12px;padding:20px}
 .hf-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:18px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 13%,transparent),transparent 46%),var(--color-surface)}
 .hf-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
 .hf-hero-copy h2{margin:0 0 10px;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.08}
 .hf-hero-copy p{max-width:660px;margin:0;color:var(--color-text-muted);line-height:1.7}
-.hf-hero-card,.hf-prompt-layout,.hf-timeline-layout,.hf-package-layout,.hf-catalog-layout{display:grid;gap:12px}
+.hf-hero-card,.hf-runtime-layout,.hf-prompt-layout,.hf-timeline-layout,.hf-package-layout,.hf-catalog-layout{display:grid;gap:12px}
 .hf-hero-card{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
-.hf-stat,.hf-prompt-card,.hf-code-card,.hf-preview-card,.hf-package-card,.hf-catalog-card{border-radius:10px;padding:14px}
+.hf-stat,.hf-runtime-card,.hf-prompt-card,.hf-code-card,.hf-preview-card,.hf-package-card,.hf-catalog-card{border-radius:10px;padding:14px}
 .hf-stat{background:var(--color-surface-alt)}
 .hf-stat span,.hf-label,.hf-section-heading p,.hf-track-row header span,.hf-track-row p,.hf-preview-meta p{color:var(--color-text-muted)}
 .hf-stat strong{display:block;margin-top:5px;color:var(--color-projects);font-family:var(--font-heading);font-size:1.38rem}
@@ -376,6 +413,9 @@ const showcaseCss = `
 .hf-section-heading{margin-bottom:16px}
 .hf-section-heading h2{margin:0;font-size:1.14rem}
 .hf-section-heading p{margin:5px 0 0;font-size:.89rem;line-height:1.6}
+.hf-runtime-layout{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)}
+.hf-runtime-player-shell{margin-top:8px;overflow:hidden;border-radius:14px;background:#050c16}
+.hf-runtime-player-shell hyperframes-player{display:block;width:100%;aspect-ratio:16/9}
 .hf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .hf-chip-row span{display:inline-flex;align-items:center;min-height:30px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.78rem}
 .hf-scenario-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
@@ -421,6 +461,6 @@ const showcaseCss = `
 .hf-catalog-layout{grid-template-columns:repeat(2,minmax(0,1fr))}
 .hf-command-list{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none}
 .hf-command-list code{display:block;overflow-wrap:anywhere;border-radius:8px;background:var(--color-surface-alt);padding:10px 12px;color:var(--color-projects)}
-@media (max-width:900px){.hf-main{grid-column:1;grid-row:auto}.hf-hero,.hf-prompt-layout,.hf-timeline-layout,.hf-package-layout,.hf-catalog-layout{grid-template-columns:1fr}}
+@media (max-width:900px){.hf-main{grid-column:1;grid-row:auto}.hf-hero,.hf-runtime-layout,.hf-prompt-layout,.hf-timeline-layout,.hf-package-layout,.hf-catalog-layout{grid-template-columns:1fr}}
 @media (max-width:640px){.hf-hero,.hf-panel{padding:14px}.hf-hero-card{grid-template-columns:1fr}.hf-preview-frame{padding:12px}}
 `;

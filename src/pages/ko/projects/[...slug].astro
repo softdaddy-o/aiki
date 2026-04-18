@@ -55,6 +55,9 @@ const shareUrl = Astro.url.href;
 
 <BaseLayout title={title} description={summary} ogImage={`/og/projects/${entry.data.slug}.png`}>
     <article class="project-page">
+        {showcaseComponent === 'hyperframes' && (
+            <script is:inline src="https://cdn.jsdelivr.net/npm/@hyperframes/player"></script>
+        )}
         <header class="project-hero">
             <div class="hero-top">
                 <span class="category-badge">{categoryLabel}</span>
@@ -156,10 +159,10 @@ const shareUrl = Astro.url.href;
         )}
 
         {showcaseComponent === 'hyperframes' && (
-            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+            <section class="showcase-area" aria-label={`${title} Interactive Showcase`} id="showcase">
                 <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
-                        <p>인터랙티브 쇼케이스</p>
+                        <p>Interactive Showcase</p>
                         <h2>HyperFrames로 프롬프트가 HTML 영상 컴포지션과 타임라인으로 바뀌는 흐름</h2>
                         <span>에이전트 프롬프트, 생성된 HTML, playhead 기반 레이어 변화, CLI와 패키지 파이프라인까지 이어서 볼 수 있어.</span>
                     </header>
