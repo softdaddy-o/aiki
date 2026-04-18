@@ -583,6 +583,7 @@ async function buildRewriteContext(params) {
         filePath,
         mentionStats,
         relatedTerms,
+        revisionNotes,
     } = params;
 
     const sourceDetails = await buildSourceDetails(entry);
@@ -596,6 +597,7 @@ async function buildRewriteContext(params) {
         sourceDetails,
         currentDoc,
         sectionPlan: getSectionPlan(entry),
+        revisionNotes: safeArray(revisionNotes),
     };
 }
 
@@ -613,6 +615,7 @@ function buildBatchInput(contexts) {
             readerFocus: buildWikiReaderValue(context.entry),
             sectionPlan: context.sectionPlan,
             sourceDetails: context.sourceDetails,
+            revisionNotes: context.revisionNotes,
             currentDoc: {
                 title: context.currentDoc.frontmatter.title || '',
                 summary: context.currentDoc.frontmatter.summary || '',
@@ -640,6 +643,7 @@ Rules:
 - For model pages, follow the provided sectionPlan exactly and explain what the model is used for in practice.
 - For model pages, explicitly mention both the vendor and one practical operating detail such as API, price, context window, license, deployment path, local run, cloud availability, or device target.
 - For non-model pages, follow the provided sectionPlan exactly and keep the first paragraph concept-first.
+- If revisionNotes exist for a page, treat them as required fixes from the previous review round and address every point in the rewrite.
 - "source_match" first item must start with "독자 문제 대조:".
 - "web_cross_check" first item must start with "비교 기준:".
 - fact-check summaries must also be in casual banmal and should usually end like "~맞춰봤어.", "~다시 봤어.", "~줄였어.", "~막았어.", "~남겼어.".

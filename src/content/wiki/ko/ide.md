@@ -3,109 +3,102 @@ term: ide
 title: IDE (통합 개발 환경)
 lang: ko
 summary: >-
-  IDE는 코드 편집기만이 아니라 빌드·테스트·디버그·버전관리까지 붙여서 한 흐름으로 운영하게 해주는 개발 작업공간이야. 처음엔 단순히 편집기
-  느낌이 강하지만, 실제론 개발 전 과정을 이어주는 통합 허브로 보면 돼.
+  IDE는 코드 입력창 하나가 아니라 편집, 실행, 디버깅, 테스트를 한 작업면으로 묶는 개발 도구야. 작은 스크립트엔 과할 수 있지만, 여러
+  파일과 설정이 얽힌 프로젝트에선 왜 따로 부르는지 금방 체감돼.
 readerValue: >-
-  IDE는 '코드를 쓰고 바로 실행·검증·수정하는 루프를 끊기게 해주는 도구 묶음'으로 이해하면 핵심이 잡혀. AI 보조 도구를 어디에 붙일지
-  정할 때도 IDE의 연결 방식이 관건이라, 이 개념만 정확히 잡아두면 이후 선택이 훨씬 빨라져.
+  이 말을 보면 그냥 텍스트 에디터 이야기인지, 큰 프로젝트를 다루는 작업 허브 이야기인지 바로 가를 수 있어. AI 보조 기능이 붙어도
+  본체는 개발 흐름을 묶는 도구라는 점을 잡게 해.
 category: concept
 guideVersion:
   common: 1.0.0
-  wiki: 2.0.0
+  wiki: "3.0.0"
 aliases:
-  - ide
   - IDE
+  - Integrated Development Environment
 relatedTerms:
-  - agent
-  - aider
-  - anthropic
-  - chain-of-thought
-  - chatgpt
+  - cursor
+  - codex
+  - copilot
+  - continue
   - claude-code
 firstMentioned: '2021-06-29'
 mentionCount: 11
-draft: true
+draft: false
 tags:
-  - agent
-  - aider
-  - anthropic
-  - chain-of-thought
-  - chatgpt
+  - developer-tools
+  - editor
+  - coding-agent
 factCheck:
   status: passed
   date: '2026-04-17'
   sources:
-    - url: >-
-        https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/
-      title: GitHub Copilot
-    - url: 'https://en.wikipedia.org/wiki/GitHub_Copilot'
-      title: Secondary source
-    - url: 'https://github.com/Aider-AI/aider'
-      title: Aider-AI/aider
+    - url: 'https://visualstudio.microsoft.com/vs/'
+      title: Visual Studio IDE
+    - url: 'https://www.jetbrains.com/idea/'
+      title: IntelliJ IDEA
   checks:
     - type: source_match
       result: pass
-      sources: 3
-      summary: 출처 기반에서 IDE의 중심을 '통합 작업 환경'으로 고정했어. Copilot·위키·Aider 설명을 맞춰봤어.
+      summary: 'IDE를 단순 편집기가 아니라 편집, 실행, 디버깅을 묶는 작업 공간으로 맞춰봤어.'
       items:
-        - GitHub Copilot 소개에서 IDE 대상 연동이 핵심 경로로 제시됨.
-        - 위키 문구는 자동완성 중심의 AI 보조가 여러 IDE에서 동작한다는 맥락을 제공.
-        - Aider은 터미널 보조 흐름이라 IDE 자체와 혼동되지 않도록 분기 가능
-      findings:
-        - '독자 문제 대조: IDE를 단순 편집기로 오해할 가능성을 줄이기 위해 통합 환경이라는 정의를 최상단에 둿어.'
-        - Copilot의 IDE 지원 목록을 통해 편집기-플랫폼 연동을 근거로 남겼어.
-        - Aider을 반례로 두어 IDE 정의를 과하게 AI 모델 쪽으로 밀어붙이지 않았어.
+        - '독자 문제 대조: IDE를 그냥 코드 쓰는 창으로 읽지 않고 실행, 디버깅, 테스트까지 묶인 작업면으로 보게 고쳤어.'
+        - >-
+          Visual Studio 공식 페이지가 Develop, Debug, Test, Version Control 흐름을 한 제품
+          안에 두고 있어서 본문 뼈대를 그 축에 맞췄어.
+        - >-
+          JetBrains 문서는 코드 완성과 디버거를 따로 설명하고 있어서, IDE의 작동 방식을 문맥 분석과 실행 상태 추적으로
+          풀어 썼어.
     - type: web_cross_check
       result: pass
-      sources: 3
-      summary: >-
-        웹상의 설명을 비교해 범위를 다시 봤어. IDE 자체, AI 도구 통합, CLI형 보조 흐름을 나눠 읽었더니 개념 경계가 더
-        또렷해졌어.
-      items:
-        - GitHub Copilot 문서에서 IDE와 연동 가능한 대상 목록을 확인.
-        - Secondary source에서 자동완성·코드 어시스턴트 성격의 통합성 근거 확보.
-        - Aider 저장소에서 터미널 중심 사용성을 확인해 대조
-      findings:
-        - '비교 기준: IDE 중심(통합 환경)과 비-IDE 중심(CLI 보조) 비교로 분류해 설명의 기준점을 맞췄어.'
-        - 출처 간 표현 차이를 '어디에 붙느냐' 관점으로 통일해서 정리했어.
-        - 모든 항목에서 모델 사양보다 환경/접점 관점으로 검토를 맞췄어.
-    - type: number_verify
-      result: pass
       sources: 2
-      summary: 날짜·항목 수를 숫자 기준으로 다시 봤어. 기준 수치 자체는 입력 메타와 충돌 없이 정합됐어.
+      summary: 'Microsoft와 JetBrains 문서를 같이 놓고, 두 제품이 공통으로 보여 주는 IDE 핵심만 남겼어.'
       items:
-        - firstMentioned는 2021-06-29로 입력과 일치.
-        - 섹션 수는 5개로 sectionPlan와 동일.
-        - sourceDetails는 3개로 추적 가능한 출처 수를 맞춤
-        - mentionCount는 11로 유지
-      findings:
-        - 입력 메타의 날짜 표기가 Copilot 공개 맥락과 충돌하지 않아.
-        - 섹션 수와 출처 수를 맞춰두면 과잉 확장 없이 범위를 유지할 수 있어.
-        - 요약 문장도 수치 의존형 표현을 최소로 두어 오차 유입을 줄였어.
+        - '비교 기준: 한 제품 안에 편집, 실행, 디버깅이 연결되는 구조가 두 소스에 공통으로 있는지 봤어.'
+        - >-
+          Visual Studio는 제품 개요 쪽에서 개발 흐름 전체를 묶어 보여 주고, JetBrains는 코드 완성과 디버거 같은
+          구체 기능 문서로 그 구조를 뒷받침해.
+        - '그래서 특정 회사의 마케팅 문장을 베끼지 않고, 양쪽에서 겹치는 IDE 본질만 본문에 남겼어.'
+    - type: number_verify
+      result: skip
+      summary: '이 페이지는 숫자 경쟁 문서가 아니라서, 확인 가능한 기능 축만 남기고 과장된 AI 일반론은 줄였어.'
+      items:
+        - '공식 소스가 성능 수치보다 기능 범위와 작업 흐름을 설명하는 문서라서, 임의의 속도나 생산성 수치를 새로 넣지 않았어.'
+        - 'AI 보조 IDE 흐름도 일부 제품 사례로만 적고, 업계 전체 추세를 숫자로 단정하는 문장은 뺐어.'
     - type: adversarial
       result: pass
-      sources: 1
-      summary: 의도적으로 경계를 건드려가며 반례를 시험해 봤어. IDE를 AI 모델로 착각하는 오해는 막았어.
+      summary: IDE를 무조건 AI 도구나 무거운 에디터로만 읽는 오해를 막았어.
       items:
-        - '반례 1: IDE를 Copilot 자체로 바꿔 쓰는 혼동을 차단.'
-        - '반례 2: CLI 전용 도구를 IDE 대안으로 동일 취급하는 오해를 분리.'
-        - '반례 3: 영문 약어만 쓰면 독자가 개념을 놓칠 수 있다는 점을 한글 병기로 완화'
+        - 'IDE는 AI 기능이 없어도 성립하는 개발 작업 공간이고, AI 보조는 그 위에 붙는 추가 층위라는 점을 분리해 적었어.'
+        - '작은 스크립트엔 과할 수 있지만 큰 프로젝트에선 유리하다는 대비 예시를 넣어서, 무조건 무겁고 불편한 도구라는 오해를 줄였어.'
+        - 반대로 AI 기능이 붙었다고 해서 곧바로 에이전트 제품 전체와 같은 말이 되지 않는다는 점도 남겼어.
       findings:
-        - 독자 입장에서 가장 흔한 오해인 'IDE=코드 추천기' 축약을 의도적으로 깨버렸어.
-        - IDE 이름과 범위를 분리해 설명해서 모델 페이지처럼 가격/라이선스 상세로 오도되지 않게 남겼어.
-        - 혼동을 줄이기 위해 관련 용어를 bullet로 분리해 두었어.
+        - IDE의 핵심은 편집기 그 자체보다 실행과 디버깅을 끊기지 않게 묶는 데 있어.
+        - AI 보조 흐름은 일부 제품 사례로 보는 편이 현재 소스 범위와 맞아.
+reviewStamp:
+  panelVersion: "1.0.0"
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.0.0"
+    tone-editor: "1.0.0"
+    structure-editor: "1.0.0"
+  panelVerdict: pass
+  reviewedAt: "2026-04-17"
 ---
 ## 한 줄 정의
-IDE는 통합 개발 환경(Integrated Development Environment)의 줄임말로, 코드를 작성하는 창 하나에 실행·디버깅·오류 검사 같은 기능을 같이 붙인 환경이야. 이름 자체보다 실무에서 중요한 건 개발 과정 전체를 한 지점에서 이어주느냐는 점이고, 그래서 '처음부터 끝까지'라는 감각으로 보면 편해.
+IDE는 코드만 적는 창이 아니라, 실행, 디버깅, 테스트, 프로젝트 탐색을 한곳에 묶은 개발 작업 공간이야. 파일 한두 개만 고칠 땐 과해 보일 수 있지만, 프로젝트 규모가 커질수록 왜 편집기와 따로 부르는지 금방 느껴져.
 ## 어떻게 작동하나
-IDE는 보통 에디터 코어에 컴파일러/인터프리터 실행기, 디버거, 실행 설정, 확장 시스템을 붙인 구조로 동작해. 사용자가 코드를 바꾸면 문법 검사나 완성 추천이 바로 반영되고, 실행/중단/로그 확인까지 같은 화면에서 이어서 처리할 수 있어. GitHub Copilot처럼 IDE 연동형 AI는 편집 중 간섭점이 많아 같은 작업 흐름에서 코드 보조를 받기 좋아 보여.
+IDE는 프로젝트 전체를 읽어서 함수 이름 찾기, 타입 맞추기, 실행 설정, 디버거 상태를 서로 연결해 줘. JetBrains의 IntelliJ IDEA 문서는 코드 완성이 현재 문맥을 분석해 후보를 좁힌다고 설명하고, 디버거 문서는 실행 중인 프로그램 상태를 들여다보며 버그 원인을 찾게 해 준다고 적어.
+Microsoft의 Visual Studio 페이지도 Develop, Debug, Test, Version Control 흐름을 한 제품 안에 두고 있어. 일부 제품은 [copilot](/ko/wiki/copilot/)이나 [cursor](/ko/wiki/cursor/) 같은 AI 보조를 얹지만, 핵심은 여전히 편집과 실행과 원인 추적을 끊기지 않게 묶는 데 있어.
 ## 왜 중요한가
-코드가 바뀌는 순간 문제도 같이 바뀌는데 IDE는 그 사이의 전환 비용을 줄여줘. 편집기만 쓰고 다른 창으로 빌드·디버그를 넘기면 맥락이 자주 끊기지만 IDE에서는 반복 속도가 빨라져. AI 보조 시대에는 이 결속력이 더 중요해져서, 누구와 어떤 도구를 쓸지보다 먼저 IDE 선택이 체감 생산성을 좌우할 때가 있어.
+작은 파이썬 스크립트 한 파일만 고친다면 가벼운 에디터로도 충분할 수 있어. 하지만 여러 모듈이 얽힌 팀 프로젝트에서 정의 찾기, 테스트 돌리기, 브레이크포인트 걸기, 변수 값 확인하기까지 한 번에 하려면 IDE가 시간을 많이 줄여.
+그래서 IDE는 단순한 입력창보다 작업 허브에 가까워. 기사에서 IDE가 나오면 새 코딩 모델 얘기인지, 아니면 개발 흐름 전체를 묶는 도구 얘기인지 먼저 갈라 읽는 게 좋아.
 ## 주의해서 볼 점
-IDE마다 기본 성능, 플러그인 생태계, 프로젝트 크기 대응 방식이 다르기 때문에 ‘하나 다 똑같다’라고 보면 큰 오해가 생겨. 특히 팀에 비공개 코드가 많거나 데이터 규제가 있으면 클라우드 기반 AI 연동 부분을 따져봐야 하고, 로컬 실행 가능성도 같이 봐야 해. 자동완성 추천은 편하지만 최종 판단은 여전히 사람이 해야 해, 특히 보안·권한·동작 변경 코드 쪽은.
+편한 대신 처음 열 때 프로젝트를 분석하느라 시간이 걸리고, 메모리 사용량이나 플러그인 충돌도 따라와. 팀이 쓰는 빌드 체인, 그러니까 실행, 테스트, 배포 도구 묶음과 안 맞으면 기능이 많아도 금방 답답해질 수 있어.
+AI 기능도 제품마다 다 달라. Visual Studio처럼 공식적으로 [copilot](/ko/wiki/copilot/)을 깊게 묶은 경우도 있지만, 그 흐름을 IDE 전체의 보편 속성처럼 읽으면 범위가 너무 넓어져.
 ## 관련 용어
-IDE를 제대로 이해하려면 주변 용어도 같이 잡아두는 게 좋아.
-- `에디터`: 줄 편집 중심으로 가볍게 쓰는 도구야, 보통 단독으로는 빌드/디버그 기능이 제한돼.
-- `플러그인`: IDE 기능을 확장하는 조각이야, AI 추천기나 린터 같은 걸 추가할 수 있어.
-- `디버거`: 실행 중 상태를 멈추고 변수/스택을 추적해 문제를 잡는 장치야.
-- `CLI/터미널 도구`: IDE 밖에서 동작하면서 IDE를 보완할 수 있어, Aider처럼 터미널에서 짝코딩을 하는 방식도 여기에 가까워.
+- [Cursor](/ko/wiki/cursor/): IDE 안에 에이전트형 편집을 깊게 넣은 사례라 IDE와 AI 보조가 어디서 만나는지 보기 좋아.
+- [Codex](/ko/wiki/codex/): IDE 바깥 워크스페이스와 터미널까지 넘나드는 축이라 IDE 내부형 도구와 대비하기 좋아.
+- [Copilot](/ko/wiki/copilot/): 자동완성과 채팅 보조가 IDE 경험을 어떻게 바꾸는지 볼 때 가장 자주 붙는 기준점이야.
+- [Continue](/ko/wiki/continue/): 기존 IDE에 AI 기능을 덧붙이는 플러그인형 접근을 볼 때 이어서 읽기 좋아.
+- [Claude Code](/ko/wiki/claude-code/): 터미널 중심 흐름이라 IDE가 꼭 필요한 순간과 아닌 순간을 비교할 때 도움이 돼.

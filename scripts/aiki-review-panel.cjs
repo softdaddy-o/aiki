@@ -51,6 +51,7 @@ function parseArgs() {
         maxRounds,
         markDrafts: !args.includes('--no-draft'),
         autoRevise: !args.includes('--no-revise'),
+        includeDrafts: args.includes('--include-drafts'),
         model: parseValueArg(args, '--model', undefined),
         dryRun: args.includes('--dry-run'),
     };
@@ -92,7 +93,7 @@ function listTargets(options, panel) {
         const key = frontmatter.term || path.basename(filename, '.md');
         const title = String(frontmatter.title || '');
 
-        if (frontmatter.draft === true) continue;
+        if (frontmatter.draft === true && !options.includeDrafts) continue;
 
         if (options.only.length > 0) {
             if (!options.only.includes(key) && !options.only.includes(path.basename(filename, '.md')) && !options.only.includes(title)) {
@@ -478,6 +479,8 @@ function writeReviewStamp(filepath, panelResult, panel) {
         } else {
             frontmatter = frontmatter.replace(/\r?\n---$/, `\nguideVersion:\n  common: "3.0.0"\n  ${guideKey}: "3.0.0"\n---`);
         }
+
+        frontmatter = frontmatter.replace(/\r?\ndraft:\s*true(?=\r?\n)/, '\ndraft: false');
     }
 
     if (/\r?\nreviewStamp:\r?\n/.test(frontmatter)) {

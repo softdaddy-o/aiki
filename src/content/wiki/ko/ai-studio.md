@@ -1,109 +1,104 @@
 ---
 term: ai-studio
-title: AI Studio (AI 스튜디오)
+title: "AI Studio (AI 스튜디오)"
 lang: ko
-summary: >-
-  AI Studio는 구글이 제공하는 AI 실험 환경이야. 프롬프트를 넣고 바로 모델 반응을 확인하면서 API 동작을 검증할 수 있게 해
-  주는, 개발자 중심의 테스트 허브라고 보면 돼. 채팅 UI보다 먼저 동작 설계와 호출 실패를 잡아내는 데 힘을 쓰는 공간이야.
-readerValue: >-
-  AI Studio를 쓰면 모델을 직접 불러오면서 파라미터, 스키마, 도구 호출까지 한 번에 비교해볼 수 있어. 배포 전에 동작이 어떻게
-  달라질지 미리 확인하려는 초심자한테 특히 도움이 돼.
+summary: "AI Studio는 Google이 Gemini 프롬프트를 바로 시험해 보라고 만든 브라우저 작업실이야. 모델 이름이 아니라 프롬프트 실험, 코드 내보내기, 빠른 설정 확인을 한곳에 묶은 개발자 도구로 이해하는 편이 맞아."
+readerValue: "AI Studio를 보면 모델 이름과 실험 도구를 헷갈리지 않게 되고, 빠른 프로토타이핑용 UI와 운영 플랫폼의 차이도 한 번에 잡을 수 있어."
 category: tool
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  common: "1.0.0"
+  wiki: "3.0.0"
 aliases:
-  - ai studio
-  - AI Studio
+  - "AI Studio"
+  - "Google AI Studio"
 relatedTerms:
-  - anthropic-api
-  - api
-  - developer-tools
-  - function-calling
-  - gemini
   - gemini-api
-firstMentioned: '2026-04-04T09:00:00+09:00'
-mentionCount: 3
-draft: true
-tags:
-  - anthropic-api
-  - api
-  - developer-tools
   - function-calling
+  - grounding
+  - token
+  - api
+firstMentioned: "2026-04-04T09:00:00+09:00"
+mentionCount: 3
+draft: false
+tags:
+  - developer-tools
   - gemini
+  - prompting
 factCheck:
   status: passed
-  date: '2026-04-17'
+  date: "2026-04-18"
   sources:
-    - url: 'https://blog.google/technology/ai/gemini-25-pro'
-      title: Google Blog
-    - url: >-
-        https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
-      title: 'Gemma 4: Byte for byte, the most capable open models'
-    - url: 'https://ai.google.dev/gemma/docs/core/model_card_4'
-      title: Scheda del modello Gemma 4 &nbsp;|&nbsp; Google AI for Developers
+    - url: "https://ai.google.dev/aistudio/"
+      title: "Google AI Studio"
+    - url: "https://ai.google.dev/tutorials/ai-studio_quickstart/"
+      title: "Google AI Studio quickstart"
+    - url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/migrate/migrate-google-ai"
+      title: "Migrate from Google AI Studio to Vertex AI"
   checks:
     - type: source_match
-      result: skip
-      sources: 1
-      summary: '입력된 출처를 term 핵심 의미와 1:1로 맞춰봤어. UI 형태의 실험성이 강조된 설명이 출처군과 일치해서 정렬이 맞아.'
+      result: pass
+      sources: 3
+      summary: "이 페이지가 AI Studio를 모델이 아니라 실험 도구로 설명하는 방향이 맞는지 확인했어."
       items:
-        - >-
-          독자 문제 대조: 'AI Studio는 모델 자체가 아니라 실험/테스트 실행 환경'이라는 중심 문장부터 먼저 정합성을
-          확인했어.
-        - '출처에서 보이는 개발자 지향 워크플로우(프롬프트 실험, API 실행, 파라미터 튜닝)와 본문 설명을 동일 축으로 묶었어.'
-        - 모델 카드/블로그 성격이 뒤섞인 링크를 실무 관점 용도로 재구성해 오해 포인트를 줄였어.
+        - "소개 페이지는 AI Studio를 Gemini로 빠르게 시작하는 경로로 설명한다."
+        - "quickstart는 `Get code`, Run settings, 프롬프트 실험 흐름을 직접 보여 준다."
       findings:
-        - 최종 정의는 출처 기반 흐름과 충돌하지 않았어.
-        - 개념 한정이 모호한 부분은 설명에서 용어를 구분해 분리해 맞췄어.
+        - "이 항목을 모델 이름이 아니라 브라우저 기반 실험 도구로 정리하는 편이 정확하다."
     - type: web_cross_check
-      result: skip
-      sources: 2
-      summary: >-
-        공개 문서의 현재 형태를 기준으로 비교 기준을 맞춰봤어. 기능은 대체로 동일하게 연결됐지만 운영 정책은 변동 여지가 있어 다시
-        봤어.
+      result: pass
+      sources: 3
+      summary: "소개 페이지, quickstart, Vertex AI 전환 문서를 같은 프레임에서 비교했어."
       items:
-        - >-
-          비교 기준: 2026-04-17 시점 기준의 공개 안내에서 AI Studio를 실험·개발 관점의 인터페이스로 해석 가능한지
-          확인했어.
-        - 동일 용어를 실제 제품군 이름으로 단정하지 않고 기능군(테스트/디버깅/검증) 중심으로 교차 확인했어.
-        - 요금·제한 정책은 계정/서비스 상태에 따라 달라질 수 있어 최신 링크로 재확인 경로를 남겼어.
+        - "AI Studio는 빠른 테스트와 코드 초안에 초점을 둔다."
+        - "Vertex AI 전환 문서는 운영 배포, IAM, 엔드포인트, MLOps 쪽 역할 차이를 분명히 적는다."
       findings:
-        - 핵심 용도 연결은 유지됐어.
-        - 정량 수치 중심 단정은 피해서 변동 위험을 줄였어.
+        - "실험 UI와 운영 플랫폼은 같은 층위 제품으로 보면 안 된다."
     - type: number_verify
-      result: skip
-      summary: 가격이나 할당량 같은 정량 항목은 본문에서 확정적으로 넣지 않고 확인 포인트로 남겨서 줄였어.
+      result: pass
+      sources: 2
+      summary: "숫자와 조건은 보수적으로 다시 확인했어."
       items:
-        - '독자 문제 대조: 수치 오차가 생길 수 있는 항목은 ''정확 수치보다 확인 필요 항목''으로 바꿨다는 점을 표시했어.'
-        - 문서에 없는 구체 값은 넣지 않아서 최신화 누락 위험을 줄였어.
-        - 서비스 정책은 공표 시점 따라 바뀔 수 있어 주기 확인 필요 항목으로 남겼어.
+        - "소개 페이지의 `1 million token context window` 문구는 체험용 안내로 읽고, 모든 모델의 기본 규격처럼 단정하지 않았다."
+        - "운영 기능 비교는 인증 방식과 배포 기능 차이만 남기고 임의 수치를 넣지 않았다."
       findings:
-        - 정량 데이터 과신 위험을 낮췄어.
-        - 값 오기재 가능성을 막는 방향으로 문단을 정리했어.
+        - "과장된 성능 숫자 대신 실제 제품 역할 차이에 집중했다."
     - type: adversarial
-      result: skip
-      summary: >-
-        사용자들이 흔히 하는 오해(이름이 비슷한 모델/플랫폼 혼동)를 따로 막아봤어. 모델/대시보드/플랫폼 경계를 한 번 더 분리해 다시
-        봤어.
+      result: pass
+      sources: 3
+      summary: "가장 흔한 오해를 먼저 막았어."
       items:
-        - '독자 문제 대조: AI Studio를 특정 모델명 자체로 해석하는 오해를 막고 용도 중심으로 재정의했어.'
-        - 챗 인터페이스와 동일시하기 쉬운 부분을 운영 체계(요금·제한·API)로 연결해 반박 포인트를 넣었어.
-        - 관련 기능이 바뀌는 환경을 반영해 '정확한 최신값은 공식 문서 확인'으로 안전장치를 두었어.
+        - "AI Studio를 새 모델 이름으로 읽으면 안 된다."
+        - "AI Studio를 운영 콘솔로 착각하면 권한, 로그, 배포 설계가 어긋나기 쉽다."
       findings:
-        - 개념 혼동 가능성을 의도적으로 분리해 둬서 오해를 막았어.
+        - "이 페이지는 실험 도구와 운영 플랫폼을 구분해 주는 가이드다."
 ---
-## ??以??뺤쓽
-AI Studio는 구글이 제공하는 웹 기반 개발 인터페이스야. 모델 호출, 입력 구성, 출력 형식을 실험하면서 동작을 빠르게 확인하는 게 핵심이야. 처음 보는 사람은 모델을 쓰는 방식이 익숙해지기 전에 이 환경에서 '실제로 어떻게 반응하는지'를 먼저 확인하면 좋아.
-## ?대뼸寃??묐룞?섎굹
-먼저는 실험 목적을 한두 개로 좁히고, 같은 프롬프트를 파라미터만 바꿔 반복해서 돌려보는 게 핵심 흐름이야. 온도, max output, 도구 호출 모드 같은 설정을 바꿨을 때 결과의 일관성과 형식 안정성이 어떻게 바뀌는지 확인하면 실제 앱에서의 버그를 미리 줄일 수 있어. 같은 질문이라도 출력 구조가 튈 수 있다는 점이 가장 빨리 드러나는 데, 이런 부분이 AI Studio에서 제일 잘 보이는 구간이야.
-## ??À?묒슂?쒓?
-실무에서는 여기서 나온 결과를 API 호출 흐름으로 옮기는 데 집중해. 출력이 기대 형식과 맞지 않으면 스키마, 프롬프트 가드, 모델 교체 전 조건 등을 바로 반영해서 다시 돌려보면 돼. 즉 AI Studio는 아이디어 테스트보다 '서비스 반영 전 동작 검증'에 가까운 도구야.
-## 二쇱쓽?댁꽌 蹂???,
-챗봇형 인터페이스와 완전히 같다고 보기엔 달라. AI Studio는 모델 사용 이전 단계의 실험·디버깅 성격이 강해서, 실제 운영은 API 키 관리, 과금 정책, 호출 제한, 에러 처리로 이어지는 구조가 따로 필요해. 따라서 프롬프트 품질만 보는 게 아니라 배포 전 실패 지점까지 포함해 보는 게 맞아.
-## 愿???⑹뼱
-- Gemini API: API 호출 실험을 위한 실무적 연결 대상이야.
-- Google AI Studio: UI 기반 실험/테스트 기능을 가리키는 용어야.
-- Function calling(도구 호출): 외부 함수/도구와 모델을 연결해 동작을 제어할 때 쓰는 구조야.
-- 토큰 과금: 실제 사용량 예측에서 필수로 보는 항목이야.
-- 프롬프트 엔지니어링: 입력 설계를 바꾸면서 성능과 일관성을 맞추는 실무 활동이야.
+
+## 한 줄 정의
+
+AI Studio는 Google이 [Gemini](/ko/wiki/gemini/)를 빠르게 실험하게 해 주는 브라우저 작업실이야. 새 모델 이름이 아니라 프롬프트를 만들고 응답 형식을 바꾸고 API 코드로 넘기는 개발자 도구라고 보면 쉬워.
+
+## 어떻게 작동하나
+
+quickstart 기준으로 보면 프롬프트를 입력하고, Run settings를 바꾸고, 마음에 드는 결과가 나오면 `Get code`로 바로 옮기는 흐름이 핵심이야. 이 과정에서 [Function Calling](/ko/wiki/function-calling/), structured output, code execution, [Grounding](/ko/wiki/grounding/) 같은 기능을 UI에서 바로 시험해 볼 수 있어.
+
+예를 들어 JSON 출력 형식을 맞추거나 툴 호출 설정을 바꿔 보면서 응답 차이를 확인한 뒤, 그 결과를 [Gemini API](/ko/wiki/gemini-api/) 호출 코드로 넘기는 식이 가장 전형적이야. 그래서 실험 속도가 매우 빠른 대신, 운영 정책까지 붙는 환경은 아니라고 보는 게 맞아.
+
+## 왜 중요한가
+
+이 도구가 중요한 이유는 모델을 갈아끼우기 전에 프롬프트 설계와 도구 설정이 결과를 얼마나 바꾸는지 아주 빨리 보여 주기 때문이야. 브라우저에서 테스트하고 바로 코드 초안을 받아 볼 수 있으니, 프로토타입 도입 속도가 꽤 빨라.
+
+또 AI Studio는 Vertex AI와의 역할 차이를 이해하는 기준점이 돼. 실험 단계에서는 훨씬 가볍고, 운영 단계에서는 권한 관리와 배포 통제를 더 강하게 주는 플랫폼으로 넘어가야 한다는 분기점을 분명하게 보여 줘.
+
+## 주의해서 볼 점
+
+첫 화면에 1 million token context 체험 링크가 보여도, 그 숫자가 모든 모델의 기본 보장처럼 읽히면 안 돼. 소개 페이지의 체험 문구와 실제 모델 규격은 구분해서 봐야 해.
+
+또 AI Studio와 Vertex AI를 같은 제품으로 생각하면 안 돼. AI Studio는 실험 속도와 코드 초안에 강하고, Vertex AI는 배포, IAM, 로그, 모니터링 같은 운영 통제에 강해. 도입 단계에서는 이 차이를 먼저 이해하고 설정을 나눠 보는 편이 안전해.
+
+## 관련 용어
+
+- [Gemini API](/ko/wiki/gemini-api/): AI Studio에서 다듬은 프롬프트를 실제 앱 호출로 옮길 때 바로 이어지는 경로야.
+- [Function Calling](/ko/wiki/function-calling/): 툴 호출을 UI에서 바로 실험해 볼 때 자주 같이 봐.
+- [Grounding](/ko/wiki/grounding/): 외부 정보에 기대는 응답을 어떻게 다룰지 테스트할 때 같이 읽기 좋아.
+- [Token](/ko/wiki/token/): 긴 프롬프트 체험 문구를 읽을 때 기본 개념으로 필요해.
+- [API](/ko/wiki/api/): 실험 UI와 실제 호출 인터페이스를 구분할 때 기준점이 돼.

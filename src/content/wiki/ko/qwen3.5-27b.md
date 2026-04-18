@@ -1,129 +1,115 @@
 ---
 term: qwen3.5-27b
-title: Qwen3.5-27B(큐엔3.5-27B 모델)
+title: "Qwen3.5-27B (큐웬3.5-27B)"
 lang: ko
-summary: >-
-  Qwen3.5-27B는 Qwen 기반에 Claude의 추론 성향을 가져온 커뮤니티 증류 모델이야. 이름만으로 성능을 단정하기보다, 오픈소스
-  체크포인트로 쓰일 때의 배포 경로와 운영 제약을 같이 보는 게 실전에서 더 정확해.
-readerValue: >-
-  처음 접하는 사람이 가장 많이 헷갈리는 지점을 바로 잡아주는 게 핵심이야. 벤치 수치보다 로컬 실행 가능한지, 어떤 위험 신호를 같이
-  보았는지를 중심으로 판단하면 나중에 적용 단계에서 시간낭비를 줄일 수 있어.
+summary: "Qwen3.5-27B는 Alibaba의 Qwen 계열에 속한 27B급 오픈 웨이트 멀티모달 모델이야. 서비스형 이름표로 보기보다, 직접 내려받아 추론 서버에 올릴 수 있는 공개 모델 후보로 이해하는 쪽이 더 실전적이야."
+readerValue: "Qwen3.5-27B를 보면 어떤 입력을 받는지, 왜 27B급 오픈 모델이 실무 비교표에 자주 들어오는지, 그리고 직접 배포할 때 어떤 판단 포인트를 체크해야 하는지 한 번에 잡을 수 있어."
 category: model
 modelType: version
+parentModel: qwen-3.5
 modelProfile:
-  memoryUsage: >-
-    서비스형 모델이면 서버 메모리 요구량이 공개되지 않을 수 있어, 배포 메모리 대신 컨텍스트와 출력 한도를 같이 보는 편이 낫다. 이렇게
-    보면 돼.
-  implementation: 'Transformer 계열로 보는 편이 맞지만, Dense/MoE와 추론 최적화 방식은 공식 문서 확인이 필요해.'
-  activeParameters: 공개 자료 기준 활성 파라미터 수 확인 필요. 이렇게 보면 돼.
-  multimodalSupport: 텍스트 중심 모델이거나 공식 문서 기준 멀티모달 범위 확인 필요. 이렇게 보면 돼.
-  access: '무료 체험 여부와 유료 플랜 구성은 배포 채널마다 다르다. API, 앱 구독, 팀 플랜을 나눠서 보는 편이 안전하다. 이렇게 보면 돼.'
-  pricing: >-
-    유료 모델이면 입력/출력 토큰당 가격, 캐시 할인, 배치 할인 같은 전략 단가를 공식 가격표에서 함께 확인하는 게 좋다. 이렇게 보면
-    돼.
-  weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
-  vendor: Anthropic
+  memoryUsage: "27B급이라 직접 올릴 때는 VRAM, 처리량, 지연 시간을 함께 계산해야 해."
+  implementation: "Qwen 오픈 모델 계열의 27B 버전으로, 공식 카드와 Transformers 문서를 기준으로 직접 로드하는 흐름이 기본이야."
+  activeParameters: "공개 문서에서는 27B 모델로 소개되고 routed expert 구조 설명은 별도로 붙지 않아."
+  multimodalSupport: "문서상 태스크는 image-text-to-text야."
+  access: "오픈 웨이트 모델이라 가중치를 내려받아 직접 실행하는 경로가 대표적이야."
+  pricing: "정해진 API 요금표보다 자체 서빙 비용과 GPU 예산으로 계산하는 편이 자연스러워."
+  weightsOpen: "Apache-2.0 기반 오픈 웨이트"
+  vendor: "Alibaba / Qwen"
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  common: "1.0.0"
+  wiki: "2.0.0"
 aliases:
-  - qwen3.5 27b
-  - Qwen3.5-27B
+  - "Qwen3.5-27B"
+  - "Qwen 3.5 27B"
 relatedTerms:
-  - claude
-  - distillation
-  - fine-tuning
-  - llama-cpp
+  - qwen-3.5
+  - gguf
   - local-llm
-  - open-source
-firstMentioned: '2026-04-07T12:00:00+09:00'
+  - weight
+  - inference
+firstMentioned: "2026-04-07T12:00:00+09:00"
 mentionCount: 4
-draft: true
+draft: false
 tags:
-  - claude
-  - distillation
-  - fine-tuning
-  - llama-cpp
+  - qwen
   - local-llm
+  - gguf
+  - multimodal
 factCheck:
   status: passed
-  date: '2026-04-17'
+  date: "2026-04-18"
   sources:
-    - url: >-
-        https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled
-      title: Hugging Face
-    - url: >-
-        https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks
-      title: Anthropic — Detecting and Preventing Distillation Attacks
-    - url: >-
-        https://forums.developer.nvidia.com/t/success-with-quanttrio-qwen3-5-27b-claude-4-6-opus-reasoning-distilled-v2-awq/365416
-      title: NVIDIA DGX Spark Forum — AWQ test success
+    - url: "https://huggingface.co/Qwen/Qwen3.5-27B"
+      title: "Qwen/Qwen3.5-27B"
+    - url: "https://huggingface.co/docs/transformers/en/model_doc/qwen3_5"
+      title: "Qwen3.5 | Hugging Face Transformers"
+    - url: "https://help.aliyun.com/zh/dashscope/developer-reference/qwen-vl-plus/"
+      title: "Qwen3.5 open-source series model list | Alibaba Cloud"
   checks:
     - type: source_match
-      result: skip
+      result: pass
       sources: 3
-      summary: 'HF 리포, Anthropic 보안 글, NVIDIA 포럼 기록을 통해 핵심 항목의 출처 축을 맞춰봤어.'
+      summary: "핵심 정의를 세 문서에 맞춰 다시 대조했어."
       items:
-        - >-
-          독자 문제 대조: '이 모델은 무엇을 위한 증류형 공개 모델인가'를 중심 질문으로 잡고, 추론 성능보다 배포 제약을 먼저
-          정렬해봤어.
-        - '공식 문구보다도 제목·리포지토리명에서 모델 성격(커뮤니티 증류, Claude 대상)을 추출해 일치시켰어.'
-        - 'AWQ/양자화 실험, distillation 안전 이슈를 각각 서로 다른 근거로 분리해 확인했어.'
+        - "모델 카드는 이 항목을 Apache-2.0 공개 모델로 설명하고 태스크를 image-text-to-text로 적어 둬."
+        - "Transformers 문서는 로드와 추론 경로를 직접 설명하므로, 이 페이지를 자체 서빙 후보로 읽는 방향과 맞아."
       findings:
-        - 리포지토리 주소는 커뮤니티 산출물임을 강하게 시사해 정식 단일 벤더 배포 단정은 피함.
-        - 실무 적용에서 가격·인프라 제약은 출처가 아닌 운영 판단으로 처리해야 한다는 점을 추가했어.
-        - 안전 글은 distillation 위험을 경고한다는 점만 뽑고 수치 과신은 넣지 않았어.
+        - "서비스형 전용 모델이 아니라 직접 실행 가능한 오픈 모델이라는 정리는 공식 자료와 맞다."
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 세 출처의 성격이 달라 수치 과시형 비교를 줄였어.
+      summary: "카드, 라이브러리 문서, 벤더 목록이 같은 모델 축을 가리키는지 확인했어."
       items:
-        - '비교 기준: 기술 성격(HF), 보안 위험성(Anthropic), 로컬 양자화 체감(NVIDIA 포럼)을 분리해서 읽었어.'
-        - >-
-          실제 상용 가격, 정확한 콘텍스트 윈도우, 라이선스 조항은 공개 근거가 다르게 제시돼서 최소한의 보수 범위로 둬서 과확장 안
-          했어.
-        - 같은 모델명이라도 배포 형식별(gguf/AWQ/원본) 동작 차이를 반영해 설명했어.
+        - "저장소 카드와 Transformers 문서는 모두 Qwen3.5-27B를 같은 계열의 실행 가능한 모델로 본다."
+        - "Alibaba Cloud 목록도 `qwen3.5-27b`를 오픈소스 시리즈 중 하나로 따로 적고 있어 이름 축이 일치한다."
       findings:
-        - 벤치보드 점수처럼 보기 쉬운 확증 없는 수치는 제외했어.
-        - distillation 흐름의 핵심만 남기고 과장된 품질 주장 없이 실무 관점으로 재구성했어.
+        - "운영 비용은 공식 문서가 직접 수치로 확정하지 않으므로 환경별 계산이 필요하다."
     - type: number_verify
-      result: skip
-      sources: 3
-      summary: '숫자 항목은 공개된 근거 안에서만 쓰고, 누락된 건 남겨뒀어.'
+      result: pass
+      sources: 2
+      summary: "본문에서 직접 쓴 숫자만 다시 확인했어."
       items:
-        - >-
-          27B는 모델명 자체 표기에서만 사용했고, 추론 토큰 수·정확도 수치처럼 변동성이 큰 값은 특정 출처 고정값으로 확정하지
-          않았어.
-        - 컨텍스트 길이·가격은 해당 입력에서 신뢰 가능한 정량 근거가 없어 추정문으로 돌리지 않았어.
+        - "27B 표기는 모델명 자체에서 다시 확인했다."
+        - "카드에는 262,144 기본 컨텍스트와 1,010,000 확장 표기가 있고, 본문은 그 범위를 넘는 임의 수치를 넣지 않았다."
       findings:
-        - 모델명 기반 27B 규모 언급은 유지했어.
-        - 정량값이 불명확한 항목은 공백으로 남겨 과장 리스크를 막았어.
+        - "VRAM 추정치나 벤치마크 순위처럼 변동 가능한 숫자는 넣지 않았다."
     - type: adversarial
       result: pass
       sources: 3
-      summary: '모델명을 공식 제품처럼 단정한 서술을 막고, 적용 실패 포인트를 별도 분리해 남겼어.'
+      summary: "오픈 모델을 곧바로 쉬운 배포라고 오해하는 지점을 먼저 막았어."
       items:
-        - >-
-          독자가 '이게 공식 Qwen/Claude 제품이다'라고 오해할 수 있는 문장을 먼저 다듬고, 출처 기반으로 조심스럽게
-          계열/경로만 제시했어.
-        - 커뮤니티 체크포인트 특성 때문에 버전/리비전별 편차가 생길 수 있다는 경고를 명시해 재현성 착시를 줄였어.
-        - 실무에서 가장 묻는 질문인 배포 방식(로컬 실행 + 양자화 가능성) 중심으로 결론의 문항을 정렬했어.
+        - "공개 가중치가 있다고 해서 자동으로 저비용 운영이 되는 건 아니다."
+        - "멀티모달 지원이 곧 모든 배포 환경에서 같은 입력 파이프라인을 보장하는 뜻도 아니다."
       findings:
-        - 성급한 일반화를 막고 대체모델 비교 방향으로 마무리했어.
+        - "이 페이지는 모델 성격과 도입 판단 기준을 정리하는 가이드다."
 ---
+
 ## 한 줄 정의
-Qwen3.5-27B는 Qwen 계열 모델을 바탕으로 Claude 4.6 Opus의 추론 패턴을 증류한 27B급(약 27B 파라미터급) 커뮤니티 체크포인트야.
-공개 이름이 가리키는 건 단일 공식 버전이라기보다 '특정 커밋/포맷 조합'이어서, 써야 할 때는 사용처에 맞는 파생본을 먼저 골라야 해.
-## 이 모델로 무엇을 할 수 있나
-코딩 보조, 텍스트 추론, 단계적 사고가 필요한 문제풀이에서 활용도가 높아 보이는 편이야.
-Hugging Face 리포지토리와 NVIDIA 포럼 기록에서는 AWQ 같은 양자화 경로가 언급돼서, 로컬 추론을 노릴 때는 llama-cpp/llama-cpp 호환 포맷과 메모리 예산을 같이 확인해야 실제 배치가 잘 돼.
-공급은 오픈소스 형식으로 공개되는 방식이므로, API 자체보다는 로컬 배포·변환·튜닝 관점에서 판단하는 게 맞아.
+
+Qwen3.5-27B (큐웬3.5-27B)는 Alibaba의 Qwen 계열에 포함된 27B급 오픈 웨이트 멀티모달 모델이야. 텍스트 전용 모델로만 보면 안 되고, [weight](/ko/wiki/weight/)를 직접 받아 [inference](/ko/wiki/inference/) 경로를 설계하는 후보로 읽는 편이 정확해.
+
+## 모델 프로필
+
+이 모델은 [Qwen 3.5](/ko/wiki/qwen-3.5/) 계열 안에서 "직접 올려서 쓰는 27B급 공개 모델"이라는 성격이 중요해. API 이름표만 보는 문맥보다, 사내 GPU나 전용 추론 서버에 얹을 수 있는지 검토하는 문맥에서 더 자주 거론돼.
+
+라이선스는 Apache 2.0이고 대표 접근 경로는 모델 카드와 Transformers 문서야. 그래서 이 항목을 볼 때는 "호스티드 서비스 소개"보다 "공개 가중치를 어떻게 받아서 배포할지"를 먼저 읽는 편이 맞아.
+
+## 어디에 쓰이나
+
+실무에서는 이미지가 붙은 문서 분류, 시각 정보가 섞인 질의응답, 캡처 화면 이해, 멀티모달 보조 모델 후보처럼 검토하는 경우가 많아. 오픈 웨이트라서 호출 제한보다 배포 구조, 메모리 예산, 처리량 계획이 먼저 논점이 돼.
+
+예를 들어 내부 문서 검색에 이미지를 섞어 쓰거나, OCR 뒤에 붙는 후처리 모델을 따로 두기 싫을 때 이런 크기의 공개 멀티모달 모델을 비교하게 돼. 도입할 때는 어떤 [runtime](/ko/wiki/runtime/)에 올릴지, 어떤 정밀도로 설정할지, GPU 한 장에 배치가 몇 개까지 들어갈지를 같이 계산해야 해.
+
 ## 왜 중요한가
-이 모델이 중요한 이유는 distillation 덕분에 클라우드 대형 모델의 추론 스타일을 상대적으로 가볍게 가져오려는 실무 수요를 보여주기 때문이야.
-같은 맥락에서 Anthropic 쪽 가이드가 말하듯이 distillation은 성능을 옮기는 장점이 있는 대신 공격·무결성 이슈 같은 리스크를 같이 관리해야 해서, 보안 체계 없이 바로 상용화하면 안 된다는 점도 중요해.
-가격/운영 관점에서는 클라우드 호출 비용을 줄이고 내부 운영권한을 유지하고 싶을 때 매력적이지만, 라이선스·재학습 권한·출처 신뢰도를 별도로 점검해야 돼.
+
+Qwen3.5-27B가 자주 비교표에 들어오는 이유는 너무 작지도 너무 크지도 않은 중간 지점이기 때문이야. 더 작은 모델은 멀티모달 작업에서 답답할 수 있고, 훨씬 더 큰 모델은 배포 부담이 빠르게 커져. 그래서 오픈 웨이트 멀티모달 모델을 직접 붙이려는 팀은 이 크기를 성능과 운영 부담을 함께 보는 기준점으로 삼는 경우가 많아.
+
+중요한 건 숫자 자체보다 도입 방식이야. API만 붙이면 끝나는 모델이 아니라 가중치 관리, 입력 파이프라인, 지연 시간, 메모리 예산을 전부 같이 봐야 하니까, 이 모델을 이해하면 "오픈 모델을 실제로 굴린다"는 말이 무엇을 뜻하는지 감이 빨리 생겨.
+
 ## 같이 보면 좋은 모델
-- `Qwen3.5 계열 기본 모델`: 동일 계열 베이스에서 파생된 체크포인트와 비교하면, 증류 버전의 성격 차이를 상대적으로 빨리 잡아낼 수 있어.
-- `Claude 4.x API`: 증류 대상이 되는 상용 모델 성향을 알면 왜 응답이 그 방향으로 바뀌는지 파악하기 쉬워.
-- `AWQ/양자화 포맷`: 로컬 자원에서 성능-정확도 균형을 맞추는 실험 기준점이 돼서 배치 크기 조절에 도움 돼.
-- `llama-cpp 계열 런타임`: 배포 경로를 정할 때 실제 응답 지연, 메모리 사용, 양자화 호환성부터 먼저 점검해야 실수 안 나서.
+
+- [Qwen 3.5](/ko/wiki/qwen-3.5/): 이 버전이 계열 안에서 어떤 위치인지 먼저 볼 때 기준점이 돼.
+- [Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled](/ko/wiki/qwen3.5-27b-claude-4.6-opus-reasoning-distilled/): 같은 크기에서 distillation이 붙으면 문서 성격이 어떻게 달라지는지 비교하기 좋아.
+- [Gemma 4](/ko/wiki/gemma-4/): 다른 벤더의 오픈 모델 축과 비교할 때 자주 함께 올라와.
+- [GGUF](/ko/wiki/gguf/): 직접 서빙이나 경량 배포를 논할 때 같이 따라오는 포맷 문맥이야.
