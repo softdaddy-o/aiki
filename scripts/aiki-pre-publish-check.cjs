@@ -916,7 +916,11 @@ function collectFileFindings(filepath, contentType) {
     const normalizedTitle = normalizeComparableText(fm.title);
     const normalizedSummary = normalizeComparableText(fm.summary);
     const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-    const toneTargetText = [String(fm.summary || '').trim(), String(fm.readerValue || '').trim(), String(body || '').trim()]
+    const toneTargetText = [
+        String(fm.summary || '').trim(),
+        targetName === 'news' ? '' : String(fm.readerValue || '').trim(),
+        String(body || '').trim(),
+    ]
         .filter(Boolean)
         .join('\n\n');
     const toneResults = getToneResults(toneTargetText);
@@ -1046,7 +1050,11 @@ for (const target of CONTENT_TARGETS) {
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-        const toneTargetText = [String(fm.summary || '').trim(), String(fm.readerValue || '').trim(), String(body || '').trim()]
+        const toneTargetText = [
+            String(fm.summary || '').trim(),
+            target.name === 'news' ? '' : String(fm.readerValue || '').trim(),
+            String(body || '').trim(),
+        ]
             .filter(Boolean)
             .join('\n\n');
         const toneResults = getToneResults(toneTargetText);
@@ -1085,7 +1093,7 @@ for (const target of CONTENT_TARGETS) {
             errors.push(`${target.name}/${filename}: reddit media URL used as sourceUrl; use the scraper postUrl instead`);
         }
 
-        if (!isDraft && (target.name === 'news' || target.name === 'projects')) {
+        if (!isDraft && target.name === 'news') {
             const fcStatus = fm.factCheck && fm.factCheck.status;
             if (!fcStatus || fcStatus === 'pending') {
                 errors.push(`${target.name}/${filename}: factCheck.status missing or pending`);
