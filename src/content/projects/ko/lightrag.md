@@ -6,7 +6,7 @@ category: "framework"
 summary: "지식 그래프 추출, 다양한 스토리지 백엔드, Web UI와 API를 묶은 Python 기반 오픈소스 RAG 프레임워크"
 readerValue: "LightRAG를 도입하려는 사람이 코어 라이브러리와 서버의 차이, 지원 스토리지, 멀티모달 확장, 실제 운영 전에 확인할 LLM·임베딩 조건을 한 번에 파악할 수 있습니다."
 githubUrl: "https://github.com/HKUDS/LightRAG"
-showcaseComponent: "generic"
+showcaseComponent: "lightrag"
 tags: ["python", "rag", "knowledge-graph", "llm", "multimodal"]
 stars: 33650
 license: "MIT"

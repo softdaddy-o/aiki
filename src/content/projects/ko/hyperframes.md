@@ -6,7 +6,7 @@ category: "framework"
 summary: "HTML로 비디오 컴포지션을 만들고 브라우저에서 미리 본 뒤 MP4로 렌더링하는 에이전트 친화형 오픈소스 프레임워크"
 readerValue: "HyperFrames를 쓰려는 사람이 에이전트 기반 작성 흐름, 수동 CLI 워크플로우, HTML 조합 방식, 필요한 런타임과 패키지 구성을 빠르게 파악할 수 있습니다."
 githubUrl: "https://github.com/heygen-com/hyperframes"
-showcaseComponent: "generic"
+showcaseComponent: "hyperframes"
 tags: ["html", "video", "typescript", "ffmpeg", "gsap"]
 stars: 2760
 license: "Apache-2.0"

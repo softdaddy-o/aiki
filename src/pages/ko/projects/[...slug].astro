@@ -6,6 +6,8 @@ import SocialShare from '../../../components/SocialShare.astro';
 import YfinanceShowcase from '../../../components/projects/showcases/yfinance/index.tsx';
 import NfiShowcase from '../../../components/projects/showcases/nfi/index.tsx';
 import NautilusShowcase from '../../../components/projects/showcases/nautilus-trader/index.tsx';
+import LightRagShowcase from '../../../components/projects/showcases/lightrag/index.tsx';
+import HyperFramesShowcase from '../../../components/projects/showcases/hyperframes/index.tsx';
 
 const categoryLabels: Record<string, string> = {
     library: '라이브러리',
@@ -136,6 +138,32 @@ const shareUrl = Astro.url.href;
                         <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했어.</span>
                     </header>
                     <NautilusShowcase client:load slug={entry.data.slug} />
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'lightrag' && (
+            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-frame showcase-frame-with-nav">
+                    <header class="showcase-intro">
+                        <p>인터랙티브 쇼케이스</p>
+                        <h2>LightRAG가 문서를 그래프로 읽고 citation 답변으로 꺼내는 흐름</h2>
+                        <span>샘플 문서 인덱싱, 엔터티 관계 추출, reranker와 mix mode 감각, 서버 운영 포인트를 한 화면에서 정리했어.</span>
+                    </header>
+                    <LightRagShowcase client:load slug={entry.data.slug} />
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'hyperframes' && (
+            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-frame showcase-frame-with-nav">
+                    <header class="showcase-intro">
+                        <p>인터랙티브 쇼케이스</p>
+                        <h2>HyperFrames로 프롬프트가 HTML 영상 컴포지션과 타임라인으로 바뀌는 흐름</h2>
+                        <span>에이전트 프롬프트, 생성된 HTML, playhead 기반 레이어 변화, CLI와 패키지 파이프라인까지 이어서 볼 수 있어.</span>
+                    </header>
+                    <HyperFramesShowcase client:load slug={entry.data.slug} />
                 </div>
             </section>
         )}
