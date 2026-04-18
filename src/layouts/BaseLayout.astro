@@ -225,7 +225,7 @@ const navItems = lang === 'en'
         --color-border-strong: rgba(15, 0, 0, 0.20);
         --font-heading: 'Space Grotesk', 'Pretendard Variable', sans-serif;
         --font-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-        --font-mono: ui-monospace, 'Cascadia Mono', 'Cascadia Code', 'SFMono-Regular', 'JetBrains Mono', 'IBM Plex Mono', 'Segoe UI Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+        --font-mono: 'Cascadia Mono', 'Cascadia Code', ui-monospace, 'SFMono-Regular', 'IBM Plex Mono', 'Segoe UI Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
     }
     /* Dark theme */
     html.dark {
@@ -266,16 +266,16 @@ const navItems = lang === 'en'
         background-image: radial-gradient(ellipse at 50% 0%, rgba(79, 195, 247, 0.05) 0%, transparent 60%);
     }
     h1, h2, h3 { font-family: var(--font-heading); text-wrap: balance; }
-    :global(code),
-    :global(pre),
-    :global(kbd),
-    :global(samp) {
+    code,
+    pre,
+    kbd,
+    samp {
         font-family: var(--font-mono);
         font-variant-ligatures: none;
     }
-    :global(code),
-    :global(kbd),
-    :global(samp) {
+    code,
+    kbd,
+    samp {
         font-size: 0.95em;
     }
     .site-nav {

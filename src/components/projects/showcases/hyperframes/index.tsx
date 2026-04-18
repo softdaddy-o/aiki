@@ -1,4 +1,4 @@
-import { createElement, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
@@ -40,6 +40,7 @@ const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: strin
 
 const SECTION_PREFIX = 'hyperframes-section-';
 const LIVE_RUNTIME_SRC = '/hyperframes/showcase-runtime/index.html';
+const LIVE_RUNTIME_EMBED_SRC = `${LIVE_RUNTIME_SRC}?autoplay=1&loop=1`;
 
 const SCENARIOS: Scenario[] = [
     {
@@ -150,7 +151,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                         <p>
                             저장소 설명처럼 HTML을 쓰고 영상을 렌더하는 흐름을 그대로 작은 제작 콘솔처럼 풀어낸 쇼케이스야.
                             Node.js 22+, FFmpeg, preview, render, catalog, skills까지 실제 도입 포인트만 남겼다.
-                            첫 패널은 실제 HyperFrames composition을 정적 임베드한 결과고, 아래 패널은 그 구조를 읽기 쉽게 해설한 부분이다.
+                            첫 패널엔 실제 composition HTML을 바로 넣었고, 아래 패널에선 프롬프트와 타임라인, 패키지 흐름을 옆에서 바로 이어 보게 묶었어.
                         </p>
                         <div className="hf-chip-row">
                             <span>{slug}</span>
@@ -170,19 +171,18 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                 <section className="hf-section-block" id={`${SECTION_PREFIX}runtime`}>
                     <Panel
                         title="실제 HyperFrames composition 임베드"
-                        description="이 패널은 HyperFrames CLI로 스캐폴드한 composition HTML을 정적 파일로 두고, @hyperframes/player로 재생하는 실제 실행 결과다."
+                        description="이 패널은 HyperFrames CLI로 만든 composition HTML을 정적 파일로 두고, 페이지 안에 그대로 붙인 실제 실행 화면이야."
                     >
                         <div className="hf-runtime-layout">
                             <article className="hf-runtime-card">
-                                <span className="hf-label">Embedded Player</span>
+                                <span className="hf-label">Embedded Runtime</span>
                                 <div className="hf-runtime-player-shell">
-                                    {createElement('hyperframes-player', {
-                                        src: LIVE_RUNTIME_SRC,
-                                        controls: true,
-                                        muted: true,
-                                        loop: true,
-                                        style: { width: '100%', aspectRatio: '16 / 9', display: 'block' },
-                                    })}
+                                    <iframe
+                                        src={LIVE_RUNTIME_EMBED_SRC}
+                                        title="HyperFrames showcase runtime"
+                                        loading="lazy"
+                                        allow="autoplay"
+                                    />
                                 </div>
                             </article>
                             <article className="hf-runtime-card">
@@ -194,7 +194,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                                     <li><code>{LIVE_RUNTIME_SRC}</code></li>
                                 </ul>
                                 <p>
-                                    여기 보이는 플레이어는 개발용 `preview` 서버를 그대로 올린 게 아니라, 실제 composition HTML을 정적 파일로 배포해 다시 재생하는 방식이다.
+                                    여기선 개발용 `preview` 서버를 올린 게 아니라, 실제 composition HTML을 정적 파일로 두고 페이지 안에 바로 넣었어.
                                 </p>
                             </article>
                         </div>
@@ -207,7 +207,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                         description={
                             <>
                                 HyperFrames는 <TermHint term="HTML-native" description="비디오 조합을 React 전용 DSL이 아니라 HTML과 data-* 속성으로 기술하는 접근이야." /> 라서,
-                                에이전트가 생성한 코드가 바로 composition 초안이 된다.
+                                에이전트가 만든 코드가 곧바로 composition 초안으로 넘어가.
                             </>
                         }
                     >
@@ -243,7 +243,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                 <section className="hf-section-block" id={`${SECTION_PREFIX}timeline`}>
                     <Panel
                         title="타임라인과 프리뷰"
-                        description="playhead를 움직이면 어떤 레이어가 현재 프레임에서 살아 있는지 확인할 수 있다."
+                        description="playhead를 움직이면 지금 프레임에 어떤 레이어가 살아 있는지 바로 잡혀."
                     >
                         <div className="hf-timeline-toolbar">
                             <label htmlFor="hf-playhead">playhead {playhead.toFixed(1)}s</label>
@@ -303,7 +303,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                         description={
                             <>
                                 저장소는 CLI, core, engine, producer, studio, player를 나눠 둔다. <TermHint term="Frame Adapter pattern" description="GSAP, Lottie, CSS, Three.js 같은 애니메이션 런타임을 끼워 넣기 쉽게 만든 추상화 방식이야." /> 을
-                                어디에 끼워 넣는지 같이 보기 좋다.
+                                어디에 끼워 넣는지 한 번에 보기 좋게 정리했어.
                             </>
                         }
                     >
@@ -339,7 +339,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                 <section className="hf-section-block" id={`${SECTION_PREFIX}catalog`}>
                     <Panel
                         title="카탈로그 블록과 에이전트 스킬"
-                        description="작은 영상 스튜디오처럼 자주 쓰는 블록과 명령만 모아 두면, 에이전트가 첫 출력부터 훨씬 안정적이다."
+                        description="자주 쓰는 블록과 명령만 묶어 둬도 첫 출력이 훨씬 덜 흔들려."
                     >
                         <div className="hf-catalog-layout">
                             <article className="hf-catalog-card">
@@ -347,14 +347,14 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                                 <div className="hf-chip-row">
                                     {activeScenario.blocks.map((block) => <span key={block}>{block}</span>)}
                                 </div>
-                                <p>카탈로그 블록은 `hyperframes add`로 붙이고, 그 뒤 에이전트가 composition을 수정하는 흐름으로 연결하면 편하다.</p>
+                                <p>`hyperframes add`로 블록을 붙여 두면, 그다음 수정은 에이전트가 바로 이어서 만지기 좋다.</p>
                             </article>
                             <article className="hf-catalog-card">
                                 <h3>핵심 명령</h3>
                                 <ul className="hf-command-list">
                                     {SKILL_COMMANDS.map((command) => <li key={command}><code>{command}</code></li>)}
                                 </ul>
-                                <p>`init`로 시작하고, `preview`로 확인한 뒤 `render`로 MP4를 뽑는 것이 기본 경로다.</p>
+                                <p>가장 빠른 경로는 `init`으로 시작해서 `preview`로 보고, 마지막에 `render`로 MP4를 뽑는 흐름이야.</p>
                             </article>
                         </div>
                     </Panel>
@@ -415,7 +415,7 @@ const showcaseCss = `
 .hf-section-heading p{margin:5px 0 0;font-size:.89rem;line-height:1.6}
 .hf-runtime-layout{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)}
 .hf-runtime-player-shell{margin-top:8px;overflow:hidden;border-radius:14px;background:#050c16}
-.hf-runtime-player-shell hyperframes-player{display:block;width:100%;aspect-ratio:16/9}
+.hf-runtime-player-shell iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#050c16}
 .hf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .hf-chip-row span{display:inline-flex;align-items:center;min-height:30px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.78rem}
 .hf-scenario-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
