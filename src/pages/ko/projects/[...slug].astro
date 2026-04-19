@@ -96,7 +96,8 @@ const shareUrl = Astro.url.href;
 ---
 
 <BaseLayout title={title} description={summary} ogImage={`/og/projects/${entry.data.slug}.png`}>
-    <article class="project-page">
+    <article class:list={['project-page', { 'project-page--showcase-native': usesShowcaseNarrative }]}>
+        {!usesShowcaseNarrative && (
         <header class="project-hero">
             <div class="hero-top">
                 <span class="category-badge">{categoryLabel}</span>
@@ -138,6 +139,7 @@ const shareUrl = Astro.url.href;
                 {tags.map((tag) => <span class="tag-pill">{tag}</span>)}
             </div>
         </header>
+        )}
 
         {showcaseComponent === 'yfinance' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
@@ -200,16 +202,19 @@ const shareUrl = Astro.url.href;
         )}
 
         {showcaseComponent === 'hyperframes' && (
-            <section class="showcase-area" aria-label={`${title} Interactive Showcase`} id="showcase">
-                <div class="showcase-shell">
-                    <div class="showcase-frame showcase-frame-with-nav">
-                        <header class="showcase-intro">
-                            <p>Interactive Showcase</p>
-                            <h2>프롬프트, 생성된 HTML, 렌더 결과를 같은 케이스 안에서 바로 보기</h2>
-                            <span>제품 소개, 세로 쇼츠, 데이터 요약 세 가지 케이스를 같은 HyperFrames 흐름으로 바로 비교해볼 수 있어.</span>
-                        </header>
-                        <HyperFramesShowcase client:load slug={entry.data.slug} />
-                    </div>
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class:list={['showcase-shell', 'showcase-shell--wide']}>
+                    <HyperFramesShowcase
+                        client:load
+                        slug={entry.data.slug}
+                        title={title}
+                        summary={summary}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={formatStars(displayedMetric)}
+                        license={license}
+                        factCheck={factCheck}
+                    />
                 </div>
             </section>
         )}
@@ -242,7 +247,7 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
-        {factCheck && (
+        {factCheck && !usesShowcaseNarrative && (
             <FactCheck
                 status={factCheck.status}
                 date={factCheck.date}
@@ -262,6 +267,10 @@ const shareUrl = Astro.url.href;
     .project-page {
         max-width: 960px;
         margin: 0 auto;
+    }
+
+    .project-page--showcase-native {
+        max-width: none;
     }
 
     .project-hero {
@@ -540,6 +549,10 @@ const shareUrl = Astro.url.href;
         padding: 32px 0 40px;
     }
 
+    .showcase-area--lead {
+        margin-top: 16px;
+    }
+
     .showcase-area::before {
         content: '';
         position: absolute;
@@ -563,6 +576,12 @@ const shareUrl = Astro.url.href;
         background: color-mix(in srgb, var(--color-surface) 90%, var(--color-surface-alt));
         box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
         backdrop-filter: blur(10px);
+    }
+
+    .showcase-shell--wide {
+        width: calc(100vw - 24px);
+        max-width: none;
+        padding: 28px clamp(18px, 2vw, 30px) 34px;
     }
 
     .showcase-frame {
@@ -618,6 +637,11 @@ const shareUrl = Astro.url.href;
         border-top: 1px solid var(--color-border);
     }
 
+    .project-page--showcase-native .project-footer {
+        max-width: min(1520px, calc(100vw - 24px));
+        margin: 32px auto 0;
+    }
+
     .back-link {
         color: var(--color-projects);
         font-size: var(--text-sm);
@@ -664,6 +688,11 @@ const shareUrl = Astro.url.href;
             padding: 16px 12px 18px;
             border-radius: 18px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .showcase-shell--wide {
+            max-width: calc(100vw - 16px);
+            padding: 18px 12px 22px;
         }
 
         .showcase-frame {
