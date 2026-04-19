@@ -82,6 +82,7 @@ function getSourceMeta(url: string) {
 }
 
 const sourceMeta = getSourceMeta(sourceUrl);
+const usesShowcaseNarrative = showcaseComponent === 'hyperframes';
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -228,16 +229,18 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
-        <section class="project-explainer" aria-labelledby="project-explainer-title">
-            <div class="project-explainer-head">
-                <p>Explanation</p>
-                <h2 id="project-explainer-title">판단 근거와 주의점은 아래에서 읽기</h2>
-                <span>쇼케이스로 감을 먼저 잡고, 실제 도입 판단에 필요한 설명과 주의점은 이 아래에서 이어서 읽으면 돼.</span>
-            </div>
-            <div class="project-body prose">
-                <Content />
-            </div>
-        </section>
+        {!usesShowcaseNarrative && (
+            <section class="project-explainer" aria-labelledby="project-explainer-title">
+                <div class="project-explainer-head">
+                    <p>Explanation</p>
+                    <h2 id="project-explainer-title">판단 근거와 주의점은 아래에서 읽기</h2>
+                    <span>쇼케이스로 감을 먼저 잡고, 실제 도입 판단에 필요한 설명과 주의점은 이 아래에서 이어서 읽으면 돼.</span>
+                </div>
+                <div class="project-body prose">
+                    <Content />
+                </div>
+            </section>
+        )}
 
         {factCheck && (
             <FactCheck
