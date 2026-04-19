@@ -22,11 +22,14 @@ const fc = entry.data.factCheck;
 const slug = entry.id.replace(/^ko\//, '');
 const externalOgImagePath = path.join(process.cwd(), 'public', 'og', 'news', `${slug}.jpg`);
 const fallbackOgImagePath = path.join(process.cwd(), 'public', 'og', 'news-fallback', `${slug}.png`);
-const ogImage = fs.existsSync(externalOgImagePath)
+const hasExternalOg = fs.existsSync(externalOgImagePath);
+const hasFallbackOg = fs.existsSync(fallbackOgImagePath);
+const ogImage = hasExternalOg
     ? `/og/news/${slug}.jpg`
-    : fs.existsSync(fallbackOgImagePath)
+    : hasFallbackOg
         ? `/og/news-fallback/${slug}.png`
         : '/og/site-default.png';
+const showCover = hasExternalOg || hasFallbackOg;
 const shareUrl = Astro.url.href;
 ---
 
@@ -59,9 +62,11 @@ const shareUrl = Astro.url.href;
         </div>
         <h1>{entry.data.title}</h1>
         <p class="article-summary">{entry.data.summary}</p>
-        <div class="article-cover">
-            <img src={ogImage} alt={entry.data.title} loading="eager" decoding="async" />
-        </div>
+        {showCover && (
+            <div class="article-cover">
+                <img src={ogImage} alt={entry.data.title} loading="eager" decoding="async" />
+            </div>
+        )}
         <div class="article-body prose">
             <Content />
         </div>
@@ -85,15 +90,17 @@ const shareUrl = Astro.url.href;
 </BaseLayout>
 
 <style>
-    .news-article { max-width: 680px; margin: 0 auto; padding-top: 16px; }
+    .news-article { max-width: 720px; margin: 0 auto; padding-top: 20px; }
 
     .article-meta {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         flex-wrap: wrap;
         gap: 10px 14px;
-        margin-bottom: 14px;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--color-border);
         font-size: 13px;
         color: var(--color-text-muted);
     }
@@ -102,13 +109,30 @@ const shareUrl = Astro.url.href;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 10px;
         min-width: 0;
+    }
+
+    .article-date {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.02em;
+        color: var(--color-text-muted);
     }
 
     .article-source {
         color: var(--color-news);
         text-decoration: none;
+        padding: 3px 10px;
+        border: 1px solid color-mix(in srgb, var(--color-news) 45%, transparent);
+        border-radius: 999px;
+        font-size: 12px;
+        line-height: 1.4;
+        transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .article-source:hover {
+        background: color-mix(in srgb, var(--color-news) 12%, transparent);
+        border-color: var(--color-news);
     }
 
     .article-source::after {
@@ -121,18 +145,21 @@ const shareUrl = Astro.url.href;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: clamp(26px, 4.2vw, 34px);
         font-weight: 800;
         margin-bottom: 12px;
-        line-height: 1.35;
-        letter-spacing: -0.01em;
+        line-height: 1.28;
+        letter-spacing: -0.015em;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
     }
 
     .article-summary {
-        margin: 0 0 14px;
+        margin: 0 0 22px;
         color: var(--color-text-muted);
-        font-size: 15px;
-        line-height: 1.7;
+        font-size: 16px;
+        line-height: 1.72;
+        word-break: keep-all;
     }
 
     .article-share-header {
@@ -140,12 +167,12 @@ const shareUrl = Astro.url.href;
     }
 
     .article-cover {
-        margin-bottom: 18px;
+        margin-bottom: 26px;
         border-radius: 14px;
         overflow: hidden;
         border: 1px solid var(--color-border);
         background: var(--color-surface-alt);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
     }
 
     .article-cover img {
@@ -153,28 +180,63 @@ const shareUrl = Astro.url.href;
         aspect-ratio: 1200 / 630;
         display: block;
         object-fit: cover;
+        max-width: 100%;
     }
 
-    .article-body { font-size: 16px; line-height: 1.8; }
-    .article-body :global(p) { margin-bottom: 12px; }
-    .article-body :global(ul) { padding-left: 20px; margin-bottom: 12px; }
-    .article-body :global(li) { margin-bottom: 4px; }
+    .article-body { font-size: 16.5px; line-height: 1.82; }
+    .article-body :global(p) { margin-bottom: 14px; word-break: keep-all; }
+    .article-body :global(ul) { padding-left: 20px; margin-bottom: 14px; }
+    .article-body :global(li) { margin-bottom: 5px; word-break: keep-all; }
+    .article-body :global(h2) {
+        font-size: 20px;
+        margin: 32px 0 12px;
+        letter-spacing: -0.01em;
+    }
+    .article-body :global(h3) {
+        font-size: 17px;
+        margin: 24px 0 8px;
+    }
+    .article-body :global(code) {
+        max-width: 100%;
+        min-width: 0;
+        overflow: auto;
+    }
+    .article-body :global(pre) {
+        max-width: 100%;
+        min-width: 0;
+        overflow: auto;
+    }
 
-    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 20px; }
+    .article-tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 1px solid var(--color-border);
+    }
 
     .tag {
         background: var(--color-surface-alt);
-        padding: 4px 8px;
-        border-radius: 4px;
+        border: 1px solid var(--color-border);
+        padding: 4px 10px;
+        border-radius: 999px;
         font-size: 12px;
         color: var(--color-text-muted);
+        transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .tag:hover {
+        border-color: var(--color-news);
+        color: var(--color-text);
     }
 
     @media (max-width: 640px) {
+        .news-article { padding-top: 12px; }
         .article-meta {
             align-items: stretch;
+            gap: 8px 12px;
         }
-
         .article-share-header {
             width: 100%;
             margin-left: 0;

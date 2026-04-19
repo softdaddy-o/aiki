@@ -305,27 +305,98 @@ const usesShowcaseNarrative = SHOWCASE_NATIVE.has(showcaseComponent);
 ### 3.1 레이아웃 defaults
 
 - `main { max-width: 960px }` 그대로 사용. 절대 해제하지 마.
-- 기사 본문 열 폭은 680px 전후로 유지 (현 `wiki-article`, `news-article` 기본값).
-- 페이지 article 클래스: `.wiki-article`, `.news-article`.
+- 기사 본문 열 폭 **720px** (`.wiki-article`, `.news-article`). 이전 680px 는 한국어에서 답답했음 (2026-04 iteration 에서 상향).
+- `padding-top: 20px` (모바일 12px).
 - FactCheck 있는 글은 `<FactCheck>` 카드 필수 (§1.4).
 
-### 3.2 News 페이지 특이사항
+### 3.2 타이포그래피 스케일 (news / wiki 공통)
+
+| 요소 | 값 | 이유 |
+|---|---|---|
+| h1 | `font-size: clamp(26px, 4.2vw, 34px); line-height: 1.28; letter-spacing: -0.015em; font-weight: 800;` | 모바일~데스크탑 부드러운 스케일, 한국어 h1 은 굵게 |
+| lead / summary | `font-size: 16px; line-height: 1.7;` (wiki) / `line-height: 1.72;` (news) | 가독성 우선 |
+| body | `font-size: 16px` (wiki) / `16.5px` (news); `line-height: 1.82;` | 뉴스 본문은 더 크게 |
+| h2 (본문) | `font-size: 20px; margin: 32px 0 12px; letter-spacing: -0.01em;` | 섹션 구분 |
+| h3 (본문) | `font-size: 17px; margin: 24px 0 8px;` | 서브섹션 |
+| kicker h3 (related, model-hierarchy) | `font-size: 13-14px; text-transform: uppercase; letter-spacing: 0.06em; color: --color-text-muted; font-weight: 600;` | 메타 라벨 |
+
+### 3.3 한국어 타이포 필수 규칙
+
+- h1, summary, body `p`, `li`: **`word-break: keep-all`** (단어 단위 줄바꿈).
+- h1 은 `overflow-wrap: anywhere` 도 같이. 긴 영어 용어 한 덩어리가 튀어나오는 걸 방지.
+- `font-variant-numeric: tabular-nums` 는 날짜·언급 횟수처럼 숫자 라벨에.
+
+### 3.4 메타 섹션 grammar
+
+```
+.article-meta {
+  display: flex;
+  justify-content: space-between;   // 좌: date/badge/source, 우: share
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-bottom: 18-20px;
+  padding-bottom: 14-16px;
+  border-bottom: 1px solid var(--color-border);   // divider 필수
+}
+```
+
+- 모바일 (`max-width: 640px`): `align-items: stretch`, share 블록 `width: 100%; margin-left: 0`.
+- 좌측 아이템 (`.article-meta-primary`): `display: flex; gap: 10px; flex-wrap: wrap; min-width: 0;`
+
+### 3.5 Pill / chip grammar
+
+News/wiki 의 pill 은 일관된 형태로:
+- `border-radius: 999px;`
+- `padding: 3-5px 10-14px;`
+- `border: 1px solid ...;` (색상은 용도별)
+- 링크형 (related-link, article-source): `color-mix(in srgb, var(--color-wiki|--color-news) 55%, transparent)` border, hover 시 `14%` 배경 + solid border.
+- 중립형 (tag, alias): `var(--color-border)` border, `var(--color-surface-alt)` bg.
+
+### 3.6 Code/pre 가드 (§1 R2)
+
+본문이 `<Content />` 를 렌더하므로 `:global()` 로 guard 필수:
+
+```css
+.article-body :global(code),
+.article-body :global(pre) {
+  max-width: 100%;
+  min-width: 0;
+  overflow: auto;
+}
+```
+
+### 3.7 News 페이지 특이사항
 
 - 썸네일: 원본 소스 `og:image` 우선, 없으면 제목만 있는 fallback (auto-memory `feedback_news_thumbnails.md`).
+- **`AIKI` 로고 site-default 는 cover 로 노출하지 마**. slug-specific `og/news/*.jpg` 또는 `og/news-fallback/*.png` 가 없으면 `.article-cover` 자체를 렌더하지 말 것. 로고만 박힌 커버는 읽기 흐름을 끊음.
+  ```astro
+  const hasExternalOg = fs.existsSync(...);
+  const hasFallbackOg = fs.existsSync(...);
+  const showCover = hasExternalOg || hasFallbackOg;
+  {showCover && <div class="article-cover">...}
+  ```
 - FactCheck 라벨은 한국어만 (auto-memory `feedback_factcheck_consistency.md`).
 - Body 텍스트 포함 fallback은 만들지 마.
+- `.article-source` 는 외부 링크 pill — `↗` after 아이콘, `color-mix` 얇은 border.
 
-### 3.3 Wiki 페이지 특이사항
+### 3.8 Wiki 페이지 특이사항
 
 - Quality gate 4 차원 (≥60/100) 통과해야 머지 (auto-memory `project_wiki_quality_scoring.md`).
 - 인라인 링크, 구체적 숫자 최소치 존재.
 - 관련 용어 자동 링킹은 `scripts/aiki-link-related-terms.cjs` 가 처리.
+- `.category-badge` 는 solid var(--color-wiki) 배경 + 검정 텍스트 pill (강한 강조).
+- `.related-terms` 섹션은 `border-top: 1px solid var(--color-border); margin-top: 36px; padding-top: 22px;` — 본문과 명확한 시각적 분리.
 
-### 3.4 산문 OK, 단 품질 기준은 유지
+### 3.9 산문 OK, 단 품질 기준은 유지
 
 news/wiki 는 산문 허용 (§2.7 no-prose 규칙은 여기 적용 안 됨). 하지만:
 - 인라인 숫자·링크 있는 구체 문장 선호.
 - 핵심 정보가 본문 중간에 묻혀 있으면 wiki 는 **하위 헤딩으로 분할**, news 는 **리드 문단에 요약**.
+
+### 3.10 세션 흉터
+
+- **2026-04-19**: wiki/news 열 폭 680→720, h1 스케일 up (clamp 26-34), 메타 divider 추가, pill grammar 통일, news site-default cover 억제. iteration 1 에서 "editorial 톤" 확보. before/after 비교 결과 한국어 가독성 개선 + 데스크탑 공기감 확보.
 
 ---
 
