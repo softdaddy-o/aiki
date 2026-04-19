@@ -95,24 +95,52 @@ const OCR_CHECKS = [
     },
 ] as const;
 
+const MEASUREMENT_GUIDE = [
+    {
+        label: 'CPU 실측',
+        value: '없음',
+        note: '이 showcase에는 CPU-only 벤치마크를 넣지 않았다.',
+    },
+    {
+        label: '공식 benchmark',
+        value: 'GPU · A100',
+        note: '34.7 pages/s는 모델 카드의 single A100 처리량이다.',
+    },
+    {
+        label: '로컬 실측',
+        value: 'GPU · RTX 5070',
+        note: '같은 한글 이미지를 로컬 WSL2 + RTX 5070에서 다시 돌린 지연 시간과 VRAM이다.',
+    },
+    {
+        label: '공개 Space',
+        value: 'ZeroGPU 데모',
+        note: '온라인 데모 응답 시간이라 큐와 할당 상태 영향을 받는다.',
+    },
+    {
+        label: '체크포인트 336 MB',
+        value: '디스크 크기',
+        note: '다운로드 파일 크기이며 RAM 또는 VRAM 수치가 아니다.',
+    },
+] as const;
+
 const SPEED_CARDS = [
     {
-        label: '공식 multilingual 처리량',
+        label: '공식 GPU 처리량',
         value: '34.7 pages/s',
         note: 'OmniDocBench crop mode, single A100 GPU 기준.',
     },
     {
-        label: '로컬 RTX 5070 워밍 후',
+        label: '로컬 GPU 워밍 후',
         value: `${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`,
         note: `${LOCAL_GPU_RUN.runtime}, ${LOCAL_GPU_RUN.mergeLevel} mode 2~3회차 평균. 약 ${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s steady-state.`,
     },
     {
-        label: '로컬 첫 결과',
+        label: '로컬 GPU 첫 결과',
         value: `${LOCAL_GPU_RUN.coldTotalSeconds.toFixed(2)} s`,
         note: `모델 로드 ${LOCAL_GPU_RUN.loadSeconds.toFixed(2)} s + 첫 추론 ${LOCAL_GPU_RUN.coldSeconds.toFixed(2)} s. 첫 호출에는 CUDA warm-up이 크게 섞인다.`,
     },
     {
-        label: '공개 Space 한글 데모',
+        label: '공개 Space 데모 시간',
         value: `${DEMO.durationSeconds.toFixed(2)} s`,
         note: `${DEMO.size} 테스트 이미지 1장을 ${DEMO.runtime}에서 돌린 실제 결과. 큐 상태에 따라 편차가 생긴다.`,
     },
@@ -120,22 +148,22 @@ const SPEED_CARDS = [
 
 const MEMORY_CARDS = [
     {
-        label: 'v2_multilingual 체크포인트',
+        label: '체크포인트 디스크 크기',
         value: '336 MB',
         note: 'Hub 폴더 전체 크기. detector 182 MB, recognizer 145 MB, relational 9.18 MB.',
     },
     {
-        label: '로컬 로드 후 예약 메모리',
+        label: '로컬 GPU 로드 후 reserved',
         value: `${LOCAL_GPU_RUN.baselineReservedMiB.toLocaleString('en-US')} MiB`,
         note: `${LOCAL_GPU_RUN.runtime}에서 모델 로드 직후 torch.cuda.memory_reserved 기준.`,
     },
     {
-        label: '로컬 워밍 후 피크 VRAM',
+        label: '로컬 GPU 워밍 후 peak VRAM',
         value: `${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`,
         note: `${LOCAL_GPU_RUN.mergeLevel} mode 2~3회차 기준 reserved peak. 같은 한글 카드에서 ${LOCAL_GPU_RUN.predictions}개 영역을 뽑았다.`,
     },
     {
-        label: '로컬 첫 실행 피크 VRAM',
+        label: '로컬 GPU 첫 실행 peak VRAM',
         value: `${LOCAL_GPU_RUN.coldPeakReservedMiB.toLocaleString('en-US')} MiB`,
         note: '첫 추론은 커널 초기화와 추가 버퍼가 섞여 워밍 후보다 더 높게 잡혔다.',
     },
@@ -205,10 +233,10 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
                     </div>
 
                     <div className="no-hero-stats">
-                        <StatCard label="공식 multilingual 속도" value="34.7 pages/s" />
-                        <StatCard label="로컬 RTX 5070" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} />
-                        <StatCard label="워밍 후 peak VRAM" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} />
-                        <StatCard label="지원 범위" value="한국어 포함 다국어" />
+                        <StatCard label="공식 GPU 처리량" value="34.7 pages/s" />
+                        <StatCard label="로컬 GPU 지연 시간" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} />
+                        <StatCard label="로컬 GPU peak VRAM" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} />
+                        <StatCard label="CPU 실측" value="없음" />
                     </div>
                 </section>
 
@@ -301,12 +329,31 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
                         title="속도 정보"
                         description={
                             <>
-                                공식 benchmark, 로컬 GPU 실측, 공개 데모 시간은 구분해서 봐야 한다. 공식 수치는 single
-                                A100 기준 배치 처리량이고, 아래 로컬 수치는 <TermHint term="warm-up" description="첫 호출에 모델 로드, CUDA kernel 준비, 메모리 할당이 섞여 느려지고, 2회차부터 steady-state 지연이 보이는 구간을 말한다." /> 후
-                                한글 샘플 1장을 로컬 RTX 5070에서 돌린 시간이다. 공개 <TermHint term="Space" description="공개 Space는 GPU 할당과 큐 대기 시간이 섞일 수 있어서 데모 확인에는 좋지만 서버 sizing 기준으로 쓰면 안 된다." /> 실측은 별도로 남겼다.
+                                CPU 실측은 없고, 아래 수치는 <strong>공식 GPU benchmark</strong>, <strong>로컬 GPU 실측</strong>,
+                                <strong>공개 Space 데모 시간</strong>으로 나뉜다. 공식 수치는 single A100 기준 배치 처리량이고,
+                                아래 로컬 수치는 <TermHint term="warm-up" description="첫 호출에 모델 로드, CUDA kernel 준비, 메모리 할당이 섞여 느려지고, 2회차부터 steady-state 지연이 보이는 구간을 말한다." /> 후
+                                한글 샘플 1장을 로컬 RTX 5070에서 돌린 시간이다. 공개 <TermHint term="Space" description="공개 Space는 GPU 할당과 큐 대기 시간이 섞일 수 있어서 데모 확인에는 좋지만 서버 sizing 기준으로 쓰면 안 된다." /> 응답 시간은 별도 데모 지표다.
                             </>
                         }
                     >
+                        <div className="no-section-heading">
+                            <h3>먼저 보는 기준표</h3>
+                            <p>CPU인지 GPU인지, 데모 시간인지 실제 GPU 측정인지 먼저 구분해서 읽으면 된다.</p>
+                        </div>
+                        <div className="no-card-grid">
+                            {MEASUREMENT_GUIDE.map((item) => (
+                                <article className="no-metric-card" key={item.label}>
+                                    <span>{item.label}</span>
+                                    <strong>{item.value}</strong>
+                                    <p>{item.note}</p>
+                                </article>
+                            ))}
+                        </div>
+
+                        <div className="no-section-heading">
+                            <h3>실제 속도 수치</h3>
+                            <p>공식 처리량, 로컬 GPU 지연 시간, 공개 데모 시간을 각각 따로 적었다.</p>
+                        </div>
                         <div className="no-card-grid">
                             {SPEED_CARDS.map((item) => (
                                 <article className="no-metric-card" key={item.label}>
@@ -325,9 +372,9 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
                         description={
                             <>
                                 이 모델의 장점은 빠른 multilingual OCR이지만, 공식 카드가 절대 최소 VRAM은 공개하지
-                                않는다. 그래서 공식 체크포인트 크기와 함께, 같은 한글 카드 기준 로컬 RTX 5070에서
-                                실제로 잡힌 reserved peak도 같이 둔다. GPU 메모리를 줄이는 실행 모드는 공식 카드
-                                설명을 따랐다.
+                                않는다. 그래서 <strong>디스크 크기</strong>와 <strong>로컬 GPU VRAM</strong>을 분리해서 적었다.
+                                같은 한글 카드 기준 로컬 RTX 5070에서 실제로 잡힌 reserved peak도 같이 두고, GPU
+                                메모리를 줄이는 실행 모드는 공식 카드 설명을 따랐다.
                             </>
                         }
                     >
@@ -535,7 +582,10 @@ const showcaseCss = `
 .no-panel-head h2,.no-section-heading h3,.no-line-panel h3,.no-language-card h3,.no-fit-card h3,.no-check-card h3{
     margin:0;
 }
+.no-section-heading{display:grid;gap:4px}
 .no-panel-head p{margin-top:6px;font-size:.89rem}
+.no-section-heading + .no-card-grid,.no-section-heading + .no-breakdown-list{margin-top:10px}
+.no-card-grid + .no-section-heading{margin-top:16px}
 .no-section-block{display:grid;gap:16px;scroll-margin-top:120px}
 .no-demo-toolbar{
     display:flex;
