@@ -1,7 +1,7 @@
 ---
 id: tone-editor
 name: Tone Editor
-version: "1.2.0"
+version: "1.3.0"
 lastUpdated: "2026-04-19"
 category: review
 input:
@@ -35,6 +35,7 @@ Evaluate these criteria:
 11. For project pages, readerValue and key section copy should not end in neat report-style declaratives like "~좋다.", "~잡힌다.", "~나뉘어 있다.", "~도움이 됩니다." Prefer the same casual AIKI cadence used in the body.
 12. For project pages, fail meta framing that talks about the page instead of the project itself. Phrases like "이 페이지는", "이 글은", "이 쇼케이스는" in summary, readerValue, or the opening body are a warning sign.
 13. For project pages, reject repeated comparison formulas such as "X보다 Y에 가깝다", "A쪽이다", "B에 맞다" when they stack up without a concrete go/no-go statement, workflow, or operational detail.
+14. For project pages, do not mistake banmal for AIKI tone. Body and factCheck copy that repeatedly ends in plain declaratives like "~된다", "~있다", "~갈린다", "~맞다" should fail even without honorifics.
 
 Fail the review when any of these are true:
 
@@ -44,5 +45,6 @@ Fail the review when any of these are true:
 - The page has repeated sentence endings that make it feel templated.
 - Source-copy language is present.
 - A project page opens with page-meta copy instead of the project decision.
+- A project page still leans on flat declarative endings like "~된다/~있다" across key sections or factCheck.
 
 Return exactly one review object matching review-output.json. Use role "tone_editor". Put concrete evidence in findings, blocking fixes in mustFix, and optional improvements in niceToHave.

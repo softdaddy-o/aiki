@@ -14,10 +14,22 @@ const projectCount = (await getCollection('projects', ({ data }) => data.lang ==
         <section class="hero">
             <p class="hero-eyebrow">AI Knowledge & Intelligence</p>
             <h1 class="hero-title">AIKI</h1>
-            <p class="hero-subtitle">AI 뉴스, 용어, 프로젝트 쇼케이스를 한 곳에서 봅니다.</p>
+            <p class="hero-subtitle">직접 돌려본 AI 쇼케이스를 먼저 보고, 필요한 뉴스와 위키까지 바로 이어서 봅니다.</p>
         </section>
 
         <section class="categories" aria-label="AIKI 카테고리">
+            <a href="/ko/projects/" class="category-card projects-card">
+                <div class="card-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                </div>
+                <div class="card-body">
+                    <h2>AI 쇼케이스</h2>
+                    <p>직접 실행한 결과를 먼저 보고, 도입 판단에 필요한 설명과 검증 근거를 이어서 확인합니다.</p>
+                    <span class="card-count">{projectCount}개의 쇼케이스</span>
+                </div>
+                <span class="card-arrow">&rarr;</span>
+            </a>
+
             <a href="/ko/news/" class="category-card news-card">
                 <div class="card-icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8m8-4h-8m5 8h-5"/></svg>
@@ -38,18 +50,6 @@ const projectCount = (await getCollection('projects', ({ data }) => data.lang ==
                     <h2>AI 위키</h2>
                     <p>개념, 기법, 도구, 모델을 연결해서 정리합니다. 처음 보는 용어도 문맥까지 함께 이해할 수 있습니다.</p>
                     <span class="card-count">{wikiCount}개의 용어</span>
-                </div>
-                <span class="card-arrow">&rarr;</span>
-            </a>
-
-            <a href="/ko/projects/" class="category-card projects-card">
-                <div class="card-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-                </div>
-                <div class="card-body">
-                    <h2>프로젝트 쇼케이스</h2>
-                    <p>오픈소스 AI 프로젝트를 인터랙티브하게 훑어보고, 위키와 기사까지 바로 이어서 확인합니다.</p>
-                    <span class="card-count">{projectCount}개의 프로젝트</span>
                 </div>
                 <span class="card-arrow">&rarr;</span>
             </a>

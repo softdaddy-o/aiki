@@ -34,7 +34,7 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
         sourcePath: '/hyperframes/cases/product-intro.html',
         videoSrc: '/hyperframes/cases/product-intro.mp4',
         posterSrc: '/hyperframes/cases/product-intro-poster.png',
-        resultNote: '문구와 CTA만 바꿔서 같은 장면을 여러 제품 버전으로 재활용하는 데 맞다.',
+        resultNote: '문구와 CTA만 바꿔서 같은 장면을 여러 제품 버전으로 돌릴 때 잘 맞아.',
     },
     {
         id: 'vertical-short',
@@ -52,7 +52,7 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
         sourcePath: '/hyperframes/cases/vertical-short.html',
         videoSrc: '/hyperframes/cases/vertical-short.mp4',
         posterSrc: '/hyperframes/cases/vertical-short-poster.png',
-        resultNote: '세로 결과물을 실제로 뽑기 전에, 훅과 캡션 리듬을 먼저 HTML 장면으로 잡는 케이스다.',
+        resultNote: '세로 결과물을 실제로 뽑기 전에, 훅과 캡션 리듬부터 HTML 장면으로 잡아보는 케이스야.',
     },
     {
         id: 'data-brief',
@@ -72,22 +72,22 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
         sourcePath: '/hyperframes/cases/data-brief.html',
         videoSrc: '/hyperframes/cases/data-brief.mp4',
         posterSrc: '/hyperframes/cases/data-brief-poster.png',
-        resultNote: '반복 리포트 영상은 장면 뼈대가 고정되어 있을수록 이 방식이 효율을 만든다.',
+        resultNote: '반복 리포트 영상은 장면 뼈대가 고정돼 있을수록 이 방식이 더 편해.',
     },
 ] as const;
 
 const WORKFLOW = [
     {
         title: '1. Prompt',
-        body: '장면 수와 끝 상태를 먼저 고정한다. “예쁜 영상”보다 “무슨 구조가 필요한가”를 말해야 한다.',
+        body: '장면 수와 끝 상태부터 먼저 고정해. “예쁜 영상”보다 “무슨 구조가 필요한가”를 먼저 말해야 해.',
     },
     {
         title: '2. HTML',
-        body: '에이전트가 장면을 HTML로 만든다. 여기서 제목, 카드, 캡션, 브랜드 위치를 직접 수정한다.',
+        body: '에이전트가 장면을 HTML로 만들어. 여기서 제목, 카드, 캡션, 브랜드 위치를 직접 고쳐.',
     },
     {
         title: '3. Render',
-        body: '`preview`로 확인하고 `render`로 MP4를 뽑는다. 포스팅이나 배포에 올릴 건 여기서 나온다.',
+        body: '`preview`로 확인하고 `render`로 MP4를 뽑아. 포스팅이나 배포에 올릴 건 여기서 나와.',
     },
 ] as const;
 
@@ -106,7 +106,7 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
             <div className="hf-main">
                 <Panel
                     title="Prompt -> HTML -> Video"
-                    description="같은 툴로도 장면 타입은 꽤 다르게 나온다. 아래 케이스를 바꾸면 프롬프트, 생성된 HTML, 렌더 결과를 바로 같이 볼 수 있다."
+                    description="같은 툴이어도 장면 타입은 꽤 다르게 나와. 아래 케이스를 바꾸면 프롬프트, 생성된 HTML, 렌더 결과를 바로 같이 볼 수 있어."
                 >
                     <div className="hf-case-tabs" role="tablist" aria-label="HyperFrames case studies">
                         {CASES.map((item) => (
@@ -165,8 +165,8 @@ export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) 
                 </Panel>
 
                 <Panel
-                    title="도입 판단은 여기서 끝난다"
-                    description="HyperFrames를 볼 이유는 장면을 코드로 계속 고칠 수 있느냐 하나다. 아래 두 묶음만 보면 대체로 결론이 난다."
+                    title="도입 판단은 여기서 끝내도 돼"
+                    description="HyperFrames를 볼 이유는 장면을 코드로 계속 고칠 수 있느냐 하나야. 아래 두 묶음만 보면 대체로 결론 나."
                 >
                     <div className="hf-bottom-grid">
                         <div className="hf-workflow">

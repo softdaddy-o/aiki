@@ -171,7 +171,7 @@ const STIFF_TONE_PATTERNS = [
 ];
 
 const PROJECT_REPORT_ENDING_PATTERNS = [
-    /(?:합니다|습니다|입니다|됩니다|할 수 있습니다|도움이 됩니다|좋다|크다|빠르다|중요하다|필요하다|가능하다|유리하다|잡힌다|나뉘어 있다)\.?$/u,
+    /(?:합니다|습니다|입니다|됩니다|할 수 있습니다|도움이 됩니다|좋다|크다|빠르다|중요하다|필요하다|가능하다|유리하다|잡힌다|나뉘어 있다|있다|없다|된다|바뀐다|갈린다|맞다|낫다|강하다|약하다|끝난다)\.?$/u,
 ];
 
 const PROJECT_META_FRAMING_PATTERNS = [
@@ -404,6 +404,17 @@ function validateProjectTone(frontmatter, body) {
     return failures;
 }
 
+function getProjectDeclarativeEndingStats(text) {
+    const sentences = splitToneSentences(text);
+    const declarativeEnding = /(?:있다|없다|된다|바뀐다|갈린다|맞다|낫다|강하다|약하다|중요하다|필요하다|끝난다|보인다|남는다|붙는다|잡힌다)\.?$/u;
+    const matches = sentences.filter((sentence) => declarativeEnding.test(sentence.trim()));
+    return {
+        total: sentences.length,
+        count: matches.length,
+        ratio: sentences.length > 0 ? matches.length / sentences.length : 0,
+    };
+}
+
 function getProjectToneWarnings(frontmatter, body) {
     const warnings = [];
     const summary = String(frontmatter && frontmatter.summary || '').trim();
@@ -425,6 +436,12 @@ function getProjectToneWarnings(frontmatter, body) {
 
     if (comparisonFormulaCount >= 2) {
         warnings.push('lead copy leans on repeated comparison formulas without enough concrete workflow detail');
+    }
+
+    const bodyAndFactCheck = [body, collectWikiFactCheckText(frontmatter)].filter(Boolean).join('\n');
+    const declarativeStats = getProjectDeclarativeEndingStats(bodyAndFactCheck);
+    if (declarativeStats.total >= 8 && declarativeStats.ratio >= 0.2) {
+        warnings.push('project page still leans on plain declarative endings like "~된다/~있다" instead of AIKI casual cadence');
     }
 
     return warnings;

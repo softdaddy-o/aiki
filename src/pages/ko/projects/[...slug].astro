@@ -49,7 +49,7 @@ function getSourceMeta(url: string) {
     if (url.includes('huggingface.co/')) {
         return {
             provider: 'Hugging Face',
-            title: '프로젝트 기본 정보',
+            title: '쇼케이스 기본 정보',
             itemLabel: '모델',
             metricLabel: '좋아요',
             mark: 'HF',
@@ -61,7 +61,7 @@ function getSourceMeta(url: string) {
     if (url.includes('github.com/')) {
         return {
             provider: 'GitHub',
-            title: '프로젝트 기본 정보',
+            title: '쇼케이스 기본 정보',
             itemLabel: '저장소',
             metricLabel: '스타',
             mark: 'GH',
@@ -72,7 +72,7 @@ function getSourceMeta(url: string) {
 
     return {
         provider: 'Source',
-        title: '프로젝트 기본 정보',
+        title: '쇼케이스 기본 정보',
         itemLabel: '소스',
         metricLabel: '지표',
         mark: 'SRC',
@@ -110,7 +110,7 @@ const shareUrl = Astro.url.href;
             </div>
             <h1 class="project-title">{title}</h1>
             <p class="project-summary">{summary}</p>
-            <section class="model-card" aria-label="프로젝트 기본 정보">
+            <section class="model-card" aria-label={sourceMeta.title}>
                 <div class="model-card-head">
                     <span class={`source-mark ${sourceMeta.className}`} aria-hidden="true">{sourceMeta.mark}</span>
                     <div>
@@ -137,10 +137,6 @@ const shareUrl = Astro.url.href;
                 {tags.map((tag) => <span class="tag-pill">{tag}</span>)}
             </div>
         </header>
-
-        <div class="project-body prose">
-            <Content />
-        </div>
 
         {showcaseComponent === 'yfinance' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
@@ -200,7 +196,7 @@ const shareUrl = Astro.url.href;
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
                         <h2>프롬프트, 생성된 HTML, 렌더 결과를 같은 케이스 안에서 바로 보기</h2>
-                        <span>제품 소개, 세로 쇼츠, 데이터 요약 세 가지 케이스를 같은 HyperFrames 흐름으로 비교할 수 있다.</span>
+                        <span>제품 소개, 세로 쇼츠, 데이터 요약 세 가지 케이스를 같은 HyperFrames 흐름으로 바로 비교해볼 수 있어.</span>
                     </header>
                     <HyperFramesShowcase client:load slug={entry.data.slug} />
                 </div>
@@ -220,6 +216,17 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
+        <section class="project-explainer" aria-labelledby="project-explainer-title">
+            <div class="project-explainer-head">
+                <p>Explanation</p>
+                <h2 id="project-explainer-title">판단 근거와 주의점은 아래에서 읽기</h2>
+                <span>쇼케이스로 감을 먼저 잡고, 실제 도입 판단에 필요한 설명과 주의점은 이 아래에서 이어서 읽으면 돼.</span>
+            </div>
+            <div class="project-body prose">
+                <Content />
+            </div>
+        </section>
+
         {factCheck && (
             <FactCheck
                 status={factCheck.status}
@@ -231,7 +238,7 @@ const shareUrl = Astro.url.href;
         )}
 
         <footer class="project-footer">
-            <a href="/ko/projects/" class="back-link">&larr; AI 프로젝트 리스트</a>
+            <a href="/ko/projects/" class="back-link">&larr; AI 쇼케이스 리스트</a>
         </footer>
     </article>
 </BaseLayout>
@@ -380,6 +387,40 @@ const shareUrl = Astro.url.href;
         overflow-wrap: anywhere;
         font-size: var(--text-sm);
         font-weight: 750;
+    }
+
+    .project-explainer {
+        display: grid;
+        gap: 18px;
+        margin: 40px auto 0;
+    }
+
+    .project-explainer-head {
+        max-width: 760px;
+    }
+
+    .project-explainer-head p {
+        margin: 0 0 8px;
+        color: var(--color-projects);
+        font-family: var(--font-heading);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .project-explainer-head h2 {
+        margin: 0 0 10px;
+        font-size: clamp(1.3rem, 2vw, 1.9rem);
+        line-height: 1.25;
+    }
+
+    .project-explainer-head span {
+        display: block;
+        max-width: 720px;
+        color: var(--color-text-muted);
+        font-size: var(--text-base);
+        line-height: 1.65;
     }
 
     .project-body {

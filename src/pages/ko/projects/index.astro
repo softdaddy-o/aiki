@@ -14,15 +14,15 @@ const projects = allProjects.sort((a, b) => {
 const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot'] as const;
 ---
 
-<BaseLayout title={t(lang, 'projects.title')} description="AI 도구와 라이브러리를 직접 만져볼 수 있는 프로젝트 쇼케이스">
+<BaseLayout title={t(lang, 'projects.title')} description="직접 실행한 결과와 도입 판단 포인트를 함께 보여주는 AI 쇼케이스">
     <section class="projects-catalog" aria-labelledby="projects-catalog-title">
         <div class="catalog-heading">
             <h1 id="projects-catalog-title" class="catalog-title">{t(lang, 'projects.title')}</h1>
-            <p class="catalog-desc">AI 개발자가 실제로 써볼 만한 오픈소스 프로젝트를 기능별 데모와 함께 정리합니다.</p>
+            <p class="catalog-desc">실제 실행 결과를 먼저 보여주고, 도입 판단에 필요한 설명과 검증 포인트를 아래에 붙인 AI 쇼케이스를 모아뒀어.</p>
         </div>
 
         <div class="catalog-controls">
-            <div class="category-tabs" aria-label="Project categories">
+            <div class="category-tabs" aria-label="Showcase categories">
                 <button type="button" class="cat-tab active" data-filter="all">{t(lang, 'filter.all')}</button>
                 {categories.map((category) => {
                     const count = projects.filter((project) => project.data.category === category).length;
