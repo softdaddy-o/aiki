@@ -7,7 +7,7 @@ modelType: version
 summary: "Nemotron OCR v2는 다국어 문서와 이미지에서 텍스트를 빠르게 뽑아내는 NVIDIA의 OCR 모델이야. 한국어를 포함한 멀티링구얼 OCR과 RAG용 문서 적재 파이프라인 쪽에 초점이 맞춰져 있어."
 readerValue: "이 페이지는 Nemotron OCR v2를 지금 도입할지, 아니면 PaddleOCR나 기존 OCR 스택으로 남을지 판단하는 데 초점을 둔다."
 githubUrl: "https://huggingface.co/nvidia/nemotron-ocr-v2"
-showcaseComponent: none
+showcaseComponent: "nemotron-ocr-v2"
 tags:
   - ocr
   - vision
@@ -84,11 +84,11 @@ reviewStamp:
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.1.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.3.0"
+    structure-editor: "1.1.0"
   panelVerdict: pass
-  contentHash: "aad122ae5bd93a83"
+  contentHash: "962f96208846b585"
   reviewedAt: "2026-04-19"
 ---
 
