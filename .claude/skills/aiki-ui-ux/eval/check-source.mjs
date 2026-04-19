@@ -1,0 +1,215 @@
+#!/usr/bin/env node
+// Static source checker for aiki UI/UX rules.
+// Usage: node .claude/skills/aiki-ui-ux/eval/check-source.mjs
+// Exit 0 if no FAIL. Exit 1 if any FAIL. WARN/INFO do not fail the process.
+
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const REPO = join(fileURLToPath(import.meta.url), '..', '..', '..', '..', '..');
+
+const SCAN_ROOTS = [
+  join(REPO, 'src', 'pages'),
+  join(REPO, 'src', 'layouts'),
+  join(REPO, 'src', 'components'),
+];
+
+const EXT = new Set(['.astro', '.tsx', '.jsx', '.ts', '.css', '.scss']);
+
+function walk(dir, out = []) {
+  let entries;
+  try { entries = readdirSync(dir); } catch { return out; }
+  for (const name of entries) {
+    const full = join(dir, name);
+    const st = statSync(full);
+    if (st.isDirectory()) walk(full, out);
+    else {
+      const dot = name.lastIndexOf('.');
+      const ext = dot >= 0 ? name.slice(dot) : '';
+      if (EXT.has(ext)) out.push(full);
+    }
+  }
+  return out;
+}
+
+const findings = []; // {level: 'FAIL'|'WARN'|'INFO', rule, file, line, msg}
+
+function record(level, rule, file, line, msg) {
+  findings.push({ level, rule, file: relative(REPO, file).split(sep).join('/'), line, msg });
+}
+
+// ── rules ────────────────────────────────────────────────────────────────────
+
+// R1: grid-template-columns: 1fr without minmax
+// matches bare `1fr` as single or in repeat(N, 1fr) without minmax wrapper
+function checkBareGridTrack(file, src) {
+  // scan by line so we can report accurately
+  const lines = src.split('\n');
+  const re = /grid-template-columns\s*:\s*([^;]+);?/g;
+  lines.forEach((line, i) => {
+    let m;
+    while ((m = re.exec(line)) !== null) {
+      const val = m[1].trim();
+      // allow: grid, none, subgrid, auto-*
+      if (/^(none|subgrid|auto-)/.test(val)) continue;
+      // Extract tokens. Flag if any token is bare `1fr` (without minmax wrapping it).
+      // Approach: strip minmax(...) groups, then look for `1fr` tokens.
+      const stripped = val.replace(/minmax\([^)]*\)/g, 'MINMAX')
+                          .replace(/repeat\(([^,]+),\s*([^)]+)\)/g, '$2');
+      if (/\b1fr\b/.test(stripped)) {
+        record('WARN', 'R1-bare-1fr', file, i + 1,
+          `grid-template-columns 에 맨손 1fr 사용: "${val}". minmax(0, 1fr) 로 바꿔.`);
+      }
+    }
+  });
+}
+
+// R2: <pre> or <code> in showcase CSS without max-width/overflow guard
+// Heuristic: CSS rules containing `pre`/`code` selectors without max-width:100% in same block.
+function checkPreCodeGuard(file, src) {
+  // find blocks like `... pre ... { ... }` or `.x code { ... }`
+  const blockRe = /(^|[{}\s,])([^{}]*\b(pre|code)\b[^{}]*)\{([^}]*)\}/g;
+  let m;
+  while ((m = blockRe.exec(src)) !== null) {
+    const selector = m[2].trim();
+    const body = m[4];
+    // skip selectors that are NOT a CSS rule (likely matched in JSX/prose text)
+    if (/[<>$`]/.test(selector)) continue;
+    if (!/\bpre\b|\bcode\b/.test(selector)) continue;
+    if (/max-width\s*:\s*100%/.test(body)) continue;
+    if (/max-width\s*:\s*none/.test(body)) continue;
+    // skip if no relevant properties at all (probably unrelated)
+    if (body.trim().length < 5) continue;
+    const lineIdx = src.slice(0, m.index).split('\n').length;
+    record('INFO', 'R2-pre-code-guard', file, lineIdx,
+      `pre/code 규칙에 max-width:100% 가 없음. 긴 스니펫이 카드 폭을 밀어낼 수 있음: "${selector.slice(0, 80)}"`);
+  }
+}
+
+// R3: Hero clamp with upper bound > 7rem
+function checkHeroClamp(file, src) {
+  const lines = src.split('\n');
+  const re = /clamp\(\s*([\d.]+)rem\s*,\s*[^,]+,\s*([\d.]+)rem\s*\)/g;
+  lines.forEach((line, i) => {
+    // only care about font-size clamps for hero/title/h1
+    if (!/font-size/.test(line) && !/h1\b|hero|title/i.test(line)) return;
+    let m;
+    while ((m = re.exec(line)) !== null) {
+      const upper = parseFloat(m[2]);
+      if (upper > 7) {
+        record('WARN', 'R3-hero-clamp', file, i + 1,
+          `hero font clamp 상한 ${upper}rem (>7). 1280~1440 뷰포트에서 컬럼 침범 위험.`);
+      }
+    }
+  });
+}
+
+// R4: Inline FactCheck reconstructions (class names like hf-fact-, news-fact-, etc.)
+// False-positive guards:
+//   - wrapper classes (`*-fact-wrap`, `*-fact-wrapper`, `*-fact-container`, `*-fact-section`) are fine — they just wrap the shared component.
+//   - if the file actually imports or renders `<FactCheck`, trust it and skip (project uses the shared component).
+function checkInlineFactCheck(file, src) {
+  if (file.endsWith('FactCheck.astro')) return;
+  if (/<FactCheck\b/.test(src) || /from\s+['"][^'"]*FactCheck/.test(src)) return;
+  const lines = src.split('\n');
+  const re = /\b(?:hf|news|wiki|project)-fact(?:-[\w-]+)?\b/g;
+  const wrapperSuffix = /-(?:wrap|wrapper|container|section|box|slot)\b/;
+  lines.forEach((line, i) => {
+    const hit = line.match(re);
+    if (!hit) return;
+    // if every hit on this line is a wrapper suffix, skip
+    if (hit.every(h => wrapperSuffix.test(h))) return;
+    record('FAIL', 'R4-inline-factcheck', file, i + 1,
+      `인라인 FactCheck 재구현 의심. 공유 <FactCheck> 컴포넌트 사용.`);
+  });
+}
+
+// R5: main { max-width: ... } outside BaseLayout
+function checkMainMaxWidth(file, src) {
+  if (file.endsWith('BaseLayout.astro')) return;
+  const lines = src.split('\n');
+  lines.forEach((line, i) => {
+    if (/^\s*main\s*\{/.test(line) || /^\s*main\s*\{[^}]*max-width/.test(line)) {
+      // cheap check: if this is a CSS rule scoping `main` directly (not a selector chain),
+      // and sets max-width, flag.
+      const blockStart = src.indexOf('{', src.split('\n', i + 1).join('\n').lastIndexOf('main'));
+      if (blockStart < 0) return;
+      const blockEnd = src.indexOf('}', blockStart);
+      if (blockEnd < 0) return;
+      const body = src.slice(blockStart, blockEnd);
+      if (/max-width\s*:/.test(body)) {
+        record('WARN', 'R5-main-maxwidth', file, i + 1,
+          `BaseLayout 밖에서 main { max-width } 수정. 전 페이지에 영향. BaseLayout 에서 :has() override 패턴을 쓰는 게 맞음.`);
+      }
+    }
+  });
+}
+
+// R6: showcase-native page must have :has(.project-page--showcase-native) override in BaseLayout
+function checkBaseLayoutHasOverride() {
+  const base = join(REPO, 'src', 'layouts', 'BaseLayout.astro');
+  let src;
+  try { src = readFileSync(base, 'utf8'); } catch { return; }
+  if (!/:has\(\.project-page--showcase-native\)/.test(src)) {
+    record('FAIL', 'R6-baselayout-has', base, 1,
+      `BaseLayout 에 main:has(.project-page--showcase-native) override 누락. showcase-native 쉘이 960px 로 잡힘.`);
+  }
+}
+
+// R7: backdrop-filter on an element that hosts a position:fixed descendant (heuristic)
+// very weak check: just flag .hf-shell-like rules that set backdrop-filter to something other than none
+function checkBackdropFilter(file, src) {
+  const lines = src.split('\n');
+  lines.forEach((line, i) => {
+    const m = /backdrop-filter\s*:\s*([^;]+);?/.exec(line);
+    if (!m) return;
+    const val = m[1].trim();
+    if (val === 'none') return;
+    // flag only if file is a showcase scope; cheap heuristic: file path contains 'showcase' or 'project'
+    if (!/showcase|project/i.test(file)) return;
+    record('INFO', 'R7-backdrop-filter', file, i + 1,
+      `backdrop-filter: ${val}. floating/fixed 자식이 있다면 containing block 이 바뀌어 위치 어긋남. 해당 요소라면 none 으로.`);
+  });
+}
+
+// ── run ──────────────────────────────────────────────────────────────────────
+
+const files = SCAN_ROOTS.flatMap(root => walk(root));
+
+for (const f of files) {
+  let src;
+  try { src = readFileSync(f, 'utf8'); } catch { continue; }
+  checkBareGridTrack(f, src);
+  checkPreCodeGuard(f, src);
+  checkHeroClamp(f, src);
+  checkInlineFactCheck(f, src);
+  checkMainMaxWidth(f, src);
+  checkBackdropFilter(f, src);
+}
+checkBaseLayoutHasOverride();
+
+// ── report ───────────────────────────────────────────────────────────────────
+
+const byLevel = { FAIL: [], WARN: [], INFO: [] };
+findings.forEach(f => byLevel[f.level].push(f));
+
+const COLOR = { FAIL: '\x1b[31m', WARN: '\x1b[33m', INFO: '\x1b[36m', RESET: '\x1b[0m' };
+const noColor = process.env.NO_COLOR || !process.stdout.isTTY;
+function c(level, s) { return noColor ? s : `${COLOR[level]}${s}${COLOR.RESET}`; }
+
+for (const level of ['FAIL', 'WARN', 'INFO']) {
+  if (byLevel[level].length === 0) continue;
+  console.log(`\n${c(level, `── ${level} (${byLevel[level].length}) ──`)}`);
+  for (const f of byLevel[level]) {
+    console.log(`${c(level, level)}  ${f.rule}  ${f.file}:${f.line}`);
+    console.log(`        ${f.msg}`);
+  }
+}
+
+console.log(`\nScanned ${files.length} files.`);
+console.log(`FAIL=${byLevel.FAIL.length}  WARN=${byLevel.WARN.length}  INFO=${byLevel.INFO.length}`);
+
+if (byLevel.FAIL.length > 0) {
+  process.exit(1);
+}

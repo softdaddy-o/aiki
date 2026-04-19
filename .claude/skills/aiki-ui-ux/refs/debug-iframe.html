@@ -1,0 +1,139 @@
+<!--
+Debug iframe template.
+
+Usage:
+1. Copy this file into `dist/<target-path>/dbg.html` (same origin as the page you want to measure).
+   Example: for /ko/projects/hyperframes/, copy to dist/ko/projects/hyperframes/dbg.html.
+2. Edit IFRAME_SRC below if target URL differs from ./index.html.
+3. Edit SELECTORS below to add elements you want computed-width data for.
+4. Start the preview server: `bun run preview`.
+5. Run Chrome headless screenshot:
+   "/c/Program Files/Google/Chrome/Application/chrome.exe" \
+     --headless=new --disable-gpu --user-data-dir=/tmp/chromeDbg \
+     --window-size=500,1400 --virtual-time-budget=7000 \
+     --screenshot=.tmp/dbg.png \
+     "http://127.0.0.1:4321/<target-path>/dbg.html?v=$(date +%s)"
+6. Read the green log at the top of the screenshot.
+7. IMPORTANT: trash this file when done. Do not commit.
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>debug iframe</title>
+<style>
+  body { margin: 0; font: 11px ui-monospace, Menlo, monospace; }
+  pre  { margin: 0; padding: 10px; white-space: pre-wrap; background: #000; color: #0f0; max-height: 640px; overflow: auto; }
+  iframe { display: block; border: 0; }
+</style>
+<pre id="o">loading...</pre>
+<iframe id="f" src="./index.html" width="390" height="700"></iframe>
+
+<script>
+  // EDIT ME — the page you want to measure. Keep same-origin for cross-frame access.
+  const IFRAME_SRC = './index.html';
+
+  // EDIT ME — selectors whose computed width/margin/max-width/grid-template-columns will be logged.
+  const SELECTORS = [
+    'main',
+    'article.project-page',
+    '.showcase-area',
+    '.showcase-shell',
+    '.showcase-frame',
+    '.hf-shell',        // showcase-native
+    '.hf-main',
+    '.hf-hero',
+    '.hf-hero h1',
+    '.wiki-page',       // wiki
+    '.news-page',       // news
+  ];
+
+  // EDIT ME — viewport widths to sweep. Iframe is re-sized sequentially.
+  const WIDTHS = [390, 768, 1280, 1440, 2560];
+
+  const iframe = document.getElementById('f');
+  iframe.src = IFRAME_SRC;
+
+  async function measure(width) {
+    iframe.style.width = width + 'px';
+    iframe.style.height = '800px';
+    await new Promise(r => setTimeout(r, 900));  // let layout settle
+
+    const d = iframe.contentDocument;
+    if (!d) return { width, error: 'cross-origin or not loaded' };
+    const w = iframe.contentWindow;
+    const h = d.documentElement;
+    const b = d.body;
+
+    const out = {
+      width,
+      innerWidth: w.innerWidth,
+      'html.scrollWidth': h.scrollWidth,
+      'body.scrollWidth': b.scrollWidth,
+      overflow: Math.max(0, b.scrollWidth - w.innerWidth),
+      containers: {},
+      trueOverflow: [],
+    };
+
+    SELECTORS.forEach(sel => {
+      const el = d.querySelector(sel);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const cs = getComputedStyle(el);
+      out.containers[sel] = {
+        w: Math.round(r.width),
+        l: Math.round(r.left),
+        r: Math.round(r.right),
+        ml: cs.marginLeft,
+        mr: cs.marginRight,
+        mw: cs.maxWidth,
+        gtc: cs.gridTemplateColumns.length > 80 ? cs.gridTemplateColumns.slice(0, 80) + '...' : cs.gridTemplateColumns,
+      };
+    });
+
+    // TRUE overflow: elements whose right > innerWidth and whose ancestor chain has no overflow-x != visible
+    d.querySelectorAll('*').forEach(el => {
+      const rc = el.getBoundingClientRect();
+      if (rc.width === 0 || rc.right <= w.innerWidth + 0.5) return;
+      let p = el.parentElement, clipped = false;
+      while (p && p !== h) {
+        const cs = getComputedStyle(p);
+        if (cs.overflowX === 'auto' || cs.overflowX === 'scroll' || cs.overflowX === 'hidden') {
+          clipped = true; break;
+        }
+        p = p.parentElement;
+      }
+      if (!clipped) {
+        out.trueOverflow.push({
+          tag: el.tagName,
+          cls: ((el.className || '') + '').slice(0, 60),
+          w: Math.round(rc.width),
+          r: Math.round(rc.right),
+          id: el.id || '',
+        });
+      }
+    });
+    out.trueOverflow.sort((a, b) => b.r - a.r);
+    out.trueOverflow = out.trueOverflow.slice(0, 10);
+    return out;
+  }
+
+  (async () => {
+    await new Promise(r => iframe.onload = r);
+    await new Promise(r => setTimeout(r, 1500));
+    const log = [];
+    for (const w of WIDTHS) {
+      const res = await measure(w);
+      log.push('── width=' + w + ' ──');
+      log.push('innerWidth=' + res.innerWidth + ' body.sw=' + res['body.scrollWidth'] + ' OVERFLOW=' + res.overflow);
+      log.push('trueOverflow[' + res.trueOverflow.length + ']:');
+      res.trueOverflow.forEach(x => log.push('  ' + JSON.stringify(x)));
+      log.push('containers:');
+      Object.entries(res.containers).forEach(([sel, info]) => {
+        log.push('  ' + sel + ': ' + JSON.stringify(info));
+      });
+    }
+    document.getElementById('o').textContent = log.join('\n');
+    // emit machine-readable JSON for eval/check-layout.mjs to parse via --dump-dom
+    document.getElementById('o').setAttribute('data-dbg-json', JSON.stringify({ widths: WIDTHS, summary: log }));
+  })();
+</script>
