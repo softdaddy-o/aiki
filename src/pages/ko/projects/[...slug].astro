@@ -140,78 +140,90 @@ const shareUrl = Astro.url.href;
 
         {showcaseComponent === 'yfinance' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-frame showcase-frame-with-nav">
-                    <header class="showcase-intro">
-                        <p>인터랙티브 쇼케이스</p>
-                        <h2>yfinance로 바로 훑어보는 시장 데이터 흐름</h2>
-                        <span>시장 샘플, 묶음 조회, 검색 탐색, 종목 상세, 확인한 API 범위를 한 화면에서 이어서 볼 수 있어.</span>
-                    </header>
-                    <YfinanceShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav">
+                        <header class="showcase-intro">
+                            <p>인터랙티브 쇼케이스</p>
+                            <h2>yfinance로 바로 훑어보는 시장 데이터 흐름</h2>
+                            <span>시장 샘플, 묶음 조회, 검색 탐색, 종목 상세, 확인한 API 범위를 한 화면에서 이어서 볼 수 있어.</span>
+                        </header>
+                        <YfinanceShowcase client:load slug={entry.data.slug} />
+                    </div>
                 </div>
             </section>
         )}
 
         {showcaseComponent === 'nfi' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-frame showcase-frame-with-nav">
-                    <header class="showcase-intro">
-                        <p>인터랙티브 쇼케이스</p>
-                        <h2>NostalgiaForInfinity 운용 구조를 한 화면에서 보기</h2>
-                        <span>전략 계보, 권장 설정, 보호 장치, 백테스트 체크리스트를 공개 문서 기준으로 정리했어.</span>
-                    </header>
-                    <NfiShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav">
+                        <header class="showcase-intro">
+                            <p>인터랙티브 쇼케이스</p>
+                            <h2>NostalgiaForInfinity 운용 구조를 한 화면에서 보기</h2>
+                            <span>전략 계보, 권장 설정, 보호 장치, 백테스트 체크리스트를 공개 문서 기준으로 정리했어.</span>
+                        </header>
+                        <NfiShowcase client:load slug={entry.data.slug} />
+                    </div>
                 </div>
             </section>
         )}
 
         {showcaseComponent === 'nautilus-trader' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-frame showcase-frame-with-nav">
-                    <header class="showcase-intro">
-                        <p>인터랙티브 쇼케이스</p>
-                        <h2>NautilusTrader 아키텍처와 거래소 연동을 한 화면에서 보기</h2>
-                        <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했어.</span>
-                    </header>
-                    <NautilusShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav">
+                        <header class="showcase-intro">
+                            <p>인터랙티브 쇼케이스</p>
+                            <h2>NautilusTrader 아키텍처와 거래소 연동을 한 화면에서 보기</h2>
+                            <span>이벤트 드리븐 컴포넌트, 지원 자산군, 거래소 어댑터, 성능 프로파일을 공식 문서 기준으로 정리했어.</span>
+                        </header>
+                        <NautilusShowcase client:load slug={entry.data.slug} />
+                    </div>
                 </div>
             </section>
         )}
 
         {showcaseComponent === 'lightrag' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-frame showcase-frame-with-nav">
-                    <header class="showcase-intro">
-                        <p>인터랙티브 쇼케이스</p>
-                        <h2>LightRAG가 문서를 그래프로 읽고 citation 답변으로 꺼내는 흐름</h2>
-                        <span>샘플 문서 인덱싱, 엔터티 관계 추출, reranker와 mix mode 감각, 서버 운영 포인트를 한 화면에서 정리했어.</span>
-                    </header>
-                    <LightRagShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav">
+                        <header class="showcase-intro">
+                            <p>인터랙티브 쇼케이스</p>
+                            <h2>LightRAG가 문서를 그래프로 읽고 citation 답변으로 꺼내는 흐름</h2>
+                            <span>샘플 문서 인덱싱, 엔터티 관계 추출, reranker와 mix mode 감각, 서버 운영 포인트를 한 화면에서 정리했어.</span>
+                        </header>
+                        <LightRagShowcase client:load slug={entry.data.slug} />
+                    </div>
                 </div>
             </section>
         )}
 
         {showcaseComponent === 'hyperframes' && (
             <section class="showcase-area" aria-label={`${title} Interactive Showcase`} id="showcase">
-                <div class="showcase-frame showcase-frame-with-nav">
-                    <header class="showcase-intro">
-                        <p>Interactive Showcase</p>
-                        <h2>프롬프트, 생성된 HTML, 렌더 결과를 같은 케이스 안에서 바로 보기</h2>
-                        <span>제품 소개, 세로 쇼츠, 데이터 요약 세 가지 케이스를 같은 HyperFrames 흐름으로 바로 비교해볼 수 있어.</span>
-                    </header>
-                    <HyperFramesShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav">
+                        <header class="showcase-intro">
+                            <p>Interactive Showcase</p>
+                            <h2>프롬프트, 생성된 HTML, 렌더 결과를 같은 케이스 안에서 바로 보기</h2>
+                            <span>제품 소개, 세로 쇼츠, 데이터 요약 세 가지 케이스를 같은 HyperFrames 흐름으로 바로 비교해볼 수 있어.</span>
+                        </header>
+                        <HyperFramesShowcase client:load slug={entry.data.slug} />
+                    </div>
                 </div>
             </section>
         )}
 
         {showcaseComponent === 'nemotron-ocr-v2' && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-frame showcase-frame-with-nav">
-                    <header class="showcase-intro">
-                        <p>인터랙티브 쇼케이스</p>
-                        <h2>한글 테스트 이미지를 실제로 돌린 OCR 결과와 속도 감각</h2>
-                        <span>입력 이미지, 주석 결과, 실제 추출 텍스트, 공식 처리량과 메모리 조건을 한 화면에서 같이 볼 수 있어.</span>
-                    </header>
-                    <NemotronOcrShowcase client:load slug={entry.data.slug} />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav">
+                        <header class="showcase-intro">
+                            <p>인터랙티브 쇼케이스</p>
+                            <h2>한글 테스트 이미지를 실제로 돌린 OCR 결과와 속도 감각</h2>
+                            <span>입력 이미지, 주석 결과, 실제 추출 텍스트, 공식 처리량과 메모리 조건을 한 화면에서 같이 볼 수 있어.</span>
+                        </header>
+                        <NemotronOcrShowcase client:load slug={entry.data.slug} />
+                    </div>
                 </div>
             </section>
         )}
@@ -520,13 +532,34 @@ const shareUrl = Astro.url.href;
     }
 
     .showcase-area {
-        margin-right: calc(-50vw + 50%);
-        margin-left: calc(-50vw + 50%);
+        position: relative;
         margin-top: 64px;
-        padding: 0 24px 48px;
+        padding: 32px 0 40px;
+    }
+
+    .showcase-area::before {
+        content: '';
+        position: absolute;
+        inset: 0 calc(-50vw + 50%);
         border-top: 1px solid var(--color-border);
         border-bottom: 1px solid var(--color-border);
-        background: var(--color-surface-alt);
+        background:
+            linear-gradient(180deg, color-mix(in srgb, var(--color-projects) 8%, transparent), transparent 28%),
+            var(--color-surface-alt);
+        z-index: 0;
+    }
+
+    .showcase-shell {
+        position: relative;
+        z-index: 1;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 22px clamp(16px, 2.2vw, 28px) 26px;
+        border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+        border-radius: 24px;
+        background: color-mix(in srgb, var(--color-surface) 90%, var(--color-surface-alt));
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(10px);
     }
 
     .showcase-frame {
@@ -535,13 +568,13 @@ const shareUrl = Astro.url.href;
         align-items: start;
         column-gap: 18px;
         row-gap: 12px;
-        max-width: 1180px;
-        margin: 0 auto;
-        padding-top: 40px;
+        max-width: none;
+        margin: 0;
+        padding-top: 0;
     }
 
     .showcase-frame-with-nav {
-        max-width: 1378px;
+        max-width: none;
     }
 
     .showcase-intro {
@@ -621,7 +654,13 @@ const shareUrl = Astro.url.href;
 
         .showcase-area {
             margin-top: 48px;
-            padding: 0 12px 30px;
+            padding: 20px 0 26px;
+        }
+
+        .showcase-shell {
+            padding: 16px 12px 18px;
+            border-radius: 18px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
         }
 
         .showcase-frame {
