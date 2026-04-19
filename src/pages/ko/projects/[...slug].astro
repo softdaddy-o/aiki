@@ -591,7 +591,7 @@ const shareUrl = Astro.url.href;
     }
 
     .hf-shell {
-        max-width: min(1240px, calc(100vw - 24px));
+        max-width: min(1440px, calc(100vw - 24px));
         backdrop-filter: none;
     }
 
@@ -608,6 +608,12 @@ const shareUrl = Astro.url.href;
     }
 
     @media (min-width: 1280px) {
+        .hf-shell {
+            margin-left: max(220px, calc((100vw - 1440px) / 2));
+            margin-right: auto;
+            max-width: min(1440px, calc(100vw - 236px));
+        }
+
         .showcase-frame.hf-frame {
             grid-template-columns: minmax(0, 1fr);
         }
@@ -623,14 +629,28 @@ const shareUrl = Astro.url.href;
         .showcase-frame.hf-frame :global(.showcase-section-nav) {
             position: fixed;
             top: 92px;
-            left: max(16px, calc(50vw - 820px));
-            width: 184px;
+            left: 16px;
+            width: 188px;
             max-height: calc(100vh - 120px);
             overflow-y: auto;
             z-index: 40;
             grid-row: auto;
             grid-column: auto;
             box-shadow: 0 22px 48px rgba(0, 0, 0, 0.32);
+        }
+    }
+
+    @media (max-width: 1279px) {
+        .hf-shell {
+            max-width: min(1240px, calc(100vw - 24px));
+        }
+    }
+
+    @media (max-width: 900px) {
+        .hf-shell {
+            max-width: 100%;
+            padding: 16px 12px 20px;
+            border-radius: 18px;
         }
     }
 
@@ -705,7 +725,7 @@ const shareUrl = Astro.url.href;
 
     @media (max-width: 900px) {
         .showcase-frame {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
             gap: 14px;
             padding-top: 32px;
         }
@@ -749,7 +769,7 @@ const shareUrl = Astro.url.href;
         }
 
         .showcase-frame {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
             gap: 14px;
             padding-top: 24px;
         }

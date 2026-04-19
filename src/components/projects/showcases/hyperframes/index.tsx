@@ -474,7 +474,8 @@ function Insight({ item, className = '' }: { item: InsightCard; className?: stri
 
 const showcaseCss = `
 .hf-showcase{display:contents;color:var(--color-text)}
-.hf-main{grid-column:2;min-width:0;display:grid;gap:22px}
+.hf-main{grid-column:2;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.hf-hero,.hf-panel{min-width:0}
 .hf-hero,.hf-panel,.hf-card,.hf-meta-card,.hf-step-card,.hf-insight-card,.hf-compare-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .hf-hero,.hf-panel{border-radius:22px;padding:22px;scroll-margin-top:100px}
 .hf-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 40%),color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));box-shadow:0 20px 48px rgba(0,0,0,.08);display:grid;gap:18px}
@@ -508,14 +509,14 @@ const showcaseCss = `
 .hf-code-card{grid-column:1;grid-row:2}
 .hf-video-card{grid-column:2;grid-row:1 / span 2;display:grid;align-content:start;gap:12px}
 .hf-watch-card{grid-column:1 / -1;grid-row:3}
-.hf-card,.hf-step-card,.hf-insight-card,.hf-compare-card{padding:16px;border-radius:16px}
+.hf-card,.hf-step-card,.hf-insight-card,.hf-compare-card{padding:16px;border-radius:16px;min-width:0}
 .hf-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .hf-kicker{color:var(--color-projects)!important;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
 .hf-pill{display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.74rem}
 .hf-link{color:var(--color-projects);font-size:.8rem;font-weight:700;text-decoration:none}
 .hf-link:hover{text-decoration:underline}
 .hf-body-copy,.hf-result-note,.hf-step-card p,.hf-insight-card p,.hf-compare-card p span{margin:0;line-height:1.7}
-.hf-code-card pre,.hf-step-card code{margin:0;overflow:auto;border-radius:12px;background:var(--color-surface-alt);padding:12px;color:var(--color-projects);font-size:.8rem;line-height:1.6}
+.hf-code-card pre,.hf-step-card code{margin:0;overflow:auto;border-radius:12px;background:var(--color-surface-alt);padding:12px;color:var(--color-projects);font-size:.8rem;line-height:1.6;min-width:0;max-width:100%}
 .hf-video{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#09101a;object-fit:contain}
 .hf-result-note{color:var(--color-text-muted)}
 .hf-list{display:grid;gap:8px;margin:0;padding-left:18px;line-height:1.65}
@@ -540,18 +541,30 @@ const showcaseCss = `
 .hf-compare-card p{display:grid;gap:4px;margin:0}
 .hf-compare-card strong{color:var(--color-text);font-size:.82rem}
 .hf-compare-card span{color:var(--color-text-muted);line-height:1.65}
+@media (max-width:1200px){
+  .hf-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hf-meta-card--source{grid-column:span 2}
+  .hf-adoption-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hf-insight-grid,.hf-insight-grid--ops,.hf-compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hf-take-grid{grid-template-columns:1fr}
+}
 @media (max-width:1100px){
-  .hf-stage-grid{grid-template-columns:1fr}
-  .hf-prompt-card,.hf-code-card,.hf-video-card,.hf-watch-card{grid-column:1;grid-row:auto}
-  .hf-take-grid,.hf-split-grid,.hf-adoption-grid,.hf-compare-grid,.hf-insight-grid,.hf-insight-grid--ops{grid-template-columns:1fr}
+  .hf-stage-grid{grid-template-columns:minmax(0,1fr)}
+  .hf-prompt-card,.hf-code-card,.hf-video-card,.hf-watch-card{grid-column:1;grid-row:auto;min-width:0}
+  .hf-take-grid{grid-template-columns:minmax(0,1fr)}
+  .hf-split-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:900px){
   .hf-main{grid-column:1}
+  .hf-adoption-grid,.hf-insight-grid,.hf-insight-grid--ops,.hf-compare-grid{grid-template-columns:minmax(0,1fr)}
+  .hf-insight-card,.hf-compare-card,.hf-step-card,.hf-adoption-card{min-width:0}
 }
 @media (max-width:720px){
   .hf-hero,.hf-panel{padding:14px}
-  .hf-meta-grid{grid-template-columns:1fr}
+  .hf-meta-grid{grid-template-columns:minmax(0,1fr)}
+  .hf-meta-card{min-width:0}
   .hf-meta-card--source{grid-column:1}
   .hf-case-tabs button{min-width:0;width:100%}
+  .hf-hero-copy h1{font-size:clamp(2rem,8vw,3.2rem)}
 }
 `;
