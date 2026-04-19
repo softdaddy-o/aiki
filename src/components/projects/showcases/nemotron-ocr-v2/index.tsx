@@ -41,6 +41,22 @@ const DEMO = {
              총 페이지 1 / 테스트 이미지`,
 } as const;
 
+const LOCAL_GPU_RUN = {
+    runDate: '2026-04-19',
+    runtime: 'Local WSL2 · RTX 5070 · CUDA 12.8 · torch 2.11.0+cu128',
+    mergeLevel: 'paragraph',
+    modelDir: 'v2_multilingual',
+    loadSeconds: 3.23,
+    coldSeconds: 26.47,
+    coldTotalSeconds: 29.69,
+    warmSeconds: 0.16,
+    warmPagesPerSecond: 6.14,
+    predictions: 9,
+    baselineReservedMiB: 370,
+    warmPeakReservedMiB: 2220,
+    coldPeakReservedMiB: 2802,
+} as const;
+
 const EXTRACTED_LINES = DEMO.extractedText
     .split('\n')
     .map((line) => line.replace(/\s+$/u, ''))
@@ -86,19 +102,19 @@ const SPEED_CARDS = [
         note: 'OmniDocBench crop mode, single A100 GPU 기준.',
     },
     {
-        label: '공식 English 처리량',
-        value: '40.7 pages/s',
-        note: '영문 전용 variant는 더 빠르지만 다국어 성능은 희생한다.',
+        label: '로컬 RTX 5070 워밍 후',
+        value: `${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`,
+        note: `${LOCAL_GPU_RUN.runtime}, ${LOCAL_GPU_RUN.mergeLevel} mode 2~3회차 평균. 약 ${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s steady-state.`,
     },
     {
-        label: '한글 데모 실측',
+        label: '로컬 첫 결과',
+        value: `${LOCAL_GPU_RUN.coldTotalSeconds.toFixed(2)} s`,
+        note: `모델 로드 ${LOCAL_GPU_RUN.loadSeconds.toFixed(2)} s + 첫 추론 ${LOCAL_GPU_RUN.coldSeconds.toFixed(2)} s. 첫 호출에는 CUDA warm-up이 크게 섞인다.`,
+    },
+    {
+        label: '공개 Space 한글 데모',
         value: `${DEMO.durationSeconds.toFixed(2)} s`,
-        note: `${DEMO.size} 테스트 이미지 1장을 ${DEMO.runtime}에서 돌린 실제 결과.`,
-    },
-    {
-        label: '공개 Space 평균 시간',
-        value: `${DEMO.averageSeconds.toFixed(2)} s`,
-        note: '공개 데모 큐 상태를 포함한 평균 응답 시간으로, A100 배치 처리량과 직접 비교하면 안 된다.',
+        note: `${DEMO.size} 테스트 이미지 1장을 ${DEMO.runtime}에서 돌린 실제 결과. 큐 상태에 따라 편차가 생긴다.`,
     },
 ] as const;
 
@@ -109,14 +125,19 @@ const MEMORY_CARDS = [
         note: 'Hub 폴더 전체 크기. detector 182 MB, recognizer 145 MB, relational 9.18 MB.',
     },
     {
-        label: '파라미터 수',
-        value: '83.85M',
-        note: 'detector 45.45M + recognizer 36.12M + relational 2.29M.',
+        label: '로컬 로드 후 예약 메모리',
+        value: `${LOCAL_GPU_RUN.baselineReservedMiB.toLocaleString('en-US')} MiB`,
+        note: `${LOCAL_GPU_RUN.runtime}에서 모델 로드 직후 torch.cuda.memory_reserved 기준.`,
     },
     {
-        label: '필수 런타임',
-        value: 'NVIDIA GPU',
-        note: '공식 카드 기준 Linux amd64, CUDA toolkit, Python 3.12, C++ CUDA extension build 필요.',
+        label: '로컬 워밍 후 피크 VRAM',
+        value: `${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`,
+        note: `${LOCAL_GPU_RUN.mergeLevel} mode 2~3회차 기준 reserved peak. 같은 한글 카드에서 ${LOCAL_GPU_RUN.predictions}개 영역을 뽑았다.`,
+    },
+    {
+        label: '로컬 첫 실행 피크 VRAM',
+        value: `${LOCAL_GPU_RUN.coldPeakReservedMiB.toLocaleString('en-US')} MiB`,
+        note: '첫 추론은 커널 초기화와 추가 버퍼가 섞여 워밍 후보다 더 높게 잡혔다.',
     },
     {
         label: 'GPU 메모리 절약 옵션',
@@ -171,8 +192,9 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
                         <h2>한글 테스트 이미지를 실제로 돌린 결과를 바로 보여주는 showcase</h2>
                         <p>
                             빠른 속도와 외국어 지원이 핵심인 모델이니까, 공개 Space에서 돌린 한글 샘플 결과를
-                            입력 이미지, 주석 이미지, 원문 출력까지 같은 화면에 묶었다. 영어 코드와 숫자도 함께
-                            넣어서 혼합 문서 감각을 확인할 수 있다.
+                            입력 이미지, 주석 이미지, 원문 출력까지 같은 화면에 묶었다. 같은 이미지를 로컬 RTX 5070
+                            GPU에서도 다시 돌려서 steady-state latency와 peak VRAM을 함께 적었다. 영어 코드와
+                            숫자도 함께 넣어서 혼합 문서 감각을 확인할 수 있다.
                         </p>
                         <div className="no-chip-row">
                             <span>{slug}</span>
@@ -184,8 +206,8 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
 
                     <div className="no-hero-stats">
                         <StatCard label="공식 multilingual 속도" value="34.7 pages/s" />
-                        <StatCard label="실제 한글 데모" value={`${DEMO.durationSeconds.toFixed(2)} s`} />
-                        <StatCard label="체크포인트 크기" value="336 MB" />
+                        <StatCard label="로컬 RTX 5070" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} />
+                        <StatCard label="워밍 후 peak VRAM" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} />
                         <StatCard label="지원 범위" value="한국어 포함 다국어" />
                     </div>
                 </section>
@@ -279,9 +301,9 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
                         title="속도 정보"
                         description={
                             <>
-                                공식 benchmark와 공개 데모 시간은 구분해서 봐야 한다. 공식 수치는 single A100 기준 배치
-                                처리량이고, 아래 실측은 공개 <TermHint term="Space" description="공개 Space는 GPU 할당과 큐 대기 시간이 섞일 수 있어서 데모 확인에는 좋지만 서버 sizing 기준으로 쓰면 안 된다." />에서
-                                한국어 샘플 1장을 돌린 시간이다.
+                                공식 benchmark, 로컬 GPU 실측, 공개 데모 시간은 구분해서 봐야 한다. 공식 수치는 single
+                                A100 기준 배치 처리량이고, 아래 로컬 수치는 <TermHint term="warm-up" description="첫 호출에 모델 로드, CUDA kernel 준비, 메모리 할당이 섞여 느려지고, 2회차부터 steady-state 지연이 보이는 구간을 말한다." /> 후
+                                한글 샘플 1장을 로컬 RTX 5070에서 돌린 시간이다. 공개 <TermHint term="Space" description="공개 Space는 GPU 할당과 큐 대기 시간이 섞일 수 있어서 데모 확인에는 좋지만 서버 sizing 기준으로 쓰면 안 된다." /> 실측은 별도로 남겼다.
                             </>
                         }
                     >
@@ -303,8 +325,9 @@ export default function NemotronOcrShowcase({ slug }: NemotronOcrShowcaseProps) 
                         description={
                             <>
                                 이 모델의 장점은 빠른 multilingual OCR이지만, 공식 카드가 절대 최소 VRAM은 공개하지
-                                않는다. 대신 체크포인트 크기, 파라미터 수, 그리고 GPU 메모리를 줄이는 실행 모드는
-                                명시한다.
+                                않는다. 그래서 공식 체크포인트 크기와 함께, 같은 한글 카드 기준 로컬 RTX 5070에서
+                                실제로 잡힌 reserved peak도 같이 둔다. GPU 메모리를 줄이는 실행 모드는 공식 카드
+                                설명을 따랐다.
                             </>
                         }
                     >
