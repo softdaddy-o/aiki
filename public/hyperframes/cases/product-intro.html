@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=720" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1280px; height: 720px; overflow: hidden; background: #07111f; color: #eff6ff; font-family: Inter, "Segoe UI", sans-serif; }
+      #stage {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(59, 130, 246, 0.24), transparent 24%),
+          radial-gradient(circle at 82% 22%, rgba(16, 185, 129, 0.18), transparent 22%),
+          linear-gradient(145deg, #08101d 0%, #0d1c33 54%, #08101d 100%);
+      }
+      .clip { position: absolute; }
+      #shell {
+        inset: 48px;
+        border-radius: 36px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), rgba(5, 14, 28, 0.64);
+      }
+      #eyebrow {
+        top: 98px; left: 92px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: rgba(9, 18, 32, 0.82);
+        border: 1px solid rgba(125, 211, 252, 0.2);
+        color: #7dd3fc;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      #title {
+        top: 170px; left: 92px;
+        max-width: 640px;
+        font-size: 76px;
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+      }
+      #copy {
+        top: 430px; left: 92px;
+        max-width: 520px;
+        color: rgba(226, 232, 240, 0.88);
+        font-size: 30px;
+        line-height: 1.38;
+      }
+      #cta {
+        top: 598px; left: 92px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #38bdf8, #fb923c);
+        color: #07111f;
+        font-size: 24px;
+        font-weight: 800;
+      }
+      #aside {
+        top: 96px; right: 92px;
+        width: 356px;
+        padding: 28px;
+        border-radius: 28px;
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        background: rgba(7, 15, 28, 0.84);
+      }
+      .metric + .metric { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(148, 163, 184, 0.12); }
+      .metric strong { display: block; color: #f8fafc; font-size: 26px; font-weight: 750; }
+      .metric span { display: block; margin-top: 8px; color: rgba(191, 219, 254, 0.84); font-size: 18px; line-height: 1.35; }
+      #footer {
+        right: 98px; bottom: 82px;
+        color: rgba(191, 219, 254, 0.88);
+        font-size: 20px;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage" data-composition-id="product-intro" data-start="0" data-duration="4.8" data-width="1280" data-height="720">
+      <div id="shell" class="clip" data-start="0" data-duration="4.8" data-track-index="0"></div>
+      <div id="eyebrow" class="clip" data-start="0.1" data-duration="4.4" data-track-index="1">Product intro</div>
+      <div id="title" class="clip" data-start="0.16" data-duration="4.2" data-track-index="2">Launch faster with HTML video.</div>
+      <div id="copy" class="clip" data-start="0.26" data-duration="4" data-track-index="3">Prompt first. Layout second. Final MP4 at the end of the same loop.</div>
+      <div id="cta" class="clip" data-start="0.5" data-duration="3.7" data-track-index="4">Preview -> revise -> render</div>
+      <div id="aside" class="clip" data-start="0.42" data-duration="3.9" data-track-index="5">
+        <div class="metric"><strong>Hero title</strong><span>Large opening copy without a video editor timeline.</span></div>
+        <div class="metric"><strong>Brand CTA</strong><span>One clear ending state for product launch clips.</span></div>
+        <div class="metric"><strong>Reusable scene</strong><span>Swap copy and color, render the next version.</span></div>
+      </div>
+      <div id="footer" class="clip" data-start="0.9" data-duration="3.2" data-track-index="6">Built as a single HyperFrames composition.</div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from("#shell", { scale: 0.985, opacity: 0.28, duration: 0.55, ease: "power2.out" }, 0);
+      tl.from(["#eyebrow", "#title", "#copy"], { y: 18, opacity: 0, duration: 0.5, stagger: 0.08, ease: "power3.out" }, 0.12);
+      tl.from("#cta", { y: 14, opacity: 0, duration: 0.42, ease: "power2.out" }, 0.45);
+      tl.from("#aside", { x: 24, opacity: 0, duration: 0.54, ease: "power3.out" }, 0.36);
+      tl.from(".metric", { y: 10, opacity: 0, duration: 0.34, stagger: 0.08, ease: "power2.out" }, 0.55);
+      tl.from("#footer", { y: 12, opacity: 0, duration: 0.35, ease: "power2.out" }, 0.9);
+      tl.to("#aside", { y: -8, duration: 1.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.4);
+      tl.to(["#eyebrow", "#title", "#copy", "#cta", "#aside", "#footer"], { y: -14, opacity: 0, duration: 0.42, stagger: 0.03, ease: "power2.in" }, 4.18);
+      window.__timelines["product-intro"] = tl;
+    </script>
+  </body>
+</html>

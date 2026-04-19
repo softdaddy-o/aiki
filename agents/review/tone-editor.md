@@ -1,8 +1,8 @@
 ---
 id: tone-editor
 name: Tone Editor
-version: "1.1.0"
-lastUpdated: "2026-04-15"
+version: "1.2.0"
+lastUpdated: "2026-04-19"
 category: review
 input:
   schema: ../schemas/review-input.json
@@ -33,6 +33,8 @@ Evaluate these criteria:
 9. Community references should be paraphrased, not quoted or treated as direct proof unless a quote is intentionally used.
 10. The title and headings must be concise and active, especially for news content in later phases.
 11. For project pages, readerValue and key section copy should not end in neat report-style declaratives like "~좋다.", "~잡힌다.", "~나뉘어 있다.", "~도움이 됩니다." Prefer the same casual AIKI cadence used in the body.
+12. For project pages, fail meta framing that talks about the page instead of the project itself. Phrases like "이 페이지는", "이 글은", "이 쇼케이스는" in summary, readerValue, or the opening body are a warning sign.
+13. For project pages, reject repeated comparison formulas such as "X보다 Y에 가깝다", "A쪽이다", "B에 맞다" when they stack up without a concrete go/no-go statement, workflow, or operational detail.
 
 Fail the review when any of these are true:
 
@@ -41,5 +43,6 @@ Fail the review when any of these are true:
 - factCheck text uses stiff legacy phrasing.
 - The page has repeated sentence endings that make it feel templated.
 - Source-copy language is present.
+- A project page opens with page-meta copy instead of the project decision.
 
 Return exactly one review object matching review-output.json. Use role "tone_editor". Put concrete evidence in findings, blocking fixes in mustFix, and optional improvements in niceToHave.

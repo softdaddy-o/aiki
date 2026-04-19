@@ -3,12 +3,12 @@ title: HyperFrames
 slug: hyperframes
 lang: ko
 category: framework
-summary: "HyperFrames는 HTML 장면을 만들고 `preview`로 확인한 뒤 `render`로 MP4를 뽑는 오픈소스 영상 프레임워크야."
-readerValue: "이 페이지는 HyperFrames를 볼지, 아니면 그냥 기존 영상 스택으로 갈지 빠르게 가르는 데 초점을 둔다."
+summary: HyperFrames는 HTML 장면을 계속 고치면서 영상을 다시 렌더할 팀이 볼 프레임워크야.
+readerValue: '코드로 장면을 운영할지, 그냥 기존 영상 툴로 끝낼지 여기서 바로 갈린다.'
 relatedTerms:
   - api
   - runtime
-githubUrl: "https://github.com/heygen-com/hyperframes"
+githubUrl: 'https://github.com/heygen-com/hyperframes'
 showcaseComponent: hyperframes
 tags:
   - html
@@ -21,92 +21,103 @@ license: Apache-2.0
 version: v0.4.6
 contentStatus: final
 draft: false
-date: "2026-04-19"
-edition: "ai"
+date: '2026-04-19'
+edition: ai
 factCheck:
   status: passed
-  date: "2026-04-19"
+  date: '2026-04-19'
   sources:
-    - url: "https://github.com/heygen-com/hyperframes"
-      title: "HyperFrames repository page"
-    - url: "https://github.com/heygen-com/hyperframes/blob/main/README.md"
-      title: "HyperFrames README"
-    - url: "https://github.com/heygen-com/hyperframes/releases/tag/v0.4.6"
-      title: "HyperFrames v0.4.6 release"
-    - url: "https://hyperframes.heygen.com/reference/html-schema"
-      title: "HyperFrames HTML schema reference"
-    - url: "https://github.com/softdaddy-o/aiki/blob/main/src/components/projects/showcases/hyperframes/index.tsx"
-      title: "AIKI HyperFrames showcase component"
-    - url: "https://github.com/softdaddy-o/aiki/blob/main/public/hyperframes/showcase-runtime/index.html"
-      title: "AIKI HyperFrames showcase composition source"
+    - url: 'https://github.com/heygen-com/hyperframes'
+      title: HyperFrames repository page
+    - url: 'https://github.com/heygen-com/hyperframes/blob/main/README.md'
+      title: HyperFrames README
+    - url: 'https://github.com/heygen-com/hyperframes/releases/tag/v0.4.6'
+      title: HyperFrames v0.4.6 release
+    - url: 'https://hyperframes.heygen.com/reference/html-schema'
+      title: HyperFrames HTML schema reference
+    - url: >-
+        https://github.com/softdaddy-o/aiki/blob/main/public/hyperframes/cases/product-intro.html
+      title: AIKI HyperFrames product intro composition
+    - url: >-
+        https://github.com/softdaddy-o/aiki/blob/main/public/hyperframes/cases/vertical-short.html
+      title: AIKI HyperFrames vertical short composition
+    - url: >-
+        https://github.com/softdaddy-o/aiki/blob/main/public/hyperframes/cases/data-brief.html
+      title: AIKI HyperFrames data brief composition
   checks:
     - type: source_match
       result: pass
       sources: 4
-      summary: "공식 README와 릴리스 노트를 기준으로 HyperFrames를 HTML 기반 영상 렌더 프레임워크로만 소개했어."
+      summary: README랑 릴리스 노트를 다시 맞춰봤어. HyperFrames는 영상 편집기보다 HTML 장면을 렌더하는 프레임워크로 읽는 게 맞아.
       items:
-        - "README 첫 문구는 `Write HTML. Render video. Built for agents.`야."
-        - "Quick Start는 `init -> preview -> render` 순서를 직접 제시해."
-        - "Why HyperFrames는 HTML-native, AI-first, deterministic rendering을 핵심 차이로 정리해."
+        - README 첫 문구는 `Write HTML. Render video. Built for agents.`야.
+        - Quick Start는 `init -> preview -> render` 순서를 그대로 밀고 있어.
+        - 공식 설명도 HTML-native, AI-first, deterministic rendering 쪽으로 계속 잡혀 있어.
     - type: web_cross_check
       result: pass
-      sources: 5
-      summary: "공식 문서와 AIKI 구현 파일을 같이 보고, 페이지에서 실제로 보여주는 결과물이 설명과 어긋나지 않게 맞췄어."
+      sources: 6
+      summary: 공식 문서랑 AIKI 케이스 소스를 같이 대조해봤어. 지금 페이지가 보여주는 흐름은 설명이 아니라 실제 케이스에 맞춰 놨어.
       items:
-        - "`preview`는 브라우저 live preview고, 최종 산출물은 `render`가 만드는 MP4야."
-        - "HTML schema reference는 root composition에 `data-composition-id`, 크기 정보, 시간 관련 data attribute를 요구해."
-        - "AIKI showcase component는 `/hyperframes/showcase-video.mp4`를 실제 영상으로 재생하고, 원본 composition은 `public/hyperframes/showcase-runtime/index.html`에 둬."
+        - '`preview`는 브라우저 live preview고, 포스팅에 올릴 최종 산출물은 `render`가 만드는 MP4야.'
+        - >-
+          HTML schema reference는 root composition에 `data-composition-id`, 크기 정보,
+          시간 관련 data attribute를 요구해.
+        - >-
+          AIKI는 제품 소개, 세로 쇼츠, 데이터 요약 세 케이스를 실제 composition HTML과 렌더 영상으로 같이
+          보여줘.
     - type: number_verify
       result: pass
       sources: 3
-      summary: "2026-04-19 기준 공개 숫자는 다시 확인해서 넣었어."
+      summary: 숫자는 2026-04-19 기준으로 다시 확인했어. 자주 바뀌는 값이라 시점도 같이 고정해뒀어.
       items:
-        - "GitHub 저장소 페이지 표시값 기준 stars는 약 4.9k야."
-        - "최신 릴리스 태그는 v0.4.6이야."
-        - "README 요구 조건은 Node.js 22 이상과 FFmpeg야."
+        - GitHub 저장소 페이지 표시값 기준 stars는 약 4.9k야.
+        - 최신 릴리스 태그는 v0.4.6이야.
+        - README 요구 조건은 Node.js 22 이상과 FFmpeg야.
     - type: adversarial
       result: pass
       sources: 4
-      summary: "HyperFrames를 생성형 영상 API처럼 오해하지 않게, 실제 운영 부담과 안 맞는 경우를 같이 적었어."
+      summary: 생성형 영상 API처럼 읽히지 않게 선을 그어뒀어. 어디서 이 방식이 무거워지는지도 같이 적었어.
       items:
-        - "장면 구조를 직접 만지는 흐름이라, 결과만 빨리 받는 hosted API와는 성격이 달라."
-        - "렌더가 깨지면 FFmpeg, 코덱, 폰트, 에셋 경로를 팀이 직접 잡아야 해."
-        - "브랜드 최종본을 픽셀 단위로 다듬는 용도라면 기존 영상 툴체인이 더 맞을 수 있어."
+        - 장면 구조를 직접 만지는 흐름이라, 결과만 빨리 받는 hosted API와는 결이 달라.
+        - 렌더가 깨지면 FFmpeg, 코덱, 폰트, 에셋 경로를 팀이 직접 잡아야 해.
+        - 브랜드 최종본을 픽셀 단위로 마감하는 일이 중심이면 기존 영상 툴체인이 더 나아.
 guideVersion:
-  common: "3.0.0"
+  common: 3.0.0
   projects: "3.0.0"
 reviewStamp:
   panelVersion: "1.0.0"
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.1.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.2.0"
+    structure-editor: "1.1.0"
   panelVerdict: pass
-  contentHash: "b4ae0494fae7d637"
+  contentHash: "f89fe66d39ae574f"
   reviewedAt: "2026-04-19"
 ---
 
-## HyperFrames가 뭔가
+## 한 줄 판단
 
-HyperFrames는 HTML로 장면을 만들고, 브라우저에서 `preview`로 확인한 뒤, `render`로 MP4를 뽑는 프레임워크야. 여기서 중요한 건 "영상 편집 툴 하나를 더 배운다"가 아니라, 장면 구조를 HTML처럼 다루고 에이전트가 그 파일을 계속 고치기 쉽다는 점이야.
+HyperFrames는 "프롬프트 한 줄로 영상이 자동 완성된다" 쪽 도구가 아니야. HTML 장면을 직접 잡고, 그 장면을 계속 수정하면서 `preview`와 `render`를 반복하는 프레임워크야. 장면을 코드로 들고 갈 팀이면 볼 이유가 있고, 최종 마감 툴을 찾는 거면 여기서 멈추면 된다.
 
-그래서 이걸 볼지 말지는 아주 단순해. 우리 팀이 제목, 캡션, 카드, 로고, 데이터 장면 조합을 자주 바꾸는지 보면 돼. 그런 수정이 많으면 HyperFrames 쪽이 맞고, 한 번 만든 영상을 세밀하게 마감하는 쪽이면 다른 툴이 더 맞아.
+## 누가 지금 바로 보면 되나
 
-## 언제 보면 맞나
+아래 셋 중 두 개 이상이 맞으면 테스트할 가치가 있다.
 
-HyperFrames는 결과만 한 번 뽑는 팀보다, 장면을 반복 수정하는 팀에 맞아.
+1. 제목, 캡션, 카드, CTA, 브랜드 문구처럼 장면 구조가 자주 바뀐다.
+2. 에이전트가 HTML을 직접 고쳐도 팀이 그 결과를 읽고 수정할 수 있다.
+3. Node.js 22+, FFmpeg, 폰트와 에셋 경로 같은 로컬 렌더 환경을 직접 관리할 수 있다.
 
-1. 에이전트가 프롬프트를 받아 HTML 장면을 계속 고쳐도 괜찮다.
-2. Node.js 22+, FFmpeg, 폰트와 에셋 경로 같은 로컬 렌더 환경을 팀이 직접 관리할 수 있다.
-3. "한 번에 멋진 결과"보다 "빠르게 고쳐서 다시 렌더"가 더 중요하다.
+핵심은 영상 감성이 아니다. 반복 수정 비용이다. 장면을 자주 바꾸는 팀은 여기서 바로 차이가 난다.
 
-이 셋 중 두 개 이상이 맞으면 HyperFrames를 볼 이유가 충분해.
+## 바로 건너뛰면 되는 팀
+
+브랜드 필름 최종본처럼 픽셀 단위 마감이 핵심이면 HyperFrames보다 기존 영상 툴이 낫다. hosted 생성형 영상 [API](/ko/wiki/api/)처럼 결과만 빨리 받고 싶은 팀도 마찬가지야. HyperFrames는 운영 부담을 숨겨 주지 않아. 렌더가 깨지면 폰트, 코덱, 에셋 경로를 직접 잡아야 해.
 
 ## 5분 테스트
 
-가장 빠른 테스트는 이것뿐이야.
+가장 빠른 검증은 이 네 줄이면 끝난다.
 
 ```bash
 npx hyperframes init my-video
@@ -115,40 +126,44 @@ npx hyperframes preview
 npx hyperframes render
 ```
 
-여기서 볼 건 세 가지다.
+여기서 확인할 건 세 가지뿐이다.
 
 1. `preview`가 바로 뜨는가.
 2. 제목, 캡션, safe area가 원하는 위치에 놓이는가.
 3. `render`가 큰 삽질 없이 MP4까지 끝나는가.
 
-이 테스트가 매끄럽게 끝나면, 적어도 "우리 팀이 HTML 장면을 계속 고칠 수 있는가"는 바로 감이 온다.
+이 테스트가 부드럽게 끝나면 적어도 "우리 팀이 장면을 코드로 운영할 수 있는가"는 바로 감이 온다.
 
-## 이 페이지에서 실제로 보는 것
+## 실제로 걸리는 운영 비용
 
-Interactive Showcase는 설명용 HTML 카드가 아니야. 지금 페이지에 붙어 있는 영상은 실제 composition source를 바탕으로 렌더한 MP4야. 그래서 사용자는 내부 구현을 읽는 대신, 결과물이 어떤 느낌으로 나오는지 먼저 볼 수 있어.
+HyperFrames는 장면을 HTML처럼 다룰 수 있다는 점이 강점이야. 대신 운영 부담도 같이 가져와.
 
-함께 보여주는 정보도 딱 세 가지만 남겼어.
+1. 렌더 환경을 팀이 직접 맞춰야 해. FFmpeg, 폰트, 에셋 경로가 조금만 어긋나도 결과가 달라져.
+2. 영상 기획을 코드 구조로 바꿔 생각해야 해. 장면 수, 시작 시점, 끝 상태를 먼저 정해야 해.
+3. 디자이너 툴의 감각으로 마감하는 작업과는 결이 달라. HyperFrames는 반복 수정과 재렌더 쪽이 강해.
 
-1. 실제 렌더 결과물
-2. 프롬프트 예시
-3. `init -> preview -> render` 흐름
-
-굳이 내부 구현 목록을 앞에 세우지 않은 이유도 여기 있어. 대부분의 독자는 구조 설명보다 "이게 우리 팀 작업 방식에 맞느냐"가 먼저거든.
-
-## 덜 맞는 경우
-
-브랜드 최종본을 아주 세밀하게 마감해야 하는 팀이면 HyperFrames보다 기존 영상 툴이 더 편할 수 있어. HyperFrames는 초안 생성과 반복 수정에는 강하지만, 마감 감리까지 대신해 주는 도구는 아니야.
-
-또 하나는 운영 부담이야. `render`가 실패하면 FFmpeg, 코덱, 폰트, 에셋 경로를 팀이 직접 잡아야 해. hosted 생성형 영상 [API](/ko/wiki/api/)처럼 운영 부담을 숨겨 주는 구조는 아니야.
+이 지점이 [Runtime](/ko/wiki/runtime/) 문제랑 바로 붙어. 장면 소스만 있으면 끝이 아니라, 실제로 렌더를 돌리는 실행 환경까지 팀이 계속 관리해야 하거든. 그래서 도입 판단은 "영상 퀄리티가 좋은가"보다 "장면 구조와 렌더 런타임을 코드로 같이 운영할 이유가 있는가"로 내려야 해.
 
 ## 무엇과 비교하면 되나
 
-HyperFrames를 고를 때는 두 갈래만 같이 보면 빨라. 하나는 hosted 생성형 영상 [API](/ko/wiki/api/)야. 이쪽은 프롬프트나 입력 자산을 보내고 결과 클립을 받는 흐름에 가깝고, 팀이 렌더 파이프라인을 직접 만질 일은 상대적으로 적어. 대신 장면 구조를 HTML처럼 쥐고 세밀하게 반복 수정하는 감각은 약하다.
+비교 축은 둘이면 충분하다.
 
-다른 하나는 기존 영상 툴체인이야. 이쪽은 픽셀 단위 마감과 최종 감리에 더 강하다. 반대로 HyperFrames는 그 중간이 아니라, 장면 구조를 코드로 들고 가면서 `preview -> render`를 계속 돌리는 쪽에 더 가깝다. 그래서 "결과만 빨리 받으면 되는가", 아니면 "장면을 계속 고치며 통제권을 가져가야 하는가"로 비교하면 판단이 빨라진다.
+하나는 hosted 생성형 영상 [API](/ko/wiki/api/)야. 이쪽은 입력을 보내고 결과 클립을 받는 흐름에 가까워. 파이프라인 운영은 가볍지만, 장면 구조를 직접 쥐고 계속 수정하는 감각은 약해.
 
-## 시작 전에 체크할 것
+다른 하나는 기존 영상 툴체인이야. 이쪽은 픽셀 단위 마감과 최종 감리에 강해. HyperFrames는 그 반대편에 있어. 장면을 코드로 들고 가면서 `preview -> render`를 빠르게 돌리는 팀에 맞아.
 
-2026-04-19 기준 HyperFrames 공개 저장소 페이지 표시값은 약 4.9k stars고, 최신 릴리스는 [v0.4.6](https://github.com/heygen-com/hyperframes/releases/tag/v0.4.6)이야. 요구 조건은 Node.js 22 이상과 FFmpeg고, 이 전제부터 맞아야 테스트가 편하다.
+## 쇼케이스에서 바로 봐야 할 것
 
-정리하면 HyperFrames는 "프롬프트를 예쁘게 영상으로 바꿔 주는 마법 상자"보다, "HTML 장면을 계속 고쳐 가며 반복 렌더하는 팀용 프레임워크"에 더 가깝다. 이 기준으로 보면 볼지 말지가 빨리 갈린다.
+쇼케이스는 한 장면만 멋있게 꾸며 둔 데모가 아니다. 제품 소개, 세로 쇼츠, 데이터 요약 세 케이스를 같은 구조로 묶어 놨다.
+
+1. 프롬프트가 어떻게 들어오는지
+2. 그 프롬프트가 어떤 HTML 장면으로 바뀌는지
+3. 그렇게 나온 장면이 실제 영상으로 어떻게 보이는지
+
+예를 들어 제품 소개 케이스는 "첫 장면은 큰 헤드라인, 중간에는 한 줄 가치 제안, 마지막에는 CTA만 남겨"라는 프롬프트에서 시작해. 생성된 HTML도 `eyebrow`, `title`, `copy`, `cta`, `aside` 다섯 덩어리로 끝나. 영상에서 봐야 할 것도 복잡하지 않아. 큰 타이틀이 먼저 뜨는지, CTA가 끝 상태를 잘 남기는지, 같은 뼈대에서 문구만 바꿔 재렌더하기 쉬운지만 보면 돼.
+
+세로 쇼츠 케이스는 훅과 짧은 캡션 리듬을 보고, 데이터 요약 케이스는 카드 뼈대를 매주 재활용할 수 있는지 보면 된다. 이 세 개를 한 화면에서 돌려보면 HyperFrames가 팀에 맞는지 꽤 빨리 갈려.
+
+## 최종 판단
+
+HyperFrames는 "영상 생성 도구"보다 "장면을 코드로 운영하는 영상 프레임워크"라는 쪽이 더 정확해. 장면 변경이 잦고 에이전트가 HTML을 계속 고칠 팀이면 볼 가치가 있어. 결과만 빨리 받거나 마감 감리가 더 중요한 팀이면 다른 스택이 낫다.

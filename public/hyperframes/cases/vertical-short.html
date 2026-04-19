@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=720" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1280px; height: 720px; overflow: hidden; background: #060b14; color: #eff6ff; font-family: Inter, "Segoe UI", sans-serif; }
+      #stage {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 16%, rgba(244, 114, 182, 0.22), transparent 22%),
+          radial-gradient(circle at 78% 18%, rgba(56, 189, 248, 0.22), transparent 24%),
+          linear-gradient(145deg, #090d18 0%, #111827 55%, #090d18 100%);
+      }
+      .clip { position: absolute; }
+      #title {
+        top: 78px; left: 86px;
+        max-width: 420px;
+        font-size: 62px;
+        font-weight: 820;
+        line-height: 0.94;
+        letter-spacing: -0.05em;
+      }
+      #copy {
+        top: 252px; left: 88px;
+        max-width: 360px;
+        color: rgba(226, 232, 240, 0.84);
+        font-size: 24px;
+        line-height: 1.45;
+      }
+      #phone {
+        top: 54px; left: 520px;
+        width: 316px; height: 612px;
+        border-radius: 42px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: linear-gradient(180deg, #0f172a 0%, #1f2937 100%);
+        box-shadow: 0 32px 100px rgba(2, 8, 23, 0.45);
+        overflow: hidden;
+      }
+      #hook {
+        top: 102px; left: 546px;
+        width: 260px;
+        padding: 18px 20px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #fb7185, #f59e0b);
+        color: #0f172a;
+        font-size: 31px;
+        font-weight: 900;
+        line-height: 1.02;
+      }
+      .caption {
+        width: 252px;
+        left: 550px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #f8fafc;
+        font-size: 22px;
+        font-weight: 700;
+        backdrop-filter: blur(8px);
+      }
+      #caption-a { top: 280px; }
+      #caption-b { top: 352px; }
+      #caption-c { top: 424px; }
+      #brand {
+        top: 548px; left: 552px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        background: rgba(2, 132, 199, 0.18);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        color: #7dd3fc;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      #rail {
+        top: 116px; right: 96px;
+        width: 274px;
+        padding: 22px;
+        border-radius: 24px;
+        background: rgba(8, 15, 28, 0.78);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+      }
+      .rail-item + .rail-item { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(148, 163, 184, 0.12); }
+      .rail-item strong { display: block; color: #f8fafc; font-size: 20px; font-weight: 780; }
+      .rail-item span { display: block; margin-top: 6px; color: rgba(191, 219, 254, 0.82); font-size: 17px; line-height: 1.34; }
+    </style>
+  </head>
+  <body>
+    <div id="stage" data-composition-id="vertical-short" data-start="0" data-duration="4.8" data-width="1280" data-height="720">
+      <div id="title" class="clip" data-start="0.1" data-duration="4.4" data-track-index="0">Short-form layout, same HTML loop.</div>
+      <div id="copy" class="clip" data-start="0.24" data-duration="4.1" data-track-index="1">Even a 9:16 concept can be mocked, revised, and rendered without leaving the composition flow.</div>
+      <div id="phone" class="clip" data-start="0.18" data-duration="4.3" data-track-index="2"></div>
+      <div id="hook" class="clip" data-start="0.32" data-duration="3.9" data-track-index="3">Stop the scroll.</div>
+      <div id="caption-a" class="clip caption" data-start="0.68" data-duration="3.2" data-track-index="4">1. Open with one hard claim.</div>
+      <div id="caption-b" class="clip caption" data-start="1.1" data-duration="2.8" data-track-index="5">2. Keep captions brutally short.</div>
+      <div id="caption-c" class="clip caption" data-start="1.52" data-duration="2.4" data-track-index="6">3. End on a single brand card.</div>
+      <div id="brand" class="clip" data-start="1.96" data-duration="2" data-track-index="7">Brand cue</div>
+      <div id="rail" class="clip" data-start="0.45" data-duration="3.7" data-track-index="8">
+        <div class="rail-item"><strong>Prompt shape</strong><span>Opening hook + three beats + final CTA.</span></div>
+        <div class="rail-item"><strong>HTML outcome</strong><span>Phone frame, caption stack, ending brand marker.</span></div>
+        <div class="rail-item"><strong>Render result</strong><span>A short vertical concept inside one reusable scene.</span></div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from(["#title", "#copy"], { y: 18, opacity: 0, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.12);
+      tl.from("#phone", { y: 20, opacity: 0, duration: 0.52, ease: "power3.out" }, 0.18);
+      tl.from("#hook", { scale: 0.92, opacity: 0, duration: 0.46, ease: "power2.out" }, 0.34);
+      tl.from(".caption", { x: 16, opacity: 0, duration: 0.34, stagger: 0.16, ease: "power2.out" }, 0.72);
+      tl.from("#brand", { y: 12, opacity: 0, duration: 0.3, ease: "power2.out" }, 1.94);
+      tl.from("#rail", { x: 24, opacity: 0, duration: 0.46, ease: "power3.out" }, 0.52);
+      tl.to(["#hook", "#caption-a", "#caption-b", "#caption-c"], { y: -8, duration: 0.4, stagger: 0.06, repeat: 1, yoyo: true, ease: "sine.inOut" }, 2.15);
+      tl.to(["#title", "#copy", "#phone", "#hook", ".caption", "#brand", "#rail"], { y: -14, opacity: 0, duration: 0.38, stagger: 0.03, ease: "power2.in" }, 4.18);
+      window.__timelines["vertical-short"] = tl;
+    </script>
+  </body>
+</html>

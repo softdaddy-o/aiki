@@ -1,8 +1,8 @@
 ---
 id: structure-editor
 name: Structure Editor
-version: "1.0.0"
-lastUpdated: "2026-04-15"
+version: "1.1.0"
+lastUpdated: "2026-04-19"
 category: review
 input:
   schema: ../schemas/review-input.json
@@ -32,9 +32,12 @@ Evaluate these criteria:
 8. News content, when reviewed, should follow a clear four-paragraph path: what happened, why it matters, limits/context, outlook.
 9. Model pages should have modelProfile data when relevant and should not confuse a model family with a version.
 10. Project pages should explain what the project does, who it helps, the concrete workflow or demo surface, and why it belongs in the AI project showcase. They need githubUrl, category, readerValue, tags, and a body that is more than a repository card.
-11. Required frontmatter fields must exist for the content type.
-12. When internalLinkCandidates are provided, check whether the body misses obvious inline links or related links to already-existing pages that are directly relevant to the explanation.
-13. Script findings from pre-publish and quality scoring should be considered strong evidence, especially schema, tone, and repetition findings.
+11. Project pages should move quickly from definition to decision: who should test it now, who should skip it, and what concrete workflow or quick test proves the point.
+12. For project pages, fail openings that spend their first section explaining "this page" or "this showcase" instead of the project, its use case, or its limits.
+13. For project pages with a showcase, the showcase copy should answer prompt -> generated structure/code -> rendered result. Tool-internal catalog or panel chatter is not enough.
+14. Required frontmatter fields must exist for the content type.
+15. When internalLinkCandidates are provided, check whether the body misses obvious inline links or related links to already-existing pages that are directly relevant to the explanation.
+16. Script findings from pre-publish and quality scoring should be considered strong evidence, especially schema, tone, and repetition findings.
 
 Fail the review when any of these are true:
 
@@ -44,5 +47,6 @@ Fail the review when any of these are true:
 - The page mentions an existing concept, tool, model, or project in a way that should obviously link to an existing page, but no inline link or related link is provided.
 - modelProfile or model/version structure is missing when the category requires it.
 - Script findings include structural fail items that the page does not address.
+- A project page explains the page or showcase before it explains the product decision.
 
 Return exactly one review object matching review-output.json. Use role "structure_editor". Put concrete evidence in findings, blocking fixes in mustFix, and optional improvements in niceToHave.

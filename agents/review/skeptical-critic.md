@@ -1,8 +1,8 @@
 ---
 id: skeptical-critic
 name: Skeptical Critic
-version: "1.0.0"
-lastUpdated: "2026-04-15"
+version: "1.1.0"
+lastUpdated: "2026-04-19"
 category: review
 input:
   schema: ../schemas/review-input.json
@@ -35,6 +35,8 @@ Evaluate these criteria:
 11. Model pages need vendor or operations details such as pricing, API/access, weights, license, context, modality, or deployment constraints when relevant.
 12. readerValue should be concrete, at least one practical decision or risk, and not generic value text.
 13. Community or research signals must not be inflated into product facts.
+14. For project pages, do not accept "this page helps you decide" as a substitute for an actual decision. The body itself must tell the reader what to test, compare, avoid, or skip.
+15. For project showcases, fail when the demo explains internal UI pieces or authoring mechanics but still does not show the concrete input and concrete output a reader cares about.
 
 Fail the review when any of these are true:
 
@@ -43,5 +45,6 @@ Fail the review when any of these are true:
 - It lacks a clear reader decision, risk, or tradeoff.
 - It repeats vendor framing without criticism.
 - It would still work after replacing the term name with a nearby term.
+- A project page hides behind page-meta language instead of making a direct go/no-go call.
 
 Return exactly one review object matching review-output.json. Use role "skeptical_critic". Put concrete evidence in findings, blocking fixes in mustFix, and optional improvements in niceToHave.

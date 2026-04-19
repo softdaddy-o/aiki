@@ -174,6 +174,11 @@ const PROJECT_REPORT_ENDING_PATTERNS = [
     /(?:합니다|습니다|입니다|됩니다|할 수 있습니다|도움이 됩니다|좋다|크다|빠르다|중요하다|필요하다|가능하다|유리하다|잡힌다|나뉘어 있다)\.?$/u,
 ];
 
+const PROJECT_META_FRAMING_PATTERNS = [
+    /^(?:이 페이지|이 글|이 쇼케이스)는/u,
+    /^(?:이 페이지|이 글|이 쇼케이스)의/u,
+];
+
 const HONORIFIC_WIKI_PATTERNS = [
     /합니다(?:[.!?]|$)/u,
     /입니다(?:[.!?]|$)/u,
@@ -397,6 +402,32 @@ function validateProjectTone(frontmatter, body) {
     }
 
     return failures;
+}
+
+function getProjectToneWarnings(frontmatter, body) {
+    const warnings = [];
+    const summary = String(frontmatter && frontmatter.summary || '').trim();
+    const readerValue = String(frontmatter && frontmatter.readerValue || '').trim();
+    const firstParagraph = extractFirstParagraph(String(body || ''));
+    const combinedLead = [summary, readerValue, firstParagraph].filter(Boolean);
+
+    if (PROJECT_META_FRAMING_PATTERNS.some((pattern) => pattern.test(readerValue))) {
+        warnings.push('readerValue starts with page-meta framing instead of a direct product decision');
+    }
+
+    if (PROJECT_META_FRAMING_PATTERNS.some((pattern) => pattern.test(firstParagraph))) {
+        warnings.push('opening paragraph starts with page/showcase meta framing instead of the project itself');
+    }
+
+    const comparisonFormulaCount = combinedLead.reduce((count, entry) => (
+        count + ((entry.match(/(?:보다\s+.+에\s+가깝|쪽이야|쪽이다|쪽에 더 맞아)/gu) || []).length)
+    ), 0);
+
+    if (comparisonFormulaCount >= 2) {
+        warnings.push('lead copy leans on repeated comparison formulas without enough concrete workflow detail');
+    }
+
+    return warnings;
 }
 
 function hasBilingualWikiTitle(title) {
@@ -1002,6 +1033,7 @@ function collectFileFindings(filepath, contentType) {
 
     if (!isDraft && targetName === 'projects') {
         for (const failure of validateProjectTone(fm, body)) push('fail', 'project-tone', failure);
+        for (const warning of getProjectToneWarnings(fm, body)) push('warn', 'project-tone-warning', warning);
     }
 
     if (!isDraft && toneResults.length > 0) {

@@ -8,6 +8,7 @@ import NfiShowcase from '../../../components/projects/showcases/nfi/index.tsx';
 import NautilusShowcase from '../../../components/projects/showcases/nautilus-trader/index.tsx';
 import LightRagShowcase from '../../../components/projects/showcases/lightrag/index.tsx';
 import HyperFramesShowcase from '../../../components/projects/showcases/hyperframes/index.tsx';
+import NemotronOcrShowcase from '../../../components/projects/showcases/nemotron-ocr-v2/index.tsx';
 
 const categoryLabels: Record<string, string> = {
     library: '라이브러리',
@@ -198,10 +199,23 @@ const shareUrl = Astro.url.href;
                 <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
-                        <h2>HyperFrames로 만든 실제 결과물을 먼저 보고, 이 방식이 팀에 맞는지 바로 판단하기</h2>
-                        <span>설명용 패널 대신 실제 렌더 영상, 입력 프롬프트 예시, 그리고 `init -> preview -> render` 흐름만 남겼다.</span>
+                        <h2>프롬프트, 생성된 HTML, 렌더 결과를 같은 케이스 안에서 바로 보기</h2>
+                        <span>제품 소개, 세로 쇼츠, 데이터 요약 세 가지 케이스를 같은 HyperFrames 흐름으로 비교할 수 있다.</span>
                     </header>
                     <HyperFramesShowcase client:load slug={entry.data.slug} />
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'nemotron-ocr-v2' && (
+            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-frame showcase-frame-with-nav">
+                    <header class="showcase-intro">
+                        <p>인터랙티브 쇼케이스</p>
+                        <h2>한글 테스트 이미지를 실제로 돌린 OCR 결과와 속도 감각</h2>
+                        <span>입력 이미지, 주석 결과, 실제 추출 텍스트, 공식 처리량과 메모리 조건을 한 화면에서 같이 볼 수 있어.</span>
+                    </header>
+                    <NemotronOcrShowcase client:load slug={entry.data.slug} />
                 </div>
             </section>
         )}

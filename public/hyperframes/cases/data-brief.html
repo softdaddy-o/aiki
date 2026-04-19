@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=720" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1280px; height: 720px; overflow: hidden; background: #07111f; color: #eff6ff; font-family: Inter, "Segoe UI", sans-serif; }
+      #stage {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 22%, rgba(14, 165, 233, 0.24), transparent 24%),
+          radial-gradient(circle at 86% 20%, rgba(34, 197, 94, 0.18), transparent 20%),
+          linear-gradient(155deg, #08101c 0%, #10243c 52%, #08101c 100%);
+      }
+      .clip { position: absolute; }
+      #eyebrow {
+        top: 76px; left: 84px;
+        color: #7dd3fc;
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      #title {
+        top: 108px; left: 82px;
+        max-width: 620px;
+        font-size: 58px;
+        font-weight: 820;
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+      #cards {
+        top: 320px; left: 82px;
+        display: flex;
+        gap: 18px;
+      }
+      .card {
+        width: 248px;
+        padding: 22px;
+        border-radius: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        background: rgba(7, 15, 28, 0.72);
+      }
+      .card strong {
+        display: block;
+        font-size: 18px;
+        color: rgba(191, 219, 254, 0.84);
+        font-weight: 700;
+      }
+      .card span {
+        display: block;
+        margin-top: 12px;
+        font-size: 42px;
+        font-weight: 850;
+        letter-spacing: -0.04em;
+      }
+      .card small {
+        display: block;
+        margin-top: 8px;
+        font-size: 16px;
+        color: rgba(148, 163, 184, 0.84);
+      }
+      #bars {
+        top: 552px; left: 88px;
+        display: flex;
+        gap: 18px;
+        align-items: flex-end;
+        height: 102px;
+      }
+      .bar {
+        width: 76px;
+        border-radius: 18px 18px 8px 8px;
+        background: linear-gradient(180deg, #38bdf8 0%, #22c55e 100%);
+      }
+      .bar:nth-child(1) { height: 46px; }
+      .bar:nth-child(2) { height: 72px; }
+      .bar:nth-child(3) { height: 96px; }
+      .bar:nth-child(4) { height: 84px; }
+      .bar:nth-child(5) { height: 62px; }
+      #summary {
+        top: 210px; right: 82px;
+        width: 334px;
+        padding: 28px;
+        border-radius: 30px;
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        background: rgba(7, 15, 28, 0.82);
+      }
+      #summary strong {
+        display: block;
+        color: #f8fafc;
+        font-size: 28px;
+        font-weight: 780;
+        line-height: 1.08;
+      }
+      #summary p {
+        margin-top: 16px;
+        color: rgba(226, 232, 240, 0.86);
+        font-size: 20px;
+        line-height: 1.45;
+      }
+      #footer {
+        right: 86px; bottom: 96px;
+        color: rgba(191, 219, 254, 0.86);
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage" data-composition-id="data-brief" data-start="0" data-duration="4.8" data-width="1280" data-height="720">
+      <div id="eyebrow" class="clip" data-start="0.08" data-duration="4.4" data-track-index="0">Data recap</div>
+      <div id="title" class="clip" data-start="0.16" data-duration="4.2" data-track-index="1">Three numbers, one conclusion, zero timeline dragging.</div>
+      <div id="cards" class="clip" data-start="0.32" data-duration="3.9" data-track-index="2">
+        <div class="card"><strong>Revenue</strong><span>+24%</span><small>Quarter-over-quarter</small></div>
+        <div class="card"><strong>Retention</strong><span>91%</span><small>Up 4 points</small></div>
+        <div class="card"><strong>Ticket size</strong><span>$128</span><small>Best month this year</small></div>
+      </div>
+      <div id="bars" class="clip" data-start="0.9" data-duration="3" data-track-index="3">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+      <div id="summary" class="clip" data-start="0.58" data-duration="3.6" data-track-index="4">
+        <strong>HTML scenes make recurring recap videos predictable.</strong>
+        <p>When the KPI card set changes every week, editing the same composition is faster than rebuilding the clip from scratch.</p>
+      </div>
+      <div id="footer" class="clip" data-start="1.18" data-duration="2.7" data-track-index="5">Prompt -> cards -> render.</div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from(["#eyebrow", "#title"], { y: 16, opacity: 0, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.1);
+      tl.from(".card", { y: 18, opacity: 0, duration: 0.4, stagger: 0.09, ease: "power2.out" }, 0.36);
+      tl.from("#summary", { x: 24, opacity: 0, duration: 0.46, ease: "power3.out" }, 0.6);
+      tl.from(".bar", { scaleY: 0.24, transformOrigin: "center bottom", duration: 0.34, stagger: 0.06, ease: "power2.out" }, 0.92);
+      tl.from("#footer", { y: 10, opacity: 0, duration: 0.32, ease: "power2.out" }, 1.2);
+      tl.to(".bar", { scaleY: 0.82, duration: 0.42, stagger: { each: 0.04, repeat: 5, yoyo: true }, ease: "sine.inOut" }, 1.6);
+      tl.to(["#eyebrow", "#title", ".card", "#summary", ".bar", "#footer"], { y: -12, opacity: 0, duration: 0.38, stagger: 0.03, ease: "power2.in" }, 4.18);
+      window.__timelines["data-brief"] = tl;
+    </script>
+  </body>
+</html>
