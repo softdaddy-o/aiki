@@ -6,7 +6,11 @@ import { t } from '../../../i18n/utils';
 
 const lang = 'ko';
 const allProjects = await getCollection('projects', ({ data }) => data.lang === lang && !data.draft);
-const projects = allProjects.sort((a, b) => b.data.stars - a.data.stars || a.data.title.localeCompare(b.data.title, 'en'));
+const projects = allProjects.sort((a, b) => {
+    const aMetric = a.data.sourceMetric ?? a.data.stars;
+    const bMetric = b.data.sourceMetric ?? b.data.stars;
+    return bMetric - aMetric || a.data.title.localeCompare(b.data.title, 'en');
+});
 const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot'] as const;
 ---
 
@@ -37,7 +41,8 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot'] as 
                     summary={project.data.summary}
                     category={project.data.category}
                     tags={project.data.tags}
-                    stars={project.data.stars}
+                    sourceUrl={project.data.githubUrl}
+                    metric={project.data.sourceMetric ?? project.data.stars}
                     license={project.data.license}
                     version={project.data.version}
                     contentStatus={project.data.contentStatus}

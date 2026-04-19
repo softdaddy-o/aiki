@@ -33,6 +33,7 @@ const {
     summary,
     category,
     githubUrl,
+    sourceMetric,
     tags,
     stars,
     license,
@@ -40,7 +41,46 @@ const {
     factCheck,
 } = entry.data;
 const categoryLabel = categoryLabels[category] ?? category;
-const repoPath = githubUrl.replace(/^https:\/\/github\.com\//, '').replace(/\/$/, '');
+const sourceUrl = githubUrl;
+const displayedMetric = sourceMetric ?? stars;
+
+function getSourceMeta(url: string) {
+    if (url.includes('huggingface.co/')) {
+        return {
+            provider: 'Hugging Face',
+            title: '프로젝트 기본 정보',
+            itemLabel: '모델',
+            metricLabel: '좋아요',
+            mark: 'HF',
+            className: 'huggingface',
+            path: url.replace(/^https:\/\/huggingface\.co\//, '').replace(/\/$/, ''),
+        };
+    }
+
+    if (url.includes('github.com/')) {
+        return {
+            provider: 'GitHub',
+            title: '프로젝트 기본 정보',
+            itemLabel: '저장소',
+            metricLabel: '스타',
+            mark: 'GH',
+            className: 'github',
+            path: url.replace(/^https:\/\/github\.com\//, '').replace(/\/$/, ''),
+        };
+    }
+
+    return {
+        provider: 'Source',
+        title: '프로젝트 기본 정보',
+        itemLabel: '소스',
+        metricLabel: '지표',
+        mark: 'SRC',
+        className: 'source',
+        path: url.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+    };
+}
+
+const sourceMeta = getSourceMeta(sourceUrl);
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -71,22 +111,20 @@ const shareUrl = Astro.url.href;
             <p class="project-summary">{summary}</p>
             <section class="model-card" aria-label="프로젝트 기본 정보">
                 <div class="model-card-head">
-                    <span class="github-mark" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                    </span>
+                    <span class={`source-mark ${sourceMeta.className}`} aria-hidden="true">{sourceMeta.mark}</span>
                     <div>
-                        <p class="model-card-kicker">프로젝트 카드</p>
-                        <h2>GitHub 기본 정보</h2>
+                        <p class="model-card-kicker">{sourceMeta.provider}</p>
+                        <h2>{sourceMeta.title}</h2>
                     </div>
                 </div>
                 <dl class="model-card-grid">
                     <div>
-                        <dt>저장소</dt>
-                        <dd>{repoPath}</dd>
+                        <dt>{sourceMeta.itemLabel}</dt>
+                        <dd>{sourceMeta.path}</dd>
                     </div>
                     <div>
-                        <dt>스타</dt>
-                        <dd>{formatStars(stars)}</dd>
+                        <dt>{sourceMeta.metricLabel}</dt>
+                        <dd>{formatStars(displayedMetric)}</dd>
                     </div>
                     <div>
                         <dt>라이선스</dt>
@@ -160,8 +198,8 @@ const shareUrl = Astro.url.href;
                 <div class="showcase-frame showcase-frame-with-nav">
                     <header class="showcase-intro">
                         <p>Interactive Showcase</p>
-                        <h2>HyperFrames로 프롬프트가 HTML 영상 컴포지션과 타임라인으로 바뀌는 흐름</h2>
-                        <span>에이전트 프롬프트, 생성된 HTML, playhead 기반 레이어 변화, CLI와 패키지 파이프라인까지 이어서 볼 수 있어.</span>
+                        <h2>HyperFrames로 만든 실제 결과물을 먼저 보고, 이 방식이 팀에 맞는지 바로 판단하기</h2>
+                        <span>설명용 패널 대신 실제 렌더 영상, 입력 프롬프트 예시, 그리고 `init -> preview -> render` 흐름만 남겼다.</span>
                     </header>
                     <HyperFramesShowcase client:load slug={entry.data.slug} />
                 </div>
@@ -259,16 +297,32 @@ const shareUrl = Astro.url.href;
         margin-bottom: 14px;
     }
 
-    .github-mark {
+    .source-mark {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         width: 38px;
         height: 38px;
         border-radius: 8px;
+        flex-shrink: 0;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+    }
+
+    .source-mark.github {
         background: #24292f;
         color: #fff;
-        flex-shrink: 0;
+    }
+
+    .source-mark.huggingface {
+        background: #ffd166;
+        color: #3d2a00;
+    }
+
+    .source-mark.source {
+        background: var(--color-text);
+        color: var(--color-surface);
     }
 
     .model-card-kicker {

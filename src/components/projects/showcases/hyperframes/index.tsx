@@ -1,364 +1,196 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import type { ReactNode } from 'react';
-import ShowcaseSectionNav from '../ShowcaseSectionNav';
-import TermHint from '../TermHint';
-import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface HyperFramesShowcaseProps {
     slug: string;
 }
 
-type SectionId = 'runtime' | 'prompt' | 'timeline' | 'packages' | 'catalog';
-
-interface Layer {
+interface ExampleScenario {
     id: string;
     label: string;
-    kind: 'video' | 'title' | 'caption' | 'audio' | 'overlay';
-    start: number;
-    duration: number;
-    description: string;
-}
-
-interface Scenario {
-    id: string;
-    label: string;
-    format: string;
-    duration: number;
     prompt: string;
     html: string;
-    layers: Layer[];
-    blocks: string[];
+    takeaway: string;
 }
 
-const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
-    { id: 'runtime', label: '실행 결과', description: '실제 HyperFrames composition 임베드' },
-    { id: 'prompt', label: '프롬프트', description: '에이전트가 받는 지시' },
-    { id: 'timeline', label: '타임라인', description: 'HTML 레이어가 시간축에 놓이는 방식' },
-    { id: 'packages', label: '패키지', description: 'CLI에서 렌더까지 흐름' },
-    { id: 'catalog', label: '블록', description: '카탈로그와 스킬 활용' },
-] as const;
+const SHOWCASE_VIDEO_SRC = '/hyperframes/showcase-video.mp4';
+const SHOWCASE_POSTER_SRC = '/hyperframes/showcase-video-poster.png';
+const SHOWCASE_COMPOSITION_SRC = '/hyperframes/showcase-runtime/index.html';
 
-const SECTION_PREFIX = 'hyperframes-section-';
-const LIVE_RUNTIME_SRC = '/hyperframes/showcase-runtime/index.html';
-const LIVE_RUNTIME_EMBED_SRC = `${LIVE_RUNTIME_SRC}?autoplay=1&loop=1`;
-
-const SCENARIOS: Scenario[] = [
+const EXAMPLES: ReadonlyArray<ExampleScenario> = [
     {
-        id: 'product',
-        label: '제품 인트로',
-        format: '16:9',
-        duration: 10,
-        prompt: '10초 제품 인트로 영상을 만들어줘. 페이드인 타이틀, 배경 영상, 배경 음악, 마지막 2초 로고 강조를 넣어.',
+        id: 'product-intro',
+        label: '제품 소개',
+        prompt: '10초짜리 제품 소개 영상을 만들어줘. 첫 장면은 큰 제목, 중간은 핵심 문장, 마지막은 로고와 CTA만 남겨.',
         html: `<div data-composition-id="product-intro" data-width="1920" data-height="1080">
-  <video id="bg" data-start="0" data-duration="10" src="hero.mp4"></video>
-  <h1 id="title" data-start="0.4" data-duration="4.8">HyperFrames Product Intro</h1>
-  <img id="logo" data-start="8" data-duration="2" src="logo.png" />
-  <audio id="music" data-start="0" data-duration="10" src="score.wav"></audio>
+  <h1 id="title" data-start="0.2" data-duration="3.8">Write HTML. Render video.</h1>
+  <p id="copy" data-start="0.8" data-duration="3.5">Prompt -> composition -> MP4</p>
+  <img id="logo" data-start="4.8" data-duration="1.8" src="logo.png" />
 </div>`,
-        layers: [
-            { id: 'bg', label: 'Background video', kind: 'video', start: 0, duration: 10, description: '제품 장면 전체를 덮는 메인 영상' },
-            { id: 'title', label: 'Headline title', kind: 'title', start: 0.4, duration: 4.8, description: '오프닝 타이틀 페이드인' },
-            { id: 'logo', label: 'Logo punch', kind: 'overlay', start: 8, duration: 2, description: '마지막 2초 로고 강조' },
-            { id: 'music', label: 'Music bed', kind: 'audio', start: 0, duration: 10, description: '전 구간 배경 음악' },
-        ],
-        blocks: ['flash-through-white', 'lower-third', 'logo-lockup'],
+        takeaway: '프롬프트에서 장면 구조를 잡고, 반복 수정으로 문구와 타이밍을 빠르게 바꾸기 쉬운 흐름이야.',
     },
     {
-        id: 'tiktok',
-        label: '쇼트폼 훅',
-        format: '9:16',
-        duration: 12,
-        prompt: '9:16 틱톡 스타일 훅 영상을 만들어줘. 큰 캡션, 바운시 텍스트, 3초마다 컷 전환, TTS 싱크 자막을 넣어.',
-        html: `<div data-composition-id="short-hook" data-width="1080" data-height="1920">
-  <video id="clip-a" data-start="0" data-duration="3.5" src="clip-a.mp4"></video>
-  <video id="clip-b" data-start="3.5" data-duration="4" src="clip-b.mp4"></video>
-  <div id="captions" data-start="0.2" data-duration="11.4">Big synced captions</div>
-  <audio id="tts" data-start="0" data-duration="12" src="voice.wav"></audio>
+        id: 'social-hook',
+        label: '세로 쇼츠',
+        prompt: '9:16 쇼츠 영상으로 바꿔줘. 첫 2초에 강한 제목, 이어서 짧은 캡션 3개, 마지막에 브랜드 카드만 보여줘.',
+        html: `<div data-composition-id="social-hook" data-width="1080" data-height="1920">
+  <h1 id="hook" data-start="0.1" data-duration="2">Big opening hook</h1>
+  <div id="captions" data-start="1.8" data-duration="5.2">Three short caption beats</div>
+  <div id="brand" data-start="6.2" data-duration="1.8">Brand card</div>
 </div>`,
-        layers: [
-            { id: 'clip-a', label: 'Clip A', kind: 'video', start: 0, duration: 3.5, description: '첫 장면과 강한 시각 훅' },
-            { id: 'clip-b', label: 'Clip B', kind: 'video', start: 3.5, duration: 4, description: '두 번째 장면 전환' },
-            { id: 'captions', label: 'Bouncy captions', kind: 'caption', start: 0.2, duration: 11.4, description: 'TTS와 맞물린 큰 자막' },
-            { id: 'tts', label: 'Narration', kind: 'audio', start: 0, duration: 12, description: '음성 내레이션 트랙' },
-        ],
-        blocks: ['caption-stack', 'subtitle-bounce', 'social-safe-margins'],
+        takeaway: '프레임마다 수동 편집하기보다, HTML 장면을 고쳐서 여러 세로 버전을 빠르게 돌릴 때 맞아.',
     },
     {
-        id: 'chart',
-        label: '데이터 차트',
-        format: '16:9',
-        duration: 14,
-        prompt: 'CSV를 기반으로 14초짜리 bar chart race 영상을 만들어줘. 배경 그리드, 순위 갱신, 마지막 요약 슬라이드를 넣어.',
-        html: `<div data-composition-id="chart-race" data-width="1920" data-height="1080">
-  <div id="grid" data-start="0" data-duration="14"></div>
-  <div id="bars" data-start="0.6" data-duration="11.8">Animated data bars</div>
-  <div id="summary" data-start="12" data-duration="2">Final takeaway</div>
-  <audio id="music" data-start="0" data-duration="14" src="pulse.wav"></audio>
+        id: 'data-video',
+        label: '데이터 요약',
+        prompt: 'CSV를 바탕으로 12초짜리 데이터 요약 영상을 만들어줘. 핵심 수치 3개와 마지막 결론 카드만 남겨.',
+        html: `<div data-composition-id="data-summary" data-width="1920" data-height="1080">
+  <section id="stats" data-start="0.4" data-duration="6.2">Three metric cards</section>
+  <section id="summary" data-start="6.8" data-duration="3.2">Final takeaway</section>
 </div>`,
-        layers: [
-            { id: 'grid', label: 'Data grid', kind: 'overlay', start: 0, duration: 14, description: '배경 눈금과 가이드 레이어' },
-            { id: 'bars', label: 'Animated bars', kind: 'title', start: 0.6, duration: 11.8, description: '순위가 바뀌는 차트 본체' },
-            { id: 'summary', label: 'Summary slide', kind: 'caption', start: 12, duration: 2, description: '마지막 한 줄 요약' },
-            { id: 'music', label: 'Pulse audio', kind: 'audio', start: 0, duration: 14, description: '차트 템포를 잡는 배경 음악' },
-        ],
-        blocks: ['data-chart', 'split-title', 'number-ticker'],
+        takeaway: '데이터 카드나 타이틀 조합을 반복 렌더해야 하는 팀이면 HyperFrames 방식이 바로 효율 차이를 만든다.',
     },
-];
-
-const PACKAGE_FLOW = [
-    { id: 'cli', title: 'hyperframes', note: 'init, preview, render, lint, transcribe, tts, doctor를 여는 진입점' },
-    { id: 'core', title: '@hyperframes/core', note: 'composition 파싱, 런타임 타입, frame adapter 추상화' },
-    { id: 'engine', title: '@hyperframes/engine', note: 'Puppeteer + FFmpeg 기반 seekable page capture 엔진' },
-    { id: 'producer', title: '@hyperframes/producer', note: 'capture + encode + audio mix를 묶는 전체 렌더 파이프라인' },
-    { id: 'studio', title: '@hyperframes/studio', note: '브라우저에서 composition을 편집하는 스튜디오 UI' },
-    { id: 'player', title: '@hyperframes/player', note: '완성된 결과를 삽입하는 web component 플레이어' },
 ] as const;
 
-const SKILL_COMMANDS = [
-    'npx skills add heygen-com/hyperframes',
-    'npx hyperframes init my-video',
-    'npx hyperframes preview',
-    'npx hyperframes render',
-    'npx hyperframes add data-chart',
+const WORKFLOW = [
+    {
+        title: '1. init',
+        command: 'npx hyperframes init my-video',
+        description: '프로젝트 뼈대와 기본 composition 파일을 만든다.',
+    },
+    {
+        title: '2. preview',
+        command: 'npx hyperframes preview',
+        description: '브라우저에서 장면을 확인한다. 이 단계는 개발용이다.',
+    },
+    {
+        title: '3. render',
+        command: 'npx hyperframes render',
+        description: '포스팅이나 배포에 올릴 MP4를 뽑는다. 최종 산출물은 여기서 나온다.',
+    },
+] as const;
+
+const EVALUATION_POINTS = [
+    '제목, 로고, 캡션처럼 자주 바뀌는 장면을 HTML로 수정하는 편이 빠른가.',
+    'Node.js 22+, FFmpeg, 폰트와 에셋 경로 같은 로컬 렌더 환경을 팀이 감당할 수 있는가.',
+    '호스티드 생성형 영상 API보다 반복 수정과 재렌더 속도가 더 중요한가.',
 ] as const;
 
 export default function HyperFramesShowcase({ slug }: HyperFramesShowcaseProps) {
-    const [activeScenarioId, setActiveScenarioId] = useState<string>(SCENARIOS[0].id);
-    const [playhead, setPlayhead] = useState<number>(2);
-    const [activePackageId, setActivePackageId] = useState<string>('producer');
-    const { activeId, scrollToSection } = useShowcaseSectionNav({
-        ids: SECTIONS.map((item) => item.id),
-        initialId: 'prompt',
-        sectionPrefix: SECTION_PREFIX,
-    });
-
-    const activeScenario = SCENARIOS.find((scenario) => scenario.id === activeScenarioId) ?? SCENARIOS[0];
-    const activePackage = PACKAGE_FLOW.find((item) => item.id === activePackageId) ?? PACKAGE_FLOW[0];
-
-    const visibleLayers = useMemo(() => {
-        return activeScenario.layers.filter((layer) => playhead >= layer.start && playhead <= layer.start + layer.duration);
-    }, [activeScenario.layers, playhead]);
+    const [activeExampleId, setActiveExampleId] = useState<string>(EXAMPLES[0].id);
+    const activeExample = EXAMPLES.find((item) => item.id === activeExampleId) ?? EXAMPLES[0];
 
     return (
         <Shell>
-            <ShowcaseSectionNav items={SECTIONS} activeId={activeId} onSelect={scrollToSection} />
-
             <div className="hf-main">
                 <section className="hf-hero">
                     <div className="hf-hero-copy">
-                        <p className="hf-kicker">Agent-first Video Workflow</p>
-                        <h2>프롬프트에서 HTML 비디오 컴포지션까지 한 번에 보는 HyperFrames</h2>
+                        <p className="hf-kicker">Interactive Showcase</p>
+                        <h2>실제 결과물을 먼저 보고, 이 방식이 팀에 맞는지 바로 판단하는 HyperFrames</h2>
                         <p>
-                            저장소 설명처럼 HTML을 쓰고 영상을 렌더하는 흐름을 그대로 작은 제작 콘솔처럼 풀어낸 쇼케이스야.
-                            Node.js 22+, FFmpeg, preview, render, catalog, skills까지 실제 도입 포인트만 남겼다.
-                            첫 패널엔 실제 composition HTML을 바로 넣었고, 아래 패널에선 프롬프트와 타임라인, 패키지 흐름을 옆에서 바로 이어 보게 묶었어.
+                            이 쇼케이스는 내부 구현 설명을 길게 늘어놓는 대신, 실제로 렌더한 영상과{' '}
+                            <code>init -&gt; preview -&gt; render</code> 흐름만 남겼다. 핵심은 전용 편집기를 새로
+                            배우는 게 아니라, 에이전트가 HTML 장면을 계속 고치기 쉬운지 판단하는 데 있다.
                         </p>
                         <div className="hf-chip-row">
                             <span>{slug}</span>
-                            <span>Node.js ≥ 22</span>
-                            <span>FFmpeg</span>
-                            <span>HTML-native</span>
+                            <span>HTML composition</span>
+                            <span>Preview</span>
+                            <span>MP4 render</span>
                         </div>
                     </div>
-                    <div className="hf-hero-card">
-                        <Stat label="입력" value="prompt / HTML" />
-                        <Stat label="미리보기" value="browser live" />
-                        <Stat label="출력" value="MP4" />
-                        <Stat label="제작 방식" value="deterministic" />
+                    <div className="hf-stat-grid">
+                        <Stat label="입력" value="Prompt + HTML" />
+                        <Stat label="개발 확인" value="Browser preview" />
+                        <Stat label="최종 산출물" value="Publishable MP4" />
+                        <Stat label="필수 환경" value="Node 22 + FFmpeg" />
                     </div>
                 </section>
 
-                <section className="hf-section-block" id={`${SECTION_PREFIX}runtime`}>
-                    <Panel
-                        title="실제 HyperFrames composition 임베드"
-                        description="이 패널은 HyperFrames CLI로 만든 composition HTML을 정적 파일로 두고, 페이지 안에 그대로 붙인 실제 실행 화면이야."
-                    >
-                        <div className="hf-runtime-layout">
-                            <article className="hf-runtime-card">
-                                <span className="hf-label">Embedded Runtime</span>
-                                <div className="hf-runtime-player-shell">
-                                    <iframe
-                                        src={LIVE_RUNTIME_EMBED_SRC}
-                                        title="HyperFrames showcase runtime"
-                                        loading="lazy"
-                                        allow="autoplay"
-                                    />
-                                </div>
-                            </article>
-                            <article className="hf-runtime-card">
-                                <span className="hf-label">Runtime Notes</span>
-                                <ul className="hf-command-list">
-                                    <li><code>npx hyperframes init my-video --example blank</code></li>
-                                    <li><code>npx hyperframes lint</code></li>
-                                    <li><code>npx hyperframes render</code></li>
-                                    <li><code>{LIVE_RUNTIME_SRC}</code></li>
-                                </ul>
-                                <p>
-                                    여기선 개발용 `preview` 서버를 올린 게 아니라, 실제 composition HTML을 정적 파일로 두고 페이지 안에 바로 넣었어.
-                                </p>
-                            </article>
-                        </div>
-                    </Panel>
-                </section>
-
-                <section className="hf-section-block" id={`${SECTION_PREFIX}prompt`}>
-                    <Panel
-                        title="에이전트 프롬프트와 HTML 컴포지션"
-                        description={
-                            <>
-                                HyperFrames는 <TermHint term="HTML-native" description="비디오 조합을 React 전용 DSL이 아니라 HTML과 data-* 속성으로 기술하는 접근이야." /> 라서,
-                                에이전트가 만든 코드가 곧바로 composition 초안으로 넘어가.
-                            </>
-                        }
-                    >
-                        <div className="hf-scenario-tabs" role="tablist" aria-label="시나리오">
-                            {SCENARIOS.map((scenario) => (
-                                <button
-                                    key={scenario.id}
-                                    type="button"
-                                    className={scenario.id === activeScenarioId ? 'active' : ''}
-                                    onClick={() => {
-                                        setActiveScenarioId(scenario.id);
-                                        setPlayhead(Math.min(2, scenario.duration));
-                                    }}
-                                >
-                                    <strong>{scenario.label}</strong>
-                                    <span>{scenario.format}</span>
-                                </button>
-                            ))}
-                        </div>
-                        <div className="hf-prompt-layout">
-                            <article className="hf-prompt-card">
-                                <span className="hf-label">Prompt</span>
-                                <p>{activeScenario.prompt}</p>
-                            </article>
-                            <article className="hf-code-card">
-                                <span className="hf-label">Generated HTML</span>
-                                <pre>{activeScenario.html}</pre>
-                            </article>
-                        </div>
-                    </Panel>
-                </section>
-
-                <section className="hf-section-block" id={`${SECTION_PREFIX}timeline`}>
-                    <Panel
-                        title="타임라인과 프리뷰"
-                        description="playhead를 움직이면 지금 프레임에 어떤 레이어가 살아 있는지 바로 잡혀."
-                    >
-                        <div className="hf-timeline-toolbar">
-                            <label htmlFor="hf-playhead">playhead {playhead.toFixed(1)}s</label>
-                            <input
-                                id="hf-playhead"
-                                type="range"
-                                min={0}
-                                max={activeScenario.duration}
-                                step={0.1}
-                                value={playhead}
-                                onChange={(event) => setPlayhead(Number(event.target.value))}
+                <Panel
+                    title="실제로 보는 결과물"
+                    description="아래 영상은 HyperFrames composition에서 만든 장면을 실제로 렌더한 MP4야. 더 이상 설명용 iframe을 보여주지 않아."
+                >
+                    <div className="hf-video-layout">
+                        <div className="hf-video-card">
+                            <span className="hf-label">Rendered Video</span>
+                            <video
+                                className="hf-video"
+                                src={SHOWCASE_VIDEO_SRC}
+                                poster={SHOWCASE_POSTER_SRC}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                controls
+                                preload="metadata"
                             />
                         </div>
-                        <div className="hf-timeline-layout">
-                            <div className="hf-track-stack">
-                                {activeScenario.layers.map((layer) => {
-                                    const width = (layer.duration / activeScenario.duration) * 100;
-                                    const left = (layer.start / activeScenario.duration) * 100;
-                                    const active = visibleLayers.some((visible) => visible.id === layer.id);
-                                    return (
-                                        <article key={layer.id} className="hf-track-row">
-                                            <header>
-                                                <strong>{layer.label}</strong>
-                                                <span>{layer.kind}</span>
-                                            </header>
-                                            <div className="hf-track">
-                                                <span className={active ? `active ${layer.kind}` : layer.kind} style={{ width: `${width}%`, left: `${left}%` }} />
-                                            </div>
-                                            <p>{layer.description}</p>
-                                        </article>
-                                    );
-                                })}
-                            </div>
-                            <div className="hf-preview-card">
-                                <div className={`hf-preview-frame ${activeScenario.format === '9:16' ? 'vertical' : 'wide'}`}>
-                                    {visibleLayers.map((layer) => (
-                                        <div key={layer.id} className={`hf-layer ${layer.kind}`}>
-                                            {layer.label}
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="hf-preview-meta">
-                                    <strong>현재 보이는 레이어</strong>
-                                    <div className="hf-chip-row">
-                                        {visibleLayers.map((layer) => <span key={layer.id}>{layer.label}</span>)}
-                                        {!visibleLayers.length && <span>no active layers</span>}
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="hf-note-card">
+                            <span className="hf-label">What This Shows</span>
+                            <ul className="hf-list">
+                                <li>정적 composition HTML을 소스로 잡고, 결과물은 MP4로 렌더했다.</li>
+                                <li><code>preview</code>는 개발 확인용이고, 포스팅에 올릴 자산은 <code>render</code>에서 나온다.</li>
+                                <li>원본 composition은 <code>{SHOWCASE_COMPOSITION_SRC}</code>에 두고 관리한다.</li>
+                            </ul>
+                            <p className="hf-note">
+                                사용자 입장에서 중요한 건 내부 패널이 아니라 실제 결과물이 어떤 느낌으로 나오는지다.
+                            </p>
                         </div>
-                    </Panel>
-                </section>
+                    </div>
+                </Panel>
 
-                <section className="hf-section-block" id={`${SECTION_PREFIX}packages`}>
-                    <Panel
-                        title="CLI에서 렌더까지 패키지 파이프라인"
-                        description={
-                            <>
-                                저장소는 CLI, core, engine, producer, studio, player를 나눠 둔다. <TermHint term="Frame Adapter pattern" description="GSAP, Lottie, CSS, Three.js 같은 애니메이션 런타임을 끼워 넣기 쉽게 만든 추상화 방식이야." /> 을
-                                어디에 끼워 넣는지 한 번에 보기 좋게 정리했어.
-                            </>
-                        }
-                    >
-                        <div className="hf-package-layout">
-                            <div className="hf-package-list">
-                                {PACKAGE_FLOW.map((item) => (
-                                    <button
-                                        key={item.id}
-                                        type="button"
-                                        className={item.id === activePackageId ? 'active' : ''}
-                                        onClick={() => setActivePackageId(item.id)}
-                                    >
-                                        {item.title}
-                                    </button>
-                                ))}
-                            </div>
-                            <article className="hf-package-card">
-                                <h3>{activePackage.title}</h3>
-                                <p>{activePackage.note}</p>
-                                <ol className="hf-flow">
-                                    {PACKAGE_FLOW.map((item, index) => (
-                                        <li key={item.id} className={item.id === activePackageId ? 'active' : ''}>
-                                            <span>{String(index + 1).padStart(2, '0')}</span>
-                                            <strong>{item.title}</strong>
-                                        </li>
-                                    ))}
-                                </ol>
-                            </article>
-                        </div>
-                    </Panel>
-                </section>
+                <Panel
+                    title="프롬프트에서 장면으로 이어지는 방식"
+                    description="HyperFrames는 복잡한 전용 편집기보다 HTML 장면을 계속 고쳐 가는 흐름에 가깝다."
+                >
+                    <div className="hf-example-tabs" role="tablist" aria-label="HyperFrames 예시">
+                        {EXAMPLES.map((example) => (
+                            <button
+                                key={example.id}
+                                type="button"
+                                className={example.id === activeExampleId ? 'active' : ''}
+                                onClick={() => setActiveExampleId(example.id)}
+                            >
+                                {example.label}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="hf-example-grid">
+                        <article className="hf-note-card">
+                            <span className="hf-label">Prompt</span>
+                            <p>{activeExample.prompt}</p>
+                            <p className="hf-note">{activeExample.takeaway}</p>
+                        </article>
+                        <article className="hf-code-card">
+                            <span className="hf-label">Composition HTML</span>
+                            <pre>{activeExample.html}</pre>
+                        </article>
+                    </div>
+                </Panel>
 
-                <section className="hf-section-block" id={`${SECTION_PREFIX}catalog`}>
-                    <Panel
-                        title="카탈로그 블록과 에이전트 스킬"
-                        description="자주 쓰는 블록과 명령만 묶어 둬도 첫 출력이 훨씬 덜 흔들려."
-                    >
-                        <div className="hf-catalog-layout">
-                            <article className="hf-catalog-card">
-                                <h3>이번 시나리오에 붙는 블록</h3>
-                                <div className="hf-chip-row">
-                                    {activeScenario.blocks.map((block) => <span key={block}>{block}</span>)}
-                                </div>
-                                <p>`hyperframes add`로 블록을 붙여 두면, 그다음 수정은 에이전트가 바로 이어서 만지기 좋다.</p>
-                            </article>
-                            <article className="hf-catalog-card">
-                                <h3>핵심 명령</h3>
-                                <ul className="hf-command-list">
-                                    {SKILL_COMMANDS.map((command) => <li key={command}><code>{command}</code></li>)}
-                                </ul>
-                                <p>가장 빠른 경로는 `init`으로 시작해서 `preview`로 보고, 마지막에 `render`로 MP4를 뽑는 흐름이야.</p>
-                            </article>
+                <Panel
+                    title="도입 전에 5분만 보면 되는 것"
+                    description="HyperFrames를 쓸지 말지는 이 세 단계와 세 가지 질문으로 거의 결정된다."
+                >
+                    <div className="hf-workflow-grid">
+                        <div className="hf-steps">
+                            {WORKFLOW.map((item) => (
+                                <article key={item.title} className="hf-step-card">
+                                    <h3>{item.title}</h3>
+                                    <code>{item.command}</code>
+                                    <p>{item.description}</p>
+                                </article>
+                            ))}
                         </div>
-                    </Panel>
-                </section>
+                        <div className="hf-note-card">
+                            <span className="hf-label">Decision Checklist</span>
+                            <ul className="hf-list">
+                                {EVALUATION_POINTS.map((item) => <li key={item}>{item}</li>)}
+                            </ul>
+                        </div>
+                    </div>
+                </Panel>
             </div>
         </Shell>
     );
@@ -373,7 +205,7 @@ function Shell({ children }: { children: ReactNode }) {
     );
 }
 
-function Panel({ title, description, children }: { title: string; description: ReactNode; children: ReactNode }) {
+function Panel({ title, description, children }: { title: string; description: string; children: ReactNode }) {
     return (
         <section className="hf-panel">
             <div className="hf-section-heading">
@@ -396,71 +228,38 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 const showcaseCss = `
 .hf-showcase{display:contents;color:var(--color-text)}
-.hf-main{grid-column:2;grid-row:2;display:grid;gap:18px;min-width:0}
-.hf-hero,.hf-panel,.hf-stat,.hf-prompt-card,.hf-code-card,.hf-preview-card,.hf-package-card,.hf-catalog-card,.hf-runtime-card{border:1px solid var(--color-border);background:var(--color-surface)}
-.hf-hero,.hf-panel{border-radius:12px;padding:20px}
-.hf-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:18px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 13%,transparent),transparent 46%),var(--color-surface)}
+.hf-main{grid-column:1 / -1;display:grid;gap:18px;min-width:0}
+.hf-hero,.hf-panel,.hf-stat,.hf-note-card,.hf-code-card,.hf-video-card,.hf-step-card{border:1px solid var(--color-border);background:var(--color-surface)}
+.hf-hero,.hf-panel{border-radius:14px;padding:22px}
+.hf-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 46%),var(--color-surface)}
 .hf-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
-.hf-hero-copy h2{margin:0 0 10px;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.08}
-.hf-hero-copy p{max-width:660px;margin:0;color:var(--color-text-muted);line-height:1.7}
-.hf-hero-card,.hf-runtime-layout,.hf-prompt-layout,.hf-timeline-layout,.hf-package-layout,.hf-catalog-layout{display:grid;gap:12px}
-.hf-hero-card{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
-.hf-stat,.hf-runtime-card,.hf-prompt-card,.hf-code-card,.hf-preview-card,.hf-package-card,.hf-catalog-card{border-radius:10px;padding:14px}
-.hf-stat{background:var(--color-surface-alt)}
-.hf-stat span,.hf-label,.hf-section-heading p,.hf-track-row header span,.hf-track-row p,.hf-preview-meta p{color:var(--color-text-muted)}
-.hf-stat strong{display:block;margin-top:5px;color:var(--color-projects);font-family:var(--font-heading);font-size:1.38rem}
-.hf-section-block{display:grid;gap:16px;scroll-margin-top:120px}
-.hf-section-heading{margin-bottom:16px}
-.hf-section-heading h2{margin:0;font-size:1.14rem}
-.hf-section-heading p{margin:5px 0 0;font-size:.89rem;line-height:1.6}
-.hf-runtime-layout{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)}
-.hf-runtime-player-shell{margin-top:8px;overflow:hidden;border-radius:14px;background:#050c16}
-.hf-runtime-player-shell iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#050c16}
+.hf-hero-copy h2{margin:0 0 12px;font-size:clamp(1.7rem,3vw,2.45rem);line-height:1.08}
+.hf-hero-copy p{margin:0;max-width:700px;color:var(--color-text-muted);line-height:1.72}
 .hf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .hf-chip-row span{display:inline-flex;align-items:center;min-height:30px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.78rem}
-.hf-scenario-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.hf-scenario-tabs button,.hf-package-list button{padding:10px 12px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt);font:inherit;cursor:pointer;text-align:left}
-.hf-scenario-tabs button strong,.hf-package-list button{font-size:.88rem}
-.hf-scenario-tabs button span{display:block;margin-top:3px;color:var(--color-text-muted);font-size:.74rem}
-.hf-scenario-tabs button.active,.hf-package-list button.active{border-color:var(--color-projects);background:color-mix(in srgb,var(--color-projects) 10%,var(--color-surface))}
-.hf-prompt-layout{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
-.hf-prompt-card p,.hf-package-card p,.hf-catalog-card p{margin:8px 0 0;color:var(--color-text-muted);line-height:1.65}
-.hf-code-card pre{margin:8px 0 0;overflow:auto;border-radius:8px;background:var(--color-surface-alt);padding:14px;color:var(--color-projects);font-size:.8rem;line-height:1.55}
-.hf-timeline-toolbar{display:grid;gap:8px;margin-bottom:14px}
-.hf-timeline-toolbar label{font-size:.88rem;font-weight:800}
-.hf-timeline-toolbar input{width:100%}
-.hf-timeline-layout{grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr)}
-.hf-track-stack{display:grid;gap:10px}
-.hf-track-row{display:grid;gap:8px;padding:12px;border-radius:10px;background:var(--color-surface-alt)}
-.hf-track-row header{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.hf-track{position:relative;height:12px;border-radius:999px;background:color-mix(in srgb,var(--color-surface) 90%,#000 10%)}
-.hf-track span{position:absolute;top:0;height:100%;border-radius:inherit;opacity:.45}
-.hf-track span.active{opacity:1}
-.hf-track span.video{background:#5b8cff}
-.hf-track span.title{background:#f97316}
-.hf-track span.caption{background:#ec4899}
-.hf-track span.audio{background:#22c55e}
-.hf-track span.overlay{background:#a855f7}
-.hf-preview-frame{display:grid;place-items:center;border-radius:14px;background:linear-gradient(180deg,#16203d,#0f1326);padding:16px;aspect-ratio:16/9}
-.hf-preview-frame.vertical{aspect-ratio:9/16}
-.hf-layer{display:flex;align-items:center;justify-content:center;width:82%;min-height:52px;border-radius:12px;font-size:.84rem;font-weight:800;color:#fff}
-.hf-layer+.hf-layer{margin-top:10px}
-.hf-layer.video{background:rgba(91,140,255,.55)}
-.hf-layer.title{background:rgba(249,115,22,.72)}
-.hf-layer.caption{background:rgba(236,72,153,.72)}
-.hf-layer.audio{background:rgba(34,197,94,.72)}
-.hf-layer.overlay{background:rgba(168,85,247,.72)}
-.hf-preview-meta{margin-top:12px}
-.hf-package-layout{grid-template-columns:220px minmax(0,1fr)}
-.hf-package-list{display:grid;gap:8px}
-.hf-package-card h3,.hf-catalog-card h3{margin:0;font-size:1rem}
-.hf-flow{display:grid;gap:10px;margin:14px 0 0;padding:0;list-style:none}
-.hf-flow li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--color-border);border-radius:8px;background:var(--color-surface-alt)}
-.hf-flow li.active{border-color:var(--color-projects);background:color-mix(in srgb,var(--color-projects) 10%,var(--color-surface))}
-.hf-flow li span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:var(--color-surface);color:var(--color-projects);font-size:.74rem;font-weight:850}
-.hf-catalog-layout{grid-template-columns:repeat(2,minmax(0,1fr))}
-.hf-command-list{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none}
-.hf-command-list code{display:block;overflow-wrap:anywhere;border-radius:8px;background:var(--color-surface-alt);padding:10px 12px;color:var(--color-projects)}
-@media (max-width:900px){.hf-main{grid-column:1;grid-row:auto}.hf-hero,.hf-runtime-layout,.hf-prompt-layout,.hf-timeline-layout,.hf-package-layout,.hf-catalog-layout{grid-template-columns:1fr}}
-@media (max-width:640px){.hf-hero,.hf-panel{padding:14px}.hf-hero-card{grid-template-columns:1fr}.hf-preview-frame{padding:12px}}
+.hf-stat-grid,.hf-video-layout,.hf-example-grid,.hf-workflow-grid,.hf-steps{display:grid;gap:12px}
+.hf-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
+.hf-stat,.hf-note-card,.hf-code-card,.hf-video-card,.hf-step-card{border-radius:12px;padding:14px}
+.hf-stat{background:var(--color-surface-alt)}
+.hf-stat span,.hf-label,.hf-section-heading p,.hf-step-card p{color:var(--color-text-muted)}
+.hf-stat strong{display:block;margin-top:5px;color:var(--color-projects);font-family:var(--font-heading);font-size:1.34rem}
+.hf-section-heading{margin-bottom:16px}
+.hf-section-heading h2{margin:0;font-size:1.12rem}
+.hf-section-heading p{margin:6px 0 0;font-size:.9rem;line-height:1.6}
+.hf-video-layout{grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr)}
+.hf-video{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#050c16}
+.hf-example-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.hf-example-tabs button{padding:10px 12px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt);font:inherit;cursor:pointer}
+.hf-example-tabs button.active{border-color:var(--color-projects);background:color-mix(in srgb,var(--color-projects) 10%,var(--color-surface))}
+.hf-example-grid{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)}
+.hf-code-card pre{margin:8px 0 0;overflow:auto;border-radius:10px;background:var(--color-surface-alt);padding:14px;color:var(--color-projects);font-size:.8rem;line-height:1.55}
+.hf-note-card p,.hf-step-card p{margin:8px 0 0;line-height:1.68}
+.hf-note{color:var(--color-text-muted)}
+.hf-list{display:grid;gap:10px;margin:10px 0 0;padding-left:18px;color:var(--color-text);line-height:1.65}
+.hf-workflow-grid{grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr)}
+.hf-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hf-step-card h3{margin:0 0 10px;font-size:1rem}
+.hf-step-card code{display:block;overflow-wrap:anywhere;border-radius:8px;background:var(--color-surface-alt);padding:10px 12px;color:var(--color-projects)}
+@media (max-width:960px){.hf-hero,.hf-video-layout,.hf-example-grid,.hf-workflow-grid,.hf-steps{grid-template-columns:1fr}}
+@media (max-width:640px){.hf-hero,.hf-panel{padding:14px}.hf-stat-grid{grid-template-columns:1fr}}
 `;

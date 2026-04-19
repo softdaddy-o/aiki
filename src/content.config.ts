@@ -99,6 +99,7 @@ const projects = defineCollection({
         readerValue: z.string().min(20),
         githubUrl: z.string(),
         showcaseComponent: z.string(),
+        sourceMetric: z.number().optional(),
         tags: z.array(z.string()).default([]),
         stars: z.number().default(0),
         license: z.string().default('MIT'),
