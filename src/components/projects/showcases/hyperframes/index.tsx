@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface ShowcaseSourceMeta {
     provider: string;
@@ -10,27 +12,6 @@ interface ShowcaseSourceMeta {
     path: string;
 }
 
-interface FactCheckCheck {
-    type: string;
-    result: string;
-    sources?: number;
-    summary?: string;
-    items?: string[];
-    findings?: string[];
-}
-
-interface FactCheckSource {
-    url: string;
-    title: string;
-}
-
-interface FactCheckData {
-    status: string;
-    date: string;
-    checks: FactCheckCheck[];
-    sources: FactCheckSource[];
-}
-
 interface HyperFramesShowcaseProps {
     slug: string;
     title: string;
@@ -39,7 +20,6 @@ interface HyperFramesShowcaseProps {
     sourceMeta: ShowcaseSourceMeta;
     metricValue: string;
     license: string;
-    factCheck?: FactCheckData;
 }
 
 interface ShowcaseCase {
@@ -74,6 +54,21 @@ interface CompareCard {
     fit: string;
     tradeoff: string;
 }
+
+type SectionId = 'hero' | 'cases' | 'takeaway' | 'decide' | 'adopt' | 'ops' | 'compare' | 'fact';
+
+const SECTION_PREFIX = 'hf-section-';
+
+const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
+    { id: 'hero', label: '소개', description: '한눈 요약과 메타' },
+    { id: 'cases', label: '실행 쇼케이스', description: '장면 뼈대 3종' },
+    { id: 'takeaway', label: '한 줄 판단', description: '핵심 결론' },
+    { id: 'decide', label: '도입 판단', description: 'USE / SKIP' },
+    { id: 'adopt', label: '도입 흐름', description: 'init → render' },
+    { id: 'ops', label: '운영 비용', description: '환경과 부담' },
+    { id: 'compare', label: '비교 대상', description: 'vs 대안 도구' },
+    { id: 'fact', label: '팩트 체크', description: '검증 상태' },
+] as const;
 
 const CASES: ReadonlyArray<ShowcaseCase> = [
     {
@@ -259,113 +254,51 @@ const COMPARE_CARDS: ReadonlyArray<CompareCard> = [
     },
 ] as const;
 
-const FACT_LABELS: Record<string, string> = {
-    source_match: '원문 대조',
-    web_cross_check: '교차 검증',
-    number_verify: '수치 검증',
-    adversarial: '비판 검토',
-};
-
-const FACT_RESULT_LABELS: Record<string, string> = {
-    pass: 'PASS',
-    skip: 'SKIP',
-    fail: 'FAIL',
-};
-
-const FACT_STATUS_LABELS: Record<string, string> = {
-    passed: '통과',
-    failed: '실패',
-    pending: '검토 중',
-};
-
-function cleanText(value?: string) {
-    return String(value || '').replace(/\s+/g, ' ').trim();
-}
-
-function uniqueStrings(values: string[]) {
-    const seen = new Set<string>();
-    return values.filter((value) => {
-        const normalized = cleanText(value);
-        if (!normalized || seen.has(normalized)) return false;
-        seen.add(normalized);
-        return true;
-    }).map((value) => cleanText(value));
-}
-
-function factFallback(check: FactCheckCheck, sourceCount: number) {
-    if (check.type === 'source_match') return '본문 설명이 공식 저장소가 말하는 범위를 벗어나지 않는지 다시 맞춰 봤다.';
-    if (check.type === 'web_cross_check') return `공개 출처 ${check.sources ?? sourceCount}건을 다시 대조해 과장이 없는지 확인했다.`;
-    if (check.type === 'number_verify') return '버전, 스타 수, 요구 환경처럼 틀리기 쉬운 항목만 따로 떼어 봤다.';
-    if (check.type === 'adversarial') return '도입 판단을 흐리게 만드는 과한 표현이 없는지 한 번 더 비판적으로 읽었다.';
-    return '핵심 주장과 수치를 다시 검토했다.';
-}
-
-function statusLabel(value: string) {
-    return FACT_STATUS_LABELS[value] ?? value;
-}
-
-function resultLabel(value: string) {
-    return FACT_RESULT_LABELS[value] ?? value.toUpperCase();
-}
-
-function checkLabel(value: string) {
-    return FACT_LABELS[value] ?? value;
-}
-
 export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
-    const { title, summary, tags, sourceMeta, metricValue, license, factCheck } = props;
+    const { title, summary, tags, sourceMeta, metricValue, license } = props;
     const [activeCaseId, setActiveCaseId] = useState<string>(CASES[0].id);
     const activeCase = CASES.find((item) => item.id === activeCaseId) ?? CASES[0];
 
-    const visibleChecks = useMemo(() => {
-        if (!factCheck) return [];
-
-        return factCheck.checks
-            .map((check) => {
-                const preview = cleanText(check.summary || factFallback(check, factCheck.sources.length));
-                const detailItems = uniqueStrings(Array.isArray(check.items) ? check.items : []).filter((item) => item !== preview);
-                const findingItems = uniqueStrings(Array.isArray(check.findings) ? check.findings : []).filter(
-                    (item) => item !== preview && !detailItems.includes(item),
-                );
-
-                return {
-                    ...check,
-                    preview,
-                    detailItems,
-                    findingItems,
-                    label: checkLabel(check.type),
-                    badge: resultLabel(check.result),
-                };
-            })
-            .filter((check) => check.preview || check.detailItems.length > 0 || check.findingItems.length > 0);
-    }, [factCheck]);
+    const { activeId, scrollToSection } = useShowcaseSectionNav<SectionId>({
+        ids: SECTIONS.map((section) => section.id),
+        sectionPrefix: SECTION_PREFIX,
+        initialId: 'hero',
+    });
 
     return (
-        <Shell>
+        <div className="hf-showcase">
+            <style>{showcaseCss}</style>
+
+            <ShowcaseSectionNav
+                items={SECTIONS}
+                activeId={activeId}
+                onSelect={scrollToSection}
+            />
+
             <div className="hf-main">
-                <section className="hf-hero">
+                <section className="hf-hero" id={`${SECTION_PREFIX}hero`}>
                     <div className="hf-hero-head">
                         <span className="hf-showcase-label">Interactive Showcase</span>
                     </div>
-                    <div className="hf-hero-grid">
-                        <div className="hf-hero-copy">
-                            <h1>{title}</h1>
-                            <p>{summary}</p>
-                        </div>
 
-                        <div className="hf-meta-grid">
-                            <article className={`hf-meta-card hf-meta-card--source ${sourceMeta.className}`}>
-                                <div className="hf-meta-mark">{sourceMeta.mark}</div>
-                                <div className="hf-meta-copy">
-                                    <span>{sourceMeta.provider}</span>
-                                    <strong>{sourceMeta.path}</strong>
-                                </div>
-                            </article>
-                            <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                            <MetaCard label="라이선스" value={license} />
-                            <MetaCard label="읽는 방식" value="Prompt -> HTML -> Video" />
-                        </div>
+                    <div className="hf-hero-copy">
+                        <h1>{title}</h1>
+                        <p>{summary}</p>
                     </div>
+
+                    <div className="hf-meta-grid">
+                        <article className={`hf-meta-card hf-meta-card--source ${sourceMeta.className}`}>
+                            <div className="hf-meta-mark">{sourceMeta.mark}</div>
+                            <div className="hf-meta-copy">
+                                <span>{sourceMeta.provider}</span>
+                                <strong>{sourceMeta.path}</strong>
+                            </div>
+                        </article>
+                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
+                        <MetaCard label="라이선스" value={license} />
+                        <MetaCard label="읽는 방식" value="Prompt → HTML → Video" />
+                    </div>
+
                     {tags.length > 0 && (
                         <div className="hf-tag-row">
                             {tags.map((tag) => (
@@ -375,7 +308,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     )}
                 </section>
 
-                <Panel title="실행 쇼케이스">
+                <Panel id={`${SECTION_PREFIX}cases`} title="실행 쇼케이스">
                     <div className="hf-case-tabs" role="tablist" aria-label="HyperFrames case studies">
                         {CASES.map((item) => (
                             <button
@@ -391,7 +324,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
 
                     <div className="hf-stage-grid">
-                        <article className="hf-card">
+                        <article className="hf-card hf-prompt-card">
                             <div className="hf-card-head">
                                 <span className="hf-kicker">프롬프트</span>
                                 <span className="hf-pill">{activeCase.format}</span>
@@ -439,7 +372,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel title="한 줄 판단">
+                <Panel id={`${SECTION_PREFIX}takeaway`} title="한 줄 판단">
                     <div className="hf-take-grid">
                         {TAKE_CARDS.map((item, index) => (
                             <Insight key={item.title} item={item} className={index === 0 ? 'hf-insight-card--lead' : ''} />
@@ -447,7 +380,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel title="도입 판단">
+                <Panel id={`${SECTION_PREFIX}decide`} title="도입 판단">
                     <div className="hf-split-grid">
                         <section className="hf-split-panel fit">
                             <div className="hf-split-title">USE IT</div>
@@ -469,7 +402,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel title="도입 흐름">
+                <Panel id={`${SECTION_PREFIX}adopt`} title="도입 흐름">
                     <div className="hf-adoption-grid">
                         {ADOPTION_STEPS.map((item) => (
                             <article key={item.title} className="hf-step-card">
@@ -481,7 +414,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel title="운영 비용">
+                <Panel id={`${SECTION_PREFIX}ops`} title="운영 비용">
                     <div className="hf-insight-grid hf-insight-grid--ops">
                         {OPS_CARDS.map((item) => (
                             <Insight key={item.title} item={item} />
@@ -489,7 +422,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel title="비교 대상">
+                <Panel id={`${SECTION_PREFIX}compare`} title="비교 대상">
                     <div className="hf-compare-grid">
                         {COMPARE_CARDS.map((item) => (
                             <article key={item.title} className="hf-compare-card">
@@ -500,70 +433,14 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                         ))}
                     </div>
                 </Panel>
-
-                {factCheck && (
-                    <Panel title="팩트 체크">
-                        <div className="hf-fact-meta-grid">
-                            <MetaCard label="상태" value={statusLabel(factCheck.status)} />
-                            <MetaCard label="마지막 검증" value={`${factCheck.date} KST`} />
-                            <MetaCard label="출처 수" value={`${factCheck.sources.length}개`} />
-                        </div>
-
-                        <div className="hf-fact-grid">
-                            {visibleChecks.map((check) => (
-                                <article key={`${check.type}-${check.result}`} className="hf-fact-card">
-                                    <div className="hf-card-head">
-                                        <span className={`hf-result-badge hf-result-badge--${check.result}`}>{check.badge}</span>
-                                        <span className="hf-fact-label">{check.label}</span>
-                                    </div>
-                                    {check.preview && <p className="hf-body-copy">{check.preview}</p>}
-                                    {check.detailItems.length > 0 && (
-                                        <ul className="hf-list">
-                                            {check.detailItems.map((item) => <li key={item}>{item}</li>)}
-                                        </ul>
-                                    )}
-                                    {check.findingItems.length > 0 && (
-                                        <ul className="hf-list hf-list--subtle">
-                                            {check.findingItems.map((item) => <li key={item}>{item}</li>)}
-                                        </ul>
-                                    )}
-                                </article>
-                            ))}
-                        </div>
-
-                        {factCheck.sources.length > 0 && (
-                            <article className="hf-card hf-sources-card">
-                                <div className="hf-card-head">
-                                    <span className="hf-kicker">출처</span>
-                                </div>
-                                <div className="hf-source-links">
-                                    {factCheck.sources.map((source) => (
-                                        <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
-                                            {source.title}
-                                        </a>
-                                    ))}
-                                </div>
-                            </article>
-                        )}
-                    </Panel>
-                )}
             </div>
-        </Shell>
-    );
-}
-
-function Shell({ children }: { children: ReactNode }) {
-    return (
-        <div className="hf-showcase">
-            <style>{showcaseCss}</style>
-            {children}
         </div>
     );
 }
 
-function Panel({ title, children }: { title: string; children: ReactNode }) {
+function Panel({ id, title, children }: { id: string; title: string; children: ReactNode }) {
     return (
-        <section className="hf-panel">
+        <section className="hf-panel" id={id}>
             <div className="hf-panel-head">
                 <h2>{title}</h2>
             </div>
@@ -596,87 +473,84 @@ function Insight({ item, className = '' }: { item: InsightCard; className?: stri
 }
 
 const showcaseCss = `
-.hf-showcase{display:block;color:var(--color-text)}
-.hf-main{display:grid;gap:22px;min-width:0}
-.hf-hero,.hf-panel,.hf-card,.hf-meta-card,.hf-step-card,.hf-insight-card,.hf-compare-card,.hf-fact-card{border:1px solid var(--color-border);background:var(--color-surface)}
-.hf-hero,.hf-panel{border-radius:26px;padding:24px}
-.hf-hero{background:
-linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 36%),
-color-mix(in srgb,var(--color-surface) 92%,var(--color-surface-alt));box-shadow:0 20px 48px rgba(0,0,0,.08)}
-.hf-hero-head{margin-bottom:16px}
-.hf-showcase-label{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 12%,transparent);color:var(--color-projects);font-size:.76rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.hf-hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);gap:18px;align-items:start}
-.hf-hero-copy h1{margin:0;color:var(--color-projects);font-size:clamp(3.2rem,9vw,7.5rem);font-weight:900;line-height:.92;letter-spacing:.04em;text-transform:uppercase}
-.hf-hero-copy p{max-width:760px;margin:16px 0 0;color:var(--color-text);font-size:clamp(1.05rem,1.6vw,1.22rem);line-height:1.7}
-.hf-meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.hf-meta-card{display:grid;gap:8px;padding:16px;border-radius:18px;background:color-mix(in srgb,var(--color-surface) 86%,var(--color-surface-alt))}
-.hf-meta-card span{color:var(--color-text-muted);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-.hf-meta-card strong{overflow-wrap:anywhere;font-size:1rem;line-height:1.35}
-.hf-meta-card--source{grid-column:1 / -1;grid-template-columns:auto 1fr;align-items:center}
-.hf-meta-card--source .hf-meta-mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;font-size:.8rem;font-weight:900;letter-spacing:.08em}
-.hf-meta-card--source .hf-meta-copy{display:grid;gap:6px}
+.hf-showcase{display:contents;color:var(--color-text)}
+.hf-main{grid-column:2;min-width:0;display:grid;gap:22px}
+.hf-hero,.hf-panel,.hf-card,.hf-meta-card,.hf-step-card,.hf-insight-card,.hf-compare-card{border:1px solid var(--color-border);background:var(--color-surface)}
+.hf-hero,.hf-panel{border-radius:22px;padding:22px;scroll-margin-top:100px}
+.hf-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 40%),color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));box-shadow:0 20px 48px rgba(0,0,0,.08);display:grid;gap:18px}
+.hf-hero-head{display:flex}
+.hf-showcase-label{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.hf-hero-copy{display:grid;gap:10px;min-width:0}
+.hf-hero-copy h1{margin:0;color:var(--color-projects);font-size:clamp(2.4rem,6.2vw,5rem);font-weight:900;line-height:.96;letter-spacing:.02em;text-transform:uppercase;overflow-wrap:anywhere;word-break:break-word}
+.hf-hero-copy p{max-width:760px;margin:0;color:var(--color-text);font-size:clamp(1rem,1.45vw,1.18rem);line-height:1.7}
+.hf-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hf-meta-card{display:grid;gap:6px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--color-surface) 86%,var(--color-surface-alt));min-width:0}
+.hf-meta-card span{color:var(--color-text-muted);font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.hf-meta-card strong{overflow-wrap:anywhere;font-size:.96rem;line-height:1.35}
+.hf-meta-card--source{grid-column:span 2;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px}
+.hf-meta-card--source .hf-meta-mark{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;font-size:.78rem;font-weight:900;letter-spacing:.08em}
+.hf-meta-card--source .hf-meta-copy{display:grid;gap:4px;min-width:0}
 .hf-meta-card--source.github .hf-meta-mark{background:#24292f;color:#fff}
 .hf-meta-card--source.huggingface .hf-meta-mark{background:#ffd166;color:#3d2a00}
 .hf-meta-card--source.source .hf-meta-mark{background:var(--color-text);color:var(--color-surface)}
-.hf-tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.hf-tag-row span,.hf-chip-row span{display:inline-flex;align-items:center;min-height:30px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.78rem}
-.hf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.hf-tag-row{display:flex;flex-wrap:wrap;gap:8px}
+.hf-tag-row span,.hf-chip-row span{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.76rem}
+.hf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .hf-panel-head{margin-bottom:14px}
 .hf-panel-head h2{margin:0;font-size:1.16rem}
 .hf-case-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
-.hf-case-tabs button{display:grid;gap:4px;min-width:152px;padding:13px 15px;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface-alt);font:inherit;text-align:left;cursor:pointer}
-.hf-case-tabs button strong{font-size:.95rem}
-.hf-case-tabs button span{color:var(--color-text-muted);font-size:.8rem}
-.hf-case-tabs button.active{border-color:var(--color-projects);background:color-mix(in srgb,var(--color-projects) 10%,var(--color-surface))}
-.hf-stage-grid,.hf-take-grid,.hf-split-grid,.hf-insight-grid,.hf-adoption-grid,.hf-compare-grid,.hf-fact-meta-grid,.hf-fact-grid{display:grid;gap:14px}
-.hf-stage-grid{grid-template-columns:minmax(0,.9fr) minmax(0,.9fr) minmax(360px,1.1fr)}
-.hf-card,.hf-step-card,.hf-insight-card,.hf-compare-card,.hf-fact-card{padding:18px;border-radius:18px}
-.hf-video-card{grid-row:span 2;display:grid;align-content:start;gap:12px}
-.hf-watch-card{align-self:start}
+.hf-case-tabs button{display:grid;gap:4px;min-width:148px;padding:12px 14px;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface-alt);font:inherit;text-align:left;cursor:pointer}
+.hf-case-tabs button strong{font-size:.92rem}
+.hf-case-tabs button span{color:var(--color-text-muted);font-size:.78rem}
+.hf-case-tabs button.active{border-color:var(--color-projects);background:color-mix(in srgb,var(--color-projects) 12%,var(--color-surface))}
+.hf-stage-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.hf-prompt-card{grid-column:1;grid-row:1}
+.hf-code-card{grid-column:1;grid-row:2}
+.hf-video-card{grid-column:2;grid-row:1 / span 2;display:grid;align-content:start;gap:12px}
+.hf-watch-card{grid-column:1 / -1;grid-row:3}
+.hf-card,.hf-step-card,.hf-insight-card,.hf-compare-card{padding:16px;border-radius:16px}
 .hf-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.hf-kicker{color:var(--color-projects)!important;font-size:.74rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
-.hf-pill{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.76rem}
-.hf-link{color:var(--color-projects);font-size:.82rem;font-weight:700;text-decoration:none}
+.hf-kicker{color:var(--color-projects)!important;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.hf-pill{display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.74rem}
+.hf-link{color:var(--color-projects);font-size:.8rem;font-weight:700;text-decoration:none}
 .hf-link:hover{text-decoration:underline}
-.hf-body-copy,.hf-result-note,.hf-step-card p,.hf-insight-card p,.hf-fact-card p{margin:0;line-height:1.7}
-.hf-code-card pre,.hf-step-card code{margin:0;overflow:auto;border-radius:14px;background:var(--color-surface-alt);padding:14px;color:var(--color-projects);font-size:.82rem;line-height:1.6}
-.hf-video{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:18px;background:#09101a;object-fit:contain}
+.hf-body-copy,.hf-result-note,.hf-step-card p,.hf-insight-card p,.hf-compare-card p span{margin:0;line-height:1.7}
+.hf-code-card pre,.hf-step-card code{margin:0;overflow:auto;border-radius:12px;background:var(--color-surface-alt);padding:12px;color:var(--color-projects);font-size:.8rem;line-height:1.6}
+.hf-video{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#09101a;object-fit:contain}
 .hf-result-note{color:var(--color-text-muted)}
-.hf-list{display:grid;gap:10px;margin:0;padding-left:18px;line-height:1.7}
-.hf-list--subtle{color:var(--color-text-muted)}
-.hf-take-grid{grid-template-columns:minmax(0,1.15fr) repeat(2,minmax(0,.85fr))}
+.hf-list{display:grid;gap:8px;margin:0;padding-left:18px;line-height:1.65}
+.hf-take-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1.15fr) repeat(2,minmax(0,.85fr))}
 .hf-insight-card{display:grid;align-content:start}
-.hf-insight-card--lead{grid-column:span 1}
 .hf-insight-card--accent{background:color-mix(in srgb,var(--color-projects) 8%,var(--color-surface))}
-.hf-insight-card h3{margin:0 0 10px;font-size:1.14rem;line-height:1.3}
+.hf-insight-card h3{margin:0 0 10px;font-size:1.08rem;line-height:1.3}
 .hf-insight-card p{color:var(--color-text-muted)}
-.hf-split-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.hf-split-panel{display:grid;gap:14px;padding:18px;border-radius:22px;background:var(--color-surface-alt)}
+.hf-split-grid{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.hf-split-panel{display:grid;gap:14px;padding:16px;border-radius:18px;background:var(--color-surface-alt)}
 .hf-split-panel.fit{border:1px solid color-mix(in srgb,var(--color-projects) 30%,transparent)}
 .hf-split-panel.skip{border:1px solid color-mix(in srgb,var(--color-border) 90%,transparent)}
-.hf-split-title{color:var(--color-projects);font-size:.84rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.hf-insight-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hf-split-title{color:var(--color-projects);font-size:.82rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.hf-insight-grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .hf-insight-grid--ops{grid-template-columns:repeat(3,minmax(0,1fr))}
-.hf-step-card{display:grid;gap:12px}
-.hf-step-card code{padding:12px}
-.hf-adoption-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.hf-compare-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.hf-compare-card{display:grid;gap:14px}
-.hf-compare-card p{display:grid;gap:6px;margin:0}
-.hf-compare-card strong{color:var(--color-text);font-size:.84rem}
-.hf-compare-card span{color:var(--color-text-muted);line-height:1.7}
-.hf-fact-meta-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:14px}
-.hf-fact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.hf-fact-card{display:grid;gap:12px}
-.hf-fact-label{font-weight:800}
-.hf-result-badge{display:inline-flex;align-items:center;justify-content:center;min-width:54px;min-height:26px;padding:0 10px;border-radius:999px;font-size:.72rem;font-weight:900;letter-spacing:.08em}
-.hf-result-badge--pass{background:rgba(27,157,92,.14);color:#1b9d5c}
-.hf-result-badge--skip{background:rgba(224,167,46,.16);color:#e0a72e}
-.hf-result-badge--fail{background:rgba(215,78,78,.14);color:#d74e4e}
-.hf-sources-card{margin-top:14px}
-.hf-source-links{display:flex;flex-wrap:wrap;gap:10px}
-.hf-source-links a{display:inline-flex;align-items:center;min-height:34px;padding:0 12px;border:1px solid var(--color-border);border-radius:999px;background:var(--color-surface-alt);color:var(--color-text);font-size:.84rem;text-decoration:none}
-.hf-source-links a:hover{border-color:var(--color-projects);color:var(--color-projects)}
-@media (max-width:1240px){.hf-hero-grid,.hf-stage-grid,.hf-take-grid,.hf-split-grid,.hf-adoption-grid,.hf-insight-grid,.hf-insight-grid--ops,.hf-compare-grid,.hf-fact-grid,.hf-fact-meta-grid{grid-template-columns:1fr}.hf-video-card{grid-row:auto}.hf-meta-grid{grid-template-columns:1fr}}
-@media (max-width:720px){.hf-hero,.hf-panel{padding:16px}.hf-showcase-label{min-height:28px;padding:0 10px}.hf-hero-copy h1{font-size:clamp(2.6rem,16vw,4.2rem)}.hf-case-tabs button{min-width:0;width:100%}.hf-card,.hf-step-card,.hf-insight-card,.hf-compare-card,.hf-fact-card,.hf-meta-card{padding:14px}}
+.hf-step-card{display:grid;gap:10px}
+.hf-step-card code{padding:10px}
+.hf-adoption-grid{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.hf-compare-grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.hf-compare-card{display:grid;gap:12px}
+.hf-compare-card p{display:grid;gap:4px;margin:0}
+.hf-compare-card strong{color:var(--color-text);font-size:.82rem}
+.hf-compare-card span{color:var(--color-text-muted);line-height:1.65}
+@media (max-width:1100px){
+  .hf-stage-grid{grid-template-columns:1fr}
+  .hf-prompt-card,.hf-code-card,.hf-video-card,.hf-watch-card{grid-column:1;grid-row:auto}
+  .hf-take-grid,.hf-split-grid,.hf-adoption-grid,.hf-compare-grid,.hf-insight-grid,.hf-insight-grid--ops{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .hf-main{grid-column:1}
+}
+@media (max-width:720px){
+  .hf-hero,.hf-panel{padding:14px}
+  .hf-meta-grid{grid-template-columns:1fr}
+  .hf-meta-card--source{grid-column:1}
+  .hf-case-tabs button{min-width:0;width:100%}
+}
 `;

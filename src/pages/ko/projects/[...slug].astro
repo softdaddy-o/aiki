@@ -203,18 +203,30 @@ const shareUrl = Astro.url.href;
 
         {showcaseComponent === 'hyperframes' && (
             <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class:list={['showcase-shell', 'showcase-shell--wide']}>
-                    <HyperFramesShowcase
-                        client:load
-                        slug={entry.data.slug}
-                        title={title}
-                        summary={summary}
-                        tags={tags}
-                        sourceMeta={sourceMeta}
-                        metricValue={formatStars(displayedMetric)}
-                        license={license}
-                        factCheck={factCheck}
-                    />
+                <div class="showcase-shell">
+                    <div class="showcase-frame showcase-frame-with-nav hf-frame">
+                        <HyperFramesShowcase
+                            client:load
+                            slug={entry.data.slug}
+                            title={title}
+                            summary={summary}
+                            tags={tags}
+                            sourceMeta={sourceMeta}
+                            metricValue={formatStars(displayedMetric)}
+                            license={license}
+                        />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="hf-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
             </section>
         )}
@@ -578,10 +590,16 @@ const shareUrl = Astro.url.href;
         backdrop-filter: blur(10px);
     }
 
-    .showcase-shell--wide {
-        width: calc(100vw - 24px);
-        max-width: none;
-        padding: 28px clamp(18px, 2vw, 30px) 34px;
+    .hf-frame :global(.showcase-section-nav) {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .hf-fact-wrap {
+        grid-column: 2;
+        min-width: 0;
+        margin-top: 18px;
+        scroll-margin-top: 100px;
     }
 
     .showcase-frame {
@@ -659,6 +677,14 @@ const shareUrl = Astro.url.href;
             gap: 14px;
             padding-top: 32px;
         }
+
+        .hf-frame :global(.showcase-section-nav) {
+            grid-row: auto;
+        }
+
+        .hf-fact-wrap {
+            grid-column: 1;
+        }
     }
 
     @media (max-width: 640px) {
@@ -688,11 +714,6 @@ const shareUrl = Astro.url.href;
             padding: 16px 12px 18px;
             border-radius: 18px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
-        }
-
-        .showcase-shell--wide {
-            max-width: calc(100vw - 16px);
-            padding: 18px 12px 22px;
         }
 
         .showcase-frame {
