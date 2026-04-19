@@ -1,6 +1,6 @@
 ---
 name: aiki-ui-ux
-description: aiki 프로젝트에서 UI/UX를 만들거나 고칠 때 매번 읽는 가이드. Claude와 Codex 모두 읽는다. 모든 페이지에 공통으로 적용되는 레이아웃·반응형 규칙, showcase-native 전용 패턴, news/wiki 표준 페이지 패턴을 한 문서에 모은다. 새로 만드는 경우와 기존을 고치는 경우 각각 워크플로우가 따로 있고, eval 테스트로 자체 검증한다.
+description: aiki 프로젝트에서 UI/UX를 만들거나 고칠 때 매번 읽는 가이드. Claude와 Codex 모두 읽는다. 모든 project 쇼케이스는 HyperFrames 를 레퍼런스로 showcase-native 로 만들고, news/wiki 만 standard 포맷을 쓴다. 산문 금지, Panel+card 로 분해. 레이아웃·반응형 규칙과 eval 테스트 포함.
 ---
 
 # aiki UI/UX 가이드
@@ -9,12 +9,20 @@ description: aiki 프로젝트에서 UI/UX를 만들거나 고칠 때 매번 읽
 
 **규칙: 이 가이드와 충돌하는 ad-hoc 결정을 내리지 마.** 이 문서의 항목 하나하나는 실제 세션에서 수 시간 피드백으로 잡아낸 버그에서 나왔어. 중복된 주의처럼 보여도 전부 실제 상처임.
 
+## TL;DR (가장 자주 놓치는 것)
+
+1. **모든 project 쇼케이스 = showcase-native.** Legacy `showcase-frame-with-nav` (yfinance/nfi/nautilus-trader/lightrag 옛날 포맷) 신규에 복붙 금지. **HyperFrames (`/ko/projects/hyperframes/`) 가 정보 위계·조형의 유일한 레퍼런스**. 새 쇼케이스는 이 페이지를 "닮게" 만드는 것이 목표 — 조금 비슷하게가 아니라, 구조·카드 grammar·뷰 밀도가 같은 계보.
+2. **산문 금지.** Project 페이지에서 markdown `<Content />` body 는 렌더하지 않는다. 모든 정보를 Panel + card 로 분해. "읽는" 페이지가 아니라 "훑으면 30초에 판단" 이 목표.
+3. **News/wiki 만 standard (§3).** 장문 읽기 콘텐츠 전용. Project 는 절대 여기 들어오지 마.
+
 ## 0. How to use this skill
 
 | 상황 | 어디부터 읽어 |
 |---|---|
-| 새 페이지 만들기 | §1 (전역 규칙) → §2 or §3 (타입별) → §4 (from-scratch 워크플로우) |
-| 기존 페이지 고치기 | §1 → §5 (fix 워크플로우) → 관련 타입 섹션 |
+| **새 project 쇼케이스 만들기** | §1 → **§2 (HyperFrames 를 기준으로 clone)** → §4 |
+| **기존 project 페이지를 HyperFrames 수준으로 승격** | §1 → §2 → §2.9 (legacy 판별) → §5 |
+| 새 news/wiki 만들기 | §1 → §3 → §4 |
+| 기존 news/wiki 고치기 | §1 → §5 → §3 |
 | 레이아웃 깨짐 디버그 | §5.2 + `refs/debug-iframe.html` |
 | 배포 후 "똑같아 보임" | §7 (배포 검증) |
 | 커밋 전 자체 검증 | §6 (evals) |
@@ -100,9 +108,20 @@ React island(`client:load`)에 CSS를 주입할 때 주의:
 
 ---
 
-## 2. Showcase-native pages (projects 전용)
+## 2. Showcase-native pages (모든 project 쇼케이스)
 
-`project-page--showcase-native` 클래스가 붙는 페이지. `src/pages/ko/projects/[...slug].astro` 에서 `usesShowcaseNarrative === true` 분기로 진입. 2026-04 기준 `hyperframes` 만 해당. 다른 쇼케이스(yfinance, nfi 등)는 §3 표준 쇼케이스 사용.
+**Project 카테고리의 모든 페이지가 따라야 할 구성**. `project-page--showcase-native` 클래스가 붙고, `src/pages/ko/projects/[...slug].astro` 의 `usesShowcaseNarrative === true` 분기로 진입.
+
+### 2.0 HyperFrames = 유일한 레퍼런스 (운영 룰)
+
+**`https://aiki.softdaddy-o.com/ko/projects/hyperframes/` (및 프리뷰 `/ko/projects/hyperframes/`) 가 2026-04 기준 최신 UX 컴포지션이다. 모든 신규/승격 project 페이지는 이 페이지의 정보 위계와 조형을 기준선으로 맞춘다.**
+
+- "HyperFrames 가 있는 걸 보고, 다른 건 다른 방식으로 해도 된다"로 해석하지 마. HyperFrames 는 **레퍼런스**다 — 참고용이 아니라 **닮아야 할 기준**.
+- 조금 비슷하게가 아니라 **구조·카드 grammar·뷰 밀도가 같은 계보**.
+- 과거 `yfinance`, `nfi`, `nautilus-trader`, `lightrag` 의 "standard showcase" 포맷 (`showcase-frame-with-nav`, 1120 max, 180 nav rail, 산문 `<Content />` 병치) 은 **legacy**. 신규 작업에 복붙 금지. 발견하면 §2.9 로 승격 대상.
+- 유일한 예외: legacy 페이지를 건드리지 말라는 명시 지시가 있을 때만. 나머지는 무조건 §2.
+
+**세션 흉터 (nemotron-ocr-v2, 2026-04-19):** Codex 가 이 스킬 초판을 읽고 nemotron-ocr-v2 를 standard showcase (legacy `showcase-frame-with-nav`) 로 만듦. 산문 `<Content />` + 쇼케이스 컴포넌트가 섞인 mixed 페이지가 됨. 원인은 §2 opening 이 "2026-04 기준 hyperframes 만 해당" 으로 써 있어 레퍼런스 성격이 가려져 있었음. 이 §2.0 은 그 재발 방지용.
 
 ### 2.1 Anatomy
 
@@ -175,14 +194,119 @@ main:has(.project-page--showcase-native) {
 - Hero `clamp` 상한 7rem 넘으면 1280~1440 에서 우측 컬럼 침범 (§1.3).
 - 쉘 `backdrop-filter` 켜면 floating nav 가 쉘 안에 박힘 (§2.3).
 
+### 2.7 No-prose rule (정보 위계 핵심)
+
+Project 쇼케이스의 **핵심 결단**: 읽게 만들지 말고 **훑어서 판단**하게 만든다.
+
+- markdown body `<Content />` 는 **렌더하지 않는다**. `[...slug].astro` 의 `!usesShowcaseNarrative` 분기 안에 있는 `project-explainer` / `.prose` 섹션은 legacy.
+- `entry.body` 의 원문 정보는 **React 쇼케이스 컴포넌트의 데이터 배열로 분해**해 들어간다 (CASES, TAKE_CARDS, FIT_CARDS, OPS_CARDS 등).
+- 산문 `<p>` 3줄 이상 이어지는 카드는 설계가 잘못된 것. 분해가 덜 된 것.
+- 왜: HyperFrames 는 **"훑으면 30초에 판단"** 을 목표로 한다. 산문은 이 목표와 충돌. "읽는 페이지"가 필요하면 news/wiki (§3) 로 가야 할 콘텐츠다.
+
+**체크리스트:**
+- [ ] `<Content />` 안 쓰고 있다
+- [ ] 각 Panel 의 모든 정보가 `label + value + note` 또는 `title + body + chips` 로 분해돼 있다
+- [ ] 카드 안에 `<p>` 가 있으면 한 문단 이하, 2~3줄
+
+### 2.8 Panel/card grammar (HyperFrames 골격)
+
+HyperFrames 의 표준 Panel 골격. 프로젝트 특성 맞춰 조정은 가능하되, grammar 는 동일.
+
+| Panel id (prefix-) | 역할 | 카드 종류 |
+|---|---|---|
+| `hero` | title, summary, meta grid (source/metric/license/읽는 방식), tags | `meta-card` ×4 |
+| `cases` | 실행 쇼케이스 (tab + prompt + code + video + watch-points) | tab list + 4 stage cards |
+| `takeaway` | 한 줄 판단 | `insight-card` ×3, 첫 번째 accent |
+| `decide` | USE IT / SKIP IT 2분할 | `insight-card` ×N |
+| `adopt` | 도입 흐름 (step + command + body) | `step-card` ×3–5 |
+| `ops` | 운영 비용 / 환경 조건 | `insight-card` ×N |
+| `compare` | vs 대안 도구 | `compare-card` ×3–5 |
+| `fact` | FactCheck 공유 컴포넌트 (§1.4) | `<FactCheck>` 한 개 |
+
+**필수 Panel**: `hero`, `takeaway`, `decide`, `fact`. 나머지는 프로젝트 성격에 맞게 가감 가능하지만 생략 시 이유 기록.
+
+**카드 visual contract** — 모든 정보 원자는 bordered card:
+
+```css
+border: 1px solid var(--color-border);
+background: var(--color-surface);
+border-radius: 8~14px;
+padding: 14~22px;
+min-width: 0;
+```
+
+**카드 내용 grammar**:
+- `<kicker>` (small uppercase/muted label) + `<strong/h3>` (title) + `<p>` (body, 1~3줄) + 선택적 `<chip-row>`
+- 또는 `<label>` (dt-스타일) + `<value>` (dd, 큰 폰트) + 선택적 `<note>`
+
+**Panel visual contract**:
+- 같은 bordered surface 사용
+- `<Panel head>` 에 h2 (`font-size: clamp(20~28px)`), 아래 카드 grid
+- grid 는 `minmax(0, 1fr)` (§1.2)
+
+### 2.9 Legacy 판별 — 보이면 승격
+
+다음 신호 하나라도 있으면 legacy, showcase-native 로 승격 필요.
+
+| 신호 | 의미 |
+|---|---|
+| `!usesShowcaseNarrative` 분기 안에서 렌더 | legacy project 템플릿 탔음 |
+| `project-hero` + `model-card` + `hero-tags` HTML 구조 (astro 내부) | legacy hero. `hf-hero` + `hf-meta-grid` 로 교체 |
+| `project-explainer` + `<Content />` | 산문 섹션. §2.7 위반. 제거하고 Panel 로 분해 |
+| `showcase-frame-with-nav` (1120 max, 180 nav rail) | legacy shell. `showcase-frame + {slug}-frame` 로 교체 |
+| `showcase-intro` + `<p>` + `<h2>` + `<span>` 의 외부 hero | legacy. hero 는 React 컴포넌트 안의 `Panel id={prefix-hero}` 로 이동 |
+| Panel 없이 평면 `<section>` 나열 | grammar 없음. Panel 로 래핑 |
+| React 컴포넌트 안에 cover 이미지 + HTML 산문 mix | no-prose 위반 (§2.7) |
+
+승격 절차:
+1. `showcaseComponent` slug 을 `usesShowcaseNarrative` 판별에 추가 (§2.10).
+2. React 컴포넌트 안에 `ShowcaseSectionNav` + Panel grammar 로 재구성.
+3. Astro 쪽 legacy hero/explainer 섹션 제거.
+4. BaseLayout `main:has()` override 에 이미 `.project-page--showcase-native` 가 있는지 확인 (§2.4).
+
+### 2.10 코드 경로 (`usesShowcaseNarrative` 게이트)
+
+현재 `src/pages/ko/projects/[...slug].astro` 에 다음 줄이 있음:
+
+```ts
+const usesShowcaseNarrative = showcaseComponent === 'hyperframes';
+```
+
+**이 체크는 임시 방편**. 신규/승격 쇼케이스마다 확장해야 함:
+
+```ts
+const SHOWCASE_NATIVE = new Set(['hyperframes', 'nemotron-ocr-v2', /* ... */]);
+const usesShowcaseNarrative = SHOWCASE_NATIVE.has(showcaseComponent);
+```
+
+장기: legacy 분기 (`!usesShowcaseNarrative` 의 hero/explainer) 를 전부 제거하고 모든 프로젝트가 showcase-native 경로로만 들어가게 리팩토. 새 쇼케이스가 들어올 때마다 이 리팩토 한 스텝씩 전진.
+
+### 2.11 현재 마이그레이션 백로그
+
+2026-04-19 기준 R8 FAIL 로 올라오는 legacy 쇼케이스 (`check-source.mjs` 가 자동 감지):
+
+| slug | 상태 | 비고 |
+|---|---|---|
+| `hyperframes` | ✅ showcase-native | 레퍼런스 |
+| `nemotron-ocr-v2` | 🚧 승격 대기 | §2.7 산문 혼합, §2.9 승격 절차로 먼저 처리 |
+| `yfinance` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
+| `nfi` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
+| `nautilus-trader` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
+| `lightrag` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
+
+각 승격 시 R8 FAIL 하나씩 내려감. 전부 내려가면 legacy 분기 자체를 제거 (§2.10 장기 목표).
+
 ---
 
-## 3. Standard pages (news / wiki / 기본 project)
+## 3. Standard pages (news / wiki 전용)
+
+**읽기용 장문 콘텐츠 전용**. Project 페이지는 절대 여기 포함 안 됨 — project 는 무조건 §2.
 
 ### 3.1 레이아웃 defaults
 
 - `main { max-width: 960px }` 그대로 사용. 절대 해제하지 마.
-- 페이지 article 클래스: `.project-page`, `.wiki-page`, `.news-page` 등.
+- 기사 본문 열 폭은 680px 전후로 유지 (현 `wiki-article`, `news-article` 기본값).
+- 페이지 article 클래스: `.wiki-article`, `.news-article`.
 - FactCheck 있는 글은 `<FactCheck>` 카드 필수 (§1.4).
 
 ### 3.2 News 페이지 특이사항
@@ -197,11 +321,11 @@ main:has(.project-page--showcase-native) {
 - 인라인 링크, 구체적 숫자 최소치 존재.
 - 관련 용어 자동 링킹은 `scripts/aiki-link-related-terms.cjs` 가 처리.
 
-### 3.4 Standard project 쇼케이스 (non-hyperframes)
+### 3.4 산문 OK, 단 품질 기준은 유지
 
-- `showcase-frame-with-nav` 래퍼 사용 (180px nav 레일 + 1fr 콘텐츠).
-- 쉘 1120px max 고정.
-- 외부 `<header class="showcase-intro">` 로 타이틀/레데/서브 제공 (showcase 컴포넌트 내부에 hero 중복 넣지 마).
+news/wiki 는 산문 허용 (§2.7 no-prose 규칙은 여기 적용 안 됨). 하지만:
+- 인라인 숫자·링크 있는 구체 문장 선호.
+- 핵심 정보가 본문 중간에 묻혀 있으면 wiki 는 **하위 헤딩으로 분할**, news 는 **리드 문단에 요약**.
 
 ---
 
@@ -209,19 +333,28 @@ main:has(.project-page--showcase-native) {
 
 신규 페이지/섹션 만들 때 순서. 건너뛰면 나중에 다시 고치게 됨.
 
-1. **타입 결정**: showcase-native(§2) vs standard(§3). 고민되면 기본 standard.
-2. **BaseLayout 영향 확인**: 신규 클래스가 `main` 폭을 바꿔야 하면 §2.4 형식으로 `main:has(.신규-클래스)` 규칙을 `BaseLayout.astro` 에 추가.
-3. **Anatomy 스캐폴드**: `src/pages/` 또는 `src/components/` 에 구조 작성. Id, 공유 컴포넌트 사용, `:global()` 경계 명시.
-4. **Responsive 체크리스트 적용** (`refs/responsive-checklist.md` 전부):
+1. **타입 결정**:
+   - project 카테고리 페이지 → **무조건 §2 (showcase-native, HyperFrames 기준 clone)**. 예외 없음.
+   - news 기사 → §3 (standard).
+   - wiki 항목 → §3 (standard).
+   - 그 외는 기본 standard.
+2. **Project 인 경우**: HyperFrames 소스 (`src/components/projects/showcases/hyperframes/index.tsx`) 를 열고 §2.8 Panel grammar 로 **새 쇼케이스 컴포넌트 설계**.
+   - 컨텐츠를 우선 CASES / TAKE_CARDS / FIT_CARDS / SKIP_CARDS / ADOPTION_STEPS / OPS_CARDS / COMPARE_CARDS 로 분해 (원본 markdown 은 참고만).
+   - Panel id prefix 를 slug 기반으로 잡기 (`nemotron-ocr-section-`).
+   - `[...slug].astro` 의 `usesShowcaseNarrative` 집합에 slug 추가 (§2.10).
+3. **BaseLayout 영향 확인**: showcase-native 라면 `main:has(.project-page--showcase-native)` override 이미 있음 (§2.4). 새 wide 클래스가 따로 필요한 경우에만 추가.
+4. **Anatomy 스캐폴드**: `src/pages/` 또는 `src/components/` 에 구조 작성. Id, 공유 컴포넌트 사용, `:global()` 경계 명시.
+5. **Responsive 체크리스트 적용** (`refs/responsive-checklist.md` 전부):
    - [ ] 모든 그리드: `minmax(0, 1fr)` / `repeat(N, minmax(0, 1fr))`
    - [ ] 그리드·플렉스 카드: `min-width: 0`
    - [ ] `<pre>`, `<code>`: `max-width: 100%; min-width: 0; overflow: auto`
    - [ ] Hero clamp 상한 `6rem` 선, 최대 `7rem`
    - [ ] Korean 본문: `word-break: keep-all`
    - [ ] 브레이크포인트 최소 4: 1200, 1100, 900, 720 (필요 시 추가)
-5. **디버그 iframe 통과**: `refs/debug-iframe.html` 복사해서 `dist/_eval/dbg.html` 로 놓고 Chrome headless 로 돌려봄 (§5.2 참고). TRUE overflow 0 확인.
-6. **Eval 통과** (§6): `bun run eval:ui` (또는 수동으로 `node .claude/skills/aiki-ui-ux/eval/check-source.mjs`).
-7. **커밋 → 푸시 → 배포 검증** (§7).
+6. **Project-only: no-prose 체크** (§2.7): `<Content />` 안 쓰는지, 카드 안 `<p>` 3줄 이하인지.
+7. **디버그 iframe 통과**: `refs/debug-iframe.html` 복사해서 `dist/_eval/dbg.html` 로 놓고 Chrome headless 로 돌려봄 (§5.2 참고). TRUE overflow 0 확인.
+8. **Eval 통과** (§6): `bun run eval:ui` (또는 수동으로 `node .claude/skills/aiki-ui-ux/eval/check-source.mjs`).
+9. **커밋 → 푸시 → 배포 검증** (§7).
 
 ---
 
@@ -293,6 +426,8 @@ node .claude/skills/aiki-ui-ux/eval/check-source.mjs
 - `hf-fact-*`, `news-fact-*` 등 인라인 FactCheck 재구현
 - `main { max-width: ... }` 을 BaseLayout 밖 파일에 쓴 경우
 - Showcase-native 페이지인데 `main:has(...)` override 누락
+- **Project 쇼케이스가 showcase-native set 에 없음** (§2.0, R8 FAIL)
+- **Project `[...slug].astro` 에 `project-explainer + <Content />` 레거시 산문 분기** (§2.7, R9 WARN)
 
 출력: FAIL / WARN / INFO 카테고리. FAIL 있으면 프로세스 exit code 1.
 

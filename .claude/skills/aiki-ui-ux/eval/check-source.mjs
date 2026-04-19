@@ -173,6 +173,54 @@ function checkBackdropFilter(file, src) {
   });
 }
 
+// R8: Project showcase must be showcase-native (SKILL.md §2.0 / §2.10).
+//     Check the project [...slug].astro for any `showcaseComponent === 'X'` branch whose slug
+//     is not in the showcase-native set (derived from the same file's `usesShowcaseNarrative` gate).
+function checkProjectShowcaseNative(file, src) {
+  if (!file.endsWith(join('pages', 'ko', 'projects', '[...slug].astro'))
+      && !/projects[\/\\]\[\.\.\.slug\]\.astro$/.test(file)) return;
+  // find branches like `showcaseComponent === 'xyz'`
+  const branchRe = /showcaseComponent\s*===\s*['"]([^'"]+)['"]/g;
+  const branches = new Set();
+  let m;
+  while ((m = branchRe.exec(src)) !== null) branches.add(m[1]);
+  if (branches.size === 0) return;
+  // find the showcase-native set: either `showcaseComponent === 'hyperframes'` line assigned to
+  // usesShowcaseNarrative, or a `SHOWCASE_NATIVE = new Set([...])` pattern.
+  const singleRe = /usesShowcaseNarrative\s*=\s*showcaseComponent\s*===\s*['"]([^'"]+)['"]/;
+  const setRe = /SHOWCASE_NATIVE\s*=\s*new\s+Set\(\[([^\]]+)\]\)/;
+  const nativeSet = new Set();
+  const s1 = singleRe.exec(src);
+  if (s1) nativeSet.add(s1[1]);
+  const s2 = setRe.exec(src);
+  if (s2) {
+    for (const tok of s2[1].split(',')) {
+      const clean = tok.trim().replace(/^['"]|['"]$/g, '');
+      if (clean) nativeSet.add(clean);
+    }
+  }
+  for (const slug of branches) {
+    if (nativeSet.has(slug)) continue;
+    record('FAIL', 'R8-project-not-native', file, 1,
+      `Project showcase "${slug}" 이(가) showcase-native set 에 없음. SKILL.md §2.0 — 모든 project 는 showcase-native. §2.10 의 usesShowcaseNarrative gate 에 추가하거나 legacy 를 승격.`);
+  }
+}
+
+// R9: project page must not render <Content /> in a project-explainer/prose section (SKILL.md §2.7 no-prose).
+function checkProjectNoProse(file, src) {
+  if (!/projects[\/\\]\[\.\.\.slug\]\.astro$/.test(file)) return;
+  // Look for `project-explainer` class and `<Content />` tag existing together.
+  const hasExplainer = /project-explainer/.test(src);
+  const hasContent = /<Content\s*\/>/.test(src);
+  if (hasExplainer && hasContent) {
+    // locate the first project-explainer line
+    const idx = src.indexOf('project-explainer');
+    const line = src.slice(0, idx).split('\n').length;
+    record('WARN', 'R9-project-prose-legacy', file, line,
+      `project-explainer + <Content /> 결합은 legacy 산문 분기. SKILL.md §2.7 / §2.9 — 신규/승격 페이지는 Panel 로 분해. 현재 남은 레거시 페이지 지원 중에는 WARN 으로만 둠.`);
+  }
+}
+
 // ── run ──────────────────────────────────────────────────────────────────────
 
 const files = SCAN_ROOTS.flatMap(root => walk(root));
@@ -186,6 +234,8 @@ for (const f of files) {
   checkInlineFactCheck(f, src);
   checkMainMaxWidth(f, src);
   checkBackdropFilter(f, src);
+  checkProjectShowcaseNative(f, src);
+  checkProjectNoProse(f, src);
 }
 checkBaseLayoutHasOverride();
 

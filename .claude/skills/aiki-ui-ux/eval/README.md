@@ -21,6 +21,8 @@ node .claude/skills/aiki-ui-ux/eval/check-source.mjs
 | R5-main-maxwidth | WARN | BaseLayout 밖에서 `main { max-width }` 수정. |
 | R6-baselayout-has | **FAIL** | BaseLayout 에 `main:has(.project-page--showcase-native)` override 누락. |
 | R7-backdrop-filter | INFO | showcase 관련 파일에 `backdrop-filter` 활성화. floating 자식 있으면 꺼. |
+| R8-project-not-native | **FAIL** | `[...slug].astro` 의 `showcaseComponent === 'X'` 분기에서 X 가 showcase-native set 에 없음. 모든 project 는 showcase-native (§2.0). |
+| R9-project-prose-legacy | WARN | project 페이지에서 `project-explainer + <Content />` 레거시 산문 분기 검출 (§2.7). |
 
 FAIL 1개라도 있으면 exit 1.
 
