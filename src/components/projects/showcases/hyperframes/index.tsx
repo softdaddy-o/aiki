@@ -524,13 +524,14 @@ const showcaseCss = `
 .hf-insight-card--accent{background:color-mix(in srgb,var(--color-projects) 8%,var(--color-surface))}
 .hf-insight-card h3{margin:0 0 10px;font-size:1.08rem;line-height:1.3}
 .hf-insight-card p{color:var(--color-text-muted)}
-.hf-split-grid{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.hf-split-panel{display:grid;gap:14px;padding:16px;border-radius:18px;background:var(--color-surface-alt)}
+.hf-split-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.hf-split-panel{display:grid;gap:14px;padding:18px;border-radius:18px;background:var(--color-surface-alt)}
 .hf-split-panel.fit{border:1px solid color-mix(in srgb,var(--color-projects) 30%,transparent)}
 .hf-split-panel.skip{border:1px solid color-mix(in srgb,var(--color-border) 90%,transparent)}
 .hf-split-title{color:var(--color-projects);font-size:.82rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 .hf-insight-grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .hf-insight-grid--ops{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hf-insight-card h3{word-break:keep-all}
 .hf-step-card{display:grid;gap:10px}
 .hf-step-card code{padding:10px}
 .hf-adoption-grid{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}

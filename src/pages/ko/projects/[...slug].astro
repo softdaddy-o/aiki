@@ -203,7 +203,7 @@ const shareUrl = Astro.url.href;
 
         {showcaseComponent === 'hyperframes' && (
             <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-shell">
+                <div class="showcase-shell hf-shell">
                     <div class="showcase-frame showcase-frame-with-nav hf-frame">
                         <HyperFramesShowcase
                             client:load
@@ -590,6 +590,11 @@ const shareUrl = Astro.url.href;
         backdrop-filter: blur(10px);
     }
 
+    .hf-shell {
+        max-width: min(1240px, calc(100vw - 24px));
+        backdrop-filter: none;
+    }
+
     .hf-frame :global(.showcase-section-nav) {
         grid-column: 1;
         grid-row: 1 / span 2;
@@ -600,6 +605,33 @@ const shareUrl = Astro.url.href;
         min-width: 0;
         margin-top: 18px;
         scroll-margin-top: 100px;
+    }
+
+    @media (min-width: 1280px) {
+        .showcase-frame.hf-frame {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .showcase-frame.hf-frame :global(.hf-main) {
+            grid-column: 1;
+        }
+
+        .hf-fact-wrap {
+            grid-column: 1;
+        }
+
+        .showcase-frame.hf-frame :global(.showcase-section-nav) {
+            position: fixed;
+            top: 92px;
+            left: max(16px, calc(50vw - 820px));
+            width: 184px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            z-index: 40;
+            grid-row: auto;
+            grid-column: auto;
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.32);
+        }
     }
 
     .showcase-frame {
