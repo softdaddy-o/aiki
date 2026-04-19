@@ -87,11 +87,12 @@ reviewStamp:
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.3.0"
+    structure-editor: "1.1.0"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "b3f653ac40157877"
+  reviewedAt: "2026-04-19"
 ---
 ## 한 줄 정의
 Agentic Coding은 AI가 답만 던지고 끝나는 게 아니라, 목표를 받고 계획, 파일 수정, 테스트, 검토를 한 루프로 이어 가는 개발 방식이야. [agent](/ko/wiki/agent/)가 실제 도구를 만지며 일한다는 점에서 단순 자동완성이나 채팅 보조보다 훨씬 넓은 말이야.

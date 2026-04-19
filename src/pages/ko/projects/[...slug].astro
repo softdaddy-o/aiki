@@ -82,7 +82,16 @@ function getSourceMeta(url: string) {
 }
 
 const sourceMeta = getSourceMeta(sourceUrl);
-const usesShowcaseNarrative = showcaseComponent === 'hyperframes';
+const SHOWCASE_NATIVE = new Set([
+    'yfinance',
+    'nfi',
+    'nautilus-trader',
+    'lightrag',
+    'hyperframes',
+    'nemotron-ocr-v2',
+]);
+const SHOWCASE_NATIVE_NARRATIVE = new Set(['hyperframes', 'nemotron-ocr-v2']);
+const usesShowcaseNarrative = showcaseComponent ? SHOWCASE_NATIVE_NARRATIVE.has(showcaseComponent) : false;
 
 function formatStars(value: number): string {
     if (value >= 1000) {
@@ -232,15 +241,30 @@ const shareUrl = Astro.url.href;
         )}
 
         {showcaseComponent === 'nemotron-ocr-v2' && (
-            <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
-                <div class="showcase-shell">
-                    <div class="showcase-frame showcase-frame-with-nav">
-                        <header class="showcase-intro">
-                            <p>인터랙티브 쇼케이스</p>
-                            <h2>한글 테스트 이미지를 실제로 돌린 OCR 결과와 속도 감각</h2>
-                            <span>입력 이미지, 주석 결과, 실제 추출 텍스트, 공식 처리량과 메모리 조건을 한 화면에서 같이 볼 수 있어.</span>
-                        </header>
-                        <NemotronOcrShowcase client:load slug={entry.data.slug} />
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav showcase-frame--nemotron hf-frame">
+                        <NemotronOcrShowcase
+                            client:load
+                            slug={entry.data.slug}
+                            title={title}
+                            summary={summary}
+                            tags={tags}
+                            sourceMeta={sourceMeta}
+                            metricValue={formatStars(displayedMetric)}
+                            license={license}
+                        />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="nm-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>
@@ -531,7 +555,9 @@ const shareUrl = Astro.url.href;
         left: 0;
         top: calc(100% + 10px);
         z-index: 12;
-        width: min(280px, calc(100vw - 48px));
+        display: none;
+        width: min(280px, calc(100vw - 32px));
+        max-width: calc(100vw - 32px);
         padding: 10px 12px;
         border: 1px solid var(--color-border);
         border-radius: 10px;
@@ -551,6 +577,7 @@ const shareUrl = Astro.url.href;
 
     .project-page :global(.term-hint:hover .term-hint__tooltip),
     .project-page :global(.term-hint:focus-within .term-hint__tooltip) {
+        display: block;
         opacity: 1;
         transform: translateY(0);
     }
@@ -618,7 +645,8 @@ const shareUrl = Astro.url.href;
             grid-template-columns: minmax(0, 1fr);
         }
 
-        .showcase-frame.hf-frame :global(.hf-main) {
+        .showcase-frame.hf-frame :global(.hf-main),
+        .showcase-frame.hf-frame :global(.nm-main) {
             grid-column: 1;
         }
 
@@ -669,6 +697,10 @@ const shareUrl = Astro.url.href;
         max-width: none;
     }
 
+    .showcase-frame--nemotron {
+        row-gap: 18px;
+    }
+
     .showcase-intro {
         grid-column: 1 / -1;
         margin: 0;
@@ -699,6 +731,30 @@ const shareUrl = Astro.url.href;
         color: var(--color-text-muted);
         font-size: var(--text-lg);
         line-height: 1.65;
+        word-break: keep-all;
+    }
+
+    .showcase-intro--compact {
+        padding-bottom: 8px;
+    }
+
+    .showcase-intro--compact p {
+        margin-bottom: 8px;
+        font-size: clamp(0.98rem, 2vw, 1.3rem);
+        line-height: 1;
+        letter-spacing: 0.08em;
+    }
+
+    .showcase-intro--compact h2 {
+        max-width: 780px;
+        font-size: clamp(1.42rem, 2.5vw, 2.18rem);
+        line-height: 1.2;
+        word-break: keep-all;
+    }
+
+    .showcase-intro--compact span {
+        max-width: 720px;
+        font-size: var(--text-base);
     }
 
     .project-footer {
@@ -754,7 +810,7 @@ const shareUrl = Astro.url.href;
         }
 
         .model-card-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
         }
 
         .showcase-area {
@@ -787,6 +843,27 @@ const shareUrl = Astro.url.href;
 
         .showcase-intro span {
             font-size: var(--text-base);
+        }
+
+        .project-page :global(.term-hint__tooltip) {
+            left: 50%;
+            width: min(240px, calc(100vw - 24px));
+            max-width: calc(100vw - 24px);
+            transform: translateX(-50%) translateY(4px);
+        }
+
+        .project-page :global(.term-hint:hover .term-hint__tooltip),
+        .project-page :global(.term-hint:focus-within .term-hint__tooltip) {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .showcase-intro--compact p {
+            font-size: clamp(0.9rem, 5.5vw, 1.12rem);
+            letter-spacing: 0.05em;
+        }
+
+        .showcase-intro--compact h2 {
+            font-size: clamp(1.16rem, 6.8vw, 1.7rem);
         }
     }
 </style>
