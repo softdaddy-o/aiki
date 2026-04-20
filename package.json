@@ -43,7 +43,10 @@
     "review:projects:all": "node scripts/aiki-review-panel.cjs --target projects --all",
     "review:projects:only": "node scripts/aiki-review-panel.cjs --target projects --only",
     "review:gate": "node scripts/aiki-review-gate.cjs",
-    "review:gate:all": "node scripts/aiki-review-gate.cjs --all"
+    "review:gate:all": "node scripts/aiki-review-gate.cjs --all",
+    "migrate:format-version": "node scripts/aiki-migrate-format-version.cjs",
+    "migrate:format-version:dry": "node scripts/aiki-migrate-format-version.cjs --dry-run",
+    "migrate:format-version:rewrite": "node scripts/aiki-migrate-format-version.cjs --news-only --rewrite"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.2",
