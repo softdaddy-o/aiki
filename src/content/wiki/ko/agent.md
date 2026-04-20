@@ -1,79 +1,81 @@
 ---
 term: agent
-title: "AI Agent (AI 에이전트)"
+title: AI Agent (AI 에이전트)
 lang: ko
-summary: "AI Agent는 모델이 답만 내놓는 걸 넘어서, 목표를 받고 계획을 세우고 도구를 쓰며 여러 단계를 이어서 작업하게 만든 실행 구조야."
-readerValue: "기사에서 agent라는 말이 나오면 새 모델 이야기인지, 기존 모델 위에 자동화 계층을 얹은 제품 이야기인지 먼저 구분하는 데 도움이 돼."
+summary: 'AI Agent는 모델이 답만 내놓는 걸 넘어서, 목표를 받고 계획을 세우고 도구를 쓰며 여러 단계를 이어서 작업하게 만든 실행 구조야.'
+readerValue: '기사에서 agent라는 말이 나오면 새 모델 이야기인지, 기존 모델 위에 자동화 계층을 얹은 제품 이야기인지 먼저 구분하는 데 도움이 돼.'
 category: concept
 guideVersion:
-  common: "1.0.0"
-  wiki: "3.0.0"
+  common: 1.0.0
+  wiki: 3.0.0
 aliases:
-  - "ai agent"
-  - "intelligent agent"
+  - ai agent
+  - intelligent agent
 relatedTerms:
   - agentic-ai
   - langchain
   - langgraph
   - n8n
-firstMentioned: "2021-06-29"
+firstMentioned: '2021-06-29'
 mentionCount: 42
-draft: false
+draft: true
 tags:
   - autonomy
   - workflow
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: '2026-04-13'
   sources:
-    - url: "https://en.wikipedia.org/wiki/Intelligent_agent"
-      title: "Intelligent agent"
-    - url: "https://www.ibm.com/think/topics/ai-agents"
-      title: "What Are AI Agents? | IBM"
+    - url: 'https://en.wikipedia.org/wiki/Intelligent_agent'
+      title: Intelligent agent
+    - url: 'https://www.ibm.com/think/topics/ai-agents'
+      title: What Are AI Agents? | IBM
   checks:
     - type: source_match
       result: pass
-      summary: "에이전트를 스스로 상태를 보고 목표를 향해 행동하는 실행 주체로 풀어도 기본 정의와 어긋나지 않는지 먼저 맞춰봤어."
+      summary: 에이전트를 스스로 상태를 보고 목표를 향해 행동하는 실행 주체로 풀어도 기본 정의와 어긋나지 않는지 먼저 맞춰봤어.
       items:
-        - "독자 문제 대조: agent를 새 모델 이름으로 읽기 쉬운데, 실제로는 목표를 받고 행동을 이어 가는 실행 구조라는 점부터 갈라 봐야 해."
-        - "IBM 쪽 설명은 여기에 목표 달성, 자율적 행동, 도구 사용 같은 실무 문맥을 더 붙여 줘."
-        - "그래서 이 문서에서 AI Agent를 '모델+계획+도구+상태' 구조로 푼 건 개념 확장 범위 안에 있어."
-        - "별칭인 ai agent와 intelligent agent도 같은 계열 개념으로 묶어도 무리가 없어."
+        - >-
+          독자 문제 대조: agent를 새 모델 이름으로 읽기 쉬운데, 실제로는 목표를 받고 행동을 이어 가는 실행 구조라는 점부터
+          갈라 봐야 해.
+        - 'IBM 쪽 설명은 여기에 목표 달성, 자율적 행동, 도구 사용 같은 실무 문맥을 더 붙여 줘.'
+        - 그래서 이 문서에서 AI Agent를 '모델+계획+도구+상태' 구조로 푼 건 개념 확장 범위 안에 있어.
+        - 별칭인 ai agent와 intelligent agent도 같은 계열 개념으로 묶어도 무리가 없어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "학술적 정의와 실무적 설명을 같이 놓고, 에이전트를 단순 챗봇과 같은 말로 축소하지 않았는지 다시 봤어."
+      summary: '학술적 정의와 실무적 설명을 같이 놓고, 에이전트를 단순 챗봇과 같은 말로 축소하지 않았는지 다시 봤어.'
       items:
-        - "비교 기준: 에이전트를 단순 챗봇으로 읽을지, 목표를 향해 행동을 이어 가는 구조로 읽을지부터 갈라 봐야 해."
-        - "둘을 겹쳐 보면 핵심은 '답변 생성'보다 '행동과 진행' 쪽에 있어."
-        - "그래서 에이전트를 그냥 채팅 UI나 보조 기능 하나로 읽으면 범위가 좁아져."
-        - "문서 본문도 이 차이를 먼저 설명하도록 맞췄어."
+        - '비교 기준: 에이전트를 단순 챗봇으로 읽을지, 목표를 향해 행동을 이어 가는 구조로 읽을지부터 갈라 봐야 해.'
+        - 둘을 겹쳐 보면 핵심은 '답변 생성'보다 '행동과 진행' 쪽에 있어.
+        - 그래서 에이전트를 그냥 채팅 UI나 보조 기능 하나로 읽으면 범위가 좁아져.
+        - 문서 본문도 이 차이를 먼저 설명하도록 맞췄어.
     - type: number_verify
       result: pass
-      summary: "숫자보다 구조가 중요한 항목이라, 에이전트를 구성하는 요소가 실제 문맥과 맞는지 쪽으로 다시 봤어."
+      summary: '숫자보다 구조가 중요한 항목이라, 에이전트를 구성하는 요소가 실제 문맥과 맞는지 쪽으로 다시 봤어.'
       items:
-        - "계획, 상태, 도구 호출, 반복 실행은 실무에서 에이전트를 설명할 때 자주 묶이는 축이야."
-        - "여기서 특정 프레임워크 이름을 정의 자체로 넣지 않고 상위 개념으로 남겨 둔 것도 맞아."
-        - "즉 LangChain이나 LangGraph는 에이전트 그 자체가 아니라 구현 수단 쪽에 가까워."
+        - '계획, 상태, 도구 호출, 반복 실행은 실무에서 에이전트를 설명할 때 자주 묶이는 축이야.'
+        - 여기서 특정 프레임워크 이름을 정의 자체로 넣지 않고 상위 개념으로 남겨 둔 것도 맞아.
+        - 즉 LangChain이나 LangGraph는 에이전트 그 자체가 아니라 구현 수단 쪽에 가까워.
     - type: adversarial
       result: pass
-      summary: "처음 읽는 사람이 가장 많이 하는 오해가 뭔지 따로 떼서 다시 봤어."
+      summary: 처음 읽는 사람이 가장 많이 하는 오해가 뭔지 따로 떼서 다시 봤어.
       items:
-        - "AI Agent는 새 모델 이름이 아니라, 모델이 일을 진행하게 만드는 운영 구조를 가리키는 경우가 많아."
-        - "에이전트라고 해서 무조건 자율성이 높은 것도 아니고, 실제론 규칙이 강한 워크플로일 수도 있어."
-        - "그래서 기사에서 agent라는 말이 나오면 '뭘 할 수 있나'보다 '어디까지 스스로 진행하나'를 같이 봐야 해."
+        - 'AI Agent는 새 모델 이름이 아니라, 모델이 일을 진행하게 만드는 운영 구조를 가리키는 경우가 많아.'
+        - '에이전트라고 해서 무조건 자율성이 높은 것도 아니고, 실제론 규칙이 강한 워크플로일 수도 있어.'
+        - 그래서 기사에서 agent라는 말이 나오면 '뭘 할 수 있나'보다 '어디까지 스스로 진행하나'를 같이 봐야 해.
       findings:
-        - "에이전트의 핵심은 말 잘하는 모델이 아니라, 목표를 받아 일을 이어 가는 실행 루프에 있어."
+        - '에이전트의 핵심은 말 잘하는 모델이 아니라, 목표를 받아 일을 이어 가는 실행 루프에 있어.'
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.0.0
+    tone-editor: 1.0.0
+    structure-editor: 1.0.0
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  reviewedAt: '2026-04-17'
 ---
 
 ## 한 줄 정의

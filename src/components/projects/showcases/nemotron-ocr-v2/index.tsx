@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface ShowcaseSourceMeta {
@@ -289,7 +290,11 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                     </div>
                 </section>
 
-                <Panel id={`${SECTION_PREFIX}cases`} title="실행 보드">
+                <Panel
+                    id={`${SECTION_PREFIX}cases`}
+                    title="실행 보드"
+                    description={<>공개 Space 결과와 로컬 <TermHint term="merge mode" description="OCR이 감지한 박스들을 줄, 문단, 레이아웃 단위로 어떻게 묶어 최종 텍스트를 만드는지 정하는 옵션이야." /> 차이를 같은 보드에서 바로 본다.</>}
+                >
                     <div className="nm-case-tabs" role="tablist" aria-label="Nemotron OCR v2 demo views">
                         <DemoTab current={view} next="input" label="입력 카드" onSelect={setView} />
                         <DemoTab current={view} next="annotated" label="주석 결과" onSelect={setView} />
@@ -412,7 +417,11 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel id={`${SECTION_PREFIX}ops`} title="운영 조건">
+                <Panel
+                    id={`${SECTION_PREFIX}ops`}
+                    title="운영 조건"
+                    description={<>cold start와 warm run을 나눠 보고, <TermHint term="reserved VRAM" description="프레임워크가 실제 사용량과 별도로 미리 잡아 둔 GPU 메모리까지 포함한 보수적 점유량이야." /> 기준으로 배치 여유를 판단한다.</>}
+                >
                     <div className="nm-insight-grid nm-insight-grid--ops">
                         {OPS_CARDS.map((item) => (
                             <Insight key={item.title} item={item} />
@@ -436,11 +445,12 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
     );
 }
 
-function Panel({ id, title, children }: { id: string; title: string; children: ReactNode }) {
+function Panel({ id, title, description, children }: { id: string; title: string; description?: ReactNode; children: ReactNode }) {
     return (
         <section className="nm-panel" id={id}>
             <div className="nm-panel-head">
                 <h2>{title}</h2>
+                {description ? <p>{description}</p> : null}
             </div>
             {children}
         </section>
@@ -640,8 +650,9 @@ const showcaseCss = `
   color:var(--color-text-muted);
   font-size:.76rem
 }
-.nm-panel-head{margin-bottom:14px}
+.nm-panel-head{display:grid;gap:6px;margin-bottom:14px}
 .nm-panel-head h2{margin:0;font-size:1.16rem}
+.nm-panel-head p{margin:0;max-width:760px;color:var(--color-text-muted);font-size:.92rem;line-height:1.7}
 .nm-case-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
 .nm-case-tabs button{
   min-width:148px;

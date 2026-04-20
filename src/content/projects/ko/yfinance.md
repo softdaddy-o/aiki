@@ -13,6 +13,38 @@ license: "Apache-2.0"
 draft: false
 date: "2026-04-15"
 edition: "ai"
+factCheck:
+  status: "pending"
+  date: "2026-04-20"
+  sources:
+    - url: "https://github.com/ranaroussi/yfinance"
+      title: "ranaroussi/yfinance GitHub repository"
+    - url: "https://pypi.org/project/yfinance/"
+      title: "yfinance on PyPI"
+    - url: "https://ranaroussi.github.io/yfinance/"
+      title: "yfinance documentation"
+  checks:
+    - type: "source_match"
+      result: "pass"
+      sources: 3
+      summary: "프로젝트 소개, 핵심 기능, 설치 경로를 GitHub 저장소, PyPI, 공식 문서 기준으로 다시 맞춰뒀어."
+      items:
+        - "Ticker, Tickers, download, Search, Sector/Industry, Screener 흐름이 PyPI 설명과 문서 예시 기준으로 맞아."
+        - "이 페이지의 '시장 샘플, 묶음 조회, 검색과 탐색, 종목 상세' 구성은 실제 문서에 있는 공개 API 범위를 넘겨 말하지 않게 조정했어."
+    - type: "web_cross_check"
+      result: "pass"
+      sources: 3
+      summary: "연구용 오픈소스 라이브러리라는 설명과 데이터 이용 주의 문구를 공식 문서 쪽 표현과 교차 확인했어."
+      items:
+        - "PyPI와 문서 모두 yfinance가 Yahoo의 공개 API를 활용하는 연구·교육용 도구라고 적고 있어."
+        - "Yahoo 데이터 이용 조건은 별도로 확인해야 한다는 경고도 PyPI와 문서에 같이 들어 있어."
+    - type: "number_verify"
+      result: "pass"
+      sources: 2
+      summary: "별 개수나 릴리스 같은 숫자는 시점 의존 값이라 고정 사실로 과장하지 않도록 메타 카드와 팩트 체크를 분리했어."
+      items:
+        - "이 페이지의 stars 표시는 카탈로그 시점 스냅샷이므로 배포 전 다시 확인하는 전제가 붙어."
+        - "핵심 판단은 숫자보다 기능 범위와 법적 주의사항 쪽에 두는 편이 안전해."
 ---
 
 ## 뭘 해볼 수 있나

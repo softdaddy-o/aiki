@@ -6,6 +6,21 @@ import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface YfinanceShowcaseProps {
     slug: string;
+    title: string;
+    summary: string;
+    tags: string[];
+    sourceMeta: ShowcaseSourceMeta;
+    metricValue: string;
+    license: string;
+}
+
+interface ShowcaseSourceMeta {
+    provider: string;
+    itemLabel: string;
+    metricLabel: string;
+    mark: string;
+    className: string;
+    path: string;
 }
 
 type RecordValue = Record<string, unknown>;
@@ -59,6 +74,7 @@ interface MarketData {
 }
 
 const SECTION_LABELS = [
+    { id: 'hero', label: '소개', description: '한눈 요약과 메타' },
     { id: 'universes', label: '시장 샘플', description: '지역별 자산군 샘플' },
     { id: 'batch', label: '묶음 조회', description: '여러 종목을 한 번에 확인' },
     { id: 'discovery', label: '검색 탐색', description: '검색과 스크리너 흐름' },
@@ -184,12 +200,12 @@ const TEXT_LABELS: Record<string, string> = {
     'Samsung Electronics': '삼성전자',
 };
 
-export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
+export default function YfinanceShowcase({ slug, title, summary, tags, sourceMeta, metricValue, license }: YfinanceShowcaseProps) {
     const [data, setData] = useState<MarketData | null>(null);
     const [error, setError] = useState<string | null>(null);
     const { activeId: activeSection, scrollToSection } = useShowcaseSectionNav({
         ids: SECTION_LABELS.map((item) => item.id),
-        initialId: 'universes',
+        initialId: 'hero',
         sectionPrefix: SECTION_PREFIX,
     });
 
@@ -249,7 +265,31 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
             />
 
             <div className="yf-showcase-main">
-                <section className="yf-header" aria-label="yfinance 생성 데이터 요약">
+                <section className="yf-header" id={`${SECTION_PREFIX}hero`} aria-label="yfinance 생성 데이터 요약">
+                    <div className="yf-hero-head">
+                        <span className="yf-showcase-label">Interactive Showcase</span>
+                    </div>
+                    <div className="yf-hero-copy">
+                        <h1>{title}</h1>
+                        <p>{summary}</p>
+                    </div>
+                    <div className="yf-meta-grid">
+                        <article className={`yf-meta-card yf-meta-card--source ${sourceMeta.className}`}>
+                            <div className="yf-meta-mark">{sourceMeta.mark}</div>
+                            <div className="yf-meta-copy">
+                                <span>{sourceMeta.provider}</span>
+                                <strong>{sourceMeta.path}</strong>
+                            </div>
+                        </article>
+                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
+                        <MetaCard label="라이선스" value={license} />
+                        <MetaCard label="읽는 방식" value="Sample -> Batch -> Discovery" />
+                    </div>
+                    {tags.length > 0 && (
+                        <div className="yf-tag-row">
+                            {tags.map((tag) => <span key={tag}>{tag}</span>)}
+                        </div>
+                    )}
                     <div className="yf-stat-grid">
                         {stats.map(([label, value]) => (
                             <div className="yf-stat" key={label}>
@@ -279,24 +319,24 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                 <section className="yf-section-block" id={`${SECTION_PREFIX}universes`}>
                     <ShowcaseSectionLead
                         index={1}
-                        title={SECTION_LABELS[0].label}
-                        description={SECTION_LABELS[0].description}
+                        title="시장 샘플"
+                        description="지역별 자산군 샘플"
                     />
                     <UniversesSection groups={data.marketUniverses || []} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}batch`}>
                     <ShowcaseSectionLead
                         index={2}
-                        title={SECTION_LABELS[1].label}
-                        description={SECTION_LABELS[1].description}
+                        title="묶음 조회"
+                        description="여러 종목을 한 번에 확인"
                     />
                     <BatchSection batch={data.batchQuotes} bulk={data.bulkDownload} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}discovery`}>
                     <ShowcaseSectionLead
                         index={3}
-                        title={SECTION_LABELS[2].label}
-                        description={SECTION_LABELS[2].description}
+                        title="검색 탐색"
+                        description="검색과 스크리너 흐름"
                     />
                     <DiscoverySection
                         searchLabs={data.searchLabs || []}
@@ -308,16 +348,16 @@ export default function YfinanceShowcase({ slug }: YfinanceShowcaseProps) {
                 <section className="yf-section-block" id={`${SECTION_PREFIX}deep-dives`}>
                     <ShowcaseSectionLead
                         index={4}
-                        title={SECTION_LABELS[3].label}
-                        description={SECTION_LABELS[3].description}
+                        title="종목 상세"
+                        description="티커별 상세 화면"
                     />
                     <DeepDivesSection dives={data.deepDives || []} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}coverage`}>
                     <ShowcaseSectionLead
                         index={5}
-                        title={SECTION_LABELS[4].label}
-                        description={SECTION_LABELS[4].description}
+                        title="기능 범위"
+                        description="확인한 API 범위"
                     />
                     <CoverageSection features={data.featureCoverage || []} />
                 </section>
@@ -344,6 +384,15 @@ function ShowcaseSectionLead({ index, title, description }: { index: number; tit
                 <p>{description}</p>
             </div>
         </header>
+    );
+}
+
+function MetaCard({ label, value }: { label: string; value: string }) {
+    return (
+        <article className="yf-meta-card">
+            <span>{label}</span>
+            <strong>{value}</strong>
+        </article>
     );
 }
 
@@ -729,9 +778,113 @@ const showcaseCss = `
     padding: 20px;
 }
 .yf-header {
+    display: grid;
+    gap: 16px;
     margin-bottom: 22px;
     padding: 22px;
     border-radius: 14px;
+    background:
+        linear-gradient(140deg, color-mix(in srgb, var(--color-projects) 13%, transparent), transparent 46%),
+        var(--color-surface);
+}
+.yf-hero-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.yf-showcase-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-projects) 14%, transparent);
+    color: var(--color-projects);
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.yf-hero-copy {
+    min-width: 0;
+}
+.yf-hero-copy h1 {
+    margin: 0 0 10px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+}
+.yf-hero-copy p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+.yf-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+.yf-meta-card {
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface-alt);
+}
+.yf-meta-card--source {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+}
+.yf-meta-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--color-projects) 14%, transparent);
+    color: var(--color-projects);
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+.yf-meta-copy {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+}
+.yf-meta-card span,
+.yf-meta-copy span {
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.yf-meta-card strong,
+.yf-meta-copy strong {
+    overflow-wrap: anywhere;
+    font-family: var(--font-heading);
+    font-size: 1.02rem;
+    line-height: 1.25;
+}
+.yf-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.yf-tag-row span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: var(--color-surface-alt);
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
 }
 .yf-stat-grid,
 .yf-quote-grid,
@@ -1013,6 +1166,7 @@ const showcaseCss = `
         grid-column: 1;
         grid-row: auto;
     }
+    .yf-meta-grid,
     .yf-stat-grid,
     .yf-info-grid.two,
     .yf-detail-body {
@@ -1028,6 +1182,7 @@ const showcaseCss = `
     .yf-header {
         margin-bottom: 16px;
     }
+    .yf-meta-grid,
     .yf-stat-grid,
     .yf-info-grid.two,
     .yf-detail-body {

@@ -8,7 +8,7 @@ interface NautilusShowcaseProps {
     slug: string;
 }
 
-type SectionId = 'architecture' | 'assets' | 'venues' | 'performance' | 'quickstart';
+type SectionId = 'hero' | 'architecture' | 'assets' | 'venues' | 'performance' | 'quickstart';
 
 interface ArchitectureComponent {
     name: string;
@@ -74,6 +74,7 @@ interface NautilusData {
 }
 
 const SECTIONS = [
+    { id: 'hero' as const, label: '소개', description: '한눈 요약과 메타' },
     { id: 'architecture' as const, label: '아키텍처', description: '핵심 컴포넌트 구조' },
     { id: 'assets' as const, label: '자산군', description: '지원 자산 클래스' },
     { id: 'venues' as const, label: '거래소', description: '연동 거래소와 데이터' },
@@ -110,7 +111,7 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
     const [error, setError] = useState<string | null>(null);
     const { activeId: activeSection, scrollToSection } = useShowcaseSectionNav({
         ids: SECTIONS.map((item) => item.id),
-        initialId: 'architecture',
+        initialId: 'hero',
         sectionPrefix: SECTION_PREFIX,
     });
 
@@ -148,7 +149,7 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
             <ShowcaseSectionNav items={SECTIONS} activeId={activeSection} onSelect={scrollToSection} />
 
             <div className="nt-showcase-main">
-                <section className="nt-hero" aria-label="NautilusTrader 저장소 요약">
+                <section className="nt-hero" id={`${SECTION_PREFIX}hero`} aria-label="NautilusTrader 저장소 요약">
                     <div className="nt-hero-copy">
                         <p className="nt-kicker">멀티에셋 트레이딩 엔진</p>
                         <h2>{data.repo?.name || 'NautilusTrader'}</h2>

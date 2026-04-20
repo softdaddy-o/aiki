@@ -1,5 +1,42 @@
 [
   {
+    "term": "gpt-5",
+    "slug": "gpt-5",
+    "status": "pending",
+    "priority": 94,
+    "categoryGuess": "model",
+    "occurrences": 7,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-03-codex-prompting-guide",
+      "2026-04-19-1-openai-triple-exec-exit-sora-shutdown"
+    ],
+    "wikiSourceTerms": [
+      "gpt",
+      "o3"
+    ],
+    "knownTermHints": [
+      "agents",
+      "chatgpt",
+      "codex",
+      "deepseek-r1",
+      "gpt",
+      "gpt-oss",
+      "llm",
+      "o1"
+    ],
+    "firstMentioned": "2018-10-11",
+    "lastMentioned": "2026-04-19T09:00:00+09:00"
+  },
+  {
     "term": "GitHub",
     "slug": "github",
     "status": "pending",
@@ -42,50 +79,13 @@
     "lastMentioned": "2026-04-15T09:20:00+09:00"
   },
   {
-    "term": "llama-cpp",
-    "slug": "llama-cpp",
-    "status": "pending",
-    "priority": 78,
-    "categoryGuess": "model",
-    "occurrences": 5,
-    "distinctSourceCount": 5,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-09-6-gemma4-llamacpp-stable",
-      "2026-04-13-2-gemma4-speculative-decoding-benchmark",
-      "2026-04-13-3-llama-cpp-audio-gemma4",
-      "2026-04-15-3-llm-auto-tune-llamacpp"
-    ],
-    "wikiSourceTerms": [
-      "qwen3.5-27b"
-    ],
-    "knownTermHints": [
-      "claude",
-      "distillation",
-      "fine-tuning",
-      "gemma",
-      "google",
-      "local-llm",
-      "open-source",
-      "optimization"
-    ],
-    "firstMentioned": "2026-04-07T12:00:00+09:00",
-    "lastMentioned": "2026-04-15T09:20:00+09:00"
-  },
-  {
     "term": "developer-tools",
     "slug": "developer-tools",
     "status": "pending",
-    "priority": 70,
+    "priority": 74,
     "categoryGuess": "concept",
-    "occurrences": 7,
-    "distinctSourceCount": 7,
+    "occurrences": 10,
+    "distinctSourceCount": 10,
     "kinds": [
       "tag"
     ],
@@ -99,33 +99,37 @@
       "2026-04-10-5-local-llm-mainstream-adoption"
     ],
     "wikiSourceTerms": [
+      "agentic-coding",
       "ai-studio",
       "claude-code",
+      "cli",
       "codex",
-      "copilot"
+      "copilot",
+      "ide"
     ],
     "knownTermHints": [
+      "agentic-coding",
       "ai-studio",
       "aider",
-      "anthropic-api",
       "api",
       "chatgpt",
       "claude-code",
-      "codex",
-      "coding-agent"
+      "cli",
+      "codex"
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2026-04-10T11:00:00+09:00"
   },
   {
-    "term": "gpt-5",
-    "slug": "gpt-5",
+    "term": "E4B",
+    "slug": "e4b",
     "status": "pending",
-    "priority": 68,
-    "categoryGuess": "model",
-    "occurrences": 3,
-    "distinctSourceCount": 2,
+    "priority": 74,
+    "categoryGuess": "concept",
+    "occurrences": 11,
+    "distinctSourceCount": 5,
     "kinds": [
+      "inline_code",
       "phrase",
       "versioned_phrase"
     ],
@@ -134,23 +138,131 @@
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-04-03-codex-prompting-guide"
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-13-3-llama-cpp-audio-gemma4",
+      "2026-04-16-3-gemma4-26b-replaces-qwen-local"
     ],
     "wikiSourceTerms": [
-      "o3"
+      "e2b",
+      "gemma-4"
     ],
     "knownTermHints": [
-      "agents",
+      "benchmark",
+      "deepmind",
+      "e2b",
+      "gemini",
+      "gemma",
+      "gemma-4",
+      "google",
+      "inference"
+    ],
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-17"
+  },
+  {
+    "term": "GPT-5.4",
+    "slug": "gpt-5.4",
+    "status": "pending",
+    "priority": 71,
+    "categoryGuess": "model",
+    "occurrences": 6,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-15-4-translategemma-beats-frontier-llms",
+      "2026-04-18-2-openai-gpt-rosalind-life-sciences",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "benchmark",
+      "codex",
+      "drug-discovery",
+      "google",
+      "gpt-rosalind",
+      "life-sciences",
+      "mixture-of-experts"
+    ],
+    "firstMentioned": "2026-04-15T09:30:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
+  },
+  {
+    "term": "image-generation",
+    "slug": "image-generation",
+    "status": "pending",
+    "priority": 70,
+    "categoryGuess": "concept",
+    "occurrences": 7,
+    "distinctSourceCount": 7,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [
+      "comfyui",
+      "dall-e",
+      "diffusion",
+      "flux",
+      "imagen",
+      "stable-diffusion"
+    ],
+    "knownTermHints": [
+      "agent",
+      "agentic-ai",
       "chatgpt",
       "codex",
+      "comfyui",
+      "dall-e",
       "deepseek-r1",
-      "o1",
-      "o3",
-      "openai",
-      "prompting"
+      "diffusion"
     ],
-    "firstMentioned": "2025-08-03",
-    "lastMentioned": "2026-04-03T12:00:00+09:00"
+    "firstMentioned": "2026-02-23",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
+  },
+  {
+    "term": "Qwen3.6-35B-A3B",
+    "slug": "qwen3.6-35b-a3b",
+    "status": "pending",
+    "priority": 68,
+    "categoryGuess": "model",
+    "occurrences": 5,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "markdown_link",
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "mixture-of-experts",
+      "open-source",
+      "qwen",
+      "swe-bench"
+    ],
+    "firstMentioned": "2026-04-17T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "gpt-5.4-cyber",
@@ -182,8 +294,8 @@
     "lastMentioned": "2026-04-15T09:00:00+09:00"
   },
   {
-    "term": "E4B",
-    "slug": "e4b",
+    "term": "A4B",
+    "slug": "a4b",
     "status": "pending",
     "priority": 64,
     "categoryGuess": "concept",
@@ -198,25 +310,60 @@
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model",
-      "2026-04-13-3-llama-cpp-audio-gemma4",
+      "2026-04-11-gemma4-26b-256k-context-test",
       "2026-04-16-3-gemma4-26b-replaces-qwen-local"
     ],
     "wikiSourceTerms": [
+      "e2b",
       "gemma-4"
     ],
     "knownTermHints": [
       "benchmark",
-      "deepmind",
+      "e2b",
       "gemini",
       "gemma",
       "gemma-4",
       "google",
-      "llama-cpp",
+      "inference",
       "local-llm"
     ],
     "firstMentioned": "2026-04-05T13:00:00+09:00",
     "lastMentioned": "2026-04-17"
+  },
+  {
+    "term": "Vertex AI",
+    "slug": "vertex-ai",
+    "status": "pending",
+    "priority": 63,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-16-2-google-gemini-31-flash-tts"
+    ],
+    "wikiSourceTerms": [
+      "ai-studio",
+      "gemini-2.5"
+    ],
+    "knownTermHints": [
+      "ai-studio",
+      "api",
+      "audio-tags",
+      "deepseek-r1",
+      "developer-tools",
+      "function-calling",
+      "gemini",
+      "gemini-2.5"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-16T09:10:00+09:00"
   },
   {
     "term": "GPU",
@@ -224,8 +371,8 @@
     "status": "pending",
     "priority": 62,
     "categoryGuess": "concept",
-    "occurrences": 34,
-    "distinctSourceCount": 34,
+    "occurrences": 36,
+    "distinctSourceCount": 36,
     "kinds": [
       "phrase",
       "tag"
@@ -265,7 +412,7 @@
       "attention"
     ],
     "firstMentioned": "2018-10-11",
-    "lastMentioned": "2026-04-17"
+    "lastMentioned": "2026-04-18T11:00:00+09:00"
   },
   {
     "term": "language-model",
@@ -377,6 +524,112 @@
     "lastMentioned": "2026-04-17"
   },
   {
+    "term": "gpt-rosalind",
+    "slug": "gpt-rosalind",
+    "status": "pending",
+    "priority": 62,
+    "categoryGuess": "model",
+    "occurrences": 4,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "markdown_link",
+      "phrase",
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-2-openai-gpt-rosalind-life-sciences",
+      "2026-04-19-1-openai-triple-exec-exit-sora-shutdown"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "codex",
+      "drug-discovery",
+      "life-sciences",
+      "openai",
+      "sora",
+      "경영",
+      "구조조정",
+      "임원"
+    ],
+    "firstMentioned": "2026-04-18T09:30:00+09:00",
+    "lastMentioned": "2026-04-19T09:00:00+09:00"
+  },
+  {
+    "term": "Visual Studio",
+    "slug": "visual-studio",
+    "status": "pending",
+    "priority": 62,
+    "categoryGuess": "tool",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2021-06-29-github-copilot-preview"
+    ],
+    "wikiSourceTerms": [
+      "ide"
+    ],
+    "knownTermHints": [
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "editor"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29T12:00:00+09:00"
+  },
+  {
+    "term": "Alibaba",
+    "slug": "alibaba",
+    "status": "pending",
+    "priority": 60,
+    "categoryGuess": "concept",
+    "occurrences": 6,
+    "distinctSourceCount": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-03-23-1-chinese-llm-scene-2026"
+    ],
+    "wikiSourceTerms": [
+      "llama",
+      "qwen",
+      "qwen-3.5",
+      "qwen3.5-27b",
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "knownTermHints": [
+      "bytedance",
+      "chain-of-thought",
+      "china-ai",
+      "claude-opus-4-6",
+      "deepseek",
+      "deepseek-r1",
+      "distillation",
+      "doubao"
+    ],
+    "firstMentioned": "2026-02-20",
+    "lastMentioned": "2026-04-17"
+  },
+  {
     "term": "gpt-4",
     "slug": "gpt-4",
     "status": "pending",
@@ -443,6 +696,37 @@
     "lastMentioned": "2026-04-12T11:00:00+09:00"
   },
   {
+    "term": "26B A4B",
+    "slug": "26b-a4b",
+    "status": "pending",
+    "priority": 57,
+    "categoryGuess": "model",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "inline_code"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "e2b"
+    ],
+    "knownTermHints": [
+      "e2b",
+      "gemma",
+      "gemma-4",
+      "inference",
+      "mixture-of-experts",
+      "model-size",
+      "multimodal",
+      "on-device"
+    ],
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-05T13:00:00+09:00"
+  },
+  {
     "term": "Llama 3.2",
     "slug": "llama-3.2",
     "status": "pending",
@@ -502,8 +786,8 @@
     "status": "pending",
     "priority": 56,
     "categoryGuess": "concept",
-    "occurrences": 16,
-    "distinctSourceCount": 16,
+    "occurrences": 17,
+    "distinctSourceCount": 17,
     "kinds": [
       "tag"
     ],
@@ -519,24 +803,24 @@
       "2026-04-08-1-davinci-llm-3b-pretraining-science"
     ],
     "wikiSourceTerms": [
+      "deepseek",
       "deepseek-r1",
       "gemma",
       "gemma-3",
       "gemma-4",
       "llama",
       "local-llm",
-      "localllama",
-      "qwen"
+      "localllama"
     ],
     "knownTermHints": [
       "alibaba",
       "alignment",
+      "api",
       "benchmark",
       "chain-of-thought",
+      "china-ai",
       "community",
-      "deepmind",
-      "deepseek-r1",
-      "deployment"
+      "deepmind"
     ],
     "firstMentioned": "2025-01-20",
     "lastMentioned": "2026-04-17"
@@ -547,8 +831,8 @@
     "status": "pending",
     "priority": 56,
     "categoryGuess": "concept",
-    "occurrences": 14,
-    "distinctSourceCount": 14,
+    "occurrences": 16,
+    "distinctSourceCount": 16,
     "kinds": [
       "tag"
     ],
@@ -561,24 +845,24 @@
       "2026-04-01-1-gemini-api-docs-mcp-agent-skills"
     ],
     "wikiSourceTerms": [
+      "agentic-coding",
       "aider",
       "claude-code",
       "claude-opus-4-5",
       "claude-opus-4-6",
       "claude-opus-4-7",
       "cline",
-      "codex",
-      "continue"
+      "codex"
     ],
     "knownTermHints": [
       "agent",
+      "agentic-coding",
       "aider",
       "anthropic",
       "chain-of-thought",
       "chatgpt",
       "claude-code",
-      "claude-opus-4-5",
-      "claude-opus-4-6"
+      "claude-opus-4-5"
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2026-04-17"
@@ -746,6 +1030,43 @@
     "lastMentioned": "2026-04-14"
   },
   {
+    "term": "Microsoft",
+    "slug": "microsoft",
+    "status": "pending",
+    "priority": 56,
+    "categoryGuess": "concept",
+    "occurrences": 5,
+    "distinctSourceCount": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-06-5-us-data-center-delays",
+      "2026-04-09-1-claude-mythos-glasswing",
+      "2026-04-12-5-microsoft-japan-10b-ai-infra"
+    ],
+    "wikiSourceTerms": [
+      "ide",
+      "phi"
+    ],
+    "knownTermHints": [
+      "ai-인프라",
+      "ai보안",
+      "anthropic",
+      "claude",
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2026-04-12T13:00:00+09:00"
+  },
+  {
     "term": "gpt-5.3",
     "slug": "gpt-5.3",
     "status": "pending",
@@ -811,6 +1132,40 @@
     "lastMentioned": "2026-04-17"
   },
   {
+    "term": "Open WebUI",
+    "slug": "open-webui",
+    "status": "pending",
+    "priority": 54,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-20-3-mac-mini-local-ai-infrastructure"
+    ],
+    "wikiSourceTerms": [
+      "localllama"
+    ],
+    "knownTermHints": [
+      "apple-silicon",
+      "community",
+      "deepseek-r1",
+      "hugging-face",
+      "inference",
+      "llama.cpp",
+      "local-ai",
+      "local-llm"
+    ],
+    "firstMentioned": "2026-03-03",
+    "lastMentioned": "2026-04-20T11:00:00+09:00"
+  },
+  {
     "term": "Raspberry Pi",
     "slug": "raspberry-pi",
     "status": "pending",
@@ -845,38 +1200,43 @@
     "lastMentioned": "2026-04-17"
   },
   {
-    "term": "Vertex AI",
-    "slug": "vertex-ai",
+    "term": "prompting",
+    "slug": "prompting",
     "status": "pending",
-    "priority": 54,
+    "priority": 52,
     "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
+    "occurrences": 7,
+    "distinctSourceCount": 7,
     "kinds": [
-      "phrase"
+      "tag"
     ],
     "sourceKinds": [
       "news",
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-04-16-2-google-gemini-31-flash-tts"
+      "2025-08-03-1-openai-reasoning-best-practices",
+      "2026-03-12-1-sora2-prompting-guide",
+      "2026-04-03-codex-prompting-guide",
+      "2026-04-05-sora-2-prompting-guide"
     ],
     "wikiSourceTerms": [
-      "gemini-2.5"
+      "ai-studio",
+      "chain-of-thought",
+      "prompt-engineering"
     ],
     "knownTermHints": [
-      "audio-tags",
+      "agents",
+      "ai-studio",
+      "api",
+      "chain-of-thought",
+      "claude-opus",
+      "codex",
       "deepseek-r1",
-      "gemini",
-      "gemini-2.5",
-      "gemma",
-      "google",
-      "o3",
-      "reasoning"
+      "developer-tools"
     ],
-    "firstMentioned": "2026-04-14",
-    "lastMentioned": "2026-04-16T09:10:00+09:00"
+    "firstMentioned": "2025-08-03T12:00:00+09:00",
+    "lastMentioned": "2026-04-14"
   },
   {
     "term": "claude.ai",
@@ -939,42 +1299,6 @@
     ],
     "firstMentioned": "2026-03-16",
     "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "A4B",
-    "slug": "a4b",
-    "status": "pending",
-    "priority": 51,
-    "categoryGuess": "concept",
-    "occurrences": 6,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "phrase",
-      "versioned_phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-11-gemma4-26b-256k-context-test",
-      "2026-04-16-3-gemma4-26b-replaces-qwen-local"
-    ],
-    "wikiSourceTerms": [
-      "gemma-4"
-    ],
-    "knownTermHints": [
-      "benchmark",
-      "gemini",
-      "gemma",
-      "gemma-4",
-      "google",
-      "local-llm",
-      "localllama",
-      "mixture-of-experts"
-    ],
-    "firstMentioned": "2026-04-11T21:34:56+09:00",
-    "lastMentioned": "2026-04-17"
   },
   {
     "term": "mistralai/Mixtral-8x7B-v0.1",
@@ -1153,82 +1477,8 @@
     "lastMentioned": "2026-04-17"
   },
   {
-    "term": "image-generation",
-    "slug": "image-generation",
-    "status": "pending",
-    "priority": 48,
-    "categoryGuess": "concept",
-    "occurrences": 6,
-    "distinctSourceCount": 6,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "comfyui",
-      "dall-e",
-      "diffusion",
-      "flux",
-      "imagen",
-      "stable-diffusion"
-    ],
-    "knownTermHints": [
-      "agent",
-      "agentic-ai",
-      "chatgpt",
-      "codex",
-      "comfyui",
-      "dall-e",
-      "deepseek-r1",
-      "diffusion"
-    ],
-    "firstMentioned": "2026-02-23",
-    "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "prompting",
-    "slug": "prompting",
-    "status": "pending",
-    "priority": 48,
-    "categoryGuess": "concept",
-    "occurrences": 6,
-    "distinctSourceCount": 6,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2025-08-03-1-openai-reasoning-best-practices",
-      "2026-03-12-1-sora2-prompting-guide",
-      "2026-04-03-codex-prompting-guide",
-      "2026-04-05-sora-2-prompting-guide"
-    ],
-    "wikiSourceTerms": [
-      "chain-of-thought",
-      "prompt-engineering"
-    ],
-    "knownTermHints": [
-      "agents",
-      "chain-of-thought",
-      "claude-opus",
-      "codex",
-      "deepseek-r1",
-      "instruction",
-      "llm",
-      "o3"
-    ],
-    "firstMentioned": "2025-08-03T12:00:00+09:00",
-    "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "Alibaba",
-    "slug": "alibaba",
+    "term": "Jackrong",
+    "slug": "jackrong",
     "status": "pending",
     "priority": 48,
     "categoryGuess": "concept",
@@ -1242,61 +1492,59 @@
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-03-23-1-chinese-llm-scene-2026"
+      "2026-04-07-4-qwen35-claude-opus-distill",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill"
     ],
     "wikiSourceTerms": [
-      "llama",
-      "qwen",
-      "qwen-3.5"
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
     ],
     "knownTermHints": [
-      "bytedance",
-      "chain-of-thought",
-      "china-ai",
-      "deepseek",
-      "deepseek-r1",
-      "doubao",
-      "gemma",
-      "llama"
-    ],
-    "firstMentioned": "2026-02-20",
-    "lastMentioned": "2026-04-17"
-  },
-  {
-    "term": "Microsoft",
-    "slug": "microsoft",
-    "status": "pending",
-    "priority": 48,
-    "categoryGuess": "concept",
-    "occurrences": 4,
-    "distinctSourceCount": 4,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-06-5-us-data-center-delays",
-      "2026-04-09-1-claude-mythos-glasswing",
-      "2026-04-12-5-microsoft-japan-10b-ai-infra"
-    ],
-    "wikiSourceTerms": [
-      "phi"
-    ],
-    "knownTermHints": [
-      "ai-인프라",
-      "ai보안",
-      "anthropic",
       "claude",
-      "llm",
-      "phi",
-      "small-language-model",
-      "공급망"
+      "claude-opus-4-6",
+      "distillation",
+      "fine-tuning",
+      "gguf",
+      "llama.cpp",
+      "local-llm",
+      "open-source"
     ],
-    "firstMentioned": "2026-03-05",
-    "lastMentioned": "2026-04-12T13:00:00+09:00"
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
+    "lastMentioned": "2026-04-11T10:30:00+09:00"
+  },
+  {
+    "term": "llama-cpp",
+    "slug": "llama-cpp",
+    "status": "pending",
+    "priority": 48,
+    "categoryGuess": "model",
+    "occurrences": 4,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-09-6-gemma4-llamacpp-stable",
+      "2026-04-13-2-gemma4-speculative-decoding-benchmark",
+      "2026-04-13-3-llama-cpp-audio-gemma4",
+      "2026-04-15-3-llm-auto-tune-llamacpp"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "gemma",
+      "google",
+      "local-llm",
+      "open-source",
+      "optimization",
+      "quantization",
+      "qwen",
+      "speculative-decoding"
+    ],
+    "firstMentioned": "2026-04-09T18:48:00+09:00",
+    "lastMentioned": "2026-04-15T09:20:00+09:00"
   },
   {
     "term": "Kimi K2.5",
@@ -1541,6 +1789,44 @@
     ],
     "firstMentioned": "2026-04-17",
     "lastMentioned": "2026-04-17"
+  },
+  {
+    "term": "Pro",
+    "slug": "pro",
+    "status": "pending",
+    "priority": 44,
+    "categoryGuess": "concept",
+    "occurrences": 6,
+    "distinctSourceCount": 6,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-04-gemini-25-default",
+      "2026-04-06-gemma-4-just-casually-destroyed-every-mo",
+      "2026-04-09-5-gemini-notebooks-notebooklm",
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [
+      "gemini",
+      "gemini-2.5"
+    ],
+    "knownTermHints": [
+      "ai도구",
+      "benchmark",
+      "deepseek-r1",
+      "developer-tools",
+      "gemini",
+      "gemini-2.5",
+      "gemini-api",
+      "gemma"
+    ],
+    "firstMentioned": "2026-02-18",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
   },
   {
     "term": "AI IDE",
@@ -1820,6 +2106,37 @@
     "lastMentioned": "2022-11-30"
   },
   {
+    "term": "https://api.deepseek.com",
+    "slug": "https-api.deepseek.com",
+    "status": "pending",
+    "priority": 43,
+    "categoryGuess": "model",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "inline_code"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "deepseek"
+    ],
+    "knownTermHints": [
+      "api",
+      "benchmark",
+      "china-ai",
+      "deepseek",
+      "deepseek-r1",
+      "open-model",
+      "reasoning",
+      "weight"
+    ],
+    "firstMentioned": "2025-01-20",
+    "lastMentioned": "2025-01-20"
+  },
+  {
     "term": "llama-cli",
     "slug": "llama-cli",
     "status": "pending",
@@ -1998,6 +2315,43 @@
     ],
     "firstMentioned": "2026-02-18",
     "lastMentioned": "2026-02-18"
+  },
+  {
+    "term": "HuggingFace",
+    "slug": "huggingface",
+    "status": "pending",
+    "priority": 42,
+    "categoryGuess": "concept",
+    "occurrences": 7,
+    "distinctSourceCount": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
+      "2026-04-11-2-qwen35-claude-opus-distill",
+      "2026-04-11-3-gemma4-mtp-reverse",
+      "2026-04-14-1-minimax-m27-open-source-self-evolving",
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-4-huggingface-multimodal-sentence-transformers"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "claude",
+      "distillation",
+      "embedding",
+      "gemma",
+      "google",
+      "local-llm"
+    ],
+    "firstMentioned": "2026-04-06T11:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:30:00+09:00"
   },
   {
     "term": "Anthropic Academy",
@@ -2193,6 +2547,38 @@
     "lastMentioned": "2021-06-29"
   },
   {
+    "term": "DeepSeek-V3",
+    "slug": "deepseek-v3",
+    "status": "pending",
+    "priority": 41,
+    "categoryGuess": "model",
+    "occurrences": 2,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "deepseek"
+    ],
+    "knownTermHints": [
+      "api",
+      "benchmark",
+      "china-ai",
+      "deepseek",
+      "deepseek-r1",
+      "open-model",
+      "reasoning",
+      "weight"
+    ],
+    "firstMentioned": "2025-01-20",
+    "lastMentioned": "2025-01-20"
+  },
+  {
     "term": "GitHub Copilot(깃허브 코파일럿",
     "slug": "github-copilot-깃허브-코파일럿",
     "status": "pending",
@@ -2224,6 +2610,37 @@
     "lastMentioned": "2026-04-03"
   },
   {
+    "term": "reasoning best practices",
+    "slug": "reasoning-best-practices",
+    "status": "pending",
+    "priority": 41,
+    "categoryGuess": "technique",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "markdown_link"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "chain-of-thought"
+    ],
+    "knownTermHints": [
+      "chain-of-thought",
+      "claude-opus",
+      "deepseek-r1",
+      "inference",
+      "o3",
+      "openai",
+      "prompt-engineering",
+      "prompting"
+    ],
+    "firstMentioned": "2026-03-08",
+    "lastMentioned": "2026-03-08"
+  },
+  {
     "term": "Red Teaming(레드 티밍",
     "slug": "red-teaming-레드-티밍",
     "status": "pending",
@@ -2251,8 +2668,8 @@
     "lastMentioned": "2026-02-20"
   },
   {
-    "term": "Pro",
-    "slug": "pro",
+    "term": "Experts",
+    "slug": "experts",
     "status": "pending",
     "priority": 40,
     "categoryGuess": "concept",
@@ -2266,26 +2683,98 @@
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-04-04-gemini-25-default",
-      "2026-04-06-gemma-4-just-casually-destroyed-every-mo",
-      "2026-04-09-5-gemini-notebooks-notebooklm"
+      "2026-04-05-5-google-gemma-4-open-model"
     ],
     "wikiSourceTerms": [
-      "gemini",
-      "gemini-2.5"
+      "attention",
+      "e2b",
+      "mixture-of-experts",
+      "transformer"
     ],
     "knownTermHints": [
-      "ai도구",
-      "benchmark",
-      "deepseek-r1",
-      "developer-tools",
-      "gemini",
-      "gemini-2.5",
-      "gemini-api",
-      "gemma"
+      "architecture",
+      "attention",
+      "concept",
+      "deepmind",
+      "e2b",
+      "gemma",
+      "gemma-4",
+      "google"
     ],
-    "firstMentioned": "2026-02-18",
-    "lastMentioned": "2026-04-14"
+    "firstMentioned": "2018-10-11",
+    "lastMentioned": "2026-04-05T13:00:00+09:00"
+  },
+  {
+    "term": "Mixture",
+    "slug": "mixture",
+    "status": "pending",
+    "priority": 40,
+    "categoryGuess": "concept",
+    "occurrences": 5,
+    "distinctSourceCount": 5,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model"
+    ],
+    "wikiSourceTerms": [
+      "attention",
+      "e2b",
+      "mixture-of-experts",
+      "transformer"
+    ],
+    "knownTermHints": [
+      "architecture",
+      "attention",
+      "concept",
+      "deepmind",
+      "e2b",
+      "gemma",
+      "gemma-4",
+      "google"
+    ],
+    "firstMentioned": "2018-10-11",
+    "lastMentioned": "2026-04-05T13:00:00+09:00"
+  },
+  {
+    "term": "license",
+    "slug": "license",
+    "status": "pending",
+    "priority": 40,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase",
+      "tag"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-16-1-minimax-m27-license-controversy"
+    ],
+    "wikiSourceTerms": [
+      "apache"
+    ],
+    "knownTermHints": [
+      "apache",
+      "gemma-4",
+      "gpt-oss",
+      "m2.7",
+      "minimax",
+      "mixture-of-experts",
+      "open-source",
+      "qwen-3.5"
+    ],
+    "firstMentioned": "2026-03-16",
+    "lastMentioned": "2026-04-16T09:00:00+09:00"
   },
   {
     "term": "Qwen3 14B",
@@ -2351,6 +2840,41 @@
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-16T09:10:00+09:00"
+  },
+  {
+    "term": "JetBrains",
+    "slug": "jetbrains",
+    "status": "pending",
+    "priority": 39,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2021-06-29-github-copilot-preview"
+    ],
+    "wikiSourceTerms": [
+      "claude-code",
+      "ide"
+    ],
+    "knownTermHints": [
+      "aider",
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2026-02-21"
   },
   {
     "term": "LiteRT-LM",
@@ -2423,40 +2947,69 @@
     "lastMentioned": "2026-04-17"
   },
   {
-    "term": "HuggingFace",
-    "slug": "huggingface",
+    "term": "H100",
+    "slug": "h100",
     "status": "pending",
     "priority": 38,
     "categoryGuess": "concept",
-    "occurrences": 6,
-    "distinctSourceCount": 6,
+    "occurrences": 4,
+    "distinctSourceCount": 2,
     "kinds": [
-      "phrase"
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
+    ],
+    "wikiSourceTerms": [
+      "gpt-oss"
+    ],
+    "knownTermHints": [
+      "chain-of-thought",
+      "chatgpt",
+      "codex",
+      "deepgemm",
+      "deepseek",
+      "fp8",
+      "gpt-4o",
+      "gpt-oss"
+    ],
+    "firstMentioned": "2026-04-17",
+    "lastMentioned": "2026-04-18T11:00:00+09:00"
+  },
+  {
+    "term": "Sparse MoE(희소 혼합 전문가",
+    "slug": "sparse-moe-희소-혼합-전문가",
+    "status": "pending",
+    "priority": 38,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "markdown_link"
     ],
     "sourceKinds": [
       "news"
     ],
     "newsSourceSlugs": [
-      "2026-04-06-2-chinese-labs-pause-open-source",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
-      "2026-04-11-2-qwen35-claude-opus-distill",
-      "2026-04-11-3-gemma4-mtp-reverse",
-      "2026-04-14-1-minimax-m27-open-source-self-evolving",
-      "2026-04-17-1-qwen36-35b-a3b-open-weight"
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
     ],
     "wikiSourceTerms": [],
     "knownTermHints": [
       "agentic-coding",
       "alibaba",
-      "claude",
-      "distillation",
-      "gemma",
-      "google",
-      "local-llm",
-      "localllama"
+      "mixture-of-experts",
+      "open-source",
+      "qwen",
+      "swe-bench"
     ],
-    "firstMentioned": "2026-04-06T11:00:00+09:00",
-    "lastMentioned": "2026-04-17T09:00:00+09:00"
+    "firstMentioned": "2026-04-17T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "AI API",
@@ -2687,6 +3240,70 @@
     ],
     "firstMentioned": "2026-02-18",
     "lastMentioned": "2026-02-18T12:00:00+09:00"
+  },
+  {
+    "term": "Terminal-Bench",
+    "slug": "terminal-bench",
+    "status": "pending",
+    "priority": 35,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-04-claude-opus-4-6",
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "anthropic",
+      "claude",
+      "mixture-of-experts",
+      "model",
+      "open-source",
+      "qwen"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
+  },
+  {
+    "term": "Agentic Coding Trends Report",
+    "slug": "agentic-coding-trends-report",
+    "status": "pending",
+    "priority": 35,
+    "categoryGuess": "technique",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "agentic-coding"
+    ],
+    "knownTermHints": [
+      "agentic-coding",
+      "aider",
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "copilot",
+      "cursor",
+      "developer-tools"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-04T09:00:00+09:00"
   },
   {
     "term": "Agentic Engineering",
@@ -2993,6 +3610,37 @@
     "lastMentioned": "2026-04-17"
   },
   {
+    "term": "OpenAI SDK",
+    "slug": "openai-sdk",
+    "status": "pending",
+    "priority": 35,
+    "categoryGuess": "tool",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "deepseek"
+    ],
+    "knownTermHints": [
+      "api",
+      "benchmark",
+      "china-ai",
+      "deepseek",
+      "deepseek-r1",
+      "open-model",
+      "reasoning",
+      "weight"
+    ],
+    "firstMentioned": "2025-01-20",
+    "lastMentioned": "2025-01-20"
+  },
+  {
     "term": "Search API",
     "slug": "search-api",
     "status": "pending",
@@ -3089,8 +3737,8 @@
     "status": "pending",
     "priority": 34,
     "categoryGuess": "concept",
-    "occurrences": 9,
-    "distinctSourceCount": 9,
+    "occurrences": 10,
+    "distinctSourceCount": 10,
     "kinds": [
       "phrase"
     ],
@@ -3119,7 +3767,7 @@
       "distillation"
     ],
     "firstMentioned": "2026-04-07T12:00:00+09:00",
-    "lastMentioned": "2026-04-17T09:00:00+09:00"
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "AWQ/양자화 포맷",
@@ -3390,44 +4038,39 @@
     "lastMentioned": "2026-04-14"
   },
   {
-    "term": "Experts",
-    "slug": "experts",
+    "term": "딥시크 R1",
+    "slug": "딥시크-r1",
     "status": "pending",
-    "priority": 32,
+    "priority": 33,
     "categoryGuess": "concept",
-    "occurrences": 4,
-    "distinctSourceCount": 4,
+    "occurrences": 1,
+    "distinctSourceCount": 1,
     "kinds": [
-      "phrase"
+      "markdown_link"
     ],
     "sourceKinds": [
-      "news",
       "wiki"
     ],
-    "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model"
-    ],
+    "newsSourceSlugs": [],
     "wikiSourceTerms": [
-      "attention",
-      "mixture-of-experts",
-      "transformer"
+      "chain-of-thought"
     ],
     "knownTermHints": [
-      "architecture",
-      "attention",
-      "concept",
-      "deepmind",
-      "gemma-4",
-      "google",
-      "mixture-of-experts",
-      "open-model"
+      "chain-of-thought",
+      "claude-opus",
+      "deepseek-r1",
+      "inference",
+      "o3",
+      "openai",
+      "prompt-engineering",
+      "prompting"
     ],
-    "firstMentioned": "2018-10-11",
-    "lastMentioned": "2026-04-05T13:00:00+09:00"
+    "firstMentioned": "2026-03-08",
+    "lastMentioned": "2026-03-08"
   },
   {
-    "term": "Mixture",
-    "slug": "mixture",
+    "term": "Dense",
+    "slug": "dense",
     "status": "pending",
     "priority": 32,
     "categoryGuess": "concept",
@@ -3441,25 +4084,25 @@
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model"
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-13-2-gemma4-speculative-decoding-benchmark"
     ],
     "wikiSourceTerms": [
-      "attention",
-      "mixture-of-experts",
-      "transformer"
+      "e2b",
+      "gemma-4"
     ],
     "knownTermHints": [
-      "architecture",
-      "attention",
-      "concept",
       "deepmind",
+      "e2b",
+      "gemini",
+      "gemma",
       "gemma-4",
       "google",
-      "mixture-of-experts",
-      "open-model"
+      "inference",
+      "llama-cpp"
     ],
-    "firstMentioned": "2018-10-11",
-    "lastMentioned": "2026-04-05T13:00:00+09:00"
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-17"
   },
   {
     "term": "Anthropic Mythos",
@@ -3491,6 +4134,38 @@
     ],
     "firstMentioned": "2026-04-15T09:00:00+09:00",
     "lastMentioned": "2026-04-17T11:00:00+09:00"
+  },
+  {
+    "term": "Life Sciences",
+    "slug": "life-sciences",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-07-1-anthropic-coefficient-bio-400m",
+      "2026-04-18-2-openai-gpt-rosalind-life-sciences"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "acquisition",
+      "anthropic",
+      "biotech",
+      "codex",
+      "drug-discovery",
+      "gpt-rosalind",
+      "healthcare-ai",
+      "openai"
+    ],
+    "firstMentioned": "2026-04-07T10:00:00+09:00",
+    "lastMentioned": "2026-04-18T09:30:00+09:00"
   },
   {
     "term": "Linux Foundation",
@@ -3525,6 +4200,69 @@
     "lastMentioned": "2026-04-15T09:00:00+09:00"
   },
   {
+    "term": "Multi-Token Prediction",
+    "slug": "multi-token-prediction",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-11-3-gemma4-mtp-reverse",
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "deepgemm",
+      "deepseek",
+      "fp8",
+      "gemma",
+      "google",
+      "gpu-optimization",
+      "mixture-of-experts",
+      "mtp"
+    ],
+    "firstMentioned": "2026-04-11T12:00:00+09:00",
+    "lastMentioned": "2026-04-18T11:00:00+09:00"
+  },
+  {
+    "term": "Nano Banana",
+    "slug": "nano-banana",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-15-6-gemini-app-native-mac",
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "desktop-app",
+      "gemini",
+      "google",
+      "image-generation",
+      "macos",
+      "personal-intelligence",
+      "productivity"
+    ],
+    "firstMentioned": "2026-04-15T16:00:00+09:00",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
+  },
+  {
     "term": "Prompting Guide",
     "slug": "prompting-guide",
     "status": "pending",
@@ -3551,6 +4289,66 @@
     ],
     "firstMentioned": "2026-03-12T12:00:00+09:00",
     "lastMentioned": "2026-04-05T12:00:00+09:00"
+  },
+  {
+    "term": "Simon Willison",
+    "slug": "simon-willison",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "mixture-of-experts",
+      "open-source",
+      "qwen",
+      "swe-bench"
+    ],
+    "firstMentioned": "2026-04-17T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
+  },
+  {
+    "term": "Sparse MoE",
+    "slug": "sparse-moe",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "mixture-of-experts",
+      "open-source",
+      "qwen",
+      "swe-bench"
+    ],
+    "firstMentioned": "2026-04-17T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "Terminal Bench",
@@ -3616,8 +4414,8 @@
     "lastMentioned": "2026-04-17"
   },
   {
-    "term": "JetBrains",
-    "slug": "jetbrains",
+    "term": "Midjourney",
+    "slug": "midjourney",
     "status": "pending",
     "priority": 30,
     "categoryGuess": "concept",
@@ -3631,23 +4429,23 @@
       "wiki"
     ],
     "newsSourceSlugs": [
-      "2021-06-29-github-copilot-preview"
+      "2026-04-19-2-elevenlabs-flows-multimodel-creative-canvas"
     ],
     "wikiSourceTerms": [
-      "claude-code"
+      "flux"
     ],
     "knownTermHints": [
-      "aider",
-      "claude-code",
-      "codex",
-      "coding-agent",
-      "copilot",
-      "cursor",
-      "developer-tools",
-      "github"
+      "alpha",
+      "dall-e",
+      "diffusion",
+      "elevenlabs",
+      "flux",
+      "image-generation",
+      "mistral",
+      "open-weight"
     ],
-    "firstMentioned": "2021-06-29T12:00:00+09:00",
-    "lastMentioned": "2026-02-21"
+    "firstMentioned": "2026-04-14",
+    "lastMentioned": "2026-04-19T10:00:00+09:00"
   },
   {
     "term": "NVIDIA",
@@ -3752,6 +4550,40 @@
     "lastMentioned": "2026-04-16T09:00:00+09:00"
   },
   {
+    "term": "Qwen3.6",
+    "slug": "qwen3.6",
+    "status": "pending",
+    "priority": 29,
+    "categoryGuess": "concept",
+    "occurrences": 6,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "localllama",
+      "minimax",
+      "mixture-of-experts",
+      "open-source",
+      "qwen",
+      "swe-bench"
+    ],
+    "firstMentioned": "2026-04-06T11:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
+  },
+  {
     "term": "AWQ",
     "slug": "awq",
     "status": "pending",
@@ -3785,6 +4617,41 @@
     ],
     "firstMentioned": "2026-04-07T12:00:00+09:00",
     "lastMentioned": "2026-04-07T12:00:00+09:00"
+  },
+  {
+    "term": "PDF",
+    "slug": "pdf",
+    "status": "pending",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-4-huggingface-multimodal-sentence-transformers"
+    ],
+    "wikiSourceTerms": [
+      "context-window",
+      "vision-language-model"
+    ],
+    "knownTermHints": [
+      "context-window",
+      "embedding",
+      "gemini",
+      "gpt-4o",
+      "huggingface",
+      "long-context",
+      "memory",
+      "multimodal"
+    ],
+    "firstMentioned": "2026-02-22",
+    "lastMentioned": "2026-04-18T10:30:00+09:00"
   },
   {
     "term": "AI Edge Gallery",
@@ -3878,6 +4745,37 @@
     "lastMentioned": "2026-03-16"
   },
   {
+    "term": "Apple Silicon Mac",
+    "slug": "apple-silicon-mac",
+    "status": "pending",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "knownTermHints": [
+      "claude-opus-4-6",
+      "distillation",
+      "gguf",
+      "llama.cpp",
+      "local-llm",
+      "qwen",
+      "qwen3.5-27b",
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
+    "lastMentioned": "2026-04-07T12:00:00+09:00"
+  },
+  {
     "term": "AWS Bedrock",
     "slug": "aws-bedrock",
     "status": "pending",
@@ -3936,66 +4834,6 @@
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "Command Line Interface",
-    "slug": "command-line-interface",
-    "status": "pending",
-    "priority": 27,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "cli"
-    ],
-    "knownTermHints": [
-      "aider",
-      "anthropic",
-      "chatgpt",
-      "claude-code",
-      "cli",
-      "codex",
-      "coding-agent"
-    ],
-    "firstMentioned": "2021-06-29",
-    "lastMentioned": "2021-06-29"
-  },
-  {
-    "term": "Generative Pre-trained Transformer",
-    "slug": "generative-pre-trained-transformer",
-    "status": "pending",
-    "priority": 27,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "gpt"
-    ],
-    "knownTermHints": [
-      "agentic-coding",
-      "anthropic",
-      "application",
-      "architecture",
-      "assistant",
-      "attention",
-      "gpt"
-    ],
-    "firstMentioned": "2018-10-11",
-    "lastMentioned": "2018-10-11"
   },
   {
     "term": "Google Brain",
@@ -4174,8 +5012,8 @@
     "lastMentioned": "2026-02-20"
   },
   {
-    "term": "Integrated Development Environment",
-    "slug": "integrated-development-environment",
+    "term": "IntelliJ IDEA",
+    "slug": "intellij-idea",
     "status": "pending",
     "priority": 27,
     "categoryGuess": "concept",
@@ -4192,13 +5030,14 @@
       "ide"
     ],
     "knownTermHints": [
-      "agent",
-      "aider",
-      "anthropic",
-      "chain-of-thought",
-      "chatgpt",
       "claude-code",
-      "ide"
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "editor"
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2021-06-29"
@@ -4325,37 +5164,6 @@
     ],
     "firstMentioned": "2026-04-17",
     "lastMentioned": "2026-04-17"
-  },
-  {
-    "term": "Open WebUI",
-    "slug": "open-webui",
-    "status": "pending",
-    "priority": 27,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "localllama"
-    ],
-    "knownTermHints": [
-      "community",
-      "deepseek-r1",
-      "hugging-face",
-      "llama.cpp",
-      "local-ai",
-      "local-llm",
-      "localllama",
-      "open-model"
-    ],
-    "firstMentioned": "2026-03-03",
-    "lastMentioned": "2026-03-03"
   },
   {
     "term": "Row Level Security",
@@ -4505,6 +5313,136 @@
     "lastMentioned": "2026-04-14"
   },
   {
+    "term": "Version Control",
+    "slug": "version-control",
+    "status": "pending",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ide"
+    ],
+    "knownTermHints": [
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "editor"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
+  },
+  {
+    "term": "Windows Terminal",
+    "slug": "windows-terminal",
+    "status": "pending",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "cli"
+    ],
+    "knownTermHints": [
+      "aider",
+      "claude-code",
+      "cli",
+      "codex",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "shell"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
+  },
+  {
+    "term": "Mac",
+    "slug": "mac",
+    "status": "pending",
+    "priority": 26,
+    "categoryGuess": "concept",
+    "occurrences": 4,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-07-i-technically-got-an-llm-running-locally",
+      "2026-04-12-3-dflash-speculative-decoding-apple-silicon",
+      "2026-04-15-6-gemini-app-native-mac"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "apple-silicon",
+      "deepmind",
+      "desktop-app",
+      "gemini",
+      "gemma-4",
+      "google",
+      "llm",
+      "local-ai"
+    ],
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-15T16:00:00+09:00"
+  },
+  {
+    "term": "FP8",
+    "slug": "fp8",
+    "status": "pending",
+    "priority": 26,
+    "categoryGuess": "concept",
+    "occurrences": 5,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase",
+      "tag",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "deepgemm",
+      "deepseek",
+      "gpu-optimization",
+      "mixture-of-experts",
+      "open-source",
+      "qwen"
+    ],
+    "firstMentioned": "2026-04-17T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T11:00:00+09:00"
+  },
+  {
     "term": "M2.7",
     "slug": "m2.7",
     "status": "pending",
@@ -4566,73 +5504,6 @@
     ],
     "firstMentioned": "2026-04-14T09:00:00+09:00",
     "lastMentioned": "2026-04-16T09:00:00+09:00"
-  },
-  {
-    "term": "Terminal-Bench",
-    "slug": "terminal-bench",
-    "status": "pending",
-    "priority": 26,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-04-claude-opus-4-6",
-      "2026-04-17-1-qwen36-35b-a3b-open-weight"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "agentic-coding",
-      "alibaba",
-      "anthropic",
-      "claude",
-      "mixture-of-experts",
-      "model",
-      "open-source",
-      "qwen"
-    ],
-    "firstMentioned": "2026-04-04T09:00:00+09:00",
-    "lastMentioned": "2026-04-17T09:00:00+09:00"
-  },
-  {
-    "term": "Dense",
-    "slug": "dense",
-    "status": "pending",
-    "priority": 23,
-    "categoryGuess": "concept",
-    "occurrences": 3,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model",
-      "2026-04-13-2-gemma4-speculative-decoding-benchmark"
-    ],
-    "wikiSourceTerms": [
-      "gemma-4"
-    ],
-    "knownTermHints": [
-      "deepmind",
-      "gemini",
-      "gemma",
-      "gemma-4",
-      "google",
-      "llama-cpp",
-      "local-llm",
-      "localllama"
-    ],
-    "firstMentioned": "2026-04-05T13:00:00+09:00",
-    "lastMentioned": "2026-04-17"
   },
   {
     "term": "speculative-decoding",
@@ -4822,6 +5693,74 @@
     "lastMentioned": "2026-03-09"
   },
   {
+    "term": "JSON",
+    "slug": "json",
+    "status": "pending",
+    "priority": 18,
+    "categoryGuess": "concept",
+    "occurrences": 4,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ai-studio",
+      "function-calling",
+      "guardrail",
+      "qdrant"
+    ],
+    "knownTermHints": [
+      "ai-studio",
+      "alignment",
+      "anthropic-api",
+      "api",
+      "chroma",
+      "developer-tools",
+      "function-calling",
+      "gemini"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "china-ai",
+    "slug": "china-ai",
+    "status": "pending",
+    "priority": 18,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-03-23-1-chinese-llm-scene-2026"
+    ],
+    "wikiSourceTerms": [
+      "deepseek"
+    ],
+    "knownTermHints": [
+      "api",
+      "benchmark",
+      "bytedance",
+      "deepseek",
+      "deepseek-r1",
+      "doubao",
+      "llm",
+      "open-model"
+    ],
+    "firstMentioned": "2025-01-20",
+    "lastMentioned": "2026-03-23T12:00:00+09:00"
+  },
+  {
     "term": "CRM",
     "slug": "crm",
     "status": "pending",
@@ -4954,69 +5893,71 @@
     "lastMentioned": "2026-04-14"
   },
   {
-    "term": "Jackrong",
-    "slug": "jackrong",
+    "term": "MLX",
+    "slug": "mlx",
     "status": "pending",
-    "priority": 17,
+    "priority": 18,
     "categoryGuess": "concept",
-    "occurrences": 3,
-    "distinctSourceCount": 3,
+    "occurrences": 2,
+    "distinctSourceCount": 2,
     "kinds": [
       "phrase"
     ],
     "sourceKinds": [
-      "news"
+      "news",
+      "wiki"
     ],
     "newsSourceSlugs": [
-      "2026-04-07-4-qwen35-claude-opus-distill",
-      "2026-04-10-3-qwen35-27b-claude-opus-distilled",
-      "2026-04-11-2-qwen35-claude-opus-distill"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "claude",
-      "distillation",
-      "fine-tuning",
-      "local-llm",
-      "open-source",
-      "qwen",
-      "reasoning"
-    ],
-    "firstMentioned": "2026-04-07T12:00:00+09:00",
-    "lastMentioned": "2026-04-11T10:30:00+09:00"
-  },
-  {
-    "term": "Mac",
-    "slug": "mac",
-    "status": "pending",
-    "priority": 17,
-    "categoryGuess": "concept",
-    "occurrences": 3,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model",
-      "2026-04-07-i-technically-got-an-llm-running-locally",
       "2026-04-12-3-dflash-speculative-decoding-apple-silicon"
     ],
-    "wikiSourceTerms": [],
+    "wikiSourceTerms": [
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
     "knownTermHints": [
       "apple-silicon",
-      "deepmind",
-      "gemma-4",
-      "google",
-      "llm",
-      "local-ai",
-      "mlx",
-      "open-model"
+      "claude-opus-4-6",
+      "distillation",
+      "gguf",
+      "llama.cpp",
+      "local-llm",
+      "qwen",
+      "qwen3.5-27b"
     ],
-    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
     "lastMentioned": "2026-04-12T11:00:00+09:00"
+  },
+  {
+    "term": "Gmail",
+    "slug": "gmail",
+    "status": "pending",
+    "priority": 17,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-07-5-gmail-gemini-privacy",
+      "2026-04-15-6-gemini-app-native-mac",
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "ai프라이버시",
+      "desktop-app",
+      "gemini",
+      "google",
+      "image-generation",
+      "macos",
+      "nano-banana",
+      "personal-intelligence"
+    ],
+    "firstMentioned": "2026-04-07T16:00:00+09:00",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
   },
   {
     "term": "MiniMax",
@@ -5050,6 +5991,39 @@
     ],
     "firstMentioned": "2026-04-06T11:00:00+09:00",
     "lastMentioned": "2026-04-16T09:00:00+09:00"
+  },
+  {
+    "term": "TechCrunch",
+    "slug": "techcrunch",
+    "status": "pending",
+    "priority": 17,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-15-6-gemini-app-native-mac",
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence",
+      "2026-04-19-1-openai-triple-exec-exit-sora-shutdown"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "desktop-app",
+      "gemini",
+      "google",
+      "image-generation",
+      "macos",
+      "nano-banana",
+      "openai",
+      "personal-intelligence"
+    ],
+    "firstMentioned": "2026-04-15T16:00:00+09:00",
+    "lastMentioned": "2026-04-19T09:00:00+09:00"
   },
   {
     "term": "framework",
@@ -5137,39 +6111,6 @@
     "lastMentioned": "2026-02-26"
   },
   {
-    "term": "Qwen3.6",
-    "slug": "qwen3.6",
-    "status": "pending",
-    "priority": 16,
-    "categoryGuess": "concept",
-    "occurrences": 4,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase",
-      "versioned_phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-06-2-chinese-labs-pause-open-source",
-      "2026-04-17-1-qwen36-35b-a3b-open-weight"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "agentic-coding",
-      "alibaba",
-      "localllama",
-      "minimax",
-      "mixture-of-experts",
-      "open-source",
-      "qwen",
-      "오픈소스"
-    ],
-    "firstMentioned": "2026-04-06T11:00:00+09:00",
-    "lastMentioned": "2026-04-17T09:00:00+09:00"
-  },
-  {
     "term": "AI-인프라",
     "slug": "ai-인프라",
     "status": "pending",
@@ -5199,6 +6140,37 @@
     ],
     "firstMentioned": "2026-04-06T14:00:00+09:00",
     "lastMentioned": "2026-04-12T13:00:00+09:00"
+  },
+  {
+    "term": "apple-silicon",
+    "slug": "apple-silicon",
+    "status": "pending",
+    "priority": 14,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-12-3-dflash-speculative-decoding-apple-silicon",
+      "2026-04-20-3-mac-mini-local-ai-infrastructure"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "inference",
+      "local-llm",
+      "mac-mini",
+      "mlx",
+      "speculative-decoding",
+      "로컬llm",
+      "추론가속"
+    ],
+    "firstMentioned": "2026-04-12T11:00:00+09:00",
+    "lastMentioned": "2026-04-20T11:00:00+09:00"
   },
   {
     "term": "reinforcement-learning",
@@ -5342,6 +6314,33 @@
     "lastMentioned": "2026-03-16T12:00:00+09:00"
   },
   {
+    "term": "desktop-app",
+    "slug": "desktop-app",
+    "status": "pending",
+    "priority": 13,
+    "categoryGuess": "tool",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-15-6-gemini-app-native-mac"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "gemini",
+      "google",
+      "macos",
+      "productivity"
+    ],
+    "firstMentioned": "2026-04-15T16:00:00+09:00",
+    "lastMentioned": "2026-04-15T16:00:00+09:00"
+  },
+  {
     "term": "embodied-reasoning",
     "slug": "embodied-reasoning",
     "status": "pending",
@@ -5426,38 +6425,6 @@
     ],
     "firstMentioned": "2026-03-05",
     "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "DeepMind",
-    "slug": "deepmind",
-    "status": "pending",
-    "priority": 12,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "e2b",
-      "google-deepmind"
-    ],
-    "knownTermHints": [
-      "anthropic",
-      "company",
-      "e2b",
-      "gemini",
-      "gemma",
-      "gemma-4",
-      "google",
-      "google-deepmind"
-    ],
-    "firstMentioned": "2026-04-05T13:00:00+09:00",
-    "lastMentioned": "2026-04-13"
   },
   {
     "term": "Git",
@@ -5609,12 +6576,12 @@
     ],
     "knownTermHints": [
       "aider",
-      "anthropic",
-      "chatgpt",
       "claude-code",
       "cli",
       "codex",
-      "coding-agent",
+      "copilot",
+      "cursor",
+      "developer-tools",
       "gguf"
     ],
     "firstMentioned": "2021-06-29",
@@ -5654,8 +6621,8 @@
     "lastMentioned": "2026-04-14"
   },
   {
-    "term": "JSON",
-    "slug": "json",
+    "term": "MIT",
+    "slug": "mit",
     "status": "pending",
     "priority": 9,
     "categoryGuess": "concept",
@@ -5669,22 +6636,55 @@
     ],
     "newsSourceSlugs": [],
     "wikiSourceTerms": [
-      "function-calling",
-      "guardrail",
-      "qdrant"
+      "apache",
+      "deepseek-r1",
+      "kimi-k2"
     ],
     "knownTermHints": [
-      "alignment",
-      "anthropic-api",
-      "api",
-      "chroma",
-      "function-calling",
-      "gemini-api",
-      "guardrail",
-      "hallucination"
+      "agentic-coding",
+      "apache",
+      "chain-of-thought",
+      "deepseek-r1",
+      "gemma",
+      "gemma-4",
+      "gpt-oss",
+      "kimi-k2"
     ],
-    "firstMentioned": "2026-04-07",
-    "lastMentioned": "2026-04-14"
+    "firstMentioned": "2025-01-20",
+    "lastMentioned": "2026-04-17"
+  },
+  {
+    "term": "OCR",
+    "slug": "ocr",
+    "status": "pending",
+    "priority": 9,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "gemma-4",
+      "qwen3.5-27b",
+      "vision-language-model"
+    ],
+    "knownTermHints": [
+      "gemini",
+      "gemma",
+      "gemma-4",
+      "gguf",
+      "google",
+      "gpt-4o",
+      "inference",
+      "local-llm"
+    ],
+    "firstMentioned": "2026-02-22",
+    "lastMentioned": "2026-04-17"
   },
   {
     "term": "open-weight",
@@ -5838,6 +6838,37 @@
     "lastMentioned": "2026-02-20"
   },
   {
+    "term": "mlx-lm",
+    "slug": "mlx-lm",
+    "status": "pending",
+    "priority": 9,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "inline_code"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "knownTermHints": [
+      "claude-opus-4-6",
+      "distillation",
+      "gguf",
+      "llama.cpp",
+      "local-llm",
+      "qwen",
+      "qwen3.5-27b",
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
+    "lastMentioned": "2026-04-07T12:00:00+09:00"
+  },
+  {
     "term": "NotebookLM",
     "slug": "notebooklm",
     "status": "pending",
@@ -5892,6 +6923,37 @@
     "lastMentioned": "2026-04-01"
   },
   {
+    "term": "text-only",
+    "slug": "text-only",
+    "status": "pending",
+    "priority": 9,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "inline_code"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "knownTermHints": [
+      "claude-opus-4-6",
+      "distillation",
+      "gguf",
+      "llama.cpp",
+      "local-llm",
+      "qwen",
+      "qwen3.5-27b",
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
+    "lastMentioned": "2026-04-07T12:00:00+09:00"
+  },
+  {
     "term": "vector-search",
     "slug": "vector-search",
     "status": "pending",
@@ -5919,6 +6981,70 @@
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "Bloomberg",
+    "slug": "bloomberg",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-06-5-us-data-center-delays",
+      "2026-04-15-6-gemini-app-native-mac"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "ai-인프라",
+      "desktop-app",
+      "gemini",
+      "google",
+      "macos",
+      "productivity",
+      "공급망",
+      "데이터센터"
+    ],
+    "firstMentioned": "2026-04-06T14:00:00+09:00",
+    "lastMentioned": "2026-04-15T16:00:00+09:00"
+  },
+  {
+    "term": "ElevenLabs",
+    "slug": "elevenlabs",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-16-2-google-gemini-31-flash-tts",
+      "2026-04-19-2-elevenlabs-flows-multimodel-creative-canvas"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "alpha",
+      "audio-tags",
+      "gemini",
+      "google",
+      "text-to-speech",
+      "멀티모달",
+      "워크플로우",
+      "콘텐츠제작"
+    ],
+    "firstMentioned": "2026-04-16T09:10:00+09:00",
+    "lastMentioned": "2026-04-19T10:00:00+09:00"
   },
   {
     "term": "Fortune",
@@ -6045,6 +7171,38 @@
     ],
     "firstMentioned": "2026-04-13T11:00:00+09:00",
     "lastMentioned": "2026-04-16T09:40:00+09:00"
+  },
+  {
+    "term": "Kling",
+    "slug": "kling",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-19-1-openai-triple-exec-exit-sora-shutdown",
+      "2026-04-19-2-elevenlabs-flows-multimodel-creative-canvas"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "alpha",
+      "elevenlabs",
+      "openai",
+      "sora",
+      "경영",
+      "구조조정",
+      "멀티모달",
+      "워크플로우"
+    ],
+    "firstMentioned": "2026-04-19T09:00:00+09:00",
+    "lastMentioned": "2026-04-19T10:00:00+09:00"
   },
   {
     "term": "Making",
@@ -6197,6 +7355,70 @@
     "lastMentioned": "2026-04-10T11:00:00+09:00"
   },
   {
+    "term": "TechSpot",
+    "slug": "techspot",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-06-5-us-data-center-delays",
+      "2026-04-20-3-mac-mini-local-ai-infrastructure"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "ai-인프라",
+      "apple-silicon",
+      "inference",
+      "local-llm",
+      "mac-mini",
+      "공급망",
+      "데이터센터",
+      "전력"
+    ],
+    "firstMentioned": "2026-04-06T14:00:00+09:00",
+    "lastMentioned": "2026-04-20T11:00:00+09:00"
+  },
+  {
+    "term": "Ultra",
+    "slug": "ultra",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-10-6-gemini-3d-interactive-sim",
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "3d-model",
+      "ai",
+      "deep-research",
+      "gemini",
+      "google",
+      "image-generation",
+      "interactive",
+      "nano-banana"
+    ],
+    "firstMentioned": "2026-04-10T01:00:00+09:00",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
+  },
+  {
     "term": "VentureBeat",
     "slug": "venturebeat",
     "status": "pending",
@@ -6227,6 +7449,38 @@
     ],
     "firstMentioned": "2026-04-06T12:00:00+09:00",
     "lastMentioned": "2026-04-13T09:00:00+09:00"
+  },
+  {
+    "term": "Windows",
+    "slug": "windows",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-13-2-gemma4-speculative-decoding-benchmark",
+      "2026-04-15-6-gemini-app-native-mac"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "desktop-app",
+      "gemini",
+      "gemma",
+      "google",
+      "llama-cpp",
+      "local-llm",
+      "macos",
+      "productivity"
+    ],
+    "firstMentioned": "2026-04-13T09:30:00+09:00",
+    "lastMentioned": "2026-04-15T16:00:00+09:00"
   },
   {
     "term": "x27",
@@ -6322,38 +7576,6 @@
     "lastMentioned": "2026-03-26"
   },
   {
-    "term": "H100",
-    "slug": "h100",
-    "status": "pending",
-    "priority": 7,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase",
-      "versioned_phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "gpt-oss"
-    ],
-    "knownTermHints": [
-      "chain-of-thought",
-      "chatgpt",
-      "codex",
-      "gpt-4o",
-      "gpt-oss",
-      "open-weight",
-      "openai",
-      "reasoning"
-    ],
-    "firstMentioned": "2026-04-17",
-    "lastMentioned": "2026-04-17"
-  },
-  {
     "term": "INT4",
     "slug": "int4",
     "status": "pending",
@@ -6447,6 +7669,39 @@
     ],
     "firstMentioned": "2026-04-13T09:00:00+09:00",
     "lastMentioned": "2026-04-17T11:00:00+09:00"
+  },
+  {
+    "term": "AIME",
+    "slug": "aime",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-16-3-gemma4-26b-replaces-qwen-local",
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "benchmark",
+      "deepmind",
+      "gemma",
+      "gemma-4",
+      "google",
+      "local-llm",
+      "mixture-of-experts"
+    ],
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "AI-글쓰기",
@@ -6765,33 +8020,6 @@
     "lastMentioned": "2026-04-15T09:00:00+09:00"
   },
   {
-    "term": "apple-silicon",
-    "slug": "apple-silicon",
-    "status": "pending",
-    "priority": 5,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-12-3-dflash-speculative-decoding-apple-silicon"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "mlx",
-      "speculative-decoding",
-      "로컬llm",
-      "추론가속"
-    ],
-    "firstMentioned": "2026-04-12T11:00:00+09:00",
-    "lastMentioned": "2026-04-12T11:00:00+09:00"
-  },
-  {
     "term": "boston-dynamics",
     "slug": "boston-dynamics",
     "status": "pending",
@@ -6873,6 +8101,33 @@
     "lastMentioned": "2026-04-10T01:00:00+09:00"
   },
   {
+    "term": "drug-discovery",
+    "slug": "drug-discovery",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-2-openai-gpt-rosalind-life-sciences"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "codex",
+      "gpt-rosalind",
+      "life-sciences",
+      "openai"
+    ],
+    "firstMentioned": "2026-04-18T09:30:00+09:00",
+    "lastMentioned": "2026-04-18T09:30:00+09:00"
+  },
+  {
     "term": "enterprise-ai",
     "slug": "enterprise-ai",
     "status": "pending",
@@ -6926,6 +8181,33 @@
     "lastMentioned": "2026-03-16T12:00:00+09:00"
   },
   {
+    "term": "gpu-optimization",
+    "slug": "gpu-optimization",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "deepgemm",
+      "deepseek",
+      "fp8",
+      "mixture-of-experts"
+    ],
+    "firstMentioned": "2026-04-18T11:00:00+09:00",
+    "lastMentioned": "2026-04-18T11:00:00+09:00"
+  },
+  {
     "term": "healthcare-ai",
     "slug": "healthcare-ai",
     "status": "pending",
@@ -6950,6 +8232,59 @@
     ],
     "firstMentioned": "2026-04-07T10:00:00+09:00",
     "lastMentioned": "2026-04-07T10:00:00+09:00"
+  },
+  {
+    "term": "life-sciences",
+    "slug": "life-sciences",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-2-openai-gpt-rosalind-life-sciences"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "codex",
+      "drug-discovery",
+      "gpt-rosalind",
+      "openai"
+    ],
+    "firstMentioned": "2026-04-18T09:30:00+09:00",
+    "lastMentioned": "2026-04-18T09:30:00+09:00"
+  },
+  {
+    "term": "mechanistic-interpretability",
+    "slug": "mechanistic-interpretability",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-20-2-llm-neuroanatomy-geometry-thinking"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "llm",
+      "multilingual",
+      "research"
+    ],
+    "firstMentioned": "2026-04-20T10:00:00+09:00",
+    "lastMentioned": "2026-04-20T10:00:00+09:00"
   },
   {
     "term": "multi-token-prediction",
@@ -7005,6 +8340,33 @@
     ],
     "firstMentioned": "2026-04-13T09:00:00+09:00",
     "lastMentioned": "2026-04-13T09:00:00+09:00"
+  },
+  {
+    "term": "personal-intelligence",
+    "slug": "personal-intelligence",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "gemini",
+      "google",
+      "image-generation",
+      "nano-banana"
+    ],
+    "firstMentioned": "2026-04-18T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
   },
   {
     "term": "political-bias",
@@ -7086,6 +8448,33 @@
     ],
     "firstMentioned": "2026-04-11T12:00:00+09:00",
     "lastMentioned": "2026-04-11T12:00:00+09:00"
+  },
+  {
+    "term": "sentence-transformers",
+    "slug": "sentence-transformers",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-4-huggingface-multimodal-sentence-transformers"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "embedding",
+      "huggingface",
+      "multimodal",
+      "rag"
+    ],
+    "firstMentioned": "2026-04-18T10:30:00+09:00",
+    "lastMentioned": "2026-04-18T10:30:00+09:00"
   },
   {
     "term": "us-government",
@@ -7361,12 +8750,13 @@
     ],
     "knownTermHints": [
       "aider",
-      "anthropic",
-      "chatgpt",
       "claude-code",
       "cli",
       "codex",
-      "coding-agent"
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "shell"
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2021-06-29"
@@ -7512,6 +8902,97 @@
       "cli",
       "codex",
       "coding-agent"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
+  },
+  {
+    "term": "Debug",
+    "slug": "debug",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ide"
+    ],
+    "knownTermHints": [
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "editor"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
+  },
+  {
+    "term": "DeepMind",
+    "slug": "deepmind",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "google-deepmind"
+    ],
+    "knownTermHints": [
+      "anthropic",
+      "company",
+      "google-deepmind",
+      "jax",
+      "openai",
+      "research"
+    ],
+    "firstMentioned": "2026-04-13",
+    "lastMentioned": "2026-04-13"
+  },
+  {
+    "term": "Develop",
+    "slug": "develop",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ide"
+    ],
+    "knownTermHints": [
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "editor"
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2021-06-29"
@@ -7724,6 +9205,37 @@
     "lastMentioned": "2026-04-04T09:00:00+09:00"
   },
   {
+    "term": "Get",
+    "slug": "get",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ai-studio"
+    ],
+    "knownTermHints": [
+      "ai-studio",
+      "api",
+      "developer-tools",
+      "function-calling",
+      "gemini",
+      "gemini-api",
+      "grounding",
+      "prompting"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-04T09:00:00+09:00"
+  },
+  {
     "term": "Interface",
     "slug": "interface",
     "status": "pending",
@@ -7870,36 +9382,6 @@
     "lastMentioned": "2026-02-20"
   },
   {
-    "term": "Midjourney",
-    "slug": "midjourney",
-    "status": "pending",
-    "priority": 3,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "flux"
-    ],
-    "knownTermHints": [
-      "dall-e",
-      "diffusion",
-      "flux",
-      "image-generation",
-      "mistral",
-      "open-weight",
-      "stable-diffusion"
-    ],
-    "firstMentioned": "2026-04-14",
-    "lastMentioned": "2026-04-14"
-  },
-  {
     "term": "Next.js",
     "slug": "next.js",
     "status": "pending",
@@ -7928,6 +9410,36 @@
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "NOTICE",
+    "slug": "notice",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "apache"
+    ],
+    "knownTermHints": [
+      "apache",
+      "gemma-4",
+      "gpt-oss",
+      "license",
+      "open-source",
+      "qwen-3.5",
+      "weight"
+    ],
+    "firstMentioned": "2026-03-16",
+    "lastMentioned": "2026-03-16"
   },
   {
     "term": "NumPy",
@@ -8006,12 +9518,13 @@
     ],
     "knownTermHints": [
       "aider",
-      "anthropic",
-      "chatgpt",
       "claude-code",
       "cli",
       "codex",
-      "coding-agent"
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "shell"
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2021-06-29"
@@ -8103,6 +9616,37 @@
     ],
     "firstMentioned": "2026-04-13",
     "lastMentioned": "2026-04-13"
+  },
+  {
+    "term": "Run",
+    "slug": "run",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ai-studio"
+    ],
+    "knownTermHints": [
+      "ai-studio",
+      "api",
+      "developer-tools",
+      "function-calling",
+      "gemini",
+      "gemini-api",
+      "grounding",
+      "prompting"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-04T09:00:00+09:00"
   },
   {
     "term": "SaaS",
@@ -8340,6 +9884,37 @@
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "Test",
+    "slug": "test",
+    "status": "pending",
+    "priority": 3,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ide"
+    ],
+    "knownTermHints": [
+      "claude-code",
+      "codex",
+      "coding-agent",
+      "continue",
+      "copilot",
+      "cursor",
+      "developer-tools",
+      "editor"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
   },
   {
     "term": "Train",
@@ -8583,38 +10158,6 @@
     "lastMentioned": "2021-06-29"
   },
   {
-    "term": "MIT",
-    "slug": "mit",
-    "status": "pending",
-    "priority": 0,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "deepseek-r1",
-      "kimi-k2"
-    ],
-    "knownTermHints": [
-      "agentic-coding",
-      "chain-of-thought",
-      "deepseek-r1",
-      "gemma",
-      "gpt-oss",
-      "kimi-k2",
-      "llama",
-      "moonshot"
-    ],
-    "firstMentioned": "2025-01-20",
-    "lastMentioned": "2026-04-17"
-  },
-  {
     "term": "model-lab",
     "slug": "model-lab",
     "status": "pending",
@@ -8641,102 +10184,6 @@
     ],
     "firstMentioned": "2019-02-14",
     "lastMentioned": "2026-02-18"
-  },
-  {
-    "term": "OCR",
-    "slug": "ocr",
-    "status": "pending",
-    "priority": 0,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "gemma-4",
-      "vision-language-model"
-    ],
-    "knownTermHints": [
-      "gemini",
-      "gemma",
-      "gemma-4",
-      "google",
-      "gpt-4o",
-      "local-llm",
-      "localllama",
-      "multimodal"
-    ],
-    "firstMentioned": "2026-02-22",
-    "lastMentioned": "2026-04-17"
-  },
-  {
-    "term": "PDF",
-    "slug": "pdf",
-    "status": "pending",
-    "priority": 0,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "context-window",
-      "vision-language-model"
-    ],
-    "knownTermHints": [
-      "context-window",
-      "gemini",
-      "gpt-4o",
-      "long-context",
-      "memory",
-      "multimodal",
-      "tokenizer",
-      "tokens"
-    ],
-    "firstMentioned": "2026-02-22",
-    "lastMentioned": "2026-04-11"
-  },
-  {
-    "term": "SKU",
-    "slug": "sku",
-    "status": "pending",
-    "priority": 0,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "e2b",
-      "gemini-2.5"
-    ],
-    "knownTermHints": [
-      "deepmind",
-      "deepseek-r1",
-      "e2b",
-      "gemini",
-      "gemini-2.5",
-      "gemma",
-      "gemma-4",
-      "google"
-    ],
-    "firstMentioned": "2026-04-05T13:00:00+09:00",
-    "lastMentioned": "2026-04-14"
   },
   {
     "term": "z-ai",
@@ -8855,6 +10302,38 @@
     "lastMentioned": "2026-04-06T13:00:00+09:00"
   },
   {
+    "term": "AGI",
+    "slug": "agi",
+    "status": "pending",
+    "priority": -4,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-07-2-openai-agi-policy-blueprint",
+      "2026-04-19-1-openai-triple-exec-exit-sora-shutdown"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "economics",
+      "openai",
+      "policy",
+      "regulation",
+      "sora",
+      "경영",
+      "구조조정",
+      "임원"
+    ],
+    "firstMentioned": "2026-04-07T10:30:00+09:00",
+    "lastMentioned": "2026-04-19T09:00:00+09:00"
+  },
+  {
     "term": "ai-agent",
     "slug": "ai-agent",
     "status": "pending",
@@ -8886,38 +10365,6 @@
     "lastMentioned": "2026-04-15T09:10:00+09:00"
   },
   {
-    "term": "AIME",
-    "slug": "aime",
-    "status": "pending",
-    "priority": -4,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model",
-      "2026-04-16-3-gemma4-26b-replaces-qwen-local"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "benchmark",
-      "deepmind",
-      "gemma",
-      "gemma-4",
-      "google",
-      "local-llm",
-      "mixture-of-experts",
-      "open-model"
-    ],
-    "firstMentioned": "2026-04-05T13:00:00+09:00",
-    "lastMentioned": "2026-04-16T09:20:00+09:00"
-  },
-  {
     "term": "model",
     "slug": "model",
     "status": "pending",
@@ -8946,6 +10393,38 @@
     ],
     "firstMentioned": "2026-04-04T09:00:00+09:00",
     "lastMentioned": "2026-04-04T09:00:00+09:00"
+  },
+  {
+    "term": "MTP",
+    "slug": "mtp",
+    "status": "pending",
+    "priority": -4,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-11-3-gemma4-mtp-reverse",
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "deepgemm",
+      "deepseek",
+      "fp8",
+      "gemma",
+      "google",
+      "gpu-optimization",
+      "mixture-of-experts",
+      "multi-token-prediction"
+    ],
+    "firstMentioned": "2026-04-11T12:00:00+09:00",
+    "lastMentioned": "2026-04-18T11:00:00+09:00"
   },
   {
     "term": "NLP",
@@ -9067,6 +10546,37 @@
     "lastMentioned": "2026-03-02"
   },
   {
+    "term": "IAM",
+    "slug": "iam",
+    "status": "pending",
+    "priority": -9,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ai-studio"
+    ],
+    "knownTermHints": [
+      "ai-studio",
+      "api",
+      "developer-tools",
+      "function-calling",
+      "gemini",
+      "gemini-api",
+      "grounding",
+      "prompting"
+    ],
+    "firstMentioned": "2026-04-04T09:00:00+09:00",
+    "lastMentioned": "2026-04-04T09:00:00+09:00"
+  },
+  {
     "term": "JIT",
     "slug": "jit",
     "status": "pending",
@@ -9180,6 +10690,37 @@
     ],
     "firstMentioned": "2026-02-20",
     "lastMentioned": "2026-02-20"
+  },
+  {
+    "term": "model-size",
+    "slug": "model-size",
+    "status": "pending",
+    "priority": -9,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "e2b"
+    ],
+    "knownTermHints": [
+      "e2b",
+      "gemma",
+      "gemma-4",
+      "inference",
+      "mixture-of-experts",
+      "multimodal",
+      "on-device",
+      "quantization"
+    ],
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-05T13:00:00+09:00"
   },
   {
     "term": "multi-agent",
@@ -9359,6 +10900,67 @@
     ],
     "firstMentioned": "2023-03-14",
     "lastMentioned": "2023-03-14"
+  },
+  {
+    "term": "SKU",
+    "slug": "sku",
+    "status": "pending",
+    "priority": -9,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "gemini-2.5"
+    ],
+    "knownTermHints": [
+      "deepseek-r1",
+      "gemini",
+      "gemini-2.5",
+      "gemma",
+      "google",
+      "o3",
+      "reasoning"
+    ],
+    "firstMentioned": "2026-04-14",
+    "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "SLA",
+    "slug": "sla",
+    "status": "pending",
+    "priority": -9,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "knownTermHints": [
+      "claude-opus-4-6",
+      "distillation",
+      "gguf",
+      "llama.cpp",
+      "local-llm",
+      "qwen",
+      "qwen3.5-27b",
+      "qwen3.5-27b-claude-4.6-opus-reasoning-distilled"
+    ],
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
+    "lastMentioned": "2026-04-07T12:00:00+09:00"
   },
   {
     "term": "SQL",
@@ -9628,35 +11230,6 @@
     "lastMentioned": "2026-04-16T09:10:00+09:00"
   },
   {
-    "term": "china-ai",
-    "slug": "china-ai",
-    "status": "pending",
-    "priority": -13,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-03-23-1-chinese-llm-scene-2026"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "bytedance",
-      "deepseek",
-      "doubao",
-      "llm",
-      "open-source",
-      "qwen"
-    ],
-    "firstMentioned": "2026-03-23T12:00:00+09:00",
-    "lastMentioned": "2026-03-23T12:00:00+09:00"
-  },
-  {
     "term": "consumer-ai",
     "slug": "consumer-ai",
     "status": "pending",
@@ -9763,8 +11336,8 @@
     "lastMentioned": "2026-03-16T12:00:00+09:00"
   },
   {
-    "term": "license",
-    "slug": "license",
+    "term": "mac-mini",
+    "slug": "mac-mini",
     "status": "pending",
     "priority": -13,
     "categoryGuess": "concept",
@@ -9777,17 +11350,43 @@
       "news"
     ],
     "newsSourceSlugs": [
-      "2026-04-16-1-minimax-m27-license-controversy"
+      "2026-04-20-3-mac-mini-local-ai-infrastructure"
     ],
     "wikiSourceTerms": [],
     "knownTermHints": [
-      "m2.7",
-      "minimax",
-      "mixture-of-experts",
-      "open-source"
+      "apple-silicon",
+      "inference",
+      "local-llm"
     ],
-    "firstMentioned": "2026-04-16T09:00:00+09:00",
-    "lastMentioned": "2026-04-16T09:00:00+09:00"
+    "firstMentioned": "2026-04-20T11:00:00+09:00",
+    "lastMentioned": "2026-04-20T11:00:00+09:00"
+  },
+  {
+    "term": "nano-banana",
+    "slug": "nano-banana",
+    "status": "pending",
+    "priority": -13,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-1-gemini-nano-banana-personal-intelligence"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "gemini",
+      "google",
+      "image-generation",
+      "personal-intelligence"
+    ],
+    "firstMentioned": "2026-04-18T09:00:00+09:00",
+    "lastMentioned": "2026-04-18T09:00:00+09:00"
   },
   {
     "term": "pretraining",
@@ -9870,6 +11469,33 @@
     ],
     "firstMentioned": "2026-03-02T12:00:00+09:00",
     "lastMentioned": "2026-03-02T12:00:00+09:00"
+  },
+  {
+    "term": "swe-bench",
+    "slug": "swe-bench",
+    "status": "pending",
+    "priority": -13,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-3-qwen36-swe-bench-local-coding"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "mixture-of-experts",
+      "open-source",
+      "qwen"
+    ],
+    "firstMentioned": "2026-04-18T10:00:00+09:00",
+    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "tiny-model",
@@ -10534,6 +12160,96 @@
     ],
     "firstMentioned": "2026-03-02",
     "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "Command Line Interface",
+    "slug": "command-line-interface",
+    "status": "resolved",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "cli"
+    ],
+    "knownTermHints": [
+      "aider",
+      "anthropic",
+      "chatgpt",
+      "claude-code",
+      "cli",
+      "codex",
+      "coding-agent"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
+  },
+  {
+    "term": "Generative Pre-trained Transformer",
+    "slug": "generative-pre-trained-transformer",
+    "status": "resolved",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "gpt"
+    ],
+    "knownTermHints": [
+      "agentic-coding",
+      "anthropic",
+      "application",
+      "architecture",
+      "assistant",
+      "attention",
+      "gpt"
+    ],
+    "firstMentioned": "2018-10-11",
+    "lastMentioned": "2018-10-11"
+  },
+  {
+    "term": "Integrated Development Environment",
+    "slug": "integrated-development-environment",
+    "status": "resolved",
+    "priority": 27,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "wiki"
+    ],
+    "newsSourceSlugs": [],
+    "wikiSourceTerms": [
+      "ide"
+    ],
+    "knownTermHints": [
+      "agent",
+      "aider",
+      "anthropic",
+      "chain-of-thought",
+      "chatgpt",
+      "claude-code",
+      "ide"
+    ],
+    "firstMentioned": "2021-06-29",
+    "lastMentioned": "2021-06-29"
   },
   {
     "term": "Vision-Language Model",

@@ -1,78 +1,91 @@
 ---
 term: alignment
-title: "Alignment(정렬)"
+title: Alignment(정렬)
 lang: ko
-summary: "Alignment(정렬)은 AI가 사람의 의도, 선호, 규범에서 벗어나지 않게 맞추는 개념이야. 모델을 더 똑똑하게 만드는 일과 겹칠 수는 있지만, 핵심은 성능 경쟁보다 오류와 위험을 줄이고 통제 가능성을 높이는 데 있어."
-readerValue: "이 문서를 읽으면 alignment를 단순한 성능 향상 기법이 아니라, AI가 엉뚱한 목표를 밀어붙이지 않게 만드는 안전 장치에 더 가깝게 구분해서 볼 수 있어."
+summary: >-
+  Alignment(정렬)은 AI가 사람의 의도, 선호, 규범에서 벗어나지 않게 맞추는 개념이야. 모델을 더 똑똑하게 만드는 일과 겹칠 수는
+  있지만, 핵심은 성능 경쟁보다 오류와 위험을 줄이고 통제 가능성을 높이는 데 있어.
+readerValue: >-
+  이 문서를 읽으면 alignment를 단순한 성능 향상 기법이 아니라, AI가 엉뚱한 목표를 밀어붙이지 않게 만드는 안전 장치에 더 가깝게
+  구분해서 볼 수 있어.
 category: concept
 guideVersion:
-  common: "1.0.0"
-  wiki: "3.0.0"
+  common: 1.0.0
+  wiki: 3.0.0
 aliases:
-  - "ai alignment"
+  - ai alignment
 relatedTerms:
   - pytorch
   - fine-tuning
   - distillation
   - hallucination
-firstMentioned: "2026-02-22"
+firstMentioned: '2026-02-22'
 mentionCount: 3
-draft: false
+draft: true
 tags:
   - safety
   - training
   - concept
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: '2026-04-13'
   sources:
-    - url: "https://en.wikipedia.org/wiki/AI_alignment"
-      title: "AI alignment"
-    - url: "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback"
-      title: "Constitutional AI: Harmlessness from AI Feedback"
+    - url: 'https://en.wikipedia.org/wiki/AI_alignment'
+      title: AI alignment
+    - url: >-
+        https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback
+      title: 'Constitutional AI: Harmlessness from AI Feedback'
   checks:
     - type: source_match
       result: pass
-      summary: "제공된 두 출처 요약과 문서 핵심이 어긋나지 않는지 맞춰봤어."
+      summary: 제공된 두 출처 요약과 문서 핵심이 어긋나지 않는지 맞춰봤어.
       items:
-        - "독자 문제 대조: 이 항목이 성능 향상 설명으로 흐르지 않고, 목표 일치와 위험 완화 중심 개념으로 읽히는지 확인해봤어."
-        - "위키 요약의 핵심인 '의도한 목표·선호·윤리 원칙에 맞춘다'는 뜻이 한 줄 정의와 작동 설명에 모두 살아 있는지 다시 봤어."
-        - "Constitutional AI 요약에 있는 신뢰성·해석 가능성·조종 가능성 맥락이 왜 중요한가와 주의점에 자연스럽게 반영됐는지 한 번 더 봤어."
+        - '독자 문제 대조: 이 항목이 성능 향상 설명으로 흐르지 않고, 목표 일치와 위험 완화 중심 개념으로 읽히는지 확인해봤어.'
+        - 위키 요약의 핵심인 '의도한 목표·선호·윤리 원칙에 맞춘다'는 뜻이 한 줄 정의와 작동 설명에 모두 살아 있는지 다시 봤어.
+        - >-
+          Constitutional AI 요약에 있는 신뢰성·해석 가능성·조종 가능성 맥락이 왜 중요한가와 주의점에 자연스럽게
+          반영됐는지 한 번 더 봤어.
     - type: web_cross_check
       result: pass
       sources: 2
-      summary: "제공된 웹 출처 둘의 방향성과 본문 설명이 같은 축에 서 있는지 한 번 더 봤어."
+      summary: 제공된 웹 출처 둘의 방향성과 본문 설명이 같은 축에 서 있는지 한 번 더 봤어.
       items:
-        - "비교 기준: alignment를 '사람의 의도에 맞추는 일'로 설명하는지, 아니면 단순 성능 튜닝으로 오해하게 쓰지 않았는지 비교해봤어."
-        - "Wikipedia 요약과 대조해 misalignment를 암시하는 표현이 본문의 목표 이탈 설명과 충돌하지 않는지 다시 봤어."
-        - "Anthropic 연구 요약과 맞춰서 정렬을 안전성, 조종 가능성, 신뢰성 문제로 다룬 문장이 과장 없이 유지되는지 확인해봤어."
+        - >-
+          비교 기준: alignment를 '사람의 의도에 맞추는 일'로 설명하는지, 아니면 단순 성능 튜닝으로 오해하게 쓰지 않았는지
+          비교해봤어.
+        - Wikipedia 요약과 대조해 misalignment를 암시하는 표현이 본문의 목표 이탈 설명과 충돌하지 않는지 다시 봤어.
+        - >-
+          Anthropic 연구 요약과 맞춰서 정렬을 안전성, 조종 가능성, 신뢰성 문제로 다룬 문장이 과장 없이 유지되는지
+          확인해봤어.
     - type: number_verify
       result: pass
-      summary: "숫자나 범위가 필요한 주장에 빈틈이 없는지 다시 봤어."
+      summary: 숫자나 범위가 필요한 주장에 빈틈이 없는지 다시 봤어.
       items:
-        - "본문에는 정렬 효과를 특정 수치로 단정하는 표현을 넣지 않았어."
-        - "mentionCount와 firstMentioned 같은 메타데이터는 용어 설명과 직접 관련 없어서 본문 주장으로 끌어오지 않았어."
-        - "실무 중요성을 말할 때도 정량 수치 대신 운영 위험과 해석 차이처럼 일반적으로 성립하는 수준으로만 적었는지 확인해봤어."
+        - 본문에는 정렬 효과를 특정 수치로 단정하는 표현을 넣지 않았어.
+        - >-
+          mentionCount와 firstMentioned 같은 메타데이터는 용어 설명과 직접 관련 없어서 본문 주장으로 끌어오지
+          않았어.
+        - 실무 중요성을 말할 때도 정량 수치 대신 운영 위험과 해석 차이처럼 일반적으로 성립하는 수준으로만 적었는지 확인해봤어.
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 오해를 일부러 걸어 보면서 문장 방향을 한 번 더 봤어."
+      summary: 헷갈리기 쉬운 오해를 일부러 걸어 보면서 문장 방향을 한 번 더 봤어.
       items:
-        - "정렬을 '좋은 답을 더 많이 만드는 기술'로만 읽어도 문서가 버티는지 점검해봤어."
-        - "정렬을 환각 하나로 축소해서 읽을 때도 관련 용어 설명이 차이를 분명히 남기는지 다시 봤어."
-        - "미세 조정이나 증류 같은 학습 기법과 정렬을 같은 층위로 오해하지 않도록 비교 문장을 확인해봤어."
+        - 정렬을 '좋은 답을 더 많이 만드는 기술'로만 읽어도 문서가 버티는지 점검해봤어.
+        - 정렬을 환각 하나로 축소해서 읽을 때도 관련 용어 설명이 차이를 분명히 남기는지 다시 봤어.
+        - 미세 조정이나 증류 같은 학습 기법과 정렬을 같은 층위로 오해하지 않도록 비교 문장을 확인해봤어.
       findings:
-        - "'정렬=성능 향상'으로 오해할 수 있는 부분을 피하려고 안전성, 통제 가능성, 운영 위험 축을 앞에 세워 뒀어."
-        - "'정렬=환각 방지'로만 좁아지지 않게 목표 이탈, 유해성, 정책 준수까지 범위를 넓혀 적어 뒀어."
+        - '''정렬=성능 향상''으로 오해할 수 있는 부분을 피하려고 안전성, 통제 가능성, 운영 위험 축을 앞에 세워 뒀어.'
+        - '''정렬=환각 방지''로만 좁아지지 않게 목표 이탈, 유해성, 정책 준수까지 범위를 넓혀 적어 뒀어.'
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.0.0
+    tone-editor: 1.0.0
+    structure-editor: 1.0.0
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  reviewedAt: '2026-04-17'
 ---
 ## 한 줄 정의
 Alignment(정렬)은 AI가 사람이나 조직이 의도한 목표, 선호, 규범에 맞게 행동하도록 맞추는 일이야. 쉽게 말해 답을 잘 만드는 것만이 아니라, 무엇을 위해 어떻게 답해야 하는지까지 어긋나지 않게 붙잡아 두는 문제라고 보면 돼.

@@ -6,9 +6,24 @@ import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface LightRagShowcaseProps {
     slug: string;
+    title: string;
+    summary: string;
+    tags: string[];
+    sourceMeta: ShowcaseSourceMeta;
+    metricValue: string;
+    license: string;
 }
 
-type SectionId = 'ingest' | 'graph' | 'query' | 'deploy';
+type SectionId = 'hero' | 'ingest' | 'graph' | 'query' | 'deploy';
+
+interface ShowcaseSourceMeta {
+    provider: string;
+    metricLabel: string;
+    mark: string;
+    className: string;
+    path: string;
+    itemLabel?: string;
+}
 
 interface SampleDocument {
     id: string;
@@ -39,6 +54,7 @@ interface QueryScenario {
 }
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
+    { id: 'hero', label: '소개', description: '한눈 요약과 메타' },
     { id: 'ingest', label: '인덱싱', description: '문서가 그래프로 바뀌는 흐름' },
     { id: 'graph', label: '그래프', description: '추출된 엔터티와 관계' },
     { id: 'query', label: '질의', description: 'citation 포함 답변 샘플' },
@@ -209,14 +225,14 @@ const STORAGE_CARDS = [
     },
 ];
 
-export default function LightRagShowcase({ slug }: LightRagShowcaseProps) {
+export default function LightRagShowcase({ slug, title, summary, tags, sourceMeta, metricValue, license }: LightRagShowcaseProps) {
     const [activeDocId, setActiveDocId] = useState<string>(SAMPLE_DOCS[0].id);
     const [activeNodeId, setActiveNodeId] = useState<string>('lightrag');
     const [activeQueryId, setActiveQueryId] = useState<string>(QUERY_SCENARIOS[0].id);
     const [rerankerOn, setRerankerOn] = useState(true);
     const { activeId, scrollToSection } = useShowcaseSectionNav({
         ids: SECTIONS.map((item) => item.id),
-        initialId: 'ingest',
+        initialId: 'hero',
         sectionPrefix: SECTION_PREFIX,
     });
 
@@ -234,9 +250,13 @@ export default function LightRagShowcase({ slug }: LightRagShowcaseProps) {
             <ShowcaseSectionNav items={SECTIONS} activeId={activeId} onSelect={scrollToSection} />
 
             <div className="lr-main">
-                <section className="lr-hero">
+                <section className="lr-hero" id={`${SECTION_PREFIX}hero`}>
+                    <div className="lr-hero-head">
+                        <span className="lr-showcase-label">Interactive Showcase</span>
+                    </div>
                     <div className="lr-hero-copy">
-                        <p className="lr-kicker">Knowledge Graph RAG Demo</p>
+                        <h1>{title}</h1>
+                        <p>{summary}</p>
                         <h2>샘플 문서 3개를 넣었을 때 LightRAG가 어떻게 읽는지</h2>
                         <p>
                             실제 저장소를 붙이지 않아도 인덱싱, 엔터티 추출, citation 포함 답변,
@@ -249,6 +269,23 @@ export default function LightRagShowcase({ slug }: LightRagShowcaseProps) {
                             <span>30 relations</span>
                         </div>
                     </div>
+                    <div className="lr-meta-grid">
+                        <article className={`lr-meta-card lr-meta-card--source ${sourceMeta.className}`}>
+                            <div className="lr-meta-mark">{sourceMeta.mark}</div>
+                            <div className="lr-meta-copy">
+                                <span>{sourceMeta.provider}</span>
+                                <strong>{sourceMeta.path}</strong>
+                            </div>
+                        </article>
+                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
+                        <MetaCard label="라이선스" value={license} />
+                        <MetaCard label="읽는 방식" value="Sample -> Graph -> Query" />
+                    </div>
+                    {tags.length > 0 && (
+                        <div className="lr-tag-row">
+                            {tags.map((tag) => <span key={tag}>{tag}</span>)}
+                        </div>
+                    )}
                     <div className="lr-hero-card">
                         <Stat label="문서" value="3" />
                         <Stat label="청크" value="18" />
@@ -446,6 +483,15 @@ function Stat({ label, value }: { label: string; value: string }) {
     );
 }
 
+function MetaCard({ label, value }: { label: string; value: string }) {
+    return (
+        <article className="lr-meta-card">
+            <span>{label}</span>
+            <strong>{value}</strong>
+        </article>
+    );
+}
+
 function StepCard({ label, value, note }: { label: string; value: string; note: string }) {
     return (
         <article className="lr-step-card">
@@ -461,12 +507,21 @@ const showcaseCss = `
 .lr-main{grid-column:2;grid-row:2;display:grid;gap:18px;min-width:0}
 .lr-hero,.lr-panel,.lr-stat,.lr-step-card,.lr-answer-card,.lr-context-card,.lr-deploy-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .lr-hero,.lr-panel{border-radius:12px;padding:20px}
-.lr-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:18px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 13%,transparent),transparent 46%),var(--color-surface)}
-.lr-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
-.lr-hero-copy h2{margin:0 0 10px;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.08}
+.lr-hero{display:grid;gap:16px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 13%,transparent),transparent 46%),var(--color-surface)}
+.lr-hero-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lr-showcase-label{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.lr-hero-copy h1{margin:0 0 10px;font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em}
 .lr-hero-copy p{max-width:660px;margin:0;color:var(--color-text-muted);line-height:1.7}
+.lr-hero-copy h2,.lr-hero-copy h2 + p,.lr-hero-copy .lr-chip-row{display:none}
+.lr-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.lr-meta-card{display:grid;gap:10px;align-content:start;min-width:0;padding:14px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt)}
+.lr-meta-card--source{grid-template-columns:auto minmax(0,1fr);align-items:center}
+.lr-meta-mark{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:1.1rem;font-weight:900}
+.lr-meta-copy{display:grid;gap:4px;min-width:0}
+.lr-meta-card span,.lr-meta-copy span{color:var(--color-text-muted);font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.lr-meta-card strong,.lr-meta-copy strong{overflow-wrap:anywhere;font-family:var(--font-heading);font-size:1.02rem;line-height:1.25}
 .lr-hero-card,.lr-step-grid,.lr-deploy-grid,.lr-query-layout,.lr-ingest-layout,.lr-graph-layout{display:grid;gap:12px}
-.lr-hero-card{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
+.lr-hero-card{grid-template-columns:repeat(4,minmax(0,1fr));align-content:start}
 .lr-stat,.lr-step-card,.lr-answer-card,.lr-context-card,.lr-deploy-card{border-radius:10px;padding:14px}
 .lr-stat{background:var(--color-surface-alt)}
 .lr-stat span,.lr-step-card span,.lr-query-toolbar span,.lr-section-heading p,.lr-context-card header span,.lr-link-grid button span{color:var(--color-text-muted)}
@@ -486,8 +541,9 @@ const showcaseCss = `
 .lr-doc-detail header p,.lr-step-card p,.lr-answer-card p,.lr-context-card p,.lr-graph-detail p,.lr-deploy-card p{margin:6px 0 0;color:var(--color-text-muted);font-size:.86rem;line-height:1.6}
 .lr-doc-detail blockquote{margin:14px 0;padding:14px 16px;border-left:3px solid var(--color-projects);border-radius:0 8px 8px 0;background:var(--color-surface-alt);color:var(--color-text)}
 .lr-step-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.lr-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.lr-chip-row span{display:inline-flex;align-items:center;min-height:30px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.78rem}
+.lr-chip-row,.lr-tag-row{display:flex;flex-wrap:wrap;gap:8px}
+.lr-chip-row{margin-top:14px}
+.lr-chip-row span,.lr-tag-row span{display:inline-flex;align-items:center;min-height:30px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.78rem}
 .lr-graph-layout{grid-template-columns:minmax(0,1fr) minmax(280px,.8fr)}
 .lr-node-cloud{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;padding:6px 0}
 .lr-node{padding:10px 12px;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface-alt);color:var(--color-text)}
@@ -510,6 +566,6 @@ const showcaseCss = `
 .lr-context-stack{display:grid;gap:10px}
 .lr-context-card header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
 .lr-deploy-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-@media (max-width:900px){.lr-main{grid-column:1;grid-row:auto}.lr-hero,.lr-ingest-layout,.lr-graph-layout,.lr-query-layout{grid-template-columns:1fr}}
-@media (max-width:640px){.lr-hero,.lr-panel{padding:14px}.lr-hero-card,.lr-step-grid{grid-template-columns:1fr}.lr-query-toolbar{flex-direction:column;align-items:flex-start}}
+@media (max-width:900px){.lr-main{grid-column:1;grid-row:auto}.lr-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lr-ingest-layout,.lr-graph-layout,.lr-query-layout{grid-template-columns:1fr}.lr-hero-card{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.lr-hero,.lr-panel{padding:14px}.lr-meta-grid,.lr-hero-card,.lr-step-grid{grid-template-columns:1fr}.lr-query-toolbar{flex-direction:column;align-items:flex-start}}
 `;

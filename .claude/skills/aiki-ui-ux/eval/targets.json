@@ -2,6 +2,7 @@
   { "url": "/ko/projects/hyperframes/", "type": "showcase-native", "note": "floating nav + wide shell" },
   { "url": "/ko/projects/nostalgia-for-infinity/", "type": "showcase-native", "note": "native showcase shell" },
   { "url": "/ko/projects/yfinance/", "type": "showcase-native", "note": "native showcase shell" },
+  { "url": "/ko/projects/manifest/", "type": "showcase-native", "note": "native showcase shell" },
   { "url": "/ko/projects/nautilus-trader/", "type": "showcase-native", "note": "native showcase shell" },
   { "url": "/ko/projects/lightrag/", "type": "showcase-native", "note": "native showcase shell" },
   { "url": "/ko/projects/nemotron-ocr-v2/", "type": "showcase-native", "note": "floating nav + wide shell" },

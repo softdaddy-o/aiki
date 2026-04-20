@@ -221,6 +221,27 @@ function checkProjectNoProse(file, src) {
   }
 }
 
+// R10: every project showcase component must expose at least one TermHint.
+// Applies only to src/components/projects/showcases/*/index.tsx.
+function checkShowcaseTermHint(file, src) {
+  if (!/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\][^\/\\]+[\/\\]index\.tsx$/.test(file)) return;
+  if (!/<TermHint\b/.test(src)) {
+    record('FAIL', 'R10-showcase-termhint', file, 1,
+      `showcase component ??TermHint 媛 ?놁쓬. 紐⑤뱺 project ?섏씠吏??理쒖냼 ??媛쒖쓽 ?⑹뼱 ?ㅻ챸 ?대┰???덉뼱?덉빞 ??`);
+  }
+}
+
+// R11: every project showcase component must expose a hero intro section in nav.
+function checkShowcaseIntroSection(file, src) {
+  if (!/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\][^\/\\]+[\/\\]index\.tsx$/.test(file)) return;
+  const hasHeroNav = /label:\s*['"]소개['"]/.test(src);
+  const hasHeroSection = /SECTION_PREFIX\}hero/.test(src);
+  if (!hasHeroNav || !hasHeroSection) {
+    record('FAIL', 'R11-showcase-intro-section', file, 1,
+      `showcase-native ??HyperFrames 湲곗??쇰줈 nav 泥?섏뀡 '??뚭컻' ??id={\`\${SECTION_PREFIX}hero\`} ?ㅻⅨ ?뚭컻 援ъ뿭???꾩닔??`);
+  }
+}
+
 // ── run ──────────────────────────────────────────────────────────────────────
 
 const files = SCAN_ROOTS.flatMap(root => walk(root));
@@ -236,6 +257,8 @@ for (const f of files) {
   checkBackdropFilter(f, src);
   checkProjectShowcaseNative(f, src);
   checkProjectNoProse(f, src);
+  checkShowcaseTermHint(f, src);
+  checkShowcaseIntroSection(f, src);
 }
 checkBaseLayoutHasOverride();
 

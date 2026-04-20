@@ -6,10 +6,25 @@ import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface NfiShowcaseProps {
     slug: string;
+    title: string;
+    summary: string;
+    tags: string[];
+    sourceMeta: ShowcaseSourceMeta;
+    metricValue: string;
+    license: string;
 }
 
 type SignalGroup = 'entry' | 'exit' | 'protection';
-type SectionId = 'setup' | 'families' | 'signals' | 'operations' | 'backtest' | 'risk';
+type SectionId = 'hero' | 'setup' | 'families' | 'signals' | 'operations' | 'backtest' | 'risk';
+
+interface ShowcaseSourceMeta {
+    provider: string;
+    metricLabel: string;
+    mark: string;
+    className: string;
+    path: string;
+    itemLabel?: string;
+}
 
 interface Recommendation {
     label: string;
@@ -69,6 +84,7 @@ const SIGNAL_GROUPS: Array<[SignalGroup, string]> = [
 ];
 
 const SECTION_LABELS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
+    { id: 'hero', label: '소개', description: '한눈 요약과 메타' },
     { id: 'setup', label: '운용 전체', description: '권장 설정과 금지 항목' },
     { id: 'families', label: '전략군', description: 'X 계열 전략 구조' },
     { id: 'signals', label: '신호', description: '진입·청산·보호 흐름' },
@@ -165,13 +181,13 @@ const INDICATOR_HINTS: Record<string, string> = {
     Drawdown: '고점 대비 계좌 가치가 얼마나 내려갔는지 보는 위험 지표야.',
 };
 
-export default function NfiShowcase({ slug }: NfiShowcaseProps) {
+export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, metricValue, license }: NfiShowcaseProps) {
     const [data, setData] = useState<NfiData | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [activeSignalGroup, setActiveSignalGroup] = useState<SignalGroup>('entry');
     const { activeId: activeSection, scrollToSection } = useShowcaseSectionNav<SectionId>({
         ids: SECTION_LABELS.map((item) => item.id),
-        initialId: 'setup',
+        initialId: 'hero',
         sectionPrefix: SECTION_PREFIX,
     });
 
@@ -231,7 +247,10 @@ export default function NfiShowcase({ slug }: NfiShowcaseProps) {
             />
 
             <div className="nfi-showcase-main">
-                <section className="nfi-hero" aria-label="NostalgiaForInfinity 저장소 요약">
+                <section className="nfi-hero" id={`${SECTION_PREFIX}hero`} aria-label="NostalgiaForInfinity 저장소 요약">
+                    <div className="nfi-hero-head">
+                        <span className="nfi-showcase-label">Interactive Showcase</span>
+                    </div>
                     <div className="nfi-hero-copy">
                         <p className="nfi-kicker">Freqtrade 전략 모음</p>
                         <h2>{data.repo?.name || 'NostalgiaForInfinity'}</h2>

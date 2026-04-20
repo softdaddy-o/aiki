@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface ShowcaseSourceMeta {
@@ -308,7 +309,11 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     )}
                 </section>
 
-                <Panel id={`${SECTION_PREFIX}cases`} title="실행 쇼케이스">
+                <Panel
+                    id={`${SECTION_PREFIX}cases`}
+                    title="실행 쇼케이스"
+                    description={<>같은 <TermHint term="composition" description="텍스트, 카드, 비디오 레이어를 어떤 순서와 배치로 묶을지 정한 장면 설계 단위야." />을 유지한 채 카피와 데이터만 바꿔 쓰는 흐름을 본다.</>}
+                >
                     <div className="hf-case-tabs" role="tablist" aria-label="HyperFrames case studies">
                         {CASES.map((item) => (
                             <button
@@ -414,7 +419,11 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel id={`${SECTION_PREFIX}ops`} title="운영 비용">
+                <Panel
+                    id={`${SECTION_PREFIX}ops`}
+                    title="운영 비용"
+                    description={<>브라우저에서 먼저 보고, <TermHint term="safe area" description="텍스트나 CTA가 화면 가장자리와 자막 영역에 겹치지 않도록 남겨 두는 여백 기준이야." />와 폰트 fallback까지 점검하는 쪽이 운영 리스크를 줄인다.</>}
+                >
                     <div className="hf-insight-grid hf-insight-grid--ops">
                         {OPS_CARDS.map((item) => (
                             <Insight key={item.title} item={item} />
@@ -438,11 +447,12 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
     );
 }
 
-function Panel({ id, title, children }: { id: string; title: string; children: ReactNode }) {
+function Panel({ id, title, description, children }: { id: string; title: string; description?: ReactNode; children: ReactNode }) {
     return (
         <section className="hf-panel" id={id}>
             <div className="hf-panel-head">
                 <h2>{title}</h2>
+                {description ? <p>{description}</p> : null}
             </div>
             {children}
         </section>
@@ -497,8 +507,9 @@ const showcaseCss = `
 .hf-tag-row{display:flex;flex-wrap:wrap;gap:8px}
 .hf-tag-row span,.hf-chip-row span{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.76rem}
 .hf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.hf-panel-head{margin-bottom:14px}
+.hf-panel-head{display:grid;gap:6px;margin-bottom:14px}
 .hf-panel-head h2{margin:0;font-size:1.16rem}
+.hf-panel-head p{margin:0;max-width:760px;color:var(--color-text-muted);font-size:.92rem;line-height:1.7}
 .hf-case-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
 .hf-case-tabs button{display:grid;gap:4px;min-width:148px;padding:12px 14px;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface-alt);font:inherit;text-align:left;cursor:pointer}
 .hf-case-tabs button strong{font-size:.92rem}
