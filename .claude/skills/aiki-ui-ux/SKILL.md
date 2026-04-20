@@ -17,6 +17,7 @@ description: aiki 프로젝트에서 UI/UX를 만들거나 고칠 때 매번 읽
 4. **모든 showcase-native 는 nav 첫 항목이 `소개`여야 한다.** hero 는 `id={\`${SECTION_PREFIX}hero\`}` 를 가진 첫 섹션이어야 하고, 섹션 네비도 `소개 / 한눈 요약과 메타`로 시작한다.
 5. **hero 는 메타 중심이되 기본 정체성은 유지한다.** hero 안에는 `Interactive Showcase` 배지, 큰 `h1`, 짧은 프로젝트 summary, source/metric/license, tags 를 둔다. 대신 읽는 방식, 런타임 수치, 데모 통계, 실행 보드 같은 showcase 세부는 다음 섹션으로 내린다.
 6. **포맷/가이드 변경 시 버전 bump 는 필수다 (§3.11).** 레이아웃 바꿨으면 `formatVersion` 올리고, 글쓰기 룰 바꿨으면 `guideVersion` 올리고, 두 guide 파일 Changelog 에 한 줄 남겨라. 빠뜨리면 나중에 어떤 기사가 어떤 기준으로 쓰였는지 추적 불가.
+7. **Flat nesting 이 기본 (§2.12).** hero 에 gradient/shadow 달지 마. hero/panel `border-radius ≤ 12px`, 내부 카드 `≤ 10px`. 외곽 `.hf-shell` 은 border/bg/shadow/radius 전부 없음. `.showcase-area--lead::before` 의 풀블리드 배경도 꺼라. "박스 in 박스 in 박스" 나오는 순간 위반.
 
 ## 0. How to use this skill
 
@@ -168,12 +169,27 @@ React island(`client:load`)에 CSS를 주입할 때 주의:
 | 1280 미만 ~ 901 | `min(1240px, calc(100vw - 24px))` | 네비는 쉘 안쪽 그리드 첫 열 |
 | ≤ 900 | `100%` (엣지 투 엣지, padding 12px) | 네비는 상단 가로 스크롤로 접힘 |
 
-### 2.3 Floating section nav (≥1280)
+### 2.3 Floating section nav
 
+**데스크탑 (≥1280)**
 - `position: fixed; top: 92px; left: 16px; width: 188px;`
+- 세로 스택. `.nav-index` 번호 뱃지 + label + description(`em`) 풀 포맷
 - 컨테이닝 블록 주의: `backdrop-filter: blur` 는 새 containing block 생성 → fixed 가 viewport 가 아니라 blur한 조상 기준이 됨. **쉘에서 `backdrop-filter: none`**.
 - `z-index: 40` (사이트 nav 아래, 콘텐츠 위).
 - Shell 이 `margin-left: max(220px, calc((100vw - 1440px) / 2))` 로 네비 자리 확보.
+
+**모바일/태블릿 (<1280)**
+- `position: fixed; bottom: calc(72px + env(safe-area-inset-bottom, 0px)); left: 12px; right: 12px;` — bottom-nav(~60-72px) 위에 **pill 플로팅**
+- `max-height: 44px; padding: 4px; gap: 4px; border-radius: 999px; flex-direction: row; overflow-x: auto`
+- `.nav-index` 번호 뱃지 & `em` description **숨김** — label 만 노출
+- 버튼 `padding: 6px 12px; min-height: 36px; font-size: 0.8rem; border-radius: 999px`
+- `scrollbar-width: none; ::-webkit-scrollbar{display:none}` — 브라우저 스크롤바 제거
+- `mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%)` — 우측 24px 페이드로 스크롤 힌트
+- sticky 가 아니라 **fixed**. 본문 위로 떠서 좁은 뷰포트에서도 항상 접근 가능
+
+**세션 흉터 (2026-04-20):** 초기에 `position: sticky` 로 본문 내부에 두었더니 좁은 뷰포트에서 네비가 보이지 않음. 그 다음 floating pill 로 바꿨지만 `nav-index` 뱃지 + `em` description + button `width: 100%` 때문에 10개 항목 중 "소개" 하나만 보이고 나머지 가려짐. 최종적으로 뱃지/설명 숨기고 버튼 개별 폭으로 바꿔 5개+ 동시 노출. 데스크탑은 전체 포맷 복원.
+
+**구현:** `src/pages/ko/projects/[...slug].astro` 의 `.showcase-frame.hf-frame :global(.showcase-section-nav)` 규칙. 데스크탑 override 는 `@media (min-width: 1280px)` 블록에서 `nav-index: inline-flex`, `em: block`, `mask-image: none` 으로 명시 복원.
 
 ### 2.4 Main 제약 해제 (CRITICAL)
 
@@ -250,10 +266,12 @@ HyperFrames 의 표준 Panel 골격. 프로젝트 특성 맞춰 조정은 가능
 ```css
 border: 1px solid var(--color-border);
 background: var(--color-surface);
-border-radius: 8~14px;
+border-radius: 10px;    /* 내부 카드. 상위 panel/hero 는 12 (§2.12) */
 padding: 14~22px;
 min-width: 0;
 ```
+
+hero/panel `border-radius: 12`, 내부 카드 `10` 으로 계단식. 그 이상은 §2.12 flat nesting 위반.
 
 **카드 내용 grammar**:
 - `<kicker>` (small uppercase/muted label) + `<strong/h3>` (title) + `<p>` (body, 1~3줄) + 선택적 `<chip-row>`
@@ -303,18 +321,50 @@ const usesShowcaseNarrative = SHOWCASE_NATIVE.has(showcaseComponent);
 
 ### 2.11 현재 마이그레이션 백로그
 
-2026-04-19 기준 R8 FAIL 로 올라오는 legacy 쇼케이스 (`check-source.mjs` 가 자동 감지):
+2026-04-20 기준 (`check-source.mjs` 가 자동 감지):
 
-| slug | 상태 | 비고 |
-|---|---|---|
-| `hyperframes` | ✅ showcase-native | 레퍼런스 |
-| `nemotron-ocr-v2` | 🚧 승격 대기 | §2.7 산문 혼합, §2.9 승격 절차로 먼저 처리 |
-| `yfinance` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
-| `nfi` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
-| `nautilus-trader` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
-| `lightrag` | 🚧 승격 대기 | legacy `showcase-frame-with-nav` |
+| slug | showcase-native | flat nesting (§2.12) | 비고 |
+|---|---|---|---|
+| `hyperframes` | ✅ | ✅ | 레퍼런스 |
+| `nemotron-ocr-v2` | ✅ | ✅ | |
+| `manifest` | ✅ | ✅ | |
+| `yfinance` | ✅ | ✅ | shared helper 사용 |
+| `nostalgia-for-infinity` (nfi) | ✅ | ✅ | shared helper 사용 |
+| `nautilus-trader` | ✅ | ✅ | shared helper + project override |
+| `lightrag` | ✅ | ✅ | shared helper 사용 |
 
 각 승격 시 R8 FAIL 하나씩 내려감. 전부 내려가면 legacy 분기 자체를 제거 (§2.10 장기 목표).
+
+### 2.12 Flat nesting (2026-04-20)
+
+"박스 in 박스 in 박스" 는 showcase-native 의 **실패 모드**다. 처음 만든 버전은 `showcase-area (배경) → showcase-shell (border+bg+shadow+radius) → hf-hero (border+gradient+shadow+radius 22) → meta-card (border+radius 14)` 로 4중 래핑이었고, 유저가 "중첩돼서 혼란스럽다" 고 바로 지적함. 모든 신규/기존 showcase 는 아래 규칙을 따른다.
+
+**규칙:**
+
+| 레이어 | 상태 | 근거 |
+|---|---|---|
+| `.showcase-area::before` (풀블리드 배경+border) | **숨김** (`.showcase-area--lead::before { display: none }`) | showcase-native 는 본문 컨테이너 자체가 시각적 단위다 |
+| `.hf-shell` (outer) | **flat** — `border: 0; background: transparent; box-shadow: none; border-radius: 0; padding: 0 clamp(4px, 1.5vw, 12px)` | 쉘은 폭/여백만 담당. 박스처럼 보이면 안 됨 |
+| `.hf-hero`, `.hf-panel` | border + surface + **radius 12** + padding 22. gradient/shadow **금지** | hero 가 튀면 안 됨. 패널과 동급 flat surface |
+| `.hf-meta-card`, `.hf-*-card` 내부 카드 | border + surface-alt + **radius 10** | 바깥 12 > 안쪽 10 로 계단식 |
+| `.hf-case-tabs button`, pill, badge | radius 999 또는 8-10 | 인터랙션 요소만 둥글게 |
+
+**금지 패턴:**
+- hero 에 `background: linear-gradient(..., color-mix(...projects 12%...))` — 전 프로젝트에서 제거됨
+- hero 에 `box-shadow: 0 20px 48px rgba(0,0,0,.08)` — flat surface 와 충돌
+- hero/panel radius ≥ 16 — 중첩 시 과도한 라운딩 느낌
+- outer shell 에 border + background + shadow + radius 동시 적용
+
+**CSS 상속 구조:**
+- shared 쇼케이스 helper: `src/components/projects/showcases/sharedShowcaseCss.ts` — hero 에 gradient 제거됨, yfinance/nfi/nautilus/lightrag 이 사용
+- project-specific CSS: 각 showcase 의 `const showcaseCss = \`...\`` — hero 에 gradient/shadow 추가 금지
+- 셸/영역 override: `src/pages/ko/projects/[...slug].astro` 의 `.hf-shell` 과 `.showcase-area--lead::before`
+
+**신규 쇼케이스 체크리스트:**
+- [ ] `showcaseCss` 의 `${heroClass}` 규칙에 gradient/shadow 없음
+- [ ] `${heroClass}, ${panelClass} { border-radius: 12px }` 이하
+- [ ] 내부 카드 `border-radius: 10px` 이하
+- [ ] 쉘은 `hf-shell` 만 붙이고 외부 박스 wrapper 더 만들지 않음
 
 ---
 

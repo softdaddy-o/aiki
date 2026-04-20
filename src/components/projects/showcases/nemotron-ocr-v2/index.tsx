@@ -557,15 +557,10 @@ const showcaseCss = `
   border:1px solid var(--color-border);
   background:var(--color-surface)
 }
-.nm-hero,.nm-panel{border-radius:22px;padding:22px;scroll-margin-top:100px}
+.nm-hero,.nm-panel{border-radius:12px;padding:22px;scroll-margin-top:100px}
 .nm-hero{
   display:grid;
-  gap:18px;
-  background:
-    radial-gradient(circle at top right,color-mix(in srgb,var(--color-projects) 14%,transparent),transparent 34%),
-    linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 42%),
-    color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));
-  box-shadow:0 20px 48px rgba(0,0,0,.08)
+  gap:18px
 }
 .nm-hero-copy{display:grid;gap:10px;min-width:0}
 .nm-hero-copy h1{
@@ -593,7 +588,7 @@ const showcaseCss = `
   gap:6px;
   min-width:0;
   padding:14px;
-  border-radius:14px;
+  border-radius:10px;
   background:color-mix(in srgb,var(--color-surface) 86%,var(--color-surface-alt))
 }
 .nm-meta-card span{
@@ -625,7 +620,7 @@ const showcaseCss = `
 .nm-signal-card,.nm-info-card,.nm-check-card,.nm-step-card,.nm-insight-card,.nm-compare-card,.nm-card{
   min-width:0;
   padding:16px;
-  border-radius:16px
+  border-radius:10px
 }
 .nm-signal-card,.nm-info-card{background:color-mix(in srgb,var(--color-surface) 88%,var(--color-surface-alt))}
 .nm-signal-card span,.nm-info-card span,.nm-line-item span{

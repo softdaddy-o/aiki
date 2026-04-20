@@ -690,8 +690,8 @@ const showcaseCss = `
 .mf-main{grid-column:2;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
 .mf-hero,.mf-panel{min-width:0}
 .mf-hero,.mf-panel,.mf-card,.mf-meta-card,.mf-step-card,.mf-content-card,.mf-model-card,.mf-compare-card,.mf-data-card{border:1px solid var(--color-border);background:var(--color-surface)}
-.mf-hero,.mf-panel{border-radius:22px;padding:22px;scroll-margin-top:100px}
-.mf-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 42%),color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));box-shadow:0 20px 48px rgba(0,0,0,.08);display:grid;gap:18px}
+.mf-hero,.mf-panel{border-radius:12px;padding:22px;scroll-margin-top:100px}
+.mf-hero{display:grid;gap:18px}
 .mf-hero-copy{display:grid;gap:10px;min-width:0}
 .mf-hero-copy h1{margin:0;color:var(--color-text);font-size:clamp(2.2rem,5.8vw,6.2rem);font-weight:900;line-height:.96;letter-spacing:.02em;text-transform:none;overflow-wrap:anywhere;word-break:break-word}
 .mf-hero-copy p{max-width:760px;margin:0;color:var(--color-text);font-size:clamp(1rem,1.45vw,1.16rem);line-height:1.72;word-break:keep-all}
@@ -699,7 +699,7 @@ const showcaseCss = `
 .mf-hero-note code{font-size:.9em}
 .mf-hero-copy-legacy,.mf-meta-grid-legacy,.mf-tag-row-legacy{display:none}
 .mf-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.mf-meta-card{display:grid;gap:6px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--color-surface) 86%,var(--color-surface-alt));min-width:0}
+.mf-meta-card{display:grid;gap:6px;padding:14px;border-radius:10px;background:color-mix(in srgb,var(--color-surface) 86%,var(--color-surface-alt));min-width:0}
 .mf-meta-card span{color:var(--color-text-muted);font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .mf-meta-card strong{overflow-wrap:anywhere;font-size:.96rem;line-height:1.35}
 .mf-meta-card--source{grid-column:span 2;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px}
@@ -714,7 +714,7 @@ const showcaseCss = `
 .mf-panel-head h2{margin:0;padding-left:14px;border-left:4px solid color-mix(in srgb,var(--color-projects) 88%,white 12%);font-size:clamp(1.34rem,1.5vw,1.62rem);font-weight:880;line-height:1.04;letter-spacing:-.02em}
 .mf-panel-head p{margin:0;max-width:760px;color:color-mix(in srgb,var(--color-text-muted) 92%,white 8%);font-size:.9rem;line-height:1.68}
 .mf-panel-note{margin:0 0 14px;color:var(--color-text-muted);line-height:1.7}
-.mf-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:-16px -16px 14px;padding:14px 16px 13px;border-bottom:1px solid color-mix(in srgb,var(--color-border) 78%,transparent);border-radius:16px 16px 0 0;background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 9%,transparent),transparent 90%),color-mix(in srgb,var(--color-surface-alt) 74%,var(--color-surface))}
+.mf-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
 .mf-card-title{display:grid;gap:5px;min-width:0}
 .mf-card-title h3{margin:0;font-size:clamp(1.12rem,1.25vw,1.28rem);line-height:1.16;letter-spacing:-.02em;font-weight:860;word-break:keep-all}
 .mf-kicker{color:var(--color-projects);font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
@@ -723,7 +723,7 @@ const showcaseCss = `
 .mf-body-copy,.mf-muted-copy,.mf-step-card p,.mf-content-card p,.mf-model-card p,.mf-compare-card p span{margin:0;line-height:1.72;word-break:keep-all}
 .mf-content-card p,.mf-model-card p,.mf-step-card p,.mf-compare-card p span{color:color-mix(in srgb,var(--color-text) 84%,var(--color-text-muted))}
 .mf-muted-copy{color:var(--color-text-muted);font-size:.9rem}
-.mf-card,.mf-step-card,.mf-content-card,.mf-model-card,.mf-compare-card{padding:16px;border-radius:16px;min-width:0}
+.mf-card,.mf-step-card,.mf-content-card,.mf-model-card,.mf-compare-card{padding:16px;border-radius:10px;min-width:0}
 .mf-content-card,.mf-model-card,.mf-step-card,.mf-compare-card{display:grid;gap:12px}
 .mf-content-card--accent,.mf-model-card--accent{background:color-mix(in srgb,var(--color-projects) 8%,var(--color-surface))}
 .mf-case-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}

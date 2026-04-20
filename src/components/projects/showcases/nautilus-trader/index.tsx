@@ -232,32 +232,6 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
                 </section>
 
                 <section className="nt-section-block" id={`${SECTION_PREFIX}architecture`}>
-                    <section className="nt-repo-card nt-overview-card">
-                        <p className="nt-kicker">쇼케이스 개요</p>
-                        <p className="nt-overview-summary">{summary}</p>
-                        <div className="nt-link-row">
-                            {data.repo?.githubUrl && <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>}
-                            {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>}
-                        </div>
-                        <div className="nt-release">
-                            <span>최신 릴리스</span>
-                            <strong>{data.repo?.latestRelease || '없음'}</strong>
-                            <em>{formatDate(data.repo?.latestReleaseDate)}</em>
-                        </div>
-                        <div className="nt-stat-grid">
-                            {repoStats.map(([label, value]) => (
-                                <div className="nt-stat" key={label}>
-                                    <span>{label}</span>
-                                    <strong>{formatCompact(value)}</strong>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="nt-meta">
-                            <span>{data.repo?.primaryLanguage || 'Rust'}</span>
-                            <span>{data.repo?.secondaryLanguage || 'Python'}</span>
-                            <span>{data.repo?.license || 'LGPL-3.0'}</span>
-                        </div>
-                    </section>
                     <ArchitectureSection data={data} />
                 </section>
                 <section className="nt-section-block" id={`${SECTION_PREFIX}assets`}>
@@ -504,7 +478,7 @@ ${createSharedShowcaseChromeCss({
 })}
 .nt-showcase-main{grid-column:2;grid-row:2;min-width:0}
 .nt-panel,.nt-arch-card,.nt-asset-card,.nt-venue-card,.nt-perf-card,.nt-principle,.nt-qs-card{border:1px solid var(--color-border);background:var(--color-surface)}
-.nt-hero{margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
+.nt-hero{margin-bottom:18px}
 .nt-hero-copy,.nt-repo-card{min-width:0}
 .nt-hero-copy-legacy,.nt-meta-grid-legacy,.nt-tag-row-legacy,.nt-repo-card-legacy{display:none}
 .nt-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:800;letter-spacing:0;text-transform:uppercase}

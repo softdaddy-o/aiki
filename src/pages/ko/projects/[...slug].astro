@@ -781,11 +781,19 @@ const shareUrl = Astro.url.href;
     .hf-shell {
         max-width: min(1440px, calc(100vw - 24px));
         backdrop-filter: none;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0 clamp(4px, 1.5vw, 12px);
     }
 
-    .hf-frame :global(.showcase-section-nav) {
-        grid-column: 1;
-        grid-row: 1 / span 2;
+    .showcase-area--lead::before {
+        display: none;
+    }
+
+    .showcase-frame.hf-frame {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .showcase-frame.hf-frame :global(.hf-main),
@@ -795,16 +803,69 @@ const shareUrl = Astro.url.href;
     .showcase-frame.hf-frame :global(.nt-showcase-main),
     .showcase-frame.hf-frame :global(.lr-main),
     .showcase-frame.hf-frame :global(.mf-main) {
-        grid-column: 2;
+        grid-column: 1;
         grid-row: 1;
     }
 
     .hf-fact-wrap {
-        grid-column: 2;
+        grid-column: 1;
         grid-row: 2;
         min-width: 0;
         margin-top: 18px;
         scroll-margin-top: 100px;
+    }
+
+    .showcase-frame.hf-frame :global(.showcase-section-nav) {
+        position: fixed;
+        top: auto;
+        bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+        left: 12px;
+        right: 12px;
+        width: auto;
+        max-width: none;
+        max-height: 44px;
+        padding: 4px;
+        gap: 4px;
+        z-index: 45;
+        grid-row: auto;
+        grid-column: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 24px), transparent 100%);
+                mask-image: linear-gradient(to right, black 0, black calc(100% - 24px), transparent 100%);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+    }
+
+    .showcase-frame.hf-frame :global(.showcase-section-nav)::-webkit-scrollbar {
+        display: none;
+    }
+
+    .showcase-frame.hf-frame :global(.showcase-section-nav) :global(button) {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 0;
+        min-height: 36px;
+        padding: 6px 12px;
+        gap: 0;
+        border-radius: 999px;
+        font-size: 0.8rem;
+    }
+
+    .showcase-frame.hf-frame :global(.showcase-section-nav) :global(.nav-index) {
+        display: none;
+    }
+
+    .showcase-frame.hf-frame :global(.showcase-section-nav) :global(button) :global(em) {
+        display: none;
+    }
+
+    .showcase-frame.hf-frame :global(.showcase-section-nav) :global(button) :global(strong) {
+        font-size: 0.82rem;
+        font-weight: 650;
     }
 
     @media (min-width: 1280px) {
@@ -814,37 +875,46 @@ const shareUrl = Astro.url.href;
             max-width: min(1440px, calc(100vw - 236px));
         }
 
-        .showcase-frame.hf-frame {
-            grid-template-columns: minmax(0, 1fr);
-        }
-
-        .showcase-frame.hf-frame :global(.hf-main),
-        .showcase-frame.hf-frame :global(.nm-main),
-        .showcase-frame.hf-frame :global(.yf-showcase-main),
-        .showcase-frame.hf-frame :global(.nfi-showcase-main),
-        .showcase-frame.hf-frame :global(.nt-showcase-main),
-        .showcase-frame.hf-frame :global(.lr-main),
-        .showcase-frame.hf-frame :global(.mf-main) {
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .hf-fact-wrap {
-            grid-column: 1;
-            grid-row: 2;
-        }
-
         .showcase-frame.hf-frame :global(.showcase-section-nav) {
             position: fixed;
             top: 92px;
+            bottom: auto;
             left: 16px;
+            right: auto;
             width: 188px;
+            max-width: 188px;
             max-height: calc(100vh - 120px);
+            padding: 8px;
+            gap: 8px;
+            overflow-x: hidden;
             overflow-y: auto;
+            scrollbar-width: auto;
+            -webkit-mask-image: none;
+                    mask-image: none;
             z-index: 40;
-            grid-row: auto;
-            grid-column: auto;
+            flex-direction: column;
+            border-radius: 8px;
+            background: color-mix(in srgb, var(--color-surface) 88%, transparent);
             box-shadow: 0 22px 48px rgba(0, 0, 0, 0.32);
+        }
+
+        .showcase-frame.hf-frame :global(.showcase-section-nav) :global(button) {
+            flex: 0 0 auto;
+            min-width: 0;
+            width: 100%;
+            min-height: 56px;
+            padding: 8px 10px;
+            gap: 10px;
+            border-radius: 7px;
+            font-size: inherit;
+        }
+
+        .showcase-frame.hf-frame :global(.showcase-section-nav) :global(.nav-index) {
+            display: inline-flex;
+        }
+
+        .showcase-frame.hf-frame :global(.showcase-section-nav) :global(button) :global(em) {
+            display: block;
         }
     }
 

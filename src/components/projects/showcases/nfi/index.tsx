@@ -688,9 +688,7 @@ ${createSharedShowcaseChromeCss({
     background: var(--color-surface);
 }
 .nfi-hero {
-    background:
-        linear-gradient(135deg, color-mix(in srgb, var(--color-projects) 12%, transparent), transparent 44%),
-        var(--color-surface);
+    background: var(--color-surface);
 }
 .nfi-hero-copy-legacy,
 .nfi-meta-grid-legacy,
