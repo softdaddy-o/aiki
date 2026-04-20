@@ -60,12 +60,61 @@ function addVariant(target, value) {
     }
 }
 
+function isHangulOnly(token) {
+    return /^[\uac00-\ud7a3]+$/.test(token);
+}
+
+function extractTitleParts(title) {
+    // Titles follow the "English (한글)" or "한글(English)" convention.
+    // Yield each segment as a separate variant so we can link both the
+    // English spelling and the Korean transliteration independently
+    // (e.g. "Anthropic" and "앤스로픽", "AI Agent" and "AI 에이전트").
+    // For multi-token segments that mix ASCII and hangul (e.g. "AI
+    // 에이전트"), also yield each standalone hangul-only token — Korean
+    // writers often drop the ASCII prefix and just say "에이전트".
+    const out = [];
+    if (!title) return out;
+    const re = /\(([^)]+)\)/g;
+    let lastIndex = 0;
+    let m;
+    while ((m = re.exec(title)) !== null) {
+        const before = title.slice(lastIndex, m.index).trim();
+        if (before) out.push(before);
+        const inside = m[1].trim();
+        if (inside) out.push(inside);
+        lastIndex = m.index + m[0].length;
+    }
+    const tail = title.slice(lastIndex).trim();
+    if (tail) out.push(tail);
+
+    const extras = [];
+    for (const part of out) {
+        if (!/[\uac00-\ud7a3]/.test(part)) continue;
+        if (!/\s/.test(part)) continue;
+        // Only split when the phrase mixes ASCII and hangul AND contains
+        // exactly one standalone hangul token. This matches transliteration
+        // patterns like "AI 에이전트" (→ yield "에이전트") while avoiding
+        // descriptive phrases like "GGUF 모델 파일 형식" where splitting
+        // would mis-alias generic words ("모델", "파일", "형식") to the
+        // wrong wiki entry.
+        const hasAscii = /[A-Za-z]/.test(part);
+        if (!hasAscii) continue;
+        const tokens = part.split(/\s+/);
+        const hangulTokens = tokens.filter((t) => isHangulOnly(t) && t.length >= 2);
+        if (hangulTokens.length !== 1) continue;
+        extras.push(hangulTokens[0]);
+    }
+    return out.concat(extras);
+}
+
 function getEntryVariants(entry) {
     const variants = new Set();
+    const titleParts = extractTitleParts(entry.title);
     const seeds = [
         entry.term,
         humanizeTermSlug(entry.term),
         entry.title,
+        ...titleParts,
         ...(entry.aliases || []),
     ];
 
