@@ -231,6 +231,9 @@ HyperFrames 의 표준 Panel 골격. 프로젝트 특성 맞춰 조정은 가능
 - 섹션 네비의 첫 항목은 반드시 `소개`.
 - `소개`는 `label: '소개'`, `description: '한눈 요약과 메타'`를 기본값으로 쓴다.
 - hero 섹션은 `id={\`${SECTION_PREFIX}hero\`}` 를 가져야 하고, `useShowcaseSectionNav` 의 `initialId` 도 `hero` 로 시작한다.
+- hero 상단 배지는 반드시 `Interactive Showcase`.
+- 프로젝트 이름은 hero 안에서 큰 `h1` 로 직접 보여야 한다. slug/chip/h2 로 대체하지 않는다.
+- hero 는 `source / metric / license / 읽는 방식` 4칸 메타 그리드와 tag row 를 기본 골격으로 가진다.
 - 소개가 빠진 showcase 는 HyperFrames 기준선에서 이탈한 것으로 보고 수정 대상이다.
 
 **카드 visual contract** — 모든 정보 원자는 bordered card:

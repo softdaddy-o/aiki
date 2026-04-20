@@ -103,6 +103,11 @@ const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: strin
     { id: 'fact', label: '팩트 체크', description: '검증 상태' },
 ] as const;
 
+const NAV_SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
+    { id: 'hero', label: '소개', description: '한눈 요약과 메타' },
+    ...SECTIONS.filter((section) => section.id !== 'hero'),
+];
+
 const SPEC_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: 'OpenAI-compatible 진입점',
@@ -384,7 +389,7 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
     const activeCase = CASES.find((item) => item.id === activeCaseId) ?? CASES[0];
 
     const { activeId, scrollToSection } = useShowcaseSectionNav<SectionId>({
-        ids: SECTIONS.map((section) => section.id),
+        ids: NAV_SECTIONS.map((section) => section.id),
         sectionPrefix: SECTION_PREFIX,
         initialId: 'hero',
     });
@@ -394,7 +399,7 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
             <style>{showcaseCss}</style>
 
             <ShowcaseSectionNav
-                items={SECTIONS}
+                items={NAV_SECTIONS}
                 activeId={activeId}
                 onSelect={scrollToSection}
             />
@@ -402,7 +407,7 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
             <div className="mf-main">
                 <section className="mf-hero" id={`${SECTION_PREFIX}hero`}>
                     <div className="mf-hero-head">
-                        <span className="mf-showcase-label">Model Router</span>
+                        <span className="mf-showcase-label">Interactive Showcase</span>
                     </div>
 
                     <div className="mf-hero-copy">

@@ -257,7 +257,7 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
             <div className="nm-main">
                 <section className="nm-hero" id={`${SECTION_PREFIX}hero`}>
                     <div className="nm-hero-head">
-                        <span className="nm-showcase-label">Korean OCR Run</span>
+                        <span className="nm-showcase-label">Interactive Showcase</span>
                     </div>
 
                     <div className="nm-hero-copy">

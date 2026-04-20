@@ -6,9 +6,24 @@ import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface NautilusShowcaseProps {
     slug: string;
+    title: string;
+    summary: string;
+    tags: string[];
+    sourceMeta: ShowcaseSourceMeta;
+    metricValue: string;
+    license: string;
 }
 
 type SectionId = 'hero' | 'architecture' | 'assets' | 'venues' | 'performance' | 'quickstart';
+
+interface ShowcaseSourceMeta {
+    provider: string;
+    metricLabel: string;
+    mark: string;
+    className: string;
+    path: string;
+    itemLabel?: string;
+}
 
 interface ArchitectureComponent {
     name: string;
@@ -106,7 +121,7 @@ const TEXT_LABELS: Record<string, string> = {
     'Type Safety': '타입 안정성',
 };
 
-export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
+export default function NautilusShowcase({ slug, title, summary, tags, sourceMeta, metricValue, license }: NautilusShowcaseProps) {
     const [data, setData] = useState<NautilusData | null>(null);
     const [error, setError] = useState<string | null>(null);
     const { activeId: activeSection, scrollToSection } = useShowcaseSectionNav({
@@ -150,7 +165,12 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
 
             <div className="nt-showcase-main">
                 <section className="nt-hero" id={`${SECTION_PREFIX}hero`} aria-label="NautilusTrader 저장소 요약">
+                    <div className="nt-hero-head">
+                        <span className="nt-showcase-label">Interactive Showcase</span>
+                    </div>
                     <div className="nt-hero-copy">
+                        <h1>{title}</h1>
+                        <p>{summary}</p>
                         <p className="nt-kicker">멀티에셋 트레이딩 엔진</p>
                         <h2>{data.repo?.name || 'NautilusTrader'}</h2>
                         <p>{localizeText(data.repo?.description || '')}</p>
@@ -159,6 +179,23 @@ export default function NautilusShowcase({ slug }: NautilusShowcaseProps) {
                             {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>}
                         </div>
                     </div>
+                    <div className="nt-meta-grid">
+                        <article className={`nt-meta-card nt-meta-card--source ${sourceMeta.className}`}>
+                            <div className="nt-meta-mark">{sourceMeta.mark}</div>
+                            <div className="nt-meta-copy">
+                                <span>{sourceMeta.provider}</span>
+                                <strong>{sourceMeta.path}</strong>
+                            </div>
+                        </article>
+                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
+                        <MetaCard label="라이선스" value={license} />
+                        <MetaCard label="읽는 방식" value="Architecture -> Venues -> Quickstart" />
+                    </div>
+                    {tags.length > 0 && (
+                        <div className="nt-tag-row">
+                            {tags.map((tag) => <span key={tag}>{tag}</span>)}
+                        </div>
+                    )}
                     <div className="nt-repo-card">
                         <div className="nt-release">
                             <span>최신 릴리스</span>
@@ -395,6 +432,15 @@ function Panel({ title, description, children }: { title: string; description: R
     );
 }
 
+function MetaCard({ label, value }: { label: string; value: string }) {
+    return (
+        <article className="nt-meta-card">
+            <span>{label}</span>
+            <strong>{value}</strong>
+        </article>
+    );
+}
+
 function formatCompact(value?: number): string {
     if (value === undefined || Number.isNaN(Number(value))) return '없음';
     return new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 }).format(Number(value));
@@ -417,13 +463,21 @@ const showcaseCss = `
 .nt-showcase-main{grid-column:2;grid-row:2;min-width:0}
 .nt-hero,.nt-panel,.nt-arch-card,.nt-asset-card,.nt-venue-card,.nt-perf-card,.nt-principle,.nt-qs-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .nt-hero,.nt-panel{border-radius:12px;padding:20px}
-.nt-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
+.nt-hero{display:grid;gap:16px;margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
+.nt-hero-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nt-showcase-label{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 .nt-hero-copy,.nt-repo-card{min-width:0}
-.nt-hero-copy h2{margin:0 0 10px;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.1;overflow-wrap:anywhere}
+.nt-hero-copy h1{margin:0 0 10px;font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em;overflow-wrap:anywhere}
 .nt-hero-copy p{max-width:650px;color:var(--color-text-muted);line-height:1.7}
+.nt-hero-copy .nt-kicker,.nt-hero-copy h2,.nt-hero-copy h2 + p{display:none}
 .nt-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:800;letter-spacing:0;text-transform:uppercase}
-.nt-link-row,.nt-meta,.nt-chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.nt-link-row,.nt-meta,.nt-chip-row,.nt-tag-row{display:flex;flex-wrap:wrap;gap:8px}
 .nt-link-row{margin-top:18px}
+.nt-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.nt-meta-card{display:grid;gap:10px;align-content:start;min-width:0;padding:14px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt)}
+.nt-meta-card--source{grid-template-columns:auto minmax(0,1fr);align-items:center}
+.nt-meta-mark{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:1.1rem;font-weight:900}
+.nt-meta-copy{display:grid;gap:4px;min-width:0}
 .nt-link-row a{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid var(--color-border);border-radius:8px;font:inherit;font-size:.86rem;font-weight:800;text-decoration:none}
 .nt-link-row a:first-child{background:var(--color-projects);color:#fff}
 .nt-link-row a+a{background:var(--color-surface-elevated);color:var(--color-projects)}
@@ -435,6 +489,9 @@ const showcaseCss = `
 .nt-stat{border-radius:8px;padding:14px;background:var(--color-surface)}
 .nt-stat strong{display:block;margin-top:4px;color:var(--color-model);font-family:var(--font-heading);font-size:1.35rem}
 .nt-meta span,.nt-chip-row span{border-radius:6px;background:var(--color-surface-alt);padding:4px 8px;font-size:.78rem}
+.nt-tag-row span,.nt-meta-card span,.nt-meta-copy span{color:var(--color-text-muted);font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.nt-tag-row span{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt)}
+.nt-meta-card strong,.nt-meta-copy strong{overflow-wrap:anywhere;font-family:var(--font-heading);font-size:1.02rem;line-height:1.25}
 .nt-section{min-width:0}
 .nt-section-block{display:grid;gap:16px;scroll-margin-top:120px}
 .nt-section-block+.nt-section-block{margin-top:6px}
@@ -468,6 +525,6 @@ const showcaseCss = `
 .nt-qs-card code{overflow-wrap:anywhere;border-radius:6px;background:var(--color-surface-alt);padding:4px 6px;color:var(--color-projects);font-size:.78rem}
 .nt-source,.nt-empty{margin-top:16px;font-size:.82rem}
 .nt-empty{padding:16px;border:1px dashed var(--color-border-strong);border-radius:8px}
-@media (max-width:840px){.nt-showcase-main{grid-column:1;grid-row:auto}.nt-hero{grid-template-columns:1fr}.nt-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:640px){.nt-hero,.nt-panel{padding:14px}.nt-stat-grid{grid-template-columns:1fr}}
+@media (max-width:840px){.nt-showcase-main{grid-column:1;grid-row:auto}.nt-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nt-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.nt-hero,.nt-panel{padding:14px}.nt-meta-grid,.nt-stat-grid{grid-template-columns:1fr}}
 `;

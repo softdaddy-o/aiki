@@ -244,6 +244,18 @@ function checkShowcaseIntroSection(file, src) {
 
 // ── run ──────────────────────────────────────────────────────────────────────
 
+function checkShowcaseHeroContract(file, src) {
+  if (!/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\][^\/\\]+[\/\\]index\.tsx$/.test(file)) return;
+  const hasBadge = /Interactive Showcase/.test(src);
+  const hasH1 = /<h1\b/.test(src);
+  const hasMetaGrid = /className=\{?["'`][^"'`]*meta-grid/.test(src);
+  const hasTagRow = /className=\{?["'`][^"'`]*tag-row/.test(src);
+  if (!hasBadge || !hasH1 || !hasMetaGrid || !hasTagRow) {
+    record('FAIL', 'R12-showcase-hero-contract', file, 1,
+      'showcase-native hero는 HyperFrames 계약을 따라야 함: `Interactive Showcase` badge + big h1 + meta-grid + tag-row.');
+  }
+}
+
 const files = SCAN_ROOTS.flatMap(root => walk(root));
 
 for (const f of files) {
@@ -259,6 +271,7 @@ for (const f of files) {
   checkProjectNoProse(f, src);
   checkShowcaseTermHint(f, src);
   checkShowcaseIntroSection(f, src);
+  checkShowcaseHeroContract(f, src);
 }
 checkBaseLayoutHasOverride();
 
