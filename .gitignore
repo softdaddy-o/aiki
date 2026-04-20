@@ -11,3 +11,7 @@ public/og/news-fallback/
 .tmp/
 data/review-batch/
 .gstack/
+
+# Script logs and temp files
+logs/
+.tmp_*.txt
