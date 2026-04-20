@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
@@ -252,12 +253,25 @@ export default function LightRagShowcase({ slug, title, summary, tags, sourceMet
 
             <div className="lr-main">
                 <section className="lr-hero" id={`${SECTION_PREFIX}hero`}>
-                    <div className="lr-hero-head">
-                        <span className="lr-showcase-label">Interactive Showcase</span>
-                    </div>
-                    <div className="lr-hero-copy">
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="lr-hero"
+                        heroCopyClassName="lr-hero-copy"
+                        metaGridClassName="lr-meta-grid"
+                        metaCardClassName="lr-meta-card"
+                        metaSourceCardClassName="lr-meta-card--source"
+                        metaMarkClassName="lr-meta-mark"
+                        metaCopyClassName="lr-meta-copy"
+                        tagRowClassName="lr-tag-row"
+                        title={title}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
+                    <div className="lr-hero-copy-legacy">
                         <h1>{title}</h1>
-                        <p>{summary}</p>
                         <h2>샘플 문서 3개를 넣었을 때 LightRAG가 어떻게 읽는지</h2>
                         <p>
                             실제 저장소를 붙이지 않아도 인덱싱, 엔터티 추출, citation 포함 답변,
@@ -270,7 +284,7 @@ export default function LightRagShowcase({ slug, title, summary, tags, sourceMet
                             <span>30 relations</span>
                         </div>
                     </div>
-                    <div className="lr-meta-grid">
+                    <div className="lr-meta-grid-legacy">
                         <article className={`lr-meta-card lr-meta-card--source ${sourceMeta.className}`}>
                             <div className="lr-meta-mark">{sourceMeta.mark}</div>
                             <div className="lr-meta-copy">
@@ -278,16 +292,13 @@ export default function LightRagShowcase({ slug, title, summary, tags, sourceMet
                                 <strong>{sourceMeta.path}</strong>
                             </div>
                         </article>
-                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                        <MetaCard label="라이선스" value={license} />
-                        <MetaCard label="읽는 방식" value="Sample -> Graph -> Query" />
                     </div>
                     {tags.length > 0 && (
-                        <div className="lr-tag-row">
+                        <div className="lr-tag-row-legacy">
                             {tags.map((tag) => <span key={tag}>{tag}</span>)}
                         </div>
                     )}
-                    <div className="lr-hero-card">
+                    <div className="lr-hero-card-legacy">
                         <Stat label="문서" value="3" />
                         <Stat label="청크" value="18" />
                         <Stat label="엔터티" value="27" />
@@ -305,6 +316,25 @@ export default function LightRagShowcase({ slug, title, summary, tags, sourceMet
                             </>
                         }
                     >
+                        <div className="lr-overview-stack">
+                            <article className="lr-deploy-card lr-overview-card">
+                                <h3>쇼케이스 개요</h3>
+                                <p>{summary}</p>
+                                <div className="lr-chip-row">
+                                    <span>3 sample docs</span>
+                                    <span>27 entities</span>
+                                    <span>30 relations</span>
+                                    <span>citation on</span>
+                                </div>
+                            </article>
+
+                            <div className="lr-hero-card">
+                                <Stat label="문서" value="3" />
+                                <Stat label="청크" value="18" />
+                                <Stat label="엔터티" value="27" />
+                                <Stat label="응답 근거" value="citation on" />
+                            </div>
+                        </div>
                         <div className="lr-ingest-layout">
                             <div className="lr-doc-list" role="tablist" aria-label="샘플 문서">
                                 {SAMPLE_DOCS.map((doc) => (
@@ -484,15 +514,6 @@ function Stat({ label, value }: { label: string; value: string }) {
     );
 }
 
-function MetaCard({ label, value }: { label: string; value: string }) {
-    return (
-        <article className="lr-meta-card">
-            <span>{label}</span>
-            <strong>{value}</strong>
-        </article>
-    );
-}
-
 function StepCard({ label, value, note }: { label: string; value: string; note: string }) {
     return (
         <article className="lr-step-card">
@@ -508,8 +529,6 @@ ${createSharedShowcaseChromeCss({
     rootClass: 'lr-showcase',
     heroClass: 'lr-hero',
     panelClass: 'lr-panel',
-    heroHeadClass: 'lr-hero-head',
-    showcaseLabelClass: 'lr-showcase-label',
     heroCopyClass: 'lr-hero-copy',
     metaGridClass: 'lr-meta-grid',
     metaCardClass: 'lr-meta-card',
@@ -520,8 +539,9 @@ ${createSharedShowcaseChromeCss({
     heroCopyMaxWidth: '660px',
 })}
 .lr-main{grid-column:2;grid-row:2;display:grid;gap:18px;min-width:0}
-.lr-hero-copy h2,.lr-hero-copy h2 + p,.lr-hero-copy .lr-chip-row{display:none}
+.lr-hero-copy-legacy,.lr-meta-grid-legacy,.lr-tag-row-legacy,.lr-hero-card-legacy{display:none}
 .lr-hero-card,.lr-step-grid,.lr-deploy-grid,.lr-query-layout,.lr-ingest-layout,.lr-graph-layout{display:grid;gap:12px}
+.lr-overview-stack{display:grid;gap:12px;margin-bottom:16px}
 .lr-hero-card{grid-template-columns:repeat(4,minmax(0,1fr));align-content:start}
 .lr-stat,.lr-step-card,.lr-answer-card,.lr-context-card,.lr-deploy-card{border-radius:10px;padding:14px}
 .lr-stat{background:var(--color-surface-alt)}

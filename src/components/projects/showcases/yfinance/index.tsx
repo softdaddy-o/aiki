@@ -267,14 +267,27 @@ export default function YfinanceShowcase({ slug, title, summary, tags, sourceMet
 
             <div className="yf-showcase-main">
                 <section className="yf-header" id={`${SECTION_PREFIX}hero`} aria-label="yfinance 생성 데이터 요약">
-                    <div className="yf-hero-head">
-                        <span className="yf-showcase-label">Interactive Showcase</span>
-                    </div>
-                    <div className="yf-hero-copy">
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="yf-header"
+                        heroCopyClassName="yf-hero-copy"
+                        metaGridClassName="yf-meta-grid"
+                        metaCardClassName="yf-meta-card"
+                        metaSourceCardClassName="yf-meta-card--source"
+                        metaMarkClassName="yf-meta-mark"
+                        metaCopyClassName="yf-meta-copy"
+                        tagRowClassName="yf-tag-row"
+                        title={title}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
+                    <div className="yf-hero-copy-legacy">
                         <h1>{title}</h1>
-                        <p>{summary}</p>
                     </div>
-                    <div className="yf-meta-grid">
+                    <div className="yf-meta-grid-legacy">
                         <article className={`yf-meta-card yf-meta-card--source ${sourceMeta.className}`}>
                             <div className="yf-meta-mark">{sourceMeta.mark}</div>
                             <div className="yf-meta-copy">
@@ -282,16 +295,13 @@ export default function YfinanceShowcase({ slug, title, summary, tags, sourceMet
                                 <strong>{sourceMeta.path}</strong>
                             </div>
                         </article>
-                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                        <MetaCard label="라이선스" value={license} />
-                        <MetaCard label="읽는 방식" value="Sample -> Batch -> Discovery" />
                     </div>
                     {tags.length > 0 && (
-                        <div className="yf-tag-row">
+                        <div className="yf-tag-row-legacy">
                             {tags.map((tag) => <span key={tag}>{tag}</span>)}
                         </div>
                     )}
-                    <div className="yf-stat-grid">
+                    <div className="yf-stat-grid-legacy">
                         {stats.map(([label, value]) => (
                             <div className="yf-stat" key={label}>
                                 <span>{label}</span>
@@ -299,13 +309,13 @@ export default function YfinanceShowcase({ slug, title, summary, tags, sourceMet
                             </div>
                         ))}
                     </div>
-                    <div className="yf-meta">
+                    <div className="yf-meta-legacy">
                         <span>모드: <strong>{localizeText(data.mode || 'unknown')}</strong></span>
                         <span>생성 시각: {formatDate(data.generatedAt)}</span>
                         <span>yfinance {localizeText(data.libraryVersion || 'unknown')}</span>
                     </div>
                     {data.notes && data.notes.length > 0 && (
-                        <div className="yf-notes">
+                        <div className="yf-notes-legacy">
                             {data.notes.map((note) => <p key={note}>{localizeText(note)}</p>)}
                         </div>
                     )}
@@ -323,6 +333,27 @@ export default function YfinanceShowcase({ slug, title, summary, tags, sourceMet
                         title="시장 샘플"
                         description="지역별 자산군 샘플"
                     />
+                    <section className="yf-detail">
+                        <SectionHeading title="쇼케이스 개요" description={summary} />
+                        <div className="yf-stat-grid">
+                            {stats.map(([label, value]) => (
+                                <div className="yf-stat" key={label}>
+                                    <span>{label}</span>
+                                    <strong>{formatCompact(value)}</strong>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="yf-meta">
+                            <span>모드: <strong>{localizeText(data.mode || 'unknown')}</strong></span>
+                            <span>생성 시각: {formatDate(data.generatedAt)}</span>
+                            <span>yfinance {localizeText(data.libraryVersion || 'unknown')}</span>
+                        </div>
+                        {data.notes && data.notes.length > 0 && (
+                            <div className="yf-notes">
+                                {data.notes.map((note) => <p key={note}>{localizeText(note)}</p>)}
+                            </div>
+                        )}
+                    </section>
                     <UniversesSection groups={data.marketUniverses || []} />
                 </section>
                 <section className="yf-section-block" id={`${SECTION_PREFIX}batch`}>
@@ -385,15 +416,6 @@ function ShowcaseSectionLead({ index, title, description }: { index: number; tit
                 <p>{description}</p>
             </div>
         </header>
-    );
-}
-
-function MetaCard({ label, value }: { label: string; value: string }) {
-    return (
-        <article className="yf-meta-card">
-            <span>{label}</span>
-            <strong>{value}</strong>
-        </article>
     );
 }
 
@@ -757,8 +779,6 @@ ${createSharedShowcaseChromeCss({
     rootClass: 'yf-showcase',
     heroClass: 'yf-header',
     panelClass: 'yf-panel',
-    heroHeadClass: 'yf-hero-head',
-    showcaseLabelClass: 'yf-showcase-label',
     heroCopyClass: 'yf-hero-copy',
     metaGridClass: 'yf-meta-grid',
     metaCardClass: 'yf-meta-card',
@@ -791,6 +811,14 @@ ${createSharedShowcaseChromeCss({
     margin-bottom: 22px;
     padding: 22px;
     border-radius: 14px;
+}
+.yf-hero-copy-legacy,
+.yf-meta-grid-legacy,
+.yf-tag-row-legacy,
+.yf-stat-grid-legacy,
+.yf-meta-legacy,
+.yf-notes-legacy {
+    display: none;
 }
 .yf-stat-grid,
 .yf-quote-grid,

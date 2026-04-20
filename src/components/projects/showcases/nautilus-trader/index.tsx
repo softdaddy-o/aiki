@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
@@ -166,12 +167,25 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
 
             <div className="nt-showcase-main">
                 <section className="nt-hero" id={`${SECTION_PREFIX}hero`} aria-label="NautilusTrader 저장소 요약">
-                    <div className="nt-hero-head">
-                        <span className="nt-showcase-label">Interactive Showcase</span>
-                    </div>
-                    <div className="nt-hero-copy">
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="nt-hero"
+                        heroCopyClassName="nt-hero-copy"
+                        metaGridClassName="nt-meta-grid"
+                        metaCardClassName="nt-meta-card"
+                        metaSourceCardClassName="nt-meta-card--source"
+                        metaMarkClassName="nt-meta-mark"
+                        metaCopyClassName="nt-meta-copy"
+                        tagRowClassName="nt-tag-row"
+                        title={title}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
+                    <div className="nt-hero-copy-legacy">
                         <h1>{title}</h1>
-                        <p>{summary}</p>
                         <p className="nt-kicker">멀티에셋 트레이딩 엔진</p>
                         <h2>{data.repo?.name || 'NautilusTrader'}</h2>
                         <p>{localizeText(data.repo?.description || '')}</p>
@@ -180,7 +194,7 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
                             {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>}
                         </div>
                     </div>
-                    <div className="nt-meta-grid">
+                    <div className="nt-meta-grid-legacy">
                         <article className={`nt-meta-card nt-meta-card--source ${sourceMeta.className}`}>
                             <div className="nt-meta-mark">{sourceMeta.mark}</div>
                             <div className="nt-meta-copy">
@@ -188,16 +202,13 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
                                 <strong>{sourceMeta.path}</strong>
                             </div>
                         </article>
-                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                        <MetaCard label="라이선스" value={license} />
-                        <MetaCard label="읽는 방식" value="Architecture -> Venues -> Quickstart" />
                     </div>
                     {tags.length > 0 && (
-                        <div className="nt-tag-row">
+                        <div className="nt-tag-row-legacy">
                             {tags.map((tag) => <span key={tag}>{tag}</span>)}
                         </div>
                     )}
-                    <div className="nt-repo-card">
+                    <div className="nt-repo-card-legacy">
                         <div className="nt-release">
                             <span>최신 릴리스</span>
                             <strong>{data.repo?.latestRelease || '없음'}</strong>
@@ -220,6 +231,32 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
                 </section>
 
                 <section className="nt-section-block" id={`${SECTION_PREFIX}architecture`}>
+                    <section className="nt-repo-card nt-overview-card">
+                        <p className="nt-kicker">쇼케이스 개요</p>
+                        <p>{summary}</p>
+                        <div className="nt-link-row">
+                            {data.repo?.githubUrl && <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>}
+                            {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>}
+                        </div>
+                        <div className="nt-release">
+                            <span>최신 릴리스</span>
+                            <strong>{data.repo?.latestRelease || '없음'}</strong>
+                            <em>{formatDate(data.repo?.latestReleaseDate)}</em>
+                        </div>
+                        <div className="nt-stat-grid">
+                            {repoStats.map(([label, value]) => (
+                                <div className="nt-stat" key={label}>
+                                    <span>{label}</span>
+                                    <strong>{formatCompact(value)}</strong>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="nt-meta">
+                            <span>{data.repo?.primaryLanguage || 'Rust'}</span>
+                            <span>{data.repo?.secondaryLanguage || 'Python'}</span>
+                            <span>{data.repo?.license || 'LGPL-3.0'}</span>
+                        </div>
+                    </section>
                     <ArchitectureSection data={data} />
                 </section>
                 <section className="nt-section-block" id={`${SECTION_PREFIX}assets`}>
@@ -433,15 +470,6 @@ function Panel({ title, description, children }: { title: string; description: R
     );
 }
 
-function MetaCard({ label, value }: { label: string; value: string }) {
-    return (
-        <article className="nt-meta-card">
-            <span>{label}</span>
-            <strong>{value}</strong>
-        </article>
-    );
-}
-
 function formatCompact(value?: number): string {
     if (value === undefined || Number.isNaN(Number(value))) return '없음';
     return new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 }).format(Number(value));
@@ -464,8 +492,6 @@ ${createSharedShowcaseChromeCss({
     rootClass: 'nt-showcase',
     heroClass: 'nt-hero',
     panelClass: 'nt-panel',
-    heroHeadClass: 'nt-hero-head',
-    showcaseLabelClass: 'nt-showcase-label',
     heroCopyClass: 'nt-hero-copy',
     metaGridClass: 'nt-meta-grid',
     metaCardClass: 'nt-meta-card',
@@ -479,7 +505,7 @@ ${createSharedShowcaseChromeCss({
 .nt-panel,.nt-arch-card,.nt-asset-card,.nt-venue-card,.nt-perf-card,.nt-principle,.nt-qs-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .nt-hero{margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
 .nt-hero-copy,.nt-repo-card{min-width:0}
-.nt-hero-copy .nt-kicker,.nt-hero-copy h2,.nt-hero-copy h2 + p{display:none}
+.nt-hero-copy-legacy,.nt-meta-grid-legacy,.nt-tag-row-legacy,.nt-repo-card-legacy{display:none}
 .nt-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:800;letter-spacing:0;text-transform:uppercase}
 .nt-link-row,.nt-meta,.nt-chip-row,.nt-tag-row{display:flex;flex-wrap:wrap;gap:8px}
 .nt-link-row{margin-top:18px}

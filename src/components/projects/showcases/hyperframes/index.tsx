@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
@@ -278,16 +279,25 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
 
             <div className="hf-main">
                 <section className="hf-hero" id={`${SECTION_PREFIX}hero`}>
-                    <div className="hf-hero-head">
-                        <span className="hf-showcase-label">Interactive Showcase</span>
-                    </div>
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="hf-hero"
+                        heroCopyClassName="hf-hero-copy"
+                        metaGridClassName="hf-meta-grid"
+                        metaCardClassName="hf-meta-card"
+                        metaSourceCardClassName="hf-meta-card--source"
+                        metaMarkClassName="hf-meta-mark"
+                        metaCopyClassName="hf-meta-copy"
+                        tagRowClassName="hf-tag-row"
+                        title={title}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
 
-                    <div className="hf-hero-copy">
-                        <h1>{title}</h1>
-                        <p>{summary}</p>
-                    </div>
-
-                    <div className="hf-meta-grid">
+                    <div className="hf-meta-grid-legacy">
                         <article className={`hf-meta-card hf-meta-card--source ${sourceMeta.className}`}>
                             <div className="hf-meta-mark">{sourceMeta.mark}</div>
                             <div className="hf-meta-copy">
@@ -295,13 +305,10 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                                 <strong>{sourceMeta.path}</strong>
                             </div>
                         </article>
-                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                        <MetaCard label="라이선스" value={license} />
-                        <MetaCard label="읽는 방식" value="Prompt → HTML → Video" />
                     </div>
 
                     {tags.length > 0 && (
-                        <div className="hf-tag-row">
+                        <div className="hf-tag-row-legacy">
                             {tags.map((tag) => (
                                 <span key={tag}>{tag}</span>
                             ))}
@@ -314,6 +321,17 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     title="실행 쇼케이스"
                     description={<>같은 <TermHint term="composition" description="텍스트, 카드, 비디오 레이어를 어떤 순서와 배치로 묶을지 정한 장면 설계 단위야." />을 유지한 채 카피와 데이터만 바꿔 쓰는 흐름을 본다.</>}
                 >
+                    <div className="hf-overview-grid">
+                        <article className="hf-insight-card hf-insight-card--accent">
+                            <h3>쇼케이스 개요</h3>
+                            <p>{summary}</p>
+                            <div className="hf-chip-row">
+                                <span>Prompt -&gt; HTML -&gt; Video</span>
+                                <span>3 compositions</span>
+                                <span>Preview first</span>
+                            </div>
+                        </article>
+                    </div>
                     <div className="hf-case-tabs" role="tablist" aria-label="HyperFrames case studies">
                         {CASES.map((item) => (
                             <button

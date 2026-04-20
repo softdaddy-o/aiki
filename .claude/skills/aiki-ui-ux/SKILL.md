@@ -14,7 +14,8 @@ description: aiki 프로젝트에서 UI/UX를 만들거나 고칠 때 매번 읽
 1. **모든 project 쇼케이스 = showcase-native.** Legacy `showcase-frame-with-nav` (yfinance/nfi/nautilus-trader/lightrag 옛날 포맷) 신규에 복붙 금지. **HyperFrames (`/ko/projects/hyperframes/`) 가 정보 위계·조형의 유일한 레퍼런스**. 새 쇼케이스는 이 페이지를 "닮게" 만드는 것이 목표 — 조금 비슷하게가 아니라, 구조·카드 grammar·뷰 밀도가 같은 계보.
 2. **산문 금지.** Project 페이지에서 markdown `<Content />` body 는 렌더하지 않는다. 모든 정보를 Panel + card 로 분해. "읽는" 페이지가 아니라 "훑으면 30초에 판단" 이 목표.
 3. **News/wiki 만 standard (§3).** 장문 읽기 콘텐츠 전용. Project 는 절대 여기 들어오지 마.
-4. **모든 showcase-native 는 nav 첫 항목이 `소개`여야 한다.** HyperFrames 처럼 hero 가 `id={\`${SECTION_PREFIX}hero\`}` 를 가진 첫 섹션이어야 하고, 섹션 네비도 `소개 / 한눈 요약과 메타`로 시작한다.
+4. **모든 showcase-native 는 nav 첫 항목이 `소개`여야 한다.** hero 는 `id={\`${SECTION_PREFIX}hero\`}` 를 가진 첫 섹션이어야 하고, 섹션 네비도 `소개 / 한눈 요약과 메타`로 시작한다.
+5. **hero 는 project meta 전용이다.** hero 안에는 큰 `h1` + source/metric/license + tags 만 둔다. `Interactive Showcase`, summary, 읽는 방식, 데모 통계, 실행 맥락은 hero 에 넣지 않고 다음 섹션에서 각 프로젝트에 맞게 푼다.
 5. **포맷/가이드 변경 시 버전 bump 는 필수다 (§3.11).** 레이아웃 바꿨으면 `formatVersion` 올리고, 글쓰기 룰 바꿨으면 `guideVersion` 올리고, 두 guide 파일 Changelog 에 한 줄 남겨라. 빠뜨리면 나중에 어떤 기사가 어떤 기준으로 쓰였는지 추적 불가.
 
 ## 0. How to use this skill
@@ -224,7 +225,7 @@ HyperFrames 의 표준 Panel 골격. 프로젝트 특성 맞춰 조정은 가능
 
 | Panel id (prefix-) | 역할 | 카드 종류 |
 |---|---|---|
-| `hero` | title, summary, meta grid (source/metric/license/읽는 방식), tags | `meta-card` ×4 |
+| `hero` | title, meta grid (source/metric/license), tags | `meta-card` |
 | `cases` | 실행 쇼케이스 (tab + prompt + code + video + watch-points) | tab list + 4 stage cards |
 | `takeaway` | 한 줄 판단 | `insight-card` ×3, 첫 번째 accent |
 | `decide` | USE IT / SKIP IT 2분할 | `insight-card` ×N |
@@ -239,9 +240,9 @@ HyperFrames 의 표준 Panel 골격. 프로젝트 특성 맞춰 조정은 가능
 - 섹션 네비의 첫 항목은 반드시 `소개`.
 - `소개`는 `label: '소개'`, `description: '한눈 요약과 메타'`를 기본값으로 쓴다.
 - hero 섹션은 `id={\`${SECTION_PREFIX}hero\`}` 를 가져야 하고, `useShowcaseSectionNav` 의 `initialId` 도 `hero` 로 시작한다.
-- hero 상단 배지는 반드시 `Interactive Showcase`.
 - 프로젝트 이름은 hero 안에서 큰 `h1` 로 직접 보여야 한다. slug/chip/h2 로 대체하지 않는다.
-- hero 는 `source / metric / license / 읽는 방식` 4칸 메타 그리드와 tag row 를 기본 골격으로 가진다.
+- hero 는 `source / metric / license` 메타와 tag row 만 가진다. 여기서는 project 메타만 보여준다.
+- `Interactive Showcase`, summary, reading mode, 데모 통계, 런타임/실행 보드는 hero 가 아니라 **다음 섹션**에서 프로젝트별 개요로 푼다.
 - 소개가 빠진 showcase 는 HyperFrames 기준선에서 이탈한 것으로 보고 수정 대상이다.
 
 **카드 visual contract** — 모든 정보 원자는 bordered card:

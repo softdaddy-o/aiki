@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
@@ -249,12 +250,25 @@ export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, me
 
             <div className="nfi-showcase-main">
                 <section className="nfi-hero" id={`${SECTION_PREFIX}hero`} aria-label="NostalgiaForInfinity 저장소 요약">
-                    <div className="nfi-hero-head">
-                        <span className="nfi-showcase-label">Interactive Showcase</span>
-                    </div>
-                    <div className="nfi-hero-copy">
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="nfi-hero"
+                        heroCopyClassName="nfi-hero-copy"
+                        metaGridClassName="nfi-meta-grid"
+                        metaCardClassName="nfi-meta-card"
+                        metaSourceCardClassName="nfi-meta-card--source"
+                        metaMarkClassName="nfi-meta-mark"
+                        metaCopyClassName="nfi-meta-copy"
+                        tagRowClassName="nfi-tag-row"
+                        title={title}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
+                    <div className="nfi-hero-copy-legacy">
                         <h1>{title}</h1>
-                        <p>{summary}</p>
                         <p className="nfi-kicker">Freqtrade 전략 모음</p>
                         <h2>{data.repo?.name || 'NostalgiaForInfinity'}</h2>
                         <p>{localizeText(data.repo?.description || 'Trading strategy for the Freqtrade crypto bot')}</p>
@@ -267,7 +281,7 @@ export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, me
                             )}
                         </div>
                     </div>
-                    <div className="nfi-meta-grid">
+                    <div className="nfi-meta-grid-legacy">
                         <article className={`nfi-meta-card nfi-meta-card--source ${sourceMeta.className}`}>
                             <div className="nfi-meta-mark">{sourceMeta.mark}</div>
                             <div className="nfi-meta-copy">
@@ -275,16 +289,13 @@ export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, me
                                 <strong>{sourceMeta.path}</strong>
                             </div>
                         </article>
-                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                        <MetaCard label="라이선스" value={license} />
-                        <MetaCard label="읽는 방식" value="Setup -> Signals -> Risk" />
                     </div>
                     {tags.length > 0 && (
-                        <div className="nfi-tag-row">
+                        <div className="nfi-tag-row-legacy">
                             {tags.map((tag) => <span key={tag}>{tag}</span>)}
                         </div>
                     )}
-                    <div className="nfi-repo-card">
+                    <div className="nfi-repo-card-legacy">
                         <div className="nfi-release">
                             <span>최신 릴리스</span>
                             <strong>{data.repo?.latestRelease || 'N/A'}</strong>
@@ -318,6 +329,38 @@ export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, me
                         title="운용 전체"
                         description={<>권장 범위와 블랙리스트 조건을 같이 보면서 <TermHint term="타임프레임" description="캔들 한 개가 몇 분 단위인지 뜻해. NFI는 5분봉 기준 가정이 강해서 다른 값으로 바꾸면 결과가 크게 달라질 수 있어." />과 <TermHint term="페어리스트" description="봇이 매매 대상으로 삼는 코인 목록이야. 너무 좁거나 유동성이 약하면 신호 품질이 흔들릴 수 있어." />를 먼저 확인해.</>}
                     >
+                        <div className="nfi-overview-stack">
+                            <article className="nfi-repo-card">
+                                <p className="nfi-kicker">쇼케이스 개요</p>
+                                <p>{summary}</p>
+                                <div className="nfi-link-row">
+                                    {data.repo?.githubUrl && (
+                                        <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
+                                    )}
+                                    {data.repo?.docsUrl && (
+                                        <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>
+                                    )}
+                                </div>
+                                <div className="nfi-release">
+                                    <span>최신 릴리스</span>
+                                    <strong>{data.repo?.latestRelease || 'N/A'}</strong>
+                                    <em>{formatDate(data.repo?.latestReleaseDate)}</em>
+                                </div>
+                                <div className="nfi-stat-grid">
+                                    {repoStats.map(([label, value]) => (
+                                        <div className="nfi-stat" key={label}>
+                                            <span>{label}</span>
+                                            <strong>{formatCompact(value)}</strong>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="nfi-meta">
+                                    <span>{data.repo?.primaryLanguage || 'Python'}</span>
+                                    <span>{data.repo?.license || 'GPL-3.0'}</span>
+                                    <span>{localizeText(data.mode || 'curated')}</span>
+                                </div>
+                            </article>
+                        </div>
                         <div className="nfi-rec-grid">
                             {(data.recommendations || []).map((item) => (
                                 <article className="nfi-rec" key={item.label}>
@@ -497,15 +540,6 @@ function Panel({ title, description, children }: { title: string; description: R
     );
 }
 
-function MetaCard({ label, value }: { label: string; value: string }) {
-    return (
-        <article className="nfi-meta-card">
-            <span>{label}</span>
-            <strong>{value}</strong>
-        </article>
-    );
-}
-
 function SignalBar({ value, max }: { value: number; max: number }) {
     const width = Math.min(100, Math.max(8, (value / max) * 100));
     return <div className="nfi-signal-bar"><span style={{ width: `${width}%` }} /></div>;
@@ -626,8 +660,6 @@ ${createSharedShowcaseChromeCss({
     rootClass: 'nfi-showcase',
     heroClass: 'nfi-hero',
     panelClass: 'nfi-panel',
-    heroHeadClass: 'nfi-hero-head',
-    showcaseLabelClass: 'nfi-showcase-label',
     heroCopyClass: 'nfi-hero-copy',
     metaGridClass: 'nfi-meta-grid',
     metaCardClass: 'nfi-meta-card',
@@ -659,10 +691,16 @@ ${createSharedShowcaseChromeCss({
         linear-gradient(135deg, color-mix(in srgb, var(--color-projects) 12%, transparent), transparent 44%),
         var(--color-surface);
 }
-.nfi-hero-copy .nfi-kicker,
-.nfi-hero-copy h2,
-.nfi-hero-copy h2 + p {
+.nfi-hero-copy-legacy,
+.nfi-meta-grid-legacy,
+.nfi-tag-row-legacy,
+.nfi-repo-card-legacy {
     display: none;
+}
+.nfi-overview-stack {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 16px;
 }
 .nfi-kicker {
     margin: 0 0 8px;

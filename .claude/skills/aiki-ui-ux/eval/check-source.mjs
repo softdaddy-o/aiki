@@ -256,6 +256,18 @@ function checkShowcaseHeroContract(file, src) {
   }
 }
 
+function checkShowcaseHeroContract(file, src) {
+  if (!/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\][^\/\\]+[\/\\]index\.tsx$/.test(file)) return;
+  const usesMetaHero = /<ShowcaseMetaHero\b/.test(src);
+  const leaksShowcaseBadge = /Interactive Showcase/.test(src);
+  const leaksReadingMode = /읽는 방식/.test(src);
+  const heroRendersSummary = /<p>\s*\{summary\}\s*<\/p>/.test(src);
+  if (!usesMetaHero || leaksShowcaseBadge || leaksReadingMode || heroRendersSummary) {
+    record('FAIL', 'R12-showcase-hero-contract', file, 1,
+      'showcase-native hero는 meta-only shared hero여야 한다. <ShowcaseMetaHero>를 쓰고 badge/summary/reading-mode를 hero에 두지 않는다.');
+  }
+}
+
 const files = SCAN_ROOTS.flatMap(root => walk(root));
 
 for (const f of files) {
