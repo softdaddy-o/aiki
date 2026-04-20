@@ -58,6 +58,7 @@ const news = defineCollection({
             news: z.string(),
         }).optional(),
         reviewStamp: reviewStampSchema.optional(),
+        formatVersion: z.number().default(1),
     }),
 });
 
@@ -85,6 +86,7 @@ const wiki = defineCollection({
             wiki: z.string(),
         }).optional(),
         reviewStamp: reviewStampSchema.optional(),
+        formatVersion: z.number().default(1),
     }),
 });
 
@@ -114,6 +116,7 @@ const projects = defineCollection({
             projects: z.string(),
         }).optional(),
         reviewStamp: reviewStampSchema.optional(),
+        formatVersion: z.number().default(1),
     }),
 });
 

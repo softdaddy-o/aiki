@@ -10,6 +10,7 @@ sourceTitle: "TechCrunch"
 draft: false
 score: 88
 sourceCount: 4
+formatVersion: 2
 factCheck:
   status: passed
   date: "2026-04-19"
@@ -59,12 +60,20 @@ guideVersion:
   news: "1.0.0"
 ---
 
-4월 17일, OpenAI에서 수장급 임원 3명이 하루 만에 동시 퇴사를 발표했어. Kevin Weil(OpenAI for Science VP), Bill Peebles(Sora 책임자), Srinivas Narayanan(엔터프라이즈 CTO)인데, 각자 LinkedIn과 X에 퇴사 소감을 올리면서 알려졌어.
+## 하루 만에 3명, 누가 떠났나
 
-Kevin Weil은 거의 2년 전 인스타그램·트위터 출신으로 OpenAI에 합류해 CPO를 맡았다가 올해 초 'OpenAI for Science'라는 생명과학 연구 팀으로 자리를 옮겼어. 퇴사 하루 전에 GPT-Rosalind라는 신약 개발용 모델을 출시했는데, [Wired 보도](https://www.wired.com/story/openai-executive-kevin-weil-is-leaving-the-company/)에 따르면 이 팀 자체가 다른 연구 조직들로 분산(decentralize)된대. 2년 공들인 조직이 사실상 해체되는 거야.
+4월 17일 하루에 수장급 임원 3명이 동시에 나갔다. Kevin Weil(OpenAI for Science VP), Bill Peebles(Sora 책임자), Srinivas Narayanan(엔터프라이즈 CTO) — 각자 LinkedIn과 X에 퇴사 소감을 올리면서 알려졌다.
 
-Bill Peebles는 Sora의 핵심 개발자였어. 그런데 Sora도 4월 26일부로 서비스가 종료될 예정이야. OpenAI는 이미 지난달부터 "영상 생성은 우리의 핵심 사업이 아니다"는 기조로 방향을 틀었고, Sora는 대표적인 'side quest'로 분류됐어. 자체 플랫폼에서 수익을 내지 못했고, Runway나 Kling처럼 전문 툴들과의 경쟁에서도 밀렸거든.
+Kevin Weil은 인스타그램·트위터 출신으로 약 2년 전 합류해 CPO를 맡았다가, 올해 초 생명과학 연구 전담 팀 'OpenAI for Science'로 자리를 옮겼다. 퇴사 하루 전에 신약 개발용 모델 GPT-Rosalind를 출시했는데, [Wired 보도](https://www.wired.com/story/openai-executive-kevin-weil-is-leaving-the-company/)에 따르면 이 팀은 이미 다른 연구 조직들로 분산(decentralize) 결정이 난 상태였다. 2년 공들인 조직이 사실상 해체되는 걸 알고 나간 거다.
 
-Srinivas Narayanan은 엔터프라이즈 앱 담당 CTO였는데, 이쪽은 반대로 OpenAI가 강화하고 있는 영역이야. 기업 시장이야말로 GPT-5 이후 실질적인 수익원이 될 테니까 — 오히려 이 이탈이 구조 재편의 신호일 수 있어.
+## Sora는 왜 4월 26일에 끝나나
 
-세 명이 같은 날 떠났다는 건 우연이 아니야. [TechCrunch 보도](https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/)에 따르면 OpenAI는 지금 "핵심 AGI 연구 + 엔터프라이즈 수익"으로 집중하고, 나머지는 내보내는 방향으로 정리 중이야. Sora가 생기고, 이제는 없어지는 것처럼.
+Bill Peebles는 Sora의 핵심 개발자이자 책임자였다. Sora도 같은 날 종료 예정이 확인됐다 — 4월 26일 서비스 종료.
+
+OpenAI는 이미 지난달부터 "영상 생성은 우리 핵심이 아니다"는 방향을 공개적으로 굳혔다. Sora는 자체 플랫폼에서 의미 있는 수익을 만들지 못했고, Runway나 Kling처럼 영상 생성에 집중하는 전문 툴들과의 경쟁에서도 밀렸다. OpenAI 내부 표현으로 'side quest' — 본업과 거리가 있는 곁가지 프로젝트로 분류됐다.
+
+## OpenAI가 지금 정리하는 것
+
+Srinivas Narayanan은 엔터프라이즈 앱 CTO였다. 아이러니하게도 엔터프라이즈는 OpenAI가 지금 강화하는 방향이다.
+
+세 명이 같은 날 떠난 건 우연이 아니다. [TechCrunch 보도](https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/)에 따르면 OpenAI는 지금 "핵심 AGI 연구 + 엔터프라이즈 수익"으로 집중하고, 그 외 모든 걸 정리하는 구조조정 중이다. Sora가 생기고 없어지는 것처럼 — 앞으로도 이런 정리가 계속 나올 가능성이 높다.

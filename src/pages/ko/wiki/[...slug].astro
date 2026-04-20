@@ -51,6 +51,11 @@ const wikiBacklinks = allWikiEntries
             || candidate.data.parentModel === entry.data.term
         ))
     .sort((a, b) => b.data.mentionCount - a.data.mentionCount || a.data.title.localeCompare(b.data.title, 'en'));
+
+// 중복 방지: backlinks에 이미 있는 term은 related에서 제외
+const backlinkTerms = new Set(wikiBacklinks.map(e => e.data.term));
+const relatedTermsDeduped = entry.data.relatedTerms.filter(t => !backlinkTerms.has(t));
+
 const shareUrl = Astro.url.href;
 const ogImage = `/og/wiki/${entry.data.term}.png`;
 ---
@@ -73,7 +78,9 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
                 />
             </div>
         </div>
+
         <h1>{entry.data.title}</h1>
+
         {entry.data.aliases.length > 0 && (
             <div class="aliases">
                 <span class="aliases-label">다른 이름:</span>
@@ -82,15 +89,18 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
                 ))}
             </div>
         )}
+
+        <div class="wiki-lead-card">
+            <p class="wiki-lead">{entry.data.summary}</p>
+        </div>
+
         {entry.data.category === 'model' && entry.data.modelType === 'version' && entry.data.modelProfile && (
             <ModelProfile profile={entry.data.modelProfile} />
         )}
 
-        <p class="wiki-summary">{entry.data.summary}</p>
-
         {entry.data.category === 'model' && parentEntry && (
-            <div class="model-hierarchy">
-                <h3>상위 모델</h3>
+            <div class="info-card">
+                <h2 class="card-title">상위 모델</h2>
                 <div class="related-list">
                     <a href={`/ko/wiki/${parentEntry.data.term}/`} class="related-link">{parentEntry.data.title}</a>
                 </div>
@@ -98,8 +108,8 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         )}
 
         {entry.data.category === 'model' && childEntries.length > 0 && (
-            <div class="model-hierarchy">
-                <h3>버전 페이지</h3>
+            <div class="info-card">
+                <h2 class="card-title">버전 페이지</h2>
                 <div class="related-list">
                     {childEntries.map((child) => (
                         <a href={`/ko/wiki/${child.data.term}/`} class="related-link">{child.data.title}</a>
@@ -108,8 +118,8 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
             </div>
         )}
 
-        <div class="tech-stack-section">
-            <h3 class="tech-stack-title">전체 AI 기술 맵에서의 위치</h3>
+        <div class="info-card tech-stack-card">
+            <h2 class="card-title">전체 AI 기술 맵에서의 위치</h2>
             <TechStackMap
                 client:visible
                 activeTerm={entry.data.term.toLowerCase()}
@@ -121,11 +131,11 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
             <Content />
         </div>
 
-        {entry.data.relatedTerms.length > 0 && (
-            <div class="related-terms">
-                <h3>관련 용어</h3>
+        {relatedTermsDeduped.length > 0 && (
+            <div class="info-card">
+                <h2 class="card-title">관련 용어</h2>
                 <div class="related-list">
-                    {entry.data.relatedTerms.map(term => (
+                    {relatedTermsDeduped.map(term => (
                         <a href={`/ko/wiki/${term}/`} class="related-link">{term}</a>
                     ))}
                 </div>
@@ -133,8 +143,8 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         )}
 
         {wikiBacklinks.length > 0 && (
-            <div class="related-terms">
-                <h3>이 항목을 참조하는 위키</h3>
+            <div class="info-card">
+                <h2 class="card-title">이 항목을 참조하는 위키</h2>
                 <div class="related-list">
                     {wikiBacklinks.map((refEntry) => (
                         <a href={`/ko/wiki/${refEntry.data.term}/`} class="related-link">{refEntry.data.title}</a>
@@ -155,6 +165,43 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         )}
     </article>
 </BaseLayout>
+
+<script>
+    // 마크다운 "관련 용어" 섹션은 템플릿이 frontmatter로 직접 렌더하므로 body에서 제외
+    const SKIP_HEADINGS = /^(관련\s*용어|관련\s*항목|참조|더\s*보기|see\s*also)/i;
+
+    const bodyEl = document.querySelector('.article-body');
+    if (bodyEl) {
+        const children = Array.from(bodyEl.children);
+        bodyEl.innerHTML = '';
+        let preamble: HTMLElement | null = null;
+        let currentCard: HTMLElement | null = null;
+        let skipCurrent = false;
+
+        children.forEach(el => {
+            if (el.tagName === 'H2') {
+                skipCurrent = SKIP_HEADINGS.test(el.textContent?.trim() ?? '');
+                if (!skipCurrent) {
+                    currentCard = document.createElement('div');
+                    currentCard.className = 'prose-card';
+                    bodyEl.appendChild(currentCard);
+                    currentCard.appendChild(el);
+                }
+            } else if (!skipCurrent) {
+                if (currentCard) {
+                    currentCard.appendChild(el);
+                } else {
+                    if (!preamble) {
+                        preamble = document.createElement('div');
+                        preamble.className = 'prose-preamble';
+                        bodyEl.insertBefore(preamble, bodyEl.firstChild);
+                    }
+                    preamble.appendChild(el);
+                }
+            }
+        });
+    }
+</script>
 
 <style>
     .wiki-article { max-width: 720px; margin: 0 auto; padding-top: 20px; }
@@ -194,6 +241,8 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         font-variant-numeric: tabular-nums;
     }
 
+    .article-share-header { margin-left: auto; }
+
     h1 {
         font-size: clamp(26px, 4.2vw, 34px);
         font-weight: 800;
@@ -204,43 +253,15 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         overflow-wrap: anywhere;
     }
 
-    .wiki-summary {
-        font-size: 16px;
-        color: var(--color-text-muted);
-        margin: 0 0 18px;
-        line-height: 1.7;
-        word-break: keep-all;
-    }
-
-    .article-share-header {
-        margin-left: auto;
-    }
-
     .aliases {
         display: flex;
         gap: 6px;
         align-items: center;
         flex-wrap: wrap;
-        margin: 0 0 18px;
+        margin: 0 0 16px;
     }
 
-    .model-hierarchy {
-        margin: 22px 0 26px;
-    }
-
-    .model-hierarchy h3 {
-        font-size: 14px;
-        margin-bottom: 10px;
-        color: var(--color-text-muted);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-    }
-
-    .aliases-label {
-        font-size: 12px;
-        color: var(--color-text-muted);
-    }
+    .aliases-label { font-size: 12px; color: var(--color-text-muted); }
 
     .alias {
         background: var(--color-surface-alt);
@@ -251,67 +272,96 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         color: var(--color-text-muted);
     }
 
-    .tech-stack-section {
-        margin-bottom: 28px;
+    /* Lead card */
+    .wiki-lead-card {
+        border-left: 3px solid var(--color-wiki);
+        background: color-mix(in srgb, var(--color-wiki) 7%, var(--color-surface));
+        border-radius: 0 10px 10px 0;
+        padding: 16px 20px;
+        margin-bottom: 12px;
     }
 
-    .tech-stack-title {
-        font-size: 13px;
-        color: var(--color-text-muted);
+    .wiki-lead {
+        font-size: 16px;
+        line-height: 1.72;
+        margin: 0;
+        word-break: keep-all;
+        color: var(--color-text);
+    }
+
+    /* Generic info card — used for tech-map, related, backlinks, hierarchy */
+    .info-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 20px 22px;
         margin-bottom: 10px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
     }
 
-    .article-body { font-size: 16px; line-height: 1.82; }
+    /* Card title — same visual weight as prose-card h2 */
+    .card-title {
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+        word-break: keep-all;
+        color: var(--color-text);
+        margin: 0 0 16px;
+        padding-bottom: 13px;
+        border-bottom: 2px solid color-mix(in srgb, var(--color-wiki) 35%, var(--color-border));
+    }
+
+    .tech-stack-card { margin-bottom: 10px; }
+
+    /* Prose section cards (JS-injected) */
+    .article-body { font-size: 16px; line-height: 1.82; margin-bottom: 0; }
+
+    .article-body :global(.prose-preamble p) { margin-bottom: 14px; word-break: keep-all; }
+
+    .article-body :global(.prose-card) {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 10px;
+    }
+
+    .article-body :global(.prose-card h2) {
+        font-size: 19px;
+        font-weight: 800;
+        margin: 0 0 16px;
+        padding-bottom: 13px;
+        border-bottom: 2px solid color-mix(in srgb, var(--color-wiki) 35%, var(--color-border));
+        letter-spacing: -0.02em;
+        word-break: keep-all;
+        color: var(--color-text);
+        line-height: 1.3;
+    }
+
+    .article-body :global(.prose-card h3) { font-size: 15px; font-weight: 600; margin: 18px 0 8px; }
+    .article-body :global(.prose-card p) { margin-bottom: 12px; word-break: keep-all; }
+    .article-body :global(.prose-card p:last-child) { margin-bottom: 0; }
+    .article-body :global(.prose-card ul),
+    .article-body :global(.prose-card ol) { padding-left: 18px; margin-bottom: 12px; }
+    .article-body :global(.prose-card li) { margin-bottom: 5px; word-break: keep-all; }
+    .article-body :global(.prose-card code) { max-width: 100%; min-width: 0; overflow: auto; }
+    .article-body :global(.prose-card pre) { max-width: 100%; min-width: 0; overflow: auto; }
+
+    /* Fallback (no-JS) */
+    .article-body :global(h2) { font-size: 20px; margin: 32px 0 12px; letter-spacing: -0.01em; }
+    .article-body :global(h3) { font-size: 17px; margin: 24px 0 8px; }
     .article-body :global(p) { margin-bottom: 14px; word-break: keep-all; }
     .article-body :global(ul), .article-body :global(ol) { padding-left: 20px; margin-bottom: 14px; }
     .article-body :global(li) { margin-bottom: 5px; word-break: keep-all; }
-    .article-body :global(h2) {
-        font-size: 20px;
-        margin: 32px 0 12px;
-        letter-spacing: -0.01em;
-    }
-    .article-body :global(h3) {
-        font-size: 17px;
-        margin: 24px 0 8px;
-    }
-    .article-body :global(code) {
-        max-width: 100%;
-        min-width: 0;
-        overflow: auto;
-    }
-    .article-body :global(pre) {
-        max-width: 100%;
-        min-width: 0;
-        overflow: auto;
-    }
+    .article-body :global(code) { max-width: 100%; min-width: 0; overflow: auto; }
+    .article-body :global(pre) { max-width: 100%; min-width: 0; overflow: auto; }
 
-    .related-terms {
-        border-top: 1px solid var(--color-border);
-        margin-top: 36px;
-        padding-top: 22px;
-    }
-
-    .related-terms h3 {
-        font-size: 13px;
-        margin-bottom: 12px;
-        color: var(--color-text-muted);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-    }
-
-    .related-list {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
+    /* Related chips */
+    .related-list { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .related-link {
-        background: var(--color-surface);
-        border: 1px solid color-mix(in srgb, var(--color-wiki) 55%, transparent);
+        background: var(--color-surface-alt);
+        border: 1px solid color-mix(in srgb, var(--color-wiki) 50%, transparent);
         padding: 5px 14px;
         border-radius: 999px;
         font-size: 13px;
@@ -327,13 +377,9 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
 
     @media (max-width: 640px) {
         .wiki-article { padding-top: 12px; }
-        .article-meta {
-            align-items: stretch;
-            gap: 8px 12px;
-        }
-        .article-share-header {
-            width: 100%;
-            margin-left: 0;
-        }
+        .article-meta { align-items: stretch; gap: 8px 12px; }
+        .article-share-header { width: 100%; margin-left: 0; }
+        .article-body :global(.prose-card) { padding: 16px 18px; }
+        .info-card { padding: 16px 18px; }
     }
 </style>

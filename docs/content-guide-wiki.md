@@ -1,8 +1,8 @@
 # AIKI Content Guide — Wiki
 
 > **Guide ID**: `wiki`
-> **Version**: `1.0.0`
-> **Last Updated**: 2026-04-09
+> **Version**: `2.0.0`
+> **Last Updated**: 2026-04-20
 > **Depends on**: `content-guide-common.md` v1.0.0+
 > **Applies to**: `src/content/wiki/ko/*.md`
 
@@ -50,7 +50,8 @@ factCheck:
   checks: [...]
 guideVersion:
   common: "1.0.0"
-  wiki: "1.0.0"
+  wiki: "2.0.0"
+formatVersion: 2   # 1=구 산문, 2=h2 섹션 카드 포맷 (2026-04-20~)
 ---
 ```
 
@@ -65,6 +66,7 @@ guideVersion:
 | category | enum | concept, model, tool, technique, framework |
 | factCheck | object | 4단계 검증 결과 (common 참조) |
 | guideVersion | object | 생성 시 사용한 가이드 버전 |
+| formatVersion | number | **레이아웃 포맷 버전** — `1`=구 산문, `2`=h2 섹션 카드 포맷. 기본값 1. 새 위키는 반드시 `2` 명시. |
 
 ### 모델 전용 필드 (category: model)
 
@@ -100,7 +102,7 @@ guideVersion:
 
 ---
 
-## 4. 본문 구조 (4 섹션 필수)
+## 4. 본문 구조 (formatVersion 2 기준)
 
 ### 섹션 1: `## 한 줄 정의`
 
@@ -126,17 +128,11 @@ guideVersion:
 - 이 용어를 몰라서 어떤 판단을 틀리게 되는지
 - 실무에서 직접 체감되는 사용 맥락
 
-### 섹션 4: `## 관련 용어`
+### 섹션 4: `## 주의해서 볼 점` 또는 `## 실무 활용` (선택)
 
-- 단순 나열 금지
-- 각 항목은 **현재 페이지 기준**으로 "왜 같이 봐야 하는지" 설명
-- 비교 축: 운영 방식, 성능 특성, 데이터 흐름, 인터페이스, 비용 구조 중 1개+
+상황에 따라 추가. 학습 시 오해하기 쉬운 포인트, 실무 적용 팁, 한계 등.
 
-**좋은 예:**
-> `[Function Calling](/ko/wiki/function-calling/)` — 모델이 도구를 호출하는 인터페이스라는 점은 겹치지만, MCP는 호출 자체보다 도구 발견과 연결 규격을 표준화한다는 점에서 층위가 다르다.
-
-**나쁜 예:**
-> `[Function Calling](/ko/wiki/function-calling/)` — 같이 보면 좋다.
+> **⚠️ `## 관련 용어` 섹션은 본문에 쓰지 마라.** 이 섹션은 템플릿이 `relatedTerms` frontmatter에서 자동으로 카드로 렌더링한다. 본문에도 넣으면 중복 카드가 생긴다.
 
 ---
 
@@ -299,4 +295,5 @@ Step 7: 배포
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0.0 | 2026-04-20 | **카드 레이아웃 포맷 도입** — `formatVersion: 2` 신설, h2 섹션 카드 렌더링 표준화. `## 관련 용어` 섹션 본문 작성 금지 (템플릿이 frontmatter에서 자동 처리). §4 본문 구조 개정. |
 | 1.0.0 | 2026-04-09 | 초기 버전 — wiki-page-writing-guide.md + validation-guide.md 통합, 버전 관리 추가 |
