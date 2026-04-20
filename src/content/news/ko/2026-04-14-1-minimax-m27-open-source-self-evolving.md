@@ -61,10 +61,10 @@ guideVersion:
   news: "1.0.0"
 ---
 
-중국 AI 스타트업 [MiniMax](https://www.minimax.io/news/minimax-m27-en)가 M2.7 모델을 오픈소스로 풀었어. 230B 파라미터에 토큰당 10B만 활성화하는 [MoE](/ko/wiki/moe/) 구조이고, [HuggingFace](https://huggingface.co/MiniMaxAI/MiniMax-M2.7)에서 가중치를 바로 받을 수 있어. 256개 전문가 중 8개만 동시에 돌리는 구조라 추론 비용이 낮은 게 포인트야.
+중국 AI 스타트업 [MiniMax](https://www.minimax.io/news/minimax-m27-en)가 M2.7 모델을 오픈소스로 풀었어. 230B 파라미터에 토큰당 10B만 활성화하는 [MoE](/ko/wiki/moe/) 구조이고, [HuggingFace](https://huggingface.co/MiniMaxAI/MiniMax-M2.7)에서 가중치를 바로 받을 수 있어. 256개 전문가 중 8개만 동시에 돌리는 구조라 [추론](/ko/wiki/inference/) 비용이 낮은 게 포인트야.
 
-코딩 에이전트 벤치마크에서 눈에 띄는 숫자가 나왔어. [SWE-Pro](https://www.marktechpost.com/2026/04/12/minimax-just-open-sourced-minimax-m2-7-a-self-evolving-agent-model-that-scores-56-22-on-swe-pro-and-57-0-on-terminal-bench-2/)에서 56.22%, Terminal Bench 2에서 57.0%를 기록했거든. VIBE-Pro(프로젝트 전체 전달 능력)도 55.6%야. API 가격은 입력 $0.30, 출력 $1.20(100만 토큰 기준)으로 Claude나 GPT 대비 상당히 저렴해.
+코딩 에이전트 벤치마크에서 눈에 띄는 숫자가 나왔어. [SWE-Pro](https://www.marktechpost.com/2026/04/12/minimax-just-open-sourced-minimax-m2-7-a-self-evolving-agent-model-that-scores-56-22-on-swe-pro-and-57-0-on-terminal-bench-2/)에서 56.22%, Terminal Bench 2에서 57.0%를 기록했거든. VIBE-Pro(프로젝트 전체 전달 능력)도 55.6%야. API 가격은 입력 $0.30, 출력 $1.20(100만 [토큰](/ko/wiki/token/) 기준)으로 [Claude](/ko/wiki/claude/)나 GPT 대비 상당히 저렴해.
 
-이 모델의 차별점은 "자기 진화(self-evolving)" 구조야. M2.7은 자기 메모리 업데이트, 학습 스킬 구축, 학습 과정 개선에 직접 참여해. 쉽게 말하면 모델이 자기 훈련 파이프라인의 일부를 스스로 조율한다는 거야. 200K 컨텍스트 윈도우에 체인 오브 소트 추론도 지원해.
+이 모델의 차별점은 "자기 진화(self-evolving)" 구조야. M2.7은 자기 [메모리](/ko/wiki/memory/) 업데이트, [학습](/ko/wiki/training/) 스킬 구축, [학습](/ko/wiki/training/) 과정 개선에 직접 참여해. 쉽게 말하면 모델이 자기 훈련 파이프라인의 일부를 스스로 조율한다는 거야. 200K 컨텍스트 윈도우에 체인 오브 소트 추론도 지원해.
 
-로컬 LLM 커뮤니티에서는 이미 GGUF 양자화 버전으로 게임 개발 벤치마크까지 돌려보고 있어. 다만 230B 모델이니 로컬 실행에는 고사양 GPU가 필요하고, SWE-Pro나 Terminal Bench 2 같은 벤치마크는 아직 독립 검증이 충분하지 않다는 점은 감안해야 해. Qwen 3.5나 Gemma 4와 비교하는 테스트가 계속 나오고 있으니, 로컬 에이전트 모델을 찾고 있다면 지켜볼 만해.
+[로컬 LLM](/ko/wiki/local-llm/) 커뮤니티에서는 이미 [GGUF](/ko/wiki/gguf/) [양자화](/ko/wiki/quantization/) 버전으로 게임 개발 벤치마크까지 돌려보고 있어. 다만 230B 모델이니 [로컬](/ko/wiki/local-llm/) 실행에는 고사양 GPU가 필요하고, SWE-Pro나 Terminal Bench 2 같은 벤치마크는 아직 독립 검증이 충분하지 않다는 점은 감안해야 해. [Qwen 3.5](/ko/wiki/qwen-3.5/)나 [Gemma 4](/ko/wiki/gemma-4/)와 비교하는 테스트가 계속 나오고 있으니, [로컬](/ko/wiki/local-llm/) 에이전트 모델을 찾고 있다면 지켜볼 만해.

@@ -92,13 +92,13 @@ factCheck:
         - Gemini는 큰 간판이어서 하위 버전까지 내려가야 실제 선택 정보가 보여.
 ---
 ## 한 줄 정의
-Gemini는 Google DeepMind가 내놓는 AI 모델 계열 이름이야. 특정 챗봇 한 개를 가리키는 말이라기보다 여러 하위 모델과 서비스 표지를 한데 묶는 큰 브랜드로 보는 게 맞아.
+Gemini는 [Google DeepMind](/ko/wiki/google-deepmind/)가 내놓는 AI 모델 계열 이름이야. 특정 챗봇 한 개를 가리키는 말이라기보다 여러 하위 모델과 서비스 표지를 한데 묶는 큰 브랜드로 보는 게 맞아.
 ## 이 모델로 무엇을 할 수 있나
-Gemini는 글쓰기, 요약, 코드 보조, 이미지 이해, 음성 대화처럼 입력 형식이 섞인 작업을 한 흐름에서 다루는 쪽에 쓰여. 실무에선 Google의 Gemini Developer API나 Vertex AI Gemini API로 붙여 쓰는 경우가 많고, 대표 모델인 Gemini 2.5 Pro는 공식 문서 기준으로 입력 1,048,576토큰까지 받는 긴 문맥 작업을 밀고 있어.
+Gemini는 글쓰기, 요약, 코드 보조, 이미지 이해, 음성 대화처럼 입력 형식이 섞인 작업을 한 흐름에서 다루는 쪽에 쓰여. 실무에선 Google의 Gemini Developer API나 Vertex AI [Gemini API](/ko/wiki/gemini-api/)로 붙여 쓰는 경우가 많고, 대표 모델인 [Gemini 2.5](/ko/wiki/gemini-2.5/) Pro는 공식 문서 기준으로 입력 1,048,576토큰까지 받는 [긴 문맥](/ko/wiki/long-context/) 작업을 밀고 있어.
 ## 왜 중요한가
 Gemini라는 이름은 점수표보다 Google이 어디에 힘을 싣는지 읽게 해 주는 신호라서 중요해. 기사에서 Gemini만 적혀 있으면 앱 기능 업데이트인지, API 배포인지, 새로운 하위 모델 발표인지 층위를 먼저 나눠 봐야 제대로 읽을 수 있어.
 ## 같이 보면 좋은 모델
 - [gemini-2.5](/ko/wiki/gemini-2.5/): Gemini라는 큰 간판 아래서 실제 선택 대상이 되는 세대명이야. 기사에서 Gemini만 보이면 이 하위 이름까지 같이 봐야 판단이 정확해져.
-- [gpt-4o](/ko/wiki/gpt-4o/): 멀티모달 사용자 경험을 자주 같이 비교하는 경쟁 모델이야. 실시간 반응성과 제품 포지셔닝 차이를 읽을 때 같이 보면 감이 빨라.
-- [gemma](/ko/wiki/gemma/): 같은 Google 계열이지만 공개 가중치와 로컬 실행 맥락이 강한 모델이야. 그래서 Gemini와 역할이 어떻게 갈리는지 보기 좋고, 클라우드 중심 전략과도 대비돼.
+- [gpt-4o](/ko/wiki/gpt-4o/): [멀티모달](/ko/wiki/multimodal/) 사용자 경험을 자주 같이 비교하는 경쟁 모델이야. 실시간 반응성과 제품 포지셔닝 차이를 읽을 때 같이 보면 감이 빨라.
+- [gemma](/ko/wiki/gemma/): 같은 Google 계열이지만 공개 가중치와 [로컬](/ko/wiki/local-llm/) 실행 맥락이 강한 모델이야. 그래서 Gemini와 역할이 어떻게 갈리는지 보기 좋고, 클라우드 중심 전략과도 대비돼.
 - [gemini-api](/ko/wiki/gemini-api/): 모델 자체가 아니라 Gemini를 붙이는 호출 통로를 가리키는 말이야. 모델 이름과 접근 채널을 섞어 읽지 않게 도와줘.

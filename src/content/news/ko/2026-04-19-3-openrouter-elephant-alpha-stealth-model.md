@@ -62,10 +62,10 @@ guideVersion:
 
 이름은 Elephant Alpha, 출처는 미상. [OpenRouter](https://openrouter.ai/openrouter/elephant-alpha)에 4월 13일 조용히 등장한 이 모델이 지금 사용량 1위를 달리고 있어.
 
-스펙이 특이해. 100B 파라미터에 256K 컨텍스트를 지원하고, 입출력 모두 $0/M 토큰 — 즉, 완전 무료야. 그리고 처리 속도가 커뮤니티에서 측정한 값 기준 약 250 tps로, 같은 규모 모델 중 상당히 빠른 편이야. [OpenRouter 공식 소개](https://x.com/OpenRouter/status/2043714975756390844)는 "prominent open model lab의 스텔스 공개"라고만 했어. 누군지는 안 말해줬어.
+스펙이 특이해. 100B 파라미터에 256K 컨텍스트를 지원하고, 입출력 모두 $0/M [토큰](/ko/wiki/token/) — 즉, 완전 무료야. 그리고 처리 속도가 커뮤니티에서 측정한 값 기준 약 250 tps로, 같은 규모 모델 중 상당히 빠른 편이야. [OpenRouter 공식 소개](https://x.com/OpenRouter/status/2043714975756390844)는 "prominent open model lab의 스텔스 공개"라고만 했어. 누군지는 안 말해줬어.
 
-[r/singularity](https://www.reddit.com/r/singularity/comments/1sozgmm/so_has_anyone_actually_figured_out_whose_model/)에선 정체 추측이 한창이야. 코딩과 에이전트 작업에서 성능이 높고, 중국어가 상대적으로 약하며, instruction following이 굉장히 엄격하다는 특징을 근거로 Mistral 계열이나 Llama 계열 파인튜닝 버전이라는 의견이 오가는 중이야.
+[r/singularity](https://www.reddit.com/r/singularity/comments/1sozgmm/so_has_anyone_actually_figured_out_whose_model/)에선 정체 추측이 한창이야. 코딩과 [에이전트](/ko/wiki/agent/) 작업에서 성능이 높고, 중국어가 상대적으로 약하며, instruction following이 굉장히 엄격하다는 특징을 근거로 [Mistral](/ko/wiki/mistral/) 계열이나 [Llama](/ko/wiki/llama/) 계열 [파인튜닝](/ko/wiki/fine-tuning/) 버전이라는 의견이 오가는 중이야.
 
-실용적으로 보면, 코드 자동완성이나 문서 처리, 경량 에이전트 구성 용도로 테스트해볼 만해. 무료인데 256K 컨텍스트면 긴 코드베이스도 충분히 넘어가거든. 단, 정체가 불명확하다는 건 학습 데이터나 라이선스 조건도 불명확하다는 뜻이야 — 상업용 서비스에 붙이기 전에 이 부분은 확인이 필요해.
+실용적으로 보면, 코드 자동완성이나 문서 처리, 경량 [에이전트](/ko/wiki/agent/) 구성 용도로 테스트해볼 만해. 무료인데 256K 컨텍스트면 긴 코드베이스도 충분히 넘어가거든. 단, 정체가 불명확하다는 건 [학습](/ko/wiki/training/) 데이터나 라이선스 조건도 불명확하다는 뜻이야 — 상업용 서비스에 붙이기 전에 이 부분은 확인이 필요해.
 
 OpenRouter가 스텔스 공개를 허용한다는 것 자체가 흥미로운 포인트야. 출시 전 실사용 데이터를 익명으로 수집하는 방식으로 바뀌고 있는 거야.

@@ -61,8 +61,8 @@ guideVersion:
   news: "1.0.0"
 ---
 
-Gemma 4 26B A4B에 25만 토큰을 밀어넣어봤는데 멀쩡하게 돌아갔다는 테스트 결과가 나왔어. 262,144 토큰(256K) 컨텍스트의 94%인 245,283 토큰을 채운 상태에서 NVIDIA SMI 데이터를 끌어오는 스크립트의 버그를 잡아냈거든. 로컬 LLM 커뮤니티에서 [큰 관심](https://www.reddit.com/r/LocalLLaMA/comments/1sihwo8/gemma_4_26b_a4b_is_still_fully_capable_at/)을 받았어.
+Gemma 4 26B A4B에 25만 토큰을 밀어넣어봤는데 멀쩡하게 돌아갔다는 테스트 결과가 나왔어. 262,144 [토큰](/ko/wiki/token/)(256K) 컨텍스트의 94%인 245,283 토큰을 채운 상태에서 NVIDIA SMI 데이터를 끌어오는 스크립트의 버그를 잡아냈거든. [로컬 LLM](/ko/wiki/local-llm/) 커뮤니티에서 [큰 관심](https://www.reddit.com/r/LocalLLaMA/comments/1sihwo8/gemma_4_26b_a4b_is_still_fully_capable_at/)을 받았어.
 
-비교가 재밌는데, 같은 태스크를 Gemini 3.1에 넣었더니 새 세션에서도 실패했다고 해. [Gemma 4 26B A4B](/ko/wiki/gemma/)는 25.2B 전체 파라미터 중 3.8B만 활성화하는 [MoE](/ko/wiki/mixture-of-experts/) 구조인데, 128개 전문가 중 8개만 가동하면서도 대용량 컨텍스트에서 품질을 유지한 거야.
+비교가 재밌는데, 같은 태스크를 [Gemini](/ko/wiki/gemini/) 3.1에 넣었더니 새 세션에서도 실패했다고 해. [Gemma 4 26B A4B](/ko/wiki/gemma/)는 25.2B 전체 파라미터 중 3.8B만 활성화하는 [MoE](/ko/wiki/mixture-of-experts/) 구조인데, 128개 전문가 중 8개만 가동하면서도 대용량 컨텍스트에서 품질을 유지한 거야.
 
 다만 이건 한 사람의 비공식 테스트라는 점은 짚고 가야 해. 코드 디버깅이라는 특정 태스크에서 잘 됐다고 요약이나 번역에서도 같은 성능을 보장하진 않아. 그래도 "256K 컨텍스트" 스펙이 실제로 쓸 수 있는 수준인지 궁금했던 사람들에게는 의미 있는 데이터 포인트야.

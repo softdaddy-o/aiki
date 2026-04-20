@@ -55,7 +55,7 @@ tags:
   - agent
 ---
 
-arXiv 논문 2603.20185v1에 대한 요약 페이지: VideoSeek: 도구 기반 탐색 기능을 갖춘 Long-Horizon Video Agent [원문](https://arxiv.org/abs/2603.20185v1)은 VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.20185v1에 대한 요약 페이지: VideoSeek: 도구 기반 탐색 기능을 갖춘 Long-Horizon Video Agent가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2603.20185v1에 대한 요약 페이지: VideoSeek: 도구 기반 탐색 기능을 갖춘 Long-Horizon Video [Agent](/ko/wiki/agent/) [원문](https://arxiv.org/abs/2603.20185v1)은 VideoSeek: Long-Horizon Video [Agent](/ko/wiki/agent/) with Tool-Guided Seeking 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.20185v1에 대한 요약 페이지: VideoSeek: 도구 기반 탐색 기능을 갖춘 Long-Horizon Video [Agent](/ko/wiki/agent/)가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 VideoSeek: 도구 기반 탐색 기능을 갖춘 장거리 비디오 에이전트, arXiv 논문 2603.20185v1에…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

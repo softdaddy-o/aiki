@@ -67,4 +67,4 @@ Marcus의 핵심 주장은 이거야. Claude Code가 잘 작동하는 이유가 
 
 반론도 있어. 486개 분기가 많아 보이지만, 복잡한 CLI 도구에서 분기 처리는 흔한 엔지니어링 패턴이야. "심볼릭 AI 복귀"라고 부르기엔 과장이라는 시각도 있거든. 하지만 [VentureBeat](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know)과 [CNBC](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html)까지 이걸 다룬 걸 보면, AI 에이전트가 순수 신경망만으로는 안 된다는 인식이 퍼지고 있는 건 확실해.
 
-실무에서 의미 있는 포인트는 하나야. 코딩 에이전트를 만들 때 LLM 호출만으로 끝내지 말고, 결정론적 로직으로 감싸는 하이브리드 설계를 고려해야 한다는 거야. Anthropic이 512,000줄을 쏟아부은 이유가 바로 거기에 있으니까.
+실무에서 의미 있는 포인트는 하나야. 코딩 에이전트를 만들 때 LLM 호출만으로 끝내지 말고, 결정론적 로직으로 감싸는 하이브리드 설계를 고려해야 한다는 거야. [Anthropic](/ko/wiki/anthropic/)이 512,000줄을 쏟아부은 이유가 바로 거기에 있으니까.

@@ -59,8 +59,8 @@ guideVersion:
   news: "1.0.0"
 ---
 
-Google의 [Gemma 4](https://www.reddit.com/r/LocalLLaMA/comments/1smh0ny/gemma4_26b_e4b_are_crazy_good_and_replaced_qwen/) 26B [MoE](/ko/wiki/mixture-of-experts/) 모델이 로컬 LLM 커뮤니티에서 빠르게 자리를 잡고 있어. RTX 3090 2장과 시스템 메모리 128GB 세팅에서 Qwen 3.5 시리즈를 전부 Gemma 4로 교체했다는 보고가 커뮤니티에서 큰 호응을 얻고 있거든.
+Google의 [Gemma 4](https://www.reddit.com/r/LocalLLaMA/comments/1smh0ny/gemma4_26b_e4b_are_crazy_good_and_replaced_qwen/) 26B [MoE](/ko/wiki/mixture-of-experts/) 모델이 로컬 LLM 커뮤니티에서 빠르게 자리를 잡고 있어. RTX 3090 2장과 시스템 [메모리](/ko/wiki/memory/) 128GB 세팅에서 Qwen 3.5 시리즈를 전부 Gemma 4로 교체했다는 보고가 커뮤니티에서 큰 호응을 얻고 있거든.
 
 수치로 보면 이유가 명확해. [Gemma 4 26B-A4B](https://www.mindstudio.ai/blog/gemma-4-vs-qwen-3-5-open-weight-comparison)는 전체 26B 파라미터 중 3.8B만 활성화하는 MoE 구조인데, AIME 2026에서 88.3%를 기록했어. 같은 규모의 Qwen 3.5-27B가 AIME 2025에서 약 49%를 찍은 것과 비교하면 격차가 크지. E4B(4.5B 활성)는 16GB GPU에서도 돌아가니까 RTX 4080이나 노트북에서도 쓸 수 있고.
 
-다만 맥락이 있어. Qwen 3.5는 대규모 스케일에서 여전히 강하고, Llama 4는 1000만 토큰 컨텍스트라는 고유 장점이 있거든. 로컬 세팅을 바꾸려면 자기 하드웨어에서 실제로 돌려보고 판단하는 게 맞아. Apache 2.0 라이선스라 상업 사용에도 제한이 없다는 건 확실한 장점이야.
+다만 맥락이 있어. Qwen 3.5는 대규모 스케일에서 여전히 강하고, [Llama](/ko/wiki/llama/) 4는 1000만 [토큰](/ko/wiki/token/) 컨텍스트라는 고유 장점이 있거든. 로컬 세팅을 바꾸려면 자기 하드웨어에서 실제로 돌려보고 판단하는 게 맞아. [Apache 2.0](/ko/wiki/apache/) 라이선스라 상업 사용에도 제한이 없다는 건 확실한 장점이야.

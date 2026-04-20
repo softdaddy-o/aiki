@@ -56,8 +56,8 @@ tags:
   - vulnerability
 ---
 
-AI 에이전트 도구 OpenClaw에서 심각한 보안 취약점이 줄줄이 터지고 있어. 3월에만 4일간 9개 CVE가 동시에 공개됐고, 그중 CVE-2026-25253은 CVSS 8.8점으로 게이트웨이 전체 장악이 가능한 수준이야. 악성 링크 클릭 한 번으로 인증 토큰이 유출되면 공격자가 전체 관리자 권한을 가져가.
+[AI 에이전트](/ko/wiki/agent/) 도구 OpenClaw에서 심각한 보안 취약점이 줄줄이 터지고 있어. 3월에만 4일간 9개 CVE가 동시에 공개됐고, 그중 CVE-2026-25253은 CVSS 8.8점으로 게이트웨이 전체 장악이 가능한 수준이야. 악성 링크 클릭 한 번으로 인증 토큰이 유출되면 공격자가 전체 관리자 권한을 가져가.
 
 근본 원인이 뭐냐면, OpenClaw이 [인증 비활성화 상태로 배포](https://www.sangfor.com/blog/cybersecurity/openclaw-ai-agent-security-risks-2026)돼. SecurityScorecard STRIKE 팀 조사에 따르면, 공개 노출된 13.5만 개 인스턴스 중 63%가 인증을 설정 안 하고 돌리고 있었어. WebSocket 핸드셰이크 과정에서 클라이언트가 임의로 `operator.admin` 스코프를 선언할 수 있는 취약점(CVE-2026-33579)도 확인됐어. 일반 사용자가 서버에 "나는 관리자"라고 말하면 그대로 관리자가 되는 거야.
 
-OpenClaw를 쓰고 있다면 즉시 v2026.3.12 이상으로 업데이트해야 해. 인증 설정을 반드시 활성화하고, 외부 네트워크 노출 여부를 점검하는 게 급선무야. Anthropic이 Claude 구독에서 OpenClaw을 차단한 것도 이 보안 이슈랑 무관하지 않아.
+OpenClaw를 쓰고 있다면 즉시 v2026.3.12 이상으로 업데이트해야 해. 인증 설정을 반드시 활성화하고, 외부 네트워크 노출 여부를 점검하는 게 급선무야. [Anthropic](/ko/wiki/anthropic/)이 [Claude](/ko/wiki/claude/) 구독에서 OpenClaw을 차단한 것도 이 보안 이슈랑 무관하지 않아.

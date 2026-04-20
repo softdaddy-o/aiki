@@ -57,7 +57,7 @@ guideVersion:
   news: "1.0.0"
 ---
 
-누군가가 프론티어 [LLM](/ko/wiki/llm/)의 정치적 편향을 체계적으로 [측정하는 벤치마크](https://www.reddit.com/r/MachineLearning/comments/1smqsbu/built_an_political_benchmark_for_llms_kimi_k2/)를 만들었어. 14개 정책 영역에서 98개 질문을 던져 경제 좌/우, 사회 진보/보수 2차원 정치 지도에 모델을 배치하는 방식이야. 테스트 대상은 GPT-5.3, Claude Opus 4.6, KIMI K2 등이고.
+누군가가 프론티어 [LLM](/ko/wiki/llm/)의 정치적 편향을 체계적으로 [측정하는 벤치마크](https://www.reddit.com/r/MachineLearning/comments/1smqsbu/built_an_political_benchmark_for_llms_kimi_k2/)를 만들었어. 14개 정책 영역에서 98개 질문을 던져 경제 좌/우, 사회 진보/보수 2차원 정치 지도에 모델을 배치하는 방식이야. 테스트 대상은 GPT-5.3, [Claude Opus 4.6](/ko/wiki/claude-opus-4-6/), KIMI K2 등이고.
 
 눈에 띄는 결과가 두 가지야. KIMI K2는 대만 관련 질문에 아예 답을 내놓지 못했어. [별도 연구](https://arxiv.org/html/2602.06371v1)에서도 중국 출신 모델들이 대만 주권 관련 질문에서 심각한 검열을 보인다는 걸 확인한 바 있거든 — Kimi K2.5가 10점 만점에 1점을 기록한 사례도 있어. GPT-5.3는 다른 방향인데, opt-out 옵션을 주면 정치적 질문 100%를 거부했어. 모델마다 "답하지 않는 방식"이 다른 셈이야.
 

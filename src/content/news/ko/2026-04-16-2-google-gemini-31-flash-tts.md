@@ -61,6 +61,6 @@ guideVersion:
 
 Google이 4월 15일 [Gemini 3.1 Flash TTS](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/)를 내놨어. 핵심은 텍스트 안에 오디오 태그를 직접 넣어서 음성을 제어하는 방식이야. "여기서부터 속삭이듯이", "이 부분은 신나게" 같은 자연어 지시를 텍스트 중간에 삽입하면, 한 문장 안에서도 톤이 달라지거든.
 
-숫자를 보면 포지셔닝이 확실해. [Artificial Analysis TTS 리더보드](https://www.marktechpost.com/2026/04/15/google-ai-launches-gemini-3-1-flash-tts-a-new-benchmark-in-expressive-and-controllable-ai-voice/)에서 Elo 1,211을 찍었고, 70개 이상 언어를 지원해. 멀티 스피커 대화를 네이티브로 처리하는 것도 [ElevenLabs](/ko/wiki/text-to-speech/)나 OpenAI TTS와 차별되는 부분이야. 생성된 오디오에는 [SynthID](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/) 워터마크가 자동으로 삽입돼서 AI 생성 여부를 추적할 수 있어.
+숫자를 보면 포지셔닝이 확실해. [Artificial Analysis TTS 리더보드](https://www.marktechpost.com/2026/04/15/google-ai-launches-gemini-3-1-flash-tts-a-new-benchmark-in-expressive-and-controllable-ai-voice/)에서 Elo 1,211을 찍었고, 70개 이상 언어를 지원해. 멀티 스피커 대화를 네이티브로 처리하는 것도 [ElevenLabs](/ko/wiki/text-to-speech/)나 [OpenAI](/ko/wiki/openai/) TTS와 차별되는 부분이야. 생성된 오디오에는 [SynthID](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/) 워터마크가 자동으로 삽입돼서 AI 생성 여부를 추적할 수 있어.
 
-개발자는 Gemini API와 Google AI Studio에서 프리뷰로 쓸 수 있고, 기업은 Vertex AI, 일반 사용자는 Google Vids를 통해 접근할 수 있어. TTS를 프로덕트에 넣으려면 ElevenLabs 대비 비용과 세밀한 제어력을 비교해보는 게 첫 단계야.
+개발자는 [Gemini API](/ko/wiki/gemini-api/)와 [Google AI Studio](/ko/wiki/google-ai-studio/)에서 프리뷰로 쓸 수 있고, 기업은 Vertex AI, 일반 사용자는 Google Vids를 통해 접근할 수 있어. TTS를 프로덕트에 넣으려면 ElevenLabs 대비 비용과 세밀한 제어력을 비교해보는 게 첫 단계야.

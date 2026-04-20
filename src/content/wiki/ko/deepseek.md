@@ -97,23 +97,23 @@ reviewStamp:
 
 ## 한 줄 정의
 
-DeepSeek는 중국 AI 회사 DeepSeek가 쓰는 브랜드 이름이야. 회사 이름이기도 하고, 공개 모델 계열 이름이기도 하고, OpenAI 호환 [API](/ko/wiki/api/) 서비스 이름처럼 읽히기도 해서 기사에서 이 단어가 나오면 먼저 어떤 층위를 말하는지 나눠 보는 게 중요해.
+DeepSeek는 중국 AI 회사 DeepSeek가 쓰는 브랜드 이름이야. 회사 이름이기도 하고, 공개 모델 계열 이름이기도 하고, [OpenAI](/ko/wiki/openai/) 호환 [API](/ko/wiki/api/) 서비스 이름처럼 읽히기도 해서 기사에서 이 단어가 나오면 먼저 어떤 층위를 말하는지 나눠 보는 게 중요해.
 
 ## 이 모델로 무엇을 할 수 있나
 
-실무에선 DeepSeek라는 이름이 보통 코딩 보조, [reasoning](/ko/wiki/reasoning/)형 Q&A, 구조화 출력 자동화 같은 일을 할 때 붙어 나와. 공식 API 문서는 기본 주소를 `https://api.deepseek.com`으로 두고 OpenAI 호환 포맷을 지원한다고 설명해 두고, GitHub에는 DeepSeek-R1과 DeepSeek-V3처럼 공개 모델 계열 리포지토리가 따로 있어. 그래서 같은 이름을 봐도 "서비스를 쓰는 얘기인지, 공개 모델을 가져다 돌리는 얘기인지"를 먼저 가르는 편이 안전해.
+실무에선 DeepSeek라는 이름이 보통 코딩 보조, [reasoning](/ko/wiki/reasoning/)형 Q&A, 구조화 출력 자동화 같은 일을 할 때 붙어 나와. 공식 API 문서는 기본 주소를 `https://api.deepseek.com`으로 두고 [OpenAI](/ko/wiki/openai/) 호환 포맷을 지원한다고 설명해 두고, GitHub에는 [DeepSeek-R1](/ko/wiki/deepseek-r1/)과 DeepSeek-V3처럼 공개 모델 계열 리포지토리가 따로 있어. 그래서 같은 이름을 봐도 "서비스를 쓰는 얘기인지, 공개 모델을 가져다 돌리는 얘기인지"를 먼저 가르는 편이 안전해.
 
-또 기사에서 성능표나 [benchmark](/ko/wiki/benchmark/) 얘기가 붙으면 공개 모델 계열 문맥일 가능성이 크고, 기존 OpenAI SDK에서 갈아타기 쉽다는 식의 말이 붙으면 서비스 문맥일 가능성이 커. 이 두 문맥을 섞어 읽으면 가격, 운영 책임, 공개 여부를 완전히 다르게 해석하게 돼.
+또 기사에서 성능표나 [benchmark](/ko/wiki/benchmark/) 얘기가 붙으면 공개 모델 계열 문맥일 가능성이 크고, 기존 [OpenAI](/ko/wiki/openai/) SDK에서 갈아타기 쉽다는 식의 말이 붙으면 서비스 문맥일 가능성이 커. 이 두 문맥을 섞어 읽으면 가격, 운영 책임, 공개 여부를 완전히 다르게 해석하게 돼.
 
 ## 왜 중요한가
 
-DeepSeek라는 이름이 중요한 이유는 한 단어에 회사 이야기, 공개 모델 이야기, API 이야기, 앱 체감담까지 한꺼번에 엮이기 쉬워서야. 같은 글 안에서도 공개 모델인 DeepSeek-R1과 서비스형 API 품질 얘기가 섞이면, 독자는 다른 층위를 같은 말로 읽게 돼. 그래서 "이 문장이 회사냐, 서비스냐, 공개 모델이냐"를 먼저 나누는 습관이 필요해.
+DeepSeek라는 이름이 중요한 이유는 한 단어에 회사 이야기, 공개 모델 이야기, API 이야기, 앱 체감담까지 한꺼번에 엮이기 쉬워서야. 같은 글 안에서도 공개 모델인 [DeepSeek-R1](/ko/wiki/deepseek-r1/)과 서비스형 API 품질 얘기가 섞이면, 독자는 다른 층위를 같은 말로 읽게 돼. 그래서 "이 문장이 회사냐, 서비스냐, 공개 모델이냐"를 먼저 나누는 습관이 필요해.
 
-이 구분은 선택에도 바로 연결돼. 공개 [weight](/ko/wiki/weight/)를 직접 다루려는지, 아니면 OpenAI 호환 API만 붙이면 되는지에 따라 운영 부담과 검증 포인트가 완전히 달라지기 때문이야.
+이 구분은 선택에도 바로 연결돼. 공개 [weight](/ko/wiki/weight/)를 직접 다루려는지, 아니면 [OpenAI](/ko/wiki/openai/) 호환 API만 붙이면 되는지에 따라 운영 부담과 검증 포인트가 완전히 달라지기 때문이야.
 
 ## 같이 보면 좋은 모델
 
-- [DeepSeek R1](/ko/wiki/deepseek-r1/): DeepSeek 브랜드 아래에서 가장 자주 대표 사례로 불리는 reasoning 공개 모델이야.
+- [DeepSeek R1](/ko/wiki/deepseek-r1/): DeepSeek 브랜드 아래에서 가장 자주 대표 사례로 불리는 [reasoning](/ko/wiki/reasoning/) 공개 모델이야.
 - [Qwen 3.5](/ko/wiki/qwen-3.5/): 중국 오픈 모델 계열을 다른 운영 철학으로 비교할 때 기준이 돼.
-- [Gemma 4](/ko/wiki/gemma-4/): 온디바이스·오픈 웨이트 축과 비교할 때 자주 함께 언급돼.
+- [Gemma 4](/ko/wiki/gemma-4/): [온디바이스](/ko/wiki/on-device/)·오픈 [웨이트](/ko/wiki/weight/) 축과 비교할 때 자주 함께 언급돼.
 - [OpenAI](/ko/wiki/openai/): API 호환 문맥을 읽을 때 어떤 서비스 층위와 비교하고 있는지 가르는 기준이 돼.

@@ -55,7 +55,7 @@ tags:
   - github
 ---
 
-[공식 발표](https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/)와 [보조 자료](https://en.wikipedia.org/wiki/GitHub_Copilot)를 같이 보면 GitHub Copilot의 핵심은 GitHub Copilot GitHub Copilot은 GitHub 및 OpenAI가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및…
+[공식 발표](https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/)와 [보조 자료](https://en.wikipedia.org/wiki/GitHub_Copilot)를 같이 보면 GitHub Copilot의 핵심은 GitHub Copilot GitHub Copilot은 GitHub 및 [OpenAI](/ko/wiki/openai/)가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및…
 
 GitHub Copilot 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야. AIKI에서는 이런 마일스톤을 단순 출시 소식이 아니라 다음 분기 전략을 읽는 기준점으로 다뤄.
 

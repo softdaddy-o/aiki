@@ -59,10 +59,10 @@ guideVersion:
   news: "1.0.0"
 ---
 
-[llama.cpp](/ko/wiki/llama-cpp/)의 llama-server에 음성 처리가 드디어 들어왔어. Gemma 4 E2B와 E4B 모델로 로컬에서 음성→텍스트 변환(STT)이 가능해진 거야. 로컬 LLM 커뮤니티에서 [상당한 관심](https://www.reddit.com/r/LocalLLaMA/comments/1sjhxrw/audio_processing_landed_in_llamaserver_with_gemma4/)을 끌었어.
+[llama.cpp](/ko/wiki/llama-cpp/)의 llama-server에 음성 처리가 드디어 들어왔어. Gemma 4 E2B와 E4B 모델로 로컬에서 음성→텍스트 변환(STT)이 가능해진 거야. [로컬 LLM](/ko/wiki/local-llm/) 커뮤니티에서 [상당한 관심](https://www.reddit.com/r/LocalLLaMA/comments/1sjhxrw/audio_processing_landed_in_llamaserver_with_gemma4/)을 끌었어.
 
 사용법은 생각보다 간단해. mmproj 파일(약 600MB)을 다운받아서 `--mmproj` 플래그와 함께 llama-server를 실행하면 돼. USM 스타일 Conformer 인코더가 오디오를 처리하고, Gemma 4의 언어 모델이 텍스트로 변환하는 구조야. 별도의 [Whisper](/ko/wiki/whisper/) 파이프라인 없이 하나의 모델로 음성 이해까지 되는 거거든.
 
-흥미로운 건 이게 단순 STT에서 끝나지 않는다는 점이야. E2B/E4B는 네이티브 멀티모달 모델이라, 음성으로 질문하면 바로 텍스트 답변을 생성할 수 있어. [Google의 공식 모델 카드](https://ai.google.dev/gemma/docs/core/model_card_4)에 따르면 다국어 음성 인식과 음성→번역 텍스트 변환도 지원하거든. E2B는 2.3B 유효 파라미터(5.1B 전체), E4B는 4.5B 유효 파라미터(8B 전체)라 8GB VRAM 이상이면 돌릴 수 있어.
+흥미로운 건 이게 단순 STT에서 끝나지 않는다는 점이야. E2B/E4B는 네이티브 [멀티모달](/ko/wiki/multimodal/) 모델이라, 음성으로 질문하면 바로 텍스트 답변을 생성할 수 있어. [Google의 공식 모델 카드](https://ai.google.dev/gemma/docs/core/model_card_4)에 따르면 다국어 음성 인식과 음성→번역 텍스트 변환도 지원하거든. E2B는 2.3B 유효 파라미터(5.1B 전체), E4B는 4.5B 유효 파라미터(8B 전체)라 8GB VRAM 이상이면 돌릴 수 있어.
 
-로컬 AI 도구 스택을 쌓고 있다면 짚어볼 변화야. 128K 컨텍스트 윈도우에서 텍스트+이미지+음성을 한 모델로 처리하는 로컬 멀티모달 환경이 점점 현실이 되고 있으니까.
+로컬 AI 도구 스택을 쌓고 있다면 짚어볼 변화야. 128K 컨텍스트 윈도우에서 텍스트+이미지+음성을 한 모델로 처리하는 로컬 [멀티모달](/ko/wiki/multimodal/) 환경이 점점 현실이 되고 있으니까.

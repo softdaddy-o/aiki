@@ -54,7 +54,7 @@ tags:
   - fine-tuning
 ---
 
-Edward Beeching, Quentin Gallouédec 및 Lewis Tunstall OpenAI o3와 같은 대규모 추론 모델은 i에 대한 일련의 사고를 생성합니다 [원문](https://developers.openai.com/cookbook/articles/gpt-oss/fine-tune-transfomers/)은 Fine-tuning with gpt-oss and Hugging Face Transformers 기준으로 확인한 내용이야. 이 이슈는 Edward Beeching, Quentin Gallouédec 및 Lewis Tunstall OpenAI o3와 같은 대규모 추론 모델은 i에 대한 일련의 사고를 생성합니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+Edward Beeching, Quentin Gallouédec 및 Lewis Tunstall [OpenAI](/ko/wiki/openai/) o3와 같은 대규모 [추론](/ko/wiki/inference/) 모델은 i에 대한 일련의 사고를 생성합니다 [원문](https://developers.openai.com/cookbook/articles/gpt-oss/fine-tune-transfomers/)은 [Fine-tuning](/ko/wiki/fine-tuning/) with gpt-oss and Hugging Face [Transformers](/ko/wiki/transformer/) 기준으로 확인한 내용이야. 이 이슈는 Edward Beeching, Quentin Gallouédec 및 Lewis Tunstall [OpenAI](/ko/wiki/openai/) o3와 같은 대규모 [추론](/ko/wiki/inference/) 모델은 i에 대한 일련의 사고를 생성합니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 gpt-oss 및 Hugging Face Transformer를 사용한 미세 조정, 작성자: Edward Beec…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

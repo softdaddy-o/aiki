@@ -60,7 +60,7 @@ tags:
   - claude
 ---
 
-arXiv 논문 2602.21204v1의 추상 페이지: KV 바인딩을 사용한 테스트 시간 훈련은 비밀리에 선형 주의입니다 [원문](https://arxiv.org/abs/2602.21204v1)은 Test-Time Training with KV Binding Is Secretly Linear Attention 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2602.21204v1의 추상 페이지: KV 바인딩을 사용한 테스트 시간 훈련은 비밀리에 선형 주의입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2602.21204v1의 추상 페이지: KV 바인딩을 사용한 테스트 시간 훈련은 비밀리에 선형 주의입니다 [원문](https://arxiv.org/abs/2602.21204v1)은 Test-Time [Training](/ko/wiki/training/) with KV Binding Is Secretly Linear [Attention](/ko/wiki/attention/) 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2602.21204v1의 추상 페이지: KV 바인딩을 사용한 테스트 시간 훈련은 비밀리에 선형 주의입니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 KV 바인딩을 사용한 테스트 시간 훈련은 비밀리에 선형 주의를 기울입니다., arXiv 논문 2602.21204v…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

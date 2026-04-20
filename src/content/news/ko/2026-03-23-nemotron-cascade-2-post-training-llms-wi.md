@@ -55,7 +55,7 @@ tags:
   - distillation
 ---
 
-arXiv 논문 2603.19220v1에 대한 추상 페이지: Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM [원문](https://arxiv.org/abs/2603.19220v1)은 Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and Multi-Domain On-Policy Distillation 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.19220v1에 대한 추상 페이지: Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2603.19220v1에 대한 추상 페이지: Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM [원문](https://arxiv.org/abs/2603.19220v1)은 Nemotron-Cascade 2: Post-[Training](/ko/wiki/training/) [LLMs](/ko/wiki/llm/) with Cascade RL and Multi-Domain On-Policy [Distillation](/ko/wiki/distillation/) 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.19220v1에 대한 추상 페이지: Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 Nemotron-Cascade 2: Cascade RL 및 다중 도메인 온 정책 증류를 사용한 사후 교육 LLM,…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

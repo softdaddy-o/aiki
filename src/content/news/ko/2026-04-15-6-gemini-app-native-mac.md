@@ -63,10 +63,10 @@ guideVersion:
   news: "1.0.0"
 ---
 
-구글이 [Gemini 앱을 Mac 네이티브](https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/)로 풀었어. macOS 15 이상에서 전 세계 무료로 돌아가고, 이미 ChatGPT 데스크톱 앱을 써본 사람한테는 익숙한 UX다 — Option+Space를 누르면 어디서든 Gemini 창이 뜨는 방식이거든.
+구글이 [Gemini 앱을 Mac 네이티브](https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/)로 풀었어. macOS 15 이상에서 전 세계 무료로 돌아가고, 이미 [ChatGPT](/ko/wiki/chatgpt/) 데스크톱 앱을 써본 사람한테는 익숙한 UX다 — Option+Space를 누르면 어디서든 Gemini 창이 뜨는 방식이거든.
 
 핵심 기능은 세 가지야. 첫째, 글로벌 단축키로 작업 흐름을 끊지 않고 바로 호출할 수 있다. 둘째, 지금 보고 있는 화면이나 창을 공유해서 "이 차트에서 중요한 3가지 인사이트는 뭐야?" 같은 질문을 바로 던질 수 있어. 셋째, Gemini 내부에서 Nano Banana 이미지 생성과 Veo 영상 생성이 그대로 돌아가서, 이미지/영상 프롬프트를 따로 웹으로 넘어갈 필요가 없다.
 
-업무 시나리오로 보면 ChatGPT Desktop + Claude Desktop 조합을 쓰던 사람한테는 세 번째 옵션이 생긴 셈이야. [TechCrunch](https://techcrunch.com/2026/04/15/google-rolls-out-a-native-gemini-app-for-mac/)와 [Bloomberg](https://www.bloomberg.com/news/articles/2026-04-15/google-debuts-standalone-gemini-app-for-apple-s-macos)도 같은 날 보도했는데, 웹 래퍼가 아니라 네이티브 Mac 앱이라는 게 포인트라고 짚었어. Google 계정 기반 컨텍스트(Gmail, Docs 연동)를 자주 쓰던 사람은 전환 유인이 분명히 있다.
+업무 시나리오로 보면 [ChatGPT](/ko/wiki/chatgpt/) Desktop + [Claude](/ko/wiki/claude/) Desktop 조합을 쓰던 사람한테는 세 번째 옵션이 생긴 셈이야. [TechCrunch](https://techcrunch.com/2026/04/15/google-rolls-out-a-native-gemini-app-for-mac/)와 [Bloomberg](https://www.bloomberg.com/news/articles/2026-04-15/google-debuts-standalone-gemini-app-for-apple-s-macos)도 같은 날 보도했는데, 웹 래퍼가 아니라 네이티브 Mac 앱이라는 게 포인트라고 짚었어. Google 계정 기반 컨텍스트(Gmail, Docs 연동)를 자주 쓰던 사람은 전환 유인이 분명히 있다.
 
 짚어둘 점은 두 가지야. 하나, 화면 공유가 어떤 데이터를 서버로 보내는지 공식 문서의 상세 범위가 아직 좁아서 엔터프라이즈 환경에선 IT 팀 정책 점검이 필요해. 둘, Windows 네이티브 앱은 아직 안 풀려서 윈도우 유저는 당분간 웹 브라우저로 계속 써야 한다.

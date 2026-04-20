@@ -66,10 +66,10 @@ tags:
 
 ## Adversa AI가 소스 유출 후 발견
 
-보안 회사 [Adversa AI](https://adversa.ai/claude-code-security-bypass-deny-rules-disabled/)가 3월 31일 npm에 실수로 포함된 `.map` 소스맵 파일을 분석해서 이 취약점을 찾아냈어. Anthropic 내부 티켓 CC-643을 보면, 복잡한 복합 명령어가 UI를 멈추게 하는 성능 문제를 해결하려다 보안 체크를 생략하는 코드가 들어갔대.
+보안 회사 [Adversa AI](https://adversa.ai/claude-code-security-bypass-deny-rules-disabled/)가 3월 31일 npm에 실수로 포함된 `.map` 소스맵 파일을 분석해서 이 취약점을 찾아냈어. [Anthropic](/ko/wiki/anthropic/) 내부 티켓 CC-643을 보면, 복잡한 복합 명령어가 UI를 멈추게 하는 성능 문제를 해결하려다 보안 체크를 생략하는 코드가 들어갔대.
 
 [The Register](https://www.theregister.com/2026/04/01/claude_code_rule_cap_raises/)와 [SecurityWeek](https://www.securityweek.com/critical-vulnerability-in-claude-code-emerges-days-after-source-leak/) 등 보안 매체에서 꽤 크게 다뤘어. Reddit에서도 화제가 됐고.
 
 ## 패치는 한 줄이었는데
 
-Anthropic이 Claude Code v2.1.90에서 `bashPermissions.ts` 파일의 `behavior` 값을 `"ask"`에서 `"deny"`로 바꾸는 한 줄 수정으로 패치했어. 수정은 간단했는데, AI 에이전트에 deny 규칙을 설정하는 것만으로는 부족하다는 게 드러난 거지. 실행 로그를 정기적으로 확인하는 습관이 필요해.
+[Anthropic](/ko/wiki/anthropic/)이 Claude Code v2.1.90에서 `bashPermissions.ts` 파일의 `behavior` 값을 `"ask"`에서 `"deny"`로 바꾸는 한 줄 수정으로 패치했어. 수정은 간단했는데, AI 에이전트에 deny 규칙을 설정하는 것만으로는 부족하다는 게 드러난 거지. 실행 로그를 정기적으로 확인하는 습관이 필요해.

@@ -56,8 +56,8 @@ tags:
   - 엔터프라이즈
 ---
 
-Anthropic이 [Claude Managed Agents 퍼블릭 베타](https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/)를 4월 8일 공개했어. 핵심은 단순해 — 에이전트를 프로덕션에 올리려면 지금까지 수개월짜리 인프라 작업이 필요했는데, 이걸 며칠로 줄여주겠다는 거야. 샌드박스 코드 실행, 인증, 체크포인팅, 범위 제한 권한, 장기 세션 관리를 Anthropic이 대신 맡아주거든.
+[Anthropic](/ko/wiki/anthropic/)이 [Claude Managed Agents 퍼블릭 베타](https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/)를 4월 8일 공개했어. 핵심은 단순해 — 에이전트를 프로덕션에 올리려면 지금까지 수개월짜리 인프라 작업이 필요했는데, 이걸 며칠로 줄여주겠다는 거야. 샌드박스 코드 실행, 인증, 체크포인팅, 범위 제한 권한, 장기 세션 관리를 [Anthropic](/ko/wiki/anthropic/)이 대신 맡아주거든.
 
-이미 실전 사례가 나왔어. Notion은 워크스페이스 내 작업을 병렬 처리하는 기능을 구현했고, Asana는 사람과 함께 일하는 AI 팀원을 만들었어. Rakuten과 Sentry는 각각 몇 주 만에 실무 에이전트를 완성했다고. 다중 에이전트 조율 기능은 현재 리서치 프리뷰로 제공 중이야.
+이미 실전 사례가 나왔어. Notion은 워크스페이스 내 작업을 병렬 처리하는 기능을 구현했고, Asana는 사람과 함께 일하는 AI 팀원을 만들었어. Rakuten과 Sentry는 각각 몇 주 만에 실무 에이전트를 완성했다고. 다중 [에이전트](/ko/wiki/agent/) 조율 기능은 현재 리서치 프리뷰로 제공 중이야.
 
 에이전트를 "언젠가 써야지"라고 미뤄왔다면, 진입 장벽이 낮아진 지금이 시작할 타이밍이야. 어떤 반복 업무를 에이전트에 맡길 수 있을지 한 번 리스트 뽑아봐.

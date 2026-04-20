@@ -58,7 +58,7 @@ tags:
   - qwen
 ---
 
-arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론 [원문](https://arxiv.org/abs/2603.18002v1)은 Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론 [원문](https://arxiv.org/abs/2603.18002v1)은 Loc3R-VLM: Language-based Localization and 3D [Reasoning](/ko/wiki/reasoning/) with [Vision-Language Models](/ko/wiki/vision-language-model/) 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.18002v1에 대한 추상 페이지: Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 Loc3R-VLM: 비전 언어 모델을 사용한 언어 기반 지역화 및 3D 추론, arXiv 논문 2603.18002…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

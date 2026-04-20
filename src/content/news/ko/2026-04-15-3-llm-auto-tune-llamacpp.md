@@ -57,8 +57,8 @@ guideVersion:
   news: "1.0.0"
 ---
 
-llama.cpp 사용자라면 이거 한번 볼 만해. [llm-server](https://github.com/raketenkater/llm-server)라는 도구에 `--ai-tune` 플래그가 추가됐는데, 이게 하는 일이 재밌어 — LLM이 자기 자신의 추론 플래그를 루프 돌면서 직접 최적화하는 거야.
+llama.cpp 사용자라면 이거 한번 볼 만해. [llm-server](https://github.com/raketenkater/llm-server)라는 도구에 `--ai-tune` 플래그가 추가됐는데, 이게 하는 일이 재밌어 — LLM이 자기 자신의 [추론](/ko/wiki/inference/) 플래그를 루프 돌면서 직접 최적화하는 거야.
 
-원리는 간단해. 모델이 llama.cpp의 다양한 플래그 조합을 시도하고, 속도를 측정한 다음, 가장 빠른 설정을 캐싱해두거든. Qwen3.5-27B 기준으로 기본 설정 대비 54% tok/s 향상을 달성했다고 해. 사람이 하나하나 플래그 바꿔가며 벤치마크 돌릴 필요가 없어진 거야.
+원리는 간단해. 모델이 llama.cpp의 다양한 플래그 조합을 시도하고, 속도를 측정한 다음, 가장 빠른 설정을 캐싱해두거든. [Qwen3.5-27B](/ko/wiki/qwen3.5-27b/) 기준으로 기본 설정 대비 54% tok/s 향상을 달성했다고 해. 사람이 하나하나 플래그 바꿔가며 [벤치마크](/ko/wiki/benchmark/) 돌릴 필요가 없어진 거야.
 
-로컬 LLM 돌리는 사람들한테는 꽤 실용적인 접근이야. 하드웨어마다, 모델마다 최적 설정이 다르거든. 예를 들어 GPU VRAM 24GB짜리에서 배치 크기, 스레드 수, 컨텍스트 길이를 바꾸면 같은 모델이라도 속도가 2배 가까이 달라질 수 있어. 매번 수동으로 찾는 게 귀찮았는데, 이제 모델이 알아서 자기 환경에 맞는 최적값을 찾아주니까. [GitHub 레포](https://github.com/raketenkater/llm-server)에서 바로 써볼 수 있어.
+[로컬 LLM](/ko/wiki/local-llm/) 돌리는 사람들한테는 꽤 실용적인 접근이야. 하드웨어마다, 모델마다 최적 설정이 다르거든. 예를 들어 GPU VRAM 24GB짜리에서 배치 크기, 스레드 수, 컨텍스트 길이를 바꾸면 같은 모델이라도 속도가 2배 가까이 달라질 수 있어. 매번 수동으로 찾는 게 귀찮았는데, 이제 모델이 알아서 자기 환경에 맞는 최적값을 찾아주니까. [GitHub 레포](https://github.com/raketenkater/llm-server)에서 바로 써볼 수 있어.

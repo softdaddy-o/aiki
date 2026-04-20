@@ -59,7 +59,7 @@ guideVersion:
   news: "1.0.0"
 ---
 
-트랜스포머 기반 LLM이 내부에서 어떻게 '생각'하는지를 해부한 [LLM Neuroanatomy III 분석](https://dnhkng.github.io/posts/sapir-whorf/)이 최근 AI 커뮤니티에서 주목받고 있어. 핵심 주장은 하나야 — 모델 중간 레이어에서 언어 정체성이 사라지고 의미(semantic content)가 내부 표현의 지배 구조가 된다는 거거든.
+[트랜스포머](/ko/wiki/transformer/) 기반 LLM이 내부에서 어떻게 '생각'하는지를 해부한 [LLM Neuroanatomy III 분석](https://dnhkng.github.io/posts/sapir-whorf/)이 최근 AI 커뮤니티에서 주목받고 있어. 핵심 주장은 하나야 — 모델 중간 레이어에서 언어 정체성이 사라지고 의미(semantic content)가 내부 표현의 지배 구조가 된다는 거거든.
 
 구체적으로 보면, 같은 언어로 작성된 서로 다른 샘플들의 코사인 유사도가 중간 레이어에서 약 0까지 수렴해. 언어라는 좌표가 무의미해지는 거야. 대신 무슨 의미인지가 내부 공간을 정렬하는 기준이 된다는 게 연구자의 결론이고, 이 결과가 4개 주요 AI 연구소의 서로 다른 아키텍처 모델에서 동일하게 재현됐어. LLM Neuroanatomy 시리즈 3편째 분석이야.
 

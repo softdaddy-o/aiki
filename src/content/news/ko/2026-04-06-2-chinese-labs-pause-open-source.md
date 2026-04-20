@@ -58,7 +58,7 @@ tags:
 
 ## 4개 랩이 동시에 멈췄어
 
-MiniMax-m2.7, GLM-5 시리즈, Qwen3.6, Mimo-v2-pro — 중국 주요 AI 랩들이 최신 모델 웨이트를 동시에 공개하지 않고 있어. r/LocalLLaMA에서 [화제](https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/)가 됐는데, 이게 좀 이례적이거든.
+MiniMax-m2.7, [GLM-5](/ko/wiki/glm-5/) 시리즈, Qwen3.6, Mimo-v2-pro — 중국 주요 AI 랩들이 최신 모델 웨이트를 동시에 공개하지 않고 있어. [r/LocalLLaMA](/ko/wiki/localllama/)에서 [화제](https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/)가 됐는데, 이게 좀 이례적이거든.
 
 MiniMax-m2.7이 대표적이야. X에서 발표한 지 14일, HuggingFace에 포스트를 올린 지 12일이 지났는데 모델 웨이트가 안 나왔어. [별도 글](https://www.reddit.com/r/LocalLLaMA/comments/1scpvz8/)까지 올라올 정도로 관심이 크고.
 
@@ -68,4 +68,4 @@ MiniMax-m2.7이 대표적이야. X에서 발표한 지 14일, HuggingFace에 포
 
 ## 로컬 LLM 생태계에는 타격
 
-중국 랩들의 오픈소스 모델이 로컬 LLM 생태계의 주요 공급원이었거든. Qwen, DeepSeek, GLM 시리즈가 대표적이야. 이 흐름이 멈추면 Google의 [Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)(Apache 2.0)와 Meta Llama 시리즈가 대안이 되는데, 한 나라에 의존하지 않는 공급 다변화가 필요한 시점이야.
+중국 랩들의 오픈소스 모델이 [로컬 LLM](/ko/wiki/local-llm/) 생태계의 주요 공급원이었거든. [Qwen](/ko/wiki/qwen/), [DeepSeek](/ko/wiki/deepseek/), GLM 시리즈가 대표적이야. 이 흐름이 멈추면 Google의 [Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)([Apache 2.0](/ko/wiki/apache/))와 Meta [Llama](/ko/wiki/llama/) 시리즈가 대안이 되는데, 한 나라에 의존하지 않는 공급 다변화가 필요한 시점이야.

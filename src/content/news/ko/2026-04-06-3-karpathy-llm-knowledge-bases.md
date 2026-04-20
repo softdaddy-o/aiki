@@ -73,4 +73,4 @@ Andrej Karpathy가 4월 3일 GitHub Gist에 ['LLM Knowledge Bases'](https://gist
 
 ## 토큰을 코딩 대신 지식에 쓰겠다는 거지
 
-Karpathy 본인이 "내 토큰 사용량의 큰 비중이 이제 코드가 아니라 지식 쪽으로 가고 있다"고 했어. Tesla AI 디렉터 출신이자 OpenAI 공동창립자가 코딩 대신 지식 관리에 AI를 집중 투입하겠다는 건데. 벡터 DB 세팅에 시간 쓰기 전에, Obsidian이나 Logseq 같은 도구에 LLM을 붙여보는 것도 방법이야.
+Karpathy 본인이 "내 [토큰](/ko/wiki/token/) 사용량의 큰 비중이 이제 코드가 아니라 지식 쪽으로 가고 있다"고 했어. Tesla AI 디렉터 출신이자 [OpenAI](/ko/wiki/openai/) 공동창립자가 코딩 대신 지식 관리에 AI를 집중 투입하겠다는 건데. 벡터 DB 세팅에 시간 쓰기 전에, Obsidian이나 Logseq 같은 도구에 LLM을 붙여보는 것도 방법이야.

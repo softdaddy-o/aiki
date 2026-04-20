@@ -67,4 +67,4 @@ OpenAI의 야심작 [Stargate](/ko/wiki/stargate/) 데이터센터를 이끌던 
 
 반면 Meta는 완전히 반대 방향으로 가고 있어. 2026년 AI 인프라에 1,350억 달러(약 186조 원)를 쏟아붓겠다고 선언했고, 이 세 사람은 그 자금이 실제로 데이터센터로 전환되는 일을 맡게 돼. [Seeking Alpha 보도](https://seekingalpha.com/news/4573915-openai-stargate-leaders-including-peter-hoeschele-depart-in-latest-shakeup-to-data-center-strategy-report)에서도 "Meta의 공격적 채용"이라고 표현했어.
 
-OpenAI API를 쓰고 있다면 눈여겨볼 포인트야. 자체 인프라 축소가 곧 컴퓨팅 비용 구조 변화로 이어질 수 있고, 그건 결국 API 가격에 반영될 수 있거든.
+[OpenAI API](/ko/wiki/openai-api/)를 쓰고 있다면 눈여겨볼 포인트야. 자체 인프라 축소가 곧 컴퓨팅 비용 구조 변화로 이어질 수 있고, 그건 결국 API 가격에 반영될 수 있거든.

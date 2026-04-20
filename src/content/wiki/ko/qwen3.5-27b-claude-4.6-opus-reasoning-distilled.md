@@ -145,13 +145,13 @@ reviewStamp:
   reviewedAt: "2026-04-17"
 ---
 ## 한 줄 정의
-이 모델은 Alibaba의 [Qwen3.5-27B](/ko/wiki/qwen3.5-27b/) 위에 Jackrong이 파인튜닝해서 올린 커뮤니티 체크포인트야. 이름에 Claude가 들어가지만 [Anthropic](/ko/wiki/anthropic/) 공식 모델이나 [Anthropic API](/ko/wiki/anthropic-api/)가 아니라, 특정 [Reasoning](/ko/wiki/reasoning/) 스타일을 [Distillation](/ko/wiki/distillation/)로 흉내 낸 로컬 실험용 [웨이트](/ko/wiki/weight/)라고 읽는 게 맞아. Hugging Face training pipeline overview도 최종 모델을 `text-only`로 적어 놔서, 기반 Qwen의 멀티모달 인상을 그대로 가져오면 안 돼.
+이 모델은 Alibaba의 [Qwen3.5-27B](/ko/wiki/qwen3.5-27b/) 위에 Jackrong이 파인튜닝해서 올린 커뮤니티 체크포인트야. 이름에 [Claude](/ko/wiki/claude/)가 들어가지만 [Anthropic](/ko/wiki/anthropic/) 공식 모델이나 [Anthropic API](/ko/wiki/anthropic-api/)가 아니라, 특정 [Reasoning](/ko/wiki/reasoning/) 스타일을 [Distillation](/ko/wiki/distillation/)로 흉내 낸 [로컬](/ko/wiki/local-llm/) 실험용 [웨이트](/ko/wiki/weight/)라고 읽는 게 맞아. [Hugging Face](/ko/wiki/hugging-face/) [training](/ko/wiki/training/) pipeline overview도 최종 모델을 `text-only`로 적어 놔서, 기반 [Qwen](/ko/wiki/qwen/)의 [멀티모달](/ko/wiki/multimodal/) 인상을 그대로 가져오면 안 돼.
 ## 이 모델로 무엇을 할 수 있나
-실제로는 로컬 코딩 에이전트 실험, 긴 단계 계획 짜기, 오프라인 문서 분석, 개발자용 프롬프트 템플릿 테스트 같은 데 먼저 붙여 볼 만해. Jackrong 카드에는 `developer` role을 보내는 현대 코딩 에이전트 환경에서 템플릿 충돌을 줄였고 thinking 모드를 꺼 두지 않았다고 적혀 있어. 또 MLX 4bit 배포본은 Apple Silicon Mac과 최소 24GB unified memory, `mlx-lm` 실행 경로를 제시하니까, 서비스 배포보다 개인 장비에서 [런타임](/ko/wiki/runtime/)을 골라 실험하는 모델에 더 가깝다고 보면 돼.
+실제로는 [로컬](/ko/wiki/local-llm/) 코딩 [에이전트](/ko/wiki/agent/) 실험, 긴 단계 계획 짜기, 오프라인 문서 분석, 개발자용 프롬프트 템플릿 테스트 같은 데 먼저 붙여 볼 만해. Jackrong 카드에는 `developer` role을 보내는 현대 코딩 [에이전트](/ko/wiki/agent/) 환경에서 템플릿 충돌을 줄였고 thinking 모드를 꺼 두지 않았다고 적혀 있어. 또 MLX 4bit 배포본은 Apple Silicon Mac과 최소 24GB unified [memory](/ko/wiki/memory/), `mlx-lm` 실행 경로를 제시하니까, 서비스 배포보다 개인 장비에서 [런타임](/ko/wiki/runtime/)을 골라 실험하는 모델에 더 가깝다고 보면 돼.
 ## 왜 중요한가
-이 이름이 중요한 이유는 `Claude급이 공짜로 풀렸다`보다 `Qwen 기반 로컬 튜닝 모델이 특정 추론 습관을 흉내 내도록 조정됐다`로 읽어야 하기 때문이야. [Anthropic](/ko/wiki/anthropic/)은 2026년 2월 23일 distillation attacks 글에서 타사 모델 출력 증류를 공개적으로 문제 삼았으니, 이름에 Claude가 들어가도 공식 계보나 보증으로 받아들이면 안 돼. 그래서 실험용 체크포인트로는 흥미롭지만, 안정적인 공급자 책임과 SLA가 필요한 서비스라면 공식 [API](/ko/wiki/api/) 모델이나 원본 Qwen 쪽이 더 안전해.
+이 이름이 중요한 이유는 `Claude급이 공짜로 풀렸다`보다 `Qwen 기반 로컬 튜닝 모델이 특정 추론 습관을 흉내 내도록 조정됐다`로 읽어야 하기 때문이야. [Anthropic](/ko/wiki/anthropic/)은 2026년 2월 23일 [distillation](/ko/wiki/distillation/) attacks 글에서 타사 모델 출력 증류를 공개적으로 문제 삼았으니, 이름에 [Claude](/ko/wiki/claude/)가 들어가도 공식 계보나 보증으로 받아들이면 안 돼. 그래서 실험용 체크포인트로는 흥미롭지만, 안정적인 공급자 책임과 SLA가 필요한 서비스라면 공식 [API](/ko/wiki/api/) 모델이나 원본 [Qwen](/ko/wiki/qwen/) 쪽이 더 안전해.
 ## 같이 보면 좋은 모델
 - [Qwen3.5-27B](/ko/wiki/qwen3.5-27b/): 이 체크포인트가 어디서 출발했는지 원본 기반 모델부터 비교해 볼 수 있어.
-- [Claude Opus 4.6](/ko/wiki/claude-opus-4-6/): 이름에 붙은 Claude가 공식 서비스에선 무엇을 뜻하는지 기준을 잡아 줘.
-- [DeepSeek-R1](/ko/wiki/deepseek-r1/): 추론 스타일을 앞세운 공개 모델이 실제 제품 전략과 어떻게 엮이는지 비교하기 좋아.
-- [Gemma 4](/ko/wiki/gemma-4/): 로컬 실험용 오픈 모델을 고를 때 배포 자유도와 생태계 안정성을 다른 방향으로 보여 줘.
+- [Claude Opus 4.6](/ko/wiki/claude-opus-4-6/): 이름에 붙은 [Claude](/ko/wiki/claude/)가 공식 서비스에선 무엇을 뜻하는지 기준을 잡아 줘.
+- [DeepSeek-R1](/ko/wiki/deepseek-r1/): [추론](/ko/wiki/inference/) 스타일을 앞세운 공개 모델이 실제 제품 전략과 어떻게 엮이는지 비교하기 좋아.
+- [Gemma 4](/ko/wiki/gemma-4/): [로컬](/ko/wiki/local-llm/) 실험용 오픈 모델을 고를 때 배포 자유도와 생태계 안정성을 다른 방향으로 보여 줘.

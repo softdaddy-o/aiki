@@ -77,11 +77,11 @@ factCheck:
         - 오픈 웨이트라는 점을 빼면 API 전용 모델처럼 오해하기 쉬워.
 ---
 ## 한 줄 정의
-Mixtral은 Mistral AI가 만든 sparse mixture-of-experts 구조 언어 모델이야. 모든 파라미터를 매번 다 쓰지 않고 필요한 expert 일부만 켜서 큰 모델급 품질과 추론 효율을 같이 노리는 점이 중요해.
+Mixtral은 [Mistral](/ko/wiki/mistral/) AI가 만든 sparse [mixture-of-experts](/ko/wiki/mixture-of-experts/) 구조 언어 모델이야. 모든 파라미터를 매번 다 쓰지 않고 필요한 expert 일부만 켜서 큰 모델급 품질과 [추론](/ko/wiki/inference/) 효율을 같이 노리는 점이 중요해.
 ## 이 모델로 무엇을 할 수 있나
-실무에서는 긴 문서 요약, 질의응답, 코드 초안, 지식베이스 보조 같은 텍스트 작업에 붙여 쓰기 좋아. Hugging Face에 `mistralai/Mixtral-8x7B-v0.1` 같은 공개 가중치가 있어서 API만 쓰는 대신 직접 서버에 올리거나 로컬 실험 환경에서 돌려볼 수 있어.
+실무에서는 긴 문서 요약, 질의응답, 코드 초안, 지식베이스 보조 같은 텍스트 작업에 붙여 쓰기 좋아. [Hugging Face](/ko/wiki/hugging-face/)에 `mistralai/Mixtral-8x7B-v0.1` 같은 공개 가중치가 있어서 API만 쓰는 대신 직접 서버에 올리거나 [로컬](/ko/wiki/local-llm/) 실험 환경에서 돌려볼 수 있어.
 ## 왜 중요한가
-Mixtral이 중요한 건 오픈 웨이트 모델도 아키텍처를 잘 고르면 비용 대비 품질을 크게 끌어올릴 수 있다는 신호를 줬기 때문이야. 기사에서 Mixtral이 나오면 단순 성능표보다 Mistral AI가 dense 모델 대신 sparse MoE 전략으로 어디를 치고 들어오는지 같이 읽어야 맥락이 보여.
+Mixtral이 중요한 건 오픈 [웨이트](/ko/wiki/weight/) 모델도 아키텍처를 잘 고르면 비용 대비 품질을 크게 끌어올릴 수 있다는 신호를 줬기 때문이야. 기사에서 Mixtral이 나오면 단순 성능표보다 [Mistral](/ko/wiki/mistral/) AI가 dense 모델 대신 sparse MoE 전략으로 어디를 치고 들어오는지 같이 읽어야 맥락이 보여.
 ## 같이 보면 좋은 모델
-- [Mistral](/ko/wiki/mistral/): Mixtral은 Mistral AI 라인업 안의 MoE 축이라서 Mistral 계열 dense 모델과 나란히 보면 포지션이 더 또렷해져. 같은 회사 모델인데도 구조와 운영 감각이 어떻게 갈리는지 보기 좋아.
-- 다른 dense 오픈 모델: dense 모델은 모든 파라미터를 매번 쓰고 Mixtral은 필요한 expert 일부만 골라 쓰는 쪽이야. 그래서 같은 오픈 모델 기사라도 추론 효율을 어떻게 가져가려는지 읽는 눈이 달라져.
+- [Mistral](/ko/wiki/mistral/): Mixtral은 [Mistral](/ko/wiki/mistral/) AI 라인업 안의 MoE 축이라서 [Mistral](/ko/wiki/mistral/) 계열 dense 모델과 나란히 보면 포지션이 더 또렷해져. 같은 회사 모델인데도 구조와 운영 감각이 어떻게 갈리는지 보기 좋아.
+- 다른 dense 오픈 모델: dense 모델은 모든 파라미터를 매번 쓰고 Mixtral은 필요한 expert 일부만 골라 쓰는 쪽이야. 그래서 같은 오픈 모델 기사라도 [추론](/ko/wiki/inference/) 효율을 어떻게 가져가려는지 읽는 눈이 달라져.

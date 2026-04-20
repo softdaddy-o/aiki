@@ -56,7 +56,7 @@ tags:
   - open-model
 ---
 
-[공식 발표](https://api-docs.deepseek.com/news/news250120)와 [보조 자료](https://huggingface.co/deepseek-ai/DeepSeek-R1)를 같이 보면 DeepSeek R1의 핵심은 * ⚡ OpenAI-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다 쪽이야. 연간 뉴스로 남길 만한 이유도 이 발표가 실제 제품 흐름과 경쟁 구도를 바꾼 기준점이기 때문이야.
+[공식 발표](https://api-docs.deepseek.com/news/news250120)와 [보조 자료](https://huggingface.co/deepseek-ai/DeepSeek-R1)를 같이 보면 DeepSeek R1의 핵심은 * ⚡ [OpenAI](/ko/wiki/openai/)-o1과 동등한 성능 우리는 오픈 소스와 오픈 사이언스를 통해 인공 지능을 발전시키고 민주화하는 여정을 진행 중입니다 쪽이야. 연간 뉴스로 남길 만한 이유도 이 발표가 실제 제품 흐름과 경쟁 구도를 바꾼 기준점이기 때문이야.
 
 DeepSeek R1 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야. AIKI에서는 이런 마일스톤을 단순 출시 소식이 아니라 다음 분기 전략을 읽는 기준점으로 다뤄.
 

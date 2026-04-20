@@ -56,7 +56,7 @@ tags:
   - whisper
 ---
 
-arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 동작합니까 [원문](https://arxiv.org/abs/2602.17598v1)은 The Cascade Equivalence Hypothesis: When Do Speech LLMs Behave Like ASR$\\rightarrow$LLM Pipelines 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 동작합니까가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 동작합니까 [원문](https://arxiv.org/abs/2602.17598v1)은 The Cascade Equivalence Hypothesis: When Do Speech [LLMs](/ko/wiki/llm/) Behave Like ASR$\\rightarrow$LLM Pipelines 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2602.17598v1의 추상 페이지: 캐스케이드 등가 가설: 음성 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 동작합니까가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 LLM은 언제 ASR$\\rightarrow$LLM 파이프라인처럼 작동합니까?, arX…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

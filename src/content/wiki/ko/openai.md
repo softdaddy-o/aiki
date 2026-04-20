@@ -76,13 +76,13 @@ factCheck:
         - 회사명과 제품명을 섞는 순간 뉴스 해석이 바로 무너져.
 ---
 ## 한 줄 정의
-OpenAI는 생성형 AI 모델과 서비스를 연구하고 만들고 운영하는 회사이자 연구 조직이야. GPT나 ChatGPT 같은 개별 결과물 이름이 아니라, 그런 라인업을 내놓는 쪽 전체를 가리키는 말이야.
+OpenAI는 생성형 AI 모델과 서비스를 연구하고 만들고 운영하는 회사이자 연구 조직이야. GPT나 [ChatGPT](/ko/wiki/chatgpt/) 같은 개별 결과물 이름이 아니라, 그런 라인업을 내놓는 쪽 전체를 가리키는 말이야.
 ## 어떻게 작동하나
-OpenAI는 내부에서 모델을 개발하고, 그 결과를 ChatGPT 같은 사용자용 서비스와 API Platform 같은 개발자용 채널로 내보내는 식으로 움직여. 공식 홈페이지도 ChatGPT, API Platform, Sora, Codex 같은 제품 축을 따로 보여 주고 있고, Help Center는 OpenAI API가 텍스트·이미지·오디오를 다루는 멀티모달 앱 빌드 경로라고 설명해.
+OpenAI는 내부에서 모델을 개발하고, 그 결과를 [ChatGPT](/ko/wiki/chatgpt/) 같은 사용자용 서비스와 API Platform 같은 개발자용 채널로 내보내는 식으로 움직여. 공식 홈페이지도 [ChatGPT](/ko/wiki/chatgpt/), API Platform, [Sora](/ko/wiki/sora/), [Codex](/ko/wiki/codex/) 같은 제품 축을 따로 보여 주고 있고, Help Center는 [OpenAI API](/ko/wiki/openai-api/)가 텍스트·이미지·오디오를 다루는 [멀티모달](/ko/wiki/multimodal/) 앱 빌드 경로라고 설명해.
 ## 왜 중요한가
-OpenAI를 회사 이름으로 정확히 잡아 두면 기사 해석이 훨씬 쉬워져. 같은 문장 안에서도 어떤 때는 모델 발표를 말하고 어떤 때는 ChatGPT 기능 추가를 말하고 어떤 때는 회사 정책이나 파트너십을 말하는데, 이걸 한 층위로 읽으면 거의 바로 엉켜.
+OpenAI를 회사 이름으로 정확히 잡아 두면 기사 해석이 훨씬 쉬워져. 같은 문장 안에서도 어떤 때는 모델 발표를 말하고 어떤 때는 [ChatGPT](/ko/wiki/chatgpt/) 기능 추가를 말하고 어떤 때는 회사 정책이나 파트너십을 말하는데, 이걸 한 층위로 읽으면 거의 바로 엉켜.
 ## 주의해서 볼 점
-OpenAI, GPT, ChatGPT를 같은 말처럼 읽으면 의미가 바로 무너져. OpenAI는 조직 이름이고, GPT는 모델 계열 이름이고, ChatGPT는 사용자 서비스 이름이라는 구분을 먼저 세워야 뉴스와 제품 문서를 덜 틀리게 읽을 수 있어.
+OpenAI, GPT, [ChatGPT](/ko/wiki/chatgpt/)를 같은 말처럼 읽으면 의미가 바로 무너져. OpenAI는 조직 이름이고, GPT는 모델 계열 이름이고, [ChatGPT](/ko/wiki/chatgpt/)는 사용자 서비스 이름이라는 구분을 먼저 세워야 뉴스와 제품 문서를 덜 틀리게 읽을 수 있어.
 ## 관련 용어
 - [anthropic](/ko/wiki/anthropic/): OpenAI와 비슷하게 생성형 AI 모델과 서비스를 만드는 회사야. 회사 대 회사 비교축으로 보기 좋아.
 - [google-deepmind](/ko/wiki/google-deepmind/): 모델 연구 조직과 대형 제품군 연결이 함께 보이는 사례야. OpenAI의 회사 전략을 읽을 때 좋은 대조군이 돼.

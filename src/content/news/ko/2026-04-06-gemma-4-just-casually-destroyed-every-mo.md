@@ -54,7 +54,7 @@ tags:
   - benchmark
 ---
 
-Gemma 4 31B가 실행당 0.20달러 비용으로 GPT-5.2, Gemini 3 Pro, Sonnet 4.6보다 높은 수익률을 냈다는 보고다 [원문](https://www.reddit.com/r/LocalLLaMA/comments/1sdcotc/gemma_4_just_casually_destroyed_every_model_on/)은 Reddit r/LocalLLaMA 기준으로 확인한 내용이야. 이 이슈는 이 변화가 어디에 직접 영향을 주는지 빠르게 구분하는 거야 쪽에서 읽어야 맥락이 빨리 잡혀.
+Gemma 4 31B가 실행당 0.20달러 비용으로 GPT-5.2, [Gemini](/ko/wiki/gemini/) 3 Pro, Sonnet 4.6보다 높은 수익률을 냈다는 보고다 [원문](https://www.reddit.com/r/LocalLLaMA/comments/1sdcotc/gemma_4_just_casually_destroyed_every_model_on/)은 Reddit [r/LocalLLaMA](/ko/wiki/localllama/) 기준으로 확인한 내용이야. 이 이슈는 이 변화가 어디에 직접 영향을 주는지 빠르게 구분하는 거야 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 Gemma 4 31B가 $0.20 비용으로 상위 모델들을 앞섰다는 주장에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

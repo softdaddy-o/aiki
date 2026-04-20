@@ -74,11 +74,11 @@ factCheck:
         - 도입 효과를 과장해서 읽는 위험도 막았어.
 ---
 ## 한 줄 정의
-SGLang은 큰 언어 모델과 멀티모달 모델을 빠르고 효율적으로 서빙하려고 만든 프레임워크야. [공식 문서](https://docs.sglang.ai/)와 [GitHub 저장소](https://github.com/sgl-project/sglang) 둘 다 low-latency, high-throughput serving framework라는 표현을 직접 써.
+SGLang은 큰 언어 모델과 [멀티모달](/ko/wiki/multimodal/) 모델을 빠르고 효율적으로 서빙하려고 만든 프레임워크야. [공식 문서](https://docs.sglang.ai/)와 [GitHub 저장소](https://github.com/sgl-project/sglang) 둘 다 low-latency, high-throughput serving framework라는 표현을 직접 써.
 ## 어떻게 작동하나
 들어오는 요청을 묶고 스케줄링해서 GPU 자원을 더 효율적으로 쓰고, 캐시 재사용 같은 기법으로 같은 하드웨어에서 더 많은 추론을 처리하려고 해. 공식 설명도 1개 GPU에서 시작하는 경우와 여러 GPU로 넓히는 경우를 함께 다뤄서, 단순 SDK보다 서버 운영 도구에 가깝다는 점이 더 또렷해.
 ## 왜 중요한가
-요즘 LLM 서비스는 모델 품질만큼 추론 비용과 응답 속도가 경쟁력을 가르기 쉬워. 그래서 SGLang이 언급되면 새 모델 발표보다 지연 시간과 처리량이라는 2개 축을 같은 GPU 예산 안에서 어떻게 맞추느냐가 핵심 포인트일 때가 많아.
+요즘 LLM 서비스는 모델 품질만큼 [추론](/ko/wiki/inference/) 비용과 응답 속도가 경쟁력을 가르기 쉬워. 그래서 SGLang이 언급되면 새 모델 발표보다 지연 시간과 처리량이라는 2개 축을 같은 GPU 예산 안에서 어떻게 맞추느냐가 핵심 포인트일 때가 많아.
 ## 주의해서 볼 점
 SGLang을 넣는다고 모든 모델과 환경에서 최고 성능이 자동으로 나오진 않아. 모델 호환성, 하드웨어 구성, 운영 난이도까지 같이 따라오니까 단순 라이브러리 추가처럼 보면 과소평가하기 쉬워.
 ## 관련 용어

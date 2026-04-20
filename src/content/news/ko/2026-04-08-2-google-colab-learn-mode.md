@@ -52,8 +52,8 @@ tags:
   - AI코딩교육
 ---
 
-Colab의 Gemini 에이전트에 [Learn Mode](https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/)가 생겼어. 기존엔 Gemini가 코드를 그냥 작성해줬는데, Learn Mode를 켜면 대신 단계별 설명을 해주는 방식으로 바뀌거든. AI가 숙제를 대신 해주는 게 아니라 과외 선생님처럼 옆에서 알려주는 느낌이야.
+Colab의 [Gemini](/ko/wiki/gemini/) 에이전트에 [Learn Mode](https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/)가 생겼어. 기존엔 [Gemini](/ko/wiki/gemini/)가 코드를 그냥 작성해줬는데, Learn Mode를 켜면 대신 단계별 설명을 해주는 방식으로 바뀌거든. AI가 숙제를 대신 해주는 게 아니라 과외 선생님처럼 옆에서 알려주는 느낌이야.
 
-두 번째 변경 사항도 같이 나왔어. Gemini가 내 코드를 얼마나 수정할 수 있는지 직접 범위를 설정할 수 있게 됐거든. 전체 파일에 손대게 할지, 특정 함수만 건드리게 할지 — 이 정도 통제권이 생긴 거야.
+두 번째 변경 사항도 같이 나왔어. [Gemini](/ko/wiki/gemini/)가 내 코드를 얼마나 수정할 수 있는지 직접 범위를 설정할 수 있게 됐거든. 전체 파일에 손대게 할지, 특정 함수만 건드리게 할지 — 이 정도 통제권이 생긴 거야.
 
 Python이나 머신러닝을 독학하는데 AI가 답을 다 줘버려서 오히려 실력이 안 늘었다고 느끼는 사람한테는 시도해볼 만한 변화야. Learn Mode를 켜놓고 Colab으로 코드 공부를 다시 시작하는 것도 방법이거든.

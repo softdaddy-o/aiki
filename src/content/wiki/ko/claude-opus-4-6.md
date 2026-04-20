@@ -99,13 +99,13 @@ factCheck:
         - '4.6은 계열 최초 1M 컨텍스트라는 점이 워낙 강해서, 버전 구분보다 무조건 긴 문맥 모델로만 기억되는 위험이 남아 있어.'
 ---
 ## 한 줄 정의
-Claude Opus 4.6은 Anthropic이 2026년 2월 5일 발표한 Opus 버전 모델이야. Claude API와 클라우드 채널에서 장기 코딩, 리서치, 업무 자동화를 맡기는 고성능 라인 버전으로 보면 돼.
+Claude Opus 4.6은 [Anthropic](/ko/wiki/anthropic/)이 2026년 2월 5일 발표한 Opus 버전 모델이야. Claude API와 클라우드 채널에서 장기 코딩, 리서치, 업무 자동화를 맡기는 고성능 라인 버전으로 보면 돼.
 ## 이 모델로 무엇을 할 수 있나
-실무에서는 큰 코드베이스 정리, 장시간 리서치, 문서·스프레드시트·프레젠테이션 작업, 여러 단계로 이어지는 에이전트 태스크에 붙이기 좋아. Anthropic은 `claude-opus-4-6` API 이름과 adaptive thinking, context compaction, 128k 출력, 1M 토큰 컨텍스트 베타를 같이 묶어서 개발자가 긴 실행 흐름을 덜 끊기게 만들었어. 특히 1M 토큰 베타는 Claude Platform 쪽에서만 열어서, 긴 작업을 API로 운영하려는 팀이 주로 보는 버전이었어.
+실무에서는 큰 코드베이스 정리, 장시간 리서치, 문서·스프레드시트·프레젠테이션 작업, 여러 단계로 이어지는 [에이전트](/ko/wiki/agent/) 태스크에 붙이기 좋아. [Anthropic](/ko/wiki/anthropic/)은 `claude-opus-4-6` API 이름과 adaptive thinking, context compaction, 128k 출력, 1M [토큰](/ko/wiki/token/) 컨텍스트 베타를 같이 묶어서 개발자가 긴 실행 흐름을 덜 끊기게 만들었어. 특히 1M [토큰](/ko/wiki/token/) 베타는 Claude Platform 쪽에서만 열어서, 긴 작업을 API로 운영하려는 팀이 주로 보는 버전이었어.
 ## 왜 중요한가
-4.6이 중요한 이유는 Opus 계열에 처음으로 1M 토큰 컨텍스트를 붙여서 큰 작업을 한 번에 얼마나 오래 기억하나를 전면으로 끌어올렸기 때문이야. 게다가 Claude.ai, API, 주요 클라우드 전반에 배포하면서 기본 가격은 입력 100만 토큰당 5달러, 출력 25달러로 유지해서 긴 문맥이 필요한 팀이 실제 운영 계산을 해볼 만한 모델로 만들었어. 다만 200k를 넘는 1M 베타 구간은 Claude Platform 전용 프리미엄 가격이라서, 1M만 보고 아무 채널에서나 같은 비용으로 쓴다고 읽으면 안 돼.
+4.6이 중요한 이유는 Opus 계열에 처음으로 1M [토큰](/ko/wiki/token/) 컨텍스트를 붙여서 큰 작업을 한 번에 얼마나 오래 기억하나를 전면으로 끌어올렸기 때문이야. 게다가 Claude.ai, API, 주요 클라우드 전반에 배포하면서 기본 가격은 입력 100만 토큰당 5달러, 출력 25달러로 유지해서 긴 문맥이 필요한 팀이 실제 운영 계산을 해볼 만한 모델로 만들었어. 다만 200k를 넘는 1M 베타 구간은 Claude Platform 전용 프리미엄 가격이라서, 1M만 보고 아무 채널에서나 같은 비용으로 쓴다고 읽으면 안 돼.
 ## 같이 보면 좋은 모델
-- [Claude Code](/ko/wiki/claude-code/): 4.6 발표에서 agent teams와 긴 코딩 흐름이 같이 강조됐기 때문에 Claude Code를 같이 보면 실사용 그림이 빨리 잡혀. 단순 채팅보다 도구 호출과 병렬 작업에 더 무게가 실린 버전이라는 점도 선명해져.
-- [Codex](/ko/wiki/codex/): 둘 다 개발자 작업을 오래 끌고 가는 모델 문맥에서 자주 만나지만, 4.6은 Anthropic API 기능 확장과 함께 읽는 쪽이 더 맞아. 그래서 비교할 땐 코딩 성능만 보지 말고 effort, context, 도구 제어까지 같이 봐야 해.
-- [Vibe Coding](/ko/wiki/vibe-coding/): 4.6은 즉흥적으로 한 번에 만드는 흐름보다 긴 작업을 안정적으로 이어 가는 쪽이 강해. vibe coding 기사에서 4.6이 나오면 빠른 생성보다 오래 버티는 워크플로 신호로 읽는 게 좋아.
-- [Chain-of-thought](/ko/wiki/chain-of-thought/): 4.6은 adaptive thinking과 effort 단계가 핵심이라서, chain-of-thought를 숨겨진 내부 추론이 아니라 실제 API 제어 문제로 보게 만들어. 그래서 토큰 비용과 지연시간까지 같이 생각해야 맥락이 맞아.
+- [Claude Code](/ko/wiki/claude-code/): 4.6 발표에서 [agent](/ko/wiki/agent/) teams와 긴 코딩 흐름이 같이 강조됐기 때문에 [Claude Code](/ko/wiki/claude-code/)를 같이 보면 실사용 그림이 빨리 잡혀. 단순 채팅보다 도구 호출과 병렬 작업에 더 무게가 실린 버전이라는 점도 선명해져.
+- [Codex](/ko/wiki/codex/): 둘 다 개발자 작업을 오래 끌고 가는 모델 문맥에서 자주 만나지만, 4.6은 [Anthropic API](/ko/wiki/anthropic-api/) 기능 확장과 함께 읽는 쪽이 더 맞아. 그래서 비교할 땐 코딩 성능만 보지 말고 effort, context, 도구 제어까지 같이 봐야 해.
+- [Vibe Coding](/ko/wiki/vibe-coding/): 4.6은 즉흥적으로 한 번에 만드는 흐름보다 긴 작업을 안정적으로 이어 가는 쪽이 강해. [vibe coding](/ko/wiki/vibe-coding/) 기사에서 4.6이 나오면 빠른 생성보다 오래 버티는 워크플로 신호로 읽는 게 좋아.
+- [Chain-of-thought](/ko/wiki/chain-of-thought/): 4.6은 adaptive thinking과 effort 단계가 핵심이라서, [chain-of-thought](/ko/wiki/chain-of-thought/)를 숨겨진 내부 추론이 아니라 실제 API 제어 문제로 보게 만들어. 그래서 [토큰](/ko/wiki/token/) 비용과 지연시간까지 같이 생각해야 맥락이 맞아.

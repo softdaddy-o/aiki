@@ -57,7 +57,7 @@ tags:
   - reasoning
 ---
 
-arXiv 논문 2603.19225v1의 요약 페이지: FinTradeBench: LLM을 위한 금융 추론 벤치마크 [원문](https://arxiv.org/abs/2603.19225v1)은 FinTradeBench: A Financial Reasoning Benchmark for LLMs 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.19225v1의 요약 페이지: FinTradeBench: LLM을 위한 금융 추론 벤치마크가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2603.19225v1의 요약 페이지: FinTradeBench: LLM을 위한 금융 추론 벤치마크 [원문](https://arxiv.org/abs/2603.19225v1)은 FinTradeBench: A Financial [Reasoning](/ko/wiki/reasoning/) [Benchmark](/ko/wiki/benchmark/) for [LLMs](/ko/wiki/llm/) 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.19225v1의 요약 페이지: FinTradeBench: LLM을 위한 금융 추론 벤치마크가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 FinTradeBench: LLM을 위한 재무 추론 벤치마크, arXiv 논문 2603.19225v1의 요약 페이…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

@@ -102,13 +102,13 @@ factCheck:
           표현은 남기지 않았어.
 ---
 ## 한 줄 정의
-Claude Opus 4.7은 Anthropic이 내놓은 Opus 계열의 2026년 4월 버전 모델이야. Claude 제품군 안에서 가장 무거운 고성능 코딩·에이전트 라인에 붙는 버전 이름이라고 보면 돼.
+Claude Opus 4.7은 [Anthropic](/ko/wiki/anthropic/)이 내놓은 Opus 계열의 2026년 4월 버전 모델이야. Claude 제품군 안에서 가장 무거운 고성능 코딩·[에이전트](/ko/wiki/agent/) 라인에 붙는 버전 이름이라고 보면 돼.
 ## 이 모델로 무엇을 할 수 있나
-실무에서는 긴 코드베이스 수정, 복잡한 버그 추적, 코드 리뷰, 며칠짜리 작업처럼 보이는 장기 에이전트 흐름에 붙여 쓰는 쪽이 핵심이야. Anthropic은 `claude-opus-4-7` API 이름으로 배포하고 Claude 제품군, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry에도 같이 열어 놨어. 또 고해상도 이미지 입력을 지원해서 문서 검토, 인터페이스 작업, 복잡한 스크린샷 해석 같은 일에도 바로 써볼 수 있어.
+실무에서는 긴 코드베이스 수정, 복잡한 버그 추적, 코드 리뷰, 며칠짜리 작업처럼 보이는 장기 [에이전트](/ko/wiki/agent/) 흐름에 붙여 쓰는 쪽이 핵심이야. [Anthropic](/ko/wiki/anthropic/)은 `claude-opus-4-7` API 이름으로 배포하고 Claude 제품군, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry에도 같이 열어 놨어. 또 고해상도 이미지 입력을 지원해서 문서 검토, 인터페이스 작업, 복잡한 스크린샷 해석 같은 일에도 바로 써볼 수 있어.
 ## 왜 중요한가
-이 버전이 중요한 이유는 Anthropic이 Opus를 그냥 똑똑한 모델로만 밀지 않고, 실제로 오래 달리는 코딩 워크플로와 멀티모달 업무용 모델로 자리잡히게 만들었기 때문이야. 4.7 발표에서는 4.6 대비 코딩 성능과 시각 해석을 함께 끌어올렸고, 가격은 같은 입력 100만 토큰당 5달러와 출력 25달러로 유지해서 업그레이드 판단을 더 쉽게 만들었어.
+이 버전이 중요한 이유는 [Anthropic](/ko/wiki/anthropic/)이 Opus를 그냥 똑똑한 모델로만 밀지 않고, 실제로 오래 달리는 코딩 워크플로와 [멀티모달](/ko/wiki/multimodal/) 업무용 모델로 자리잡히게 만들었기 때문이야. 4.7 발표에서는 4.6 대비 코딩 성능과 시각 해석을 함께 끌어올렸고, 가격은 같은 입력 100만 토큰당 5달러와 출력 25달러로 유지해서 업그레이드 판단을 더 쉽게 만들었어.
 ## 같이 보면 좋은 모델
-- [Claude Code](/ko/wiki/claude-code/): 4.7이 왜 긴 코딩 세션과 코드 리뷰에 강하다는 말이 붙는지 가장 바로 보여주는 제품이야. 모델 성능이 실제 IDE형 에이전트 경험으로 어떻게 번역되는지 같이 보기 좋아.
-- [Codex](/ko/wiki/codex/): 둘 다 개발자 워크플로에 붙는 이름이지만, 4.7은 Anthropic 모델 버전이고 Codex는 OpenAI 쪽 코딩 에이전트 제품·모델 문맥에서 더 자주 나와. 기사에서 둘이 섞이면 모델 자체 비교인지 에이전트 경험 비교인지 먼저 나눠 보는 게 도움돼.
-- [Vibe Coding](/ko/wiki/vibe-coding/): 4.7은 그냥 채팅 모델이 아니라 오래 달리는 구현 작업을 맡기는 쪽으로 읽어야 해서 vibe coding 얘기와 자주 만나. 다만 가볍게 뚝딱 만드는 흐름과, 검증까지 끌고 가는 고성능 에이전트 흐름은 같은 말이 아니라는 점을 같이 봐야 해.
-- [Chain-of-thought](/ko/wiki/chain-of-thought/): 4.7은 더 높은 effort에서 더 많이 생각하고 더 오래 검증하는 쪽으로 설계된 모델이야. 그래서 chain-of-thought를 공개 여부가 아니라 실제 추론 예산과 토큰 사용량 문제로 읽게 만들어.
+- [Claude Code](/ko/wiki/claude-code/): 4.7이 왜 긴 코딩 세션과 코드 리뷰에 강하다는 말이 붙는지 가장 바로 보여주는 제품이야. 모델 성능이 실제 IDE형 [에이전트](/ko/wiki/agent/) 경험으로 어떻게 번역되는지 같이 보기 좋아.
+- [Codex](/ko/wiki/codex/): 둘 다 개발자 워크플로에 붙는 이름이지만, 4.7은 [Anthropic](/ko/wiki/anthropic/) 모델 버전이고 [Codex](/ko/wiki/codex/)는 [OpenAI](/ko/wiki/openai/) 쪽 코딩 [에이전트](/ko/wiki/agent/) 제품·모델 문맥에서 더 자주 나와. 기사에서 둘이 섞이면 모델 자체 비교인지 [에이전트](/ko/wiki/agent/) 경험 비교인지 먼저 나눠 보는 게 도움돼.
+- [Vibe Coding](/ko/wiki/vibe-coding/): 4.7은 그냥 채팅 모델이 아니라 오래 달리는 구현 작업을 맡기는 쪽으로 읽어야 해서 [vibe coding](/ko/wiki/vibe-coding/) 얘기와 자주 만나. 다만 가볍게 뚝딱 만드는 흐름과, 검증까지 끌고 가는 고성능 [에이전트](/ko/wiki/agent/) 흐름은 같은 말이 아니라는 점을 같이 봐야 해.
+- [Chain-of-thought](/ko/wiki/chain-of-thought/): 4.7은 더 높은 effort에서 더 많이 생각하고 더 오래 검증하는 쪽으로 설계된 모델이야. 그래서 [chain-of-thought](/ko/wiki/chain-of-thought/)를 공개 여부가 아니라 실제 [추론](/ko/wiki/inference/) 예산과 [토큰](/ko/wiki/token/) 사용량 문제로 읽게 만들어.

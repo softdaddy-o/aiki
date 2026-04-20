@@ -74,11 +74,11 @@ factCheck:
         - 문맥별 쓰임새 차이를 남겨서 과장을 막았어.
 ---
 ## 한 줄 정의
-MLflow는 머신러닝과 생성형 AI 개발 과정에서 생기는 실험 기록, 모델 버전, 평가 결과를 연결해서 관리하는 오픈소스 플랫폼이야. [공식 사이트](https://mlflow.org/)와 [GitHub 저장소](https://github.com/mlflow/mlflow) 모두 이걸 tracking을 넘는 AI engineering platform으로 설명해.
+MLflow는 머신러닝과 생성형 AI 개발 과정에서 생기는 실험 기록, 모델 버전, [평가](/ko/wiki/eval/) 결과를 연결해서 관리하는 오픈소스 플랫폼이야. [공식 사이트](https://mlflow.org/)와 [GitHub 저장소](https://github.com/mlflow/mlflow) 모두 이걸 tracking을 넘는 AI engineering platform으로 설명해.
 ## 어떻게 작동하나
 훈련 코드나 애플리케이션에서 파라미터, 메트릭, 아티팩트, 추적 데이터를 MLflow에 기록하면 실행별 차이를 비교할 수 있어. 최근 공식 설명도 debug, evaluate, monitor, optimize처럼 4개 흐름을 함께 묶어서 보여 주기 때문에, 단순 실험 로그 툴로만 보면 범위를 좁게 잡는 셈이야.
 ## 왜 중요한가
-AI 프로젝트는 시간이 갈수록 코드보다 실험 이력과 평가 근거가 더 중요해지는 경우가 많아. 특히 실험 기록, evaluation, registry처럼 최소 3개 층이 엮이기 시작하면 누가 언제 무엇을 바꿨는지 남기는 계층의 가치가 바로 커져.
+AI 프로젝트는 시간이 갈수록 코드보다 실험 이력과 [평가](/ko/wiki/eval/) 근거가 더 중요해지는 경우가 많아. 특히 실험 기록, [evaluation](/ko/wiki/eval/), registry처럼 최소 3개 층이 엮이기 시작하면 누가 언제 무엇을 바꿨는지 남기는 계층의 가치가 바로 커져.
 ## 주의해서 볼 점
 MLflow 하나로 파이프라인 전체가 자동 완성되진 않아. 어떤 팀은 실험 추적만 쓰고, 어떤 팀은 registry와 tracing까지 깊게 쓰니까 실제 문맥에서 어디까지 포함하는지 구분해서 봐야 해.
 ## 관련 용어

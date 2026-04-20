@@ -59,8 +59,8 @@ guideVersion:
   news: "1.0.0"
 ---
 
-번역 전문 회사 Alconost가 [TranslateGemma-12B를 프론티어 LLM 5개와 자막 번역에서 비교](https://www.reddit.com/r/LocalLLaMA/comments/1sl5k6d/we_benchmarked_translategemma12b_against_5/)했어. 대상은 Gemini 3.1 Flash Lite, DeepSeek V3.2, Claude Sonnet 4.6, GPT-5.4까지 — 쟁쟁한 라인업이야. 6개 언어쌍에서 자동 번역 지표(MetricX, COMET)를 돌렸더니 TranslateGemma가 전부 이겼거든.
+번역 전문 회사 Alconost가 [TranslateGemma-12B를 프론티어 LLM 5개와 자막 번역에서 비교](https://www.reddit.com/r/LocalLLaMA/comments/1sl5k6d/we_benchmarked_translategemma12b_against_5/)했어. 대상은 [Gemini](/ko/wiki/gemini/) 3.1 Flash Lite, [DeepSeek](/ko/wiki/deepseek/) V3.2, [Claude Sonnet](/ko/wiki/claude-sonnet/) 4.6, GPT-5.4까지 — 쟁쟁한 라인업이야. 6개 언어쌍에서 자동 번역 지표(MetricX, COMET)를 돌렸더니 TranslateGemma가 전부 이겼거든.
 
-그런데 여기서 반전이 있어. 사람 QA를 붙였더니 이야기가 달라진 거야. 자동 지표에서 1등이던 TranslateGemma가 실제 번역 품질에선 뉘앙스나 문맥 처리에서 약점을 보였다고 해. Google이 12B짜리로 [WMT24++ 벤치마크에서 MetricX 3.60](https://arxiv.org/pdf/2601.09012)을 찍으며 자기네 27B 모델(4.04)도 이긴 건 맞는데, 벤치마크 점수와 실사용 품질 사이에 갭이 있다는 거야.
+그런데 여기서 반전이 있어. 사람 QA를 붙였더니 이야기가 달라진 거야. 자동 지표에서 1등이던 TranslateGemma가 실제 번역 품질에선 뉘앙스나 문맥 처리에서 약점을 보였다고 해. Google이 12B짜리로 [WMT24++ 벤치마크에서 MetricX 3.60](https://arxiv.org/pdf/2601.09012)을 찍으며 자기네 27B 모델(4.04)도 이긴 건 맞는데, [벤치마크](/ko/wiki/benchmark/) 점수와 실사용 품질 사이에 갭이 있다는 거야.
 
-실무에서 가져갈 교훈은 명확해. 벤치마크 1등이라고 바로 프로덕션에 넣지 말고, 사람 QA를 꼭 거치라는 거야. 특히 자막처럼 맥락 의존도가 높은 작업에서는 12B 전문 모델보다 범용 LLM이 더 나을 수 있거든. 비용 절감이 목적이라면 TranslateGemma를 초벌로 쓰고 사람이 교정하는 하이브리드가 현실적이야.
+실무에서 가져갈 교훈은 명확해. [벤치마크](/ko/wiki/benchmark/) 1등이라고 바로 프로덕션에 넣지 말고, 사람 QA를 꼭 거치라는 거야. 특히 자막처럼 맥락 의존도가 높은 작업에서는 12B 전문 모델보다 범용 LLM이 더 나을 수 있거든. 비용 절감이 목적이라면 TranslateGemma를 초벌로 쓰고 사람이 교정하는 하이브리드가 현실적이야.

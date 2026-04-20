@@ -54,7 +54,7 @@ tags:
   - agent
 ---
 
-arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 에이전트 AI를 향한 이중 나선 거버넌스 접근 방식 [원문](https://arxiv.org/abs/2603.04390v1)은 A Dual-Helix Governance Approach Towards Reliable Agentic AI for WebGIS Development 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 에이전트 AI를 향한 이중 나선 거버넌스 접근 방식가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 [에이전트](/ko/wiki/agent/) AI를 향한 이중 나선 거버넌스 접근 방식 [원문](https://arxiv.org/abs/2603.04390v1)은 A Dual-Helix Governance Approach Towards Reliable Agentic AI for WebGIS Development 기준으로 확인한 내용이야. 이 이슈는 arXiv 논문 2603.04390v1의 추상 페이지: WebGIS 개발을 위한 신뢰할 수 있는 [에이전트](/ko/wiki/agent/) AI를 향한 이중 나선 거버넌스 접근 방식가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 WebGIS 개발을 위한 신뢰할 수 있는 Agentic AI를 향한 이중 나선 거버넌스 접근 방식, arXiv 논…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

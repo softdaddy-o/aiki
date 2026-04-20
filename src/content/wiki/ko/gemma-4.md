@@ -97,13 +97,13 @@ factCheck:
         - Gemma 4를 기기별 제품군으로 읽게 해서 과도한 단순화를 막았어.
 ---
 ## 한 줄 정의
-Gemma 4는 Google DeepMind가 만든 오픈 모델 계열이야. 같은 회사의 Gemini가 클라우드 서비스 쪽 중심이라면, Gemma 4는 가중치를 내려받아 로컬 장비나 엣지 기기에서도 굴릴 수 있게 설계된 쪽에 더 가까워. 공식 발표 기준 Apache 2.0 라이선스고 E2B, E4B, 26B A4B, 31B처럼 하드웨어별 크기로 나뉘어 있어.
+Gemma 4는 [Google DeepMind](/ko/wiki/google-deepmind/)가 만든 오픈 모델 계열이야. 같은 회사의 [Gemini](/ko/wiki/gemini/)가 클라우드 서비스 쪽 중심이라면, Gemma 4는 가중치를 내려받아 [로컬](/ko/wiki/local-llm/) 장비나 엣지 기기에서도 굴릴 수 있게 설계된 쪽에 더 가까워. 공식 발표 기준 [Apache 2.0](/ko/wiki/apache/) 라이선스고 E2B, E4B, 26B A4B, 31B처럼 하드웨어별 크기로 나뉘어 있어.
 ## 이 모델로 무엇을 할 수 있나
-실무에서는 로컬 코드 어시스턴트, 문서 OCR, 화면 이해, 이미지 입력이 섞인 에이전트 흐름, 온디바이스 앱 프로토타입에 많이 써. 작은 E2B와 E4B는 휴대폰, Raspberry Pi, Jetson Orin Nano 같은 엣지 기기에서 오프라인 실행을 노리고, 26B와 31B는 워크스테이션이나 consumer GPU에서 IDE 보조나 장문 리포지토리 분석용으로 많이 거론돼. Google은 31B와 26B를 AI Studio에서, 작은 모델은 AI Edge Gallery 쪽에서 바로 만져볼 수 있게 열어뒀어.
+실무에서는 [로컬](/ko/wiki/local-llm/) 코드 어시스턴트, 문서 OCR, 화면 이해, 이미지 입력이 섞인 [에이전트](/ko/wiki/agent/) 흐름, [온디바이스](/ko/wiki/on-device/) 앱 프로토타입에 많이 써. 작은 E2B와 E4B는 휴대폰, Raspberry Pi, Jetson Orin Nano 같은 엣지 기기에서 오프라인 실행을 노리고, 26B와 31B는 워크스테이션이나 consumer GPU에서 IDE 보조나 장문 리포지토리 분석용으로 많이 거론돼. Google은 31B와 26B를 [AI Studio](/ko/wiki/ai-studio/)에서, 작은 모델은 AI Edge Gallery 쪽에서 바로 만져볼 수 있게 열어뒀어.
 ## 왜 중요한가
-Gemma 4가 중요한 이유는 성능 좋은 오픈 모델에서 끝나지 않고, 작은 모델은 128K, 큰 모델은 256K 컨텍스트를 주면서 함수 호출과 구조화 출력 같은 에이전트 기능까지 기본 탑재했기 때문이야. 26B A4B MoE는 총 25.2B 중 3.8B만 활성화해서 속도를 챙기고, 31B Dense는 품질 쪽을 밀어줘서 같은 이름 아래에서도 선택 기준이 또렷해. 그래서 기사에서 Gemma 4가 보이면 그냥 Google의 공개형 모델이 아니라 로컬, 온디바이스, 멀티모달, 에이전트를 한꺼번에 묶는 전략으로 읽으면 돼.
+Gemma 4가 중요한 이유는 성능 좋은 오픈 모델에서 끝나지 않고, 작은 모델은 128K, 큰 모델은 256K 컨텍스트를 주면서 함수 호출과 구조화 출력 같은 [에이전트](/ko/wiki/agent/) 기능까지 기본 탑재했기 때문이야. 26B A4B MoE는 총 25.2B 중 3.8B만 활성화해서 속도를 챙기고, 31B Dense는 품질 쪽을 밀어줘서 같은 이름 아래에서도 선택 기준이 또렷해. 그래서 기사에서 Gemma 4가 보이면 그냥 Google의 공개형 모델이 아니라 [로컬](/ko/wiki/local-llm/), [온디바이스](/ko/wiki/on-device/), [멀티모달](/ko/wiki/multimodal/), 에이전트를 한꺼번에 묶는 전략으로 읽으면 돼.
 ## 같이 보면 좋은 모델
-- [gemini](/ko/wiki/gemini/): Gemini는 Google의 클라우드 중심 주력 모델이라면 Gemma 4는 배포 자유도가 큰 오픈 모델 쪽이야. 둘을 같이 보면 Google이 왜 폐쇄형과 공개형을 동시에 가져가는지 보여.
-- [gemma](/ko/wiki/gemma/): Gemma 4는 기존 Gemma 계열의 최신 세대야. 초창기 경량 오픈 모델 이미지에서 멀티모달과 에이전트 쪽으로 얼마나 넓어졌는지 비교하기 좋아.
-- [local-llm](/ko/wiki/local-llm/): Gemma 4는 로컬 LLM 얘기에서 하드웨어 대비 성능 기준점으로 자주 쓰여. 특히 26B와 31B가 소비자 GPU에서 어디까지 가능한지 읽을 때 같이 보면 좋아.
-- [localllama](/ko/wiki/localllama/): 커뮤니티 반응을 따라가려면 LocalLLaMA 문맥도 중요해. Gemma 4가 실제로 어떤 장비에서 잘 돈다는 평가를 어디서 얻는지 감이 생겨.
+- [gemini](/ko/wiki/gemini/): [Gemini](/ko/wiki/gemini/)는 Google의 클라우드 중심 주력 모델이라면 Gemma 4는 배포 자유도가 큰 오픈 모델 쪽이야. 둘을 같이 보면 Google이 왜 폐쇄형과 공개형을 동시에 가져가는지 보여.
+- [gemma](/ko/wiki/gemma/): Gemma 4는 기존 Gemma 계열의 최신 세대야. 초창기 경량 오픈 모델 이미지에서 멀티모달과 [에이전트](/ko/wiki/agent/) 쪽으로 얼마나 넓어졌는지 비교하기 좋아.
+- [local-llm](/ko/wiki/local-llm/): Gemma 4는 [로컬 LLM](/ko/wiki/local-llm/) 얘기에서 하드웨어 대비 성능 기준점으로 자주 쓰여. 특히 26B와 31B가 소비자 GPU에서 어디까지 가능한지 읽을 때 같이 보면 좋아.
+- [localllama](/ko/wiki/localllama/): 커뮤니티 반응을 따라가려면 [LocalLLaMA](/ko/wiki/localllama/) 문맥도 중요해. Gemma 4가 실제로 어떤 장비에서 잘 돈다는 평가를 어디서 얻는지 감이 생겨.

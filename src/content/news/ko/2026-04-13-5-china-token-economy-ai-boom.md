@@ -62,10 +62,10 @@ guideVersion:
   news: "1.0.0"
 ---
 
-중국 AI의 숫자가 장난이 아니야. 일평균 토큰 호출이 2024년 초 1,000억 건에서 2026년 3월 140조 건으로 뛰었어. 1,400배 성장이야. [Fortune 보도](https://fortune.com/2026/04/12/china-token-economy-ai-boom-big-tech-startups/)에 따르면 이 폭증의 중심에 오픈소스 모델과 에이전트 기반 자동화가 있어.
+중국 AI의 숫자가 장난이 아니야. 일평균 토큰 호출이 2024년 초 1,000억 건에서 2026년 3월 140조 건으로 뛰었어. 1,400배 성장이야. [Fortune 보도](https://fortune.com/2026/04/12/china-token-economy-ai-boom-big-tech-startups/)에 따르면 이 폭증의 중심에 오픈소스 모델과 [에이전트](/ko/wiki/agent/) 기반 자동화가 있어.
 
-OpenRouter 데이터가 보여주는 풍경이 직관적이야. 글로벌 토큰 소비 상위 10개 모델 중 중국 모델이 [61%를 차지](https://english.news.cn/20260403/369daecfa1c248abb4e66a3f53213a47/c.html)하고 있거든. 1위 MiniMax M2.5, 2위 Moonshot Kimi K2.5, 3위 Zhipu GLM-5 — 전부 중국 모델이야. OpenClaw라는 에이전트 오케스트레이션 프레임워크가 복잡한 멀티스텝 작업을 AI에 위임하면서 토큰 사용량을 폭발적으로 끌어올린 구조야.
+[OpenRouter](/ko/wiki/openrouter/) 데이터가 보여주는 풍경이 직관적이야. 글로벌 토큰 소비 상위 10개 모델 중 중국 모델이 [61%를 차지](https://english.news.cn/20260403/369daecfa1c248abb4e66a3f53213a47/c.html)하고 있거든. 1위 MiniMax M2.5, 2위 Moonshot [Kimi K2](/ko/wiki/kimi-k2/).5, 3위 Zhipu [GLM-5](/ko/wiki/glm-5/) — 전부 중국 모델이야. [OpenClaw](/ko/wiki/openclaw/)라는 [에이전트](/ko/wiki/agent/) 오케스트레이션 프레임워크가 복잡한 멀티스텝 작업을 AI에 위임하면서 토큰 사용량을 폭발적으로 끌어올린 구조야.
 
-미국 수출 통제에도 불구하고 이런 성장이 가능한 이유는 두 가지야. 첫째, 거의 모든 중국 대형 AI 랩이 오픈소스 모델을 내놓고 있어. 둘째, [추론 비용](/ko/wiki/inference/)이 미국 모델 대비 크게 낮아. DeepSeek 시리즈가 GPT-4 대비 70분의 1 수준 비용을 내세우는 게 대표적이야. 지방 정부까지 AI 스타트업에 보조금을 풀면서 생태계가 빠르게 돌아가고 있거든.
+미국 수출 통제에도 불구하고 이런 성장이 가능한 이유는 두 가지야. 첫째, 거의 모든 중국 대형 AI 랩이 오픈소스 모델을 내놓고 있어. 둘째, [추론 비용](/ko/wiki/inference/)이 미국 모델 대비 크게 낮아. [DeepSeek](/ko/wiki/deepseek/) 시리즈가 GPT-4 대비 70분의 1 수준 비용을 내세우는 게 대표적이야. 지방 정부까지 AI 스타트업에 보조금을 풀면서 생태계가 빠르게 돌아가고 있거든.
 
-중국 모델을 직접 쓸 일이 없더라도, 이 가격 경쟁이 결국 OpenAI나 Anthropic의 API 가격 인하 압력으로 작용할 수 있어. 비용에 민감한 프로젝트라면 지금 흐름을 읽어둘 타이밍이야.
+중국 모델을 직접 쓸 일이 없더라도, 이 가격 경쟁이 결국 [OpenAI](/ko/wiki/openai/)나 [Anthropic](/ko/wiki/anthropic/)의 API 가격 인하 압력으로 작용할 수 있어. 비용에 민감한 프로젝트라면 지금 흐름을 읽어둘 타이밍이야.

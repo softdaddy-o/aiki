@@ -102,13 +102,13 @@ factCheck:
           따로 남겼어.
 ---
 ## 한 줄 정의
-gpt-oss는 OpenAI가 공개한 오픈 웨이트 추론 모델 계열이야. 하나의 단일 모델 이름이라기보다 gpt-oss-120b와 gpt-oss-20b를 묶어 부르는 이름으로 보면 돼.
+gpt-oss는 [OpenAI](/ko/wiki/openai/)가 공개한 오픈 [웨이트](/ko/wiki/weight/) [추론](/ko/wiki/inference/) 모델 계열이야. 하나의 단일 모델 이름이라기보다 gpt-oss-120b와 gpt-oss-20b를 묶어 부르는 이름으로 보면 돼.
 ## 이 모델로 무엇을 할 수 있나
-실무에서는 Hugging Face에서 웨이트를 받아 로컬 PC, 온디바이스 제품, 사내 GPU 서버, 서드파티 추론 플랫폼에 직접 올려 쓰는 쪽이 핵심이야. OpenAI는 Apache 2.0 라이선스, 131,072 컨텍스트, 함수 호출·구조화 출력·웹 브라우징·Python 실행 같은 에이전트 기능을 같이 내세워서 API 비용보다 배포 경로와 하드웨어를 먼저 고르는 모델로 자리잡게 했어. 20b는 저지연 로컬·특화 용도, 120b는 H100 한 장급 고성능 쪽으로 읽으면 감이 빨라.
+실무에서는 [Hugging Face](/ko/wiki/hugging-face/)에서 웨이트를 받아 [로컬](/ko/wiki/local-llm/) PC, [온디바이스](/ko/wiki/on-device/) 제품, 사내 GPU 서버, 서드파티 [추론](/ko/wiki/inference/) 플랫폼에 직접 올려 쓰는 쪽이 핵심이야. [OpenAI](/ko/wiki/openai/)는 [Apache 2.0](/ko/wiki/apache/) 라이선스, 131,072 컨텍스트, [함수 호출](/ko/wiki/function-calling/)·구조화 출력·웹 브라우징·Python 실행 같은 [에이전트](/ko/wiki/agent/) 기능을 같이 내세워서 API 비용보다 배포 경로와 하드웨어를 먼저 고르는 모델로 자리잡게 했어. 20b는 저지연 [로컬](/ko/wiki/local-llm/)·특화 용도, 120b는 H100 한 장급 고성능 쪽으로 읽으면 감이 빨라.
 ## 왜 중요한가
-gpt-oss가 중요한 이유는 OpenAI 모델을 꼭 OpenAI API 안에서만 써야 한다는 전제를 깨기 때문이야. 발표 기준으로 120b는 80GB 메모리, 20b는 16GB 메모리 안에서 돌릴 수 있게 맞춰졌고, llama.cpp·vLLM·Ollama·LM Studio 같은 배포 경로까지 출시 시점부터 붙어서 실제 실험과 제품화 거리가 꽤 짧아졌어. 그래서 이 이름이 나오면 성능표보다 먼저 라이선스, VRAM, 추론 스택을 보는 게 맞아.
+gpt-oss가 중요한 이유는 [OpenAI](/ko/wiki/openai/) 모델을 꼭 [OpenAI API](/ko/wiki/openai-api/) 안에서만 써야 한다는 전제를 깨기 때문이야. 발표 기준으로 120b는 80GB [메모리](/ko/wiki/memory/), 20b는 16GB [메모리](/ko/wiki/memory/) 안에서 돌릴 수 있게 맞춰졌고, [llama.cpp](/ko/wiki/llama.cpp/)·[vLLM](/ko/wiki/vllm/)·[Ollama](/ko/wiki/ollama/)·[LM Studio](/ko/wiki/lm-studio/) 같은 배포 경로까지 출시 시점부터 붙어서 실제 실험과 제품화 거리가 꽤 짧아졌어. 그래서 이 이름이 나오면 성능표보다 먼저 라이선스, VRAM, [추론](/ko/wiki/inference/) 스택을 보는 게 맞아.
 ## 같이 보면 좋은 모델
-- [ChatGPT](/ko/wiki/chatgpt/): ChatGPT는 OpenAI의 서비스 이름이고, gpt-oss는 직접 받아서 돌릴 수 있는 오픈 웨이트 계열이야. 둘을 같은 배포 방식으로 보면 비용과 제어권 판단이 완전히 꼬여.
-- [Codex](/ko/wiki/codex/): Codex는 코딩 워크플로에 붙는 OpenAI 제품·모델 문맥이고, gpt-oss는 직접 서빙 가능한 오픈 웨이트 쪽이야. 둘 다 개발자에게 중요하지만 하나는 관리형 경험, 다른 하나는 배포 자유도가 중심이야.
-- [GPT-4o](/ko/wiki/gpt-4o/): GPT-4o는 OpenAI API와 ChatGPT 중심의 범용 멀티모달 모델이고, gpt-oss는 텍스트 중심 추론과 로컬 배포에 더 초점이 있어. 그래서 기사에서 둘이 같이 나오면 멀티모달 경험 비교인지 배포 전략 비교인지 먼저 갈라서 봐야 해.
-- [Chain-of-thought](/ko/wiki/chain-of-thought/): gpt-oss는 reasoning effort 조절과 full chain-of-thought 접근성을 강하게 내세운 계열이야. 그래서 이 용어와 같이 나오면 단순 모델 이름보다 디버깅·검증 흐름까지 포함한 운영 이야기를 읽게 돼.
+- [ChatGPT](/ko/wiki/chatgpt/): [ChatGPT](/ko/wiki/chatgpt/)는 [OpenAI](/ko/wiki/openai/)의 서비스 이름이고, gpt-oss는 직접 받아서 돌릴 수 있는 오픈 [웨이트](/ko/wiki/weight/) 계열이야. 둘을 같은 배포 방식으로 보면 비용과 제어권 판단이 완전히 꼬여.
+- [Codex](/ko/wiki/codex/): [Codex](/ko/wiki/codex/)는 코딩 워크플로에 붙는 [OpenAI](/ko/wiki/openai/) 제품·모델 문맥이고, gpt-oss는 직접 서빙 가능한 오픈 [웨이트](/ko/wiki/weight/) 쪽이야. 둘 다 개발자에게 중요하지만 하나는 관리형 경험, 다른 하나는 배포 자유도가 중심이야.
+- [GPT-4o](/ko/wiki/gpt-4o/): [GPT-4o](/ko/wiki/gpt-4o/)는 [OpenAI API](/ko/wiki/openai-api/)와 [ChatGPT](/ko/wiki/chatgpt/) 중심의 범용 [멀티모달](/ko/wiki/multimodal/) 모델이고, gpt-oss는 텍스트 중심 추론과 [로컬](/ko/wiki/local-llm/) 배포에 더 초점이 있어. 그래서 기사에서 둘이 같이 나오면 [멀티모달](/ko/wiki/multimodal/) 경험 비교인지 배포 전략 비교인지 먼저 갈라서 봐야 해.
+- [Chain-of-thought](/ko/wiki/chain-of-thought/): gpt-oss는 [reasoning](/ko/wiki/reasoning/) effort 조절과 full [chain-of-thought](/ko/wiki/chain-of-thought/) 접근성을 강하게 내세운 계열이야. 그래서 이 용어와 같이 나오면 단순 모델 이름보다 디버깅·검증 흐름까지 포함한 운영 이야기를 읽게 돼.

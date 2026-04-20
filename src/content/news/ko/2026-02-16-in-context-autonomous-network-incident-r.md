@@ -57,7 +57,7 @@ tags:
   - api
 ---
 
-arXiv 문서 2602.13156v1의 요약 페이지: 상황 내 자율 네트워크 사고 대응: 엔드투엔드 대형 언어 모델 에이전트 접근 방식 [원문](https://arxiv.org/abs/2602.13156v1)은 In-Context Autonomous Network Incident Response: An End-to-End Large Language Model Agent Approach 기준으로 확인한 내용이야. 이 이슈는 arXiv 문서 2602.13156v1의 요약 페이지: 상황 내 자율 네트워크 사고 대응: 엔드투엔드 대형 언어 모델 에이전트 접근 방식가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
+arXiv 문서 2602.13156v1의 요약 페이지: 상황 내 자율 네트워크 사고 대응: 엔드투엔드 대형 언어 모델 에이전트 접근 방식 [원문](https://arxiv.org/abs/2602.13156v1)은 In-Context Autonomous Network Incident Response: An End-to-End [Large Language Model](/ko/wiki/llm/) [Agent](/ko/wiki/agent/) Approach 기준으로 확인한 내용이야. 이 이슈는 arXiv 문서 2602.13156v1의 요약 페이지: 상황 내 자율 네트워크 사고 대응: 엔드투엔드 대형 언어 모델 에이전트 접근 방식가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
 arXiv 문서 2602.1…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
 

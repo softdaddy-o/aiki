@@ -61,6 +61,6 @@ guideVersion:
 
 OpenAI가 4월 14일 사이버 보안 전용 모델 [GPT-5.4-Cyber](https://www.bloomberg.com/news/articles/2026-04-14/openai-releases-cyber-model-to-limited-group-in-race-with-mythos)를 공개했어. 소프트웨어 취약점을 찾아내는 데 특화된 모델이고, 지금은 Trusted Access for Cyber(TAC) 프로그램을 통해 검증된 보안 팀에만 접근을 열어두고 있거든. 최상위 티어 사용자는 취약점 연구 같은 민감한 작업에서 제한이 풀린 버전을 쓸 수 있어.
 
-타이밍이 눈에 띄는 게, [Anthropic이 Mythos Preview를 제한 공개](https://fortune.com/2026/04/10/anthropic-mythos-ai-driven-cybersecurity-risks-already-here/)한 지 딱 1주일 만이야. 다만 전략은 정반대거든. Anthropic은 "악용 위험이 크다"며 접근 자체를 강하게 막았는데, OpenAI는 "기존 안전장치로 충분하다"면서 수천 명, 수백 팀 단위로 접근을 넓히겠다고 했어.
+타이밍이 눈에 띄는 게, [Anthropic이 Mythos Preview를 제한 공개](https://fortune.com/2026/04/10/anthropic-mythos-ai-driven-cybersecurity-risks-already-here/)한 지 딱 1주일 만이야. 다만 전략은 정반대거든. [Anthropic](/ko/wiki/anthropic/)은 "악용 위험이 크다"며 접근 자체를 강하게 막았는데, OpenAI는 "기존 안전장치로 충분하다"면서 수천 명, 수백 팀 단위로 접근을 넓히겠다고 했어.
 
-실무 입장에서 보면, 이제 보안 감사에 AI를 끼워넣는 게 선택이 아니라 표준이 되어가고 있는 거야. OpenAI는 TAC 외에도 Codex Security라는 앱 보안 에이전트, 오픈소스 보안을 위한 Linux Foundation 기부까지 묶어서 내놓았거든. 보안 팀이라면 TAC 프로그램 가입 조건부터 확인해보는 게 첫걸음이야.
+실무 입장에서 보면, 이제 보안 감사에 AI를 끼워넣는 게 선택이 아니라 표준이 되어가고 있는 거야. OpenAI는 TAC 외에도 [Codex](/ko/wiki/codex/) Security라는 앱 보안 [에이전트](/ko/wiki/agent/), 오픈소스 보안을 위한 Linux Foundation 기부까지 묶어서 내놓았거든. 보안 팀이라면 TAC 프로그램 가입 조건부터 확인해보는 게 첫걸음이야.

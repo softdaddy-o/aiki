@@ -94,16 +94,16 @@ reviewStamp:
   reviewedAt: "2026-04-17"
 ---
 ## 한 줄 정의
-GPT는 OpenAI가 붙인 Generative Pre-trained Transformer 계열 이름이야. 서비스 이름이라기보다, 큰 텍스트로 먼저 배우고 다음 토큰을 예측하는 디코더형 [transformer](/ko/wiki/transformer/) 모델 묶음을 가리키는 말에 더 가까워.
+GPT는 [OpenAI](/ko/wiki/openai/)가 붙인 Generative Pre-trained [Transformer](/ko/wiki/transformer/) 계열 이름이야. 서비스 이름이라기보다, 큰 텍스트로 먼저 배우고 다음 토큰을 예측하는 디코더형 [transformer](/ko/wiki/transformer/) 모델 묶음을 가리키는 말에 더 가까워.
 ## 어떻게 작동하나
-2018년 OpenAI 논문은 먼저 대규모 텍스트로 언어 모델을 학습하고, 그다음 과제에 맞게 미세조정하는 두 단계 절차를 설명했어. 같은 논문은 GPT가 multi-layer Transformer decoder와 multi-headed [attention](/ko/wiki/attention/)을 써서 다음 토큰 분포를 만든다고 적어.
-최근 제품 층위에선 같은 이름이 더 넓게 쓰여. OpenAI의 GPT-5 소개 글은 2025년 8월 7일 GPT-5를 하나의 unified system으로 설명하면서, 빠르게 답할지 더 오래 생각할지를 시스템이 조절하는 경험까지 함께 말하고 있어.
+2018년 [OpenAI](/ko/wiki/openai/) 논문은 먼저 대규모 텍스트로 언어 모델을 학습하고, 그다음 과제에 맞게 미세조정하는 두 단계 절차를 설명했어. 같은 논문은 GPT가 multi-layer [Transformer](/ko/wiki/transformer/) decoder와 multi-headed [attention](/ko/wiki/attention/)을 써서 다음 [토큰](/ko/wiki/token/) 분포를 만든다고 적어.
+최근 제품 층위에선 같은 이름이 더 넓게 쓰여. [OpenAI](/ko/wiki/openai/)의 GPT-5 소개 글은 2025년 8월 7일 GPT-5를 하나의 unified system으로 설명하면서, 빠르게 답할지 더 오래 생각할지를 시스템이 조절하는 경험까지 함께 말하고 있어.
 ## 왜 중요한가
 GPT가 중요해진 건 범용 언어 모델을 서비스 밖 개념으로 묶어 보는 시선을 굳혔기 때문이야. 문서 요약, 질의응답, 코드 보조처럼 서로 다른 일을 한 계열 모델로 읽게 만들면서 모델 경쟁의 기본 축이 됐어.
 그래서 기사에서 GPT라는 말이 나오면 새 앱 이름보다 모델 계열과 구조 얘기일 가능성이 커. 다만 실제 사용 경험을 말하는 문맥이면 [chatgpt](/ko/wiki/chatgpt/)나 특정 버전명이 더 정확할 때가 많아.
 ## 주의해서 볼 점
 GPT를 모든 생성형 AI의 동의어처럼 쓰면 금방 헷갈려. 구조를 말할 땐 [transformer](/ko/wiki/transformer/), 서비스 경험을 말할 땐 [chatgpt](/ko/wiki/chatgpt/), 회사 전략을 말할 땐 [openai](/ko/wiki/openai/)가 더 정확한 표현일 때가 많아.
-또 GPT 계열도 버전마다 도구 사용, 응답 속도, 가격, 사고 경로가 크게 달라. 이름만 같다고 같은 성격의 모델로 읽으면 제품 판단이 어긋나기 쉬워.
+또 GPT 계열도 버전마다 [도구 사용](/ko/wiki/tool-use/), 응답 속도, 가격, 사고 경로가 크게 달라. 이름만 같다고 같은 성격의 모델로 읽으면 제품 판단이 어긋나기 쉬워.
 ## 관련 용어
 - [Transformer](/ko/wiki/transformer/): GPT의 뼈대 구조를 먼저 보고 싶을 때 가장 바로 이어지는 말이야.
 - [ChatGPT](/ko/wiki/chatgpt/): GPT 계열이 사용자 서비스로 감싸졌을 때 어떤 경험이 되는지 볼 때 이어져.

@@ -61,10 +61,10 @@ guideVersion:
   news: "1.0.0"
 ---
 
-알리바바 Qwen 팀이 [Qwen3.6-35B-A3B](https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding)를 Apache 2.0로 공개했다. 이름이 길어서 헷갈리는데, 포인트는 35B 전체 파라미터 중 한 번에 3B만 켜지는 [Sparse MoE(희소 혼합 전문가)](https://aiki.softdaddy-o.com/wiki/mixture-of-experts) 구조라는 거야. 35B급 모델을 3B급 연산 비용으로 돌리는 설계거든.
+알리바바 [Qwen](/ko/wiki/qwen/) 팀이 [Qwen3.6-35B-A3B](https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding)를 [Apache 2.0](/ko/wiki/apache/)로 공개했다. 이름이 길어서 헷갈리는데, 포인트는 35B 전체 파라미터 중 한 번에 3B만 켜지는 [Sparse MoE(희소 혼합 전문가)](https://aiki.softdaddy-o.com/wiki/mixture-of-experts) 구조라는 거야. 35B급 모델을 3B급 연산 비용으로 돌리는 설계거든.
 
-[벤치마크 수치](https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/)가 꽤 직관적이야. SWE-bench Verified에서 73.4점, Gemma 4-31B의 52.0점을 20점 가까이 앞섰고, Terminal-Bench 2.0에서 51.5 vs 42.9, 툴 사용 벤치마크 MCPMark에서는 37.0 vs 18.1로 두 배 넘게 벌렸어. 추론 쪽도 GPQA Diamond 86.0, AIME 2026 92.7, HMMT Feb 2026 83.6이라 수학·과학 문제에서 프론티어급에 근접한다.
+[벤치마크 수치](https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/)가 꽤 직관적이야. SWE-bench Verified에서 73.4점, [Gemma 4](/ko/wiki/gemma-4/)-31B의 52.0점을 20점 가까이 앞섰고, Terminal-Bench 2.0에서 51.5 vs 42.9, 툴 사용 [벤치마크](/ko/wiki/benchmark/) MCPMark에서는 37.0 vs 18.1로 두 배 넘게 벌렸어. [추론](/ko/wiki/inference/) 쪽도 GPQA Diamond 86.0, AIME 2026 92.7, HMMT Feb 2026 83.6이라 수학·과학 문제에서 프론티어급에 근접한다.
 
-현장 리액션이 더 재밌어. Simon Willison은 자기 [블로그](https://simonwillison.net/2026/Apr/16/qwen-beats-opus/)에 "Qwen3.6이 Claude Opus 4.7보다 펠리컨을 더 잘 그렸다"고 적었고, LocalLLaMA 커뮤니티에서도 하루 만에 가장 많이 돌려본 모델이 됐어. 3B 활성 파라미터를 bfloat16으로 돌리면 약 6GB 수준이라, RTX 3090 24GB 한 장으로도 충분히 돌릴 수 있다는 게 실사용 포인트고.
+현장 리액션이 더 재밌어. Simon Willison은 자기 [블로그](https://simonwillison.net/2026/Apr/16/qwen-beats-opus/)에 "Qwen3.6이 [Claude Opus 4.7](/ko/wiki/claude-opus-4-7/)보다 펠리컨을 더 잘 그렸다"고 적었고, [LocalLLaMA](/ko/wiki/localllama/) 커뮤니티에서도 하루 만에 가장 많이 돌려본 모델이 됐어. 3B 활성 파라미터를 bfloat16으로 돌리면 약 6GB 수준이라, RTX 3090 24GB 한 장으로도 충분히 돌릴 수 있다는 게 실사용 포인트고.
 
-한 가지 짚어둘 건 — 비교 대상으로 선택된 Gemma 4-31B 쪽이 Qwen에 유리한 설정일 수 있다는 점이야. Opus 4.7이나 GPT-5.4 같은 클로즈드 프론티어와의 직접 수치 비교는 아직 부분적이거든. 그래도 Apache 2.0에 262K 컨텍스트, 실기 벤치마크까지 합치면 로컬 코딩 에이전트 세팅은 지금 분명히 Qwen3.6 쪽으로 기울어 있어.
+한 가지 짚어둘 건 — 비교 대상으로 선택된 [Gemma 4](/ko/wiki/gemma-4/)-31B 쪽이 [Qwen](/ko/wiki/qwen/)에 유리한 설정일 수 있다는 점이야. [Opus 4.7](/ko/wiki/claude-opus-4-7/)이나 GPT-5.4 같은 클로즈드 프론티어와의 직접 수치 비교는 아직 부분적이거든. 그래도 [Apache 2.0](/ko/wiki/apache/)에 262K 컨텍스트, 실기 벤치마크까지 합치면 로컬 코딩 [에이전트](/ko/wiki/agent/) 세팅은 지금 분명히 Qwen3.6 쪽으로 기울어 있어.

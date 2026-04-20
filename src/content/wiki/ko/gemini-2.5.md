@@ -92,13 +92,13 @@ factCheck:
         - 변형 이름이 빠진 기사나 발표는 실제 도입 판단에 필요한 가격과 속도와 품질 차이를 감춰 버릴 수 있어.
 ---
 ## 한 줄 정의
-Gemini 2.5는 Google이 API와 제품에서 쓴 멀티모달 추론 모델 세대 이름이야. 이름만 보면 모델 하나처럼 들리지만, 실제로는 Pro, Flash, Flash-Lite처럼 역할과 가격대가 갈라진 라인업으로 보는 편이 맞아.
+Gemini 2.5는 Google이 API와 제품에서 쓴 [멀티모달](/ko/wiki/multimodal/) [추론 모델](/ko/wiki/reasoning/) 세대 이름이야. 이름만 보면 모델 하나처럼 들리지만, 실제로는 Pro, Flash, Flash-Lite처럼 역할과 가격대가 갈라진 라인업으로 보는 편이 맞아.
 ## 이 모델로 무엇을 할 수 있나
-Gemini 2.5 Pro는 긴 문맥, 복잡한 추론, 코딩, 큰 문서 분석처럼 무거운 작업에 더 잘 맞는 쪽으로 읽으면 돼. Flash는 빠른 응답과 높은 처리량이 필요한 서비스형 작업에, Flash-Lite는 비용을 더 눌러야 하는 대량 처리에 어울리는 축이야. 또 Google의 Gemini API나 Vertex AI 같은 채널에서 변형별로 고를 수 있는 계열이라는 점도 실무 운영 디테일로 같이 봐야 해.
+Gemini 2.5 Pro는 [긴 문맥](/ko/wiki/long-context/), 복잡한 [추론](/ko/wiki/inference/), 코딩, 큰 문서 분석처럼 무거운 작업에 더 잘 맞는 쪽으로 읽으면 돼. Flash는 빠른 응답과 높은 처리량이 필요한 서비스형 작업에, Flash-Lite는 비용을 더 눌러야 하는 대량 처리에 어울리는 축이야. 또 Google의 [Gemini API](/ko/wiki/gemini-api/)나 Vertex AI 같은 채널에서 변형별로 고를 수 있는 계열이라는 점도 실무 운영 디테일로 같이 봐야 해.
 ## 왜 중요한가
 Gemini 2.5가 중요한 이유는 Google이 최고 성능 하나만 파는 게 아니라 같은 세대 안에서 난도와 지연시간과 가격을 잘게 나눠서 팔았다는 점이 잘 드러나기 때문이야. 기사에서 이 이름이 나오면 연구 성과 이야기인지, API용 SKU 설명인지, 앱 마케팅 문맥인지 먼저 구분해야 해. 특히 변형 이름이 빠져 있으면 실제 선택에 필요한 정보가 빠진 경우가 많아.
 ## 같이 보면 좋은 모델
 - **Gemini (제미나이)**: Gemini는 Google의 상위 브랜드이자 제품 이름이야. Gemini 2.5는 그 안의 특정 세대라서 브랜드 이야기와 API 모델 세대를 섞지 않는 게 먼저야.
-- **DeepSeek R1 (딥시크 R1)**: 둘 다 추론 능력으로 자주 비교되지만 DeepSeek R1은 오픈 웨이트 활용 맥락이 더 강해. Gemini 2.5는 Google이 직접 운영하는 관리형 제품 라인업이라는 점이 더 크게 작동해.
-- [Gemma (젬마)](/ko/wiki/gemma/): Gemma는 Google 쪽 오픈 모델 계열이라 직접 내려받아 다루는 흐름에 가까워. Gemini 2.5는 Google 서비스 안에서 바로 쓰는 상용 계열이라는 점이 달라.
+- **[DeepSeek R1](/ko/wiki/deepseek-r1/) ([딥시크 R1](/ko/wiki/deepseek-r1/))**: 둘 다 [추론](/ko/wiki/inference/) 능력으로 자주 비교되지만 [DeepSeek R1](/ko/wiki/deepseek-r1/)은 오픈 [웨이트](/ko/wiki/weight/) 활용 맥락이 더 강해. Gemini 2.5는 Google이 직접 운영하는 관리형 제품 라인업이라는 점이 더 크게 작동해.
+- [Gemma (젬마)](/ko/wiki/gemma/): [Gemma](/ko/wiki/gemma/)는 Google 쪽 오픈 모델 계열이라 직접 내려받아 다루는 흐름에 가까워. Gemini 2.5는 Google 서비스 안에서 바로 쓰는 상용 계열이라는 점이 달라.
 - [o3 (오쓰리)](/ko/wiki/o3/): o3도 상위 추론형 모델로 자주 비교돼. 다만 Gemini 2.5는 한 세대 안에서 Pro와 Flash처럼 역할을 더 세밀하게 쪼갠 제품 구조가 더 두드러져.

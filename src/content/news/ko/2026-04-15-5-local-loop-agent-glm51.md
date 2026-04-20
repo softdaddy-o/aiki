@@ -59,8 +59,8 @@ guideVersion:
   news: "1.0.0"
 ---
 
-로컬 LLM으로 에이전틱 코딩이 어디까지 되는지 궁금했다면, 이 실험이 꽤 참고가 돼. [GLM 5.1](https://huggingface.co/zai-org/GLM-5.1)을 IQ2_XXS — 그러니까 2비트 극한 양자화로 돌린 루프 에이전트가 파쿠르 게임을 만들어냈거든.
+로컬 LLM으로 [에이전틱](/ko/wiki/agentic-ai/) 코딩이 어디까지 되는지 궁금했다면, 이 실험이 꽤 참고가 돼. [GLM 5.1](https://huggingface.co/zai-org/GLM-5.1)을 IQ2_XXS — 그러니까 2비트 극한 양자화로 돌린 루프 에이전트가 파쿠르 게임을 만들어냈거든.
 
-구조가 단순한데 결과물이 꽤 나와. 첫 프롬프트로 "웹페이지 하나에 파쿠르 게임을 만들어라"를 주고, 두 번째 프롬프트로 결과를 검토하고 개선하라고 루프를 걸었어. 모델이 코드 작성 → 에러 확인 → 수정을 자율적으로 반복한 거야. GLM 5.1이 원래 [754B MoE에 8시간 자율 실행](https://venturebeat.com/technology/ai-joins-the-8-hour-work-day-as-glm-ships-5-1-open-source-llm-beating-opus-4)이 가능한 모델이긴 한데, 2비트 양자화에서도 이런 루프가 돌아간다는 게 포인트야.
+구조가 단순한데 결과물이 꽤 나와. 첫 프롬프트로 "웹페이지 하나에 파쿠르 게임을 만들어라"를 주고, 두 번째 프롬프트로 결과를 검토하고 개선하라고 루프를 걸었어. 모델이 코드 작성 → 에러 확인 → 수정을 자율적으로 반복한 거야. [GLM 5.1](/ko/wiki/glm-5.1/)이 원래 [754B MoE에 8시간 자율 실행](https://venturebeat.com/technology/ai-joins-the-8-hour-work-day-as-glm-ships-5-1-open-source-llm-beating-opus-4)이 가능한 모델이긴 한데, 2비트 양자화에서도 이런 루프가 돌아간다는 게 포인트야.
 
 물론 2비트니까 품질 한계는 분명해. 풀 정밀도 754B 모델이 SWE-Bench Pro 58.4를 찍는 것과는 차원이 다르거든. 그래도 클라우드 API 비용 없이 자기 머신에서 프로토타입을 돌려보고 싶은 개발자라면, 루프 에이전트 패턴 자체를 배워두면 좋아.
