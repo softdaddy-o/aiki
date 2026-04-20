@@ -15,3 +15,11 @@ data/review-batch/
 # Script logs and temp files
 logs/
 .tmp_*.txt
+
+# Local Codex / Claude state
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Local scratch worktrees and raw scrape data
+.tmp_manifest/
+data/threads-scrape/
