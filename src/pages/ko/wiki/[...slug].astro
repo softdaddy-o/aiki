@@ -154,6 +154,14 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
         )}
 
         <BackLinks term={entry.data.term.toLowerCase()} minScore={40} />
+
+        <div class="doc-meta">
+            <span class="doc-meta-item">포맷 v{entry.data.formatVersion}</span>
+            {entry.data.guideVersion && (
+                <span class="doc-meta-item">가이드 wiki {entry.data.guideVersion.wiki}</span>
+            )}
+        </div>
+
         {fc && (
             <FactCheck
                 status={fc.status}
@@ -373,6 +381,23 @@ const ogImage = `/og/wiki/${entry.data.term}.png`;
     .related-link:hover {
         background: color-mix(in srgb, var(--color-wiki) 14%, transparent);
         border-color: var(--color-wiki);
+    }
+
+    .doc-meta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+        padding-top: 16px;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .doc-meta-item {
+        font-size: 11px;
+        color: var(--color-text-muted);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.04em;
+        opacity: 0.6;
     }
 
     @media (max-width: 640px) {
