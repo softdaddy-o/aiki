@@ -243,25 +243,25 @@ const { text } = await generateText({
 
 const MODEL_SLOTS: ReadonlyArray<ModelSlotCard> = [
     {
-        title: 'Simple slot',
+        title: 'Simple',
         goal: '짧은 질의, ping, greeting, 가벼운 응답',
         picks: ['GPT-4.1 Nano', 'GPT-4o Mini', 'Claude Haiku 4.5'],
         note: '전체 비용 절감은 여기서 먼저 난다. simple slot이 비싸면 router를 둔 이점이 빠르게 줄어든다.',
     },
     {
-        title: 'Standard slot',
+        title: 'Standard',
         goal: '대부분의 일반 assistant traffic',
         picks: ['GPT-4.1', 'Claude Sonnet 4.6', 'Gemini 2.5'],
         note: '일반 채팅의 기본 슬롯이다. 최고 성능보다 안정적인 가격과 fallback 조합이 중요하다.',
     },
     {
-        title: 'Coding slot',
+        title: 'Coding',
         goal: 'diff, patch, refactor, test loop',
         picks: ['GPT-5.2 Codex', 'Claude Sonnet 4.6', 'Grok Code Fast 1'],
         note: 'Manifest의 coding specificity를 실제 운영 정책으로 연결할 때 가장 먼저 분리해야 하는 슬롯이다.',
     },
     {
-        title: 'Reasoning slot',
+        title: 'Reasoning',
         goal: 'planning, proof, hard trade-off, critical decisions',
         picks: ['GPT-5.4', 'o3', 'Claude Opus 4.6', 'Gemini 3.1 Pro'],
         note: '정말 어려운 요청에만 열어야 한다. reasoning 슬롯이 넓어지면 비용 제어가 무너진다.',
@@ -270,33 +270,33 @@ const MODEL_SLOTS: ReadonlyArray<ModelSlotCard> = [
 
 const TAKE_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'Manifest의 핵심은 최고 모델 추천이 아니라 슬롯 설계다.',
+        title: '슬롯 설계 우선',
         body: 'repo 문서도 tier, specificity, fallback을 중심에 둔다. 이 프로젝트를 볼 때는 모델 이름보다 슬롯 구조를 먼저 읽어야 한다.',
         tone: 'accent',
     },
     {
-        title: '로컬 테스트 결과는 스펙 설명과 분리해서 봐야 한다.',
+        title: '결과와 스펙 분리',
         body: '이번 showcase에서는 repo 기준 스펙 섹션과 2026-04-20 로컬 scorer run 섹션을 따로 두었다. 실제 분류 결과와 문서 요약을 섞으면 해석이 흐려진다.',
     },
     {
-        title: 'coding, calendar 같은 specificity가 있어야 router가 살아난다.',
+        title: 'specificity 실익',
         body: 'simple / standard / complex만으로 끝나면 그냥 tier router다. specificity slot이 붙을 때 Manifest의 운영 이점이 분명해진다.',
     },
 ] as const;
 
 const FIT_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: '여러 provider와 fallback 체인을 직접 운영한다.',
+        title: '다중 provider',
         body: 'connected provider 위에 slot별 primary와 fallback을 설계할수록 Manifest의 가치가 커진다.',
         chips: ['multi-provider', 'fallbacks', 'budget control'],
     },
     {
-        title: 'coding, calendar 같은 업무 타입을 분리하고 싶다.',
+        title: '타입별 분리',
         body: '이번 로컬 테스트처럼 generalist tier와 specificity를 분리해 읽는 운영팀이면 Manifest가 잘 맞는다.',
         chips: ['coding', 'calendar_management', 'specificity'],
     },
     {
-        title: '로컬 구조와 헤더 관측성이 중요하다.',
+        title: '헤더 중심 관측',
         body: 'cloud proxy보다 local architecture, 응답 헤더, 직접 제어가 중요하면 Manifest 쪽이 더 설명 가능하다.',
         chips: ['local', 'headers', 'observability'],
     },
@@ -304,17 +304,17 @@ const FIT_CARDS: ReadonlyArray<ContentCard> = [
 
 const SKIP_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: '어차피 항상 같은 플래그십 모델만 쓴다.',
+        title: '단일 플래그십',
         body: 'slot과 fallback을 운영하지 않을 거면 router를 둔 실익이 작다.',
         chips: ['single model', 'no routing'],
     },
     {
-        title: '헤더와 라우팅 정책을 직접 들여다볼 의지가 없다.',
+        title: '운영 의지 없음',
         body: 'Manifest는 알아서 맞춰 주는 black box가 아니다. tier와 specificity를 운영하는 도구에 가깝다.',
         chips: ['ops overhead', 'tuning required'],
     },
     {
-        title: 'cloud proxy만으로 충분하고 local 제어가 중요하지 않다.',
+        title: 'cloud proxy 충분',
         body: 'README의 비교 포인트인 transparency와 local architecture가 중요하지 않으면 차별점이 줄어든다.',
         chips: ['cloud proxy', 'less control'],
     },
@@ -349,17 +349,17 @@ const ADOPTION_STEPS: ReadonlyArray<StepCard> = [
 
 const OPS_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'scorer 속도보다 슬롯 정책이 더 중요하다.',
+        title: '슬롯 정책 우선',
         body: 'README는 23-dimension, under 2ms를 강조하지만 운영 실패는 대개 잘못된 슬롯 설계에서 난다.',
         chips: ['policy first', '23-dimension', 'under 2ms'],
     },
     {
-        title: '응답 헤더가 가장 빠른 디버그 표면이다.',
+        title: '헤더 우선 디버그',
         body: 'X-Manifest-Tier, X-Manifest-Reason, X-Manifest-Specificity를 먼저 읽으면 지금 어느 슬롯이 선택됐는지 바로 보인다.',
         chips: ['headers', 'debug', 'routing visibility'],
     },
     {
-        title: 'fallback은 복구책이 아니라 기본 설계다.',
+        title: 'fallback 기본 설계',
         body: 'primary 모델만 정해서 끝내면 운영 품질이 흔들린다. provider 장애와 예산 제한을 같이 고려해 체인을 설계해야 한다.',
         chips: ['fallback chain', 'provider resilience', 'budget control'],
     },
@@ -696,17 +696,18 @@ const showcaseCss = `
 .mf-meta-card--source.source .mf-meta-mark{background:var(--color-text);color:var(--color-surface)}
 .mf-tag-row,.mf-chip-row{display:flex;flex-wrap:wrap;gap:8px}
 .mf-tag-row span,.mf-chip-row span,.mf-pill{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-text-muted);font-size:.76rem}
-.mf-panel-head{display:grid;gap:6px;margin-bottom:14px}
-.mf-panel-head h2{margin:0;font-size:1.16rem}
-.mf-panel-head p{margin:0;max-width:780px;color:var(--color-text-muted);font-size:.92rem;line-height:1.7}
+.mf-panel-head{display:grid;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid color-mix(in srgb,var(--color-border) 84%,transparent)}
+.mf-panel-head h2{margin:0;padding-left:14px;border-left:4px solid color-mix(in srgb,var(--color-projects) 88%,white 12%);font-size:clamp(1.34rem,1.5vw,1.62rem);font-weight:880;line-height:1.04;letter-spacing:-.02em}
+.mf-panel-head p{margin:0;max-width:760px;color:color-mix(in srgb,var(--color-text-muted) 92%,white 8%);font-size:.9rem;line-height:1.68}
 .mf-panel-note{margin:0 0 14px;color:var(--color-text-muted);line-height:1.7}
-.mf-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
-.mf-card-title{display:grid;gap:6px;min-width:0}
-.mf-card-title h3{margin:0;font-size:1.02rem;line-height:1.35;word-break:keep-all}
+.mf-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:-16px -16px 14px;padding:14px 16px 13px;border-bottom:1px solid color-mix(in srgb,var(--color-border) 78%,transparent);border-radius:16px 16px 0 0;background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 9%,transparent),transparent 90%),color-mix(in srgb,var(--color-surface-alt) 74%,var(--color-surface))}
+.mf-card-title{display:grid;gap:5px;min-width:0}
+.mf-card-title h3{margin:0;font-size:clamp(1.12rem,1.25vw,1.28rem);line-height:1.16;letter-spacing:-.02em;font-weight:860;word-break:keep-all}
 .mf-kicker{color:var(--color-projects);font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
 .mf-inline-link{display:inline-flex;margin-bottom:12px;color:var(--color-projects);font-size:.82rem;font-weight:700;text-decoration:none}
 .mf-inline-link:hover{text-decoration:underline}
-.mf-body-copy,.mf-muted-copy,.mf-step-card p,.mf-content-card p,.mf-model-card p,.mf-compare-card p span{margin:0;line-height:1.7;word-break:keep-all}
+.mf-body-copy,.mf-muted-copy,.mf-step-card p,.mf-content-card p,.mf-model-card p,.mf-compare-card p span{margin:0;line-height:1.72;word-break:keep-all}
+.mf-content-card p,.mf-model-card p,.mf-step-card p,.mf-compare-card p span{color:color-mix(in srgb,var(--color-text) 84%,var(--color-text-muted))}
 .mf-muted-copy{color:var(--color-text-muted);font-size:.9rem}
 .mf-card,.mf-step-card,.mf-content-card,.mf-model-card,.mf-compare-card{padding:16px;border-radius:16px;min-width:0}
 .mf-content-card,.mf-model-card,.mf-step-card,.mf-compare-card{display:grid;gap:12px}
