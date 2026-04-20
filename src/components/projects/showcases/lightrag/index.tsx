@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
+import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface LightRagShowcaseProps {
@@ -503,23 +504,23 @@ function StepCard({ label, value, note }: { label: string; value: string; note: 
 }
 
 const showcaseCss = `
-.lr-showcase{display:contents;color:var(--color-text)}
+${createSharedShowcaseChromeCss({
+    rootClass: 'lr-showcase',
+    heroClass: 'lr-hero',
+    panelClass: 'lr-panel',
+    heroHeadClass: 'lr-hero-head',
+    showcaseLabelClass: 'lr-showcase-label',
+    heroCopyClass: 'lr-hero-copy',
+    metaGridClass: 'lr-meta-grid',
+    metaCardClass: 'lr-meta-card',
+    metaSourceCardClass: 'lr-meta-card--source',
+    metaMarkClass: 'lr-meta-mark',
+    metaCopyClass: 'lr-meta-copy',
+    tagRowClass: 'lr-tag-row',
+    heroCopyMaxWidth: '660px',
+})}
 .lr-main{grid-column:2;grid-row:2;display:grid;gap:18px;min-width:0}
-.lr-hero,.lr-panel,.lr-stat,.lr-step-card,.lr-answer-card,.lr-context-card,.lr-deploy-card{border:1px solid var(--color-border);background:var(--color-surface)}
-.lr-hero,.lr-panel{border-radius:12px;padding:20px}
-.lr-hero{display:grid;gap:16px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 13%,transparent),transparent 46%),var(--color-surface)}
-.lr-hero-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.lr-showcase-label{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.lr-hero-copy h1{margin:0 0 10px;font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em}
-.lr-hero-copy p{max-width:660px;margin:0;color:var(--color-text-muted);line-height:1.7}
 .lr-hero-copy h2,.lr-hero-copy h2 + p,.lr-hero-copy .lr-chip-row{display:none}
-.lr-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.lr-meta-card{display:grid;gap:10px;align-content:start;min-width:0;padding:14px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt)}
-.lr-meta-card--source{grid-template-columns:auto minmax(0,1fr);align-items:center}
-.lr-meta-mark{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:1.1rem;font-weight:900}
-.lr-meta-copy{display:grid;gap:4px;min-width:0}
-.lr-meta-card span,.lr-meta-copy span{color:var(--color-text-muted);font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.lr-meta-card strong,.lr-meta-copy strong{overflow-wrap:anywhere;font-family:var(--font-heading);font-size:1.02rem;line-height:1.25}
 .lr-hero-card,.lr-step-grid,.lr-deploy-grid,.lr-query-layout,.lr-ingest-layout,.lr-graph-layout{display:grid;gap:12px}
 .lr-hero-card{grid-template-columns:repeat(4,minmax(0,1fr));align-content:start}
 .lr-stat,.lr-step-card,.lr-answer-card,.lr-context-card,.lr-deploy-card{border-radius:10px;padding:14px}
@@ -566,6 +567,6 @@ const showcaseCss = `
 .lr-context-stack{display:grid;gap:10px}
 .lr-context-card header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
 .lr-deploy-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-@media (max-width:900px){.lr-main{grid-column:1;grid-row:auto}.lr-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lr-ingest-layout,.lr-graph-layout,.lr-query-layout{grid-template-columns:1fr}.lr-hero-card{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.lr-hero,.lr-panel{padding:14px}.lr-meta-grid,.lr-hero-card,.lr-step-grid{grid-template-columns:1fr}.lr-query-toolbar{flex-direction:column;align-items:flex-start}}
+@media (max-width:900px){.lr-main{grid-column:1;grid-row:auto}.lr-ingest-layout,.lr-graph-layout,.lr-query-layout{grid-template-columns:minmax(0,1fr)}.lr-hero-card{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.lr-hero-card,.lr-step-grid{grid-template-columns:minmax(0,1fr)}.lr-query-toolbar{flex-direction:column;align-items:flex-start}}
 `;

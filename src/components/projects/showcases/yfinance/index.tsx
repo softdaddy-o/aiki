@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
+import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface YfinanceShowcaseProps {
@@ -752,17 +753,26 @@ function formatAssetTypeLabel(assetType?: string): string {
 }
 
 const showcaseCss = `
-.yf-showcase {
-    display: contents;
-    color: var(--color-text);
-}
+${createSharedShowcaseChromeCss({
+    rootClass: 'yf-showcase',
+    heroClass: 'yf-header',
+    panelClass: 'yf-panel',
+    heroHeadClass: 'yf-hero-head',
+    showcaseLabelClass: 'yf-showcase-label',
+    heroCopyClass: 'yf-hero-copy',
+    metaGridClass: 'yf-meta-grid',
+    metaCardClass: 'yf-meta-card',
+    metaSourceCardClass: 'yf-meta-card--source',
+    metaMarkClass: 'yf-meta-mark',
+    metaCopyClass: 'yf-meta-copy',
+    tagRowClass: 'yf-tag-row',
+    heroCopyMaxWidth: '720px',
+})}
 .yf-showcase-main {
     grid-column: 2;
     grid-row: 2;
     min-width: 0;
 }
-.yf-header,
-.yf-panel,
 .yf-detail,
 .yf-coverage,
 .yf-info,
@@ -771,8 +781,6 @@ const showcaseCss = `
     background: var(--color-surface);
     min-width: 0;
 }
-.yf-header,
-.yf-panel,
 .yf-detail {
     border-radius: 12px;
     padding: 20px;
@@ -783,108 +791,6 @@ const showcaseCss = `
     margin-bottom: 22px;
     padding: 22px;
     border-radius: 14px;
-    background:
-        linear-gradient(140deg, color-mix(in srgb, var(--color-projects) 13%, transparent), transparent 46%),
-        var(--color-surface);
-}
-.yf-hero-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-.yf-showcase-label {
-    display: inline-flex;
-    align-items: center;
-    min-height: 30px;
-    padding: 0 12px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-projects) 14%, transparent);
-    color: var(--color-projects);
-    font-size: 0.74rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-.yf-hero-copy {
-    min-width: 0;
-}
-.yf-hero-copy h1 {
-    margin: 0 0 10px;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-}
-.yf-hero-copy p {
-    max-width: 720px;
-    margin: 0;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-}
-.yf-meta-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-}
-.yf-meta-card {
-    display: grid;
-    gap: 10px;
-    align-content: start;
-    min-width: 0;
-    padding: 14px;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background: var(--color-surface-alt);
-}
-.yf-meta-card--source {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-}
-.yf-meta-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: color-mix(in srgb, var(--color-projects) 14%, transparent);
-    color: var(--color-projects);
-    font-size: 1.1rem;
-    font-weight: 900;
-}
-.yf-meta-copy {
-    display: grid;
-    gap: 4px;
-    min-width: 0;
-}
-.yf-meta-card span,
-.yf-meta-copy span {
-    color: var(--color-text-muted);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-.yf-meta-card strong,
-.yf-meta-copy strong {
-    overflow-wrap: anywhere;
-    font-family: var(--font-heading);
-    font-size: 1.02rem;
-    line-height: 1.25;
-}
-.yf-tag-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.yf-tag-row span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 28px;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: var(--color-surface-alt);
-    color: var(--color-text-muted);
-    font-size: 0.76rem;
 }
 .yf-stat-grid,
 .yf-quote-grid,
@@ -1166,7 +1072,6 @@ const showcaseCss = `
         grid-column: 1;
         grid-row: auto;
     }
-    .yf-meta-grid,
     .yf-stat-grid,
     .yf-info-grid.two,
     .yf-detail-body {
@@ -1174,15 +1079,12 @@ const showcaseCss = `
     }
 }
 @media (max-width: 640px) {
-    .yf-header,
-    .yf-panel,
     .yf-detail {
         padding: 14px;
     }
     .yf-header {
         margin-bottom: 16px;
     }
-    .yf-meta-grid,
     .yf-stat-grid,
     .yf-info-grid.two,
     .yf-detail-body {

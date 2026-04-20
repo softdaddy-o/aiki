@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
+import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface NfiShowcaseProps {
@@ -621,10 +622,21 @@ function renderRecommendationLabel(label: string) {
 }
 
 const showcaseCss = `
-.nfi-showcase {
-    display: contents;
-    color: var(--color-text);
-}
+${createSharedShowcaseChromeCss({
+    rootClass: 'nfi-showcase',
+    heroClass: 'nfi-hero',
+    panelClass: 'nfi-panel',
+    heroHeadClass: 'nfi-hero-head',
+    showcaseLabelClass: 'nfi-showcase-label',
+    heroCopyClass: 'nfi-hero-copy',
+    metaGridClass: 'nfi-meta-grid',
+    metaCardClass: 'nfi-meta-card',
+    metaSourceCardClass: 'nfi-meta-card--source',
+    metaMarkClass: 'nfi-meta-mark',
+    metaCopyClass: 'nfi-meta-copy',
+    tagRowClass: 'nfi-tag-row',
+    heroCopyMaxWidth: '650px',
+})}
 .nfi-showcase-main {
     display: grid;
     gap: 18px;
@@ -632,7 +644,6 @@ const showcaseCss = `
     grid-row: 2;
     min-width: 0;
 }
-.nfi-hero,
 .nfi-panel,
 .nfi-rec,
 .nfi-family,
@@ -643,48 +654,10 @@ const showcaseCss = `
     border: 1px solid var(--color-border);
     background: var(--color-surface);
 }
-.nfi-hero,
-.nfi-panel {
-    border-radius: 12px;
-    padding: 20px;
-}
 .nfi-hero {
-    display: grid;
-    gap: 16px;
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--color-projects) 12%, transparent), transparent 44%),
         var(--color-surface);
-}
-.nfi-hero-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-.nfi-showcase-label {
-    display: inline-flex;
-    align-items: center;
-    min-height: 30px;
-    padding: 0 12px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-projects) 14%, transparent);
-    color: var(--color-projects);
-    font-size: 0.74rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-.nfi-hero-copy h1 {
-    margin: 0 0 10px;
-    overflow-wrap: anywhere;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-}
-.nfi-hero-copy p {
-    max-width: 650px;
-    color: var(--color-text-muted);
-    line-height: 1.7;
 }
 .nfi-hero-copy .nfi-kicker,
 .nfi-hero-copy h2,
@@ -707,41 +680,6 @@ const showcaseCss = `
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-.nfi-meta-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-}
-.nfi-meta-card {
-    display: grid;
-    gap: 10px;
-    align-content: start;
-    min-width: 0;
-    padding: 14px;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background: var(--color-surface-alt);
-}
-.nfi-meta-card--source {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-}
-.nfi-meta-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: color-mix(in srgb, var(--color-projects) 14%, transparent);
-    color: var(--color-projects);
-    font-size: 1.1rem;
-    font-weight: 900;
-}
-.nfi-meta-copy {
-    display: grid;
-    gap: 4px;
-    min-width: 0;
 }
 .nfi-link-row {
     margin-top: 18px;
@@ -832,30 +770,6 @@ const showcaseCss = `
     background: var(--color-surface-alt);
     padding: 4px 8px;
     font-size: 0.78rem;
-}
-.nfi-tag-row span,
-.nfi-meta-card span,
-.nfi-meta-copy span {
-    color: var(--color-text-muted);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-.nfi-tag-row span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 28px;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: var(--color-surface-alt);
-}
-.nfi-meta-card strong,
-.nfi-meta-copy strong {
-    overflow-wrap: anywhere;
-    font-family: var(--font-heading);
-    font-size: 1.02rem;
-    line-height: 1.25;
 }
 .nfi-section-block {
     display: grid;
@@ -1176,29 +1090,19 @@ const showcaseCss = `
         grid-column: 1;
         grid-row: auto;
     }
-    .nfi-meta-grid,
     .nfi-signal-layout,
     .nfi-two-col {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .nfi-signal-layout,
-    .nfi-two-col {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 @media (max-width: 640px) {
-    .nfi-hero,
-    .nfi-panel {
-        padding: 14px;
-    }
     .nfi-market-caption {
         flex-direction: column;
         align-items: flex-start;
     }
-    .nfi-meta-grid,
     .nfi-stat-grid,
     .nfi-guard {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
     .nfi-market svg {
         min-height: 190px;

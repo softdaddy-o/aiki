@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
+import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
 interface NautilusShowcaseProps {
@@ -459,25 +460,29 @@ function localizeText(value?: string): string {
 }
 
 const showcaseCss = `
-.nt-showcase{display:contents;color:var(--color-text)}
+${createSharedShowcaseChromeCss({
+    rootClass: 'nt-showcase',
+    heroClass: 'nt-hero',
+    panelClass: 'nt-panel',
+    heroHeadClass: 'nt-hero-head',
+    showcaseLabelClass: 'nt-showcase-label',
+    heroCopyClass: 'nt-hero-copy',
+    metaGridClass: 'nt-meta-grid',
+    metaCardClass: 'nt-meta-card',
+    metaSourceCardClass: 'nt-meta-card--source',
+    metaMarkClass: 'nt-meta-mark',
+    metaCopyClass: 'nt-meta-copy',
+    tagRowClass: 'nt-tag-row',
+    heroCopyMaxWidth: '650px',
+})}
 .nt-showcase-main{grid-column:2;grid-row:2;min-width:0}
-.nt-hero,.nt-panel,.nt-arch-card,.nt-asset-card,.nt-venue-card,.nt-perf-card,.nt-principle,.nt-qs-card{border:1px solid var(--color-border);background:var(--color-surface)}
-.nt-hero,.nt-panel{border-radius:12px;padding:20px}
-.nt-hero{display:grid;gap:16px;margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
-.nt-hero-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.nt-showcase-label{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.nt-panel,.nt-arch-card,.nt-asset-card,.nt-venue-card,.nt-perf-card,.nt-principle,.nt-qs-card{border:1px solid var(--color-border);background:var(--color-surface)}
+.nt-hero{margin-bottom:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 44%),var(--color-surface)}
 .nt-hero-copy,.nt-repo-card{min-width:0}
-.nt-hero-copy h1{margin:0 0 10px;font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em;overflow-wrap:anywhere}
-.nt-hero-copy p{max-width:650px;color:var(--color-text-muted);line-height:1.7}
 .nt-hero-copy .nt-kicker,.nt-hero-copy h2,.nt-hero-copy h2 + p{display:none}
 .nt-kicker{margin:0 0 8px;color:var(--color-projects)!important;font-size:.76rem;font-weight:800;letter-spacing:0;text-transform:uppercase}
 .nt-link-row,.nt-meta,.nt-chip-row,.nt-tag-row{display:flex;flex-wrap:wrap;gap:8px}
 .nt-link-row{margin-top:18px}
-.nt-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.nt-meta-card{display:grid;gap:10px;align-content:start;min-width:0;padding:14px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt)}
-.nt-meta-card--source{grid-template-columns:auto minmax(0,1fr);align-items:center}
-.nt-meta-mark{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:1.1rem;font-weight:900}
-.nt-meta-copy{display:grid;gap:4px;min-width:0}
 .nt-link-row a{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid var(--color-border);border-radius:8px;font:inherit;font-size:.86rem;font-weight:800;text-decoration:none}
 .nt-link-row a:first-child{background:var(--color-projects);color:#fff}
 .nt-link-row a+a{background:var(--color-surface-elevated);color:var(--color-projects)}
@@ -489,9 +494,6 @@ const showcaseCss = `
 .nt-stat{border-radius:8px;padding:14px;background:var(--color-surface)}
 .nt-stat strong{display:block;margin-top:4px;color:var(--color-model);font-family:var(--font-heading);font-size:1.35rem}
 .nt-meta span,.nt-chip-row span{border-radius:6px;background:var(--color-surface-alt);padding:4px 8px;font-size:.78rem}
-.nt-tag-row span,.nt-meta-card span,.nt-meta-copy span{color:var(--color-text-muted);font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.nt-tag-row span{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface-alt)}
-.nt-meta-card strong,.nt-meta-copy strong{overflow-wrap:anywhere;font-family:var(--font-heading);font-size:1.02rem;line-height:1.25}
 .nt-section{min-width:0}
 .nt-section-block{display:grid;gap:16px;scroll-margin-top:120px}
 .nt-section-block+.nt-section-block{margin-top:6px}
@@ -525,6 +527,6 @@ const showcaseCss = `
 .nt-qs-card code{overflow-wrap:anywhere;border-radius:6px;background:var(--color-surface-alt);padding:4px 6px;color:var(--color-projects);font-size:.78rem}
 .nt-source,.nt-empty{margin-top:16px;font-size:.82rem}
 .nt-empty{padding:16px;border:1px dashed var(--color-border-strong);border-radius:8px}
-@media (max-width:840px){.nt-showcase-main{grid-column:1;grid-row:auto}.nt-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nt-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:640px){.nt-hero,.nt-panel{padding:14px}.nt-meta-grid,.nt-stat-grid{grid-template-columns:1fr}}
+@media (max-width:840px){.nt-showcase-main{grid-column:1;grid-row:auto}.nt-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.nt-stat-grid{grid-template-columns:minmax(0,1fr)}}
 `;

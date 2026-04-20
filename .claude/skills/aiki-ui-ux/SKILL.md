@@ -109,6 +109,14 @@ React island(`client:load`)에 CSS를 주입할 때 주의:
 
 ---
 
+### 1.5 CSS ownership
+
+- `news / wiki / project` 레벨 공통 CSS 는 허용. 같은 카테고리에서 반복되는 chrome 은 공통으로 올린다.
+- project 개별 CSS 는 그래프, 캔버스, 표, OCR 결과, 차트, 비교 레일, 탭 같은 **특수 인터랙션**에만 남긴다.
+- hero, panel, meta-grid, tag-row, section lead 같은 반복 chrome 은 project 파일마다 다시 쓰지 말고 shared helper 로 뽑는다.
+- showcase 공통 chrome 은 `src/components/projects/showcases/sharedShowcaseCss.ts` 를 우선 사용한다.
+- 동일 CSS 조각이 2개 showcase 이상에서 반복되면 다음 수정 전에 shared helper 로 승격한다.
+
 ## 2. Showcase-native pages (모든 project 쇼케이스)
 
 **Project 카테고리의 모든 페이지가 따라야 할 구성**. `project-page--showcase-native` 클래스가 붙고, `src/pages/ko/projects/[...slug].astro` 의 `usesShowcaseNarrative === true` 분기로 진입.
