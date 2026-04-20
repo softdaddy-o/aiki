@@ -264,6 +264,7 @@ export default function LightRagShowcase({ slug, title, summary, tags, sourceMet
                         metaCopyClassName="lr-meta-copy"
                         tagRowClassName="lr-tag-row"
                         title={title}
+                        summary={summary}
                         tags={tags}
                         sourceMeta={sourceMeta}
                         metricValue={metricValue}
@@ -319,7 +320,7 @@ export default function LightRagShowcase({ slug, title, summary, tags, sourceMet
                         <div className="lr-overview-stack">
                             <article className="lr-deploy-card lr-overview-card">
                                 <h3>쇼케이스 개요</h3>
-                                <p>{summary}</p>
+                                <p className="lr-overview-summary">{summary}</p>
                                 <div className="lr-chip-row">
                                     <span>3 sample docs</span>
                                     <span>27 entities</span>

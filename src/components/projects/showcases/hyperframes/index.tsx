@@ -290,6 +290,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                         metaCopyClassName="hf-meta-copy"
                         tagRowClassName="hf-tag-row"
                         title={title}
+                        summary={summary}
                         tags={tags}
                         sourceMeta={sourceMeta}
                         metricValue={metricValue}
@@ -324,7 +325,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                     <div className="hf-overview-grid">
                         <article className="hf-insight-card hf-insight-card--accent">
                             <h3>쇼케이스 개요</h3>
-                            <p>{summary}</p>
+                            <p className="hf-overview-summary">{summary}</p>
                             <div className="hf-chip-row">
                                 <span>Prompt -&gt; HTML -&gt; Video</span>
                                 <span>3 compositions</span>
@@ -499,7 +500,7 @@ const showcaseCss = `
 .hf-hero,.hf-panel{border-radius:22px;padding:22px;scroll-margin-top:100px}
 .hf-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 40%),color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));box-shadow:0 20px 48px rgba(0,0,0,.08);display:grid;gap:18px}
 .hf-hero-copy{display:grid;gap:10px;min-width:0}
-.hf-hero-copy h1{margin:0;color:var(--color-projects);font-size:clamp(2.4rem,6.2vw,5rem);font-weight:900;line-height:.96;letter-spacing:.02em;text-transform:uppercase;overflow-wrap:anywhere;word-break:break-word}
+.hf-hero-copy h1{margin:0;color:var(--color-text);font-size:clamp(2.4rem,6.2vw,5rem);font-weight:900;line-height:.96;letter-spacing:.02em;text-transform:none;overflow-wrap:anywhere;word-break:break-word}
 .hf-hero-copy p{max-width:760px;margin:0;color:var(--color-text);font-size:clamp(1rem,1.45vw,1.18rem);line-height:1.7}
 .hf-meta-grid-legacy,.hf-tag-row-legacy{display:none}
 .hf-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}

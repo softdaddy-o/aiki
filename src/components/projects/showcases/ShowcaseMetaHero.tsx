@@ -18,6 +18,7 @@ interface ShowcaseMetaHeroProps {
     metaCopyClassName: string;
     tagRowClassName: string;
     title: string;
+    summary?: string;
     tags: string[];
     sourceMeta: ShowcaseSourceMeta;
     metricValue: string;
@@ -36,6 +37,7 @@ export default function ShowcaseMetaHero({
     metaCopyClassName,
     tagRowClassName,
     title,
+    summary,
     tags,
     sourceMeta,
     metricValue,
@@ -44,8 +46,29 @@ export default function ShowcaseMetaHero({
 }: ShowcaseMetaHeroProps) {
     const content = (
         <>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+                <span
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        minHeight: '30px',
+                        padding: '0 12px',
+                        borderRadius: '999px',
+                        background: 'color-mix(in srgb, var(--color-projects) 14%, transparent)',
+                        color: 'var(--color-projects)',
+                        fontSize: '.74rem',
+                        fontWeight: 900,
+                        letterSpacing: '.12em',
+                        textTransform: 'uppercase',
+                    }}
+                >
+                    Interactive Showcase
+                </span>
+            </div>
+
             <div className={heroCopyClassName}>
                 <h1>{title}</h1>
+                {summary ? <p>{summary}</p> : null}
             </div>
 
             <div className={metaGridClassName}>
@@ -73,6 +96,7 @@ export default function ShowcaseMetaHero({
                     ))}
                 </div>
             )}
+        </>
     );
 
     if (!renderSection) return content;

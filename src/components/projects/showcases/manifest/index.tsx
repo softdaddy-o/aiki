@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
@@ -406,19 +407,33 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
 
             <div className="mf-main">
                 <section className="mf-hero" id={`${SECTION_PREFIX}hero`}>
-                    <div className="mf-hero-head">
-                        <span className="mf-showcase-label">Interactive Showcase</span>
-                    </div>
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="mf-hero"
+                        heroCopyClassName="mf-hero-copy"
+                        metaGridClassName="mf-meta-grid"
+                        metaCardClassName="mf-meta-card"
+                        metaSourceCardClassName="mf-meta-card--source"
+                        metaMarkClassName="mf-meta-mark"
+                        metaCopyClassName="mf-meta-copy"
+                        tagRowClassName="mf-tag-row"
+                        title={title}
+                        summary={summary}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
 
-                    <div className="mf-hero-copy">
+                    <div className="mf-hero-copy-legacy">
                         <h1>{title}</h1>
-                        <p>{summary}</p>
                         <p className="mf-hero-note">
                             이 페이지는 <code>repo 기준 프로젝트 스펙</code>과 <code>2026-04-20 로컬 scorer run</code>을 분리해서 보여준다.
                         </p>
                     </div>
 
-                    <div className="mf-meta-grid">
+                    <div className="mf-meta-grid-legacy">
                         <article className={`mf-meta-card mf-meta-card--source ${sourceMeta.className}`}>
                             <div className="mf-meta-mark">{sourceMeta.mark}</div>
                             <div className="mf-meta-copy">
@@ -426,13 +441,10 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
                                 <strong>{sourceMeta.path}</strong>
                             </div>
                         </article>
-                        <MetaCard label={sourceMeta.metricLabel} value={metricValue} />
-                        <MetaCard label="라이선스" value={license} />
-                        <MetaCard label="로컬 scorer run" value="2026-04-20 · 3 prompts" />
                     </div>
 
                     {tags.length > 0 && (
-                        <div className="mf-tag-row">
+                        <div className="mf-tag-row-legacy">
                             {tags.map((tag) => (
                                 <span key={tag}>{tag}</span>
                             ))}
@@ -445,6 +457,18 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
                     title="프로젝트 스펙"
                     description={<>이 섹션은 repo와 문서에서 읽은 구조 요약이다. 실제 분류 결과는 아래 <TermHint term="로컬 테스트" description="repo prompt를 로컬 scorer에 직접 넣어 얻은 실제 출력값만 따로 모아 둔 섹션이다." /> 섹션에서 본다.</>}
                 >
+                    <article className="mf-content-card mf-content-card--accent mf-overview-card">
+                        <CardHeader kicker="showcase overview" title="쇼케이스 개요" />
+                        <p className="mf-overview-summary">{summary}</p>
+                        <p className="mf-muted-copy">
+                            이 페이지는 <code>repo 기준 프로젝트 스펙</code>과 <code>2026-04-20 로컬 scorer run</code>을 분리해서 읽게 만든다.
+                        </p>
+                        <div className="mf-chip-row">
+                            <span>repo spec</span>
+                            <span>local scorer run</span>
+                            <span>2026-04-20</span>
+                        </div>
+                    </article>
                     <div className="mf-spec-grid">
                         {SPEC_CARDS.map((item) => (
                             <ContentPanelCard key={item.title} item={item} />
@@ -630,15 +654,6 @@ function CardHeader({ kicker, title, pill }: { kicker?: string; title: string; p
     );
 }
 
-function MetaCard({ label, value }: { label: string; value: string }) {
-    return (
-        <article className="mf-meta-card">
-            <span>{label}</span>
-            <strong>{value}</strong>
-        </article>
-    );
-}
-
 function ContentPanelCard({ item }: { item: ContentCard }) {
     return (
         <article className={`mf-content-card ${item.tone === 'accent' ? 'mf-content-card--accent' : ''}`.trim()}>
@@ -677,13 +692,12 @@ const showcaseCss = `
 .mf-hero,.mf-panel,.mf-card,.mf-meta-card,.mf-step-card,.mf-content-card,.mf-model-card,.mf-compare-card,.mf-data-card{border:1px solid var(--color-border);background:var(--color-surface)}
 .mf-hero,.mf-panel{border-radius:22px;padding:22px;scroll-margin-top:100px}
 .mf-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--color-projects) 12%,transparent),transparent 42%),color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));box-shadow:0 20px 48px rgba(0,0,0,.08);display:grid;gap:18px}
-.mf-hero-head{display:flex}
-.mf-showcase-label{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 .mf-hero-copy{display:grid;gap:10px;min-width:0}
-.mf-hero-copy h1{margin:0;color:var(--color-projects);font-size:clamp(2.2rem,5.8vw,6.2rem);font-weight:900;line-height:.96;letter-spacing:.02em;text-transform:uppercase;overflow-wrap:anywhere;word-break:break-word}
+.mf-hero-copy h1{margin:0;color:var(--color-text);font-size:clamp(2.2rem,5.8vw,6.2rem);font-weight:900;line-height:.96;letter-spacing:.02em;text-transform:none;overflow-wrap:anywhere;word-break:break-word}
 .mf-hero-copy p{max-width:760px;margin:0;color:var(--color-text);font-size:clamp(1rem,1.45vw,1.16rem);line-height:1.72;word-break:keep-all}
 .mf-hero-note{color:var(--color-text-muted)!important;font-size:.94rem!important}
 .mf-hero-note code{font-size:.9em}
+.mf-hero-copy-legacy,.mf-meta-grid-legacy,.mf-tag-row-legacy{display:none}
 .mf-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .mf-meta-card{display:grid;gap:6px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--color-surface) 86%,var(--color-surface-alt));min-width:0}
 .mf-meta-card span{color:var(--color-text-muted);font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}

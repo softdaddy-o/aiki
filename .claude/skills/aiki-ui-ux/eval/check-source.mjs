@@ -244,7 +244,7 @@ function checkShowcaseIntroSection(file, src) {
 
 // ── run ──────────────────────────────────────────────────────────────────────
 
-function checkShowcaseHeroContract(file, src) {
+function checkShowcaseHeroContractLegacy(file, src) {
   if (!/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\][^\/\\]+[\/\\]index\.tsx$/.test(file)) return;
   const hasBadge = /Interactive Showcase/.test(src);
   const hasH1 = /<h1\b/.test(src);
@@ -259,12 +259,10 @@ function checkShowcaseHeroContract(file, src) {
 function checkShowcaseHeroContract(file, src) {
   if (!/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\][^\/\\]+[\/\\]index\.tsx$/.test(file)) return;
   const usesMetaHero = /<ShowcaseMetaHero\b/.test(src);
-  const leaksShowcaseBadge = /Interactive Showcase/.test(src);
-  const leaksReadingMode = /읽는 방식/.test(src);
-  const heroRendersSummary = /<p>\s*\{summary\}\s*<\/p>/.test(src);
-  if (!usesMetaHero || leaksShowcaseBadge || leaksReadingMode || heroRendersSummary) {
+  const leaksReadingMode = /MetaCard label=.*읽는 방식/.test(src);
+  if (!usesMetaHero || leaksReadingMode) {
     record('FAIL', 'R12-showcase-hero-contract', file, 1,
-      'showcase-native hero는 meta-only shared hero여야 한다. <ShowcaseMetaHero>를 쓰고 badge/summary/reading-mode를 hero에 두지 않는다.');
+      'showcase-native hero는 <ShowcaseMetaHero>를 쓰고, hero 메타에는 reading mode 같은 showcase 세부를 넣지 않는다.');
   }
 }
 

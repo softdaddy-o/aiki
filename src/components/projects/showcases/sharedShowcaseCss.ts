@@ -31,7 +31,7 @@ export function createSharedShowcaseChromeCss({
 ${selector(rootClass)}{display:contents;color:var(--color-text)}
 ${selector(heroClass)},${selector(panelClass)}{border:1px solid var(--color-border);background:var(--color-surface);border-radius:12px;padding:20px;min-width:0}
 ${selector(heroClass)}{display:grid;gap:16px;background:linear-gradient(140deg,color-mix(in srgb,var(--color-projects) 13%,transparent),transparent 46%),var(--color-surface)}
-${selector(heroCopyClass)} h1{margin:0 0 10px;font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em;overflow-wrap:anywhere}
+${selector(heroCopyClass)} h1{margin:0 0 10px;color:var(--color-text);font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em;text-transform:none;overflow-wrap:anywhere}
 ${selector(heroCopyClass)} p{max-width:${heroCopyMaxWidth};margin:0;color:var(--color-text-muted);line-height:1.7}
 ${selector(metaGridClass)}{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
 ${selector(metaCardClass)}{display:grid;gap:10px;align-content:start;min-width:0;padding:14px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt)}

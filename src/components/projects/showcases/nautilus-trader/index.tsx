@@ -178,6 +178,7 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
                         metaCopyClassName="nt-meta-copy"
                         tagRowClassName="nt-tag-row"
                         title={title}
+                        summary={summary}
                         tags={tags}
                         sourceMeta={sourceMeta}
                         metricValue={metricValue}
@@ -233,7 +234,7 @@ export default function NautilusShowcase({ slug, title, summary, tags, sourceMet
                 <section className="nt-section-block" id={`${SECTION_PREFIX}architecture`}>
                     <section className="nt-repo-card nt-overview-card">
                         <p className="nt-kicker">쇼케이스 개요</p>
-                        <p>{summary}</p>
+                        <p className="nt-overview-summary">{summary}</p>
                         <div className="nt-link-row">
                             {data.repo?.githubUrl && <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>}
                             {data.repo?.docsUrl && <a href={data.repo.docsUrl} target="_blank" rel="noreferrer">문서</a>}

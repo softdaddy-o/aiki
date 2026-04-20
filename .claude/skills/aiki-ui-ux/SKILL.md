@@ -15,8 +15,8 @@ description: aiki 프로젝트에서 UI/UX를 만들거나 고칠 때 매번 읽
 2. **산문 금지.** Project 페이지에서 markdown `<Content />` body 는 렌더하지 않는다. 모든 정보를 Panel + card 로 분해. "읽는" 페이지가 아니라 "훑으면 30초에 판단" 이 목표.
 3. **News/wiki 만 standard (§3).** 장문 읽기 콘텐츠 전용. Project 는 절대 여기 들어오지 마.
 4. **모든 showcase-native 는 nav 첫 항목이 `소개`여야 한다.** hero 는 `id={\`${SECTION_PREFIX}hero\`}` 를 가진 첫 섹션이어야 하고, 섹션 네비도 `소개 / 한눈 요약과 메타`로 시작한다.
-5. **hero 는 project meta 전용이다.** hero 안에는 큰 `h1` + source/metric/license + tags 만 둔다. `Interactive Showcase`, summary, 읽는 방식, 데모 통계, 실행 맥락은 hero 에 넣지 않고 다음 섹션에서 각 프로젝트에 맞게 푼다.
-5. **포맷/가이드 변경 시 버전 bump 는 필수다 (§3.11).** 레이아웃 바꿨으면 `formatVersion` 올리고, 글쓰기 룰 바꿨으면 `guideVersion` 올리고, 두 guide 파일 Changelog 에 한 줄 남겨라. 빠뜨리면 나중에 어떤 기사가 어떤 기준으로 쓰였는지 추적 불가.
+5. **hero 는 메타 중심이되 기본 정체성은 유지한다.** hero 안에는 `Interactive Showcase` 배지, 큰 `h1`, 짧은 프로젝트 summary, source/metric/license, tags 를 둔다. 대신 읽는 방식, 런타임 수치, 데모 통계, 실행 보드 같은 showcase 세부는 다음 섹션으로 내린다.
+6. **포맷/가이드 변경 시 버전 bump 는 필수다 (§3.11).** 레이아웃 바꿨으면 `formatVersion` 올리고, 글쓰기 룰 바꿨으면 `guideVersion` 올리고, 두 guide 파일 Changelog 에 한 줄 남겨라. 빠뜨리면 나중에 어떤 기사가 어떤 기준으로 쓰였는지 추적 불가.
 
 ## 0. How to use this skill
 

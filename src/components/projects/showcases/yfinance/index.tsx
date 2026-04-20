@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
@@ -278,6 +279,7 @@ export default function YfinanceShowcase({ slug, title, summary, tags, sourceMet
                         metaCopyClassName="yf-meta-copy"
                         tagRowClassName="yf-tag-row"
                         title={title}
+                        summary={summary}
                         tags={tags}
                         sourceMeta={sourceMeta}
                         metricValue={metricValue}

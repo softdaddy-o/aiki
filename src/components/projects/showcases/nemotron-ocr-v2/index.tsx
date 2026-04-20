@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
 import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
@@ -256,16 +257,26 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
 
             <div className="nm-main">
                 <section className="nm-hero" id={`${SECTION_PREFIX}hero`}>
-                    <div className="nm-hero-head">
-                        <span className="nm-showcase-label">Interactive Showcase</span>
-                    </div>
+                    <ShowcaseMetaHero
+                        id={`${SECTION_PREFIX}hero`}
+                        className="nm-hero"
+                        heroCopyClassName="nm-hero-copy"
+                        metaGridClassName="nm-meta-grid"
+                        metaCardClassName="nm-meta-card"
+                        metaSourceCardClassName="nm-meta-card--source"
+                        metaMarkClassName="nm-meta-mark"
+                        metaCopyClassName="nm-meta-copy"
+                        tagRowClassName="nm-tag-row"
+                        title={title}
+                        summary={summary}
+                        tags={tags}
+                        sourceMeta={sourceMeta}
+                        metricValue={metricValue}
+                        license={license}
+                        renderSection={false}
+                    />
 
-                    <div className="nm-hero-copy">
-                        <h1>{title}</h1>
-                        <p>{summary}</p>
-                    </div>
-
-                    <div className="nm-meta-grid">
+                    <div className="nm-meta-grid-legacy">
                         <article className={`nm-meta-card nm-meta-card--source ${sourceMeta.className}`}>
                             <div className="nm-meta-mark">{sourceMeta.mark}</div>
                             <div className="nm-meta-copy">
@@ -278,13 +289,13 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                         <MetaCard label="검증 런" value="ZeroGPU + RTX 5070" />
                     </div>
 
-                    <div className="nm-signal-grid">
+                    <div className="nm-signal-grid-legacy">
                         <SignalCard label="공식 처리량" value="34.7 pages/s" note="single A100 / multilingual 기준" />
                         <SignalCard label="로컬 warm" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} note={`${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s steady-state`} />
                         <SignalCard label="로컬 peak" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} note="RTX 5070 reserved peak" />
                     </div>
 
-                    <div className="nm-tag-row">
+                    <div className="nm-tag-row-legacy">
                         {tags.map((tag) => <span key={tag}>{tag}</span>)}
                         <span>{slug}</span>
                     </div>
@@ -295,6 +306,21 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                     title="실행 보드"
                     description={<>공개 Space 결과와 로컬 <TermHint term="merge mode" description="OCR이 감지한 박스들을 줄, 문단, 레이아웃 단위로 어떻게 묶어 최종 텍스트를 만드는지 정하는 옵션이야." /> 차이를 같은 보드에서 바로 본다.</>}
                 >
+                    <div className="nm-overview-stack">
+                        <article className="nm-card nm-overview-card">
+                            <div className="nm-card-head">
+                                <span className="nm-kicker">쇼케이스 개요</span>
+                                <span className="nm-pill">ZeroGPU + RTX 5070</span>
+                            </div>
+                            <p className="nm-result-note nm-overview-summary">{summary}</p>
+                        </article>
+
+                        <div className="nm-signal-grid">
+                            <SignalCard label="공식 처리량" value="34.7 pages/s" note="single A100 / multilingual 기준" />
+                            <SignalCard label="로컬 warm" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} note={`${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s steady-state`} />
+                            <SignalCard label="로컬 peak" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} note="RTX 5070 reserved peak" />
+                        </div>
+                    </div>
                     <div className="nm-case-tabs" role="tablist" aria-label="Nemotron OCR v2 demo views">
                         <DemoTab current={view} next="input" label="입력 카드" onSelect={setView} />
                         <DemoTab current={view} next="annotated" label="주석 결과" onSelect={setView} />
@@ -541,29 +567,15 @@ const showcaseCss = `
     color-mix(in srgb,var(--color-surface) 94%,var(--color-surface-alt));
   box-shadow:0 20px 48px rgba(0,0,0,.08)
 }
-.nm-hero-head{display:flex}
-.nm-showcase-label{
-  display:inline-flex;
-  align-items:center;
-  min-height:30px;
-  padding:0 12px;
-  border-radius:999px;
-  background:color-mix(in srgb,var(--color-projects) 14%,transparent);
-  color:var(--color-projects);
-  font-size:.74rem;
-  font-weight:900;
-  letter-spacing:.12em;
-  text-transform:uppercase
-}
 .nm-hero-copy{display:grid;gap:10px;min-width:0}
 .nm-hero-copy h1{
   margin:0;
-  color:var(--color-projects);
+  color:var(--color-text);
   font-size:clamp(2.4rem,6vw,5rem);
   font-weight:900;
   line-height:.96;
   letter-spacing:.02em;
-  text-transform:uppercase;
+  text-transform:none;
   overflow-wrap:anywhere;
   word-break:break-word
 }
@@ -608,6 +620,7 @@ const showcaseCss = `
 .nm-meta-card--source.github .nm-meta-mark{background:#24292f;color:#fff}
 .nm-meta-card--source.huggingface .nm-meta-mark{background:#ffd166;color:#3d2a00}
 .nm-meta-card--source.source .nm-meta-mark{background:var(--color-text);color:var(--color-surface)}
+.nm-meta-grid-legacy,.nm-signal-grid-legacy,.nm-tag-row-legacy{display:none}
 .nm-signal-grid{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .nm-signal-card,.nm-info-card,.nm-check-card,.nm-step-card,.nm-insight-card,.nm-compare-card,.nm-card{
   min-width:0;
@@ -690,6 +703,7 @@ const showcaseCss = `
   display:grid;
   gap:12px
 }
+.nm-overview-stack{display:grid;gap:14px;margin-bottom:16px}
 .nm-note-grid{grid-template-columns:minmax(0,1fr)}
 .nm-media-frame{margin:0;border:1px solid var(--color-border);border-radius:14px;overflow:hidden;background:#f2eee7}
 .nm-media-frame img{display:block;width:100%;height:auto}

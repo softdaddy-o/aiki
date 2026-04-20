@@ -261,6 +261,7 @@ export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, me
                         metaCopyClassName="nfi-meta-copy"
                         tagRowClassName="nfi-tag-row"
                         title={title}
+                        summary={summary}
                         tags={tags}
                         sourceMeta={sourceMeta}
                         metricValue={metricValue}
@@ -332,7 +333,7 @@ export default function NfiShowcase({ slug, title, summary, tags, sourceMeta, me
                         <div className="nfi-overview-stack">
                             <article className="nfi-repo-card">
                                 <p className="nfi-kicker">쇼케이스 개요</p>
-                                <p>{summary}</p>
+                                <p className="nfi-overview-summary">{summary}</p>
                                 <div className="nfi-link-row">
                                     {data.repo?.githubUrl && (
                                         <a href={data.repo.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
