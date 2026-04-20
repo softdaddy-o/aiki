@@ -90,7 +90,14 @@ const SHOWCASE_NATIVE = new Set([
     'hyperframes',
     'nemotron-ocr-v2',
 ]);
-const SHOWCASE_NATIVE_NARRATIVE = new Set(['hyperframes', 'nemotron-ocr-v2']);
+const SHOWCASE_NATIVE_NARRATIVE = new Set([
+    'yfinance',
+    'nfi',
+    'nautilus-trader',
+    'lightrag',
+    'hyperframes',
+    'nemotron-ocr-v2',
+]);
 const usesShowcaseNarrative = showcaseComponent ? SHOWCASE_NATIVE_NARRATIVE.has(showcaseComponent) : false;
 
 function formatStars(value: number): string {
@@ -150,7 +157,7 @@ const shareUrl = Astro.url.href;
         </header>
         )}
 
-        {showcaseComponent === 'yfinance' && (
+        {showcaseComponent === 'yfinance' && false && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-shell">
                     <div class="showcase-frame showcase-frame-with-nav">
@@ -165,7 +172,7 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
-        {showcaseComponent === 'nfi' && (
+        {showcaseComponent === 'nfi' && false && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-shell">
                     <div class="showcase-frame showcase-frame-with-nav">
@@ -180,7 +187,7 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
-        {showcaseComponent === 'nautilus-trader' && (
+        {showcaseComponent === 'nautilus-trader' && false && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-shell">
                     <div class="showcase-frame showcase-frame-with-nav">
@@ -195,7 +202,7 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
-        {showcaseComponent === 'lightrag' && (
+        {showcaseComponent === 'lightrag' && false && (
             <section class="showcase-area" aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
                 <div class="showcase-shell">
                     <div class="showcase-frame showcase-frame-with-nav">
@@ -205,6 +212,90 @@ const shareUrl = Astro.url.href;
                             <span>샘플 문서 인덱싱, 엔터티 관계 추출, reranker와 mix mode 감각, 서버 운영 포인트를 한 화면에서 정리했어.</span>
                         </header>
                         <LightRagShowcase client:load slug={entry.data.slug} />
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'yfinance' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav hf-frame">
+                        <YfinanceShowcase client:load slug={entry.data.slug} />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="yf-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'nfi' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav hf-frame">
+                        <NfiShowcase client:load slug={entry.data.slug} />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="nfi-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'nautilus-trader' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav hf-frame">
+                        <NautilusShowcase client:load slug={entry.data.slug} />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="nt-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'lightrag' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav hf-frame">
+                        <LightRagShowcase client:load slug={entry.data.slug} />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="lightrag-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>
@@ -647,7 +738,11 @@ const shareUrl = Astro.url.href;
         }
 
         .showcase-frame.hf-frame :global(.hf-main),
-        .showcase-frame.hf-frame :global(.nm-main) {
+        .showcase-frame.hf-frame :global(.nm-main),
+        .showcase-frame.hf-frame :global(.yf-showcase-main),
+        .showcase-frame.hf-frame :global(.nfi-showcase-main),
+        .showcase-frame.hf-frame :global(.nt-showcase-main),
+        .showcase-frame.hf-frame :global(.lr-main) {
             grid-column: 1;
         }
 

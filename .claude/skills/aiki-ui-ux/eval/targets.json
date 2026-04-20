@@ -1,7 +1,9 @@
 [
   { "url": "/ko/projects/hyperframes/", "type": "showcase-native", "note": "floating nav + wide shell" },
-  { "url": "/ko/projects/nostalgia-for-infinity/", "type": "standard", "note": "standard project showcase" },
-  { "url": "/ko/projects/yfinance/", "type": "standard", "note": "standard project showcase" },
+  { "url": "/ko/projects/nostalgia-for-infinity/", "type": "showcase-native", "note": "native showcase shell" },
+  { "url": "/ko/projects/yfinance/", "type": "showcase-native", "note": "native showcase shell" },
+  { "url": "/ko/projects/nautilus-trader/", "type": "showcase-native", "note": "native showcase shell" },
+  { "url": "/ko/projects/lightrag/", "type": "showcase-native", "note": "native showcase shell" },
   { "url": "/ko/projects/nemotron-ocr-v2/", "type": "showcase-native", "note": "floating nav + wide shell" },
   { "url": "/ko/news/", "type": "standard", "note": "news index" },
   { "url": "/ko/wiki/agent/", "type": "standard", "note": "wiki entry" }

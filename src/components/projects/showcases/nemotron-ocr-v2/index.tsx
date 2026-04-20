@@ -235,7 +235,7 @@ const EXTRACTED_LINES = DEMO.extractedText.split('\n').filter(Boolean);
 
 export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
     const { title, summary, tags, sourceMeta, metricValue, license, slug } = props;
-    const [view, setView] = useState<DemoView>('annotated');
+    const [view, setView] = useState<DemoView>('input');
 
     const { activeId, scrollToSection } = useShowcaseSectionNav<SectionId>({
         ids: SECTIONS.map((section) => section.id),
@@ -291,8 +291,8 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
 
                 <Panel id={`${SECTION_PREFIX}cases`} title="실행 보드">
                     <div className="nm-case-tabs" role="tablist" aria-label="Nemotron OCR v2 demo views">
-                        <DemoTab current={view} next="annotated" label="주석 결과" onSelect={setView} />
                         <DemoTab current={view} next="input" label="입력 카드" onSelect={setView} />
+                        <DemoTab current={view} next="annotated" label="주석 결과" onSelect={setView} />
                         <DemoTab current={view} next="text" label="추출 텍스트" onSelect={setView} />
                         <DemoTab current={view} next="checks" label="체크 포인트" onSelect={setView} />
                     </div>
