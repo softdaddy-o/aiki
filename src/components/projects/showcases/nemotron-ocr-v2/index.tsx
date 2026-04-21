@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import ShowcaseZoomImage, { showcaseZoomImageCss } from '../ShowcaseZoomImage';
 import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 
@@ -337,14 +338,14 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
 
                             {view === 'annotated' && (
                                 <figure className="nm-media-frame">
-                                    <img alt="Nemotron OCR v2 주석 결과 미리보기" src={DEMO.annotatedSrc} />
+                                    <ShowcaseZoomImage src={DEMO.annotatedSrc} alt="Nemotron OCR v2 주석 결과 미리보기" buttonClassName="nm-media-zoom" />
                                     <figcaption>실제 Space 출력에서 박스 감지와 읽기 순서를 같이 확인하는 보드.</figcaption>
                                 </figure>
                             )}
 
                             {view === 'input' && (
                                 <figure className="nm-media-frame">
-                                    <img alt="Nemotron OCR v2 입력 카드" src={DEMO.inputSrc} />
+                                    <ShowcaseZoomImage src={DEMO.inputSrc} alt="Nemotron OCR v2 입력 카드" buttonClassName="nm-media-zoom" />
                                     <figcaption>한글 본문, 영문 코드, 숫자, 이름을 한 장에 섞은 synthetic card.</figcaption>
                                 </figure>
                             )}
@@ -550,6 +551,7 @@ function Insight({ item, className = '' }: { item: InsightCard; className?: stri
 }
 
 const showcaseCss = `
+${showcaseZoomImageCss}
 .nm-showcase{display:contents;color:var(--color-text)}
 .nm-main{grid-column:2;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
 .nm-hero,.nm-panel{min-width:0}
@@ -701,6 +703,8 @@ const showcaseCss = `
 .nm-overview-stack{display:grid;gap:14px;margin-bottom:16px}
 .nm-note-grid{grid-template-columns:minmax(0,1fr)}
 .nm-media-frame{margin:0;border:1px solid var(--color-border);border-radius:14px;overflow:hidden;background:#f2eee7}
+.nm-media-zoom{display:block}
+.nm-media-zoom:focus-visible{outline-offset:-3px}
 .nm-media-frame img{display:block;width:100%;height:auto}
 .nm-media-frame figcaption{
   padding:12px 14px;

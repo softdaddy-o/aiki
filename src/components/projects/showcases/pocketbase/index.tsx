@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import ShowcaseMetaHero from '../ShowcaseMetaHero';
 import ShowcaseSectionNav from '../ShowcaseSectionNav';
+import ShowcaseZoomImage, { showcaseZoomImageCss } from '../ShowcaseZoomImage';
 import TermHint from '../TermHint';
 import useShowcaseSectionNav from '../useShowcaseSectionNav';
 import { createSharedShowcaseChromeCss } from '../sharedShowcaseCss';
@@ -255,7 +256,6 @@ const TAKE_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: 'repo sample이 설명용 문서가 아니라 실제 배포 바이너리와 거의 붙어 있다.',
         body: 'README가 가리키는 `examples/base/main.go` 계열이 곧 release binary라서, sample과 실전 출발점 사이 거리가 짧다.',
-        tone: 'accent',
     },
     {
         title: 'Admin CRUD는 collection만 잡으면 바로 운영 가능한 수준까지 나온다.',
@@ -611,7 +611,12 @@ function ScreenshotPanelCard({ item }: { item: ScreenshotCard }) {
     return (
         <article className="pb-shot-card">
             <CardHeader kicker={item.kicker} title={item.title} />
-            <img className="pb-shot" src={item.src} alt={item.alt} loading="lazy" />
+            <ShowcaseZoomImage
+                src={item.src}
+                alt={item.alt}
+                buttonClassName="pb-shot-trigger"
+                imgClassName="pb-shot"
+            />
             <code className="pb-path">{item.path}</code>
             <p>{item.body}</p>
             <div className="pb-chip-row">
@@ -641,6 +646,7 @@ function CodePanelCard({ item }: { item: CodeCard }) {
 }
 
 const showcaseCss = `
+${showcaseZoomImageCss}
 ${createSharedShowcaseChromeCss({
     rootClass: 'pb-showcase',
     heroClass: 'pb-hero',
@@ -684,6 +690,7 @@ ${createSharedShowcaseChromeCss({
 .pb-card p,.pb-step-card p,.pb-compare-card p span,.pb-shot-card p,.pb-code-card p{margin:0;line-height:1.7;word-break:keep-all}
 .pb-muted-copy{color:var(--color-text-muted);font-size:.9rem}
 .pb-card pre,.pb-code-card pre,.pb-step-card code{display:block;margin:0;max-width:100%;min-width:0;overflow:auto;border-radius:12px;background:var(--color-surface-alt);padding:12px;color:var(--color-projects);font-size:.8rem;line-height:1.6}
+.pb-shot-trigger{border-radius:10px}
 .pb-shot{display:block;width:100%;height:auto;border:1px solid color-mix(in srgb,var(--color-border) 88%,transparent);border-radius:10px}
 .pb-path{display:block;margin:0;padding:0;background:transparent;color:var(--color-text-muted);font-size:.78rem}
 .pb-split-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
