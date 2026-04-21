@@ -34,7 +34,7 @@ relatedTerms:
   - gpt-4o
   - o3
 mentionCount: 0
-draft: false
+draft: true
 tags:
   - image-generation
   - openai
@@ -93,5 +93,5 @@ DALL-E는 [OpenAI](/ko/wiki/openai/)가 만든 텍스트-이미지 생성 모델
 DALL-E가 중요한 이유는 텍스트-이미지 생성이 연구 데모를 넘어서 일반 사용자가 바로 만지는 AI 기능이 될 수 있다는 걸 크게 보여줬기 때문이야. 지금은 더 많은 경쟁 모델이 생겼어도, 기사에서 DALL-E가 언급되면 보통 [OpenAI](/ko/wiki/openai/)의 이미지 생성 라인업이나 프롬프트 충실도 경쟁을 가리키는 경우가 많아.
 ## 같이 보면 좋은 모델
 - [GPT-4o](/ko/wiki/gpt-4o/): 이미지를 이해하고 생성 맥락까지 묶어서 보는 데 좋아. DALL-E보다 더 넓은 [멀티모달](/ko/wiki/multimodal/) 제품 흐름을 같이 읽게 해.
-- `FLUX.1`: 고품질 이미지 생성과 [로컬](/ko/wiki/local-llm/) 워크플로 쪽에서 자주 비교돼. API 중심인 DALL-E와 배포 방식 차이를 보기 좋아.
+- [FLUX.1](/ko/wiki/flux/): 고품질 이미지 생성과 [로컬](/ko/wiki/local-llm/) 워크플로 쪽에서 자주 비교돼. API 중심인 DALL-E와 배포 방식 차이를 보기 좋아.
 - [Stable Diffusion](/ko/wiki/stable-diffusion/): 오픈 생태계 대표축이야. DALL-E와 비교하면 클라우드 제품 중심과 [로컬](/ko/wiki/local-llm/) 커뮤니티 중심의 차이가 선명해져.
