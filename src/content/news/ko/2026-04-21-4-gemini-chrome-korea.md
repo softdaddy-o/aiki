@@ -1,91 +1,131 @@
 ---
-title: "Google, 한국에 Gemini in Chrome 정식 출시 — Gemini 3.1 기반 탭 비교·이미지 변환"
-date: "2026-04-21T09:30:00+09:00"
+title: 'Google, 한국 포함 7개국에 Gemini in Chrome 출시'
+date: '2026-04-21T09:30:00+09:00'
 lang: ko
 category: news
-summary: "Google이 한국을 포함한 7개국에 Gemini in Chrome을 정식 출시했다. Gemini 3.1 모델 기반으로 탭 간 정보 비교, 브라우저 내 이미지 변환, Gmail·Calendar·YouTube 연동 등을 지원한다."
-readerValue: "Gemini in Chrome으로 브라우저 기반 AI 업무 워크플로우를 어떻게 구성할 수 있는지 판단하게 해준다."
-sourceUrl: "https://techcrunch.com/2026/04/20/google-rolls-out-gemini-in-chrome-in-seven-new-countries/"
-sourceTitle: "TechCrunch"
-draft: false
+summary: >-
+  Gemini in Chrome은 Chrome 안에서 탭 내용을 비교하고, 웹 이미지를 바꾸고, Gmail·Calendar·YouTube 같은
+  Google 서비스를 바로 다루는 브라우저 내 AI 기능이다. Google이 2026년 4월 20일 한국 포함 7개국으로 이를 확대했다.
+readerValue: >-
+  Gemini in Chrome이 기존 Gemini 앱·확장형 도구와 어떻게 다르고, 누가 지금 써보고 누가 더 기다릴지 빠르게 판단하게
+  해준다.
+sourceUrl: >-
+  https://techcrunch.com/2026/04/20/google-rolls-out-gemini-in-chrome-in-seven-new-countries/
+sourceTitle: TechCrunch
+draft: true
 score: 90
 sourceCount: 5
 factCheck:
   status: passed
-  date: "2026-04-21"
+  date: '2026-04-21'
   sources:
-    - url: "https://techcrunch.com/2026/04/20/google-rolls-out-gemini-in-chrome-in-seven-new-countries/"
-      title: "TechCrunch — Gemini in Chrome 7 new countries"
-    - url: "https://www.engadget.com/ai/google-brings-gemini-in-chrome-to-users-in-australia-japan-singapore-and-south-korea-220000474.html"
-      title: "Engadget — Gemini in Chrome Korea launch"
-    - url: "https://9to5google.com/2026/04/20/gemini-chrome-more-countries/"
-      title: "9to5Google — Gemini Chrome expansion"
-    - url: "https://blog.google/products-and-platforms/products/chrome/chrome-expands-apac/"
-      title: "Google Blog — Chrome expands APAC"
+    - url: >-
+        https://techcrunch.com/2026/04/20/google-rolls-out-gemini-in-chrome-in-seven-new-countries/
+      title: TechCrunch — Gemini in Chrome 7 new countries
+    - url: >-
+        https://www.engadget.com/ai/google-brings-gemini-in-chrome-to-users-in-australia-japan-singapore-and-south-korea-220000474.html
+      title: Engadget — Gemini in Chrome Korea launch
+    - url: 'https://9to5google.com/2026/04/20/gemini-chrome-more-countries/'
+      title: 9to5Google — Gemini Chrome expansion
+    - url: >-
+        https://blog.google/products-and-platforms/products/chrome/chrome-expands-apac/
+      title: Google Blog — Chrome expands APAC
+    - url: >-
+        https://blog.google/products-and-platforms/products/chrome/chrome-expands-india-new-zealand-canada/
+      title: 'Google Blog — Chrome expands India, New Zealand and Canada'
   checks:
     - type: source_match
       result: pass
-      summary: "7개국 확장, Gemini 3.1 기반, Gmail·Maps·Calendar·YouTube 연동, iOS/데스크탑 우선 출시 모두 복수 출처에서 확인됐어."
+      summary: >-
+        핵심 출시 사실은 역할별 출처로 다시 맞췄어. 국가 확대는 보도 기사, 기능 범위는 Google 공식 발표, Gemini 3.1
+        표현은 3월 공식 지역 확대 글에서 확인했어.
       items:
-        - "7개국(한국·호주·일본·싱가포르·인도네시아·필리핀·베트남) — TechCrunch 및 Engadget 확인"
-        - "Gemini 3.1 모델 — BigGo Finance 기사에서 확인"
-        - "Gmail·Maps·Calendar·YouTube 연동 — Engadget 기능 목록에서 확인"
+        - >-
+          7개국(한국·호주·일본·싱가포르·인도네시아·필리핀·베트남) 확대 — TechCrunch, Engadget, 9to5Google
+          대조
+        - >-
+          탭 비교·Nano Banana 2 이미지 변환·Gmail·Maps·Calendar·YouTube 연동 — Google APAC
+          발표와 9to5Google 기능 목록 대조
+        - Gemini 3.1 기반 표현 — Google의 3월 인도·뉴질랜드·캐나다 확대 발표 원문에서 직접 확인
     - type: web_cross_check
       result: pass
       sources: 5
-      summary: "TechCrunch, Engadget, 9to5Google, Google 공식 블로그, BigGo Finance 5개 독립 출처에서 확인됐어."
+      summary: >-
+        출처별 표현 차이가 해석을 바꾸는 지점만 따로 걸렀어. 'APAC 확대'라는 큰 표현과 실제 7개국 목록, 일본 iOS 예외,
+        미국 한정 실험 기능은 분리해서 읽어야 해.
       items:
-        - "Google 공식 블로그(blog.google)에서 APAC 확장 공식 발표 확인"
-        - "Engadget에서 한국 포함 4개국 명시 확인"
-        - "9to5Google에서 일본 iOS 제외(데스크탑만) 세부 사항 확인"
+        - >-
+          Google APAC 발표는 지역 확장 공지고, 구체 국가 목록은 TechCrunch·Engadget·9to5Google
+          기사에서 7개국으로 확인
+        - TechCrunch·9to5Google·Google APAC 발표 각주 모두 일본 iOS 제외를 명시
+        - >-
+          TechCrunch는 브라우저 제어형 agentic 기능이 미국 AI Pro·Ultra 테스트 단계라고 밝혀 현재 한국 출시
+          범위와 구분해야 함
     - type: number_verify
       result: pass
-      summary: "7개국은 TechCrunch에서 확인됐고, Gemini 3.1은 BigGo Finance, 일본 iOS 제외는 9to5Google에서 확인됐어."
+      summary: >-
+        숫자와 범위 표현은 항목별로 다시 셌어. 국가 수, 플랫폼 예외, 버전 표기는 서로 다른 문서에서 확인되는 항목이라 한 문장으로
+        뭉뚱그리지 않았어.
       items:
-        - "7개국 — TechCrunch 제목에서 직접 확인"
-        - "Gemini 3.1 — BigGo Finance 기사에서 모델 버전 명시"
-        - "일본 iOS 제외 — 9to5Google 및 Google 공식 발표에서 확인"
+        - 7개국 — TechCrunch 본문과 Engadget 국가 목록 일치
+        - '일본 iOS 제외 — TechCrunch, 9to5Google, Google APAC 발표 각주 일치'
+        - Gemini 3.1 — Google 3월 지역 확대 발표 원문 명시
     - type: adversarial
       result: pass
-      summary: "Prism News는 '8개 Asia-Pacific 시장'으로 보도했거든 — 7개국과 차이가 있어. 기능 상세는 국가별 달라질 수 있어."
+      summary: >-
+        실사용 판단에 필요한 제한과 과장 가능성도 같이 적었어. 브라우저 내장형의 장점은 분명하지만, 플랫폼 범위와 데이터 맥락 노출
+        범위는 별도로 봐야 해.
       items:
-        - "Prism News '8 Asia-Pacific markets' vs TechCrunch '7 new countries' 불일치 존재"
-        - "기능 가용성은 Google 계정 설정 및 국가별 약관에 따라 다를 수 있음"
-        - "Gemini 3.1 버전명은 공식 발표 원문이 아닌 제3자 보도 기준"
+        - '안드로이드는 이번 기사 기준 즉시 대상이 아니고, 한국 확대도 데스크탑·iOS 중심으로 읽는 편이 안전함'
+        - 현재 탭과 연결 앱 맥락을 읽는 구조라 Gmail·Calendar를 업무 계정에 붙일 때는 개인정보·정확도 검토가 필요함
+        - 브라우저를 대신 조작하는 agentic 기능은 미국 유료 플랜 테스트 단계라 이번 한국 확대와 동일선상으로 보면 과장
       findings:
-        - "보도 소스별 국가 수 7개 vs 8개 불일치 — Google 공식 블로그 기준 확인 권장"
-tags: ["google", "gemini", "chrome", "browser-ai", "productivity"]
+        - 'Google 공식 발표를 기준으로 읽되, 실제 체감 기능 범위는 계정 설정·기기·국가 예외에 따라 달라질 수 있음'
+tags:
+  - google
+  - gemini
+  - chrome
+  - browser-ai
+  - productivity
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  common: 1.0.0
+  news: 2.1.0
 formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.3.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.3.0
+    structure-editor: 1.1.0
   panelVerdict: pass
-  contentHash: "511d0b1d5e27cd47"
-  reviewedAt: "2026-04-21"
+  contentHash: 511d0b1d5e27cd47
+  reviewedAt: '2026-04-21'
 ---
 
-Google이 2026년 4월 20일 한국에 Gemini in Chrome을 정식 출시했어. 호주, 일본, 싱가포르, 인도네시아, 필리핀, 베트남과 함께 7개국 동시 확장이야. [Engadget](https://www.engadget.com/ai/google-brings-gemini-in-chrome-to-users-in-australia-japan-singapore-and-south-korea-220000474.html)에 따르면 Gemini 3.1 모델 기반이야.
+Gemini in Chrome은 Chrome 안에서 탭 내용 비교, 웹 이미지 변환, Gmail·Calendar·YouTube 같은 Google 서비스 작업을 바로 처리하는 브라우저 내 AI 기능이야. 별도 [Gemini](/ko/wiki/gemini/) 앱이나 웹을 열어 복사해 붙여넣는 방식과 달리, 지금 보고 있는 탭과 여러 탭의 맥락을 Chrome 안에서 바로 쓴다는 점이 핵심이야. Google은 2026년 4월 20일 이 기능을 한국을 포함한 7개국으로 확대했고, Google은 3월 지역 확대 발표에서 같은 기능군을 Gemini 3.1 기반으로 소개했어.
 
 ## 어떤 기능이 들어왔나
 
-세 가지가 눈에 들어와.
+세 가지가 특히 실사용에 가깝게 보이네.
 
-- **탭 비교**: 여러 탭에 흩어진 정보를 교차 비교해 표로 묶어줘. 쇼핑 비교나 문서 교차 검토에 바로 쓸 수 있어.
-- **브라우저 내 이미지 변환**: 지금 보고 있는 이미지를 별도 업로드 없이 브라우저 안에서 직접 변환할 수 있어.
-- **Google 앱 연동**: Gmail·Maps·Calendar·YouTube와 연결돼서 탭 이동 없이 이메일 초안 작성, 일정 추가, 영상 요약까지 한 화면에서 처리할 수 있어.
+- **탭 비교**: 여러 탭에 흩어진 가격표, 정책 문서, 제품 스펙을 교차 비교해 표로 묶어줘. 리서치 정리나 구매 후보 압축처럼 탭이 많을수록 이점이 커.
+- **브라우저 내 이미지 변환**: 지금 보고 있는 이미지를 따로 저장하거나 다시 올리지 않고 브라우저 안에서 바로 바꿀 수 있어. 시안 참고 이미지나 상품 컷을 보다가 변형 방향을 빠르게 확인하는 식에 맞아.
+- **Google 앱 연동**: Gmail·Maps·Calendar·YouTube와 연결돼서 페이지를 보던 흐름에서 메일 초안 작성, 일정 추가, 영상 내용 질문까지 한 화면에서 이어갈 수 있어.
 
 ## 지금 쓸 수 있나
 
-데스크탑과 iOS에서 먼저 쓸 수 있고, 안드로이드 지원은 추후 추가될 예정이야. [9to5Google](https://9to5google.com/2026/04/20/gemini-chrome-more-countries/)에 따르면 일본은 iOS 제외, 데스크탑 버전만 우선 출시됐어. 크롬을 업데이트하면 바로 사용 가능하고, 별도 확장 설치는 필요 없어.
+데스크탑과 iOS에서 먼저 쓰는 그림이 분명하고, 안드로이드는 아직 이번 확대의 중심이 아니야. [9to5Google](https://9to5google.com/2026/04/20/gemini-chrome-more-countries/)과 Google 공식 발표를 보면 일본은 iOS 제외, 데스크탑 우선이야. 크롬 안에 바로 붙는 점은 편하지만, 그만큼 현재 탭과 연결 앱의 맥락을 직접 읽는 구조라 민감한 메일·일정·고객 정보를 다루는 사람은 계정 연결 범위를 더 신중하게 봐야 해. 또 Google이 말하는 브라우저 제어형 자동 작업은 아직 미국 AI Pro·Ultra 테스트 단계라, 한국 사용자가 지금 바로 '클릭까지 대신하는 브라우저 AI'를 기대하면 범위를 넘겨 읽는 셈이야.
 
-## 실무 워크플로우에 어떤 변화가 오나
+## 지금 써볼 사람, 아직 기다릴 사람
 
-브라우저 기반 AI 통합은 별도 앱 없이 Chrome 하나로 AI 업무 루프를 돌릴 수 있다는 뜻이야. 리서치→비교→문서 작성→이메일 전송 사이클이 탭 전환 없이 Gemini 한 곳에서 끊기지 않고 흘러가는 구조가 되는 거거든. 업무 자동화에 관심 있다면 지금 바로 설정해볼 만해.
+### 지금 써볼 사람
+
+- 데스크탑 Chrome에서 리서치 탭을 여러 개 열어두고 비교표, 요약, 후보 압축을 자주 만드는 사람.
+- Gmail·Calendar·YouTube를 이미 같이 쓰는 PM, 마케터, 운영 담당자처럼 페이지 맥락에서 바로 메일·일정 작업까지 이어가고 싶은 사람.
+
+### 아직 기다릴 사람
+
+- 안드로이드 브라우저 중심으로 일하거나, 모바일에서만 AI 보조를 쓰는 사람. 이번 확대는 데스크탑·iOS 체감이 더 크다.
+- 현재 탭 맥락 공유나 Google 계정 연결이 부담스러운 사람. 이미 기존 Gemini 앱·웹이나 확장형 요약 도구로 충분하면 굳이 지금 갈아탈 이유는 약해.
