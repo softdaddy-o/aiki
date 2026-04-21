@@ -57,15 +57,30 @@ factCheck:
 tags: ["google", "gemini", "chrome", "browser-ai", "productivity"]
 guideVersion:
   common: "1.0.0"
-  news: "2.0.0"
+  news: "2.1.0"
 formatVersion: 2
+reviewStamp:
+  panelVersion: "1.0.0"
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.3.0"
+    structure-editor: "1.1.0"
+  panelVerdict: pass
+  contentHash: "511d0b1d5e27cd47"
+  reviewedAt: "2026-04-21"
 ---
 
 Google이 2026년 4월 20일 한국에 Gemini in Chrome을 정식 출시했어. 호주, 일본, 싱가포르, 인도네시아, 필리핀, 베트남과 함께 7개국 동시 확장이야. [Engadget](https://www.engadget.com/ai/google-brings-gemini-in-chrome-to-users-in-australia-japan-singapore-and-south-korea-220000474.html)에 따르면 Gemini 3.1 모델 기반이야.
 
 ## 어떤 기능이 들어왔나
 
-세 가지가 눈에 들어와. 첫째, 여러 탭에 흩어진 정보를 교차 비교해 표로 묶어주는 탭 비교 기능. 쇼핑 비교나 문서 교차 검토에 바로 쓸 수 있어. 둘째, 현재 보고 있는 이미지를 별도 업로드 없이 브라우저 안에서 직접 변환하는 기능. 셋째, Gmail·Maps·Calendar·YouTube와 연동해서 탭 이동 없이 이메일 초안 작성, 일정 추가, 영상 요약까지 한 화면에서 처리할 수 있어.
+세 가지가 눈에 들어와.
+
+- **탭 비교**: 여러 탭에 흩어진 정보를 교차 비교해 표로 묶어줘. 쇼핑 비교나 문서 교차 검토에 바로 쓸 수 있어.
+- **브라우저 내 이미지 변환**: 지금 보고 있는 이미지를 별도 업로드 없이 브라우저 안에서 직접 변환할 수 있어.
+- **Google 앱 연동**: Gmail·Maps·Calendar·YouTube와 연결돼서 탭 이동 없이 이메일 초안 작성, 일정 추가, 영상 요약까지 한 화면에서 처리할 수 있어.
 
 ## 지금 쓸 수 있나
 

@@ -30,6 +30,7 @@ Evaluate these criteria:
 6. Frontmatter summary and readerValue must align with the body.
 7. The body should have balanced length. A single bloated section plus empty sections is a structure failure.
 8. News content, when reviewed, should follow a clear four-paragraph path: what happened, why it matters, limits/context, outlook.
+8a. When a section enumerates three or more features, options, steps, or comparison points, it should usually switch to a markdown bullet list instead of burying them in one dense paragraph.
 9. Model pages should have modelProfile data when relevant and should not confuse a model family with a version.
 10. Project pages should explain what the project does, who it helps, the concrete workflow or demo surface, and why it belongs in the AI project showcase. They need githubUrl, category, readerValue, tags, and a body that is more than a repository card.
 11. Project pages should move quickly from definition to decision: who should test it now, who should skip it, and what concrete workflow or quick test proves the point.
@@ -43,6 +44,7 @@ Fail the review when any of these are true:
 
 - Required sections or frontmatter are missing.
 - Multiple sections repeat the same sentence structure or idea.
+- A section crams three or more practical items into one paragraph when a bullet list would make the scan path clearer.
 - Related terms are missing or generic.
 - The page mentions an existing concept, tool, model, or project in a way that should obviously link to an existing page, but no inline link or related link is provided.
 - modelProfile or model/version structure is missing when the category requires it.
