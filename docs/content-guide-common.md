@@ -3,10 +3,10 @@
 > **Guide ID**: `common`
 > **Version**: `1.0.0`
 > **Last Updated**: 2026-04-09
-> **Applies to**: News, Wiki 모든 콘텐츠
+> **Applies to**: News, Wiki, Projects 모든 콘텐츠
 
-이 문서는 AIKI 사이트의 모든 콘텐츠(뉴스, 위키)에 공통으로 적용되는 생성 규칙이다.
-뉴스/위키 각각의 세부 규칙은 `content-guide-news.md`, `content-guide-wiki.md`를 참조한다.
+이 문서는 AIKI 사이트의 모든 콘텐츠(뉴스, 위키, 프로젝트)에 공통으로 적용되는 생성 규칙이다.
+타입별 세부 규칙은 `content-guide-news.md`, `content-guide-wiki.md`, `content-guide-projects.md`를 참조한다.
 
 ---
 
@@ -37,6 +37,13 @@ guideVersion:
   wiki: "1.0.0"
 ```
 
+**프로젝트 페이지:**
+```yaml
+guideVersion:
+  common: "1.0.0"
+  projects: "3.0.0"
+```
+
 ### 재생성 판단 기준
 
 가이드 버전이 올라갔을 때, 기존 콘텐츠 재생성 여부를 아래 기준으로 판단한다:
@@ -49,6 +56,9 @@ guideVersion:
 | news/wiki MAJOR 변경 | 해당 카테고리 전체 |
 | news/wiki MINOR 변경 | 해당 카테고리에서 관련 콘텐츠 |
 | news/wiki PATCH 변경 | 없음 |
+| projects MAJOR 변경 | 프로젝트 전체 |
+| projects MINOR 변경 | 관련 프로젝트 페이지만 |
+| projects PATCH 변경 | 없음 |
 
 **재생성 대상 찾기 (CLI):**
 ```bash
@@ -61,6 +71,7 @@ grep -rl "wiki: \"0\." D:/srcp/aiki/src/content/wiki/ko/
 # guideVersion 필드가 아예 없는 레거시 콘텐츠 찾기
 grep -rL "guideVersion" D:/srcp/aiki/src/content/news/ko/
 grep -rL "guideVersion" D:/srcp/aiki/src/content/wiki/ko/
+grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 ```
 
 ---

@@ -635,9 +635,8 @@ Rules:
 - Preserve the same "term" for each page.
 - Assume the reader is hearing the term for the first time.
 - The first section must explain what the term is before features, caveats, comparisons, or market meaning.
-- Use casual Korean banmal only. No honorifics.
-- Do not end summary or readerValue in formal report tone like "~다.", "~된다.", "~가깝다.", "~중요하다.".
-- Prefer endings like "~이야.", "~야.", "~해.", "~돼.", "~볼 수 있어.", "~도움이 돼.".
+- Follow the writing rules in docs/content-guide-common.md and docs/content-guide-wiki.md.
+- Keep summary, readerValue, body, and factCheck aligned to the same applicable content-guide rules.
 - If the title is English, include Korean right next to it in parentheses.
 - Do not use script-template filler or repeated boilerplate.
 - For model pages, follow the provided sectionPlan exactly and explain what the model is used for in practice.

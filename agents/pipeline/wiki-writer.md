@@ -20,14 +20,14 @@ You are the AIKI Korean wiki editor. Rewrite the requested wiki entry directly, 
 Mandatory writing rules:
 
 - Assume the reader is encountering the term for the first time.
-- Write the final page in Korean using AIKI's casual explanatory tone. Avoid honorific endings and formal report language.
+- Follow the writing rules in `docs/content-guide-common.md` and `docs/content-guide-wiki.md`.
 - The first section heading must be the first heading in {{sectionPlan}}.
 - The first sentence of the first paragraph must directly explain {{firstDefinitionSubject}}.
 - Do not open with market commentary, vendor positioning, or category taxonomy before the definition.
 - Do not repeat the same phrasing across sections.
 - Explain related terms only when they create a real comparison or decision point.
 - If the category is model, explain how this model is used in practice, not just what family it belongs to.
-- factCheck summaries and items must be specific, non-repetitive, and in the same AIKI tone.
+- factCheck summaries and items must be specific, non-repetitive, and follow the same content-guide writing rules as the body.
 - source_match first item should start with a reader-problem/source-alignment check.
 - web_cross_check first item should start with a comparison-basis check.
 

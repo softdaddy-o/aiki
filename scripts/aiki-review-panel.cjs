@@ -13,9 +13,82 @@ const WIKI_DIR = path.join(REPO_ROOT, 'src', 'content', 'wiki', 'ko');
 const NEWS_DIR = path.join(REPO_ROOT, 'src', 'content', 'news', 'ko');
 const PROJECTS_DIR = path.join(REPO_ROOT, 'src', 'content', 'projects', 'ko');
 const BATCH_DIR = path.join(REPO_ROOT, 'data', 'review-batch');
+const GUIDE_FILES = {
+    common: path.join(REPO_ROOT, 'docs', 'content-guide-common.md'),
+    news: path.join(REPO_ROOT, 'docs', 'content-guide-news.md'),
+    wiki: path.join(REPO_ROOT, 'docs', 'content-guide-wiki.md'),
+    projects: path.join(REPO_ROOT, 'docs', 'content-guide-projects.md'),
+};
 const TODAY = new Date().toISOString().slice(0, 10);
 const MAX_ROUNDS = 3;
 const RUN_ID = `${TODAY}-${process.pid}`;
+
+function readGuideVersion(filePath, fallback = '0.0.0') {
+    try {
+        const text = fs.readFileSync(filePath, 'utf8');
+        const match = text.match(/\*\*Version\*\*[:\s]+`([^`]+)`/);
+        return match ? match[1] : fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+function extractGuideSection(text, heading) {
+    const start = text.indexOf(heading);
+    if (start < 0) return '';
+    const rest = text.slice(start);
+    const nextHeadingMatch = rest.slice(heading.length).match(/\n##\s+/);
+    if (!nextHeadingMatch) return rest.trim();
+    return rest.slice(0, heading.length + nextHeadingMatch.index).trim();
+}
+
+function getPanelContentType(panelName) {
+    if (panelName === 'news-review') return 'news';
+    if (panelName === 'project-review') return 'projects';
+    return 'wiki';
+}
+
+function buildGuideContext(contentType) {
+    const commonText = fs.readFileSync(GUIDE_FILES.common, 'utf8');
+    const typeFile = GUIDE_FILES[contentType];
+    const typeText = fs.readFileSync(typeFile, 'utf8');
+    const typeHeadingMap = {
+        news: ['## 9. 톤 검증'],
+        wiki: ['## 5. 문체 규칙'],
+        projects: ['## 3. 프로젝트 카피 규칙', '## 4. 리뷰 체크포인트'],
+    };
+
+    const sections = [
+        {
+            label: 'Common',
+            filePath: path.relative(REPO_ROOT, GUIDE_FILES.common).replace(/\\/g, '/'),
+            version: readGuideVersion(GUIDE_FILES.common),
+            body: [extractGuideSection(commonText, '## 3. 톤 & 문체')].filter(Boolean).join('\n\n'),
+        },
+        {
+            label: contentType,
+            filePath: path.relative(REPO_ROOT, typeFile).replace(/\\/g, '/'),
+            version: readGuideVersion(typeFile),
+            body: (typeHeadingMap[contentType] || [])
+                .map((heading) => extractGuideSection(typeText, heading))
+                .filter(Boolean)
+                .join('\n\n'),
+        },
+    ];
+
+    return sections
+        .filter((section) => section.body)
+        .map((section) => `=== ${section.label.toUpperCase()} GUIDE (${section.filePath} v${section.version}) ===\n${section.body}`)
+        .join('\n\n');
+}
+
+function getCurrentGuideVersions(contentType) {
+    const typeKey = contentType === 'projects' ? 'projects' : contentType;
+    return {
+        common: readGuideVersion(GUIDE_FILES.common),
+        [typeKey]: readGuideVersion(GUIDE_FILES[typeKey]),
+    };
+}
 
 function parseListArg(args, name) {
     const index = args.indexOf(name);
@@ -250,12 +323,16 @@ function composeReviewPrompt(panel, batchInputRelativePath) {
         `=== REVIEWER ${index + 1}: ${agent.name} (${agent.id}) ===\n\n${agent.systemPrompt}`
     )).join('\n\n');
     const roleIds = panel.agents.map((agent) => agent.id.replace(/-/g, '_')).join(', ');
+    const guideContext = buildGuideContext(getPanelContentType(panel.name));
 
     return `
 You are the AIKI role-based editorial review panel.
 
 Read the JSON file at "${batchInputRelativePath}". It contains { "pages": [...] } review inputs.
 For each page, produce one panel result with exactly ${panel.agents.length} reviewer outputs.
+
+=== Guide Context ===
+${guideContext}
 
 ${reviewerSections}
 
@@ -459,12 +536,6 @@ function getContentTypeFromFilepath(filepath) {
     return 'wiki';
 }
 
-function getGuideVersionKey(contentType) {
-    if (contentType === 'news') return 'news';
-    if (contentType === 'projects') return 'projects';
-    return 'wiki';
-}
-
 function writeReviewStamp(filepath, panelResult, panel) {
     const raw = fs.readFileSync(filepath, 'utf8');
     const agentVersions = {};
@@ -480,18 +551,26 @@ function writeReviewStamp(filepath, panelResult, panel) {
 
     let frontmatter = match[1];
     const body = match[2];
-    const guideKey = getGuideVersionKey(getContentTypeFromFilepath(filepath));
+    const contentType = getContentTypeFromFilepath(filepath);
+    const guideVersions = getCurrentGuideVersions(contentType);
+    const newline = raw.includes('\r\n') ? '\r\n' : '\n';
 
     if (panelResult.panelVerdict === 'pass') {
         if (/guideVersion:\r?\n/.test(frontmatter)) {
-            const guidePattern = new RegExp(`(\\r?\\n\\s+${guideKey}:\\s*)[^\\r\\n]+`);
-            if (guidePattern.test(frontmatter)) {
-                frontmatter = frontmatter.replace(guidePattern, '$1"3.0.0"');
-            } else {
-                frontmatter = frontmatter.replace(/(guideVersion:\r?\n)/, `$1  ${guideKey}: "3.0.0"\n`);
+            for (const [key, version] of Object.entries(guideVersions)) {
+                const guidePattern = new RegExp(`(\\r?\\n\\s+${key}:\\s*)[^\\r\\n]+`);
+                if (guidePattern.test(frontmatter)) {
+                    frontmatter = frontmatter.replace(guidePattern, `$1"${version}"`);
+                } else {
+                    frontmatter = frontmatter.replace(/(guideVersion:\r?\n)/, `$1  ${key}: "${version}"${newline}`);
+                }
             }
         } else {
-            frontmatter = frontmatter.replace(/\r?\n---$/, `\nguideVersion:\n  common: "3.0.0"\n  ${guideKey}: "3.0.0"\n---`);
+            const guideBlock = [
+                'guideVersion:',
+                ...Object.entries(guideVersions).map(([key, version]) => `  ${key}: "${version}"`),
+            ].join(newline);
+            frontmatter = frontmatter.replace(/\r?\n---$/, `${newline}${guideBlock}${newline}---`);
         }
 
         frontmatter = frontmatter.replace(/\r?\ndraft:\s*true(?=\r?\n)/, '\ndraft: false');

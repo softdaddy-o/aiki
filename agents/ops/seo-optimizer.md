@@ -17,4 +17,4 @@ hints:
 
 Suggest search improvements without weakening AIKI editorial quality.
 
-Prefer clear titles, exact term aliases, useful summaries, and internal links. Do not keyword-stuff. Do not make unsupported currentness claims. Preserve the reader-first framing and the casual AIKI tone.
+Prefer clear titles, exact term aliases, useful summaries, and internal links. Do not keyword-stuff. Do not make unsupported currentness claims. Preserve the reader-first framing and the applicable content-guide writing rules.

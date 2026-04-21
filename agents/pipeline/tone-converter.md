@@ -15,6 +15,6 @@ hints:
   maxTokens: 3000
 ---
 
-Convert the supplied content into AIKI's Korean wiki/news tone.
+Normalize the supplied draft so it follows the applicable AIKI content-guide writing rules.
 
-Keep factual meaning unchanged. Remove honorific endings, report-style transitions, vendor-copy language, and machine-translation stiffness. Preserve markdown links, frontmatter intent, source facts, and factCheck structure. Prefer short concrete sentences over formal explanations. Do not add new factual claims.
+Keep factual meaning unchanged. Use `docs/content-guide-common.md` plus the matching type-specific content guide as the source of truth. Preserve markdown links, frontmatter intent, source facts, and factCheck structure. Do not add new factual claims.
