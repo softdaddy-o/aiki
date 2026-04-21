@@ -254,15 +254,15 @@ const LOGIC_CARDS: ReadonlyArray<CodeCard> = [
 
 const TAKE_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'repo sample이 설명용 문서가 아니라 실제 배포 바이너리와 거의 붙어 있다.',
+        title: '실전형 샘플 구조',
         body: 'README가 가리키는 `examples/base/main.go` 계열이 곧 release binary라서, sample과 실전 출발점 사이 거리가 짧다.',
     },
     {
-        title: 'Admin CRUD는 collection만 잡으면 바로 운영 가능한 수준까지 나온다.',
+        title: '자동 Admin CRUD',
         body: 'list, new record, edit drawer가 자동 생성되고 스키마 변경도 즉시 반영됐다. 작은 내부툴에선 이 한 가지가 제일 큰 속도 이점이다.',
     },
     {
-        title: '추가 로직은 생각보다 오래 PocketBase 안에 머물 수 있다.',
+        title: '내장 확장 경로',
         body: '`pb_hooks`와 custom route, `pb_public`만으로도 slug 동기화, 기본 상태값, 작은 읽기 전용 페이지까지는 충분히 붙었다.',
     },
 ] as const;
