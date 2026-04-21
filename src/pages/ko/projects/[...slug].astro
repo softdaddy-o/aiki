@@ -11,6 +11,7 @@ import HyperFramesShowcase from '../../../components/projects/showcases/hyperfra
 import NemotronOcrShowcase from '../../../components/projects/showcases/nemotron-ocr-v2/index.tsx';
 import ManifestShowcase from '../../../components/projects/showcases/manifest/index.tsx';
 import WhisperCppShowcase from '../../../components/projects/showcases/whisper-cpp/index.tsx';
+import PocketBaseShowcase from '../../../components/projects/showcases/pocketbase/index.tsx';
 
 const categoryLabels: Record<string, string> = {
     library: '라이브러리',
@@ -93,6 +94,7 @@ const SHOWCASE_NATIVE = new Set([
     'nemotron-ocr-v2',
     'manifest',
     'whisper-cpp',
+    'pocketbase',
 ]);
 const SHOWCASE_NATIVE_NARRATIVE = new Set([
     'yfinance',
@@ -103,6 +105,7 @@ const SHOWCASE_NATIVE_NARRATIVE = new Set([
     'nemotron-ocr-v2',
     'manifest',
     'whisper-cpp',
+    'pocketbase',
 ]);
 const usesShowcaseNarrative = showcaseComponent ? SHOWCASE_NATIVE_NARRATIVE.has(showcaseComponent) : false;
 
@@ -449,6 +452,36 @@ const shareUrl = Astro.url.href;
                         />
                         {factCheck && (
                             <div class="hf-fact-wrap" id="wc-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'pocketbase' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav showcase-frame--pocketbase hf-frame">
+                        <PocketBaseShowcase
+                            client:load
+                            slug={entry.data.slug}
+                            title={title}
+                            summary={summary}
+                            tags={tags}
+                            sourceMeta={sourceMeta}
+                            metricValue={formatStars(displayedMetric)}
+                            license={license}
+                        />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="pb-section-fact">
                                 <FactCheck
                                     status={factCheck.status}
                                     date={factCheck.date}
@@ -836,7 +869,8 @@ const shareUrl = Astro.url.href;
     .showcase-frame.hf-frame :global(.nt-showcase-main),
     .showcase-frame.hf-frame :global(.lr-main),
     .showcase-frame.hf-frame :global(.mf-main),
-    .showcase-frame.hf-frame :global(.wc-main) {
+    .showcase-frame.hf-frame :global(.wc-main),
+    .showcase-frame.hf-frame :global(.pb-main) {
         grid-column: 1;
         grid-row: 1;
     }
@@ -1082,6 +1116,7 @@ const shareUrl = Astro.url.href;
         .showcase-frame.hf-frame :global(.lr-main),
         .showcase-frame.hf-frame :global(.mf-main),
         .showcase-frame.hf-frame :global(.wc-main),
+        .showcase-frame.hf-frame :global(.pb-main),
         .hf-fact-wrap {
             grid-row: auto;
         }
