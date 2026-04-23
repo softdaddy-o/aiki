@@ -2,7 +2,7 @@
 /**
  * aiki-migrate-format-version.cjs
  *
- * wiki/news 기사의 formatVersion 과 guideVersion 을 최신으로 맞춘다.
+ * wiki/news/projects 콘텐츠의 formatVersion 과 guideVersion 을 최신으로 맞춘다.
  *
  * 우선순위:
  *   1. guideVersion 낡음           → review panel 호출 (LLM 재작성, 자동으로 h2 구조 추가)
@@ -14,7 +14,8 @@
  *   --batch-size N         CLI
  *   --news-only            뉴스만
  *   --wiki-only            위키만
- *   --rewrite              h2 없고 guideVersion 최신인 news 도 codex 로 재작성
+ *   --projects-only        프로젝트만
+ *   --rewrite              h2 없고 guideVersion 최신인 콘텐츠도 codex 로 재작성
  *   --dry-run              변경 없이 미리보기
  */
 
@@ -28,6 +29,7 @@ const cp = require('child_process');
 const REPO_ROOT = path.resolve(__dirname, '..');
 const WIKI_DIR = path.join(REPO_ROOT, 'src/content/wiki/ko');
 const NEWS_DIR = path.join(REPO_ROOT, 'src/content/news/ko');
+const PROJECTS_DIR = path.join(REPO_ROOT, 'src/content/projects/ko');
 const PROGRESS_FILE = path.join(REPO_ROOT, 'data/format-migration-progress.json');
 
 const TARGET_FORMAT_VERSION = 2;
@@ -44,8 +46,11 @@ function readGuideVersion(guideFile) {
 }
 
 const CURRENT_GUIDE = {
+    tone: readGuideVersion('docs/tone-guide-common.md'),
+    common: readGuideVersion('docs/content-guide-common.md'),
     wiki: readGuideVersion('docs/content-guide-wiki.md'),
     news: readGuideVersion('docs/content-guide-news.md'),
+    projects: readGuideVersion('docs/content-guide-projects.md'),
 };
 
 // ── CLI args ──────────────────────────────────────────────────────────────────
@@ -60,6 +65,7 @@ function parseArgs() {
             : Number.isFinite(envBatch) && envBatch > 0 ? envBatch : 3,
         newsOnly: argv.includes('--news-only'),
         wikiOnly: argv.includes('--wiki-only'),
+        projectsOnly: argv.includes('--projects-only'),
         rewrite: argv.includes('--rewrite'),
         dryRun: argv.includes('--dry-run'),
     };
@@ -90,16 +96,44 @@ function semverLt(a, b) {
     return false;
 }
 
-function isGuideStale(fm, type) {
-    const gv = fm.guideVersion;
-    if (!gv) return true;
-    const current = type === 'wiki' ? CURRENT_GUIDE.wiki : CURRENT_GUIDE.news;
-    const articleVer = type === 'wiki' ? (gv.wiki || '0') : (gv.news || '0');
-    return semverLt(articleVer, current);
+function getGuideKeysForType(type) {
+    return ['tone', 'common', type];
+}
+
+function getCurrentGuideVersions(type, currentGuide = CURRENT_GUIDE) {
+    return Object.fromEntries(
+        getGuideKeysForType(type).map((key) => [key, String(currentGuide[key] || '0').trim()]),
+    );
+}
+
+function getArticleGuideVersions(frontmatter, type) {
+    const guideVersion = frontmatter && typeof frontmatter.guideVersion === 'object'
+        ? frontmatter.guideVersion
+        : {};
+
+    return Object.fromEntries(
+        getGuideKeysForType(type).map((key) => [key, String(guideVersion[key] || '').trim()]),
+    );
+}
+
+function isGuideStale(fm, type, currentGuide = CURRENT_GUIDE) {
+    const currentVersions = getCurrentGuideVersions(type, currentGuide);
+    const articleVersions = getArticleGuideVersions(fm, type);
+
+    return Object.entries(currentVersions).some(([key, version]) => (
+        !articleVersions[key] || semverLt(articleVersions[key], version)
+    ));
 }
 
 function isFormatStale(fm) {
     return !fm.formatVersion || fm.formatVersion < TARGET_FORMAT_VERSION;
+}
+
+function getMigrationSignature(currentGuide = CURRENT_GUIDE) {
+    return JSON.stringify({
+        formatVersion: TARGET_FORMAT_VERSION,
+        guideVersions: currentGuide,
+    });
 }
 
 // ── Scanning ──────────────────────────────────────────────────────────────────
@@ -123,7 +157,9 @@ function scanFiles(dir, type) {
             } else if (formatStale && hasH2) {
                 action = 'bump-format';        // frontmatter formatVersion 만 bump
             } else if (formatStale && !hasH2) {
-                action = 'rewrite-only';       // h2 없음, guideVersion 최신 → --rewrite 필요
+                action = type === 'projects'
+                    ? 'review-panel'
+                    : 'rewrite-only';       // h2 없음, guideVersion 최신 → --rewrite 필요
             }
 
             return {
@@ -156,8 +192,8 @@ function bumpFormatVersion(file, dryRun) {
 
 function runReviewPanel(targets, dryRun) {
     // targets: [{type, term, ...}]
-    // wiki 와 news 를 분리해서 각각 review panel 실행
-    const byType = { wiki: [], news: [] };
+    // wiki, news, projects 를 분리해서 각각 review panel 실행
+    const byType = { wiki: [], news: [], projects: [] };
     for (const t of targets) byType[t.type].push(t.term);
 
     for (const [type, terms] of Object.entries(byType)) {
@@ -182,14 +218,29 @@ function runReviewPanel(targets, dryRun) {
 
 async function main() {
     const opts = parseArgs();
-    const progress = loadProgress();
+    let progress = loadProgress();
+    const currentSignature = getMigrationSignature();
+
+    if (progress.signature !== currentSignature) {
+        progress = {
+            completed: [],
+            lastRun: progress.lastRun || null,
+            stats: progress.stats || { totalCompleted: 0, remaining: null },
+            signature: currentSignature,
+        };
+        console.log('[migrate-format-version] guide signature changed; resetting completed progress cache');
+    }
+
     const done = new Set(progress.completed || []);
 
-    console.log(`[migrate-format-version] batch=${opts.batchSize}, guides: wiki=${CURRENT_GUIDE.wiki} news=${CURRENT_GUIDE.news}${opts.dryRun ? ' (dry-run)' : ''}`);
+    console.log(
+        `[migrate-format-version] batch=${opts.batchSize}, guides: tone=${CURRENT_GUIDE.tone} common=${CURRENT_GUIDE.common} wiki=${CURRENT_GUIDE.wiki} news=${CURRENT_GUIDE.news} projects=${CURRENT_GUIDE.projects}${opts.dryRun ? ' (dry-run)' : ''}`,
+    );
 
     const candidates = [];
-    if (!opts.newsOnly) candidates.push(...scanFiles(WIKI_DIR, 'wiki'));
-    if (!opts.wikiOnly) candidates.push(...scanFiles(NEWS_DIR, 'news'));
+    if (!opts.newsOnly && !opts.projectsOnly) candidates.push(...scanFiles(WIKI_DIR, 'wiki'));
+    if (!opts.wikiOnly && !opts.projectsOnly) candidates.push(...scanFiles(NEWS_DIR, 'news'));
+    if (!opts.newsOnly && !opts.wikiOnly) candidates.push(...scanFiles(PROJECTS_DIR, 'projects'));
 
     const pending = candidates.filter(f => !done.has(f.relPath));
 
@@ -209,7 +260,7 @@ async function main() {
 
     if (batch.length === 0) {
         const rewriteOnly = pending.filter(f => f.action === 'rewrite-only').length;
-        console.log(`처리 가능한 대상 없음. h2 없는 news ${rewriteOnly}개는 --rewrite 로 처리 필요.`);
+        console.log(`처리 가능한 대상 없음. h2 없는 콘텐츠 ${rewriteOnly}개는 --rewrite 로 처리 필요.`);
         return;
     }
 
@@ -249,11 +300,12 @@ async function main() {
             console.log(`  ${f.relPath}`);
             if (!opts.dryRun) {
                 try {
-                    // h2 없는 뉴스를 codex 로 섹션 구조화
-                    const guide = fs.existsSync(path.join(REPO_ROOT, 'docs/content-guide-news.md'))
-                        ? fs.readFileSync(path.join(REPO_ROOT, 'docs/content-guide-news.md'), 'utf8').slice(0, 3000)
+                    // h2 없는 콘텐츠를 codex 로 섹션 구조화
+                    const guidePath = path.join(REPO_ROOT, `docs/content-guide-${f.type}.md`);
+                    const guide = fs.existsSync(guidePath)
+                        ? fs.readFileSync(guidePath, 'utf8').slice(0, 3000)
                         : '';
-                    const prompt = `AIKI 뉴스 편집자. 아래 기사 본문을 2~3개 h2 섹션으로 재구성, formatVersion: 2 로 변경. 파일 전체만 출력.\n\n${guide ? '=== Guide ===\n' + guide + '\n\n' : ''}=== 원본 ===\n${f.raw}`;
+                    const prompt = `AIKI ${f.type} 편집자. 아래 문서를 2~3개 h2 섹션으로 재구성하고 formatVersion: 2 로 변경해. 파일 전체만 출력.\n\n${guide ? '=== Guide ===\n' + guide + '\n\n' : ''}=== 원본 ===\n${f.raw}`;
                     const tmpFile = path.join(REPO_ROOT, '.tmp_rewrite_prompt.txt');
                     fs.writeFileSync(tmpFile, prompt, 'utf8');
                     const result = cp.execFileSync('codex', ['--quiet', '--prompt-file', tmpFile], {
@@ -277,6 +329,7 @@ async function main() {
     if (!opts.dryRun && processed > 0) {
         progress.completed = Array.from(done);
         progress.lastRun = new Date().toISOString().slice(0, 10);
+        progress.signature = currentSignature;
         progress.stats = {
             totalCompleted: done.size,
             remaining: pending.length - processed,
@@ -295,7 +348,22 @@ async function main() {
     console.log(`전체 현황: guideVersion 낡음=${stats.reviewPanel}, formatVersion만 낡음=${stats.bumpFormat}, h2없음(--rewrite 필요)=${stats.rewriteOnly}`);
 }
 
-main().catch(err => {
-    console.error(err.message || err);
-    process.exit(1);
-});
+if (require.main === module) {
+    main().catch(err => {
+        console.error(err.message || err);
+        process.exit(1);
+    });
+}
+
+module.exports = {
+    CURRENT_GUIDE,
+    TARGET_FORMAT_VERSION,
+    getArticleGuideVersions,
+    getCurrentGuideVersions,
+    getGuideKeysForType,
+    getMigrationSignature,
+    isFormatStale,
+    isGuideStale,
+    parseArgs,
+    semverLt,
+};
