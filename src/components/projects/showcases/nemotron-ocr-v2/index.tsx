@@ -41,6 +41,7 @@ interface CompareCard {
     title: string;
     fit: string;
     tradeoff: string;
+    href?: string;
 }
 
 type SectionId = 'hero' | 'cases' | 'takeaway' | 'decide' | 'adopt' | 'ops' | 'compare' | 'fact';
@@ -49,12 +50,12 @@ type DemoView = 'annotated' | 'input' | 'text' | 'checks';
 const SECTION_PREFIX = 'nm-section-';
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
-    { id: 'hero', label: '소개', description: '모델 성격과 실측 보드' },
-    { id: 'cases', label: '실행 보드', description: '공개 데모와 로컬 런' },
-    { id: 'takeaway', label: '한 번 요약', description: '30초 판단용 카드' },
+    { id: 'hero', label: '소개', description: 'GPU 서버형 go/no-go' },
+    { id: 'cases', label: '실행 보드', description: '벤더 수치와 관찰 분리' },
+    { id: 'takeaway', label: '판단 요약', description: '30초 판단용 카드' },
     { id: 'decide', label: '도입 판단', description: 'USE / SKIP' },
     { id: 'adopt', label: '적용 순서', description: '검증에서 파이프라인까지' },
-    { id: 'ops', label: '운영 조건', description: '런타임과 메모리 해석' },
+    { id: 'ops', label: '운영 조건', description: '재실측이 필요한 지점' },
     { id: 'compare', label: '비교 대상', description: '다른 OCR 선택지와 비교' },
     { id: 'fact', label: '팩트 체크', description: '검증 상태' },
 ] as const;
@@ -66,8 +67,6 @@ const DEMO = {
     annotatedSrc: '/nemotron-ocr-v2/showcase-output.webp',
     size: '1280x720 PNG',
     runtime: 'Hugging Face public Space / ZeroGPU',
-    durationSeconds: 4.51,
-    averageSeconds: 6.38,
     extractedText: `샘플 OCR 테스트 문서
 프로젝트: Nemotron OCR v2
 작업 번호: AIKI-2026-0419
@@ -85,15 +84,7 @@ const LOCAL_GPU_RUN = {
     runtime: 'Local WSL2 / RTX 5070 / CUDA 12.8 / torch 2.11.0+cu128',
     mergeLevel: 'paragraph',
     modelDir: 'v2_multilingual',
-    loadSeconds: 3.23,
-    coldSeconds: 26.47,
-    coldTotalSeconds: 29.69,
-    warmSeconds: 0.16,
-    warmPagesPerSecond: 6.14,
-    predictions: 9,
-    baselineReservedMiB: 370,
-    warmPeakReservedMiB: 2220,
-    coldPeakReservedMiB: 2802,
+    observationScope: '샘플 1장 / 기능 확인용',
 } as const;
 
 const OCR_CHECKS = [
@@ -125,52 +116,52 @@ const OCR_CHECKS = [
 
 const TAKE_CARDS: ReadonlyArray<InsightCard> = [
     {
-        title: '공개 Space 데모만으로도 한글 + 영문 코드 + 숫자 혼합 인식은 바로 확인된다.',
-        body: '1장 데모에선 문단형 문장, 코드 토큰, 숫자, 이름이 같이 살아 있는지를 보는 용도로 충분하다.',
+        title: 'GPU 서버형 OCR',
+        body: 'NVIDIA GPU 서버에서 다국어 문서 OCR과 읽기 순서 보존을 함께 운영할 팀이면 검토. CPU-only, Mac, 단순 텍스트 추출이면 여기서 멈추면 된다.',
         tone: 'accent',
     },
     {
-        title: '배포 판단은 cold start와 warm run을 분리해서 봐야 한다.',
-        body: '첫 실행 29.69초와 반복 실행 0.16초는 체감이 완전히 다르다. 서비스 응답 설계는 warm state 기준으로 따로 잡아야 한다.',
+        title: '벤더 벤치마크',
+        body: '34.7 pages/s는 NVIDIA 블로그의 single A100 벤치마크다. 공개 Space나 로컬 런과 같은 줄에서 섞지 않는 편이 안전하다.',
     },
     {
-        title: '336 MB 체크포인트 크기만 보고 VRAM을 가늠하면 틀린다.',
-        body: '이번 로컬 계측에선 warm peak reserved가 2,220 MiB였다. 실투입 전에는 목표 배치 크기로 다시 재야 한다.',
+        title: '로컬 재실측',
+        body: '공개 데모와 타깃 GPU 관찰은 기능 확인용이다. cold / warm과 VRAM은 팀 배치 조건으로 다시 재야 운영 판단이 선다.',
     },
 ] as const;
 
 const FIT_CARDS: ReadonlyArray<InsightCard> = [
     {
-        title: 'RAG 입력 전에 읽기 순서와 레이아웃 정보까지 같이 붙이고 싶을 때',
-        body: '텍스트만 평평하게 뽑는 OCR보다 문단 구조와 읽기 순서를 같이 보고 싶은 팀이면 이쪽이 맞다.',
+        title: '레이아웃 보존 RAG 입력',
+        body: '텍스트만 뽑는 OCR로는 부족하고 문단 구조와 읽기 순서까지 함께 적재해야 할 때. 여기서 바로 테스트할 이유가 생김.',
         chips: ['layout-aware', 'rag ingest'],
     },
     {
-        title: '한글 문서에 영문 코드와 숫자가 섞여 있는 입력을 한 번에 태우고 싶을 때',
-        body: '한글 본문과 영문 토큰을 서로 다른 파이프라인으로 쪼개지 않고 한 모델로 보고 싶을 때 볼 이유가 있다.',
+        title: '혼합 문자 한 번 처리',
+        body: '한글 본문과 영문 토큰을 서로 다른 파이프라인으로 쪼개지 않고 한 모델로 보고 싶을 때 볼 이유가 있음.',
         chips: ['korean', 'code tokens'],
     },
     {
-        title: '이미 GPU 서버를 운영하고 있어 로컬 실측을 붙일 수 있을 때',
-        body: 'Linux amd64, NVIDIA GPU, CUDA 환경을 이미 팀이 다루고 있으면 PoC에서 운영까지 이어 붙이기 쉽다.',
+        title: 'GPU 서버형 팀',
+        body: 'Linux amd64, NVIDIA GPU, CUDA 환경을 이미 팀이 다루고 있다면 PoC에서 운영까지 이어 붙이기 쉬운 편.',
         chips: ['gpu server', 'cuda'],
     },
 ] as const;
 
 const SKIP_CARDS: ReadonlyArray<InsightCard> = [
     {
-        title: 'CPU-only나 Mac 개발 머신에서 바로 돌려야 할 때',
-        body: '이 모델은 Linux amd64, NVIDIA GPU, CUDA 빌드 전제를 강하게 탄다. 로컬 첫 검증부터 무거운 편이다.',
+        title: 'CPU-only / Mac',
+        body: '이 모델은 Linux amd64, NVIDIA GPU, CUDA 빌드 전제를 강하게 탐. 로컬 첫 검증부터 무거운 편.',
         chips: ['cpu-only', 'mac dev'],
     },
     {
-        title: 'PDF에서 텍스트만 빨리 꺼내면 되는 단순 OCR일 때',
-        body: '읽기 순서와 구조 추출까지 필요하지 않다면 더 가벼운 OCR 스택이 운영 부채가 적다.',
+        title: '단순 텍스트 OCR',
+        body: '읽기 순서와 구조 추출까지 필요하지 않다면 더 가벼운 OCR 스택 쪽 운영 부채가 적음.',
         chips: ['simple OCR', 'lighter stack'],
     },
     {
-        title: '최소 VRAM 수치가 문서에 명시돼야만 도입할 수 있을 때',
-        body: '공식 문서엔 최소 VRAM이 직접 적혀 있지 않다. 팀이 자체 배치 크기로 cold / warm 실측을 해야 한다.',
+        title: 'VRAM 명시 필수',
+        body: '공식 문서엔 최소 VRAM이 직접 적혀 있지 않음. 팀이 자체 배치 크기로 cold / warm 실측을 해야 하는 구조.',
         chips: ['self benchmark', 'capacity planning'],
     },
 ] as const;
@@ -179,40 +170,40 @@ const ADOPTION_STEPS: ReadonlyArray<StepCard> = [
     {
         title: '1. Public Space',
         command: 'run sample card on public Space',
-        body: '공개 Space에서 한글 문장, 영문 코드, 숫자가 섞인 샘플 1장을 돌려서 읽기 순서가 무너지지 않는지 먼저 본다.',
+        body: '공개 Space에서 한글 문장, 영문 코드, 숫자가 섞인 샘플 1장을 돌려 읽기 순서가 무너지지 않는지 먼저 확인.',
     },
     {
         title: '2. Local CUDA',
         command: 'measure cold vs warm on target GPU',
-        body: '운영 후보 GPU에서 첫 실행과 반복 실행 시간을 따로 재고, reserved peak VRAM을 같이 기록한다.',
+        body: '운영 후보 GPU에서 첫 실행과 반복 실행 시간을 따로 재고, reserved peak VRAM도 같이 기록.',
     },
     {
         title: '3. Own Batch',
         command: 'test 50-100 real pages with paragraph mode',
-        body: '실제 문서 50~100장을 paragraph mode로 돌려서 페이지당 지연과 실패 케이스를 확인한다.',
+        body: '실제 문서 50~100장을 paragraph mode로 돌려 페이지당 지연과 실패 케이스 확인.',
     },
     {
         title: '4. RAG Ingest',
         command: 'store text + order + layout metadata together',
-        body: '텍스트만 저장하지 말고 읽기 순서와 박스 메타데이터까지 같이 넣어야 이 모델을 쓰는 이유가 남는다.',
+        body: '텍스트만 저장하지 말고 읽기 순서와 박스 메타데이터까지 같이 넣는 편. 그래야 이 모델을 쓰는 이유가 남음.',
     },
 ] as const;
 
 const OPS_CARDS: ReadonlyArray<InsightCard> = [
     {
-        title: '런타임 전제는 가볍지 않다.',
-        body: '문서 기준 전제는 Linux amd64, NVIDIA GPU, CUDA toolkit, Python 3.12다. Mac 로컬 확인용 도구로 보기엔 무겁다.',
+        title: '런타임 전제',
+        body: '문서 기준 전제는 Linux amd64, NVIDIA GPU, CUDA toolkit, Python 3.12. Mac 로컬 확인용 도구로 보기엔 무거운 편.',
         chips: ['linux amd64', 'python 3.12'],
     },
     {
-        title: '체크포인트 크기와 실제 VRAM은 분리해서 읽어야 한다.',
-        body: 'Hub 파일 크기 336 MB는 다운로드 단서고, 실제 운영 판단은 370 MiB baseline / 2,220 MiB warm peak 같은 실측이 더 중요하다.',
-        chips: ['336 MB', '2,220 MiB peak'],
+        title: '체크포인트보다 재실측',
+        body: 'Hub 파일 크기는 다운로드 단서일 뿐. 실제 운영 판단은 타깃 GPU와 배치 크기 기준으로 따로 재는 편이 맞다.',
+        chips: ['checkpoint', 'self benchmark'],
     },
     {
-        title: '공개 Space 응답 시간은 데모 확인용이다.',
-        body: 'ZeroGPU 응답 4.51초는 공개 데모 체감용 숫자다. 서버 sizing 기준은 공식 A100 수치와 로컬 warm run으로 따로 본다.',
-        chips: ['ZeroGPU', 'A100', 'warm run'],
+        title: '공개 데모는 기능 확인',
+        body: 'ZeroGPU Space는 읽기 순서와 주석 결과를 보는 데모 환경으로만 읽고, 서버 sizing 근거는 벤더 A100 수치와 팀 재실측으로 나눠 본다.',
+        chips: ['demo only', 'separate evidence'],
     },
 ] as const;
 
@@ -220,17 +211,18 @@ const COMPARE_CARDS: ReadonlyArray<CompareCard> = [
     {
         title: 'PaddleOCR',
         fit: 'CPU나 가벼운 GPU에서 텍스트만 빠르게 꺼내고 싶을 때',
-        tradeoff: '읽기 순서나 레이아웃 reasoning은 추가 파이프라인이 더 필요하다.',
+        tradeoff: '읽기 순서나 레이아웃 reasoning은 추가 파이프라인이 더 필요한 쪽.',
     },
     {
         title: 'Hosted OCR API',
         fit: '결과 JSON만 빨리 받고 런타임 운영은 줄이고 싶을 때',
-        tradeoff: '모델, 배치, 메모리 제어권이 약하고 문서 구조를 팀 기준으로 다듬기 어렵다.',
+        tradeoff: '모델, 배치, 메모리 제어권이 약하고 문서 구조를 팀 기준으로 다듬기 어려운 편.',
+        href: '/ko/wiki/api/',
     },
     {
         title: 'Nemotron OCR v2',
         fit: 'GPU 서버에서 구조 보존 OCR을 RAG 앞단에 바로 붙이고 싶을 때',
-        tradeoff: 'CUDA 환경과 실측 책임을 팀이 직접 져야 한다.',
+        tradeoff: 'CUDA 환경과 실측 책임은 팀이 직접 보유.',
     },
 ] as const;
 
@@ -292,8 +284,8 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
 
                     <div className="nm-signal-grid-legacy">
                         <SignalCard label="공식 처리량" value="34.7 pages/s" note="single A100 / multilingual 기준" />
-                        <SignalCard label="로컬 warm" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} note={`${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s steady-state`} />
-                        <SignalCard label="로컬 peak" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} note="RTX 5070 reserved peak" />
+                        <SignalCard label="로컬 관찰" value="별도 재측정 필요" note="타깃 GPU 기준으로 다시 기록" />
+                        <SignalCard label="공개 데모" value="기능 확인용" note="ZeroGPU Space는 성능 수치 근거가 아님" />
                     </div>
 
                     <div className="nm-tag-row-legacy">
@@ -305,21 +297,22 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}cases`}
                     title="실행 보드"
-                    description={<>공개 Space 결과와 로컬 <TermHint term="merge mode" description="OCR이 감지한 박스들을 줄, 문단, 레이아웃 단위로 어떻게 묶어 최종 텍스트를 만드는지 정하는 옵션이야." /> 차이를 같은 보드에서 바로 본다.</>}
+                    description={<>입력 카드 → 주석 결과 → 추출 텍스트 → 체크 포인트 순서로 본다. NVIDIA 벤치마크와 공개 Space, 로컬 <TermHint term="merge mode" description="OCR이 감지한 박스들을 줄, 문단, 레이아웃 단위로 어떻게 묶어 최종 텍스트를 만드는지 정하는 옵션이야." /> 관찰은 근거를 나눠 둔다.</>}
                 >
                     <div className="nm-overview-stack">
                         <article className="nm-card nm-overview-card">
                             <div className="nm-card-head">
                                 <span className="nm-kicker">쇼케이스 개요</span>
-                                <span className="nm-pill">ZeroGPU + RTX 5070</span>
+                                <span className="nm-pill">Vendor benchmark + demo observation</span>
                             </div>
                             <p className="nm-result-note nm-overview-summary">{summary}</p>
+                            <p className="nm-result-note">한 장의 샘플 카드가 박스 주석, 추출 텍스트, 체크 포인트로 어떻게 이어지는지 바로 확인할 수 있다.</p>
                         </article>
 
                         <div className="nm-signal-grid">
-                            <SignalCard label="공식 처리량" value="34.7 pages/s" note="single A100 / multilingual 기준" />
-                            <SignalCard label="로컬 warm" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} note={`${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s steady-state`} />
-                            <SignalCard label="로컬 peak" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} note="RTX 5070 reserved peak" />
+                            <SignalCard label="입력 → 출력" value="카드 → 주석 → 텍스트" note="같은 샘플 1장을 네 뷰로 나눠 확인" />
+                            <SignalCard label="벤더 벤치마크" value="34.7 pages/s" note="NVIDIA 공개 블로그 / single A100 / v2_multilingual" />
+                            <SignalCard label="로컬 관찰" value="별도 재측정 필요" note="공개 Space와 타깃 GPU 런은 기능 확인용으로만 보기" />
                         </div>
                     </div>
                     <div className="nm-case-tabs" role="tablist" aria-label="Nemotron OCR v2 demo views">
@@ -374,14 +367,14 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
 
                         <article className="nm-card nm-note-card">
                             <div className="nm-card-head">
-                                <span className="nm-kicker">로컬 실측</span>
+                                <span className="nm-kicker">관찰 메모</span>
                                 <span className="nm-pill">{LOCAL_GPU_RUN.modelDir}</span>
                             </div>
                             <div className="nm-note-grid">
-                                <InfoCard label="공개 응답" value={`${DEMO.durationSeconds.toFixed(2)} s`} note={`${DEMO.size} / ${DEMO.runtime}`} />
-                                <InfoCard label="cold start" value={`${LOCAL_GPU_RUN.coldTotalSeconds.toFixed(2)} s`} note={`load ${LOCAL_GPU_RUN.loadSeconds.toFixed(2)} s + first run ${LOCAL_GPU_RUN.coldSeconds.toFixed(2)} s`} />
-                                <InfoCard label="warm run" value={`${LOCAL_GPU_RUN.warmSeconds.toFixed(2)} s/page`} note={`${LOCAL_GPU_RUN.warmPagesPerSecond.toFixed(2)} pages/s / ${LOCAL_GPU_RUN.mergeLevel} mode`} />
-                                <InfoCard label="peak VRAM" value={`${LOCAL_GPU_RUN.warmPeakReservedMiB.toLocaleString('en-US')} MiB`} note={`${LOCAL_GPU_RUN.runtime} / reserved peak`} />
+                                <InfoCard label="공개 데모" value="기능 확인용" note={`${DEMO.runtime} / 읽기 순서와 주석 결과 확인`} />
+                                <InfoCard label="로컬 실행" value="타깃 GPU 재측정" note={`${LOCAL_GPU_RUN.runtime} / ${LOCAL_GPU_RUN.observationScope}`} />
+                                <InfoCard label="merge mode" value={LOCAL_GPU_RUN.mergeLevel} note="문단 단위로 묶이는지 확인하는 설정" />
+                                <InfoCard label="배치 판단" value="VRAM 별도 기록" note="실서비스 batch 조건으로 다시 측정" />
                             </div>
                         </article>
 
@@ -402,7 +395,7 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                     </div>
                 </Panel>
 
-                <Panel id={`${SECTION_PREFIX}takeaway`} title="한 번 요약">
+                <Panel id={`${SECTION_PREFIX}takeaway`} title="판단 요약">
                     <div className="nm-take-grid">
                         {TAKE_CARDS.map((item, index) => (
                             <Insight key={item.title} item={item} className={index === 0 ? 'nm-insight-card--lead' : ''} />
@@ -447,7 +440,7 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}ops`}
                     title="운영 조건"
-                    description={<>cold start와 warm run을 나눠 보고, <TermHint term="reserved VRAM" description="프레임워크가 실제 사용량과 별도로 미리 잡아 둔 GPU 메모리까지 포함한 보수적 점유량이야." /> 기준으로 배치 여유를 판단한다.</>}
+                    description={<>cold start와 warm run을 나눠 보고, <TermHint term="reserved VRAM" description="프레임워크가 실제 사용량과 별도로 미리 잡아 둔 GPU 메모리까지 포함한 보수적 점유량." /> 기준으로 배치 여유 판단.</>}
                 >
                     <div className="nm-insight-grid nm-insight-grid--ops">
                         {OPS_CARDS.map((item) => (
@@ -460,7 +453,11 @@ export default function NemotronOcrShowcase(props: NemotronOcrShowcaseProps) {
                     <div className="nm-compare-grid">
                         {COMPARE_CARDS.map((item) => (
                             <article key={item.title} className="nm-compare-card">
-                                <span className="nm-kicker">{item.title}</span>
+                                {item.href ? (
+                                    <a className="nm-compare-link" href={item.href}>{item.title}</a>
+                                ) : (
+                                    <span className="nm-kicker">{item.title}</span>
+                                )}
                                 <p><strong>맞는 경우</strong><span>{item.fit}</span></p>
                                 <p><strong>대가</strong><span>{item.tradeoff}</span></p>
                             </article>
@@ -800,6 +797,8 @@ ${showcaseZoomImageCss}
 .nm-step-card p{margin:0;color:var(--color-text-muted);line-height:1.65}
 .nm-compare-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .nm-compare-card{display:grid;gap:12px}
+.nm-compare-link{color:var(--color-projects);font-size:.74rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.nm-compare-link:hover{text-decoration:underline}
 .nm-compare-card p{display:grid;gap:4px;margin:0}
 .nm-compare-card strong{color:var(--color-text);font-size:.82rem}
 @media (max-width:1200px){

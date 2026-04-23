@@ -21,6 +21,10 @@ function normalizePhrase(text) {
         .trim();
 }
 
+function escapeRegex(text) {
+    return String(text || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function humanizeTermSlug(term) {
     return String(term || '')
         .replace(/-/g, ' ')
@@ -62,6 +66,10 @@ function addVariant(target, value) {
 
 function isHangulOnly(token) {
     return /^[\uac00-\ud7a3]+$/.test(token);
+}
+
+function hasHangul(text) {
+    return /[\uac00-\ud7a3]/.test(String(text || ''));
 }
 
 function extractTitleParts(title) {
@@ -138,6 +146,52 @@ function getVariantPriority(entry, variant) {
     return 1;
 }
 
+function buildLabelMatcher(label, flags = 'giu') {
+    const escaped = escapeRegex(label);
+    const leftBoundary = '[A-Za-z0-9_\\uac00-\\ud7a3]';
+    const rightBoundary = hasHangul(label)
+        ? '[A-Za-z0-9_\\uac00-\\ud7a3]'
+        : '[A-Za-z0-9_]';
+
+    return new RegExp(`(?<!${leftBoundary})${escaped}(?!${rightBoundary})`, flags);
+}
+
+function findWikiTextMatches(text, candidates) {
+    const source = String(text || '');
+    const claimed = [];
+
+    const overlaps = (start, end) => claimed.some((entry) => !(end <= entry.start || start >= entry.end));
+
+    for (const candidate of candidates) {
+        const matcher = buildLabelMatcher(candidate.label);
+        let match;
+
+        while ((match = matcher.exec(source)) !== null) {
+            const label = match[0] || '';
+            const start = match.index;
+            const end = start + label.length;
+
+            if (!label) {
+                matcher.lastIndex = start + 1;
+                continue;
+            }
+
+            if (overlaps(start, end)) {
+                continue;
+            }
+
+            claimed.push({
+                start,
+                end,
+                label,
+                entry: candidate,
+            });
+        }
+    }
+
+    return claimed.sort((a, b) => a.start - b.start || a.end - b.end);
+}
+
 function buildWikiLookup(rootDir) {
     const lookup = new Map();
 
@@ -170,8 +224,11 @@ function buildWikiLookup(rootDir) {
 }
 
 module.exports = {
+    buildLabelMatcher,
     buildWikiLookup,
+    findWikiTextMatches,
     getEntryVariants,
+    hasHangul,
     humanizeTermSlug,
     loadWikiTerms,
     normalizePhrase,

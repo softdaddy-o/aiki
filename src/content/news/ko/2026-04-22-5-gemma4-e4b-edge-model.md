@@ -1,73 +1,118 @@
 ---
-title: "Gemma 4 E4B — 5GB RAM으로 돌아가는 구글의 엣지 모델"
-date: "2026-04-22T11:00:00+09:00"
+title: '구글, Gemma 4 E2B·E4B 공개…로컬 실행 겨냥 엣지 모델'
+date: '2026-04-22T11:00:00+09:00'
 lang: ko
 category: news
-summary: "구글이 Gemma 4 패밀리에 Per-Layer Embeddings(PLE) 기반 E2B(2B)와 E4B(4B) 엣지 모델을 포함했다. 4비트 양자화 시 E4B는 5GB RAM에서 실행 가능해 MacBook Air나 고사양 스마트폰 수준에서도 동작한다."
-readerValue: "비용 없이 로컬에서 프라이빗하게 AI를 쓸 수 있는 실용적인 선택지를 판단하게 해준다."
-sourceUrl: "https://www.reddit.com/r/LocalLLaMA/comments/1sru6zi/did_google_hide_the_best_version_of_gemma_4_e4b/"
-sourceTitle: "r/LocalLLaMA"
+summary: >-
+  구글이 Gemma 4에 E2B·E4B 엣지 모델을 같이 올렸어. 공식 LiteRT 카드 기준 E2B는 일부 환경에서 1.5GB 안팎까지
+  내려가고, E4B는 3GB대 실측이 먼저 보여서 로컬 보조 작업 자리에 바로 넣어볼 만해.
+readerValue: >-
+  클라우드 API 대신 기기 안에서 돌릴 Gemma 4 소형 모델을 고를 때, 확인된 메모리 범위와 맡길 만한 업무 선을 먼저
+  가를 수 있어.
+sourceUrl: 'https://deepmind.google/models/gemma/gemma-4/'
+sourceTitle: Google DeepMind — Gemma 4
 draft: false
 score: 75
-sourceCount: 3
+sourceCount: 5
 factCheck:
   status: passed
-  date: "2026-04-22"
+  date: '2026-04-23'
   sources:
-    - url: "https://deepmind.google/models/gemma/gemma-4/"
-      title: "Google DeepMind — Gemma 4"
-    - url: "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
-      title: "Google Blog — Gemma 4 announcement"
-    - url: "https://huggingface.co/blog/gemma4"
-      title: "HuggingFace — Gemma 4 blog"
+    - url: 'https://deepmind.google/models/gemma/gemma-4/'
+      title: Google DeepMind — Gemma 4
+    - url: >-
+        https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
+      title: Google Blog — Gemma 4 announcement
+    - url: 'https://huggingface.co/blog/gemma4'
+      title: Hugging Face — Gemma 4 blog
+    - url: 'https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm'
+      title: Hugging Face — LiteRT Gemma 4 E2B model card
+    - url: 'https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm'
+      title: Hugging Face — LiteRT Gemma 4 E4B model card
   checks:
     - type: source_match
       result: pass
-      summary: "Google DeepMind 공식 페이지에서 E4B(4B params), HuggingFace 블로그에서 Per-Layer Embeddings(PLE)를 직접 확인했어."
+      summary: >-
+        Google Blog와 Google DeepMind로 공개 사실, 모델 구성, 라이선스, 배치 위치를 먼저 맞췄어.
+        Hugging Face는 PLE 설명과 로컬 실행 경로를 보강했고, 숫자는 LiteRT 모델 카드에서 직접 확인된 값만 남겼어.
       items:
-        - "E4B (4B params) — Google DeepMind 공식 페이지 확인"
-        - "Per-Layer Embeddings(PLE) — HuggingFace Gemma 4 블로그 확인"
-        - "4비트 E4B ≈ 5GB RAM — 파라미터 수 × 양자화 비트 계산 일치"
+        - 'Google Blog: 2026-04-02 공개와 Apache 2.0 라이선스 확인'
+        - 'Google DeepMind: Gemma 4 제품군, E2B=phones, E4B=edge deployment 위치 확인'
+        - 'Hugging Face blog: PLE 구조와 llama.cpp·MLX 지원 확인'
+        - 'Hugging Face LiteRT model cards: E2B/E4B의 모델 크기와 메모리 수치 확인'
     - type: web_cross_check
       result: pass
-      sources: 3
-      summary: "Google DeepMind, Google Blog, HuggingFace 세 곳에서 E2B/E4B 스펙, Apache 2.0 라이선스, llama.cpp/MLX/Ollama 지원을 각각 확인했어."
+      sources: 5
+      summary: >-
+        출처별 역할을 갈라서 다시 봤어. DeepMind·Google Blog는 공개와 제품 포지션, 라이선스를 맡고,
+        Hugging Face는 PLE와 실행 경로, LiteRT 실측 수치를 받쳐 줬어.
       items:
-        - "Google DeepMind: E2B(phones), E4B(edge) 구분 확인"
-        - "Google Blog: Apache 2.0 라이선스 확인"
-        - "HuggingFace: llama.cpp, MLX, Ollama 지원 확인"
+        - 'Google Blog: 출시 시점과 Apache 2.0 라이선스'
+        - 'Google DeepMind: E2B/E4B 구분, 다운로드 섹션의 Ollama 노출'
+        - 'Hugging Face blog: PLE 설명과 llama.cpp·MLX 지원'
+        - 'Hugging Face LiteRT E2B card: 1.5GB 안팎 메모리 수치'
+        - 'Hugging Face LiteRT E4B card: 3.65GB 모델 크기와 3GB대 메모리 실측'
     - type: number_verify
       result: pass
-      summary: "E4B 4비트 기준 약 5GB RAM은 4B × 0.5 bytes/param × 오버헤드 + 컨텍스트 계산으로 합리적한 범위야."
+      summary: >-
+        직접 확인된 수치와 추정치를 갈라 뒀어. E2B의 1.5GB 안팎은 공식 LiteRT 모델 카드에서 바로 보이지만, 기존
+        초안의 "E4B 약 5GB RAM"은 이번 공식 출처 묶음만으로 바로 확인되지 않아서 보수적으로 눌렀어.
       items:
-        - "E2B 4비트 ≈ 1.5GB RAM — 2B × 0.5 bytes/param × 1.1 오버헤드 ≈ 1.1GB, 반올림 합리적"
-        - "E4B 4비트 ≈ 5GB RAM — 4B × 0.5 bytes/param × 1.1 오버헤드 ≈ 2.2GB + 컨텍스트 → 약 4~5GB 합리적"
-        - "Gemma 4 총 4개 크기: E2B, E4B, 26B MoE (3.8B active), 31B Dense — 공식 확인"
+        - >-
+          E2B: LiteRT 카드에서 Web CPU Memory 1.5GB, Raspberry Pi 5 CPU Memory
+          1546MB 직접 확인
+        - >-
+          E4B: LiteRT 카드에서 model file size 3.65GB, Android/Linux/macOS/iOS 실측
+          3.1~3.4GB대 직접 확인
+        - '미확인: "E4B 약 5GB RAM"은 이번에 인용한 공식 출처에서 직접 확인하지 못함'
     - type: adversarial
       result: pass
-      summary: "PLE 성능 개선은 구글 자체 발표 기반이라 독립 비교 데이터가 없고, 5GB RAM이 엣지라고 해도 앱과 함께 쓰는 일반 스마트폰에서는 빠듯할 수 있어."
+      summary: >-
+        공급자 서사를 그대로 받지 않고, 독립 검증이 부족한 성능 해석과 기기 제약을 따로 적어 뒀어. 커뮤니티 반응도 성능
+        증거가 아니라 관심 신호 정도로만 남겼어.
       items:
-        - "4B 모델은 복잡한 추론 작업에서 대형 모델 대비 품질 크게 낮을 수 있음"
-        - "PLE가 실제로 얼마나 성능을 개선하는지 독립 벤치마크 부족"
-        - "5GB RAM이 '엣지'라 해도 일반 스마트폰 RAM(6~8GB)에서 앱과 함께 쓰기는 빡빡"
+        - 더 큰 모델에 가까운 이해력은 아직 독립 벤치마크 합의로 굳은 결론이 아님
+        - '소형 모델이라도 긴 코드 생성, 복잡한 다단계 추론에서는 한계가 빠르게 드러날 수 있음'
+        - '로컬 실행 이점은 프라이버시와 오프라인 운용이지만, 정확도 검증이 중요하면 더 큰 모델이나 외부 API가 더 유리해.'
       findings:
-        - "PLE 성능 개선은 구글 자체 발표 기반 — 독립 비교 데이터 부족"
-        - "실용성 검증 위해 실제 태스크 벤치마크 대기 필요"
-tags: ["gemma", "google", "local-llm", "edge-ai", "quantization"]
+        - '공식 출처가 확인한 수치만 남기고, 확인하지 못한 메모리 추정은 삭제 또는 보수화함'
+        - Reddit 반응은 출시 관심도를 보여주는 사례로만 사용함
+tags:
+  - gemma
+  - google
+  - local-llm
+  - edge-ai
+  - quantization
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: 2.0.0
+  common: 2.2.0
+  news: 3.1.1
 formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.2.0
+    news: 3.1.1
+  panelVerdict: pass
+  contentHash: fddada973e78ab16
+  reviewedAt: '2026-04-23'
 ---
 
 ## 무슨 일이 일어났나
 
-구글이 [Gemma 4](https://deepmind.google/models/gemma/gemma-4/) 패밀리를 발표하면서 E2B(2B)와 E4B(4B) 두 가지 엣지 모델을 포함시켰어. 4비트 양자화 기준 E4B는 약 5GB RAM, E2B는 약 1.5GB RAM에서 실행 가능해 — MacBook Air M1이나 고사양 안드로이드 폰 수준이야. [r/LocalLLaMA](/ko/wiki/localllama/) 커뮤니티에서는 "구글이 이 버전을 제대로 홍보 안 하고 묻어둔 게 아니냐"는 반응이 나올 만큼 관심이 높았어.
+구글이 [Gemma 4](/ko/wiki/gemma-4/)를 공개하면서 [E2B](/ko/wiki/e2b/)와 E4B를 같이 내놨어. 이 엣지 모델은 클라우드 [API](/ko/wiki/api/) 대신 기기 안에서 직접 [추론](/ko/wiki/inference/)하도록 줄인 버전이야. Google Blog는 2026-04-02 공개와 [Apache 2.0](/ko/wiki/apache/) 라이선스를, DeepMind는 E2B=phone·E4B=edge 포지션을 확인해.
 
-## 뭐가 다른가
+## 왜 이런가
 
-E2B/E4B의 핵심은 Per-Layer Embeddings(PLE) 구조야. 일반 트랜스포머는 임베딩을 공유하지만, PLE는 레이어마다 별도 임베딩을 써서 같은 파라미터 수에서 훨씬 깊은 표현 능력을 끌어내. 결과적으로 4B 크기지만 더 큰 모델에 가까운 이해력을 내는 게 설계 목표야. llama.cpp, MLX, Ollama에서 즉시 쓸 수 있고, Apache 2.0 라이선스라 상업적 활용도 자유로워.
+Hugging Face는 E2B/E4B의 PLE 구조와 [llama.cpp](/ko/wiki/llama.cpp/), MLX 지원을 설명해. [Ollama](/ko/wiki/ollama/) 노출은 Hugging Face가 아니라 DeepMind 다운로드 섹션에서 보여. 다만 "더 큰 모델에 가까운 이해력"은 아직 독립 [벤치마크](/ko/wiki/benchmark/) 합의로 굳은 결론까진 아니야.
 
 ## 어떤 의미인가
 
-API 비용 없이 내 컴퓨터에서 프라이빗하게 AI를 돌리고 싶은 사람에게 실용적인 선택지야. 단, 4B 모델은 복잡한 추론이나 긴 코드 생성에서 대형 모델 대비 품질이 크게 낮을 수 있어. 업무 자동화의 간단한 분류, 요약, 짧은 텍스트 처리에 쓰기 좋고, 복잡한 분석은 API 모델로 보완하는 구조가 현실적이야.
+공식 LiteRT 모델 카드 기준으로 E2B는 일부 환경에서 1.5GB 안팎까지 내려가지만, E4B는 3.65GB 모델 크기와 3GB대 실측이 먼저 확인돼. 그래서 문서 분류·회의록 요약 같은 로컬 보조 작업 자리에선 써볼 만하지만, 긴 코드 생성이나 높은 정확도 검증이 필요한 일은 아직 더 큰 모델이나 외부 API가 낫겠어.

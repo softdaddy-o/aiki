@@ -28,6 +28,35 @@ function entry(term, title, category, sources, options = {}) {
     };
 }
 
+const HIDDEN_TONE_PATTERNS = [
+    /(?:읽게|보게|판단하게|구분하게|이해하게|잡게|파악하게|가르게|연결하게|분리하게)\s*해\s*준다/u,
+    /해준다는\s*점/u,
+    /도와준(?:다|다는)/u,
+];
+
+function assertCleanHiddenTone(term, label, value) {
+    const text = String(value || '').trim();
+    if (!text) {
+        return;
+    }
+
+    for (const pattern of HIDDEN_TONE_PATTERNS) {
+        if (pattern.test(text)) {
+            throw new Error(`[wiki-catalog] ${term} ${label} has hidden tone contamination: ${text}`);
+        }
+    }
+}
+
+function validateCatalogEntryTone(item) {
+    assertCleanHiddenTone(item.term, 'userProblem', item.userProblem);
+    assertCleanHiddenTone(item.term, 'decisionAxis', item.decisionAxis);
+    assertCleanHiddenTone(item.term, 'adversarialRisk', item.adversarialRisk);
+
+    for (const [key, value] of Object.entries(item.relatedHints || {})) {
+        assertCleanHiddenTone(item.term, `relatedHints.${key}`, value);
+    }
+}
+
 const catalog = [
     entry('rag', 'RAG', 'technique', [wikipedia('Retrieval-augmented_generation'), url('https://www.ibm.com/think/topics/retrieval-augmented-generation')], { aliases: ['retrieval augmented generation'], tags: ['retrieval', 'generation'], priority: 90 }),
     entry('llm', 'LLM', 'concept', [wikipedia('Large_language_model'), url('https://www.ibm.com/think/topics/large-language-models')], { aliases: ['large language model'], tags: ['language-model', 'foundation-model'], priority: 100 }),
@@ -59,10 +88,10 @@ const catalog = [
         userProblem: '검색 품질이 모델 답변보다 먼저 갈리고 있는지',
         decisionAxis: '임베딩 모델 품질, 벡터 저장 방식, 검색 파이프라인 중 어디가 병목인지',
         relatedHints: {
-            rag: '검색 단계가 약하면 RAG 답변도 같이 흔들린다는 점을 같이 보게 해 준다.',
+            rag: 'RAG 답변까지 흔들리는 검색 단계.',
             llamaindex: '임베딩을 실제 인덱싱과 검색 흐름에 어떻게 붙이는지 이해하는 데 이어진다.',
-            'vector-db': '벡터를 어디에 저장하고 어떤 필터·검색 전략으로 꺼낼지까지 같이 보게 해 준다.',
-            pinecone: '임베딩 품질이 아니라 운영형 벡터 스토어 선택으로 문제가 넘어가는 지점을 구분하게 해 준다.',
+            'vector-db': '벡터 저장 위치와 필터·검색 전략까지 같이 보는 축.',
+            pinecone: '임베딩 품질에서 운영형 벡터 스토어 선택으로 넘어가는 지점.',
         },
         adversarialRisk: '임베딩 품질 문제를 LLM 답변 문제로 착각하면 검색 단계 병목을 놓치기 쉬워.',
     }),
@@ -75,10 +104,10 @@ const catalog = [
         userProblem: '이미지 생성 뉴스에서 모델 이름보다 생성 방식 차이가 중요한지',
         decisionAxis: '생성 품질, 제어 가능성, 추론 비용 중 무엇이 핵심인지',
         relatedHints: {
-            'stable-diffusion': '확산 모델이 실제 제품 이름으로 내려오면 어떤 라인업이 되는지 이어서 보게 해 준다.',
-            'dall-e': '같은 이미지 생성이라도 제품형 서비스와 모델 계열 설명이 어떻게 갈리는지 비교하게 해 준다.',
-            flux: '확산 계열 이후 구현이 어떻게 달라졌는지와 배포 방식 차이를 같이 보게 해 준다.',
-            imagen: '연구 발표형 이미지 생성 모델이 제품 문맥으로 내려올 때 무엇을 더 봐야 하는지 비교하게 해 준다.',
+            'stable-diffusion': '확산 모델이 실제 제품 라인업으로 내려오는 흐름.',
+            'dall-e': '제품형 이미지 서비스와 모델 계열 설명이 갈리는 비교축.',
+            flux: '확산 계열 이후 구현과 배포 방식이 갈리는 지점.',
+            imagen: '연구 발표형 이미지 생성 모델이 제품 문맥으로 내려오는 방식.',
         },
         adversarialRisk: '이미지 생성 모델 이름만 외우고 생성 방식 차이를 놓치면 발표문을 과장되게 읽기 쉽다.',
     }),
@@ -89,10 +118,10 @@ const catalog = [
         userProblem: '텍스트 모델 뉴스가 아니라 입력과 출력 범위가 넓어진 변화인지',
         decisionAxis: '이미지 이해, 음성 처리, 비디오 입력 중 실제로 지원 범위가 어디까지인지',
         relatedHints: {
-            'vision-language-model': '이미지와 텍스트를 같이 다루는 축이 멀티모달 안에서 어디쯤인지 구분하게 해 준다.',
-            whisper: '오디오 이해가 멀티모달 전체와 같은 말은 아니라는 점을 비교하게 해 준다.',
-            'speech-to-text': '음성 입력 처리만 필요한지, 더 넓은 멀티모달 시스템을 보는지 가르게 해 준다.',
-            'text-to-speech': '음성 출력 계층이 멀티모달 전체와 어떻게 다른지 비교하게 해 준다.',
+            'vision-language-model': '이미지+텍스트 축이 멀티모달 안에서 어디쯤인지 보는 비교축.',
+            whisper: '오디오 이해와 멀티모달 전체를 같은 말로 읽지 않게 하는 비교축.',
+            'speech-to-text': '음성 입력 처리와 더 넓은 멀티모달 시스템이 갈리는 지점.',
+            'text-to-speech': '음성 출력 계층이 멀티모달 전체와 다른 범위라는 점.',
         },
         adversarialRisk: '멀티모달이라는 말만 보고 이미지, 음성, 비디오 지원이 전부 다 된다고 읽으면 실제 기능 범위를 과대평가하기 쉽다.',
     }),
@@ -104,9 +133,9 @@ const catalog = [
         userProblem: 'RAG에서 문서를 어디에 저장하고 어떤 검색 엔진으로 꺼낼지',
         decisionAxis: '검색 정확도보다 운영 방식과 필터링·하이브리드 검색 요구가 더 큰 선택 기준인지',
         relatedHints: {
-            pinecone: '완전 관리형 벡터 DB를 고를 때 어떤 운영 부담을 넘기는지 비교하게 해 준다.',
-            qdrant: '직접 운영 가능한 오픈소스 대안과 비교할 때 제어권과 배포 자유도를 보게 해 준다.',
-            weaviate: '모듈형 검색과 스키마 설계까지 같이 보려는지 비교하게 해 준다.',
+            pinecone: '완전 관리형 벡터 DB가 넘겨받는 운영 부담.',
+            qdrant: '직접 운영하는 오픈소스 대안과의 제어권·배포 자유도 비교축.',
+            weaviate: '모듈형 검색과 스키마 설계까지 같이 볼 필요가 있는지.',
             chroma: '프로토타입용 가벼운 저장소와 운영형 벡터 DB를 가르는 기준으로 같이 본다.',
         },
         adversarialRisk: '벡터 DB라는 큰 묶음만 보면 실제론 관리형 SaaS, 오픈소스 서버형, 로컬 임베디드형 차이를 놓치기 쉬워.',
@@ -136,9 +165,9 @@ const catalog = [
         userProblem: '음성 입력을 텍스트로 바꾸는 단계에서 정확도와 지연 중 어디가 병목인지',
         decisionAxis: '인식 정확도, 스트리밍 지연, 운영비 중 어디를 먼저 맞춰야 하는지',
         relatedHints: {
-            whisper: '대표적인 음성 인식 모델이 실제로 어떤 품질 기준을 보여주는지 이어서 보게 해 준다.',
-            multimodal: '음성 입력 처리 하나와 멀티모달 전체 시스템은 범위가 다르다는 점을 구분하게 해 준다.',
-            'text-to-speech': '입력을 텍스트로 바꾸는 문제와 출력을 음성으로 만드는 문제를 분리해 보게 해 준다.',
+            whisper: '대표적 음성 인식 모델이 보여 주는 품질 기준.',
+            multimodal: '음성 입력 처리와 멀티모달 전체 시스템이 다른 범위라는 점.',
+            'text-to-speech': '입력을 텍스트로 바꾸는 문제와 출력을 음성으로 만드는 문제의 분리.',
         },
         adversarialRisk: '음성 기능 전체를 한 덩어리로 보면 인식과 합성의 병목이 어디서 갈리는지 놓치기 쉽다.',
     }),
@@ -149,9 +178,9 @@ const catalog = [
         userProblem: '텍스트를 음성으로 내보낼 때 자연스러움과 지연 중 어디가 더 중요한지',
         decisionAxis: '음질, 스트리밍 지연, 비용 중 무엇을 먼저 맞춰야 하는지',
         relatedHints: {
-            multimodal: '음성 출력 계층이 멀티모달 전체와 같은 말은 아니라는 점을 구분하게 해 준다.',
-            whisper: '입력 인식 모델과 출력 합성 모델은 선택 기준이 다르다는 점을 비교하게 해 준다.',
-            'speech-to-text': '음성 입출력 전체를 묶어 보지 말고 어느 단계 문제인지 분리하게 해 준다.',
+            multimodal: '음성 출력 계층이 멀티모달 전체와 다른 범위라는 점.',
+            whisper: '입력 인식 모델과 출력 합성 모델이 다른 선택 기준을 가진다는 점.',
+            'speech-to-text': '음성 입출력 전체를 한 덩어리로 보지 않게 하는 분리축.',
         },
         adversarialRisk: 'TTS를 단순 보이스 효과로만 보면 지연과 운영비 같은 제품 문제를 놓치기 쉽다.',
     }),
@@ -171,9 +200,9 @@ const catalog = [
         userProblem: '이미지를 읽는 모델 뉴스인지, 이미지까지 생성하는 모델 뉴스인지',
         decisionAxis: '이미지 이해, 텍스트 생성, 실시간 입력 처리 중 어디가 핵심인지',
         relatedHints: {
-            gemini: '멀티모달 제품 모델이 VLM 개념을 실제 서비스로 어떻게 묶는지 이어서 보게 해 준다.',
-            'gpt-4o': '범용 멀티모달 모델이 이미지 이해를 어디까지 제품 기능으로 내놓는지 비교하게 해 준다.',
-            multimodal: 'VLM이 멀티모달 전체 안에서 어느 범위를 가리키는지 상위 개념과 같이 보게 해 준다.',
+            gemini: '멀티모달 제품 모델이 VLM 개념을 실제 서비스로 묶는 방식.',
+            'gpt-4o': '범용 멀티모달 모델이 이미지 이해를 제품 기능으로 내놓는 범위.',
+            multimodal: 'VLM이 멀티모달 전체 안에서 차지하는 범위.',
         },
         adversarialRisk: '이미지 이해 모델과 이미지 생성 모델을 같은 축으로 읽으면 제품 기능을 잘못 짚기 쉽다.',
     }),
@@ -243,10 +272,10 @@ const catalog = [
         userProblem: '벡터 검색을 빨리 붙이고 싶지만 인프라를 직접 운영하고 싶지 않은지',
         decisionAxis: '완전 관리형 SaaS의 편의성과 비용을 감수할 만한지',
         relatedHints: {
-            weaviate: '오픈소스 기반 서버형과 비교할 때 관리형 편의성이 얼마나 중요한지 보게 해 준다.',
+            weaviate: '오픈소스 서버형과 비교할 때 드러나는 관리형 편의성.',
             chroma: '개발 단계 임베디드 저장소와 프로덕션 SaaS를 구분하는 기준으로 같이 본다.',
-            qdrant: '직접 운영 가능한 오픈소스 대안과 비교할 때 제어권과 운영 부담 차이를 보게 해 준다.',
-            rag: '왜 이런 관리형 벡터 DB가 필요한지 상위 검색 구조를 같이 잡게 해 준다.',
+            qdrant: '직접 운영 가능한 오픈소스 대안과의 제어권·운영 부담 차이.',
+            rag: '관리형 벡터 DB가 필요한 상위 검색 구조.',
         },
         adversarialRisk: '벡터 검색 성능만 보고 고르면, 실제론 클라우드 종속성과 비용 구조를 나중에야 체감하게 되기 쉬워.',
     }),
@@ -256,10 +285,10 @@ const catalog = [
         userProblem: '벡터 검색에 필터링, 모듈 연결, 스키마 설계까지 한 번에 묶고 싶은지',
         decisionAxis: '검색 엔진 하나보다 데이터 모델과 확장 모듈까지 같이 고를 필요가 있는지',
         relatedHints: {
-            pinecone: '완전 관리형 서비스와 오픈소스 서버형 중 어디에 무게를 둘지 비교하게 해 준다.',
-            chroma: '앱 안에 가볍게 넣는 저장소가 아니라 서비스용 데이터 모델을 다루는 쪽인지 구분하게 해 준다.',
-            qdrant: '오픈소스 기반끼리 비교할 때 API 감각과 기능 구성 차이를 보게 해 준다.',
-            rag: '검색 파이프라인 안에서 벡터 DB를 어떻게 설계하는지 상위 맥락을 같이 잡게 해 준다.',
+            pinecone: '완전 관리형 서비스와 오픈소스 서버형 사이의 무게중심.',
+            chroma: '앱 안의 가벼운 저장소와 서비스용 데이터 모델이 갈리는 지점.',
+            qdrant: '오픈소스 기반끼리 볼 때 API 감각과 기능 구성 차이.',
+            rag: '검색 파이프라인 안에서 벡터 DB를 설계하는 상위 맥락.',
         },
         adversarialRisk: '벡터 DB라는 이름만 같다고 같은 급의 제품으로 보면, 모듈 구조와 데이터 모델링 난도를 과소평가하기 쉬워.',
     }),
@@ -269,10 +298,10 @@ const catalog = [
         userProblem: '프로토타입 단계에서 가볍게 붙일 저장소가 필요한지, 운영형 벡터 DB가 필요한지',
         decisionAxis: '임베디드·로컬 중심 도구로 충분한지 아니면 별도 서비스형 DB가 필요한지',
         relatedHints: {
-            pinecone: '프로토타입용 로컬 스토어와 완전 관리형 SaaS의 간극을 비교하게 해 준다.',
-            weaviate: '가벼운 개발용 스택과 기능 많은 서버형 벡터 DB 차이를 보게 해 준다.',
+            pinecone: '프로토타입용 로컬 스토어와 완전 관리형 SaaS의 간극.',
+            weaviate: '가벼운 개발용 스택과 기능 많은 서버형 벡터 DB의 차이.',
             qdrant: '오픈소스 서버형으로 올라갈 필요가 있는지 판단하는 비교축이 된다.',
-            rag: '왜 벡터 저장소를 붙이는지 상위 검색 구조를 다시 잡게 해 준다.',
+            rag: '왜 벡터 저장소를 붙이는지 다시 잡는 상위 검색 구조.',
         },
         adversarialRisk: '벡터 DB라는 말만 보고 바로 운영형 제품 후보로 올리면, 실제론 개발 편의 도구에 더 가까운 경우를 놓치기 쉬워.',
     }),
@@ -283,10 +312,10 @@ const catalog = [
         userProblem: '벡터를 저장만 하면 되는지, 운영형 검색 계층이 필요한지',
         decisionAxis: '관리형 서비스, 개발용 스토어, 운영형 검색 엔진 사이에서 무엇을 골라야 하는지',
         relatedHints: {
-            pinecone: '완전 관리형 벡터 DB와 비교할 때 제어권과 운영 부담이 어떻게 갈리는지 보게 해 준다.',
-            weaviate: '오픈소스 서버형끼리 비교할 때 기능 구성과 데이터 모델 감각 차이를 잡게 해 준다.',
-            chroma: '개발용 임베디드 스토어에서 운영형 서버로 올라갈 필요가 있는지 판단하게 해 준다.',
-            rag: '왜 Qdrant 같은 벡터 DB가 검색 파이프라인에서 필요한지 상위 맥락을 같이 잡게 해 준다.',
+            pinecone: '완전 관리형 벡터 DB와 갈리는 제어권·운영 부담.',
+            weaviate: '오픈소스 서버형끼리의 기능 구성과 데이터 모델 감각 차이.',
+            chroma: '개발용 임베디드 스토어에서 운영형 서버로 올라갈 필요가 있는지 보는 축.',
+            rag: 'Qdrant 같은 벡터 DB가 검색 파이프라인에서 맡는 자리.',
         },
         adversarialRisk: '벡터 저장소 정도로만 읽으면 운영형 검색 기능과 직접 운영 부담을 둘 다 과소평가하기 쉬워.',
     }),
@@ -329,6 +358,8 @@ const catalog = [
     entry('copilot', 'GitHub Copilot', 'tool', [wikipedia('GitHub_Copilot'), url('https://github.com/features/copilot')], { tags: ['coding-agent', 'developer-tools'], priority: 86 }),
     entry('perplexity', 'Perplexity', 'tool', [wikipedia('Perplexity_AI'), url('https://www.perplexity.ai/hub')], { tags: ['search', 'assistant'], priority: 72 }),
 ];
+
+catalog.forEach(validateCatalogEntryTone);
 
 module.exports = {
     catalog,

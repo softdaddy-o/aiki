@@ -108,9 +108,9 @@ const CASES: ReadonlyArray<CaseStudy> = [
         useCase: 'offline file transcription',
         commandTitle: 'windows release CLI check',
         command: `whisper-cli.exe -m .\\models\\ggml-tiny.en.bin -f .\\jfk.wav --no-gpu`,
-        commandNote: '이번 Windows x64 검증에서 실제로 돌린 명령이야. release binary와 `ggml-tiny.en.bin`만으로 샘플 전사를 먼저 확인했다.',
+        commandNote: '이번 Windows x64 검증에서 실제로 돌린 명령. release binary와 `ggml-tiny.en.bin`만으로 샘플 전사부터 확인.',
         outcomeTitle: '직접 실행에서 본 것',
-        outcome: '11초 `jfk.wav`가 `And so my fellow Americans...` 문장으로 바로 전사됐고, total time은 903.41 ms였다. 로그에는 `no GPU found`가 찍혀서 CPU-only 출발선도 바로 볼 수 있었다.',
+        outcome: '11초 `jfk.wav`가 `And so my fellow Americans...` 문장으로 바로 전사, total time은 903.41 ms. 로그의 `no GPU found`로 CPU-only 출발선까지 즉시 확인.',
         surfaceTitle: '직접 본 결과',
         surfaceItems: [
             '`ggml-tiny.en.bin` 모델 크기 약 77.11 MB 로그 확인',
@@ -131,9 +131,9 @@ const CASES: ReadonlyArray<CaseStudy> = [
         useCase: 'speech-only long recordings',
         commandTitle: 'vad extension',
         command: `./models/download-vad-model.sh silero-v6.2.0\n./build/bin/whisper-cli \\\n  --file ./samples/jfk.wav \\\n  --model ./models/ggml-base.en.bin \\\n  --vad \\\n  --vad-model ./models/ggml-silero-v6.2.0.bin`,
-        commandNote: 'VAD는 whisper 자체가 아니라 별도 모델과 옵션 조합이야. 이번 로컬 검증에서는 실제로 돌리지 않았고, README 기준 확장 경로로만 확인했다.',
+        commandNote: 'VAD는 whisper 자체가 아니라 별도 모델과 옵션 조합. 이번 로컬 검증에선 실제 실행 대신 README 기준 확장 경로만 확인.',
         outcomeTitle: 'README 기준 확장 포인트',
-        outcome: 'speech segment만 먼저 뽑아서 whisper에 넘기기 때문에 긴 음성이나 silence가 많은 입력에서 처리량 체감이 좋아질 수 있다.',
+        outcome: 'speech segment만 먼저 잘라 whisper에 넘기는 방식. 긴 음성이나 silence가 많은 입력에서 처리량 체감이 좋아지는 구간.',
         surfaceTitle: '적용 조건',
         surfaceItems: [
             'Silero VAD model 별도 다운로드',
@@ -154,9 +154,9 @@ const CASES: ReadonlyArray<CaseStudy> = [
         useCase: 'self-hosted STT endpoint',
         commandTitle: 'local server check',
         command: `whisper-server.exe --host 127.0.0.1 --port 18091 --model .\\models\\ggml-tiny.en.bin --no-gpu`,
-        commandNote: '이것도 이번 Windows 검증에서 실제로 띄운 명령이야. 루트 `/`에 내장 HTML form이 올라오고, Playwright로 `jfk.wav`를 업로드해 `/inference` 응답까지 확인했다.',
+        commandNote: '이것도 이번 Windows 검증에서 실제로 띄운 명령. 루트 `/`의 내장 HTML form과 Playwright 업로드, `/inference` 응답까지 확인.',
         outcomeTitle: '브라우저에서 본 것',
-        outcome: '서버 루트는 바로 `Whisper.cpp Server` 폼을 보여 줬고, 샘플 음성을 제출하자 `/inference`에서 JFK 문장이 텍스트로 반환됐다. CLI에서 끝나지 않고 self-hosted endpoint로 자연스럽게 이어진다.',
+        outcome: '서버 루트는 곧바로 `Whisper.cpp Server` 폼 노출, 샘플 음성 제출 뒤 `/inference`에서 JFK 문장 텍스트 반환. CLI 뒤에 self-hosted endpoint가 자연스럽게 이어지는 흐름.',
         surfaceTitle: 'server 경로에서 확인한 것',
         surfaceItems: [
             '루트 `/`에서 즉시 HTML form 제공',
@@ -176,22 +176,22 @@ const CASES: ReadonlyArray<CaseStudy> = [
 const BACKEND_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: 'CPU / BLAS',
-        body: 'CPU-only inference로도 시작할 수 있고, BLAS를 붙여 encoder 처리량을 올리는 경로가 있다.',
+        body: 'CPU-only inference로 시작 가능. BLAS를 붙여 encoder 처리량을 올리는 경로도 준비.',
         chips: ['cpu-only', 'GGML_BLAS=1'],
     },
     {
         title: 'Metal / Core ML',
-        body: 'Apple Silicon에서는 Metal과 Core ML 경로가 강력하다. 온디바이스와 Mac 로컬 실험에 바로 맞는다.',
+        body: 'Apple Silicon에선 Metal과 Core ML 경로가 강함. 온디바이스와 Mac 로컬 실험용 출발선.',
         chips: ['metal', 'core ml', 'apple silicon'],
     },
     {
         title: 'CUDA / Vulkan / OpenVINO',
-        body: 'NVIDIA GPU, cross-vendor Vulkan, Intel OpenVINO 경로가 다 따로 있다. 하드웨어에 맞춰 골라 쓰는 감각이 핵심이다.',
+        body: 'NVIDIA GPU, cross-vendor Vulkan, Intel OpenVINO 경로가 각각 분리. 하드웨어에 맞춰 골라 쓰는 감각이 핵심.',
         chips: ['cuda', 'vulkan', 'openvino'],
     },
     {
         title: 'WASM / Docker / bindings',
-        body: 'same core를 browser, container, Rust, JS, Go, Ruby, Swift, Java 쪽으로 재사용할 수 있다.',
+        body: 'same core를 browser, container, Rust, JS, Go, Ruby, Swift, Java 쪽으로 재사용 가능.',
         chips: ['wasm', 'docker', 'bindings'],
     },
 ] as const;
@@ -208,11 +208,11 @@ const SAMPLE_AUDIO_CARDS: ReadonlyArray<SampleAudioCard> = [
     {
         title: '공식 JFK 샘플',
         kicker: 'repo sample',
-        body: '이번 CLI와 server 검증에 쓴 `jfk.wav`는 따로 구한 파일이 아니라 whisper.cpp repo에 기본으로 들어 있는 `samples/jfk.wav`다. 같은 폴더에 `samples/jfk.mp3`도 같이 있다.',
+        body: '이번 CLI와 server 검증에 쓴 `jfk.wav`는 따로 구한 파일이 아니라 whisper.cpp repo 기본 샘플 `samples/jfk.wav`. 같은 폴더에 `samples/jfk.mp3`도 같이 제공.',
         audioSrc: '/whisper-cpp/jfk.wav',
         referenceText: 'And so my fellow Americans ask not what your country can do for you...',
         verificationText: 'Windows x64 release + tiny.en + CPU-only로 903.41 ms에서 전사 확인',
-        note: 'README quick start, bindings test, examples가 모두 `samples/jfk.wav`를 기본 샘플로 참조한다.',
+        note: 'README quick start, bindings test, examples가 모두 `samples/jfk.wav`를 기본 샘플로 참조.',
         chips: ['11.0 sec', 'WAV 344 KB', 'MP3 75 KB', 'repo basic sample'],
         links: [
             { label: 'jfk.wav 다운로드', href: '/whisper-cpp/jfk.wav', downloadName: 'whisper-cpp-jfk.wav' },
@@ -223,11 +223,11 @@ const SAMPLE_AUDIO_CARDS: ReadonlyArray<SampleAudioCard> = [
     {
         title: '한국어 검증 샘플',
         kicker: 'local ko sample',
-        body: '한국어도 바로 내려받아 테스트할 수 있게 이 환경에 있는 `Microsoft Heami Desktop - Korean` 음성으로 짧은 샘플을 만들고 16 kHz mono WAV로 맞췄다.',
+        body: '한국어도 바로 내려받아 테스트할 수 있게 이 환경의 `Microsoft Heami Desktop - Korean` 음성으로 짧은 샘플 제작. 포맷은 16 kHz mono WAV.',
         audioSrc: '/whisper-cpp/ko-sample.wav',
         referenceText: '안녕하세요. 이 파일은 whisper cpp 쇼케이스용 한국어 샘플입니다. 로컬 음성 인식이 실제로 어떻게 동작하는지 확인하려고 만들었습니다.',
-        verificationText: 'base 다국어 모델 + `-l ko`에서 `위스포시피피`처럼 제품명 한 군데는 살짝 틀렸지만 나머지 문장은 그대로 읽었다.',
-        note: 'Windows x64 release `whisper-cli.exe`와 `ggml-base.bin`으로 실제 전사했고 total time은 2421.81 ms였다.',
+        verificationText: 'base 다국어 모델 + `-l ko`에서 `위스포시피피`처럼 제품명 한 군데만 살짝 틀리고, 나머지 문장은 그대로 인식.',
+        note: 'Windows x64 release `whisper-cli.exe`와 `ggml-base.bin`으로 실제 전사. total time은 2421.81 ms.',
         chips: ['14.3 sec', 'WAV 447 KB', 'base multilingual', '2421.81 ms'],
         links: [
             { label: 'ko-sample.wav 다운로드', href: '/whisper-cpp/ko-sample.wav', downloadName: 'whisper-cpp-ko-sample.wav' },
@@ -237,34 +237,34 @@ const SAMPLE_AUDIO_CARDS: ReadonlyArray<SampleAudioCard> = [
 
 const TAKE_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'tiny.en + CPU-only 릴리스 바이너리만으로도 11초 샘플이 1초 안쪽에서 끝났다.',
-        body: '이번 Windows x64 검증에서 `whisper-cli` total time은 903.41 ms였고, 로그는 GPU 없이도 바로 돌아가는 출발선을 보여 줬다.',
+        title: 'CPU-only 출발선',
+        body: '이번 Windows x64 검증에서 `whisper-cli` total time은 903.41 ms. 로그로는 GPU 없이도 바로 돌아가는 출발선 확인.',
         tone: 'accent',
     },
     {
-        title: '내장 server form도 실제로 바로 쓸 수 있었다.',
-        body: '루트 `/`의 HTML 폼에 `jfk.wav`를 올리자 `/inference`에서 전사 문장이 텍스트로 반환됐다. 자체 STT endpoint의 최소 형태는 이미 갖춰져 있다.',
+        title: '내장 server form',
+        body: '루트 `/`의 HTML 폼에 `jfk.wav` 업로드 뒤 `/inference`에서 전사 문장 텍스트 반환. 자체 STT endpoint 최소 형태는 이미 갖춰진 상태.',
     },
     {
-        title: 'VAD와 server는 확장 경로지 마법 버튼이 아니다.',
-        body: '추가 모델과 추가 책임이 붙는다. long audio와 self-hosted endpoint가 필요할 때만 열면 된다.',
+        title: 'VAD / server 확장',
+        body: '추가 모델과 추가 책임이 함께 붙는 구간. long audio와 self-hosted endpoint가 필요할 때만 열면 충분.',
     },
 ] as const;
 
 const FIT_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: '오프라인 또는 프라이버시 중심 음성 처리',
-        body: '오디오를 외부 API로 보내기 어렵거나 보내고 싶지 않으면 whisper.cpp가 바로 설득력을 가진다.',
+        body: '오디오를 외부 API로 보내기 어렵거나 보내고 싶지 않을 때. whisper.cpp 쪽 설득력이 바로 올라가는 상황.',
         chips: ['offline', 'privacy'],
     },
     {
         title: '하드웨어 맞춤 최적화',
-        body: 'Apple Silicon, CUDA GPU, OpenVINO, WASM처럼 이미 가진 하드웨어나 배포 경로에 맞춰 움직일 때 잘 맞는다.',
+        body: 'Apple Silicon, CUDA GPU, OpenVINO, WASM처럼 이미 가진 하드웨어나 배포 경로에 맞춰 움직일 때 잘 맞는 편.',
         chips: ['metal', 'cuda', 'openvino', 'wasm'],
     },
     {
         title: '자체 STT endpoint',
-        body: 'CLI에서 시작해서 Docker나 server example로 internal speech API를 만들고 싶은 팀이면 흐름이 자연스럽다.',
+        body: 'CLI에서 시작해 Docker나 server example로 internal speech API를 만들 팀용. 흐름도 끊기지 않음.',
         chips: ['server', 'docker', 'self-hosted'],
     },
 ] as const;
@@ -272,17 +272,17 @@ const FIT_CARDS: ReadonlyArray<ContentCard> = [
 const SKIP_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: 'managed speech platform 기대',
-        body: '저장, 모니터링, diarization, SLA까지 통째로 원하면 whisper.cpp만으로는 책임 범위가 부족하다.',
+        body: '저장, 모니터링, diarization, SLA까지 통째로 원한다면 whisper.cpp만으로는 책임 범위가 부족.',
         chips: ['managed API', 'platform'],
     },
     {
         title: '모델 파일과 build flag를 만지고 싶지 않을 때',
-        body: 'download, backend 선택, ffmpeg 전처리 같은 운영 요소가 싫으면 다른 선택지가 더 편하다.',
+        body: 'download, backend 선택, ffmpeg 전처리 같은 운영 요소를 피하고 싶다면 다른 선택지가 더 편함.',
         chips: ['ops overhead', 'build flags'],
     },
     {
         title: '메모리 여유가 작은 장비에서 큰 모델을 바로 굴릴 때',
-        body: '모델 크기 차이가 커서, 장비에 맞는 size와 backend를 먼저 고르지 않으면 체감이 빠르게 무너진다.',
+        body: '모델 크기 차이가 커서 장비에 맞는 size와 backend를 먼저 고르지 않으면 체감이 빠르게 무너짐.',
         chips: ['memory', 'model sizing'],
     },
 ] as const;
@@ -291,39 +291,39 @@ const ADOPTION_STEPS: ReadonlyArray<StepCard> = [
     {
         title: '1. Quick start',
         command: 'download base.en + build whisper-cli',
-        body: 'official quick start를 그대로 따라가서 local build와 샘플 transcription 감각부터 확인한다.',
+        body: 'official quick start를 그대로 따라가며 local build와 샘플 transcription 감각부터 확보.',
     },
     {
         title: '2. Choose backend',
         command: 'CPU / Metal / Core ML / CUDA / Vulkan / OpenVINO',
-        body: '우리 하드웨어에서 어떤 backend가 맞는지 먼저 고르고, 그 뒤에 model size를 정한다.',
+        body: '우리 하드웨어에 맞는 backend부터 결정, 그다음 model size 선택.',
     },
     {
         title: '3. Fix audio path',
         command: '16-bit WAV or FFmpeg pipeline',
-        body: '입력 포맷과 전처리 경로를 정하지 않으면 운영이 금방 지저분해진다.',
+        body: '입력 포맷과 전처리 경로를 먼저 정해 두는 편. 안 그러면 운영이 금방 지저분해짐.',
     },
     {
         title: '4. Add extensions',
         command: 'VAD or whisper-server only if needed',
-        body: 'long audio면 VAD, internal endpoint면 server를 붙인다. 처음부터 다 열 필요는 없다.',
+        body: 'long audio면 VAD, internal endpoint면 server 추가. 처음부터 전부 열 필요는 없음.',
     },
 ] as const;
 
 const OPS_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'model size가 곧 운영 비용이다.',
-        body: 'README 메모리 표만 봐도 base에서 large로 갈 때 요구량이 급격히 커진다. model choice를 먼저 좁혀야 한다.',
+        title: 'model size 비용',
+        body: 'README 메모리 표만 봐도 base에서 large로 갈 때 요구량이 급격히 커짐. model choice를 먼저 좁혀 두는 편.',
         chips: ['base ~388 MB', 'large ~3.9 GB'],
     },
     {
-        title: 'audio preprocessing을 무시하면 바로 막힌다.',
-        body: '`whisper-cli`는 기본적으로 16-bit WAV 기준이어서, mp3나 다른 포맷은 ffmpeg 경로를 같이 챙겨야 한다.',
+        title: 'audio preprocessing',
+        body: '`whisper-cli`는 기본적으로 16-bit WAV 기준. mp3나 다른 포맷은 ffmpeg 경로를 같이 챙겨야 함.',
         chips: ['ffmpeg', '16-bit wav'],
     },
     {
-        title: 'backend 선택은 compile time 감각도 포함한다.',
-        body: 'CUDA, Core ML, OpenVINO, Vulkan은 단순 옵션이 아니라 팀의 build 환경과 배포 체인까지 같이 건드린다.',
+        title: 'backend + build chain',
+        body: 'CUDA, Core ML, OpenVINO, Vulkan은 단순 옵션이 아니라 팀의 build 환경과 배포 체인까지 같이 건드리는 선택.',
         chips: ['compile flags', 'deployment chain'],
     },
 ] as const;
@@ -332,17 +332,17 @@ const COMPARE_CARDS: ReadonlyArray<CompareCard> = [
     {
         title: 'OpenAI Whisper Python',
         fit: '원본 Python 생태계와 연구용 흐름을 더 직접 따라가고 싶을 때',
-        tradeoff: '온디바이스와 C/C++ 배포, backend 최적화 감각은 whisper.cpp가 더 직접적이다.',
+        tradeoff: '온디바이스와 C/C++ 배포, backend 최적화 감각은 whisper.cpp 쪽이 더 직접적.',
     },
     {
         title: 'Managed speech API',
         fit: '결과만 빨리 받고 storage, monitoring, SLA까지 같이 받고 싶을 때',
-        tradeoff: '오프라인 제어권과 local hardware 최적화는 약해진다.',
+        tradeoff: '오프라인 제어권과 local hardware 최적화는 약해지는 편.',
     },
     {
         title: 'whisper.cpp',
         fit: 'offline, self-hosted, on-device, backend tuning이 중요할 때',
-        tradeoff: 'model file, build flag, preprocessing, runtime ownership을 팀이 직접 가져가야 한다.',
+        tradeoff: 'model file, build flag, preprocessing, runtime ownership은 팀이 직접 보유.',
     },
 ] as const;
 
@@ -392,7 +392,7 @@ export default function WhisperCppShowcase(props: WhisperCppShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}cases`}
                     title="실행 흐름"
-                    description={<>이 repo는 기본 CLI, <TermHint term="VAD" description="먼저 음성 구간만 잘라내서 ASR에 넘기는 확장 경로야. silence가 많은 입력에서 효율이 올라갈 수 있다." /> 확장, server 경로까지 한 코어로 이어 간다. 같은 whisper라도 hosted API가 아니라 runtime을 직접 쥐는 쪽에 가깝다.</>}
+                    description={<>이 repo는 기본 CLI에서 <TermHint term="VAD" description="먼저 음성 구간만 잘라내서 ASR에 넘기는 확장 경로. silence가 많은 입력에서 효율이 올라가는 쪽." /> 확장과 server 경로까지 같은 코어로 연결. 핵심은 hosted API 대신 runtime과 backend를 직접 고르는 데 있음.</>}
                 >
                     <article className="wc-card wc-card--accent wc-overview-card">
                         <CardHeader kicker="showcase overview" title="쇼케이스 개요" pill="offline first" />
@@ -458,7 +458,7 @@ export default function WhisperCppShowcase(props: WhisperCppShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}samples`}
                     title="샘플 오디오"
-                    description={<>`samples/jfk.wav`는 repo 기본 샘플이고, `make samples`를 돌리면 Wikipedia와 공개 클립을 더 받아 16-bit WAV로 맞춘다. 이번 페이지에는 바로 들어볼 수 있게 공식 JFK 샘플과 한국어 검증용 샘플을 같이 붙였다.</>}
+                    description={<>`samples/jfk.wav`는 repo 기본 샘플이고, `make samples`를 돌리면 Wikipedia와 공개 클립을 더 받아 16-bit WAV로 맞춤. 이번 페이지에는 바로 들어볼 수 있게 공식 JFK 샘플과 한국어 검증용 샘플을 같이 배치.</>}
                 >
                     <div className="wc-sample-grid">
                         {SAMPLE_AUDIO_CARDS.map((item) => (
@@ -470,7 +470,7 @@ export default function WhisperCppShowcase(props: WhisperCppShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}matrix`}
                     title="backend + model size 매트릭스"
-                    description={<>이 프로젝트는 backend와 model size를 같이 봐야 한다. 같은 Whisper라도 어떤 <TermHint term="backend" description="CPU, Metal, CUDA, Vulkan, OpenVINO처럼 실제 inference를 어디서 어떤 빌드 옵션으로 돌릴지 정하는 실행 경로야." /> 를 고르고 어떤 모델 크기를 쓰느냐에 따라 체감이 완전히 달라진다.</>}
+                    description={<>이 프로젝트는 backend와 model size를 같이 봐야 함. 같은 Whisper라도 어떤 <TermHint term="backend" description="CPU, Metal, CUDA, Vulkan, OpenVINO처럼 실제 inference를 어디서 어떤 빌드 옵션으로 돌릴지 정하는 실행 경로." /> 를 고르고 어떤 모델 크기를 쓰느냐에 따라 체감이 완전히 달라짐.</>}
                 >
                     <div className="wc-matrix-stack">
                         <div className="wc-backend-grid">

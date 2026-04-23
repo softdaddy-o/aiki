@@ -24,7 +24,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const { buildWikiLookup } = require('./lib/wiki-term-registry.cjs');
+const {
+    buildLabelMatcher,
+    buildWikiLookup,
+    findWikiTextMatches,
+    hasHangul,
+} = require('./lib/wiki-term-registry.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const NEWS_DIR = path.join(ROOT, 'src', 'content', 'news', 'ko');
@@ -39,45 +44,13 @@ const BLOCKLIST = new Set([
     'app', 'apps', 'dev', 'test', 'tests', 'tool', 'tools', 'note',
     'note-taking', 'chat', 'model', 'models',
     '모델', '도구', '노트', '채팅',
-    // Short Korean tokens that collide with common adverbs / generic
-    // nouns. "달리" means "differently", "코딩"/"코드" are generic enough
-    // that auto-linking them in prose is usually wrong.
+    // Short Korean tokens that collide with common adverbs / generic nouns.
     '달리', '코딩', '코드', '파일', '형식',
 ]);
-
-function isHangul(ch) {
-    const code = ch.charCodeAt(0);
-    return code >= 0xac00 && code <= 0xd7a3;
-}
-
-function hasHangul(s) {
-    for (const ch of s) {
-        if (isHangul(ch)) return true;
-    }
-    return false;
-}
 
 function passesMinLength(label) {
     if (hasHangul(label)) return label.length >= MIN_HANGUL_LEN;
     return label.length >= MIN_ASCII_LEN;
-}
-
-function escapeRegex(s) {
-    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function buildMatcher(label) {
-    const escaped = escapeRegex(label);
-    // Boundary set depends on the label's script. Korean particles like
-    // "의", "이", "가", "은", "는" attach directly to ASCII words without
-    // space, so for ASCII-only labels we must NOT treat hangul as a word
-    // boundary (otherwise "Anthropic의" would not match "Anthropic").
-    // For labels containing hangul we keep hangul in the boundary set so
-    // short 한글 terms don't match inside longer hangul words.
-    const boundary = hasHangul(label)
-        ? '[A-Za-z0-9_\\uac00-\\ud7a3]'
-        : '[A-Za-z0-9_]';
-    return new RegExp(`(?<!${boundary})${escaped}(?!${boundary})`, 'i');
 }
 
 function splitFrontmatter(text) {
@@ -92,12 +65,12 @@ function splitFrontmatter(text) {
 }
 
 function extractFrontmatterTitle(head) {
-    // Minimal YAML scan — grabs the first top-level `title:` scalar.
+    // Minimal YAML scan; grabs the first top-level `title:` scalar.
     const lines = head.split(/\r?\n/);
     for (const line of lines) {
-        const m = /^title\s*:\s*(.+)$/.exec(line);
-        if (!m) continue;
-        let value = m[1].trim();
+        const match = /^title\s*:\s*(.+)$/.exec(line);
+        if (!match) continue;
+        let value = match[1].trim();
         if ((value.startsWith('"') && value.endsWith('"'))
             || (value.startsWith("'") && value.endsWith("'"))) {
             value = value.slice(1, -1);
@@ -111,37 +84,27 @@ function extractFrontmatterTitle(head) {
 // Returns { masked, restore(text) }.
 function maskProtected(body) {
     const stash = [];
-    const placeholder = (i) => `\u0000MASK${i}\u0000`;
+    const placeholder = (index) => `\u0000MASK${index}\u0000`;
 
     const push = (match) => {
-        const i = stash.length;
+        const index = stash.length;
         stash.push(match);
-        return placeholder(i);
+        return placeholder(index);
     };
 
     let masked = body;
 
-    // Fenced code blocks ``` ... ```
     masked = masked.replace(/```[\s\S]*?```/g, push);
-    // Indented code blocks (4 leading spaces) — conservative: skip.
-    // HTML tags (opening/closing/self-closing) and their contents for simple blocks.
     masked = masked.replace(/<[^>\n]+>/g, push);
-    // Inline code `...`
     masked = masked.replace(/`[^`\n]+`/g, push);
-    // Existing markdown links [text](url) and images ![alt](url)
     masked = masked.replace(/!?\[[^\]]*\]\([^)]*\)/g, push);
-    // Reference-style link targets [text][id] and definitions at column 0
     masked = masked.replace(/\[[^\]]*\]\[[^\]]*\]/g, push);
     masked = masked.replace(/^\s*\[[^\]]+\]:\s+\S.*$/gm, push);
-    // ATX headings (entire line)
     masked = masked.replace(/^#{1,6} .*$/gm, push);
-    // Setext heading underline lines (=== ---) we leave alone; heading text
-    // above gets matched but is unusual in our corpus.
-    // Table separator rows | --- | --- |
     masked = masked.replace(/^\s*\|?[\s:|-]+\|[\s:|-]+\|?\s*$/gm, push);
 
     const restore = (text) =>
-        text.replace(/\u0000MASK(\d+)\u0000/g, (_, i) => stash[Number(i)]);
+        text.replace(/\u0000MASK(\d+)\u0000/g, (_, index) => stash[Number(index)]);
 
     return { masked, restore };
 }
@@ -149,80 +112,45 @@ function maskProtected(body) {
 function pickCandidates(lookup, { selfTerm, pageTitle }) {
     const titleLower = (pageTitle || '').toLowerCase();
     return lookup
-        .filter((c) => passesMinLength(c.label))
-        .filter((c) => !BLOCKLIST.has(c.normalized))
-        .filter((c) => !selfTerm || c.term !== selfTerm)
-        .filter((c) => {
+        .filter((candidate) => passesMinLength(candidate.label))
+        .filter((candidate) => !BLOCKLIST.has(candidate.normalized))
+        .filter((candidate) => !selfTerm || candidate.term !== selfTerm)
+        .filter((candidate) => {
             if (!titleLower) return true;
-            // If the candidate label appears as a whole word inside this
-            // page's title, it's almost always part of the page's own name
-            // (e.g. "Weights" inside "Weights & Biases"). Skip to avoid
-            // mis-branding product/tool titles.
-            const re = buildMatcher(c.label);
-            return !re.test(titleLower);
+            const matcher = buildLabelMatcher(candidate.label, 'iu');
+            return !matcher.test(titleLower);
         });
 }
 
 function applyLinks(body, candidates) {
     const { masked, restore } = maskProtected(body);
 
-    // Link every occurrence of every candidate. Priority order (longest label
-    // first, already sorted by buildWikiLookup) decides overlap resolution:
-    // earlier candidates claim their ranges first, later ones must not
-    // overlap. Candidates with the same URL still produce multiple links
-    // because the user wants repeated mentions linked.
-    const claimed = [];
-
-    const overlaps = (start, end) => {
-        for (const c of claimed) {
-            if (!(end <= c.start || start >= c.end)) return true;
-        }
-        return false;
-    };
-
-    for (const cand of candidates) {
-        const source = buildMatcher(cand.label).source;
-        const re = new RegExp(source, 'gi');
-        let m;
-        while ((m = re.exec(masked)) !== null) {
-            const start = m.index;
-            const end = start + m[0].length;
-            if (m[0].length === 0) {
-                re.lastIndex = start + 1;
-                continue;
-            }
-            if (masked.slice(start, end).includes('\u0000')) continue;
-            if (overlaps(start, end)) continue;
-            claimed.push({
-                start,
-                end,
-                label: m[0],
-                url: cand.url,
-                term: cand.term,
-            });
-        }
-    }
+    const claimed = findWikiTextMatches(masked, candidates)
+        .filter((match) => !masked.slice(match.start, match.end).includes('\u0000'))
+        .map((match) => ({
+            start: match.start,
+            end: match.end,
+            label: match.label,
+            url: match.entry.url,
+            term: match.entry.term,
+        }));
 
     if (claimed.length === 0) return { body, changed: false, inserts: [] };
 
-    claimed.sort((a, b) => a.start - b.start);
-
-    let out = masked;
-    for (let i = claimed.length - 1; i >= 0; i--) {
-        const ins = claimed[i];
-        const replacement = `[${ins.label}](${ins.url})`;
-        out = out.slice(0, ins.start) + replacement + out.slice(ins.end);
+    let output = masked;
+    for (let index = claimed.length - 1; index >= 0; index--) {
+        const insert = claimed[index];
+        const replacement = `[${insert.label}](${insert.url})`;
+        output = output.slice(0, insert.start) + replacement + output.slice(insert.end);
     }
 
-    return { body: restore(out), changed: true, inserts: claimed };
+    return { body: restore(output), changed: true, inserts: claimed };
 }
 
 function selfTermFromPath(filePath) {
-    // Only wiki files have a 1:1 mapping to a term slug.
     const rel = path.relative(WIKI_DIR, filePath);
     if (rel.startsWith('..')) return null;
-    const base = path.basename(filePath, '.md');
-    return base || null;
+    return path.basename(filePath, '.md') || null;
 }
 
 function processFile(filePath, lookup, { dryRun }) {
@@ -230,7 +158,6 @@ function processFile(filePath, lookup, { dryRun }) {
     const { head, body, title } = splitFrontmatter(raw);
     if (!body.trim()) return null;
 
-    // Split body into prose (scanned) and related-terms tail (untouched).
     const relatedMatch = /^##\s*관련\s*용어\s*$/m.exec(body);
     const prose = relatedMatch ? body.slice(0, relatedMatch.index) : body;
     const tail = relatedMatch ? body.slice(relatedMatch.index) : '';
@@ -255,8 +182,8 @@ function listMarkdown(dir) {
     if (!fs.existsSync(dir)) return [];
     return fs
         .readdirSync(dir)
-        .filter((n) => n.endsWith('.md'))
-        .map((n) => path.join(dir, n))
+        .filter((name) => name.endsWith('.md'))
+        .map((name) => path.join(dir, name))
         .sort();
 }
 
@@ -278,8 +205,8 @@ function main() {
 
     const results = [];
     for (const file of files) {
-        const res = processFile(file, lookup, { dryRun });
-        if (res) results.push(res);
+        const result = processFile(file, lookup, { dryRun });
+        if (result) results.push(result);
     }
 
     if (results.length === 0) {
@@ -288,14 +215,15 @@ function main() {
     }
 
     let totalLinks = 0;
-    for (const r of results) {
-        const rel = path.relative(ROOT, r.filePath).replace(/\\/g, '/');
+    for (const result of results) {
+        const rel = path.relative(ROOT, result.filePath).replace(/\\/g, '/');
         console.log(`${dryRun ? '[dry] ' : ''}${rel}`);
-        for (const ins of r.inserts) {
-            console.log(`    + [${ins.label}](${ins.url})`);
+        for (const insert of result.inserts) {
+            console.log(`    + [${insert.label}](${insert.url})`);
             totalLinks += 1;
         }
     }
+
     console.log(
         `\nautolink-body: ${results.length} files ${dryRun ? 'would change' : 'changed'}, ${totalLinks} links inserted.`,
     );
@@ -307,10 +235,10 @@ if (require.main === module) {
 
 module.exports = {
     applyLinks,
-    buildMatcher,
+    buildMatcher: buildLabelMatcher,
+    extractFrontmatterTitle,
     maskProtected,
     passesMinLength,
     pickCandidates,
     splitFrontmatter,
-    extractFrontmatterTitle,
 };

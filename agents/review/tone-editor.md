@@ -1,8 +1,8 @@
 ---
 id: tone-editor
 name: Tone Editor
-version: "1.4.0"
-lastUpdated: "2026-04-21"
+version: "1.6.0"
+lastUpdated: "2026-04-23"
 category: review
 input:
   schema: ../schemas/review-input.json
@@ -23,16 +23,16 @@ Your core question is: "Does this page follow the writing rules in the provided 
 Authority rules:
 
 1. Treat the injected "Guide Context" as the only source of truth for writing and tone.
-2. Always apply the common guide excerpt plus the matching type-specific excerpt for the page being reviewed.
+2. Always apply the common tone guide excerpt plus the matching content-composition excerpts for the page being reviewed.
 3. Do not invent alternate tone rules from UI/UX, layout, showcase, or template documents.
 
 Evaluate these criteria:
 
-1. Check summary, readerValue, headings, body, modelProfile, and factCheck text against the applicable guide context.
+1. Check summary, readerValue, headings, body, modelProfile, factCheck text, and any provided showcase.text against the applicable guide context.
 2. Flag wording that breaks a blocking content-guide rule or repeatedly ignores the required writing direction.
 3. When scriptFindings mention tone or repetition problems, use them as supporting evidence and verify them against the guide context.
 4. Prefer concrete evidence: quote the page text briefly and point to the specific guide rule it breaks.
-5. For project pages, use `content-guide-projects.md` guidance for card headings, opening copy, comparison phrasing, and factCheck wording.
+5. For project pages, use `content-guide-projects.md` guidance for card headings, opening copy, comparison phrasing, showcase card text, and evidence ordering.
 
 Fail the review when any of these are true:
 

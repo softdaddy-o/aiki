@@ -6,8 +6,6 @@ const matter = require('gray-matter');
 
 const { writeUtf8 } = require('./lib/content-utils.cjs');
 const { catalog } = require('./lib/wiki-catalog.cjs');
-const { buildModelProfile } = require('./lib/model-profile.cjs');
-
 const REPO_ROOT = path.resolve(__dirname, '..');
 const WIKI_DIR = path.join(REPO_ROOT, 'src/content/wiki/ko');
 
@@ -62,7 +60,6 @@ function syncFile(entry) {
         ...parsed.data,
         category: 'model',
         modelType: entry.modelType,
-        modelProfile: buildModelProfile(entry),
     };
 
     if (entry.parentModel) {

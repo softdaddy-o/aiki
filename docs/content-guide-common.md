@@ -1,12 +1,11 @@
-# AIKI Content Guide — Common Rules
+# AIKI Content Guide — Common Composition
 
 > **Guide ID**: `common`
-> **Version**: `1.0.0`
-> **Last Updated**: 2026-04-09
+> **Version**: `2.2.0`
+> **Last Updated**: 2026-04-23
 > **Applies to**: News, Wiki, Projects 모든 콘텐츠
 
-이 문서는 AIKI 사이트의 모든 콘텐츠(뉴스, 위키, 프로젝트)에 공통으로 적용되는 생성 규칙이다.
-타입별 세부 규칙은 `content-guide-news.md`, `content-guide-wiki.md`, `content-guide-projects.md`를 참조한다.
+이 문서는 AIKI 전체의 공통 콘텐츠 구성 문서다. tone은 `docs/tone-guide-common.md`가 맡고, 타입별 구조는 `docs/content-guide-news.md`, `docs/content-guide-wiki.md`, `docs/content-guide-projects.md`가 맡는다.
 
 ---
 
@@ -15,7 +14,7 @@
 ### 가이드 버전
 
 모든 가이드 문서는 시맨틱 버저닝(SemVer)을 따른다:
-- **MAJOR** (x.0.0): 구조 변경, 필수 필드 추가/삭제, 톤 방향 전환 → 기존 콘텐츠 전면 재생성 필요
+- **MAJOR** (x.0.0): 구조 변경, 필수 필드 추가/삭제, 문서 역할 전환 → 기존 콘텐츠 전면 재검토 필요
 - **MINOR** (0.x.0): 규칙 추가/강화, 새 검증 항목 → 해당 규칙에 걸리는 콘텐츠만 재생성
 - **PATCH** (0.0.x): 오타, 표현 개선, 예시 추가 → 재생성 불필요
 
@@ -26,22 +25,25 @@
 **뉴스 기사:**
 ```yaml
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.2.0"
+  news: "3.1.0"
 ```
 
 **위키 페이지:**
 ```yaml
 guideVersion:
-  common: "1.0.0"
-  wiki: "1.0.0"
+  tone: "2.0.0"
+  common: "2.2.0"
+  wiki: "3.1.0"
 ```
 
 **프로젝트 페이지:**
 ```yaml
 guideVersion:
-  common: "1.0.0"
-  projects: "3.0.0"
+  tone: "2.0.0"
+  common: "2.2.0"
+  projects: "4.1.0"
 ```
 
 ### 재생성 판단 기준
@@ -50,6 +52,9 @@ guideVersion:
 
 | 변경 유형 | 재생성 범위 |
 |-----------|-------------|
+| tone MAJOR 변경 | 전체 콘텐츠 |
+| tone MINOR 변경 | tone 영향이 큰 콘텐츠 우선 |
+| tone PATCH 변경 | 없음 |
 | common MAJOR 변경 | 전체 콘텐츠 |
 | common MINOR 변경 | 변경된 규칙에 해당하는 콘텐츠 |
 | common PATCH 변경 | 없음 |
@@ -62,11 +67,11 @@ guideVersion:
 
 **재생성 대상 찾기 (CLI):**
 ```bash
-# common 1.0.0 이전 버전으로 생성된 뉴스 기사 찾기
-grep -rl "common: \"0\." D:/srcp/aiki/src/content/news/ko/
+# tone 2.0.0 이전 버전으로 생성된 뉴스 기사 찾기
+grep -Erl "tone: \"(0|1)\\." D:/srcp/aiki/src/content/news/ko/
 
-# wiki 가이드 1.0.0 이전 위키 페이지 찾기
-grep -rl "wiki: \"0\." D:/srcp/aiki/src/content/wiki/ko/
+# common 2.2.0 이전 위키 페이지 찾기
+grep -Erl "common: \"(0|1|2\\.[01])\\." D:/srcp/aiki/src/content/wiki/ko/
 
 # guideVersion 필드가 아예 없는 레거시 콘텐츠 찾기
 grep -rL "guideVersion" D:/srcp/aiki/src/content/news/ko/
@@ -76,7 +81,16 @@ grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 
 ---
 
-## 2. 독자 페르소나
+## 2. 문서 역할 분리
+
+- `docs/tone-guide-common.md`: AIKI 전체 tone 정본
+- `docs/content-guide-common.md`: 공통 frontmatter, readerValue, factCheck, 링크, 언어 규칙
+- `docs/content-guide-news.md`, `docs/content-guide-wiki.md`, `docs/content-guide-projects.md`: 타입별 콘텐츠 구성 규칙
+- `.claude/skills/aiki-ui-ux/SKILL.md`: 레이아웃, 컴포넌트, responsive, eval 규칙만 담당
+
+같은 규칙을 두 군데에 적지 않는다. tone 문제는 tone guide로, 구조 문제는 content guide로, 레이아웃 문제는 UI/UX skill로 보낸다.
+
+## 3. 독자 페르소나
 
 **네니엘** — 모든 콘텐츠의 기준 독자
 
@@ -86,7 +100,7 @@ grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 | 직업 | IT 회사 근무 |
 | 관심사 | AI 업무자동화, 바이브코딩 |
 | 선호 | 짧은 글, 실행 가능한 콘텐츠 |
-| 비선호 | 긴 이론, 추상적 설명, AI 상투어 |
+| 비선호 | 긴 이론, 추상적 설명, 템플릿 문구 |
 
 **페르소나 적용 원칙:**
 - 네니엘이 읽고 "그래서 나한테 뭐가 달라지는데?"라는 질문에 답이 없으면 실패
@@ -95,94 +109,37 @@ grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 
 ---
 
-## 3. 톤 & 문체
+## 4. 공통 구성 규칙
 
-### 기본 톤: 구어체 혼합
+- summary, readerValue, body, factCheck는 서로 다른 표현이어도 같은 판단축을 가리켜야 한다.
+- 독자가 얻는 판단은 `readerValue`에 먼저 잡고, 본문과 factCheck가 그 판단을 뒷받침해야 한다.
+- 페이지 소개 문구만 길게 늘어놓지 않는다. 무엇을 봐야 하는지, 왜 중요한지, 어디서 갈리는지를 초반에 잡는다.
+- 근거 없는 일반론보다 구체적인 입력, 출력, 장면, 수치, 제품 범위, 날짜를 우선한다.
+- 다른 제품명으로 바꿔도 그대로 들어맞는 문장이 많으면 실패다.
 
-보도체(~했다)와 구어체(~이야/~거든/~해)를 자연스럽게 섞는다.
+## 5. 수치 & 근거 규칙
 
-**비율 기준:**
-- 보도체 종결어미(~했다/~됐다/~이다): **50% 미만**
-- 구어체 종결어미(~이야/~거야/~해/~거든): **15% 이상**
+### 구체적 숫자
 
-**좋은 예:**
-> Anthropic이 Claude Opus 4.6를 내놓으면서 최상위 모델 경쟁의 초점을 다시 잡았어. 이번 발표에서 가장 먼저 보이는 숫자는 100만 토큰 컨텍스트와 12만8000 토큰 출력이야.
+모든 콘텐츠에 **구체적 수치 최소 2개**를 우선한다.
+- 가격, 성능 수치, 날짜, 파라미터 수, 토큰 수, 속도, 메모리 사용량 등
 
-**나쁜 예:**
-> Anthropic이 Claude Opus 4.6를 발표했다. 100만 토큰 컨텍스트와 128k 출력을 지원한다. 기존 가격을 유지했다.
+### 사실 나열 금지
 
-### 금지 패턴
-
-#### 3-1. AI 상투어 (T3)
-
-| 금지어 | 대안 |
-|--------|------|
-| 혁신적 | 요점/골자/결국 |
-| 획기적 | 핵심은/달라진 건 |
-| 놀라운 | 눈에 띄는 건 |
-| 인상적인 | 주목할 건 |
-| 주목할 만한 | 짚어볼 건 |
-| 급격한 | 빠른/큰 |
-
-#### 3-2. AI 감탄 서술형 (T4)
-
-"~이 놀라워", "~이 흥미로워", "~이 인상적이" 같은 감탄 표현 금지.
-바로 팩트로 진입한다.
-
-**금지:** "이 성능 향상이 놀랍다."
-**대안:** "성능이 기존 대비 40% 올랐다."
-
-#### 3-3. AI 가짜 경험담
-
-"나도 느껴봤는데", "해봤는데" 같은 AI가 지어낸 1인칭 경험담 금지.
-
-#### 3-4. 전달체 과다 (T5)
-
-~한대/~했대/~래가 3회 연속 나오면 FAIL. 1회는 본인 목소리(~이야/~거야)로 전환.
-
-#### 3-5. 교과서적 전환어 (T9)
-
-"또한", "더불어", "결론적으로", "따라서" 등 교과서 전환어 최소화.
-
-#### 3-6. Reddit 숫자 직접 인용 (T6)
-
-"r/sub에서 N명 추천" 형식 금지. 간접 표현으로 교체.
-
-**금지:** "r/MachineLearning에서 500 upvotes를 받았다"
-**대안:** "ML 커뮤니티에서 큰 관심을 받았다"
-
-### 오프닝 규칙 (T10)
-
-- 질문형 시작 금지 ("~일까?")
-- 따옴표 인용형 시작 금지
-- 뉴스 훅으로 바로 시작
+인과나 비교 없이 팩트만 길게 나열하면 독자가 판단 축을 못 잡는다. 숫자와 사실은 의미, 조건, 다음 행동과 같이 붙인다.
 
 ---
 
-## 4. 숫자 & 팩트 규칙
+## 6. 팩트체크 공통 규칙
 
-### 구체적 숫자 (T8)
-
-모든 콘텐츠에 **구체적 수치 최소 2개** 포함:
-- 가격, 성능 수치, 날짜, 파라미터 수, 토큰 수, 속도 등
-
-### 사실 나열 금지 (T7)
-
-인과/반전/질문 없이 팩트만 4연속 나열하면 WARN.
-서사 구조(인과관계, 반전, 질문)를 섞는다.
-
----
-
-## 5. 팩트체크 공통 규칙
-
-모든 콘텐츠(뉴스, 위키)는 4단계 팩트체크를 거친다:
+모든 콘텐츠(뉴스, 위키, 프로젝트)는 4단계 팩트체크를 거친다:
 
 | 단계 | 이름 | 방법 |
 |------|------|------|
 | 1 | 원문 대조 (source_match) | 원본 소스와 기사/페이지 비교 — 수치, 날짜, 고유명사 일치 확인 |
-| 2 | 웹 교차검증 (web_cross_check) | WebSearch로 2+ 독립 출처 확인 |
+| 2 | 웹 교차검증 (web_cross_check) | WebSearch 또는 독립 출처 2개 이상 확인 |
 | 3 | 수치 검증 (number_verify) | 가격, 성능 수치를 공식 문서 기준으로 정량 확인 |
-| 4 | 비판적 검증 (adversarial) | 반론/맥락 누락/과장 검토 |
+| 4 | 비판적 검증 (adversarial) | 반론, 맥락 누락, 과장 가능성 검토 |
 
 ### 비판적 검증 체크리스트
 
@@ -190,17 +147,7 @@ grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 - 수치가 체리피킹됐는가? (전체 맥락 없이 좋은 숫자만 인용)
 - 출처의 이해관계가 있는가? (자사 벤치마크, PR 자료)
 - 인과관계를 상관관계로 혼동하고 있는가?
-- 미검증 최상급 표현이 있는가? ("세계 최초", "최대", "혁명적")
-
-### 팩트체크 서술 톤
-
-팩트체크도 본문과 같은 톤으로 쓴다. 보고서 메모처럼 끊지 않고, 독자가 "무엇을 확인했는지" 바로 읽히게 쓴다.
-
-**좋은 예:**
-> "공식 워크플로 문서는 workflow를 connected graph of nodes라고 설명한다."
-
-**나쁜 예:**
-> "공식 문서와 대체로 일치한다."
+- 미검증 최상급 표현이 있는가? (`세계 최초`, `최대` 같은 말)
 
 ### factCheck frontmatter 구조
 
@@ -221,7 +168,7 @@ factCheck:
         - "구체 확인 항목 3"
     - type: web_cross_check
       result: pass
-      sources: 2  # 독립 출처 수
+      sources: 2
       summary: "..."
       items: [...]
     - type: number_verify
@@ -232,40 +179,40 @@ factCheck:
       result: pass
       summary: "..."
       items: [...]
-      findings:  # 발견된 주의점 (pass여도 있을 수 있음)
-        - "Anthropic 자체 벤치마크 수치라 독립 검증 필요"
+      findings:
+        - "자체 벤치마크라 독립 검증 필요"
 ```
 
 **각 check의 items는 최소 3개.**
-`factCheck.status: pending` 상태로 배포 금지.
+`factCheck.status: pending` 상태로 배포하지 않는다.
 
 ---
 
-## 6. readerValue 필드
+## 7. readerValue 필드
 
-모든 콘텐츠에 `readerValue` 필드 필수:
+모든 콘텐츠에 `readerValue` 필드가 필요하다.
 - 독자가 이 콘텐츠를 읽고 **어떤 판단을 내릴 수 있게 되는지** 한 문장으로 쓴다
-- 20자 이상 필수
-- "~하게 해준다" 또는 "~판단하게 해준다" 형태 권장
+- 20자 이상
+- 페이지 자체를 소개하지 말고 독자의 다음 판단을 적는다
 
 **좋은 예:**
-> "이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지 빠르게 판단하게 해준다."
+> "이 변화가 제품 방향까지 바꾸는 신호인지 먼저 가를 수 있다."
 
 **나쁜 예:**
 > "Claude Opus 4.6에 대한 정보를 제공한다."
 
 ---
 
-## 7. 태그 규칙
+## 8. 태그 규칙
 
 - 소문자 kebab-case: `agentic-coding`, `vector-db`
 - 고유명사는 원문 그대로: `anthropic`, `claude`, `openai`
 - 최소 2개, 최대 6개
-- 카테고리 성격 태그 + 고유명사 태그 혼합
+- 카테고리 성격 태그 + 고유명사 태그를 섞는다
 
 ---
 
-## 8. 링크 규칙
+## 9. 링크 규칙
 
 ### 위키 크로스링크
 
@@ -277,17 +224,18 @@ factCheck:
 
 ### 외부 링크
 
-- 뉴스: 본문 인라인 링크 OK (SEO 이점)
+- 뉴스: 본문 인라인 링크 OK
 - 위키: 공식 소스 링크 인라인 OK
+- 프로젝트: 저장소, 공식 문서, 데모 경로는 직접 연결
 
 ---
 
-## 9. 언어 & 인코딩
+## 10. 언어 & 인코딩
 
 - 본문 언어: 한국어 (`lang: ko`)
 - frontmatter 문자열: YAML 따옴표 필수 (한국어 포함 시)
 - 날짜: KST (UTC+9) 기준, `+09:00` suffix 필수
-- 모델 이름: 반드시 구체적으로 — "Claude" (X) → "Claude Opus 4.6" (O)
+- 모델 이름과 제품 이름은 구체적으로 쓴다. `"Claude"`보다 `"Claude Opus 4.6"`처럼 적는다.
 
 ---
 
@@ -295,4 +243,7 @@ factCheck:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.2.0 | 2026-04-23 | `readerValue` 예시에서 tone을 유도하는 템플릿 문장을 걷고, 구조 문서답게 역할 설명만 남겼다. |
+| 2.1.0 | 2026-04-23 | 공통 구성 문서의 예시 `guideVersion`과 레거시 탐색 예시를 최신 tone 정본(`tone-guide-common.md` v2.0.0) 기준으로 갱신. |
+| 2.0.0 | 2026-04-23 | tone 규칙을 `docs/tone-guide-common.md`로 분리하고, 이 문서를 공통 구성 문서로 재정의. `guideVersion.tone` 추가. |
 | 1.0.0 | 2026-04-09 | 초기 버전 — 기존 SKILL.md, writing guide, memory feedback 통합 |

@@ -111,23 +111,23 @@ const NAV_SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: s
 
 const SPEC_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'OpenAI-compatible 진입점',
+        title: '라우팅 축',
+        body: 'Manifest는 프롬프트를 점수화해 tier와 specificity별 모델 슬롯으로 보낸다. slot은 simple·coding 같은 운영 묶음, tier는 simple·complex 같은 난도 단계, specificity는 coding·calendar_management 같은 업무 꼬리표다.',
+        chips: ['slot', 'tier', 'specificity', 'routing'],
+    },
+    {
+        title: 'OpenAI 진입점',
         body: 'SDK에서는 baseURL만 Manifest로 바꾸고 model은 "auto"로 둔다. OpenAI SDK, Vercel AI SDK, LangChain, cURL 예시가 repo에 같이 있다.',
         chips: ['model: "auto"', 'OpenAI SDK', 'Vercel AI SDK', 'LangChain'],
     },
     {
-        title: '23-dimension scorer + 4 generalist tiers',
-        body: 'README와 tiers 파일 기준으로 simple, standard, complex, reasoning 네 단계가 있고, scorer는 under 2ms를 목표로 둔다.',
-        chips: ['23-dimension', 'under 2ms', 'simple', 'reasoning'],
+        title: 'tier + specificity',
+        body: 'README와 tiers 파일에는 simple, standard, complex, reasoning 네 단계가 있다. 실제 운영 판단은 tier에서 멈추지 않고 coding, calendar_management 같은 specificity까지 이어진다.',
+        chips: ['23-dimension', 'under 2ms', 'coding', 'calendar_management'],
     },
     {
-        title: '업무별 specificity 분기',
-        body: 'repo 테스트 corpus에는 coding, email_management, calendar_management 같은 specificity가 따로 있다. 여기서 Manifest의 실제 차별점이 나온다.',
-        chips: ['coding', 'email_management', 'calendar_management'],
-    },
-    {
-        title: '헤더로 라우팅 결과 확인',
-        body: 'proxy-response-handler가 X-Manifest-Tier, X-Manifest-Reason, X-Manifest-Specificity 같은 값을 응답 헤더로 내보낸다. 관측성은 대시보드보다 이 헤더가 핵심이다.',
+        title: '응답 헤더',
+        body: 'proxy-response-handler가 X-Manifest-Tier, X-Manifest-Reason, X-Manifest-Specificity를 응답 헤더로 내보낸다. 대시보드보다 이 헤더를 먼저 보는 편이 빠르다.',
         chips: ['X-Manifest-Tier', 'X-Manifest-Reason', 'X-Manifest-Specificity'],
     },
 ] as const;
@@ -140,7 +140,7 @@ const CASES: ReadonlyArray<DemoCase> = [
         prompt: 'What is the capital of France?',
         sourceLabel: 'score-request.spec.ts',
         sourceUrl: 'https://github.com/mnfst/manifest/blob/main/packages/backend/src/scoring/__tests__/score-request.spec.ts',
-        sourceNote: 'repo test prompt를 그대로 로컬 scorer에 넣었다.',
+        sourceNote: 'repo test prompt를 그대로 로컬 scorer에 투입.',
         requestTitle: 'OpenAI TypeScript SDK',
         requestSnippet: `import OpenAI from "openai";
 
@@ -153,15 +153,14 @@ const response = await client.chat.completions.create({
   model: "auto",
   messages: [{ role: "user", content: "What is the capital of France?" }],
 });`,
-        localSummary: '2026-04-20 로컬 scorer run에서 simple tier로 분류됐다. specificity는 붙지 않았고, reason은 short_message였다.',
+        localSummary: 'repo 예시 프롬프트를 로컬 scorer에 넣어 보면 simple tier로 읽히는 흐름이다. specificity는 비어 있고, reason은 short_message로 붙는다.',
         localMetrics: [
             { label: 'tier', value: 'simple' },
             { label: 'reason', value: 'short_message' },
-            { label: 'confidence', value: '0.900' },
             { label: 'specificity', value: 'none' },
         ],
         effectiveSlot: 'simple',
-        effectiveSummary: '실제로 읽어야 할 슬롯은 simple 하나다. coding이나 calendar 같은 specificity slot은 붙지 않았다.',
+        effectiveSummary: '이 입력은 simple 슬롯만 읽어도 충분하다. coding이나 calendar 같은 업무별 슬롯까지 갈 이유가 없다는 점이 판단 경로다.',
         modelExamples: ['GPT-4.1 Nano', 'GPT-4o Mini', 'Claude Haiku 4.5'],
         headerLines: [
             'X-Manifest-Tier: simple',
@@ -176,7 +175,7 @@ const response = await client.chat.completions.create({
         prompt: 'fix this bug in my react component',
         sourceLabel: 'specificity-coverage.spec.ts',
         sourceUrl: 'https://github.com/mnfst/manifest/blob/main/packages/backend/src/scoring/__tests__/specificity-coverage.spec.ts',
-        sourceNote: 'repo specificity coverage prompt를 그대로 재사용했다.',
+        sourceNote: 'repo specificity coverage prompt를 그대로 재사용.',
         requestTitle: 'Vercel AI SDK',
         requestSnippet: `import { createOpenAI } from "@ai-sdk/openai";
 import { generateText } from "ai";
@@ -190,16 +189,14 @@ const { text } = await generateText({
   model: manifest("auto"),
   prompt: "fix this bug in my react component",
 });`,
-        localSummary: '2026-04-20 로컬 scorer run에서 complex tier까지 올라갔고, specificity는 coding으로 잠겼다. 이 케이스는 범용 complex보다 coding slot 해석이 더 중요하다.',
+        localSummary: 'repo 예시 프롬프트를 로컬 scorer에 넣어 보면 complex tier 위에 coding specificity가 붙는 흐름이다. 이 케이스는 범용 complex보다 coding slot 해석이 먼저다.',
         localMetrics: [
             { label: 'tier', value: 'complex' },
             { label: 'reason', value: 'scored' },
-            { label: 'confidence', value: '0.646' },
             { label: 'specificity', value: 'coding' },
-            { label: 'specificity confidence', value: '1.000' },
         ],
         effectiveSlot: 'coding',
-        effectiveSummary: '운영에서는 complex 공용 슬롯보다 coding specificity slot을 우선 읽는 편이 맞다. 실제 모델도 coding 전용 슬롯 기준으로 고르는 편이 안정적이다.',
+        effectiveSummary: '여기서는 complex라는 난도보다 coding이라는 업무 성격이 더 직접적인 힌트다. 실제 모델 선택도 coding 슬롯 기준으로 좁혀 두는 편이 자연스럽다.',
         modelExamples: ['GPT-5.2 Codex', 'Claude Sonnet 4.6', 'Grok Code Fast 1'],
         headerLines: [
             'X-Manifest-Tier: complex',
@@ -214,7 +211,7 @@ const { text } = await generateText({
         prompt: 'schedule a budget review meeting',
         sourceLabel: 'specificity-coverage.spec.ts',
         sourceUrl: 'https://github.com/mnfst/manifest/blob/main/packages/backend/src/scoring/__tests__/specificity-coverage.spec.ts',
-        sourceNote: 'repo specificity coverage prompt를 그대로 재사용했다.',
+        sourceNote: 'repo specificity coverage prompt를 그대로 재사용.',
         requestTitle: 'cURL + headers',
         requestSnippet: `curl -i -X POST http://localhost:38238/v1/chat/completions \\
   -H "Authorization: Bearer $MANIFEST_API_KEY" \\
@@ -223,16 +220,14 @@ const { text } = await generateText({
     "model": "auto",
     "messages": [{"role": "user", "content": "schedule a budget review meeting"}]
   }'`,
-        localSummary: '2026-04-20 로컬 scorer run에서 generalist tier는 standard였고, specificity는 calendar_management로 잡혔다. 일반 채팅과 일정형 요청을 분리하는 예시다.',
+        localSummary: 'repo 예시 프롬프트를 로컬 scorer에 넣어 보면 generalist tier는 standard로, specificity는 calendar_management로 읽히는 흐름이다. 일반 채팅과 일정형 요청을 분리하는 예시로 보면 된다.',
         localMetrics: [
             { label: 'tier', value: 'standard' },
             { label: 'reason', value: 'scored' },
-            { label: 'confidence', value: '0.608' },
             { label: 'specificity', value: 'calendar_management' },
-            { label: 'specificity confidence', value: '0.667' },
         ],
         effectiveSlot: 'calendar_management',
-        effectiveSummary: '실제로 읽어야 할 슬롯은 standard generalist가 아니라 calendar_management specificity 쪽이다. 일정형 task는 일반 채팅과 따로 운영하는 편이 낫다.',
+        effectiveSummary: '여기서는 standard generalist로 끝내지 않고 calendar_management까지 읽어야 판단이 선다. 일정형 요청을 일반 채팅과 분리해 둘 근거가 여기서 나온다.',
         modelExamples: ['GPT-4o Mini', 'GPT-4.1 Mini', 'Claude Haiku 4.5'],
         headerLines: [
             'X-Manifest-Tier: standard',
@@ -247,58 +242,58 @@ const MODEL_SLOTS: ReadonlyArray<ModelSlotCard> = [
         title: 'Simple',
         goal: '짧은 질의, ping, greeting, 가벼운 응답',
         picks: ['GPT-4.1 Nano', 'GPT-4o Mini', 'Claude Haiku 4.5'],
-        note: '전체 비용 절감은 여기서 먼저 난다. simple slot이 비싸면 router를 둔 이점이 빠르게 줄어든다.',
+        note: '전체 비용 절감은 여기서 먼저 발생. simple slot이 비싸면 router를 둔 이점이 빠르게 줄어듦.',
     },
     {
         title: 'Standard',
         goal: '대부분의 일반 assistant traffic',
         picks: ['GPT-4.1', 'Claude Sonnet 4.6', 'Gemini 2.5'],
-        note: '일반 채팅의 기본 슬롯이다. 최고 성능보다 안정적인 가격과 fallback 조합이 중요하다.',
+        note: '일반 채팅의 기본 슬롯. 최고 성능보다 안정적인 가격과 fallback 조합이 더 중요.',
     },
     {
         title: 'Coding',
         goal: 'diff, patch, refactor, test loop',
         picks: ['GPT-5.2 Codex', 'Claude Sonnet 4.6', 'Grok Code Fast 1'],
-        note: 'Manifest의 coding specificity를 실제 운영 정책으로 연결할 때 가장 먼저 분리해야 하는 슬롯이다.',
+        note: 'Manifest의 coding specificity를 실제 운영 정책으로 연결할 때 가장 먼저 분리할 슬롯.',
     },
     {
         title: 'Reasoning',
         goal: 'planning, proof, hard trade-off, critical decisions',
         picks: ['GPT-5.4', 'o3', 'Claude Opus 4.6', 'Gemini 3.1 Pro'],
-        note: '정말 어려운 요청에만 열어야 한다. reasoning 슬롯이 넓어지면 비용 제어가 무너진다.',
+        note: '정말 어려운 요청에만 여는 슬롯. reasoning 범위가 넓어지면 비용 제어가 무너짐.',
     },
 ] as const;
 
 const TAKE_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: '슬롯 설계 우선',
-        body: 'repo 문서도 tier, specificity, fallback을 중심에 둔다. 이 프로젝트를 볼 때는 모델 이름보다 슬롯 구조를 먼저 읽어야 한다.',
+        body: 'repo 문서도 tier, specificity, fallback을 중심에 둔다. 이 프로젝트는 모델 이름보다 슬롯 구조부터 읽는 편이 맞다.',
         tone: 'accent',
     },
     {
         title: '결과와 스펙 분리',
-        body: '이번 showcase에서는 repo 기준 스펙 섹션과 2026-04-20 로컬 scorer run 섹션을 따로 두었다. 실제 분류 결과와 문서 요약을 섞으면 해석이 흐려진다.',
+        body: 'repo 기준 스펙과 2026-04-20 로컬 scorer 출력을 섞지 않았다. 문서 요약은 위에서, 실제 분류 결과는 아래에서 읽으면 된다.',
     },
     {
-        title: 'specificity 실익',
-        body: 'simple / standard / complex만으로 끝나면 그냥 tier router다. specificity slot이 붙을 때 Manifest의 운영 이점이 분명해진다.',
+        title: '판단 순서가 핵심',
+        body: 'tier를 먼저 보고, specificity가 붙는지 확인하고, 마지막에 slot과 fallback을 정한다. 이 순서가 서면 body만 봐도 도입 판단이 선다.',
     },
 ] as const;
 
 const FIT_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: '다중 provider',
-        body: 'connected provider 위에 slot별 primary와 fallback을 설계할수록 Manifest의 가치가 커진다.',
+        body: 'connected provider 위에 slot별 primary와 fallback을 설계할수록 Manifest 가치가 커진다. simple 요청을 싼 슬롯으로 보내는 비용 통제도 여기서 생긴다.',
         chips: ['multi-provider', 'fallbacks', 'budget control'],
     },
     {
         title: '타입별 분리',
-        body: '이번 로컬 테스트처럼 generalist tier와 specificity를 분리해 읽는 운영팀이면 Manifest가 잘 맞는다.',
+        body: '이번 로컬 예시처럼 generalist tier와 specificity를 분리해 읽는 운영팀용. 요청 종류별로 다른 품질 기준을 둘 수 있다.',
         chips: ['coding', 'calendar_management', 'specificity'],
     },
     {
         title: '헤더 중심 관측',
-        body: 'cloud proxy보다 local architecture, 응답 헤더, 직접 제어가 중요하면 Manifest 쪽이 더 설명 가능하다.',
+        body: 'cloud proxy보다 local architecture, 응답 헤더, 직접 제어가 중요할 때. Manifest 쪽이 훨씬 설명 가능.',
         chips: ['local', 'headers', 'observability'],
     },
 ] as const;
@@ -306,17 +301,17 @@ const FIT_CARDS: ReadonlyArray<ContentCard> = [
 const SKIP_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: '단일 플래그십',
-        body: 'slot과 fallback을 운영하지 않을 거면 router를 둔 실익이 작다.',
+        body: 'slot과 fallback을 운영하지 않을 계획이라면 router를 둔 실익이 작다. 고정 모델 1~2개로 끝낼 수 있으면 운영 복잡도가 먼저 든다.',
         chips: ['single model', 'no routing'],
     },
     {
         title: '운영 의지 없음',
-        body: 'Manifest는 알아서 맞춰 주는 black box가 아니다. tier와 specificity를 운영하는 도구에 가깝다.',
+        body: 'Manifest는 슬롯 정책을 대신 정해 주지 않는다. tier와 specificity 해석을 계속 손볼 팀이 없으면 유지 비용이 바로 생긴다.',
         chips: ['ops overhead', 'tuning required'],
     },
     {
         title: 'cloud proxy 충분',
-        body: 'README의 비교 포인트인 transparency와 local architecture가 중요하지 않으면 차별점이 줄어든다.',
+        body: 'README의 비교 포인트인 transparency와 local architecture가 중요하지 않다면 차별점이 줄어드는 쪽.',
         chips: ['cloud proxy', 'less control'],
     },
 ] as const;
@@ -326,42 +321,42 @@ const ADOPTION_STEPS: ReadonlyArray<StepCard> = [
         kicker: 'step 1',
         title: '설치',
         command: 'bash <(curl -sSL https://raw.githubusercontent.com/mnfst/manifest/main/docker/install.sh)',
-        body: 'README 기준 self-hosted 설치는 여기서 시작한다. cloud를 쓰면 app.manifest.build 쪽 onboarding으로 간다.',
+        body: 'README 기준 self-hosted 설치 출발점. cloud를 쓰면 app.manifest.build 쪽 onboarding으로 이동.',
     },
     {
         kicker: 'step 2',
         title: '슬롯 정의',
         command: 'simple / standard / coding / reasoning / calendar',
-        body: '먼저 슬롯과 fallback 정책을 정하고, 그 다음 provider별 모델을 연결한다. 모델 이름보다 슬롯 설계가 먼저다.',
+        body: '먼저 슬롯과 fallback 정책을 정하고, 그다음 provider별 모델 연결. 모델 이름보다 슬롯 설계가 먼저.',
     },
     {
         kicker: 'step 3',
         title: 'SDK 전환',
         command: 'model: "auto"',
-        body: 'agent 코드에서는 baseURL과 model 값만 바꾸는 식으로 붙인다. repo의 snippet을 거의 그대로 가져다 쓸 수 있다.',
+        body: 'agent 코드에서는 baseURL과 model 값만 교체. repo snippet을 거의 그대로 가져다 쓰는 방식.',
     },
     {
         kicker: 'step 4',
         title: '로컬 검증',
         command: 'repo prompts -> scorer run -> X-Manifest-* 확인',
-        body: 'score-request.spec.ts와 specificity-coverage.spec.ts의 프롬프트를 그대로 재생해서 tier와 specificity가 의도대로 나오는지 먼저 본다.',
+        body: 'score-request.spec.ts와 specificity-coverage.spec.ts 프롬프트를 그대로 재생해 tier와 specificity가 의도대로 나오는지 먼저 확인.',
     },
 ] as const;
 
 const OPS_CARDS: ReadonlyArray<ContentCard> = [
     {
         title: '슬롯 정책 우선',
-        body: 'README는 23-dimension, under 2ms를 강조하지만 운영 실패는 대개 잘못된 슬롯 설계에서 난다.',
+        body: 'README는 23-dimension, under 2ms를 강조하지만 운영 실패는 대개 잘못된 슬롯 설계에서 발생.',
         chips: ['policy first', '23-dimension', 'under 2ms'],
     },
     {
         title: '헤더 우선 디버그',
-        body: 'X-Manifest-Tier, X-Manifest-Reason, X-Manifest-Specificity를 먼저 읽으면 지금 어느 슬롯이 선택됐는지 바로 보인다.',
+        body: 'X-Manifest-Tier, X-Manifest-Reason, X-Manifest-Specificity를 먼저 읽는 편. 지금 어느 슬롯이 선택됐는지 바로 드러남.',
         chips: ['headers', 'debug', 'routing visibility'],
     },
     {
         title: 'fallback 기본 설계',
-        body: 'primary 모델만 정해서 끝내면 운영 품질이 흔들린다. provider 장애와 예산 제한을 같이 고려해 체인을 설계해야 한다.',
+        body: 'primary 모델만 정해서 끝내면 운영 품질이 흔들림. provider 장애와 예산 제한을 함께 고려한 체인 설계가 필요.',
         chips: ['fallback chain', 'provider resilience', 'budget control'],
     },
 ] as const;
@@ -370,17 +365,17 @@ const COMPARE_CARDS: ReadonlyArray<CompareCard> = [
     {
         title: '단일 플래그십 고정',
         fit: '비용보다 최고 성능이 우선이고, 요청 종류를 굳이 나눌 필요가 없을 때',
-        tradeoff: 'simple과 calendar 같은 가벼운 요청도 비싼 모델로 흘러서 비용 최적화가 약하다.',
+        tradeoff: 'simple과 calendar 같은 가벼운 요청도 비싼 모델로 흘러 비용 최적화가 약해짐.',
     },
     {
         title: 'OpenRouter',
         fit: 'cloud proxy를 빠르게 붙이고 싶고 local 운영은 중요하지 않을 때',
-        tradeoff: 'README 비교 기준으로는 transparency와 user-defined tier 제어가 Manifest보다 약하다.',
+        tradeoff: 'README 비교 기준으로는 transparency와 user-defined tier 제어가 Manifest보다 약한 편.',
     },
     {
         title: 'Manifest',
         fit: 'tier, specificity, fallback, provider를 직접 설계하고 헤더로 확인하고 싶을 때',
-        tradeoff: '설계 책임이 사용자에게 있다. 슬롯을 대충 짜면 router가 있어도 결과가 흐려진다.',
+        tradeoff: '설계 책임은 사용자 쪽. 슬롯을 대충 짜면 router가 있어도 결과 해석이 흐려짐.',
     },
 ] as const;
 
@@ -429,7 +424,7 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
                     <div className="mf-hero-copy-legacy">
                         <h1>{title}</h1>
                         <p className="mf-hero-note">
-                            이 페이지는 <code>repo 기준 프로젝트 스펙</code>과 <code>2026-04-20 로컬 scorer run</code>을 분리해서 보여준다.
+                            <code>repo 기준 프로젝트 스펙</code>과 <code>2026-04-20 로컬 scorer run</code>을 분리해 둔 구성.
                         </p>
                     </div>
 
@@ -455,13 +450,13 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}spec`}
                     title="프로젝트 스펙"
-                    description={<>이 섹션은 repo와 문서에서 읽은 구조 요약이다. 실제 분류 결과는 아래 <TermHint term="로컬 테스트" description="repo prompt를 로컬 scorer에 직접 넣어 얻은 실제 출력값만 따로 모아 둔 섹션이다." /> 섹션에서 본다.</>}
+                    description={<>repo와 문서에서 먼저 읽히는 구조만 묶었다. 실제 scorer 출력은 아래 <TermHint term="로컬 테스트" description="repo prompt를 로컬 scorer에 직접 넣어 얻은 실제 출력값만 따로 모아 둔 섹션." /> 섹션에서 따로 본다.</>}
                 >
                     <article className="mf-content-card mf-content-card--accent mf-overview-card">
                         <CardHeader kicker="showcase overview" title="쇼케이스 개요" />
                         <p className="mf-overview-summary">{summary}</p>
                         <p className="mf-muted-copy">
-                            이 페이지는 <code>repo 기준 프로젝트 스펙</code>과 <code>2026-04-20 로컬 scorer run</code>을 분리해서 읽게 만든다.
+                            <code>repo 기준 프로젝트 스펙</code>과 <code>2026-04-20 로컬 scorer run</code>을 분리해 읽는 구성.
                         </p>
                         <div className="mf-chip-row">
                             <span>repo spec</span>
@@ -479,10 +474,10 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}cases`}
                     title="로컬 테스트"
-                    description={<>이 섹션의 숫자는 2026-04-20에 로컬 clone에서 scorer를 직접 실행해 얻은 실제 출력이다. 오른쪽 <TermHint term="slot" description="요청 성격별로 어떤 모델 묶음을 읽을지 정한 운영 단위다. Manifest에서는 tier와 specificity를 같이 읽어 slot을 해석하는 편이 낫다." /> 카드는 그 출력을 운영 관점으로 해석한 결과다.</>}
+                    description={<>repo prompt를 그대로 넣고 2026-04-20 로컬 scorer 출력을 따로 모았다. 입력 prompt → tier·specificity 결과 → <TermHint term="slot" description="요청 성격별로 어떤 모델 묶음을 읽을지 정한 운영 단위. Manifest에서는 tier와 specificity를 같이 읽어야 slot 해석이 덜 흔들림." /> 해석 순서로 보면 된다.</>}
                 >
                     <p className="mf-panel-note">
-                        repo 예시 프롬프트는 그대로 쓰고, 스펙 요약과 추천 모델은 분리했다. 여기서는 먼저 실제 분류 결과만 읽으면 된다.
+                        문서 요약은 위 패널에 남겨 두고, 여기서는 어떤 tier와 specificity가 실제로 붙는지만 본다.
                     </p>
 
                     <div className="mf-case-tabs" role="tablist" aria-label="Manifest prompt cases">
@@ -549,7 +544,7 @@ export default function ManifestShowcase(props: ManifestShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}stack`}
                     title="슬롯 설계"
-                    description={<>공식 추천 모델표는 없다. 아래 카드는 repo 구조와 provider catalog를 보고 짠 운영 예시이며, 핵심은 모델 이름보다 <TermHint term="slot policy" description="simple, coding, reasoning처럼 어떤 요청을 어느 슬롯으로 보낼지와 fallback을 함께 정의한 운영 규칙이다." /> 를 먼저 정하는 데 있다.</>}
+                    description={<>공식 추천 모델표는 없다. 아래 카드는 repo 구조와 provider catalog를 보고 짠 운영 예시다. 모델 이름보다 <TermHint term="slot policy" description="simple, coding, reasoning처럼 어떤 요청을 어느 슬롯으로 보낼지와 fallback을 함께 정의한 운영 규칙." /> 먼저 잡는 편이 맞다.</>}
                 >
                     <div className="mf-slot-grid">
                         {MODEL_SLOTS.map((item) => (

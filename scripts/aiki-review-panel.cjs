@@ -2,11 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const cp = require('child_process');
-const crypto = require('crypto');
 const matter = require('gray-matter');
 
 const { loadPanel } = require('./lib/agent-loader.cjs');
 const { collectFindings } = require('./lib/script-findings.cjs');
+const {
+    detectContentType,
+    getReviewContentHash,
+    getReviewContentHashFromRaw,
+    getReviewContentPayload,
+    getReviewScopeFiles,
+} = require('./lib/review-content.cjs');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const WIKI_DIR = path.join(REPO_ROOT, 'src', 'content', 'wiki', 'ko');
@@ -14,6 +20,7 @@ const NEWS_DIR = path.join(REPO_ROOT, 'src', 'content', 'news', 'ko');
 const PROJECTS_DIR = path.join(REPO_ROOT, 'src', 'content', 'projects', 'ko');
 const BATCH_DIR = path.join(REPO_ROOT, 'data', 'review-batch');
 const GUIDE_FILES = {
+    tone: path.join(REPO_ROOT, 'docs', 'tone-guide-common.md'),
     common: path.join(REPO_ROOT, 'docs', 'content-guide-common.md'),
     news: path.join(REPO_ROOT, 'docs', 'content-guide-news.md'),
     wiki: path.join(REPO_ROOT, 'docs', 'content-guide-wiki.md'),
@@ -49,21 +56,47 @@ function getPanelContentType(panelName) {
 }
 
 function buildGuideContext(contentType) {
+    const toneText = fs.readFileSync(GUIDE_FILES.tone, 'utf8');
     const commonText = fs.readFileSync(GUIDE_FILES.common, 'utf8');
     const typeFile = GUIDE_FILES[contentType];
     const typeText = fs.readFileSync(typeFile, 'utf8');
     const typeHeadingMap = {
-        news: ['## 9. 톤 검증'],
-        wiki: ['## 5. 문체 규칙'],
-        projects: ['## 3. 프로젝트 카피 규칙', '## 4. 리뷰 체크포인트'],
+        news: ['## 1. 뉴스 기사 목표', '## 5. 본문 구조', '## 6. 제목 작성 규칙', '## 7. summary 작성 규칙', '## 9. 톤 검수 경로 (Phase 2.5)'],
+        wiki: ['## 1. 위키 페이지 목표', '## 4. 본문 구조 (formatVersion 2 기준)', '## 6. 카테고리별 작성 포인트', '## 7. 팩트체크 (위키 전용 기준)'],
+        projects: ['## 1. 프로젝트 페이지 목표', '## 3. 프로젝트 콘텐츠 구성', '## 4. 리뷰 체크포인트'],
     };
 
     const sections = [
         {
-            label: 'Common',
+            label: 'Tone',
+            filePath: path.relative(REPO_ROOT, GUIDE_FILES.tone).replace(/\\/g, '/'),
+            version: readGuideVersion(GUIDE_FILES.tone),
+            body: [
+                '## 1. 화자의 위치',
+                '## 2. 말투 규칙',
+                '## 3. 구체화 방식',
+                '## 4. 하지 말아야 할 것',
+                '## 5. 톤 체크리스트',
+            ]
+                .map((heading) => extractGuideSection(toneText, heading))
+                .filter(Boolean)
+                .join('\n\n'),
+        },
+        {
+            label: 'Common Composition',
             filePath: path.relative(REPO_ROOT, GUIDE_FILES.common).replace(/\\/g, '/'),
             version: readGuideVersion(GUIDE_FILES.common),
-            body: [extractGuideSection(commonText, '## 3. 톤 & 문체')].filter(Boolean).join('\n\n'),
+            body: [
+                '## 2. 문서 역할 분리',
+                '## 4. 공통 구성 규칙',
+                '## 5. 수치 & 근거 규칙',
+                '## 6. 팩트체크 공통 규칙',
+                '## 7. readerValue 필드',
+                '## 9. 링크 규칙',
+            ]
+                .map((heading) => extractGuideSection(commonText, heading))
+                .filter(Boolean)
+                .join('\n\n'),
         },
         {
             label: contentType,
@@ -85,6 +118,7 @@ function buildGuideContext(contentType) {
 function getCurrentGuideVersions(contentType) {
     const typeKey = contentType === 'projects' ? 'projects' : contentType;
     return {
+        tone: readGuideVersion(GUIDE_FILES.tone),
         common: readGuideVersion(GUIDE_FILES.common),
         [typeKey]: readGuideVersion(GUIDE_FILES[typeKey]),
     };
@@ -147,18 +181,6 @@ function getTargetKey(target) {
     return target.frontmatter.term || target.frontmatter.slug || path.basename(target.filename, '.md');
 }
 
-function getReviewContentHashFromRaw(raw) {
-    const parsed = matter(raw);
-    const frontmatter = { ...(parsed.data || {}) };
-    delete frontmatter.reviewStamp;
-    const canonical = matter.stringify(parsed.content, frontmatter);
-    return crypto.createHash('sha256').update(canonical, 'utf8').digest('hex').slice(0, 16);
-}
-
-function getReviewContentHash(filepath) {
-    return getReviewContentHashFromRaw(fs.readFileSync(filepath, 'utf8'));
-}
-
 function hasCurrentAgentVersions(stamp, panel) {
     if (!stamp || !stamp.agentVersions || typeof stamp.agentVersions !== 'object') {
         return false;
@@ -167,11 +189,22 @@ function hasCurrentAgentVersions(stamp, panel) {
     return panel.agents.every((agent) => stamp.agentVersions[agent.id] === agent.version);
 }
 
+function hasCurrentGuideVersions(stamp, contentType) {
+    if (!stamp || !stamp.guideVersions || typeof stamp.guideVersions !== 'object') {
+        return false;
+    }
+
+    const currentGuideVersions = getCurrentGuideVersions(contentType);
+    return Object.entries(currentGuideVersions).every(([key, version]) => stamp.guideVersions[key] === version);
+}
+
 function needsReview(frontmatter, panel, filepath) {
+    const contentType = detectContentType(filepath);
     if (!frontmatter.reviewStamp) return true;
     if (frontmatter.reviewStamp.panelVerdict !== 'pass') return true;
     if (frontmatter.reviewStamp.panelVersion !== panel.version) return true;
     if (!hasCurrentAgentVersions(frontmatter.reviewStamp, panel)) return true;
+    if (!hasCurrentGuideVersions(frontmatter.reviewStamp, contentType)) return true;
     if (!frontmatter.reviewStamp.contentHash) return true;
     return frontmatter.reviewStamp.contentHash !== getReviewContentHash(filepath);
 }
@@ -306,11 +339,24 @@ function getEncodingDiagnostics(target) {
 
 function buildReviewInput(target, contentType) {
     const term = getTargetKey(target);
+    const reviewScopeFiles = getReviewScopeFiles(target.filepath)
+        .map((filePath) => path.relative(REPO_ROOT, filePath).replace(/\\/g, '/'));
+    const payload = getReviewContentPayload(target.filepath);
+    const showcase = payload.showcase && payload.showcase.filepath
+        ? {
+            component: payload.showcase.component,
+            filePath: payload.showcase.relativePath,
+            text: payload.showcase.text,
+        }
+        : null;
+
     return {
         term,
         contentType,
         frontmatter: target.frontmatter,
         body: target.body,
+        reviewScopeFiles,
+        showcase,
         catalogMeta: getCatalogMeta(term),
         internalLinkCandidates: getInternalLinkCandidates(target),
         encodingDiagnostics: getEncodingDiagnostics(target),
@@ -348,6 +394,7 @@ ${reviewerSections}
 - If internalLinkCandidates are present, check whether directly relevant existing pages are missing obvious inline links or related links.
 - Normal Korean Hangul text is not mojibake. Only flag mojibake or broken text when the page contains replacement characters, "占", repeated "??" artifacts, blocked-page text, or actually illegible encoding damage in the input page itself.
 - Each page includes encodingDiagnostics. If encodingDiagnostics.hasBrokenText is false, do not use mojibake, broken Korean, or encoding damage as a finding or mustFix for that page.
+- For project pages, review both markdown body and showcase.text. Visible TSX showcase copy is part of the editorial surface.
 `.trim();
 }
 
@@ -468,7 +515,9 @@ function formatRevisionNotes(result) {
 }
 
 function buildRevisionPrompt(target, result, reviewInput) {
-    const filePath = path.relative(REPO_ROOT, target.filepath).replace(/\\/g, '/');
+    const filePaths = Array.isArray(reviewInput.reviewScopeFiles) && reviewInput.reviewScopeFiles.length > 0
+        ? reviewInput.reviewScopeFiles
+        : [path.relative(REPO_ROOT, target.filepath).replace(/\\/g, '/')];
     const contentType = reviewInput.contentType;
     const fixList = (result.topMustFix || []).map((item) => `- ${item}`).join('\n') || '- No topMustFix items were provided.';
     const linkHints = (reviewInput.internalLinkCandidates || [])
@@ -477,12 +526,15 @@ function buildRevisionPrompt(target, result, reviewInput) {
     const scriptHints = (reviewInput.scriptFindings || [])
         .map((item) => `- [${item.severity}] ${item.rule}: ${item.message}`)
         .join('\n') || '- No script findings were provided.';
+    const showcaseHint = reviewInput.showcase && reviewInput.showcase.filePath
+        ? `- Showcase component: ${reviewInput.showcase.filePath}`
+        : '- No showcase component was provided.';
 
     return `
 You are fixing an AIKI ${contentType} markdown file after editorial panel review.
 
-Edit this file in place:
-- ${filePath}
+Edit these files in place when relevant:
+${filePaths.map((filePath) => `- ${filePath}`).join('\n')}
 
 Requirements:
 - Apply the must-fix items from the review to the actual file content.
@@ -491,6 +543,7 @@ Requirements:
 - Use Korean prose for user-facing sentences.
 - Add inline links when the review says links are missing and the candidate list below is relevant.
 - Do not invent new sections unless needed to satisfy the review. If a compare/limits section is needed, add it cleanly.
+- When the review mentions showcase copy, card headings, or visible project UI text, update the showcase TSX file instead of leaving the issue in place.
 - Do not output the full file. Edit the file in place and print a short confirmation only.
 
 Panel topMustFix:
@@ -504,6 +557,9 @@ ${linkHints}
 
 Script findings:
 ${scriptHints}
+
+Project showcase:
+${showcaseHint}
 `.trim();
 }
 
@@ -529,13 +585,6 @@ function executeRevision(target, result, reviewInput, model) {
     });
 }
 
-function getContentTypeFromFilepath(filepath) {
-    const normalized = path.normalize(filepath);
-    if (normalized.startsWith(path.normalize(NEWS_DIR))) return 'news';
-    if (normalized.startsWith(path.normalize(PROJECTS_DIR))) return 'projects';
-    return 'wiki';
-}
-
 function writeReviewStamp(filepath, panelResult, panel) {
     const raw = fs.readFileSync(filepath, 'utf8');
     const agentVersions = {};
@@ -551,7 +600,7 @@ function writeReviewStamp(filepath, panelResult, panel) {
 
     let frontmatter = match[1];
     const body = match[2];
-    const contentType = getContentTypeFromFilepath(filepath);
+    const contentType = detectContentType(filepath);
     const guideVersions = getCurrentGuideVersions(contentType);
     const newline = raw.includes('\r\n') ? '\r\n' : '\n';
 
@@ -580,12 +629,14 @@ function writeReviewStamp(filepath, panelResult, panel) {
         frontmatter = frontmatter.replace(/\r?\nreviewStamp:\r?\n[\s\S]*?(?=\r?\n---$)/, '');
     }
 
-    const contentHash = getReviewContentHashFromRaw(frontmatter + body);
+    const contentHash = getReviewContentHashFromRaw(frontmatter + body, filepath);
     const stamp = [
         'reviewStamp:',
         `  panelVersion: "${panel.version}"`,
         '  agentVersions:',
         ...Object.entries(agentVersions).map(([id, version]) => `    ${id}: "${version}"`),
+        '  guideVersions:',
+        ...Object.entries(guideVersions).map(([key, version]) => `    ${key}: "${version}"`),
         `  panelVerdict: ${panelResult.panelVerdict}`,
         `  contentHash: "${contentHash}"`,
         `  reviewedAt: "${TODAY}"`,

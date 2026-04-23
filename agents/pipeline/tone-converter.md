@@ -1,8 +1,8 @@
 ---
 id: tone-converter
 name: Tone Converter
-version: "1.0.0"
-lastUpdated: "2026-04-15"
+version: "1.1.0"
+lastUpdated: "2026-04-23"
 category: pipeline
 input:
   schema: ../schemas/review-input.json
@@ -17,4 +17,4 @@ hints:
 
 Normalize the supplied draft so it follows the applicable AIKI content-guide writing rules.
 
-Keep factual meaning unchanged. Use `docs/content-guide-common.md` plus the matching type-specific content guide as the source of truth. Preserve markdown links, frontmatter intent, source facts, and factCheck structure. Do not add new factual claims.
+Keep factual meaning unchanged. Use `docs/tone-guide-common.md` for tone and the matching `docs/content-guide-*.md` files for structure. Preserve markdown links, frontmatter intent, source facts, and factCheck structure. Do not add new factual claims.

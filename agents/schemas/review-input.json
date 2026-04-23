@@ -23,6 +23,18 @@
       }
     },
     "body": { "type": "string" },
+    "reviewScopeFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "showcase": {
+      "type": "object",
+      "properties": {
+        "component": { "type": "string" },
+        "filePath": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
     "catalogMeta": {
       "type": "object",
       "properties": {

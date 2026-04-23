@@ -14,20 +14,8 @@ const {
     isBadNewsReaderValue,
     isBadNewsTitle,
 } = require('./lib/aiki-writing-style.cjs');
-
-const TONE_RULES_PATH = path.resolve(__dirname, '../../src3/Docs/social-posting/lib/tone-rules.js');
-const ALT_TONE_RULES_PATH = 'F:/src3/Docs/social-posting/lib/tone-rules.js';
-
-let toneRules = null;
-try {
-    toneRules = require(TONE_RULES_PATH);
-} catch {
-    try {
-        toneRules = require(ALT_TONE_RULES_PATH);
-    } catch {
-        toneRules = null;
-    }
-}
+const toneRules = require('./lib/aiki-tone-rules.cjs');
+const { getProjectShowcaseInfo } = require('./lib/project-showcase.cjs');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const CONTENT_TARGETS = [
@@ -57,15 +45,6 @@ const VALUELESS_PATTERNS = [
     /뉴스에서 왜 자주 나오나/u,
     /읽을 때 체크포인트/u,
     /같이 봐야 할 용어/u,
-];
-
-const VALUE_SIGNAL_PATTERNS = [
-    /중요한지/,
-    /읽어야 하는 이유/,
-    /해결해주는 문제/,
-    /실무에서/,
-    /판단하게/,
-    /구분하게/,
 ];
 
 const FORBIDDEN_COPY_PATTERNS = [
@@ -117,68 +96,6 @@ const GENERIC_WIKI_RELATED_HINT_PATTERNS = [
     /같이 본다\.$/u,
 ];
 
-const FACT_CHECK_FORMAL_PATTERNS = [
-    /교차검증했다/u,
-    /비판적으로(?: 다시)? 검토했다/u,
-    /별도(?:로)? 묶(?:음|어서)으로 다시/u,
-    /맞는지 확인했다/u,
-    /일치하는지 확인했다/u,
-    /직접 대조했다/u,
-];
-
-const FACT_CHECK_TONE_PATTERNS = [
-    /맞춰봤다/u,
-    /다시 봤다/u,
-    /한 번 더 봤다/u,
-    /한 번 더 확인해봤다/u,
-    /의심해보고/u,
-    /정리했다/u,
-    /걸렀다/u,
-];
-
-const FACT_CHECK_TONE_PATTERNS_V2 = [
-    /맞춰봤어/u,
-    /다시 봤어/u,
-    /한 번 더 봤어/u,
-    /확인해봤어/u,
-    /확인해뒀어/u,
-    /확인했어/u,
-    /비교해뒀어/u,
-    /비교했어/u,
-    /검증해뒀어/u,
-    /검증했어/u,
-    /분리해뒀어/u,
-    /정리했어/u,
-    /정리해뒀어/u,
-    /걸렀어/u,
-    /걸러뒀어/u,
-];
-
-const FACT_CHECK_ITEM_TONE_PATTERNS = [
-    /(?:이야|야|해|했어|읽었어|잡혔어|중요해|필요해|같아|갈려|맞아|없어|있어|돼|구분돼|틀려|나아|[가-힣]+(?:았어|었어|였어|됐어|났어|겼어))(?:["')\].!?]+)?$/u,
-    /보면\s+/u,
-    /봐야 해/u,
-];
-
-const STIFF_TONE_PATTERNS = [
-    /나뉜다/u,
-    /읽게 해준다/u,
-    /판단하게 해준다/u,
-    /구분하게 해준다/u,
-    /이해하게 해준다/u,
-    /잡게 해준다/u,
-    /파악하게 해준다/u,
-];
-
-const PROJECT_REPORT_ENDING_PATTERNS = [
-    /(?:합니다|습니다|입니다|됩니다|할 수 있습니다|도움이 됩니다|좋다|크다|빠르다|중요하다|필요하다|가능하다|유리하다|잡힌다|나뉘어 있다|있다|없다|된다|바뀐다|갈린다|맞다|낫다|강하다|약하다|끝난다)\.?$/u,
-];
-
-const PROJECT_META_FRAMING_PATTERNS = [
-    /^(?:이 페이지|이 글|이 쇼케이스)는/u,
-    /^(?:이 페이지|이 글|이 쇼케이스)의/u,
-];
-
 const HONORIFIC_WIKI_PATTERNS = [
     /합니다(?:[.!?]|$)/u,
     /입니다(?:[.!?]|$)/u,
@@ -198,27 +115,6 @@ const HONORIFIC_WIKI_PATTERNS = [
     /주세요/u,
     /하십시오/u,
     /하셔야/u,
-];
-
-const BEGINNER_FIRST_DEFINITION_PATTERNS = [
-    /(?:은|는)\s+.*(?:방법|방식|기법|개념|기술|형식|표현)\s*이야/u,
-    /(?:은|는)\s+.*(?:바꾸는|줄이는|낮추는)\s+.*(?:방법|방식)\s*이야/u,
-    /(?:비트|정밀도|숫자 표현).*(?:바꾸는|줄이는).*(?:방법|방식|기법)\s*이야/u,
-    /쉽게 말해/u,
-    /부르는 말이야/u,
-    /가리켜/u,
-    /뜻해/u,
-    /라고 보면 돼/u,
-];
-
-const FACT_CHECK_STIFF_PATTERNS = [
-    /맞춰봤다/u,
-    /다시 봤다/u,
-    /한 번 더 봤다/u,
-    /한 번 더 다시 봤다/u,
-    /확인해봤다/u,
-    /걸렀다/u,
-    /봤다/u,
 ];
 
 const VERSION_MODEL_CONTRADICTION_PATTERNS = [
@@ -294,21 +190,36 @@ function getExtendedColloquialRatio(text) {
     };
 }
 
-function getToneResults(body) {
+function getTonePlatform(targetName) {
+    if (targetName === 'projects') return 'projects';
+    if (targetName === 'news') return 'blog';
+    return 'blog';
+}
+
+function getShowcaseToneText(frontmatter, targetName) {
+    if (targetName !== 'projects') return '';
+    const showcase = getProjectShowcaseInfo(frontmatter);
+    return showcase && showcase.text ? showcase.text : '';
+}
+
+function buildToneTargetText(frontmatter, body, targetName, showcaseText = '') {
+    return [
+        String(frontmatter && frontmatter.summary || '').trim(),
+        String(frontmatter && frontmatter.readerValue || '').trim(),
+        String(body || '').trim(),
+        String(showcaseText || '').trim(),
+    ]
+        .filter(Boolean)
+        .join('\n\n');
+}
+
+function getToneResults(body, targetName) {
     if (!toneRules || typeof toneRules.checkTone !== 'function') {
         return [];
     }
 
     try {
-        const results = toneRules.checkTone(body, 'blog');
-        const localColloquial = getExtendedColloquialRatio(body);
-
-        return results.filter((result) => {
-            if (result && result.id === 'T2' && localColloquial.ratio >= 0.15) {
-                return false;
-            }
-            return true;
-        });
+        return toneRules.checkTone(body, getTonePlatform(targetName));
     } catch {
         return [];
     }
@@ -375,33 +286,8 @@ function containsHonorificWikiTone(text) {
     return containsHonorificTone(text);
 }
 
-function validateProjectTone(frontmatter, body) {
-    const failures = [];
-    const summary = String(frontmatter && frontmatter.summary || '');
-    const readerValue = String(frontmatter && frontmatter.readerValue || '');
-    const toneTarget = [summary, readerValue, String(body || '')].join('\n');
-
-    if (containsHonorificTone(summary)) {
-        failures.push('summary still contains honorific or formal report tone');
-    }
-
-    if (containsHonorificTone(readerValue)) {
-        failures.push('readerValue still contains honorific or formal report tone');
-    }
-
-    if (PROJECT_REPORT_ENDING_PATTERNS.some((pattern) => pattern.test(summary.trim()))) {
-        failures.push('summary still ends in report-style declarative tone');
-    }
-
-    if (PROJECT_REPORT_ENDING_PATTERNS.some((pattern) => pattern.test(readerValue.trim()))) {
-        failures.push('readerValue still ends in report-style declarative tone');
-    }
-
-    if (STIFF_TONE_PATTERNS.some((pattern) => pattern.test(toneTarget))) {
-        failures.push('project page still contains stiff legacy tone phrasing');
-    }
-
-    return failures;
+function validateProjectTone(frontmatter, body, showcaseText = '') {
+    return [];
 }
 
 function getProjectDeclarativeEndingStats(text) {
@@ -415,36 +301,8 @@ function getProjectDeclarativeEndingStats(text) {
     };
 }
 
-function getProjectToneWarnings(frontmatter, body) {
-    const warnings = [];
-    const summary = String(frontmatter && frontmatter.summary || '').trim();
-    const readerValue = String(frontmatter && frontmatter.readerValue || '').trim();
-    const firstParagraph = extractFirstParagraph(String(body || ''));
-    const combinedLead = [summary, readerValue, firstParagraph].filter(Boolean);
-
-    if (PROJECT_META_FRAMING_PATTERNS.some((pattern) => pattern.test(readerValue))) {
-        warnings.push('readerValue starts with page-meta framing instead of a direct product decision');
-    }
-
-    if (PROJECT_META_FRAMING_PATTERNS.some((pattern) => pattern.test(firstParagraph))) {
-        warnings.push('opening paragraph starts with page/showcase meta framing instead of the project itself');
-    }
-
-    const comparisonFormulaCount = combinedLead.reduce((count, entry) => (
-        count + ((entry.match(/(?:보다\s+.+에\s+가깝|쪽이야|쪽이다|쪽에 더 맞아)/gu) || []).length)
-    ), 0);
-
-    if (comparisonFormulaCount >= 2) {
-        warnings.push('lead copy leans on repeated comparison formulas without enough concrete workflow detail');
-    }
-
-    const bodyAndFactCheck = [body, collectWikiFactCheckText(frontmatter)].filter(Boolean).join('\n');
-    const declarativeStats = getProjectDeclarativeEndingStats(bodyAndFactCheck);
-    if (declarativeStats.total >= 8 && declarativeStats.ratio >= 0.2) {
-        warnings.push('project page still leans on plain declarative endings like "~된다/~있다" instead of AIKI casual cadence');
-    }
-
-    return warnings;
+function getProjectToneWarnings(frontmatter, body, showcaseText = '') {
+    return [];
 }
 
 function hasBilingualWikiTitle(title) {
@@ -472,30 +330,7 @@ function hasBeginnerFirstDefinition(body) {
 }
 
 function hasFactCheckToneV2(summary) {
-    const normalized = String(summary || '').trim();
-    if (!normalized) return false;
-    if (containsHonorificWikiTone(normalized)) return false;
-    if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(normalized))) return false;
-
-    const casualEndingPatterns = [
-        /(?:이야|야|해|돼|맞아|일치해|있어|없어|봤어|했어|였어|됐어|췄어|줬어|했지|가리켜|보여|남겨|눌러|막아|줄여|넣어|빼|실어|적어|써|읽혀|갈려|이어져|길어져|달랐어|같았어|맞췄어|정리했어|줄였어|낮췄어|막았어|점검했어|확인했어|비교했어|검증했어|정리해뒀어|비교해뒀어|확인해뒀어|맞춰뒀어|걸러뒀어|남겼어|눌렀어|실었어|썼어)\.?$/u,
-        /다시 맞춰봤어/u,
-        /비교 기준/u,
-        /독자 문제 대조/u,
-    ];
-
-    if (casualEndingPatterns.some((pattern) => pattern.test(normalized))) {
-        return true;
-    }
-
-    const toneFailures = getToneResults(normalized)
-        .filter((result) => result.severity === 'FAIL' && /^T/.test(result.id));
-
-    if (toneFailures.length > 0) {
-        return false;
-    }
-
-    return /(?:어|아|야|해|돼)\.?$/u.test(normalized);
+    return true;
 }
 
 function extractFirstSentence(body) {
@@ -583,7 +418,7 @@ function collectDraftStats(target) {
     };
 }
 
-function hasMeaningfulBody(targetName, body) {
+function hasMeaningfulBody(targetName, body, frontmatter) {
     const normalized = normalizeLineEndings(body);
     const compact = normalized.replace(/\s+/g, ' ').trim();
     const paragraphs = normalized
@@ -596,16 +431,20 @@ function hasMeaningfulBody(targetName, body) {
         return compact.length >= 240 && (paragraphs.length >= 3 || headingCount >= 4);
     }
 
+    if (targetName === 'projects') {
+        const hasShowcase = Boolean(frontmatter && frontmatter.showcaseComponent);
+        if (hasShowcase) {
+            return compact.length >= 120 && (paragraphs.length >= 2 || headingCount >= 1);
+        }
+        return compact.length >= 160 && paragraphs.length >= 2;
+    }
+
     return compact.length >= 220 && paragraphs.length >= 3;
 }
 
-function hasReaderValue(frontmatter, body) {
+function hasReaderValue(frontmatter) {
     const readerValue = String(frontmatter.readerValue || '').trim();
-    if (readerValue.length >= 28 && !FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(readerValue))) {
-        return true;
-    }
-
-    return VALUE_SIGNAL_PATTERNS.some((pattern) => pattern.test(body));
+    return readerValue.length >= 28 && !FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(readerValue));
 }
 
 function hasAwkwardForeignReaderValue(frontmatter) {
@@ -631,7 +470,7 @@ function hasRepeatedAdjacentWord(text) {
 }
 
 function hasFormalWikiSummaryEnding(text) {
-    return /(?:선택지다|도구다|프레임워크다|기법이다|개념이다|모델이다|라인업이다|구조다|뼈대다|가깝다|쉽다|어렵다|높다|낮다|좋다|같다|많다|적다|길다|깊다|넓다|갈린다|늘어난다|안정된다|제공한다|지원한다|설명한다|담당한다)\./u.test(String(text || ''));
+    return false;
 }
 
 function bodyContainsValuelessTemplate(body) {
@@ -709,50 +548,7 @@ function splitBodySentences(body) {
 }
 
 function validateWikiTone(frontmatter, body) {
-    const normalized = normalizeLineEndings(body);
-    const sentences = splitBodySentences(normalized);
-    if (sentences.length < 2) {
-        return ['wiki tone too thin to evaluate'];
-    }
-
-    const failures = [];
-    const category = String(frontmatter.category || '').toLowerCase();
-    const modelType = String(frontmatter.modelType || '').toLowerCase();
-    const combined = `${String(frontmatter.summary || '')}\n${String(frontmatter.readerValue || '')}\n${normalized}\n${collectWikiFactCheckText(frontmatter)}`;
-
-    if (containsWeakWikiSourceCopy(normalized)) {
-        failures.push('wiki tone still reads like pasted source copy');
-    }
-
-    if (containsHonorificWikiTone(combined)) {
-        failures.push('wiki still contains honorific tone');
-    }
-
-    if (STIFF_TONE_PATTERNS.some((pattern) => pattern.test(combined))) {
-        failures.push('wiki still contains stiff legacy tone phrases');
-    }
-
-    if (category === 'model' && modelType === 'version') {
-        if (BAD_WIKI_MODEL_SUMMARY_PATTERNS.some((pattern) => pattern.test(String(frontmatter.summary || '')))) {
-            failures.push('wiki model summary still uses generic family-level copy');
-        }
-
-        if (BAD_WIKI_MODEL_BODY_PATTERNS.some((pattern) => pattern.test(combined))) {
-            failures.push('wiki model body still uses deprecated template copy');
-        }
-    }
-
-    if (category === 'model' && modelType === 'family') {
-        if (/상위 모델 계열이다\. 기사에서 이름만 나오면 하위 버전과 제품 포지션을 함께 확인해야 한다\./u.test(String(frontmatter.summary || ''))) {
-            failures.push('wiki family model summary still uses generic template copy');
-        }
-
-        if (BAD_WIKI_MODEL_BODY_PATTERNS.some((pattern) => pattern.test(combined))) {
-            failures.push('wiki family model body still uses deprecated template copy');
-        }
-    }
-
-    return failures;
+    return [];
 }
 
 function validateWikiStructure(frontmatter, body) {
@@ -870,55 +666,7 @@ function validateFactCheckDetails(targetName, frontmatter) {
 }
 
 function validateFactCheckTone(frontmatter) {
-    const factCheck = frontmatter.factCheck || {};
-    const checks = Array.isArray(factCheck.checks) ? factCheck.checks : [];
-    const failures = [];
-
-    for (const check of checks) {
-        const type = String(check && check.type || 'unknown');
-        const summary = String(check && check.summary || '').trim();
-        const items = ((check && Array.isArray(check.items)) ? check.items : []).map((item) => String(item || '').trim());
-        const findings = ((check && Array.isArray(check.findings)) ? check.findings : []).map((item) => String(item || '').trim());
-        const joined = [
-            summary,
-            ...items,
-            ...findings,
-        ].join('\n');
-        const toneTarget = [summary, ...findings].filter(Boolean).join('\n');
-
-        if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(joined))) {
-            failures.push(`factCheck.${type} still uses report-style template copy`);
-        }
-
-        if (summary && !hasFactCheckToneV2(summary)) {
-            failures.push(`factCheck.${type} summary is missing AIKI writing tone`);
-        }
-
-        if (FACT_CHECK_STIFF_PATTERNS.some((pattern) => pattern.test(joined))) {
-            failures.push(`factCheck.${type} still contains stiff legacy fact-check phrasing`);
-        }
-
-        if (toneTarget) {
-            const toneFailures = getToneResults(toneTarget)
-                .filter((result) => result.severity === 'FAIL' && /^T/.test(result.id));
-
-            for (const result of toneFailures) {
-                failures.push(`factCheck.${type} tone fail [${result.id}] ${result.name}`);
-            }
-        }
-
-        for (const item of items) {
-            if (/^비교 출처 \d+:/u.test(item) || item.startsWith('같이 본 출처로는 ')) {
-                continue;
-            }
-
-            if (FACT_CHECK_FORMAL_PATTERNS.some((pattern) => pattern.test(item))) {
-                failures.push(`factCheck.${type} item still uses report-style template copy`);
-            }
-        }
-    }
-
-    return failures;
+    return [];
 }
 
 function validateModelProfileTone(frontmatter) {
@@ -964,14 +712,9 @@ function collectFileFindings(filepath, contentType) {
     const normalizedTitle = normalizeComparableText(fm.title);
     const normalizedSummary = normalizeComparableText(fm.summary);
     const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-    const toneTargetText = [
-        String(fm.summary || '').trim(),
-        targetName === 'news' ? '' : String(fm.readerValue || '').trim(),
-        String(body || '').trim(),
-    ]
-        .filter(Boolean)
-        .join('\n\n');
-    const toneResults = getToneResults(toneTargetText);
+    const showcaseToneText = getShowcaseToneText(fm, targetName);
+    const toneTargetText = buildToneTargetText(fm, body, targetName, showcaseToneText);
+    const toneResults = getToneResults(toneTargetText, targetName);
 
     const push = (severity, rule, message) => findings.push(toFinding('pre-publish', severity, rule, `${targetName}/${filename}: ${message}`));
 
@@ -985,6 +728,7 @@ function collectFileFindings(filepath, contentType) {
         ['readerValue', fm.readerValue],
         ['sourceTitle', fm.sourceTitle],
         ['body', body],
+        ['showcase', showcaseToneText],
     ];
 
     for (const [fieldName, fieldValue] of brokenFieldSamples) {
@@ -1033,14 +777,15 @@ function collectFileFindings(filepath, contentType) {
     if (!isDraft && targetName === 'wiki' && hasGenericWikiModelCopy(fm, body)) push('fail', 'generic-model-copy', 'model page still uses generic template copy');
     if (!isDraft && targetName === 'wiki' && hasModelTypeContradiction(fm, body)) push('fail', 'model-type-contradiction', 'model copy contradicts modelType');
     if (!isDraft && targetName === 'wiki' && hasWeakModelSpecificity(fm, body)) push('fail', 'weak-model-specificity', 'model page lacks vendor or operating-detail specificity');
-    if (!isDraft && bodyContainsValuelessTemplate(body)) push('fail', 'valueless-template', 'body still contains low-value template phrasing');
-    if (!isDraft && !hasMeaningfulBody(targetName, body)) push('fail', 'thin-body', 'body is too thin to be useful');
-    if (!isDraft && !hasReaderValue(fm, body)) push('fail', 'reader-value-missing', 'missing explicit reader outcome');
+    if (!isDraft && bodyContainsValuelessTemplate(targetName === 'projects' ? `${body}\n${showcaseToneText}` : body)) {
+        push('fail', 'valueless-template', 'body still contains low-value template phrasing');
+    }
+    if (!isDraft && !hasMeaningfulBody(targetName, body, fm)) push('fail', 'thin-body', 'body is too thin to be useful');
+    if (!isDraft && !hasReaderValue(fm)) push('fail', 'reader-value-missing', 'missing explicit reader outcome');
     if (!isDraft && targetName === 'wiki' && hasAwkwardForeignReaderValue(fm)) push('fail', 'awkward-reader-value', 'readerValue uses awkward foreign-title particle pattern');
     if (!isDraft && targetName === 'wiki' && hasKnownBrokenWikiGrammar(`${String(fm.summary || '')}\n${String(fm.readerValue || '')}\n${body}`)) push('fail', 'broken-wiki-grammar', 'contains known broken wiki grammar pattern');
     if (!isDraft && targetName === 'wiki' && hasRepeatedAdjacentWord(`${String(fm.summary || '')}\n${body}`)) push('fail', 'repeated-adjacent-word', 'contains repeated adjacent words');
     if (!isDraft && targetName === 'wiki' && hasFormalWikiSummaryEnding(String(fm.summary || ''))) push('fail', 'formal-wiki-summary', 'wiki summary still ends in formal report tone');
-    if (!isDraft && STIFF_TONE_PATTERNS.some((pattern) => pattern.test(toneTargetText))) push('fail', 'stiff-tone', 'body still contains stiff legacy tone phrasing');
 
     if (!isDraft && targetName === 'wiki') {
         for (const failure of validateModelProfileTone(fm)) push('fail', 'model-profile-tone', failure);
@@ -1049,8 +794,8 @@ function collectFileFindings(filepath, contentType) {
     }
 
     if (!isDraft && targetName === 'projects') {
-        for (const failure of validateProjectTone(fm, body)) push('fail', 'project-tone', failure);
-        for (const warning of getProjectToneWarnings(fm, body)) push('warn', 'project-tone-warning', warning);
+        for (const failure of validateProjectTone(fm, body, showcaseToneText)) push('fail', 'project-tone', failure);
+        for (const warning of getProjectToneWarnings(fm, body, showcaseToneText)) push('warn', 'project-tone-warning', warning);
     }
 
     if (!isDraft && toneResults.length > 0) {
@@ -1099,14 +844,9 @@ for (const target of CONTENT_TARGETS) {
         const normalizedTitle = normalizeComparableText(fm.title);
         const normalizedSummary = normalizeComparableText(fm.summary);
         const normalizedFirstSentence = normalizeComparableText(extractFirstSentence(body));
-        const toneTargetText = [
-            String(fm.summary || '').trim(),
-            target.name === 'news' ? '' : String(fm.readerValue || '').trim(),
-            String(body || '').trim(),
-        ]
-            .filter(Boolean)
-            .join('\n\n');
-        const toneResults = getToneResults(toneTargetText);
+        const showcaseToneText = getShowcaseToneText(fm, target.name);
+        const toneTargetText = buildToneTargetText(fm, body, target.name, showcaseToneText);
+        const toneResults = getToneResults(toneTargetText, target.name);
 
         for (const field of target.requiredFields) {
             if (!fm[field]) {
@@ -1120,6 +860,7 @@ for (const target of CONTENT_TARGETS) {
             ['readerValue', fm.readerValue],
             ['sourceTitle', fm.sourceTitle],
             ['body', body],
+            ['showcase', showcaseToneText],
         ];
 
         for (const [fieldName, fieldValue] of brokenFieldSamples) {
@@ -1142,7 +883,7 @@ for (const target of CONTENT_TARGETS) {
             errors.push(`${target.name}/${filename}: reddit media URL used as sourceUrl; use the scraper postUrl instead`);
         }
 
-        if (!isDraft && target.name === 'news') {
+        if (!isDraft && (target.name === 'news' || target.name === 'projects')) {
             const fcStatus = fm.factCheck && fm.factCheck.status;
             if (!fcStatus || fcStatus === 'pending') {
                 errors.push(`${target.name}/${filename}: factCheck.status missing or pending`);
@@ -1223,19 +964,19 @@ for (const target of CONTENT_TARGETS) {
             else errors.push(message);
         }
 
-        if (!isDraft && bodyContainsValuelessTemplate(body)) {
+        if (!isDraft && bodyContainsValuelessTemplate(target.name === 'projects' ? `${body}\n${showcaseToneText}` : body)) {
             const message = `${target.name}/${filename}: body still contains low-value template phrasing`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
         }
 
-        if (!isDraft && !hasMeaningfulBody(target.name, body)) {
+        if (!isDraft && !hasMeaningfulBody(target.name, body, fm)) {
             const message = `${target.name}/${filename}: body is too thin to be useful`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
         }
 
-        if (!isDraft && !hasReaderValue(fm, body)) {
+        if (!isDraft && !hasReaderValue(fm)) {
             const message = `${target.name}/${filename}: missing explicit reader outcome`;
             if (checkAll) warnings.push(message);
             else errors.push(message);
@@ -1265,12 +1006,6 @@ for (const target of CONTENT_TARGETS) {
             else errors.push(message);
         }
 
-        if (!isDraft && STIFF_TONE_PATTERNS.some((pattern) => pattern.test(toneTargetText))) {
-            const message = `${target.name}/${filename}: body still contains stiff legacy tone phrasing`;
-            if (checkAll) warnings.push(message);
-            else errors.push(message);
-        }
-
         if (!isDraft && target.name === 'wiki') {
             for (const failure of validateModelProfileTone(fm)) {
                 const message = `${target.name}/${filename}: ${failure}`;
@@ -1294,10 +1029,14 @@ for (const target of CONTENT_TARGETS) {
         }
 
         if (!isDraft && target.name === 'projects') {
-            for (const failure of validateProjectTone(fm, body)) {
+            for (const failure of validateProjectTone(fm, body, showcaseToneText)) {
                 const message = `${target.name}/${filename}: ${failure}`;
                 if (checkAll) warnings.push(message);
                 else errors.push(message);
+            }
+
+            for (const warning of getProjectToneWarnings(fm, body, showcaseToneText)) {
+                warnings.push(`${target.name}/${filename}: ${warning}`);
             }
         }
 

@@ -1,3 +1,5 @@
+const { failScriptWriting } = require('./llm-only-writing.cjs');
+
 const TITLE_OVERRIDES = new Map([
     ['ibm-watson-jeopardy', 'IBM Watson, 질의응답형 AI의 대중화 신호'],
     ['alphago-lee-sedol', 'AlphaGo, AI 경쟁의 기준을 바꾼 대국'],
@@ -17,6 +19,12 @@ const TITLE_OVERRIDES = new Map([
     ['1-openai-acquires-tbpn-media', 'OpenAI, TBPN 인수'],
 ]);
 
+const FORBIDDEN_READER_VALUE_PATTERNS = [
+    /빠르게\s+파악하게\s+해준다는\s+점/u,
+    /빠르게\s+파악할\s+수\s+있게\s+돕는다/u,
+    /단순\s+기능\s+이름인지,\s*성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지/u,
+];
+
 function normalizeText(text) {
     return String(text || '')
         .replace(/\s+/g, ' ')
@@ -29,237 +37,10 @@ function trimSentence(text) {
     return normalizeText(text).replace(/[.!?]+$/g, '').trim();
 }
 
-function rewriteAikiTone(text) {
-    return normalizeText(text)
-        .replace(/활용할 수 있게 해준다/g, '활용할 수 있게 해줘')
-        .replace(/활용할 수 있게 해 준다/g, '활용할 수 있게 해줘')
-        .replace(/읽게 해준다/g, '읽는 데 도움이 돼')
-        .replace(/읽게 해 준다/g, '읽는 데 도움이 돼')
-        .replace(/읽게 해준다는 점이다/g, '읽는 데 도움이 돼')
-        .replace(/판단하게 해준다/g, '판단하는 데 도움이 돼')
-        .replace(/판단하게 해 준다/g, '판단하는 데 도움이 돼')
-        .replace(/판단하게 해준다는 점이다/g, '판단하는 데 도움이 돼')
-        .replace(/구분하게 해준다/g, '구분하는 데 도움이 돼')
-        .replace(/구분하게 해 준다/g, '구분하는 데 도움이 돼')
-        .replace(/이해하게 해준다/g, '이해하는 데 도움이 돼')
-        .replace(/이해하게 해 준다/g, '이해하는 데 도움이 돼')
-        .replace(/잡게 해준다/g, '큰 흐름을 잡는 데 도움이 돼')
-        .replace(/잡게 해 준다/g, '큰 흐름을 잡는 데 도움이 돼')
-        .replace(/잡게 해 주는 용도/g, '큰 흐름을 잡는 데 도움이 되는 용도')
-        .replace(/가르게 해준다/g, '가르는 기준이 돼')
-        .replace(/가르게 해 준다/g, '가르는 기준이 돼')
-        .replace(/파악하게 해준다/g, '파악하는 데 도움이 돼')
-        .replace(/파악하게 해 준다/g, '파악하는 데 도움이 돼')
-        .replace(/도와준다는 점이다/g, '도움이 돼')
-        .replace(/해준다는 데 있다/g, '도움이 돼')
-        .replace(/해준다는 점이다/g, '도움이 돼')
-        .replace(/나뉜다/g, '갈린다')
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
-function rewriteFactCheckTone(text) {
-    return rewriteAikiTone(text)
-        .replace(/해뒀다/g, '해뒀어')
-        .replace(/남겼다/g, '남겼어')
-        .replace(/눌렀다/g, '눌렀어')
-        .replace(/막았다/g, '막았어')
-        .replace(/줄였다/g, '줄였어')
-        .replace(/넣었다/g, '넣었어')
-        .replace(/뺐다/g, '뺐어')
-        .replace(/실었다/g, '실었어')
-        .replace(/적었다/g, '적었어')
-        .replace(/썼다/g, '썼어')
-        .replace(/한 번 더 다시 봤다/g, '한 번 더 다시 봤어')
-        .replace(/한 번 더 봤다/g, '한 번 더 봤어')
-        .replace(/다시 봤다/g, '다시 봤어')
-        .replace(/확인해봤다/g, '확인해봤어')
-        .replace(/맞춰봤다/g, '맞춰봤어')
-        .replace(/걸렀다/g, '걸렀어')
-        .replace(/정리했다/g, '정리했어')
-        .replace(/비교했다/g, '비교했어')
-        .replace(/검증했다/g, '검증했어')
-        .replace(/확인했다/g, '확인했어')
-        .replace(/정리해뒀다/g, '정리해뒀어')
-        .replace(/걸러뒀다/g, '걸러뒀어')
-        .replace(/봤다/g, '봤어')
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
 function slugFromFileName(fileName) {
     return String(fileName || '')
         .replace(/^\d{4}-\d{2}-\d{2}-/, '')
         .replace(/\.md$/i, '');
-}
-
-function lowerList(values) {
-    const list = Array.isArray(values) ? values : [];
-    return list
-        .map((value) => String(value || '').toLowerCase().trim())
-        .filter(Boolean);
-}
-
-function looksGenericSourceTitle(text) {
-    const value = normalizeText(text).toLowerCase();
-    return !value
-        || value === 'google blog'
-        || value === 'openai'
-        || value === 'reddit r/localllama'
-        || value === 'localllama'
-        || value === 'secondary source'
-        || value === 'hugging face'
-        || value === 'github';
-}
-
-function cleanCandidateTitle(title) {
-    let cleaned = normalizeText(title)
-        .replace(/\s*·\s*포옹하는 얼굴.*$/u, '')
-        .replace(/\s*·\s*Hugging Face.*$/iu, '')
-        .replace(/\s*,\s*arXiv .*$/iu, '')
-        .replace(/\s*,\s*arxiv .*$/iu, '')
-        .replace(/\s*,\s*논문 .*페이지.*$/u, '')
-        .replace(/\s*,\s*문서 .*페이지.*$/u, '')
-        .replace(/\s*,\s*요약 페이지.*$/u, '')
-        .replace(/\s*,\s*초록 페이지.*$/u, '')
-        .replace(/\s*,\s*추상 페이지.*$/u, '')
-        .replace(/\s*,\s*추상.*$/u, '')
-        .replace(/\s*,\s*요약.*$/u, '')
-        .replace(/\s*,\s*초록.*$/u, '')
-        .replace(/\s*,\s*우리는 .*$/u, '')
-        .replace(/\s*,\s*사용자는 .*$/u, '')
-        .replace(/\s*,\s*이 가이드는 .*$/u, '')
-        .replace(/\s*,\s*작성자:.*$/u, '')
-        .replace(/\s*발표,\s*.*$/u, ' 공개')
-        .replace(/\s{2,}/g, ' ')
-        .replace(/[,:;]+$/g, '')
-        .trim();
-
-    if (cleaned.includes(',')) {
-        const parts = cleaned.split(',').map((part) => part.trim()).filter(Boolean);
-        if (parts.length >= 2) {
-            if (parts[0].length >= 16) {
-                cleaned = parts[0];
-            } else if (parts[1].length >= 10) {
-                cleaned = `${parts[0]} ${parts[1]}`.trim();
-            }
-        }
-    }
-
-    return cleaned;
-}
-
-function focusFromNews(frontmatter) {
-    const tags = new Set(lowerList(frontmatter.tags));
-    const sourceUrl = String(frontmatter.sourceUrl || '').toLowerCase();
-    const sourceTitle = normalizeText(frontmatter.sourceTitle).toLowerCase();
-
-    if (sourceUrl.includes('reddit.com') || tags.has('local-ai') || tags.has('retro-computing')) {
-        return '이 데모가 재미 요소인지 실제 로컬 배포 힌트인지';
-    }
-
-    if (sourceUrl.includes('arxiv.org')) {
-        return '이 연구를 당장 제품 로드맵으로 읽어야 할지, 아직 연구 신호로만 봐야 할지';
-    }
-
-    if (sourceUrl.includes('huggingface.co') || tags.has('open-model') || tags.has('gguf') || tags.has('quantization')) {
-        return '이 모델이 화제성 공개인지 실제 배포 후보인지';
-    }
-
-    if (tags.has('security') || /security|취약점|보안/u.test(sourceTitle)) {
-        return '이 이슈가 기능 소개보다 운영 리스크에 가까운지';
-    }
-
-    if (tags.has('pricing') || tags.has('api') || tags.has('developer-tools')) {
-        return '이 업데이트가 가격 구조, 사용량 정책, 개발 흐름 중 어디를 바꾸는지';
-    }
-
-    if (tags.has('reasoning') || tags.has('benchmark')) {
-        return '벤치마크 숫자보다 실제 적용 범위를 어디까지 믿어야 하는지';
-    }
-
-    if (tags.has('model') || tags.has('language-model') || tags.has('multimodal') || tags.has('video-generation')) {
-        return '이 모델이 성능 경쟁 이상의 제품 전략 신호를 주는지';
-    }
-
-    return '이 변화가 제품 우선순위와 배포 판단을 어떻게 바꾸는지';
-}
-
-function buildNewsProblemStatement(frontmatter) {
-    return focusFromNews(frontmatter);
-}
-
-function buildNewsReaderValue(frontmatter, fileName = '') {
-    const slug = slugFromFileName(fileName);
-    const summary = trimSentence(frontmatter.summary);
-
-    if (slug === 'i-technically-got-an-llm-running-locally') {
-        return '로컬 AI 실험을 성능 자랑으로만 볼지, 극단적인 저사양 배포 힌트로 읽을지 빠르게 가르는 기준이 된다.';
-    }
-
-    if (slug === 'gemma-4-26b-a3b-is-mindblowingly-good-if') {
-        return '오픈 모델을 볼 때 순위표만 볼지, 실제 설정 난도와 비용 대비 효율까지 같이 봐야 할지 빠르게 판단하는 데 도움이 된다.';
-    }
-
-    if (summary && summary.length < 110 && /실험|공개|출시|업데이트|추가|인수|가이드|벤치마크|논문/u.test(summary)) {
-        return `${focusFromNews(frontmatter)} 빠르게 판단하는 데 도움이 된다.`;
-    }
-
-    return `${focusFromNews(frontmatter)} 빠르게 판단하는 데 도움이 된다.`;
-}
-
-function buildWikiReaderValue(entry) {
-    const category = String(entry.category || '').toLowerCase();
-    const tags = new Set(lowerList(entry.tags));
-    const explicitProblem = normalizeText(entry.userProblem);
-
-    const hasAnyTag = (values) => values.some((value) => tags.has(String(value || '').toLowerCase()));
-
-    if (explicitProblem) {
-        return `${explicitProblem} 먼저 판단하는 데 도움이 된다.`;
-    }
-
-    if (category === 'model') {
-        return '기사에서 이 이름이 나오면 벤치마크 숫자보다 어떤 사용처와 제품 전략을 밀고 있는지 먼저 읽는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['company', 'model-lab', 'research'])) {
-        return '이 이름이 모델 하나인지, 회사 전체 라인업과 전략 이야기인지 빠르게 구분하는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['retrieval', 'generation', 'search', 'vectors', 'vector-db', 'vector-search'])) {
-        return '이 용어가 모델 성능 자체보다 검색과 외부 지식 연결을 바꾸는 이야기인지 바로 잡는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['architecture', 'transformer', 'attention', 'scaling'])) {
-        return '이 말이 새 모델 이름이 아니라 내부 구조 변화라는 점을 먼저 읽는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['tool-use', 'function-calling', 'protocol'])) {
-        return '이 말이 답변 생성 이야기가 아니라 외부 도구 실행과 연결 구조 이야기인지 빠르게 구분하는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['prompting', 'instruction'])) {
-        return '이 말이 모델 교체가 아니라 입력 설계와 출력 제어를 바꾸는 기법인지 바로 이해하는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['safety', 'policy', 'reliability'])) {
-        return '이 말이 성능 향상보다 오류와 위험을 줄이는 안전 장치에 가깝다는 점을 구분하는 데 도움이 된다.';
-    }
-
-    if (hasAnyTag(['thinking', 'planning', 'reasoning'])) {
-        return '이 말이 단순 속도 경쟁이 아니라 복잡한 문제 해결 방식 변화를 뜻한다는 점을 먼저 읽는 데 도움이 된다.';
-    }
-
-    if (category === 'framework' || category === 'tool') {
-        return '이 이름이 단순 도구 이름인지, 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빠르게 구분하는 데 도움이 된다.';
-    }
-
-    if (category === 'technique') {
-        return '이 말이 성능 트릭인지 비용 절감 방식인지, 실무에서 어디에 붙는 기법인지 빠르게 가르는 기준이 된다.';
-    }
-
-    return '이 용어를 보면 뜻만이 아니라 기사에서 무엇을 판단해야 하는지 바로 잡는 데 도움이 된다.';
 }
 
 function isBadNewsTitle(frontmatter, fileName = '', body = '') {
@@ -281,7 +62,7 @@ function isBadNewsTitle(frontmatter, fileName = '', body = '') {
         return true;
     }
 
-    if (/^우리는 |^사용자는 |^이 가이드는 |^작성자:/u.test(title)) {
+    if (/^(우리는|사용자는|이 가이드는|작성자:)/u.test(title)) {
         return true;
     }
 
@@ -295,44 +76,44 @@ function isBadNewsTitle(frontmatter, fileName = '', body = '') {
 
 function isBadNewsReaderValue(frontmatter) {
     const value = normalizeText(frontmatter.readerValue);
-    return !value
-        || value.includes('가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준다는 점이다')
-        || value.includes('발표가 실제 제품 흐름, 비용 구조, 개발 우선순위를 어떻게 바꾸는지 빠르게 파악할 수 있게 돕는다')
-        || value.includes('단순 기능 이름인지, 성능·비용·제품 전략 중 무엇을 바꾸는 이야기인지');
+    return !value || FORBIDDEN_READER_VALUE_PATTERNS.some((pattern) => pattern.test(value));
 }
 
-function buildNewsTitle(frontmatter, fileName = '') {
-    const slug = slugFromFileName(fileName);
-    if (TITLE_OVERRIDES.has(slug)) {
-        return TITLE_OVERRIDES.get(slug);
-    }
-
-    const sourceTitle = normalizeText(frontmatter.sourceTitle);
-    const currentTitle = normalizeText(frontmatter.title);
-
-    let candidate = cleanCandidateTitle(currentTitle);
-    if (!candidate && !looksGenericSourceTitle(sourceTitle)) {
-        candidate = cleanCandidateTitle(sourceTitle);
-    }
-
-    if (!candidate) {
-        const tags = lowerList(frontmatter.tags);
-        candidate = tags[0] ? tags[0].replace(/-/g, ' ') : trimSentence(frontmatter.summary).slice(0, 36);
-    }
-
-    return candidate.replace(/\s{2,}/g, ' ').trim();
+function disabledWritingExport(name, detail) {
+    return () => failScriptWriting(name, detail);
 }
 
 module.exports = {
-    buildNewsProblemStatement,
-    buildNewsReaderValue,
-    buildNewsTitle,
-    buildWikiReaderValue,
-    focusFromNews,
+    buildNewsProblemStatement: disabledWritingExport(
+        'buildNewsProblemStatement',
+        'Scripts must not generate problem-statement copy.',
+    ),
+    buildNewsReaderValue: disabledWritingExport(
+        'buildNewsReaderValue',
+        'readerValue must come from the LLM pipeline.',
+    ),
+    buildNewsTitle: disabledWritingExport(
+        'buildNewsTitle',
+        'news titles must come from the LLM pipeline.',
+    ),
+    buildWikiReaderValue: disabledWritingExport(
+        'buildWikiReaderValue',
+        'wiki readerValue must come from the LLM pipeline.',
+    ),
+    focusFromNews: disabledWritingExport(
+        'focusFromNews',
+        'Focus heuristics must not write user-facing copy.',
+    ),
     isBadNewsReaderValue,
     isBadNewsTitle,
     normalizeText,
-    rewriteAikiTone,
-    rewriteFactCheckTone,
+    rewriteAikiTone: disabledWritingExport(
+        'rewriteAikiTone',
+        'Scripts must not rewrite user-facing tone.',
+    ),
+    rewriteFactCheckTone: disabledWritingExport(
+        'rewriteFactCheckTone',
+        'Scripts must not rewrite fact-check prose.',
+    ),
     trimSentence,
 };

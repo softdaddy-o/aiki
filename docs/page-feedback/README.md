@@ -30,7 +30,8 @@
 
 1. 페이지 리뷰 중 나온 피드백은 즉시 `docs/page-feedback/<type>/<slug>.md`에 기록한다.
 2. 뉴스, 위키, 프로젝트 페이지를 생성하거나 다시 쓸 때는 먼저 아래 순서로 읽는다.
-   - 공통 가이드: `docs/content-guide-common.md`
+   - 공통 tone 가이드: `docs/tone-guide-common.md`
+   - 공통 구성 가이드: `docs/content-guide-common.md`
    - 타입별 가이드: `docs/content-guide-news.md`, `docs/content-guide-wiki.md`, `docs/content-guide-projects.md`
    - 페이지별 피드백: `docs/page-feedback/<type>/<slug>.md`
 3. 충돌이 있으면 최신 `active` 피드백을 우선하되, 공개 품질이나 법적 주의사항과 충돌하면 이유를 남기고 조정한다.

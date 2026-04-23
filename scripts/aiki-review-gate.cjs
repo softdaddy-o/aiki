@@ -3,10 +3,10 @@
 const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
-const crypto = require('crypto');
 const matter = require('gray-matter');
 
 const { loadPanel } = require('./lib/agent-loader.cjs');
+const { getReviewContentHash, getReviewScopeFiles } = require('./lib/review-content.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const TARGETS = {
@@ -56,12 +56,10 @@ function getChangedFiles() {
     return new Set(headCommitFiles.map(toPosix));
 }
 
-function getReviewContentHash(filePath) {
-    const parsed = matter(fs.readFileSync(filePath, 'utf8'));
-    const frontmatter = { ...(parsed.data || {}) };
-    delete frontmatter.reviewStamp;
-    const canonical = matter.stringify(parsed.content, frontmatter);
-    return crypto.createHash('sha256').update(canonical, 'utf8').digest('hex').slice(0, 16);
+function isProjectScopeChanged(filePath, changed) {
+    return getReviewScopeFiles(filePath)
+        .map((scopePath) => toPosix(path.relative(ROOT, scopePath)))
+        .some((relativePath) => changed.has(relativePath));
 }
 
 function listMarkdownFiles(targetName, mode) {
@@ -77,7 +75,9 @@ function listMarkdownFiles(targetName, mode) {
     const changed = getChangedFiles();
     return allFiles.filter((file) => {
         const rel = toPosix(path.relative(ROOT, file));
-        return changed.has(rel);
+        if (changed.has(rel)) return true;
+        if (targetName === 'projects') return isProjectScopeChanged(file, changed);
+        return false;
     });
 }
 
@@ -89,6 +89,39 @@ function hasCurrentAgentVersions(stamp, panel) {
     return panel.agents.every((agent) => stamp.agentVersions[agent.id] === agent.version);
 }
 
+function readGuideVersion(filePath, fallback = '0.0.0') {
+    try {
+        const text = fs.readFileSync(filePath, 'utf8');
+        const match = text.match(/\*\*Version\*\*[:\s]+`([^`]+)`/);
+        return match ? match[1] : fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+function getCurrentGuideVersionsForFile(filePath) {
+    const contentType = TARGETS.news.dir && filePath.startsWith(TARGETS.news.dir)
+        ? 'news'
+        : TARGETS.projects.dir && filePath.startsWith(TARGETS.projects.dir)
+            ? 'projects'
+            : 'wiki';
+    const typeFile = path.join(ROOT, 'docs', `content-guide-${contentType}.md`);
+    return {
+        tone: readGuideVersion(path.join(ROOT, 'docs', 'tone-guide-common.md')),
+        common: readGuideVersion(path.join(ROOT, 'docs', 'content-guide-common.md')),
+        [contentType]: readGuideVersion(typeFile),
+    };
+}
+
+function hasCurrentGuideVersions(stamp, filePath) {
+    if (!stamp || !stamp.guideVersions || typeof stamp.guideVersions !== 'object') {
+        return false;
+    }
+
+    const currentGuideVersions = getCurrentGuideVersionsForFile(filePath);
+    return Object.entries(currentGuideVersions).every(([key, version]) => stamp.guideVersions[key] === version);
+}
+
 function isReviewCurrent(frontmatter, panel, filePath) {
     const stamp = frontmatter.reviewStamp;
     return Boolean(
@@ -97,6 +130,7 @@ function isReviewCurrent(frontmatter, panel, filePath) {
         && stamp.contentHash
         && stamp.panelVersion === panel.version
         && hasCurrentAgentVersions(stamp, panel)
+        && hasCurrentGuideVersions(stamp, filePath)
         && filePath
         && stamp.contentHash === getReviewContentHash(filePath),
     );

@@ -1,167 +1,171 @@
 'use strict';
 
-/**
- * aiki-tone-check.cjs — AIKI 기사 톤 검증 (thin wrapper)
- *
- * 실제 규칙 엔진은 social-posting/lib/tone-rules.js에 있음.
- * 이 파일은 AIKI 프로젝트 내에서 편하게 호출하기 위한 래퍼.
- *
- * Usage:
- *   node aiki-tone-check.cjs                        # 오늘 기사 검증
- *   node aiki-tone-check.cjs --date 2026-04-06      # 특정 날짜 검증
- *   node aiki-tone-check.cjs --file <path>          # 단일 파일 검증
- *
- * Exit codes: 0=PASS, 1=FAIL, 2=없음
- */
-
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
-// 공유 모듈 로드 (social-posting/lib/tone-rules.js)
-const TONE_RULES_PATH = path.resolve(__dirname, '../../../src3/Docs/social-posting/lib/tone-rules.js');
-const ALT_PATH = 'F:/src3/Docs/social-posting/lib/tone-rules.js';
+const { checkTone, printResults, PROFILES } = require('./lib/aiki-tone-rules.cjs');
 
-let toneRules;
-try {
-    toneRules = require(TONE_RULES_PATH);
-} catch {
-    try {
-        toneRules = require(ALT_PATH);
-    } catch {
-        console.error('❌ tone-rules.js를 찾을 수 없음.');
-        console.error(`   시도한 경로: ${TONE_RULES_PATH}`);
-        console.error(`   대체 경로: ${ALT_PATH}`);
-        process.exit(2);
-    }
-}
-
-const { checkTone, hasFail, printResults } = toneRules;
-
-const CONTENT_DIR = path.resolve(__dirname, '../src/content/news/ko');
-
-// ── 인수 파싱 ──────────────────────────────────────────────────────────────
+const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
+const PROJECTS_DIR = path.resolve(__dirname, '../src/content/projects/ko');
 
 const args = process.argv.slice(2);
-let dateArg = null;
-let fileArg = null;
 
-const dateIdx = args.indexOf('--date');
-if (dateIdx >= 0 && args[dateIdx + 1]) dateArg = args[dateIdx + 1];
-
-const fileIdx = args.indexOf('--file');
-if (fileIdx >= 0 && args[fileIdx + 1]) fileArg = args[fileIdx + 1];
-
-function kstToday() {
-    const n = new Date(Date.now() + 9 * 60 * 60 * 1000);
-    return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
+function getArg(flag) {
+    const index = args.indexOf(flag);
+    return index >= 0 && args[index + 1] ? args[index + 1] : null;
 }
 
-const targetDate = dateArg || kstToday();
+const platform = getArg('--platform') || 'blog';
+const dateArg = getArg('--date');
+const fileArg = getArg('--file');
+const textArg = getArg('--text');
 
-// ── 본문 추출 ───────────────────────────────────────────────────────────────
+if (!PROFILES[platform]) {
+    console.error(`Unsupported platform: ${platform}`);
+    console.error(`Available platforms: ${Object.keys(PROFILES).join(', ')}`);
+    process.exit(2);
+}
 
-function extractBody(content) {
+function kstToday() {
+    const now = new Date(Date.now() + 9 * 60 * 60 * 1000);
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+function extractMarkdownBody(content) {
     const fmEnd = content.indexOf('---', content.indexOf('---') + 3);
     if (fmEnd < 0) return content;
     return content.slice(fmEnd + 3).trim();
 }
 
-function splitToneSentences(text) {
-    const clean = String(text || '')
-        .replace(/^#{1,6}\s+.+$/gm, '')
-        .replace(/^\s*[-*•]\s*/gm, '')
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-        .replace(/\*\*([^*]+)\*\*/g, '$1')
-        .trim();
-
-    return clean
-        .split(/(?<=[.?!])\s+/)
-        .filter((sentence) => sentence.trim().length > 5);
+function extractMarkdownToneTarget(content) {
+    const parsed = matter(content);
+    return [
+        String(parsed.data && parsed.data.summary || '').trim(),
+        String(parsed.data && parsed.data.readerValue || '').trim(),
+        String(parsed.content || '').trim(),
+    ]
+        .filter(Boolean)
+        .join('\n\n');
 }
 
-function getExtendedColloquialRatio(text) {
-    const sentences = splitToneSentences(text);
-    if (sentences.length < 3) {
-        return { total: sentences.length, casual: 0, ratio: 1 };
+function extractTqBody(content) {
+    return content
+        .split('\n')
+        .filter((line) => {
+            const trimmed = line.trim();
+            if (trimmed.startsWith('- ##')) return false;
+            if (/^\w+::/.test(trimmed)) return false;
+            if (trimmed === '-' || trimmed === '') return false;
+            return true;
+        })
+        .map((line) => line.replace(/^-\s*/, '').trim())
+        .filter(Boolean)
+        .join('\n');
+}
+
+function collectInputs() {
+    if (textArg) {
+        return [{ label: '(text)', body: textArg }];
     }
 
-    const colloquial = /(?:이야|거야|거든|더라|잖아|인데|는데|어봐|래|네|지|[가-힣]+(?:해|돼|봐|줘|워|어|아))\s*[.!]?\s*$/;
-    const casual = sentences.filter((sentence) => colloquial.test(sentence.trim())).length;
-    return {
-        total: sentences.length,
-        casual,
-        ratio: casual / sentences.length,
-    };
-}
-
-function getToneResults(body) {
-    const results = checkTone(body, 'blog');
-    const localColloquial = getExtendedColloquialRatio(body);
-    return results.filter((result) => {
-        if (result && result.id === 'T2' && localColloquial.ratio >= 0.15) {
-            return false;
-        }
-        return true;
-    });
-}
-
-// ── 파일 수집 ───────────────────────────────────────────────────────────────
-
-function getFiles() {
     if (fileArg) {
-        const p = path.resolve(fileArg);
-        if (!fs.existsSync(p)) {
-            console.error(`❌ 파일 없음: ${p}`);
+        const filepath = path.resolve(fileArg);
+        if (!fs.existsSync(filepath)) {
+            console.error(`File not found: ${filepath}`);
             process.exit(2);
         }
-        return [p];
+
+        const content = fs.readFileSync(filepath, 'utf8');
+        const body = platform === 'short' ? extractTqBody(content) : extractMarkdownToneTarget(content);
+        return [{ label: path.basename(filepath), body }];
     }
-    if (!fs.existsSync(CONTENT_DIR)) {
-        console.error(`❌ 콘텐츠 디렉토리 없음: ${CONTENT_DIR}`);
-        process.exit(2);
+
+    const targetDate = dateArg || kstToday();
+
+    if (platform === 'blog' || platform === 'projects') {
+        const contentDir = platform === 'projects' ? PROJECTS_DIR : NEWS_DIR;
+        if (!fs.existsSync(contentDir)) {
+            console.error(`Content directory not found: ${contentDir}`);
+            process.exit(2);
+        }
+
+        return fs.readdirSync(contentDir)
+            .filter((filename) => filename.startsWith(targetDate) && filename.endsWith('.md'))
+            .sort()
+            .map((filename) => {
+                const content = fs.readFileSync(path.join(contentDir, filename), 'utf8');
+                return { label: filename, body: extractMarkdownToneTarget(content) };
+            });
     }
-    return fs.readdirSync(CONTENT_DIR)
-        .filter(f => f.startsWith(targetDate) && f.endsWith('.md'))
-        .sort()
-        .map(f => path.join(CONTENT_DIR, f));
+
+    if (platform === 'short') {
+        const logseqGraph = process.env.LOGSEQ_GRAPH_PATH || 'D:/LogseqData';
+        const tqPath = path.join(logseqGraph, 'pages', `TQ Threads ${targetDate}.md`);
+        if (!fs.existsSync(tqPath)) {
+            console.error(`TQ page not found: ${tqPath}`);
+            process.exit(2);
+        }
+
+        const content = fs.readFileSync(tqPath, 'utf8');
+        const posts = [];
+        let current = null;
+
+        for (const line of content.split('\n')) {
+            const match = line.match(/^-?\s*## (\d+)\.\s+(.+)/);
+            if (match) {
+                if (current) posts.push(current);
+                current = { number: Number(match[1]), title: match[2].trim(), lines: [] };
+            } else if (current) {
+                current.lines.push(line);
+            }
+        }
+
+        if (current) posts.push(current);
+
+        return posts
+            .filter((post) => !post.title.startsWith('보류'))
+            .map((post) => ({
+                label: `Post ${post.number}: ${post.title.slice(0, 40)}`,
+                body: extractTqBody(post.lines.join('\n')),
+            }));
+    }
+
+    return [];
 }
 
-// ── 메인 ────────────────────────────────────────────────────────────────────
-
-const files = getFiles();
-if (files.length === 0) {
-    console.error(`❌ ${targetDate} 날짜의 기사 없음`);
+const inputs = collectInputs();
+if (inputs.length === 0) {
+    console.error(`No input found for ${dateArg || kstToday()}`);
     process.exit(2);
 }
 
-console.log(`\n🔍 AIKI 톤 검증 — ${targetDate} (${files.length}건)\n`);
+console.log(`\nTone check: ${PROFILES[platform].name} (${inputs.length})\n`);
 
 let totalFails = 0;
 let totalWarns = 0;
 
-for (const filepath of files) {
-    const filename = path.basename(filepath);
-    const content = fs.readFileSync(filepath, 'utf-8');
-    const body = extractBody(content);
+for (const { label, body } of inputs) {
+    if (!body || body.trim().length < 10) {
+        console.log(`WARN ${label}: skipped because body is too short\n`);
+        continue;
+    }
 
-    const results = getToneResults(body);
-    const fails = results.filter(r => r.severity === 'FAIL');
-    const warns = results.filter(r => r.severity === 'WARN');
-    totalFails += fails.length;
-    totalWarns += warns.length;
-
-    printResults(filename, results);
+    const results = checkTone(body, platform);
+    totalFails += results.filter((result) => result.severity === 'FAIL').length;
+    totalWarns += results.filter((result) => result.severity === 'WARN').length;
+    printResults(label, results);
 }
 
-console.log('─'.repeat(60));
+console.log('='.repeat(60));
 if (totalFails > 0) {
-    console.log(`\n❌ FAIL — ${totalFails}건 실패, ${totalWarns}건 경고`);
-    console.log('톤 가이드에 맞게 수정 후 재검증하세요.\n');
+    console.log(`\nFAIL ${totalFails} fail(s), ${totalWarns} warning(s)\n`);
     process.exit(1);
-} else if (totalWarns > 0) {
-    console.log(`\n⚠️  WARN — 경고 ${totalWarns}건 (통과는 했지만 개선 권장)\n`);
-    process.exit(0);
-} else {
-    console.log('\n✅ PASS — 모든 기사가 톤 가이드를 준수합니다.\n');
+}
+
+if (totalWarns > 0) {
+    console.log(`\nWARN ${totalWarns} warning(s)\n`);
     process.exit(0);
 }
+
+console.log('\nPASS all content matches the active tone rules.\n');

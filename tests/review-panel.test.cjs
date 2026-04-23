@@ -24,33 +24,58 @@ describe('review-panel', () => {
         assert.equal(options.autoRevise, false);
     });
 
-    it('builds a revision prompt with file path and must-fix guidance', () => {
+    it('builds a wiki revision prompt with file path and must-fix guidance', () => {
         const prompt = reviewPanel.buildRevisionPrompt(
             { filepath: 'D:\\srcp\\aiki\\src\\content\\wiki\\ko\\chain-of-thought.md' },
             {
-                topMustFix: ['본문에 인라인 링크를 넣어라.'],
+                topMustFix: ['본문에 링크를 더 넣어라'],
                 reviews: [
                     {
                         role: 'structure_editor',
-                        mustFix: ['compare 섹션을 보강해라.'],
-                        findings: ['발표문 요약처럼 읽힌다.'],
+                        mustFix: ['compare section is missing'],
+                        findings: ['page still reads like a source summary'],
                     },
                 ],
             },
             {
                 contentType: 'wiki',
+                reviewScopeFiles: ['src/content/wiki/ko/chain-of-thought.md'],
                 internalLinkCandidates: [
                     { title: 'Reasoning Model', url: '/ko/wiki/reasoning/' },
                 ],
                 scriptFindings: [
-                    { severity: 'warn', rule: 'tone-B1', message: '인라인 링크 부족' },
+                    { severity: 'warn', rule: 'tone-B1', message: 'inline link count is low' },
                 ],
             },
         );
 
         assert.match(prompt, /src\/content\/wiki\/ko\/chain-of-thought\.md/);
-        assert.match(prompt, /본문에 인라인 링크를 넣어라/);
+        assert.match(prompt, /본문에 링크를 더 넣어라/);
         assert.match(prompt, /Reasoning Model/);
         assert.match(prompt, /tone-B1/);
+    });
+
+    it('includes showcase scope when revising project pages', () => {
+        const prompt = reviewPanel.buildRevisionPrompt(
+            { filepath: 'D:\\srcp\\aiki\\src\\content\\projects\\ko\\pocketbase.md' },
+            { topMustFix: ['showcase card headings still read like prose'], reviews: [] },
+            {
+                contentType: 'projects',
+                reviewScopeFiles: [
+                    'src/content/projects/ko/pocketbase.md',
+                    'src/components/projects/showcases/pocketbase/index.tsx',
+                ],
+                showcase: {
+                    filePath: 'src/components/projects/showcases/pocketbase/index.tsx',
+                    text: '실전형 샘플 구조\n자동 Admin CRUD',
+                },
+                internalLinkCandidates: [],
+                scriptFindings: [],
+            },
+        );
+
+        assert.match(prompt, /src\/content\/projects\/ko\/pocketbase\.md/);
+        assert.match(prompt, /src\/components\/projects\/showcases\/pocketbase\/index\.tsx/);
+        assert.match(prompt, /showcase TSX file/);
     });
 });

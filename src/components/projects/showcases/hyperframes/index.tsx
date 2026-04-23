@@ -88,7 +88,7 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
         sourcePath: '/hyperframes/cases/product-intro.html',
         videoSrc: '/hyperframes/cases/product-intro.mp4',
         posterSrc: '/hyperframes/cases/product-intro-poster.png',
-        resultNote: '문구와 CTA만 갈아 끼워도 같은 장면 뼈대를 여러 제품 버전으로 돌리기 편해.',
+        resultNote: '프롬프트 한 줄이 eyebrow·title·copy·cta HTML로 굳고, 같은 장면이 바로 render로 이어진다.',
         watchFor: [
             '타이틀이 첫 1초 안에 잡히는가',
             'CTA가 마지막 프레임에 또렷하게 남는가',
@@ -111,7 +111,7 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
         sourcePath: '/hyperframes/cases/vertical-short.html',
         videoSrc: '/hyperframes/cases/vertical-short.mp4',
         posterSrc: '/hyperframes/cases/vertical-short-poster.png',
-        resultNote: '세로 결과물의 훅과 자막 리듬을 잡아 볼 때 감각이 빨리 온다.',
+        resultNote: '세로 훅과 짧은 캡션 HTML이 그대로 render 리듬으로 넘어간다. 쇼츠형 반복 제작에서 이 흐름이 바로 보인다.',
         watchFor: [
             '첫 2초 훅이 충분히 센가',
             '캡션 길이가 짧게 유지되는가',
@@ -136,7 +136,7 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
         sourcePath: '/hyperframes/cases/data-brief.html',
         videoSrc: '/hyperframes/cases/data-brief.mp4',
         posterSrc: '/hyperframes/cases/data-brief-poster.png',
-        resultNote: '반복 리포트는 장면 뼈대가 먼저 고정될수록 이쪽이 더 편하다.',
+        resultNote: '숫자 카드 HTML만 갈아 끼우면 같은 뼈대에서 주간 리포트 render를 다시 뽑기 쉽다.',
         watchFor: [
             '카드 구조가 매주 재활용 가능한가',
             '숫자만 바꿔도 리듬이 유지되는가',
@@ -147,17 +147,17 @@ const CASES: ReadonlyArray<ShowcaseCase> = [
 
 const TAKE_CARDS: ReadonlyArray<InsightCard> = [
     {
-        title: '영상 생성기보다 장면 운영 프레임워크에 가깝다.',
-        body: '핵심은 한 번 잘 뽑는 게 아니라, 같은 장면 뼈대를 계속 고쳐 가며 운영하는 데 있다.',
+        title: '장면 운영 프레임워크',
+        body: '한 번 멋지게 뽑고 끝내는 도구는 아니다. 같은 장면 뼈대를 들고 계속 고칠 팀에서 값이 나온다.',
         tone: 'accent',
     },
     {
         title: '가치가 생기는 순간',
-        body: '카피, 수치, CTA는 자주 바뀌고 장면 구조는 자주 안 바뀔 때 바로 힘이 붙는다.',
+        body: '카피, 수치, CTA는 자주 바뀌는데 장면 구조는 오래 간다. 그때 여기 힘이 붙는다.',
     },
     {
         title: '제일 먼저 볼 포인트',
-        body: 'preview에서 safe area, 텍스트 길이, 브랜드 위치가 버티는지부터 보면 판단이 빨라진다.',
+        body: 'preview에서 safe area, 텍스트 길이, 브랜드 위치부터 본다. 이 셋이 버티면 다음 판단이 빨라진다.',
     },
 ] as const;
 
@@ -320,7 +320,7 @@ export default function HyperFramesShowcase(props: HyperFramesShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}cases`}
                     title="실행 쇼케이스"
-                    description={<>같은 <TermHint term="composition" description="텍스트, 카드, 비디오 레이어를 어떤 순서와 배치로 묶을지 정한 장면 설계 단위야." />을 유지한 채 카피와 데이터만 바꿔 쓰는 흐름을 본다.</>}
+                    description={<>프롬프트 한 줄이 <TermHint term="composition" description="텍스트, 카드, 비디오 레이어를 어떤 순서와 배치로 묶을지 정한 장면 설계 단위야." /> HTML로 굳고, 그 장면이 실제 render로 나오는 흐름을 본다.</>}
                 >
                     <div className="hf-overview-grid">
                         <article className="hf-insight-card hf-insight-card--accent">
@@ -567,7 +567,7 @@ const showcaseCss = `
   .hf-meta-card--source{grid-column:span 2}
   .hf-adoption-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hf-insight-grid,.hf-insight-grid--ops,.hf-compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hf-take-grid{grid-template-columns:1fr}
+  .hf-take-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:1100px){
   .hf-stage-grid{grid-template-columns:minmax(0,1fr)}

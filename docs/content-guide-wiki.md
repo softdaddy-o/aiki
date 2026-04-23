@@ -1,13 +1,13 @@
 # AIKI Content Guide — Wiki
 
 > **Guide ID**: `wiki`
-> **Version**: `2.0.0`
-> **Last Updated**: 2026-04-20
-> **Depends on**: `content-guide-common.md` v1.0.0+
+> **Version**: `3.1.1`
+> **Last Updated**: 2026-04-23
+> **Depends on**: `tone-guide-common.md` v2.0.0+, `content-guide-common.md` v2.2.0+
 > **Applies to**: `src/content/wiki/ko/*.md`
 
 이 문서는 AIKI 위키 페이지 생성에 적용되는 규칙이다.
-공통 규칙은 `content-guide-common.md`를 참조한다.
+tone은 `tone-guide-common.md`, 공통 구성은 `content-guide-common.md`를 참조한다.
 
 ---
 
@@ -49,8 +49,9 @@ factCheck:
   sources: [...]
   checks: [...]
 guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
+  tone: "2.0.0"
+  common: "2.2.0"
+  wiki: "3.1.1"
 formatVersion: 2   # 1=구 산문, 2=h2 섹션 카드 포맷 (2026-04-20~)
 ---
 ```
@@ -136,26 +137,10 @@ formatVersion: 2   # 1=구 산문, 2=h2 섹션 카드 포맷 (2026-04-20~)
 
 ---
 
-## 5. 문체 규칙 (위키 전용)
+## 5. 톤 적용 경로
 
-### 기본 톤
-
-위키도 common의 구어체 혼합 톤을 따른다. **설명체("~이다/~한다") 일색 금지.**
-
-### 비유
-
-본문에 **비유 1개 이상** 포함 권장. 추상 개념을 실무 감각으로 연결하는 비유.
-
-**좋은 예:**
-> "USB-C처럼 도구 연결 방식을 하나로 맞추는 규격이야."
-
-### 핵심 원칙
-
-1. 카테고리 설명은 짧게 끝낸다
-2. 본문 중심은 "이 항목만의 특징과 차별점"
-3. 독자가 실제로 헷갈리는 비교 포인트를 먼저 푼다
-4. `readerValue`가 가리키는 독자 문제를 본문 전체의 축으로 삼는다
-5. **다른 제품이나 기술 이름만 바꿔도 그대로 들어맞는 문장은 실패**
+위키 톤의 정본은 `docs/tone-guide-common.md`다. 이 문서에서는 위키 구조, 분류, 관련 용어, 팩트체크 구성만 다룬다.
+위키는 tone을 별도로 재정의하지 않는다.
 
 ---
 
@@ -280,7 +265,7 @@ Step 2: WebSearch로 공식 문서, 독립 소스 수집
   ↓
 Step 3: 4섹션 본문 작성 (Writing Guide 적용)
   ↓
-Step 4: 톤 검증 (구어체 혼합 확인)
+Step 4: `tone-guide-common.md` 기준 톤 검수
   ↓
 Step 5: 팩트체크 4단계
   ↓
@@ -295,5 +280,8 @@ Step 7: 배포
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 3.1.1 | 2026-04-23 | 공통 구성 가이드 v2.2.0에 맞춰 `Depends on`과 frontmatter 예시 `guideVersion.common`을 갱신. |
+| 3.1.0 | 2026-04-23 | tone 정본 버전 상향에 맞춰 의존 버전과 frontmatter 예시 `guideVersion`을 갱신. |
+| 3.0.0 | 2026-04-23 | tone 규칙을 `docs/tone-guide-common.md`로 분리하고, 이 문서는 위키 구조/검증 문서로 정리. `guideVersion.tone` 추가. |
 | 2.0.0 | 2026-04-20 | **카드 레이아웃 포맷 도입** — `formatVersion: 2` 신설, h2 섹션 카드 렌더링 표준화. `## 관련 용어` 섹션 본문 작성 금지 (템플릿이 frontmatter에서 자동 처리). §4 본문 구조 개정. |
 | 1.0.0 | 2026-04-09 | 초기 버전 — wiki-page-writing-guide.md + validation-guide.md 통합, 버전 관리 추가 |

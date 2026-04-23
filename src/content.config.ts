@@ -54,6 +54,7 @@ const news = defineCollection({
         backfilled: z.boolean().default(false),
         backfilledAt: z.string().optional(),
         guideVersion: z.object({
+            tone: z.string().optional(),
             common: z.string(),
             news: z.string(),
         }).optional(),
@@ -82,6 +83,7 @@ const wiki = defineCollection({
         modelProfile: modelProfileSchema.optional(),
         factCheck: factCheckSchema.optional(),
         guideVersion: z.object({
+            tone: z.string().optional(),
             common: z.string(),
             wiki: z.string(),
         }).optional(),
@@ -112,6 +114,7 @@ const projects = defineCollection({
         edition: z.string().default('ai'),
         factCheck: factCheckSchema.optional(),
         guideVersion: z.object({
+            tone: z.string().optional(),
             common: z.string(),
             projects: z.string(),
         }).optional(),

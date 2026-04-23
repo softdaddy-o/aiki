@@ -3,8 +3,8 @@ title: PocketBase
 slug: pocketbase
 lang: ko
 category: framework
-summary: 'PocketBase는 SQLite, 인증, 파일, realtime, admin UI를 한 바이너리에 묶은 Go 백엔드다.'
-readerValue: '이 페이지는 PocketBase를 지금 바로 내부툴이나 소규모 서비스에 붙일지, 아니면 더 무거운 managed backend로 갈지 빠르게 가르기 위한 판단판이다.'
+summary: PocketBase는 SQLite, admin UI, auth/files/realtime를 한 바이너리에 묶은 single-node 백엔드야. 내부툴이나 작은 MVP를 오늘 바로 띄워 볼 팀이면 여기서 먼저 걸러 볼 수 있어.
+readerValue: '지금 필요한 게 PocketBase 같은 single-node kit인지, 아니면 managed backend로 바로 가야 하는지 가를 기준.'
 githubUrl: 'https://github.com/pocketbase/pocketbase'
 showcaseComponent: pocketbase
 tags:
@@ -32,88 +32,150 @@ factCheck:
       title: PocketBase v0.37.2 release
     - url: 'https://pocketbase.io/docs/'
       title: PocketBase documentation
+    - url: /pocketbase/admin-login.png
+      title: 'PocketBase Playwright capture: superuser login'
+    - url: /pocketbase/admin-records.png
+      title: 'PocketBase Playwright capture: generated records list'
+    - url: /pocketbase/admin-record-edit.png
+      title: 'PocketBase Playwright capture: record edit drawer'
+    - url: /pocketbase/public-page.png
+      title: 'PocketBase Playwright capture: public demo page'
   checks:
     - type: source_match
       result: pass
       sources: 4
-      summary: 'README와 공식 docs를 다시 맞춰봤어. PocketBase는 Go 백엔드에 SQLite, realtime, files, users, admin UI를 한 파일로 묶는 쪽으로 읽는 게 맞아.'
+      summary: 'README와 docs 기준 제품 정의, standalone 실행 경로, Go/JS 확장 지점을 먼저 대조했어.'
       items:
-        - 'README는 PocketBase를 embedded SQLite, realtime subscriptions, files and users management, Admin dashboard UI, REST-ish API를 포함한 open source Go backend로 소개한다.'
-        - 'standalone 경로는 prebuilt executable을 받아 `./pocketbase serve`로 시작하는 흐름을 직접 제시한다.'
-        - 'Go toolkit 경로는 `pocketbase.New()`와 `app.OnServe()`를 써서 custom route를 붙이는 최소 예시를 README에 같이 둔다.'
+        - >-
+          README 소개 문구에서 PocketBase를 embedded SQLite, realtime subscriptions,
+          files and users management, Admin dashboard UI, REST-ish API를 포함한 open
+          source Go backend로 확인.
+        - >-
+          README standalone 예시에서 prebuilt executable을 내려받아 `./pocketbase serve`로
+          시작하는 실행 경로 확인.
+        - >-
+          README Go toolkit 예시에서 `pocketbase.New()`와 `app.OnServe()`로 custom
+          route를 붙이는 최소 확장 경로 확인.
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: 'repo 설명과 docs 흐름은 같은 방향이야. 빠른 standalone 시작 뒤 필요할 때 Go나 JS로 확장하는 구조가 일관되게 나온다.'
+      summary: >-
+        독립 출처 2개 이상 교차검증까진 못 갔어. 그래서 이번 판단은 README, docs, release note 같은 1차 문서와
+        내부 lab 관찰을 함께 본 1차 검토로만 묶어 뒀어.
       items:
-        - 'README는 prebuilt executable이 `examples/base/main.go` 기반이라고 적는다.'
-        - 'README와 docs는 Go overview와 JS hooks 경로를 따로 안내한다.'
-        - '공식 release를 바로 띄우고 그 위에 custom route와 hook을 얹는 흐름이 문서 전반에 반복된다.'
+        - >-
+          README, docs, release note는 모두 1차 제품 문서다. 이번 교차 확인은 제품 정의, JS hooks/Go
+          overview, 현재 배포 버전 확인까지만 맡겼다.
+        - >-
+          PocketBase를 single binary + embedded SQLite + admin UI 출발선으로 읽는 해석은 1차 문서와
+          내부 실행 결과(`/api/health`, login, records list, public page)가 서로 어긋나지 않는 수준까지 확인.
+        - >-
+          제3자 운영 사례나 독립 벤치마크는 이번 문서에 없다. 그래서 multi-node 운용, managed Postgres
+          대체성, backup/restore·concurrent write 한계 평가는 보수적으로 남겨 뒀다.
     - type: number_verify
       result: pass
-      sources: 3
-      summary: '가변 숫자는 2026-04-21 기준으로 다시 고정했어.'
+      summary: 공개 숫자와 내부 관찰 수치를 갈라 두고, 각 항목을 가능한 한 직접 근거 이름에 붙였어.
       items:
-        - 'GitHub API 기준 repository stars는 57,756이다.'
-        - 'latest release는 2026-04-20에 게시된 `v0.37.2`다.'
-        - '이번 lab 인스턴스의 `pocketbase.exe` 메모리는 Working Set 32.6 MB, Private 61.6 MB였다.'
+        - '[공식 웹 | repository page] GitHub API 기준 stars 57,756 확인.'
+        - '[공식 웹 | release page] latest release가 2026-04-20 게시 `v0.37.2`인지 확인.'
+        - >-
+          [internal lab observation | health endpoint] `127.0.0.1:18092/api/health`가 200을 반환하는지
+          단일 Windows lab 실행에서 확인.
+        - >-
+          [internal lab observation | `admin-login.png`] `/_/#/login` superuser login 화면이
+          열리는지 확인.
+        - >-
+          [internal lab observation | `admin-records.png`, `admin-record-edit.png`] `tasks_demo`
+          records list와 edit drawer에서 2개 레코드, `slug`, `status` 반영 상태 확인.
+        - >-
+          [internal lab observation | `public-page.png`] `pb_public/index.html`이 두 record와 stats
+          카드를 렌더링하는지 확인.
+        - >-
+          [internal lab observation | demo route] `/api/demo/stats` 값이 `total 2 / done 1 /
+          draft 1`로 맞는지 같은 lab 세션에서 확인.
+        - >-
+          [internal lab observation | process/files] `pocketbase.exe` Working Set 32.6 MB,
+          Private 61.6 MB, `pb_data/data.db` 156 KB는 두 record만 넣은 단일 Windows lab 실행값으로만
+          기록. 일반 운영 수치로 확대 해석하지 않음.
     - type: adversarial
       result: pass
       sources: 3
-      summary: '이 페이지의 도입 판단은 공식 구조와 실제 실행에서 같이 나온 해석이야. embedded SQLite, portable executable, admin UI 즉시성은 장점이고, 분산 구조와 managed infra 기본 전제에선 장점이 줄어든다.'
+      summary: >-
+        README의 pre-v1 경고와 lab의 single-node 실행 구조를 같이 놓고, 어디까지 맞고 어디서 불리해지는지 갈라 봤어.
       items:
-        - 'managed Postgres나 multi-region 기본 전제를 원하는 팀에선 PocketBase의 핵심 장점이 줄어든다. 이건 embedded SQLite 구조에서 나온 해석이다.'
-        - 'README는 v1.0.0 전에는 full backward compatibility를 보장하지 않는다고 적고 있다.'
-        - '그래서 이 페이지는 PocketBase를 범용 backend platform보다 빠른 single-node backend kit 쪽으로 먼저 평가한다.'
+        - >-
+          managed Postgres나 multi-region 기본 전제를 원하는 팀에선 PocketBase의 핵심 장점이 줄어. 이건
+          embedded SQLite 구조에서 바로 나오는 해석이야.
+        - README의 v1.0.0 이전 full backward compatibility 미보장 경고도 같이 확인했어.
+        - 그래서 첫 테스트 축도 범용 backend platform보다 single-node backend kit에 두는 편이 맞았어.
 guideVersion:
-  common: '3.0.0'
-  projects: '3.0.0'
-reviewStamp:
-  panelVersion: '1.0.0'
-  agentVersions:
-    beginner-editor: '1.0.0'
-    fact-checker: '1.0.0'
-    skeptical-critic: '1.1.0'
-    tone-editor: '1.3.0'
-    structure-editor: '1.1.0'
-  panelVerdict: pass
-  contentHash: '6c3d504f1ffa9c46'
-  reviewedAt: '2026-04-21'
+  tone: 2.0.0
+  common: 2.2.0
+  projects: 4.2.0
 ---
 
-## 한 줄 판단
+## takeaway
 
-PocketBase는 "백엔드 기본 세트"를 한 파일에 묶어 바로 돌려 보려는 팀에 강하다. auth, admin, files, realtime, CRUD를 한 번에 붙이고 싶다면 아주 빠르고, 반대로 managed Postgres나 분산 구조가 첫날부터 기본 전제면 장점이 줄어든다.
+- PocketBase: embedded SQLite, admin UI, auth/files/realtime를 한 바이너리에 묶은 single-node backend kit.
+- 지금 바로 테스트할 팀: 작은 내부툴, 운영 대시보드, single-node MVP처럼 admin과 CRUD를 먼저 확인해야 하는 팀.
+- `managed Postgres`, multi-region, 복잡한 분산 구조가 출발점이면 장점이 금방 줄어.
 
-## repo sample과 실제 실행
+## USE / SKIP
 
-이번에는 repo를 보고 sample이 있으면 그걸 돌려 보자는 기준으로 접근했어. 공식 README는 prebuilt executable이 `examples/base/main.go` 기반이라고 적고 있어서, Go toolchain이 없는 이 환경에선 source build 대신 공식 Windows amd64 release를 바로 실행했다. 즉, 설명만 읽은 게 아니라 repo가 가리키는 base sample의 컴파일된 결과물을 실제로 밟은 셈이다.
+### USE
+
+- 작은 내부툴, 운영 대시보드, single-node MVP처럼 admin과 CRUD가 먼저 보여야 할 때.
+- `pb_hooks`(내장 JS hook 디렉터리)와 custom route로 얇은 business logic만 얹고 싶은 팀.
+- release binary를 먼저 띄우고 나중에 custom Go app으로 승격하는 순서를 선호하는 팀.
+
+### SKIP
+
+- managed Postgres와 hosted ops를 기본 전제로 두는 팀.
+- multi-region이나 복잡한 분산 topology를 초반부터 설계해야 하는 팀.
+- binary version, backup, upload path, access rule을 직접 운영하고 싶지 않은 팀.
+
+## cases
+
+### release 실행
+
+- 공식 README가 가리키는 prebuilt executable 흐름을 [CLI(명령줄 인터페이스)](/ko/wiki/cli/) 기준으로 그대로 밟은 경로.
+- Go toolchain이 없는 환경에서 source build 대신 공식 Windows amd64 release `v0.37.2`를 바로 쓴 구성.
 
 ```bash
 pocketbase.exe --dir .\pb_data serve --http 127.0.0.1:18092
 pocketbase.exe --dir .\pb_data superuser upsert showcase@example.com Passw0rd!
 ```
 
-이 상태에서 `/api/health`가 바로 200을 반환했고, dashboard는 `/_/#/login`으로 열렸다. superuser 로그인 뒤에는 Admin UI에서 `tasks_demo` base collection을 만들고 `title`, `slug`, `status`, `done` 필드를 넣었다. `title`은 presentable field로 바꿔서 자동 생성 리스트 화면이 사람이 읽는 운영 화면처럼 보이게 맞췄다.
+- `/api/health` 즉시 200, dashboard는 `/_/#/login`으로 바로 오픈.
 
-## 화면에서 본 페이지
+### 자동 Admin CRUD
 
-실제로 캡처한 페이지는 네 장이다. `/_/#/login`은 첫 superuser login 화면, `/_/#/collections?collection=tasks_demo`는 자동 생성 record list, row click으로 열리는 edit drawer는 자동 생성 record form, `/`는 `pb_public/index.html`에서 띄운 작은 공개 페이지다. 이 네 장은 모두 Playwright로 이번 lab 인스턴스에서 저장했다.
+- `tasks_demo` base collection에 `title`, `slug`, `status`, `done` 필드를 넣고 `title`을 presentable field(리스트에서 대표로 먼저 보여 줄 필드)로 잡았어.
+- records list는 `id / title / slug / status / done / created / updated` 컬럼으로 바로 생성돼.
+- `Admin Dashboard Review` 행을 클릭하면 같은 스키마를 쓰는 edit drawer가 열려 list와 form이 함께 따라오는 구조를 바로 볼 수 있어.
 
-CRUD 자동 생성 쪽은 기대보다 분명했다. record list는 `id / title / slug / status / done / created / updated` 컬럼으로 바로 나왔고, `Admin Dashboard Review` row를 클릭하자 edit drawer가 뜨면서 같은 필드 구성이 그대로 다시 나왔다. 즉, collection 스키마를 한 번 정하면 list와 form이 동시에 따라온다.
+### `pb_hooks` + route + `pb_public`
 
-## 로직과 데이터 연동
+- `pb_hooks/main.pb.js`에서 `title -> slug` 동기화와 빈 `status -> draft` 기본값 적용.
+- `routerAdd("GET", "/api/demo/tasks", ...)`와 `routerAdd("GET", "/api/demo/stats", ...)`로 읽기 전용 [API(애플리케이션 프로그래밍 인터페이스)](/ko/wiki/api/) 분리.
+- `pb_public/index.html`은 `fetch('/api/demo/tasks')`로 두 record를 카드로 렌더링했고, `/api/demo/stats` 값도 `total 2 / done 1 / draft 1`로 일치.
 
-이번 예제는 설명만 넣지 않고 실제로 로직을 추가해 봤다. `pb_hooks/main.pb.js`에서 `onRecordCreateRequest`와 `onRecordUpdateRequest`를 써서 `title`에서 `slug`를 다시 만들고, 빈 `status`는 `draft`로 채우도록 했다. 그리고 `routerAdd("GET", "/api/demo/tasks", ...)`와 `routerAdd("GET", "/api/demo/stats", ...)`를 붙여서 collection data를 custom JSON route로 읽어 오게 만들었다.
+## adopt
 
-이후 `pb_public/index.html`에서 `fetch('/api/demo/tasks')`를 호출해 두 record를 카드로 렌더링했다. 최종적으로 admin에는 `Admin Dashboard Review`, `First PocketBase Task Revised` 두 record가 보였고, route 응답도 `total 2 / done 1 / draft 1`로 맞았다. 로직이 record hook에서 값에 개입하고, route가 같은 data를 읽고, public page가 다시 그 JSON을 화면으로 바꾸는 흐름을 한 번에 확인한 셈이다.
+1. 공식 release binary나 `examples/base`부터 띄워서 login과 health를 먼저 확인해.
+2. collection을 만들 때 운영자가 읽을 대표 필드 하나를 presentable로 잡아 records list를 정리해.
+3. `pb_hooks`에서 기본값과 slug 동기화처럼 얇은 규칙만 붙이고, 읽기 전용 route 한두 개로 공개 화면을 나눠.
+4. hook과 route가 커질 때만 custom Go app으로 승격해.
 
-## 운영 포인트
+## ops
 
-이번 lab 인스턴스에서 `pocketbase.exe`의 메모리는 Working Set 32.6 MB, Private 61.6 MB였다. 두 record가 들어간 `pb_data/data.db`는 156 KB였다. 아주 작은 예제 기준이긴 하지만, "single binary인데 얼마나 무거운가"를 감으로만 보지 않고 숫자로 볼 수는 있었다.
+- `pocketbase.exe`: 이번 단일 Windows lab에서만 Working Set 32.6 MB, Private 61.6 MB, `pb_data/data.db` 156 KB.
+- `pb_data`는 SQLite와 내부 데이터, `pb_hooks`는 JS logic, `pb_public`은 정적 페이지를 맡는 분리 구조.
+- 이번 `tasks_demo`는 기본적으로 superuser만 record 접근을 열고, public 읽기는 custom route로 따로 분리해 뒀어.
+- pre-v1 경고가 있어서 version pin, backup plan, 업그레이드 순서를 같이 가져가는 편이 안전해.
 
-운영 경계도 비교적 선명했다. `pb_data`는 SQLite와 내부 데이터, `pb_hooks`는 JS logic, `pb_public`은 바로 서빙되는 정적 페이지를 맡는다. 이번 `tasks_demo`의 record 접근은 기본적으로 superuser 쪽만 열려 있었고, public 읽기 페이지는 custom route로 따로 열었다. 결국 access rule, binary version, backup plan을 직접 들고 가겠다는 팀에 잘 맞는다.
+## compare
 
-## 최종 판단
-
-PocketBase는 "작지만 완성도가 높은 single-node backend"가 필요할 때 세다. repo sample이 곧 release binary와 가깝고, Admin UI가 CRUD를 자동 생성하고, `pb_hooks`와 custom route로 얇은 business logic까지 붙일 수 있어서 내부툴과 초기 제품 검증 속도가 매우 빠르다. 반대로 분산 구조와 managed infra를 기본 전제로 두고 시작하는 팀이면 여기서 얻는 속도 이점보다 구조 변경 비용이 먼저 보일 수 있다.
+- [`Supabase`](/ko/wiki/supabase/) / Firebase: auth, storage, DB를 managed service로 묶고 서버 운영을 줄이고 싶을 때 더 자연스러워. 반대로 single binary와 자동 admin CRUD를 빨리 붙이는 속도는 PocketBase가 앞서.
+- `Go + chi + SQLite 직접 조합`: admin 화면까지 직접 설계하고 schema와 runtime을 코드로 세밀하게 통제하고 싶을 때 맞아. 대신 초기 CRUD와 운영 화면은 PocketBase 쪽이 먼저 붙어.
+- `PocketBase`: single-node 내부툴과 MVP에서 auth, admin, files, realtime을 한 번에 올릴 때 강점이 커. 대신 binary, filesystem, access rule 운영 책임은 팀이 계속 직접 안고 가야 해.

@@ -725,4 +725,9 @@ const navItems = lang === 'en'
     .prose a[data-link-kind]:focus-visible {
         border-radius: 3px;
     }
+    .prose a[data-link-kind="internal"]::after,
+    :global(.prose) a[data-link-kind="internal"]::after {
+        content: none;
+        display: none;
+    }
 </style>

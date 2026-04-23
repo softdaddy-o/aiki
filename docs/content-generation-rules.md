@@ -7,8 +7,9 @@
 1. 스크립트는 글을 쓰지 않는다.
 2. 스크립트는 재료를 준비하고 구조를 검증한다.
 3. 실제 본문, 관련 용어 설명, 팩트체크 설명문은 LLM이 쓴다.
-4. 글쓰기 규칙의 단일 출처는 `docs/content-guide-common.md` 와 타입별 `docs/content-guide-*.md` 다.
-5. 프로젝트 쇼케이스의 사용자 노출 문장은 한국어로 쓰고, 초보자가 막히는 용어는 인라인 설명으로 푼다.
+4. tone의 단일 출처는 `docs/tone-guide-common.md` 다.
+5. 콘텐츠 구성 규칙의 단일 출처는 `docs/content-guide-common.md` 와 타입별 `docs/content-guide-*.md` 다.
+6. 프로젝트 쇼케이스의 사용자 노출 문장은 한국어로 쓰고, 초보자가 막히는 용어는 인라인 설명으로 푼다.
 
 ## 역할 분리
 
@@ -17,7 +18,6 @@
 - 출처 수집
 - 원문 제목, URL, 메타데이터 정규화
 - 숫자, 이름, 버전, 회사명 같은 검증 후보 추출
-- `readerValue` 같은 내부 방향성 필드 준비
 - frontmatter 스키마 정리
 - 배포 전 검증
 
@@ -25,13 +25,14 @@
 
 - 제목
 - 요약
+- readerValue
 - 본문 전체
 - 관련 용어 설명
 - 모델 프로필 설명문
 - 팩트체크 요약과 상세 설명문
 - 프로젝트 쇼케이스의 한국어 문구와 용어 설명
 
-LLM은 톤 규칙을 이 문서에서 따로 정의하지 말고, 항상 applicable `content-guide`를 기준으로 쓴다.
+LLM은 tone 규칙을 이 문서에서 따로 정의하지 말고, 항상 `docs/tone-guide-common.md`를 기준으로 쓴다. 구조 규칙은 applicable `content-guide`를 기준으로 쓴다.
 
 ## 프로젝트 쇼케이스 규칙
 

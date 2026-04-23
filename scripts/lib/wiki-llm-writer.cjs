@@ -9,12 +9,6 @@ const {
     writeUtf8,
     yamlQuote,
 } = require('./content-utils.cjs');
-const { buildModelProfile } = require('./model-profile.cjs');
-const {
-    buildWikiReaderValue,
-    rewriteAikiTone,
-    rewriteFactCheckTone,
-} = require('./aiki-writing-style.cjs');
 const {
     RELATED_SECTION_HEADINGS,
     linkRelatedBulletBlock,
@@ -22,6 +16,31 @@ const {
 
 const TODAY = new Date().toISOString().slice(0, 10);
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const GUIDE_PATHS = {
+    tone: path.join(REPO_ROOT, 'docs', 'tone-guide-common.md'),
+    common: path.join(REPO_ROOT, 'docs', 'content-guide-common.md'),
+    wiki: path.join(REPO_ROOT, 'docs', 'content-guide-wiki.md'),
+};
+const MODEL_PROFILE_KEYS = [
+    'memoryUsage',
+    'implementation',
+    'activeParameters',
+    'multimodalSupport',
+    'access',
+    'pricing',
+    'weightsOpen',
+    'vendor',
+];
+
+function readGuideVersion(filePath, fallback = '0.0.0') {
+    try {
+        const text = fs.readFileSync(filePath, 'utf8');
+        const match = text.match(/\*\*Version\*\*[:\s]+`([^`]+)`/);
+        return match ? match[1] : fallback;
+    } catch {
+        return fallback;
+    }
+}
 
 function normalizeText(text) {
     return String(text || '').replace(/\s+/g, ' ').trim();
@@ -51,6 +70,29 @@ function buildBilingualTitle(entry) {
 
 function safeArray(values) {
     return Array.isArray(values) ? values.filter(Boolean) : [];
+}
+
+function normalizeModelProfilePayload(value) {
+    if (!value || typeof value !== 'object') {
+        return null;
+    }
+
+    const normalized = {};
+    for (const key of MODEL_PROFILE_KEYS) {
+        const nextValue = normalizeText(value[key]);
+        if (nextValue) {
+            normalized[key] = nextValue;
+        }
+    }
+
+    return Object.keys(normalized).length > 0 ? normalized : null;
+}
+
+function mergeModelProfilePayload(primary, fallback) {
+    const first = normalizeModelProfilePayload(primary) || {};
+    const second = normalizeModelProfilePayload(fallback) || {};
+    const merged = { ...second, ...first };
+    return Object.keys(merged).length > 0 ? merged : null;
 }
 
 function trimSentence(text) {
@@ -123,16 +165,16 @@ function renderFactCheckChecks(checks) {
             lines.push(`      sources: ${check.sources}`);
         }
 
-        lines.push(`      summary: ${yamlQuote(rewriteFactCheckTone(check.summary || ''))}`);
+        lines.push(`      summary: ${yamlQuote(check.summary || '')}`);
         lines.push('      items:');
         for (const item of safeArray(check.items)) {
-            lines.push(`        - ${yamlQuote(rewriteFactCheckTone(item))}`);
+            lines.push(`        - ${yamlQuote(item)}`);
         }
 
         if (safeArray(check.findings).length > 0) {
             lines.push('      findings:');
             for (const item of safeArray(check.findings)) {
-                lines.push(`        - ${yamlQuote(rewriteFactCheckTone(item))}`);
+                lines.push(`        - ${yamlQuote(item)}`);
             }
         }
 
@@ -155,17 +197,22 @@ function renderSectionBody(section) {
         .map((line) => line.replace(/\s+$/g, ''));
 }
 
-function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payload) {
+function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payload, currentFrontmatter = {}) {
     const title = payload.title || buildBilingualTitle(entry);
-    const summary = rewriteAikiTone(payload.summary || '');
-    const readerValue = rewriteAikiTone(payload.readerValue || buildWikiReaderValue(entry));
+    const summary = normalizeText(payload.summary || currentFrontmatter.summary || '');
+    const readerValue = normalizeText(payload.readerValue || currentFrontmatter.readerValue || '');
     const aliases = safeArray(payload.aliases).length > 0 ? safeArray(payload.aliases) : safeArray(entry.aliases);
     const tags = safeArray(payload.tags).length > 0 ? safeArray(payload.tags) : safeArray(entry.tags);
     const sections = safeArray(payload.sections);
     const checks = safeArray(payload.factCheckChecks);
     const modelProfile = String(entry.category || '').toLowerCase() === 'model'
-        ? buildModelProfile(entry)
+        ? mergeModelProfilePayload(payload.modelProfile, currentFrontmatter.modelProfile)
         : null;
+    const guideVersions = {
+        tone: readGuideVersion(GUIDE_PATHS.tone),
+        common: readGuideVersion(GUIDE_PATHS.common),
+        wiki: readGuideVersion(GUIDE_PATHS.wiki),
+    };
 
     return [
         '---',
@@ -189,8 +236,9 @@ function renderDocument(entry, mentionStats, relatedTerms, sourceDetails, payloa
             `  vendor: ${yamlQuote(modelProfile.vendor)}`,
         ] : []),
         'guideVersion:',
-        '  common: "1.0.0"',
-        '  wiki: "2.0.0"',
+        `  tone: "${guideVersions.tone}"`,
+        `  common: "${guideVersions.common}"`,
+        `  wiki: "${guideVersions.wiki}"`,
         'aliases:',
         ...(aliases.length > 0 ? aliases.map((alias) => `  - ${yamlQuote(alias)}`) : [`  - ${yamlQuote(title)}`]),
         'relatedTerms:',
@@ -253,17 +301,17 @@ function buildPromptV2(entry, sourceDetails, currentDoc, mentionStats, relatedTe
 
 반드시 지킬 규칙:
 - 독자는 이 용어를 처음 듣는 사람이라고 가정해.
+- tone은 docs/tone-guide-common.md를 따른다.
+- 구조는 docs/content-guide-common.md 와 docs/content-guide-wiki.md 를 따른다.
+- tone guide 밖의 추가 말투 규칙, 예시 어미, canned voice를 덧붙이지 마.
 - 첫 섹션 제목은 반드시 "한 줄 정의"야.
 - "한 줄 정의" 첫 문단 첫 문장은 반드시 "${firstDefinitionSubject}는 ...이야." 또는 "${firstDefinitionSubject}은/는 ...하는 ...이야." 꼴로 시작해.
 - 첫 문단에서는 이 용어가 정확히 무엇인지부터 설명해. 역사, 장단점, 주의점, 비교, 시장 해석으로 시작하면 안 돼.
-- 존칭 금지. 모두 반말로 써. 예: "맞춰봤어", "중요해", "볼 수 있어".
 - 영어 제목이면 제목 옆에 한국어를 괄호로 병기해.
-- 스크립트 냄새 나는 상투어, 반복 문구, 분류부터 하는 도입은 쓰지 마.
 - 관련 용어 섹션은 실제 비교 포인트가 있는 항목만 넣어. "같이 보면 좋다" 같은 빈말은 금지.
 - fact-check 요약과 items는 서로 다른 정보를 담아.
 - source_match 첫 item은 반드시 "독자 문제 대조:"로 시작해.
 - web_cross_check 첫 item은 반드시 "비교 기준:"으로 시작해.
-- fact-check summary는 모두 반말로 끝내.
 - 각 섹션은 최소 2문장 이상 써.
 - 관련 용어 섹션은 마크다운 리스트로 써.
 - 관련 용어/같이 보면 좋은 모델 섹션의 각 항목은 \`- [용어명](/ko/wiki/slug/): 설명\` 형식으로 써. 이름 부분만 링크하면 돼.
@@ -302,7 +350,9 @@ ${sectionSchemaSnippet}
 - firstMentioned: ${mentionStats.firstMentioned || '(없음)'}
 - relatedTerms: ${relatedTerms.join(', ') || '(없음)'}
 - related term bullet format: \`- [DeepSeek R1](/ko/wiki/deepseek-r1/): why this term matters here.\`
-- reader focus: ${buildWikiReaderValue(entry)}
+- user problem: ${entry.userProblem || '(없음)'}
+- decision axis: ${entry.decisionAxis || '(없음)'}
+- related hints: ${JSON.stringify(entry.relatedHints || {})}
 
 출처 요약:
 ${sourceBlock}
@@ -331,9 +381,10 @@ function buildPrompt(entry, sourceDetails, currentDoc, mentionStats, relatedTerm
 
 절대 규칙:
 - 초심자가 처음 듣는다는 전제로 쓴다.
+- tone은 docs/tone-guide-common.md를 따른다.
+- 구조는 docs/content-guide-common.md 와 docs/content-guide-wiki.md 를 따른다.
+- tone guide 밖의 추가 말투 규칙, 예시 어미, canned voice를 덧붙이지 않는다.
 - 첫 섹션은 반드시 "한 줄 정의"이고, 첫 문단은 이 용어가 무엇인지 바로 설명해야 한다.
-- 스크립트 냄새 나는 상투 문구, 반복 문구, 분류 놀음, 발표문 말투를 쓰지 않는다.
-- 존칭 금지. 모두 반말 톤으로 쓴다. 예: "맞춰봤어", "중요해", "볼 수 있어".
 - 영어 제목이면 반드시 제목 옆에 한국어를 괄호로 병기한다.
 - 비유는 필요할 때만 짧게 쓴다.
 - 본문은 실질적인 설명을 우선하고, 특징/주의점/현실 의미는 그 다음에 쓴다.
@@ -341,7 +392,6 @@ function buildPrompt(entry, sourceDetails, currentDoc, mentionStats, relatedTerm
 - fact-check는 요약과 항목이 서로 다른 정보를 담아야 한다.
 - source_match 첫 item은 반드시 "독자 문제 대조:"로 시작한다.
 - web_cross_check 첫 item은 반드시 "비교 기준:"으로 시작한다.
-- fact-check summary는 모두 "~맞춰봤어 / ~다시 봤어 / ~한 번 더 봤어" 톤으로 쓴다.
 
 문서 구조:
 - 한 줄 정의
@@ -357,6 +407,16 @@ function buildPrompt(entry, sourceDetails, currentDoc, mentionStats, relatedTerm
   "title": string,
   "summary": string,
   "readerValue": string,
+  "modelProfile"?: {
+    "memoryUsage": string,
+    "implementation": string,
+    "activeParameters": string,
+    "multimodalSupport": string,
+    "access": string,
+    "pricing": string,
+    "weightsOpen": string,
+    "vendor": string
+  },
   "aliases": string[],
   "tags": string[],
   "sections": [
@@ -383,7 +443,9 @@ function buildPrompt(entry, sourceDetails, currentDoc, mentionStats, relatedTerm
 - mentionCount: ${mentionStats.mentionCount}
 - firstMentioned: ${mentionStats.firstMentioned || '(없음)'}
 - relatedTerms: ${relatedTerms.join(', ') || '(없음)'}
-- reader focus: ${buildWikiReaderValue(entry)}
+- user problem: ${entry.userProblem || '(없음)'}
+- decision axis: ${entry.decisionAxis || '(없음)'}
+- related hints: ${JSON.stringify(entry.relatedHints || {})}
 
 출처 요약:
 ${sourceBlock}
@@ -426,6 +488,11 @@ function buildOutputSchema() {
             title: { type: 'string' },
             summary: { type: 'string' },
             readerValue: { type: 'string' },
+            modelProfile: {
+                type: 'object',
+                additionalProperties: false,
+                properties: Object.fromEntries(MODEL_PROFILE_KEYS.map((key) => [key, { type: 'string' }])),
+            },
             aliases: { type: 'array', items: { type: 'string' } },
             tags: { type: 'array', items: { type: 'string' } },
             sections: {
@@ -472,6 +539,11 @@ function buildOutputSchemaV2(entry) {
             title: { type: 'string' },
             summary: { type: 'string' },
             readerValue: { type: 'string' },
+            modelProfile: {
+                type: 'object',
+                additionalProperties: false,
+                properties: Object.fromEntries(MODEL_PROFILE_KEYS.map((key) => [key, { type: 'string' }])),
+            },
             aliases: { type: 'array', items: { type: 'string' } },
             tags: { type: 'array', items: { type: 'string' } },
             sections: {
@@ -527,6 +599,11 @@ function buildBatchOutputSchema() {
                         title: { type: 'string' },
                         summary: { type: 'string' },
                         readerValue: { type: 'string' },
+                        modelProfile: {
+                            type: 'object',
+                            additionalProperties: false,
+                            properties: Object.fromEntries(MODEL_PROFILE_KEYS.map((key) => [key, { type: 'string' }])),
+                        },
                         aliases: { type: 'array', items: { type: 'string' } },
                         tags: { type: 'array', items: { type: 'string' } },
                         sections: {
@@ -612,13 +689,17 @@ function buildBatchInput(contexts) {
             mentionCount: context.mentionStats.mentionCount,
             firstMentioned: context.mentionStats.firstMentioned,
             relatedTerms: context.relatedTerms,
-            readerFocus: buildWikiReaderValue(context.entry),
+            userProblem: context.entry.userProblem || '',
+            decisionAxis: context.entry.decisionAxis || '',
+            relatedHints: context.entry.relatedHints || {},
             sectionPlan: context.sectionPlan,
             sourceDetails: context.sourceDetails,
             revisionNotes: context.revisionNotes,
             currentDoc: {
                 title: context.currentDoc.frontmatter.title || '',
                 summary: context.currentDoc.frontmatter.summary || '',
+                readerValue: context.currentDoc.frontmatter.readerValue || '',
+                modelProfile: normalizeModelProfilePayload(context.currentDoc.frontmatter.modelProfile),
                 excerpt: String(context.currentDoc.content || '').slice(0, 1800),
             },
         })),
@@ -635,17 +716,20 @@ Rules:
 - Preserve the same "term" for each page.
 - Assume the reader is hearing the term for the first time.
 - The first section must explain what the term is before features, caveats, comparisons, or market meaning.
-- Follow the writing rules in docs/content-guide-common.md and docs/content-guide-wiki.md.
-- Keep summary, readerValue, body, and factCheck aligned to the same applicable content-guide rules.
+- Follow the tone rules in docs/tone-guide-common.md.
+- Follow the structure rules in docs/content-guide-common.md and docs/content-guide-wiki.md.
+- Keep summary, readerValue, body, and factCheck aligned to the same applicable guides.
 - If the title is English, include Korean right next to it in parentheses.
 - Do not use script-template filler or repeated boilerplate.
 - For model pages, follow the provided sectionPlan exactly and explain what the model is used for in practice.
 - For model pages, explicitly mention both the vendor and one practical operating detail such as API, price, context window, license, deployment path, local run, cloud availability, or device target.
+- For model pages, return a full modelProfile object with memoryUsage, implementation, activeParameters, multimodalSupport, access, pricing, weightsOpen, and vendor.
 - For non-model pages, follow the provided sectionPlan exactly and keep the first paragraph concept-first.
 - If revisionNotes exist for a page, treat them as required fixes from the previous review round and address every point in the rewrite.
+- Do not add extra tone rules, sample endings, or canned voice instructions beyond docs/tone-guide-common.md.
 - "source_match" first item must start with "독자 문제 대조:".
 - "web_cross_check" first item must start with "비교 기준:".
-- fact-check summaries must also be in casual banmal and should usually end like "~맞춰봤어.", "~다시 봤어.", "~줄였어.", "~막았어.", "~남겼어.".
+- fact-check summaries must follow docs/tone-guide-common.md and say concretely what was checked or trimmed.
 - Avoid vague fact-check summaries like "정리했어" alone. Say what you checked or trimmed.
 - Each section body must have at least two sentences.
 - The related-term section body should be markdown bullet lines.
@@ -653,6 +737,7 @@ Rules:
 Schema reminders:
 - Return { "pages": [ ... ] }.
 - Each page object must contain term, title, summary, readerValue, aliases, tags, sections, factCheckChecks.
+- Add modelProfile when the page category is "model".
 - sections must use the exact headings from each page's sectionPlan.
 - factCheckChecks must include source_match, web_cross_check, number_verify, adversarial.
 `.trim();
@@ -779,6 +864,7 @@ async function rewriteWikiEntriesWithLlm(paramsList, options = {}) {
                 context.relatedTerms,
                 context.sourceDetails,
                 payload,
+                context.currentDoc.frontmatter,
             );
 
             writeUtf8(context.filePath, content);
