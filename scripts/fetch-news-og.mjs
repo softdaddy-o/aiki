@@ -228,7 +228,10 @@ async function main() {
         }
 
         console.log(`[fetch] ${slug} <- ${frontmatter.sourceUrl}`);
-        const ogUrl = await fetchOgImage(frontmatter.sourceUrl);
+        const ogUrl = await Promise.race([
+            fetchOgImage(frontmatter.sourceUrl),
+            new Promise(r => setTimeout(() => r(null), 30000))
+        ]);
         if (!ogUrl) {
             failures[slug] = 'no og:image found';
             failed++;
