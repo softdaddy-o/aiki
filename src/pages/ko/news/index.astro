@@ -104,11 +104,13 @@ const itemsWithZoom = items.flatMap(item => {
 const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
 const CURRENT_YEAR = new Date().getFullYear();
 function formatDateHeader(dateStr: string): string {
-    const d = new Date(dateStr);
-    const year = d.getFullYear();
-    const month = d.getMonth() + 1;
-    const day = d.getDate();
-    const dow = dayNames[d.getDay()];
+    const dateOnly = dateStr.split('T')[0];
+    const [yearStr, monthStr, dayStr] = dateOnly.split('-');
+    const year = parseInt(yearStr);
+    const month = parseInt(monthStr);
+    const day = parseInt(dayStr);
+    const d = new Date(dateOnly + 'T12:00:00Z');
+    const dow = dayNames[d.getUTCDay()];
     if (year !== CURRENT_YEAR) return `${year}년 ${month}월 ${day}일 ${dow}요일`;
     return `${month}월 ${day}일 ${dow}요일`;
 }
