@@ -14,7 +14,7 @@ draft: false
 date: "2026-04-15"
 edition: "ai"
 factCheck:
-  status: "pending"
+  status: passed
   date: "2026-04-20"
   sources:
     - url: "https://github.com/ranaroussi/yfinance"
