@@ -40,12 +40,15 @@ factCheck:
       summary: "구체적 수치(초 단위)가 기사에 없어 — '몇 초간' 표현은 정성적 설명으로 쓴 거야."
       items:
         - "'몇 초간' — Google Blog가 정확한 초수를 공개하지 않음, 정성적 표현 사용 적절"
+        - "4월 21일 롤아웃 시작일 — Google Blog 'starting today, April 21' 원문 확인"
+        - "지원 언어/지역 수 — Google Blog에서 정확한 숫자 공개 없음, '모든 지원 언어' 표현만 사용"
     - type: adversarial
       result: pass
       summary: "Side-Talk 감지 정확도 수치나 지원되지 않는 기기 목록은 기사에 없어."
       items:
         - "Side-Talk 감지: 정확도 수치 없음 — '더 잘 구분한다'는 정성적 주장"
         - "모든 Gemini for Home 기기가 지원하는지 여부 미확인"
+        - "Continued Conversation 기본값 on/off 여부 — Google Blog 명시 없음, 사용자 수동 활성화 절차만 안내"
       findings: []
 tags: ["google", "gemini", "smart-home", "voice-assistant", "google-home"]
 formatVersion: 2

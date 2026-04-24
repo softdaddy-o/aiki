@@ -41,12 +41,14 @@ factCheck:
       items:
         - "271 — 모든 보도 기관 동일 수치"
         - "Firefox 150 — Cybernews 제목에서 명시적 확인"
+        - "4월 21일 공개 — Mozilla Blog 게시 날짜 기준, TheRegister 4월 22일 보도와 일관"
     - type: adversarial
       result: pass
       summary: "Project Glasswing 기업 목록이 WebSearch 요약 기반이라 공식 발표가 아닐 수 있어."
       items:
         - "Project Glasswing Amazon/Apple/Microsoft: WebSearch AI 요약 기반 — 공식 Anthropic 발표 문서 아님"
         - "'엘리트 보안 연구자와 동급'은 Bobby Holley 개인 평가 — 독립 벤치마크 없음"
+        - "271개 취약점 심각도 분류 미공개 — critical/high/medium/low 분포 없이 총 숫자만 보도"
       findings:
         - "Project Glasswing 접근 기업 목록(Amazon, Apple, Microsoft)은 웹 검색 요약 기반 — 공식 발표 아님"
 tags: ["anthropic", "claude", "security", "mozilla", "firefox"]

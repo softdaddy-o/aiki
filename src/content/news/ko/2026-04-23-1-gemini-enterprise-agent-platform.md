@@ -34,6 +34,7 @@ factCheck:
       items:
         - "TechCrunch: Google makes interesting choice with agent-building tool for enterprises"
         - "SiliconANGLE: Google brings agentic development and governance under one roof"
+        - "Google Cloud Blog — 'Introducing Gemini Enterprise Agent Platform' 공식 발표 별도 확인"
     - type: number_verify
       result: pass
       summary: "3개 축, 3개 Optimize 도구, Gemini+Claude 총 5개 모델 수치가 전부 맞아."
@@ -47,6 +48,7 @@ factCheck:
       items:
         - "Gemini 3.1 Pro/Flash 버전명은 WebSearch AI 요약 기반 — 공식 블로그 직접 확인 필요"
         - "'5개 모델' 수치는 Gemini 2 + Claude 3 조합으로 계산됨 — 출시 후 변경 가능"
+        - "Agent Gateway의 실제 파트너 에코시스템 적용 범위가 공개되지 않음 — 출시 후 검증 필요"
       findings:
         - "Gemini 3.1 Pro/Flash 버전명은 WebSearch AI 요약 기반 — 공식 블로그에서 재확인 권장"
         - "'5개 모델' 수치는 Gemini 2 + Claude 3 조합으로 계산됨 — 출시 시 변경 가능"

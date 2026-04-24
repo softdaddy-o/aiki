@@ -48,6 +48,7 @@ factCheck:
       items:
         - "18GB는 Q4_K_M 등 중간 양자화 기준 — Q8이면 약 28GB 필요"
         - "단일 모델 기준 — GPU 병렬 구성이면 조건 달라짐"
+        - "256K 컨텍스트는 이론적 최대값 — 긴 컨텍스트 사용 시 추가 VRAM 필요, 18GB 한계 도달 가능"
       findings:
         - "18GB RAM 요건은 unsloth 문서 기반 — GGUF 양자화 수준에 따라 달라질 수 있음"
 tags: ["qwen", "local-llm", "gguf", "alibaba", "open-source"]

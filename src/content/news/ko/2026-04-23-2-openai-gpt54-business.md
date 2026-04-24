@@ -34,6 +34,7 @@ factCheck:
       items:
         - "Wikipedia GPT-5 페이지에서 GPT-5 계열 모델 릴리스 이력 확인"
         - "NxCode에서 GPT-5.4 Mini/Nano 3월 17일 출시 확인"
+        - "TokenMix에서 5단계 추론 강도 조절 기능 및 비용 최적화 구조 확인"
     - type: number_verify
       result: pass
       summary: "벤치마크 수치(57.7%/75%/83%), API 가격($2.50/$15, $30/$180, $0.40/$1.60), '6배 저렴' 계산이 다 맞아."
