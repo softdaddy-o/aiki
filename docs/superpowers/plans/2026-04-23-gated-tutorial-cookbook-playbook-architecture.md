@@ -43,6 +43,11 @@ It also suggests different page grammars:
 - `cookbook`: ingredients / setup / steps / variations / failure cases
 - `playbook`: scenario, constraints, decision tree, operating rules, metrics, failure modes
 
+It also suggests a stronger navigation metaphor:
+
+- not just a flat archive index
+- a **stage map** or **world map** that shows where the learner is, what is unlocked, and what is still hidden
+
 ## Requirement shift: from gated content to progression-gated learning
 
 There are now two separate gates:
@@ -222,6 +227,87 @@ Avoid in phase 1:
 Model the system internally as a **directed graph**, even if phase 1 presents a mostly linear path.
 
 That avoids painting the data model into a corner.
+
+The graph model also naturally supports a stage-map UI.
+
+## Stage map index brainstorm
+
+### Why a stage map fits this product
+
+A normal blog-style index is weak for progression-gated learning because it hides the sense of path, momentum, and earned access.
+
+A stage map can show:
+
+- current position
+- completed nodes
+- unlocked next nodes
+- locked future nodes
+- optional branches
+- milestone gates
+- earned keys, badges, or artifacts
+
+This makes the gating feel like progression rather than denial.
+
+### Option 1: simple linear stage rail
+
+**Shape**
+
+- A vertical or horizontal connected path
+- Stage 1 -> Stage 2 -> Stage 3
+- Each stage card has a clear state: locked / current / cleared
+
+**Pros**
+
+- Easy to build
+- Easy to understand
+- Strong fit for phase 1
+
+**Cons**
+
+- Less expressive for branching content later
+
+### Option 2: world map with branches
+
+**Shape**
+
+- Nodes placed across a stylized map or constellation
+- Paths can branch into tutorial, cookbook, and playbook lanes
+
+**Pros**
+
+- Stronger identity
+- Supports specialization and optional content
+- More game-like and memorable
+
+**Cons**
+
+- More UI and layout complexity
+- Harder to keep legible on mobile if done too literally
+
+### Option 3: hybrid map
+
+**Shape**
+
+- A clean stage rail in mobile and narrow layouts
+- A richer world-map composition on desktop
+
+**Pros**
+
+- Best practical balance
+- Keeps the game feeling without sacrificing usability
+
+**Cons**
+
+- Requires two presentational modes
+
+### Stage map recommendation
+
+Use a **hybrid map**:
+
+- phase 1 can visually behave like a polished linear stage rail
+- the data model should support branchable world-map behavior later
+
+Do not treat the index page as a generic card grid.
 
 ## Architecture option matrix
 
@@ -528,12 +614,15 @@ These should stay separate.
 - category
 - access tier required
 - challenge template version
+- map position metadata
+- visual track or world id
 
 **`learning_edges`**
 
 - from node
 - to node
 - unlock type
+- optional edge label or gate label
 
 **`challenge_attempts`**
 
@@ -564,6 +653,20 @@ Use a deterministic seed derived from:
 - server secret
 
 That lets the server regenerate the personalized question and expected answer without storing full variant payloads for every user.
+
+### Stage-map presentation data
+
+The map view will likely need separate presentation metadata in addition to progression logic:
+
+- node display title
+- node subtitle or theme
+- node icon / emblem
+- map x/y position or ordered index
+- world / chapter grouping
+- node state per user: locked / unlocked / current / cleared
+- whether the node is mandatory or optional
+
+This data can live partly in repo-authored metadata and partly in derived user-state queries.
 
 ## Unlock UX brainstorm
 
@@ -600,6 +703,45 @@ That lets the server regenerate the personalized question and expected answer wi
 Use **account-bound unlocks with a visible personalized key phrase**.
 
 That preserves the story you want without making the raw answer itself the security primitive.
+
+The stage map should reflect this immediately:
+
+- newly unlocked node glows or animates
+- previous node shows a cleared state
+- earned key phrase or badge can appear on the node or in a progress tray
+
+## Stage map UX requirements
+
+### Core states
+
+Every node on the map should clearly communicate one of:
+
+- `locked`
+- `available`
+- `current`
+- `cleared`
+- `optional`
+- `paid-locked` if monetization appears later
+
+### Core interactions
+
+- click current or available node to enter
+- locked node shows prerequisite hint rather than a dead end
+- cleared node can be revisited
+- milestone nodes can show the earned key or completion artifact
+
+### AIKI-specific UX direction
+
+The map should feel intentional and authored, not like a generic LMS dashboard.
+
+Promising visual directions:
+
+- expedition map
+- systems diagram
+- constellation map
+- lab progression rail
+
+The point is not to mimic a game literally. The point is to make progress legible and emotionally meaningful.
 
 ## Payment brainstorm
 
@@ -644,6 +786,7 @@ With progression gating added, this becomes even more important. Billing plus un
 - **Public teaser content** may remain static.
 - **Gated full content** must not be emitted into the static site build.
 - Gated content should be rendered only after server-side or endpoint-level access checks.
+- The stage-map shell can render publicly, but node state and unlock status should personalize after auth.
 
 ### Access levels
 
@@ -663,12 +806,18 @@ Keep the categories explicit instead of hiding them behind a generic learning hu
 - `/ko/tutorials/`
 - `/ko/cookbook/`
 - `/ko/playbooks/`
+- `/ko/learn/` as the progression hub or stage-map entry point
 
 Each category gets:
 
 - index page
 - public teaser detail page shell
 - gated full-content boundary
+
+The progression system also gets:
+
+- a **stage-map hub**
+- possibly per-track views if multiple tracks emerge later
 
 ## Proposed rendering model
 
@@ -704,6 +853,7 @@ If we optimize for AIKI's actual strengths, the best phase-1 cut is:
 - site-wide `member` tier first
 - deterministic seeded challenges per account
 - account-bound unlock records with visible personalized keys
+- a dedicated `/ko/learn/` stage-map hub as the main progression index
 - no paid billing in the first release
 
 This gives AIKI the most important thing early: freedom to make these pages visually distinct and experimentally designed without locking the whole product into a generic content platform or a full-SSR rewrite.
@@ -794,6 +944,7 @@ Notes:
 - Prove public teaser content remains static.
 - Prove one seeded challenge can generate different prompts for two different users.
 - Prove passing the challenge writes an unlock that opens the next node.
+- Prove the stage map can render generic topology statically and personalize node state after login.
 
 ### Phase 1: member-only content
 
@@ -803,6 +954,7 @@ Notes:
 - Add challenge templates and seeded grading for tutorials.
 - Ship one gated pilot sequence, ideally `tutorial-01 -> tutorial-02`.
 - Show a personalized unlock key after passing tutorial 01.
+- Ship `/ko/learn/` as the canonical progression index with at least locked / current / cleared states.
 
 ### Phase 2: authoring ergonomics
 
@@ -811,6 +963,7 @@ Notes:
 - Add internal guidance for when to mark content `public`, `member`, or `paid`.
 - Add author tooling for challenge templates and unlock graph validation.
 - Add progress overview UI for the learner.
+- Add richer branch and world-map composition beyond a simple rail.
 
 ### Phase 3: paid tier
 
@@ -831,6 +984,8 @@ Notes:
 8. Whether users should manually type the earned key phrase on the next lesson, or whether the phrase is purely ceremonial while unlock happens automatically.
 9. What the retry policy should be for challenge attempts.
 10. Whether any homework types should require human approval in the first release.
+11. Whether `/ko/learn/` should be the primary entry point while category indexes remain secondary taxonomy pages.
+12. Whether the first map should be linear-only or include one optional branch from day one.
 
 ## Immediate next steps
 
@@ -840,3 +995,4 @@ Notes:
 - Decide the storage format for full gated content before implementation starts.
 - Prototype one vertical slice page with a deliberately expressive layout so the access model is tested against real UI ambition rather than a placeholder page.
 - Write one concrete example challenge template and unlocking flow for `tutorial-01 -> tutorial-02`.
+- Sketch one concrete `/ko/learn/` stage-map layout for desktop and mobile.
