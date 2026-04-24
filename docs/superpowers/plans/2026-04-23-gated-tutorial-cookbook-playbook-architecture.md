@@ -23,6 +23,83 @@ This now includes a stronger requirement:
 - Email-based sign-in is preferred over building a heavy credential system.
 - Personalized quiz generation and unlock state require server-side logic and persistent user data from day one.
 
+## Cost-efficiency principles
+
+To keep the first release cheap, the architecture should explicitly avoid the expensive or complexity-heavy paths.
+
+### Keep only one dynamic execution layer
+
+Use:
+
+- `Cloudflare Pages / Workers` for dynamic request handling
+- `Supabase` for Auth + Postgres only
+
+Avoid in phase 1:
+
+- Supabase Edge Functions
+- Cloudflare Durable Objects
+- Cloudflare KV as a second state store
+- Realtime subscriptions for progress UI
+
+Reason:
+
+- Every extra runtime increases both cost and debugging complexity.
+- The progression system already needs one place to execute server logic. That place should be Cloudflare.
+
+### Prefer derivation over storage
+
+Use deterministic seeded challenge generation instead of storing a unique generated quiz payload for every user.
+
+Store only:
+
+- attempts
+- unlocks
+- durable progress state
+
+Do not store:
+
+- full rendered challenge variants per user
+- duplicated lesson bodies per user
+
+Reason:
+
+- Lower storage
+- Lower write volume
+- Easier debugging
+
+### Keep public shells static
+
+- stage map shell should be mostly static
+- teaser pages should be static
+- only protected lesson payloads and personalized node state should be dynamic
+
+Reason:
+
+- Static delivery on Cloudflare is effectively the cheapest path in the system.
+
+### Avoid expensive grading in phase 1
+
+Use:
+
+- exact-match grading
+- deterministic seeded prompts
+- server-side validation
+
+Avoid:
+
+- LLM grading
+- arbitrary file uploads
+- human review queues
+
+Reason:
+
+- Those features are expensive in both infra and operations.
+
+### Delay billing until progression is proven
+
+The first thing to validate is whether progression-gated content is compelling.
+Do not add payment complexity before that is true.
+
 ## Product shape brainstorm
 
 These categories should not all behave the same.
@@ -772,6 +849,53 @@ Delay paid billing until after member-gated publishing proves stable and the pag
 
 With progression gating added, this becomes even more important. Billing plus unlock-state plus attempt-tracking is too much coupling for the first cut.
 
+## Cost-optimized phase-1 stack
+
+As of 2026-04-25, the cheapest credible stack is:
+
+- `Cloudflare Pages` for static delivery
+- `Cloudflare Pages Functions / Workers Free` for protected endpoints and challenge validation
+- `Supabase Free` for Auth and Postgres
+
+Why this is efficient:
+
+- Cloudflare Pages static asset requests are free and unlimited.
+- Pages Functions are billed as Workers requests, and the free plan gives a daily request allowance.
+- Supabase Free includes enough Auth and database quota to validate the concept before paid rollout.
+
+Practical implication:
+
+- Keep the dynamic surface tiny.
+- Let the heavy read traffic stay on static pages.
+- Hit the dynamic endpoint only for:
+  - login callback / session checks
+  - stage-map personalization
+  - challenge submission
+  - gated lesson fetch
+
+### Current official pricing signals
+
+Cloudflare official docs say:
+
+- Pages static asset requests are free and unlimited.
+- Pages Functions count against Workers quotas.
+- Workers Free has a `100,000 requests per day` allowance.
+- Workers Paid starts at a `minimum charge of $5 USD per month`.
+
+Supabase official docs say:
+
+- Free plan includes `50,000 MAU`
+- Free plan includes `500 MB` database size per project
+- Free plan includes `500,000` Edge Function invocations, though phase 1 should avoid using them
+
+### Cost traps to avoid
+
+- Do not render every lesson page through SSR when teaser + protected fetch will do.
+- Do not create one database row per generated challenge variant if the answer can be derived from a seed.
+- Do not store progress in both Supabase and Cloudflare products.
+- Do not add media-heavy uploads early.
+- Do not add paid billing before challenge and unlock loops are clearly working.
+
 ## Recommended architecture
 
 ### Runtime split
@@ -854,6 +978,7 @@ If we optimize for AIKI's actual strengths, the best phase-1 cut is:
 - deterministic seeded challenges per account
 - account-bound unlock records with visible personalized keys
 - a dedicated `/ko/learn/` stage-map hub as the main progression index
+- no second dynamic backend beyond Cloudflare request handlers
 - no paid billing in the first release
 
 This gives AIKI the most important thing early: freedom to make these pages visually distinct and experimentally designed without locking the whole product into a generic content platform or a full-SSR rewrite.
