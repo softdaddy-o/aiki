@@ -1,0 +1,514 @@
+🚀 AIKI Generate — Reading from F:/src3/Docs/social-scraper/accounts/softdaddy/output
+   Days back: 1, Max posts: 5
+⚠️ Failed to parse yt-meta.json: Unexpected token 'D', "Deprecated"... is not valid JSON
+📥 Read 7793 posts from scraper output
+📈 Loaded 169 trending themes
+📄 Found 51 existing articles (dedup)
+🤖 Filtered 121 AI-related candidates
+🔗 Clustered into 22 topics (from 121 candidates)
+{
+  "publish": [
+    {
+      "rank": 1,
+      "score": 110,
+      "grade": "A",
+      "draft": false,
+      "platform": "blog",
+      "sourceAccount": "blog.google",
+      "title": "Gemini Enterprise Agent Platform lets you build, govern and optimize your agents",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-enterprise-agent-platform/",
+      "text": "Gemini Enterprise Agent Platform lets you build, govern and optimize your agents.",
+      "contentSnippet": "TiDB is built for agentic workloads that grow unpredictably, with ACID guarantees and native support for transactions, analytics, and vector search. No data silos. No noisy neighbors. No infrastructure ceiling.",
+      "engagement": {
+        "likes": 0,
+        "replies": 0
+      },
+      "publishedAt": "2026-04-22T13:00:00.000Z",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "agent",
+        "ai",
+        "gemini"
+      ],
+      "sourceCount": 8,
+      "allPlatforms": [
+        "blog",
+        "github",
+        "reddit"
+      ],
+      "allUrls": [
+        "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-enterprise-agent-platform/",
+        "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "https://blog.google/products/ads-commerce/ads-advisor-google-ads/",
+        "https://github.com/pingcap/tidb",
+        "https://huggingface.co/datasets/BytedTsinghua-SIA/CUDA-Agent-Ops-6K",
+        "https://i.redd.it/pmwwuejmjqwg1.jpeg",
+        "https://www.techspot.com/downloads/7868-gemini-for-macos.html",
+        "https://www.techspot.com/category/dotw/"
+      ],
+      "wikiTerms": [
+        "agent",
+        "gemini"
+      ],
+      "_file": "blog_blog.google.json"
+    },
+    {
+      "rank": 2,
+      "score": 110,
+      "grade": "A",
+      "draft": false,
+      "platform": "blog",
+      "sourceAccount": "openai.com",
+      "title": "Recent news",
+      "url": "https://openai.com/business/",
+      "text": "Recent news",
+      "contentSnippet": "AI Platforms to Accelerate your Business | OpenAI | OpenAI\n\nThe next era of work is here\n\nCreate, code, and innovate with OpenAI's tools and APIs\n\nGPT‑5 is our smartest, most accurate model, delivering results your business can trust.\n\nTry for free\n(opens in a new window)\nContact sales\nEnterprise-re",
+      "engagement": {
+        "likes": 0,
+        "replies": 0
+      },
+      "publishedAt": "",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "agent",
+        "ai",
+        "gpt",
+        "openai"
+      ],
+      "sourceCount": 26,
+      "allPlatforms": [
+        "blog",
+        "reddit",
+        "threads",
+        "youtube",
+        "github",
+        "twitter"
+      ],
+      "allUrls": [
+        "https://openai.com/business/",
+        "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next/",
+        "https://www.reddit.com/r/singularity/comments/1ssb7mz/caught_the_massive_openai_codex_model_leak_on/",
+        "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-customer-round-up/",
+        "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-in-europe/",
+        "https://elevenlabs.io/blog/introducing-elevenlabs-for-government",
+        "https://i.redd.it/fgfzthxbgqwg1.jpeg",
+        "https://www.justinwelsh.me/newsletter/crazy-person",
+        "https://i.redd.it/1mtu14z3dnwg1.jpeg",
+        "https://www.reddit.com/r/singularity/comments/1ssenqc/researcher_wasnt_there_a_case_where_the_ai_agent/",
+        "https://www.threads.com/@choi.openai/post/DXckfsejcu_",
+        "https://www.reddit.com/r/algotrading/comments/1srz8i0/heuristics_vs_ml_how_do_you_trust_anything_when/",
+        "https://www.threads.com/@choi.openai/post/DXcQi6Uga47",
+        "https://elevenlabs.io/blog/introducing-expressive-mode",
+        "https://www.reddit.com/r/algotrading/comments/1srs0pn/looking_for_honest_critique_on_my_6fold/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssp4kb/openai_privacy_filter_model/",
+        "https://i.redd.it/gq2zlv0rilwg1.png",
+        "https://www.reddit.com/gallery/1srvo8i",
+        "https://github.com/baserow/baserow",
+        "https://www.reddit.com/r/MachineLearning/comments/1ssuuum/gpu_compass_opensource_realtime_gpu_pricing/",
+        "https://www.threads.com/@choi.openai/post/DXckoeFEwk5",
+        "https://www.threads.com/@choi.openai/post/DXcQjvEgf2S"
+      ],
+      "wikiTerms": [
+        "agent",
+        "api",
+        "chatgpt",
+        "gpt",
+        "openai"
+      ],
+      "_file": "blog_openai.com.json"
+    },
+    {
+      "rank": 3,
+      "score": 110,
+      "grade": "A",
+      "draft": false,
+      "platform": "reddit",
+      "sourceAccount": "LocalLLaMA",
+      "title": "unsloth Qwen3.6-27B-GGUF",
+      "url": "https://huggingface.co/unsloth/Qwen3.6-27B-GGUF",
+      "text": "unsloth Qwen3.6-27B-GGUF",
+      "contentSnippet": "Heya guys and gals,                                                                                                                                                                                                                                                                                         ",
+      "engagement": {
+        "likes": 390,
+        "replies": 91
+      },
+      "publishedAt": "2026-04-22T14:38:36.000Z",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "agent",
+        "ai",
+        "claude",
+        "deepseek",
+        "llama",
+        "llm",
+        "mistral",
+        "multimodal",
+        "prompt",
+        "qwen",
+        "reasoning"
+      ],
+      "sourceCount": 23,
+      "allPlatforms": [
+        "reddit",
+        "blog",
+        "threads"
+      ],
+      "allUrls": [
+        "https://huggingface.co/unsloth/Qwen3.6-27B-GGUF",
+        "https://i.redd.it/9zx817g0sqwg1.jpeg",
+        "https://v.redd.it/3l51lqejeswg1",
+        "https://i.redd.it/khsxkv3dnqwg1.png",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1sseh00/ultimate_list_best_open_models_for_coding_chat/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssb61r/personal_eval_followup_gemma4_26b_moe_q8_vs/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssilc3/qwen3635b_becomes_competitive_with_cloud_models/",
+        "https://v.redd.it/7csl8gbouqwg1",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1sstq1w/qwen3627b_uncensored_aggressive_is_out_with_k_p/",
+        "https://i.redd.it/r8mub6oi7mwg1.png",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssp9kq/best_config_for_qwen36_27b_llamacpp_opencode/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1sss5og/what_speed_is_everyone_getting_on_qwen36_27b/",
+        "https://huggingface.co/Qwen/Qwen3.5-35B-A3B",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssplvq/qwen36_one_shot_tetris_game/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssl1xh/qwen_36_27b_is_out/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1sszac8/tried_qwen3627budq6_k_xlgguf_with_cloudecode_well/",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssyukx/qwen3627b_klds_ints_and_nvfps/",
+        "https://www.threads.com/@choi.openai/post/DXcGRWMgZNI",
+        "https://huggingface.co/Qwen/Qwen3.5-9B",
+        "https://huggingface.co/Qwen/Qwen3.5-0.8B",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1ssql96/xiaomi_mimov25_released_looks_like_today_is_big/",
+        "https://www.reddit.com/r/MachineLearning/comments/1ssdt0z/int3_compressionfused_metal_kernels_r/",
+        "https://www.threads.com/@choi.openai/post/DXcGSwjAShi"
+      ],
+      "wikiTerms": [
+        "gguf",
+        "ide",
+        "llm",
+        "qwen",
+        "speech-to-text",
+        "text-to-speech"
+      ],
+      "_file": "reddit_LocalLLaMA.json"
+    },
+    {
+      "rank": 4,
+      "score": 100,
+      "grade": "A",
+      "draft": false,
+      "platform": "blog",
+      "sourceAccount": "anthropic.com",
+      "title": "Core views on AI safety",
+      "url": "https://www.anthropic.com/news/core-views-on-ai-safety",
+      "text": "Core views on AI safety",
+      "contentSnippet": "Announcements\nCore Views on AI Safety: When, Why, What, and How\nMar 8, 2023\n\nWe founded Anthropic because we believe the impact of AI might be comparable to that of the industrial and scientific revolutions, but we aren’t confident it will go well. And we also believe this level of impact could star",
+      "engagement": {
+        "likes": 0,
+        "replies": 0
+      },
+      "publishedAt": "",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "ai",
+        "anthropic",
+        "claude",
+        "machine learning",
+        "openai",
+        "transformer"
+      ],
+      "sourceCount": 9,
+      "allPlatforms": [
+        "blog",
+        "reddit"
+      ],
+      "allUrls": [
+        "https://www.anthropic.com/news/core-views-on-ai-safety",
+        "https://www.anthropic.com/rsp-updates",
+        "https://www.reddit.com/gallery/1ss4qsb",
+        "https://www.deeplearning.ai/the-batch/tag/apr-10-2026/",
+        "https://www.ft.com/content/8fea1e8f-185f-4701-a4ca-c06930d72ae6",
+        "https://www.wired.com/story/mozilla-used-anthropics-mythos-to-find-271-bugs-in-firefox/",
+        "https://www.anthropic.com/economic-index",
+        "https://www.theinformation.com/articles/crypto-firms-seek-access-anthropics-mythos-shoring-defenses",
+        "https://www.businessinsider.com/#"
+      ],
+      "wikiTerms": [
+        "anthropic",
+        "api",
+        "ide"
+      ],
+      "_file": "anthropic.com.json"
+    },
+    {
+      "rank": 5,
+      "score": 100,
+      "grade": "A",
+      "draft": false,
+      "platform": "blog",
+      "sourceAccount": "blog.google",
+      "title": "Make chats more natural and efficient with Continued Conversation, now in Gemini",
+      "url": "https://blog.google/products-and-platforms/devices/how-to-use-gemini-continued-conversation/",
+      "text": "Make chats more natural and efficient with Continued Conversation, now in Gemini for Home",
+      "contentSnippet": "Apr 03, 2026\n\n6 Posts\n\nApr 03, 2026\nLearning Long Context at Inference: Test-Time Training End-to-End (TTT-E2E) retrains model weights to handle long inputs\nLarge language models typically become less accurate and slower when they process longer contexts, but researchers enabled an LLM to keep accur",
+      "engagement": {
+        "likes": 0,
+        "replies": 0
+      },
+      "publishedAt": "2026-04-21T16:00:00.000Z",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "ai",
+        "claude",
+        "embedding",
+        "gemini",
+        "llm",
+        "openai"
+      ],
+      "sourceCount": 4,
+      "allPlatforms": [
+        "blog",
+        "reddit"
+      ],
+      "allUrls": [
+        "https://blog.google/products-and-platforms/devices/how-to-use-gemini-continued-conversation/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/",
+        "https://www.deeplearning.ai/the-batch/tag/apr-03-2026/",
+        "https://www.reddit.com/r/MachineLearning/comments/1ssk7rk/i_cant_believe_text_normalization_is_so/"
+      ],
+      "wikiTerms": [
+        "continue",
+        "gemini",
+        "ide",
+        "inference",
+        "llm",
+        "long-context",
+        "lyria",
+        "openai",
+        "sora",
+        "training",
+        "weight"
+      ],
+      "_file": "blog_blog.google.json"
+    }
+  ],
+  "drafts": [
+    {
+      "rank": 1,
+      "score": 95,
+      "grade": "A",
+      "draft": true,
+      "platform": "blog",
+      "sourceAccount": "huggingface.co",
+      "title": "QIMMA قِمّة ⛰: A Quality-First Arabic LLM Leaderboard",
+      "url": "https://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard",
+      "text": "QIMMA قِمّة ⛰: A Quality-First Arabic LLM Leaderboard",
+      "contentSnippet": "I was using Gemma’s models in the plane offline while reading a book, to aid my studying, and I thought about this.\n\nThink about it this way. Most phones can run Gemma’s 2B model (many the 4B too), and open source models will get cheaper and better, and CPUs more optimized for AI. Gemma 4B is almost",
+      "engagement": {
+        "likes": 0,
+        "replies": 0
+      },
+      "publishedAt": "2026-04-21T10:09:58.000Z",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "agent",
+        "ai",
+        "gpt",
+        "llama",
+        "llm",
+        "rag"
+      ],
+      "sourceCount": 6,
+      "allPlatforms": [
+        "blog",
+        "reddit",
+        "twitter",
+        "github",
+        "threads"
+      ],
+      "allUrls": [
+        "https://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard",
+        "https://www.reddit.com/r/singularity/comments/1ssx77w/what_impedes_apps_using_ai_to_make_the_users/",
+        "https://github.com/mikeroyal/Self-Hosting-Guide",
+        "https://www.reddit.com/r/algotrading/comments/1ssiiv9/i_ran_24000_experiments_testing_ai_vs_rulebased/",
+        "https://www.threads.com/@softdaddy_o/post/DXbJZQLk35A"
+      ],
+      "wikiTerms": [
+        "cli",
+        "gemma",
+        "gemma-4",
+        "gpt",
+        "llm",
+        "local-llm",
+        "rag"
+      ],
+      "_file": "blog_huggingface.co.json"
+    },
+    {
+      "rank": 2,
+      "score": 95,
+      "grade": "B",
+      "draft": true,
+      "platform": "reddit",
+      "sourceAccount": "algotrading",
+      "title": "what do you think about this agent set up",
+      "url": "https://i.redd.it/3ow8m9gi1lwg1.jpeg",
+      "text": "what do you think about this agent set up",
+      "contentSnippet": "I have some background in Python and AI engineering, some slight background in finance (UC berkeley executive education classes).  AI engineering is more of my gig right now.  I'm currently rag training and paper trading an open source system. \"chunks\" are the books and data i have used to train the",
+      "engagement": {
+        "likes": 32,
+        "replies": 68
+      },
+      "publishedAt": "2026-04-21T18:24:01.000Z",
+      "isOfficial": false,
+      "matchedKeywords": [
+        "agent",
+        "ai",
+        "rag"
+      ],
+      "sourceCount": 11,
+      "allPlatforms": [
+        "reddit",
+        "blog",
+        "twitter",
+        "youtube"
+      ],
+      "allUrls": [
+        "https://i.redd.it/3ow8m9gi1lwg1.jpeg",
+        "https://www.reddit.com/r/algotrading/comments/1ss7j1i/we_built_a_livemarket_arena_to_test_discretionary/",
+        "https://www.reddit.com/gallery/1ss5btv",
+        "https://www.deeplearning.ai/the-batch/tag/apr-17-2026/",
+        "https://www.techspot.com/review/3110-cpu-rematch-ryzen-5800x3d-vs-core-i9-12900k/",
+        "https://www.businessinsider.com/airport-delays-tsa-lines-partial-government-shutdown-list-2026-3",
+        "https://www.justinwelsh.me/newsletter/bored",
+        "https://www.businessinsider.com/tsa-wait-times-government-shutdown-airports-photos-2026-3"
+      ],
+      "wikiTerms": [
+        "agent",
+        "rag",
+        "training"
+      ],
+      "_file": "reddit_algotrading.json"
+    },
+    {
+      "rank": 3,
+      "score": 70,
+      "grade": "B",
+      "draft": true,
+      "platform": "threads",
+      "sourceAccount": "aicoffeechat",
+      "title": "Avasare는 같은 스레드에서 더 솔직한 진단도 내놨습니다.",
+      "url": "https://www.threads.com/@aicoffeechat/post/DXarVK8EwBE",
+      "text": "Avasare는 같은 스레드에서 더 솔직한 진단도 내놨습니다.\n\n\"When we launched Max a year ago, it didn't include Claude Code, Cowork didn't exist, and agents that run for hours weren't a thing. Max was designed for heavy chat usage, that's it.\"\n(1년 전 Max를 출시했을 땐 Claude Code도 포함되지 않았고, Cowork도 없었고, 몇 시간씩 돌아가는 에이전트도 존재하지 않았어요. Max는 그냥 '헤비 채팅 사용자'를 위한 플랜이었죠.)\n\n이 문장이 사건의 핵심을 짚고 있습니다. 정액제 요금표가 설계된 시점의 사용 패턴과 지금 벌어지는 사용 패턴이 완전히 달라졌다는 고백입니다.",
+      "contentSnippet": "Hello everyone,\n\nI am planning to try algo trading. My goal is to start with paper trading for swing strategies, using a Claude agent to backtest ideas and understand what works and what doesn’t. If the results are good, I may invest real money later.\n\nIf you have experience with algo trading, I wou",
+      "engagement": {
+        "likes": 6,
+        "replies": 0
+      },
+      "publishedAt": "2026-04-22T02:15:39.000Z",
+      "isOfficial": false,
+      "matchedKeywords": [
+        "agent",
+        "ai",
+        "claude"
+      ],
+      "sourceCount": 3,
+      "allPlatforms": [
+        "threads",
+        "reddit",
+        "youtube"
+      ],
+      "allUrls": [
+        "https://www.threads.com/@aicoffeechat/post/DXarVK8EwBE",
+        "https://www.reddit.com/r/algotrading/comments/1srt3nl/has_anyone_tried_algo_trading_with_claude_if_yes/"
+      ],
+      "wikiTerms": [
+        "agent",
+        "claude",
+        "claude-code",
+        "ide"
+      ],
+      "_file": "threads_aicoffeechat.json"
+    },
+    {
+      "rank": 4,
+      "score": 60,
+      "grade": "A",
+      "draft": true,
+      "platform": "reddit",
+      "sourceAccount": "LocalLLaMA",
+      "title": "ServiceNow-AI/SuperApriel-15B-Instruct · Hugging Face",
+      "url": "https://huggingface.co/ServiceNow-AI/SuperApriel-15B-Instruct",
+      "text": "ServiceNow-AI/SuperApriel-15B-Instruct · Hugging Face",
+      "contentSnippet": "A 15B-parameter **token-mixer supernet** with **8 optimized deployment presets** spanning 1.0× to 10.7× decode throughput at 32K sequence length, all from a single checkpoint. Derived from [Apriel-1.6](https://huggingface.co/ServiceNow-AI/Apriel-1.6-15b-Thinker) through stochastic distillation and t",
+      "engagement": {
+        "likes": 32,
+        "replies": 6
+      },
+      "publishedAt": "2026-04-22T14:10:38.000Z",
+      "isOfficial": true,
+      "matchedKeywords": [
+        "ai",
+        "fine-tuning"
+      ],
+      "sourceCount": 1,
+      "allPlatforms": [
+        "reddit"
+      ],
+      "allUrls": [
+        "https://huggingface.co/ServiceNow-AI/SuperApriel-15B-Instruct"
+      ],
+      "wikiTerms": [
+        "attention",
+        "context-window",
+        "distillation",
+        "fine-tuning",
+        "runtime",
+        "token"
+      ],
+      "_file": "reddit_LocalLLaMA.json"
+    },
+    {
+      "rank": 5,
+      "score": 60,
+      "grade": "B",
+      "draft": true,
+      "platform": "reddit",
+      "sourceAccount": "algotrading",
+      "title": "so i guess you can reverse-copy other traders now on bitmex and i don't know wha",
+      "url": "https://www.reddit.com/r/algotrading/comments/1ssrd3r/so_i_guess_you_can_reversecopy_other_traders_now/",
+      "text": "so i guess you can reverse-copy other traders now on bitmex and i don't know what to do with this information",
+      "contentSnippet": "ok bear with me this is kinda wild and i might be the last person to figure it out.\n\nyou know how copy trading works. you pick a \"top trader\" and mirror there trades. mostly loses people money because the top traders at any given moment are usually just someone who got lucky for 3 months and is abou",
+      "engagement": {
+        "likes": 16,
+        "replies": 25
+      },
+      "publishedAt": "2026-04-22T16:59:05.000Z",
+      "isOfficial": false,
+      "matchedKeywords": [
+        "ai",
+        "reasoning"
+      ],
+      "sourceCount": 3,
+      "allPlatforms": [
+        "reddit",
+        "blog"
+      ],
+      "allUrls": [
+        "https://www.reddit.com/r/algotrading/comments/1ssrd3r/so_i_guess_you_can_reversecopy_other_traders_now/",
+        "https://huggingface.co/datasets/nohurry/Opus-4.6-Reasoning-3000x-filtered",
+        "https://huggingface.co/datasets/crownelius/Opus-4.6-Reasoning-3300x"
+      ],
+      "wikiTerms": [
+        "reasoning"
+      ],
+      "_file": "reddit_algotrading.json"
+    }
+  ],
+  "stats": {
+    "totalCandidates": 22,
+    "clusteredFrom": 121,
+    "gradeA": 7,
+    "gradeB": 13,
+    "gradeC": 2,
+    "belowCutoff": 6,
+    "toPublish": 5,
+    "toDraft": 5
+  }
+}
