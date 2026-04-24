@@ -1060,6 +1060,294 @@ Notes:
 - Retry policies should prevent brute-force guessing on short answers.
 - Audit logs should keep attempt history for debugging and abuse review.
 
+## Vertical slice: tutorial-01 -> tutorial-02
+
+The first implementation should prove the whole loop with the smallest possible surface area.
+
+### Goal of the slice
+
+- User can sign in
+- User can open `/ko/learn/`
+- User can access `tutorial-01`
+- User gets a personalized challenge at the end of `tutorial-01`
+- User submits an answer
+- Server evaluates it
+- Passing unlocks `tutorial-02` for that account
+- `/ko/learn/` updates node state accordingly
+
+### What the slice should not include
+
+- paid access
+- branching tracks beyond one optional stub
+- multiple challenge types
+- admin tooling
+- file uploads
+- manual review
+- streaks, XP, or heavy game systems
+
+## Minimal phase-1 database shape
+
+This is the leanest DB model that still supports the slice cleanly.
+
+### `profiles`
+
+Purpose:
+
+- stable app profile keyed to Supabase auth user id
+
+Minimal columns:
+
+- `id` UUID primary key, same as auth user id
+- `email`
+- `display_name` nullable
+- `created_at`
+
+### `entitlements`
+
+Purpose:
+
+- site-level access tier
+
+Minimal columns:
+
+- `user_id`
+- `tier` enum-like text: `member`, `paid`, `staff`
+- `granted_at`
+- `expires_at` nullable
+
+For the slice:
+
+- only `member` needs to exist
+
+### `learning_nodes`
+
+Purpose:
+
+- canonical lesson registry
+
+Minimal columns:
+
+- `id` text primary key, ex. `tutorial-01`
+- `slug` text, ex. `tutorials/tutorial-01`
+- `category` text
+- `title`
+- `access_tier_required`
+- `challenge_type`
+- `challenge_version`
+- `map_order` integer
+- `world_id` text default `core`
+- `is_optional` boolean default false
+
+For the slice:
+
+- one row for `tutorial-01`
+- one row for `tutorial-02`
+
+### `learning_edges`
+
+Purpose:
+
+- prerequisite graph
+
+Minimal columns:
+
+- `from_node_id`
+- `to_node_id`
+- `unlock_type` text default `pass-challenge`
+
+For the slice:
+
+- one row: `tutorial-01 -> tutorial-02`
+
+### `challenge_attempts`
+
+Purpose:
+
+- durable audit trail of tries
+
+Minimal columns:
+
+- `id`
+- `user_id`
+- `node_id`
+- `seed`
+- `submitted_answer`
+- `normalized_answer`
+- `is_correct`
+- `attempt_number`
+- `created_at`
+
+Important note:
+
+- store the seed used for that attempt so debugging stays possible
+
+### `node_unlocks`
+
+Purpose:
+
+- account-bound progression state
+
+Minimal columns:
+
+- `user_id`
+- `node_id`
+- `unlocked_by_node_id`
+- `key_phrase`
+- `created_at`
+
+For the slice:
+
+- `tutorial-01` can be treated as unlocked by default for members
+- passing `tutorial-01` inserts unlock for `tutorial-02`
+
+## Minimal endpoint surface
+
+Keep the endpoint count low.
+
+### `GET /api/learn/map-state`
+
+Purpose:
+
+- return per-user node state for `/ko/learn/`
+
+Returns:
+
+- list of nodes with state: `locked`, `available`, `current`, `cleared`
+- optional `key_phrase` for recently unlocked nodes
+
+Called by:
+
+- authenticated users visiting `/ko/learn/`
+
+### `GET /api/learn/node/:id`
+
+Purpose:
+
+- return protected lesson payload for an authorized node
+
+Checks:
+
+- user session exists
+- user has required membership tier
+- user has unlock for node, or node is the initial node
+
+Returns:
+
+- gated lesson body
+- challenge metadata if the node has a challenge
+
+### `POST /api/learn/node/:id/submit`
+
+Purpose:
+
+- validate a challenge answer and write attempt state
+
+Checks:
+
+- user session exists
+- node is currently available to this user
+- retry policy not exceeded
+
+Behavior:
+
+- derive personalized prompt seed
+- normalize submitted answer
+- compute expected answer from seed
+- insert `challenge_attempts` row
+- if correct, insert `node_unlocks` for downstream node
+- generate visible personalized `key_phrase`
+
+Returns:
+
+- `pass` or `fail`
+- retry guidance if failed
+- key phrase and unlocked node if passed
+
+### `GET /api/auth/session`
+
+Purpose:
+
+- lightweight client check for signed-in state when needed
+
+Note:
+
+- if Supabase client state already covers this cleanly, this endpoint may be unnecessary
+
+## Minimal request flow
+
+### Flow A: opening the stage map
+
+1. User loads `/ko/learn/`
+2. Static shell renders immediately
+3. If signed in, client requests `GET /api/learn/map-state`
+4. Response paints node states and highlights the current node
+
+### Flow B: opening tutorial-01
+
+1. User enters `tutorial-01`
+2. Static teaser shell can render first
+3. Client requests `GET /api/learn/node/tutorial-01`
+4. Server returns gated body and personalized challenge metadata
+
+### Flow C: submitting the challenge
+
+1. User submits answer to `POST /api/learn/node/tutorial-01/submit`
+2. Server grades answer from deterministic seed
+3. Attempt is recorded
+4. If correct, `tutorial-02` unlock is inserted
+5. Response returns a personalized key phrase
+6. UI updates the completion state and points back to `/ko/learn/`
+
+### Flow D: opening tutorial-02
+
+1. User returns to `/ko/learn/`
+2. Map now shows `tutorial-02` as available or current
+3. User enters `tutorial-02`
+4. Protected fetch succeeds because unlock exists
+
+## How `/ko/learn/` stays cheap
+
+The stage-map hub should be designed so most of it is static.
+
+### Static pieces
+
+- overall layout
+- map art or rail
+- node labels
+- world grouping
+- decorative animation
+- teaser copy
+
+### Dynamic pieces
+
+- whether the viewer is signed in
+- which nodes are unlocked
+- which node is current
+- which nodes are cleared
+- recently earned key phrase or badge
+
+### Cost-efficient rendering model
+
+- render the map shell as a static page
+- fetch tiny personalized JSON after auth
+- do not SSR the entire map for every visit
+- do not fetch full lesson bodies from the map page
+
+This keeps `/ko/learn/` cheap even if it becomes a high-traffic landing page.
+
+## Vertical-slice implementation order
+
+1. Add DB tables for `learning_nodes`, `learning_edges`, `challenge_attempts`, `node_unlocks`
+2. Seed `tutorial-01`, `tutorial-02`, and one edge
+3. Add Supabase login
+4. Build static `/ko/learn/` shell
+5. Implement `GET /api/learn/map-state`
+6. Implement `GET /api/learn/node/:id`
+7. Implement `POST /api/learn/node/:id/submit`
+8. Add personalized key phrase UX after a passing attempt
+9. Verify map state flips correctly for the same account
+10. Verify another account gets a different seeded challenge
+
 ## Rollout plan
 
 ### Phase 0: architecture proof
