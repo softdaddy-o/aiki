@@ -1,8 +1,14 @@
 {
-  "completed": [],
-  "lastRun": null,
+  "completed": [
+    "projects\\ko\\hyperframes.md",
+    "projects\\ko\\pocketbase.md",
+    "wiki\\ko\\agentic-coding.md",
+    "wiki\\ko\\api.md"
+  ],
+  "lastRun": "2026-04-23",
   "stats": {
-    "totalCompleted": 0,
-    "remaining": null
-  }
+    "totalCompleted": 4,
+    "remaining": 203
+  },
+  "signature": "{\"formatVersion\":2,\"guideVersions\":{\"tone\":\"2.0.0\",\"common\":\"2.2.0\",\"wiki\":\"3.1.1\",\"news\":\"3.1.1\",\"projects\":\"4.2.0\"}}"
 }

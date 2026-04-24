@@ -311,6 +311,40 @@
     "lastMentioned": "2026-04-18T09:00:00+09:00"
   },
   {
+    "term": "llama-server",
+    "slug": "llama-server",
+    "status": "pending",
+    "priority": 70,
+    "categoryGuess": "model",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "inline_code"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-24-3-qwen36-vibecoding-cheaper-than-claude"
+    ],
+    "wikiSourceTerms": [
+      "llama.cpp"
+    ],
+    "knownTermHints": [
+      "claude-code",
+      "gguf",
+      "llama.cpp",
+      "llm-inference",
+      "lm-studio",
+      "local-ai",
+      "local-llm",
+      "ollama"
+    ],
+    "firstMentioned": "2026-02-20",
+    "lastMentioned": "2026-04-24T08:30:00+09:00"
+  },
+  {
     "term": "Qwen3.6-35B-A3B",
     "slug": "qwen3.6-35b-a3b",
     "status": "pending",
@@ -446,6 +480,41 @@
     "lastMentioned": "2026-04-17"
   },
   {
+    "term": "Raspberry Pi",
+    "slug": "raspberry-pi",
+    "status": "pending",
+    "priority": 63,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-05-5-google-gemma-4-open-model",
+      "2026-04-24-4-self-hosting-guide-trending"
+    ],
+    "wikiSourceTerms": [
+      "gemma-4"
+    ],
+    "knownTermHints": [
+      "deepmind",
+      "gemini",
+      "gemma",
+      "gemma-4",
+      "github",
+      "google",
+      "infrastructure",
+      "llm"
+    ],
+    "firstMentioned": "2026-04-05T13:00:00+09:00",
+    "lastMentioned": "2026-04-24T08:45:00+09:00"
+  },
+  {
     "term": "GPU",
     "slug": "gpu",
     "status": "pending",
@@ -500,8 +569,8 @@
     "status": "pending",
     "priority": 62,
     "categoryGuess": "concept",
-    "occurrences": 14,
-    "distinctSourceCount": 13,
+    "occurrences": 15,
+    "distinctSourceCount": 14,
     "kinds": [
       "phrase",
       "tag"
@@ -534,11 +603,11 @@
       "chain-of-thought",
       "chatgpt",
       "claude",
-      "codex",
-      "deepseek-r1"
+      "claude-code",
+      "codex"
     ],
     "firstMentioned": "2026-03-23",
-    "lastMentioned": "2026-04-23T09:20:00+09:00"
+    "lastMentioned": "2026-04-24T08:30:00+09:00"
   },
   {
     "term": "language-model",
@@ -792,6 +861,43 @@
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2026-04-23T09:30:00+09:00"
+  },
+  {
+    "term": "A3B",
+    "slug": "a3b",
+    "status": "pending",
+    "priority": 60,
+    "categoryGuess": "concept",
+    "occurrences": 7,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-07-gemma-4-26b-a3b-is-mindblowingly-good-if",
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-24-3-qwen36-vibecoding-cheaper-than-claude"
+    ],
+    "wikiSourceTerms": [
+      "qwen-3.5"
+    ],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "attention",
+      "chain-of-thought",
+      "claude-code",
+      "function-calling",
+      "gemma",
+      "llama"
+    ],
+    "firstMentioned": "2026-04-07T12:00:00+09:00",
+    "lastMentioned": "2026-04-24T08:30:00+09:00"
   },
   {
     "term": "gpt-4",
@@ -1217,46 +1323,6 @@
     "lastMentioned": "2026-04-07T12:00:00+09:00"
   },
   {
-    "term": "RAM",
-    "slug": "ram",
-    "status": "pending",
-    "priority": 56,
-    "categoryGuess": "concept",
-    "occurrences": 8,
-    "distinctSourceCount": 8,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-07-i-technically-got-an-llm-running-locally",
-      "2026-04-10-5-local-llm-mainstream-adoption",
-      "2026-04-12-4-gemma4-vs-qwen35-local-llm",
-      "2026-04-21-3-kimi-k26-gguf",
-      "2026-04-22-3-llamacpp-fit-flag-vram",
-      "2026-04-22-5-gemma4-e4b-edge-model",
-      "2026-04-23-3-qwen36-27b-gguf-local"
-    ],
-    "wikiSourceTerms": [
-      "lm-studio"
-    ],
-    "knownTermHints": [
-      "24gb-gpu",
-      "alibaba",
-      "desktop",
-      "developer-tools",
-      "edge-ai",
-      "gemma",
-      "gemma4",
-      "gguf"
-    ],
-    "firstMentioned": "2026-04-03",
-    "lastMentioned": "2026-04-23T09:20:00+09:00"
-  },
-  {
     "term": "llama-cpp",
     "slug": "llama-cpp",
     "status": "pending",
@@ -1391,40 +1457,6 @@
     "lastMentioned": "2026-04-20T11:00:00+09:00"
   },
   {
-    "term": "Raspberry Pi",
-    "slug": "raspberry-pi",
-    "status": "pending",
-    "priority": 54,
-    "categoryGuess": "concept",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-05-5-google-gemma-4-open-model"
-    ],
-    "wikiSourceTerms": [
-      "gemma-4"
-    ],
-    "knownTermHints": [
-      "deepmind",
-      "gemini",
-      "gemma",
-      "gemma-4",
-      "google",
-      "local-llm",
-      "localllama",
-      "open-model"
-    ],
-    "firstMentioned": "2026-04-05T13:00:00+09:00",
-    "lastMentioned": "2026-04-17"
-  },
-  {
     "term": "Pro",
     "slug": "pro",
     "status": "pending",
@@ -1503,6 +1535,45 @@
     ],
     "firstMentioned": "2025-08-03T12:00:00+09:00",
     "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "RAM",
+    "slug": "ram",
+    "status": "pending",
+    "priority": 52,
+    "categoryGuess": "concept",
+    "occurrences": 7,
+    "distinctSourceCount": 7,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-07-i-technically-got-an-llm-running-locally",
+      "2026-04-10-5-local-llm-mainstream-adoption",
+      "2026-04-12-4-gemma4-vs-qwen35-local-llm",
+      "2026-04-21-3-kimi-k26-gguf",
+      "2026-04-22-3-llamacpp-fit-flag-vram",
+      "2026-04-23-3-qwen36-27b-gguf-local"
+    ],
+    "wikiSourceTerms": [
+      "lm-studio"
+    ],
+    "knownTermHints": [
+      "24gb-gpu",
+      "alibaba",
+      "desktop",
+      "developer-tools",
+      "gemma4",
+      "gguf",
+      "kimi-k2",
+      "llama-cpp"
+    ],
+    "firstMentioned": "2026-04-03",
+    "lastMentioned": "2026-04-23T09:20:00+09:00"
   },
   {
     "term": "claude.ai",
@@ -1971,42 +2042,6 @@
     ],
     "firstMentioned": "2026-03-12T12:00:00+09:00",
     "lastMentioned": "2026-04-05T12:00:00+09:00"
-  },
-  {
-    "term": "A3B",
-    "slug": "a3b",
-    "status": "pending",
-    "priority": 47,
-    "categoryGuess": "concept",
-    "occurrences": 5,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "phrase",
-      "versioned_phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-07-gemma-4-26b-a3b-is-mindblowingly-good-if",
-      "2026-04-17-1-qwen36-35b-a3b-open-weight"
-    ],
-    "wikiSourceTerms": [
-      "qwen-3.5"
-    ],
-    "knownTermHints": [
-      "agentic-coding",
-      "alibaba",
-      "attention",
-      "chain-of-thought",
-      "function-calling",
-      "gemma",
-      "llama",
-      "local-llm"
-    ],
-    "firstMentioned": "2026-04-07T12:00:00+09:00",
-    "lastMentioned": "2026-04-17T09:00:00+09:00"
   },
   {
     "term": "claude-opus-4-5-20251101",
@@ -2632,37 +2667,6 @@
     "lastMentioned": "2026-02-20"
   },
   {
-    "term": "llama-server",
-    "slug": "llama-server",
-    "status": "pending",
-    "priority": 43,
-    "categoryGuess": "model",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "inline_code"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "llama.cpp"
-    ],
-    "knownTermHints": [
-      "gguf",
-      "llama.cpp",
-      "llm-inference",
-      "lm-studio",
-      "local-ai",
-      "local-llm",
-      "ollama",
-      "tool"
-    ],
-    "firstMentioned": "2026-02-20",
-    "lastMentioned": "2026-02-20"
-  },
-  {
     "term": "Lyria RealTime",
     "slug": "lyria-realtime",
     "status": "pending",
@@ -3203,6 +3207,41 @@
     "lastMentioned": "2026-04-16T09:10:00+09:00"
   },
   {
+    "term": "DeepMind",
+    "slug": "deepmind",
+    "status": "pending",
+    "priority": 39,
+    "categoryGuess": "concept",
+    "occurrences": 3,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2016-03-15-alphago-lee-sedol",
+      "2026-04-22-5-gemma4-e4b-edge-model"
+    ],
+    "wikiSourceTerms": [
+      "google-deepmind"
+    ],
+    "knownTermHints": [
+      "alphago",
+      "anthropic",
+      "company",
+      "edge-ai",
+      "gemma",
+      "google",
+      "google-deepmind",
+      "jax"
+    ],
+    "firstMentioned": "2016-03-15T12:00:00+09:00",
+    "lastMentioned": "2026-04-22T11:00:00+09:00"
+  },
+  {
     "term": "JetBrains",
     "slug": "jetbrains",
     "status": "pending",
@@ -3571,6 +3610,42 @@
     ],
     "firstMentioned": "2026-02-21",
     "lastMentioned": "2026-04-14"
+  },
+  {
+    "term": "TPU",
+    "slug": "tpu",
+    "status": "pending",
+    "priority": 36,
+    "categoryGuess": "concept",
+    "occurrences": 4,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-24-1-google-tpu-8t-8i-agentic"
+    ],
+    "wikiSourceTerms": [
+      "gemma-3",
+      "jax",
+      "tensorflow"
+    ],
+    "knownTermHints": [
+      "agent",
+      "alignment",
+      "cloud",
+      "deep-learning",
+      "deepseek-r1",
+      "distillation",
+      "fine-tuning",
+      "gemini"
+    ],
+    "firstMentioned": "2026-04-14",
+    "lastMentioned": "2026-04-24T08:00:00+09:00"
   },
   {
     "term": "Alibaba Cloud",
@@ -4198,8 +4273,8 @@
     "status": "pending",
     "priority": 34,
     "categoryGuess": "concept",
-    "occurrences": 11,
-    "distinctSourceCount": 11,
+    "occurrences": 12,
+    "distinctSourceCount": 12,
     "kinds": [
       "phrase"
     ],
@@ -4224,11 +4299,11 @@
       "attention",
       "benchmark",
       "claude",
-      "developer-tools",
-      "distillation"
+      "claude-code",
+      "developer-tools"
     ],
     "firstMentioned": "2026-04-07T12:00:00+09:00",
-    "lastMentioned": "2026-04-23T09:20:00+09:00"
+    "lastMentioned": "2026-04-24T08:30:00+09:00"
   },
   {
     "term": "AWQ/양자화 포맷",
@@ -4566,6 +4641,37 @@
     "lastMentioned": "2026-04-22T09:00:00+09:00"
   },
   {
+    "term": "Google Cloud Next",
+    "slug": "google-cloud-next",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-23-1-gemini-enterprise-agent-platform",
+      "2026-04-24-1-google-tpu-8t-8i-agentic"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agent",
+      "cloud",
+      "enterprise",
+      "gemini",
+      "google",
+      "infrastructure",
+      "tpu"
+    ],
+    "firstMentioned": "2026-04-23T09:00:00+09:00",
+    "lastMentioned": "2026-04-24T08:00:00+09:00"
+  },
+  {
     "term": "GPU VRAM",
     "slug": "gpu-vram",
     "status": "pending",
@@ -4723,6 +4829,38 @@
     "lastMentioned": "2026-04-18T09:00:00+09:00"
   },
   {
+    "term": "NVIDIA Blackwell",
+    "slug": "nvidia-blackwell",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
+      "2026-04-24-1-google-tpu-8t-8i-agentic"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agent",
+      "cloud",
+      "deepgemm",
+      "deepseek",
+      "fp8",
+      "google",
+      "gpu-optimization",
+      "infrastructure"
+    ],
+    "firstMentioned": "2026-04-18T11:00:00+09:00",
+    "lastMentioned": "2026-04-24T08:00:00+09:00"
+  },
+  {
     "term": "Peter Steinberger",
     "slug": "peter-steinberger",
     "status": "pending",
@@ -4873,6 +5011,38 @@
     "lastMentioned": "2026-04-16T09:00:00+09:00"
   },
   {
+    "term": "VRAM GPU",
+    "slug": "vram-gpu",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-22-3-llamacpp-fit-flag-vram",
+      "2026-04-24-3-qwen36-vibecoding-cheaper-than-claude"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "claude-code",
+      "llama-cpp",
+      "local-llm",
+      "quantization",
+      "qwen",
+      "reddit",
+      "vibe-coding",
+      "vram"
+    ],
+    "firstMentioned": "2026-04-22T10:00:00+09:00",
+    "lastMentioned": "2026-04-24T08:30:00+09:00"
+  },
+  {
     "term": "qwen3.5-flash",
     "slug": "qwen3.5-flash",
     "status": "pending",
@@ -4971,6 +5141,40 @@
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-23T09:00:00+09:00"
+  },
+  {
+    "term": "Flow",
+    "slug": "flow",
+    "status": "pending",
+    "priority": 30,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-24-2-google-flow-sessions-creative-tips"
+    ],
+    "wikiSourceTerms": [
+      "veo"
+    ],
+    "knownTermHints": [
+      "ai-art",
+      "creative",
+      "gemini",
+      "gemini-2.5",
+      "gemma",
+      "google",
+      "sora",
+      "veo"
+    ],
+    "firstMentioned": "2026-04-14",
+    "lastMentioned": "2026-04-24T08:15:00+09:00"
   },
   {
     "term": "Midjourney",
@@ -7530,39 +7734,6 @@
     "lastMentioned": "2026-04-17"
   },
   {
-    "term": "TPU",
-    "slug": "tpu",
-    "status": "pending",
-    "priority": 9,
-    "categoryGuess": "concept",
-    "occurrences": 3,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "gemma-3",
-      "jax",
-      "tensorflow"
-    ],
-    "knownTermHints": [
-      "alignment",
-      "deep-learning",
-      "deepseek-r1",
-      "distillation",
-      "fine-tuning",
-      "gemini",
-      "gemma",
-      "gemma-3"
-    ],
-    "firstMentioned": "2026-04-14",
-    "lastMentioned": "2026-04-14"
-  },
-  {
     "term": "foundation-model",
     "slug": "foundation-model",
     "status": "pending",
@@ -10087,35 +10258,6 @@
     "lastMentioned": "2021-06-29"
   },
   {
-    "term": "DeepMind",
-    "slug": "deepmind",
-    "status": "pending",
-    "priority": 3,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "google-deepmind"
-    ],
-    "knownTermHints": [
-      "anthropic",
-      "company",
-      "google-deepmind",
-      "jax",
-      "openai",
-      "research"
-    ],
-    "firstMentioned": "2026-04-13",
-    "lastMentioned": "2026-04-13"
-  },
-  {
     "term": "Develop",
     "slug": "develop",
     "status": "pending",
@@ -10259,36 +10401,6 @@
       "google",
       "o3",
       "reasoning"
-    ],
-    "firstMentioned": "2026-04-14",
-    "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "Flow",
-    "slug": "flow",
-    "status": "pending",
-    "priority": 3,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "veo"
-    ],
-    "knownTermHints": [
-      "gemini",
-      "gemini-2.5",
-      "gemma",
-      "google",
-      "sora",
-      "veo",
-      "video-generation"
     ],
     "firstMentioned": "2026-04-14",
     "lastMentioned": "2026-04-14"
@@ -12195,6 +12307,33 @@
     "lastMentioned": "2026-04-10T01:00:00+09:00"
   },
   {
+    "term": "ai-art",
+    "slug": "ai-art",
+    "status": "pending",
+    "priority": -13,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-24-2-google-flow-sessions-creative-tips"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "creative",
+      "flow",
+      "google",
+      "video"
+    ],
+    "firstMentioned": "2026-04-24T08:15:00+09:00",
+    "lastMentioned": "2026-04-24T08:15:00+09:00"
+  },
+  {
     "term": "ai-business",
     "slug": "ai-business",
     "status": "pending",
@@ -12750,6 +12889,33 @@
     ],
     "firstMentioned": "2026-04-12T12:00:00+09:00",
     "lastMentioned": "2026-04-12T12:00:00+09:00"
+  },
+  {
+    "term": "self-hosting",
+    "slug": "self-hosting",
+    "status": "pending",
+    "priority": -13,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-24-4-self-hosting-guide-trending"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "github",
+      "infrastructure",
+      "llm",
+      "trending"
+    ],
+    "firstMentioned": "2026-04-24T08:45:00+09:00",
+    "lastMentioned": "2026-04-24T08:45:00+09:00"
   },
   {
     "term": "small-model",

@@ -48,11 +48,13 @@ factCheck:
     - type: source_match
       result: pass
       sources: 4
-      summary: README랑 릴리스 노트를 다시 맞춰봤어. HyperFrames는 영상 편집기보다 HTML 장면을 렌더하는 쪽으로 읽는 게 맞아.
+      summary: >-
+        README랑 릴리스 노트를 다시 맞춰봤어. HyperFrames는 영상 편집기보다 HTML 장면을 렌더하는 쪽으로 읽는 게
+        맞아.
       items:
         - README 첫 문구는 `Write HTML. Render video. Built for agents.`야.
         - Quick Start는 `init -> preview -> render` 순서를 그대로 밀고 있어.
-        - 공식 설명도 HTML-native, AI-first, deterministic rendering 쪽으로 계속 잡혀 있어.
+        - '공식 설명도 HTML-native, AI-first, deterministic rendering 쪽으로 계속 잡혀 있어.'
     - type: web_cross_check
       result: pass
       sources: 6
@@ -62,9 +64,7 @@ factCheck:
         - >-
           HTML schema reference는 root composition에 `data-composition-id`, 크기 정보,
           시간 관련 data attribute를 요구해.
-        - >-
-          AIKI는 제품 소개, 세로 쇼츠, 데이터 요약 세 케이스를 실제 composition HTML과 렌더 영상으로 같이
-          보여줘.
+        - 'AIKI는 제품 소개, 세로 쇼츠, 데이터 요약 세 케이스를 실제 composition HTML과 렌더 영상으로 같이 보여줘.'
     - type: number_verify
       result: pass
       sources: 3
@@ -78,13 +78,13 @@ factCheck:
       sources: 4
       summary: 생성형 영상 API처럼 읽히지 않게 선을 그어뒀어. 어디서 이 방식이 무거워지는지도 같이 적었어.
       items:
-        - 장면 구조를 직접 만지는 흐름이라, 결과만 빨리 받는 hosted API와는 결이 달라.
-        - 렌더가 깨지면 FFmpeg, 코덱, 폰트, 에셋 경로를 팀이 직접 잡아야 해.
+        - '장면 구조를 직접 만지는 흐름이라, 결과만 빨리 받는 hosted API와는 결이 달라.'
+        - '렌더가 깨지면 FFmpeg, 코덱, 폰트, 에셋 경로를 팀이 직접 잡아야 해.'
         - 브랜드 최종본을 픽셀 단위로 마감하는 일이 중심이면 기존 영상 툴체인이 더 나아.
 guideVersion:
   tone: "2.0.0"
-  common: "2.1.0"
-  projects: "4.1.0"
+  common: "2.2.0"
+  projects: "4.2.0"
 reviewStamp:
   panelVersion: "1.1.0"
   agentVersions:
@@ -93,8 +93,12 @@ reviewStamp:
     skeptical-critic: "1.1.0"
     tone-editor: "1.6.0"
     structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.2.0"
+    projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "03154bb67ebcde81"
+  contentHash: "e9e6eaa21711611d"
   reviewedAt: "2026-04-23"
 ---
 

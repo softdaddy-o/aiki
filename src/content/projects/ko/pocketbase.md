@@ -3,8 +3,12 @@ title: PocketBase
 slug: pocketbase
 lang: ko
 category: framework
-summary: PocketBase는 SQLite, admin UI, auth/files/realtime를 한 바이너리에 묶은 single-node 백엔드야. 내부툴이나 작은 MVP를 오늘 바로 띄워 볼 팀이면 여기서 먼저 걸러 볼 수 있어.
-readerValue: '지금 필요한 게 PocketBase 같은 single-node kit인지, 아니면 managed backend로 바로 가야 하는지 가를 기준.'
+summary: >-
+  PocketBase는 SQLite, admin UI, auth/files/realtime를 한 바이너리에 묶은 single-node
+  백엔드야. 내부툴이나 작은 MVP를 오늘 바로 띄워 볼 팀이면 여기서 먼저 걸러 볼 수 있어.
+readerValue: >-
+  지금 필요한 게 PocketBase 같은 single-node kit인지, 아니면 managed backend로 바로 가야 하는지 가를
+  기준.
 githubUrl: 'https://github.com/pocketbase/pocketbase'
 showcaseComponent: pocketbase
 tags:
@@ -17,7 +21,7 @@ stars: 57756
 license: MIT
 version: v0.37.2
 contentStatus: final
-draft: false
+draft: true
 date: '2026-04-21'
 edition: ai
 factCheck:
@@ -67,52 +71,57 @@ factCheck:
           README, docs, release note는 모두 1차 제품 문서다. 이번 교차 확인은 제품 정의, JS hooks/Go
           overview, 현재 배포 버전 확인까지만 맡겼다.
         - >-
-          PocketBase를 single binary + embedded SQLite + admin UI 출발선으로 읽는 해석은 1차 문서와
-          내부 실행 결과(`/api/health`, login, records list, public page)가 서로 어긋나지 않는 수준까지 확인.
+          PocketBase를 single binary + embedded SQLite + admin UI 출발선으로 읽는 해석은 1차
+          문서와 내부 실행 결과(`/api/health`, login, records list, public page)가 서로 어긋나지
+          않는 수준까지 확인.
         - >-
           제3자 운영 사례나 독립 벤치마크는 이번 문서에 없다. 그래서 multi-node 운용, managed Postgres
           대체성, backup/restore·concurrent write 한계 평가는 보수적으로 남겨 뒀다.
     - type: number_verify
       result: pass
-      summary: 공개 숫자와 내부 관찰 수치를 갈라 두고, 각 항목을 가능한 한 직접 근거 이름에 붙였어.
+      summary: '공개 숫자와 내부 관찰 수치를 갈라 두고, 각 항목을 가능한 한 직접 근거 이름에 붙였어.'
       items:
         - '[공식 웹 | repository page] GitHub API 기준 stars 57,756 확인.'
         - '[공식 웹 | release page] latest release가 2026-04-20 게시 `v0.37.2`인지 확인.'
         - >-
-          [internal lab observation | health endpoint] `127.0.0.1:18092/api/health`가 200을 반환하는지
-          단일 Windows lab 실행에서 확인.
+          [internal lab observation | health endpoint]
+          `127.0.0.1:18092/api/health`가 200을 반환하는지 단일 Windows lab 실행에서 확인.
         - >-
-          [internal lab observation | `admin-login.png`] `/_/#/login` superuser login 화면이
-          열리는지 확인.
+          [internal lab observation | `admin-login.png`] `/_/#/login` superuser
+          login 화면이 열리는지 확인.
         - >-
-          [internal lab observation | `admin-records.png`, `admin-record-edit.png`] `tasks_demo`
-          records list와 edit drawer에서 2개 레코드, `slug`, `status` 반영 상태 확인.
+          [internal lab observation | `admin-records.png`,
+          `admin-record-edit.png`] `tasks_demo` records list와 edit drawer에서 2개
+          레코드, `slug`, `status` 반영 상태 확인.
         - >-
-          [internal lab observation | `public-page.png`] `pb_public/index.html`이 두 record와 stats
-          카드를 렌더링하는지 확인.
+          [internal lab observation | `public-page.png`] `pb_public/index.html`이
+          두 record와 stats 카드를 렌더링하는지 확인.
         - >-
-          [internal lab observation | demo route] `/api/demo/stats` 값이 `total 2 / done 1 /
-          draft 1`로 맞는지 같은 lab 세션에서 확인.
+          [internal lab observation | demo route] `/api/demo/stats` 값이 `total 2
+          / done 1 / draft 1`로 맞는지 같은 lab 세션에서 확인.
         - >-
-          [internal lab observation | process/files] `pocketbase.exe` Working Set 32.6 MB,
-          Private 61.6 MB, `pb_data/data.db` 156 KB는 두 record만 넣은 단일 Windows lab 실행값으로만
-          기록. 일반 운영 수치로 확대 해석하지 않음.
+          [internal lab observation | process/files] `pocketbase.exe` Working
+          Set 32.6 MB, Private 61.6 MB, `pb_data/data.db` 156 KB는 두 record만 넣은
+          단일 Windows lab 실행값으로만 기록. 일반 운영 수치로 확대 해석하지 않음.
     - type: adversarial
       result: pass
       sources: 3
       summary: >-
-        README의 pre-v1 경고와 lab의 single-node 실행 구조를 같이 놓고, 어디까지 맞고 어디서 불리해지는지 갈라 봤어.
+        README의 pre-v1 경고와 lab의 single-node 실행 구조를 같이 놓고, 어디까지 맞고 어디서 불리해지는지 갈라
+        봤어.
       items:
         - >-
-          managed Postgres나 multi-region 기본 전제를 원하는 팀에선 PocketBase의 핵심 장점이 줄어. 이건
-          embedded SQLite 구조에서 바로 나오는 해석이야.
+          managed Postgres나 multi-region 기본 전제를 원하는 팀에선 PocketBase의 핵심 장점이 줄어.
+          이건 embedded SQLite 구조에서 바로 나오는 해석이야.
         - README의 v1.0.0 이전 full backward compatibility 미보장 경고도 같이 확인했어.
         - 그래서 첫 테스트 축도 범용 backend platform보다 single-node backend kit에 두는 편이 맞았어.
 guideVersion:
   tone: 2.0.0
   common: 2.2.0
   projects: 4.2.0
+formatVersion: 2
 ---
+
 
 ## takeaway
 

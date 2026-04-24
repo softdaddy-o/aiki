@@ -21,6 +21,20 @@ describe('migrate-format-version', () => {
         assert.equal(options.wikiOnly, false);
     });
 
+    it('supports action filters', () => {
+        const options = withArgv(['--bump-only', '--review-only', '--rewrite-only'], () => migrate.parseArgs());
+        assert.equal(options.bumpOnly, true);
+        assert.equal(options.reviewOnly, true);
+        assert.equal(options.rewriteOnly, true);
+    });
+
+    it('uses safe review defaults for migration batches', () => {
+        const options = withArgv([], () => migrate.parseArgs());
+        assert.equal(options.reviewMaxRounds, 2);
+        assert.equal(options.reviewTimeoutMs, 600_000);
+        assert.equal(options.draftOnFail, false);
+    });
+
     it('treats missing tone guide version as stale', () => {
         const currentGuide = {
             tone: '2.0.0',

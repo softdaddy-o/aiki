@@ -58,14 +58,34 @@ const CURRENT_GUIDE = {
 function parseArgs() {
     const argv = process.argv.slice(2);
     const bsi = argv.indexOf('--batch-size');
+    const rmsi = argv.indexOf('--review-max-rounds');
+    const rtsi = argv.indexOf('--review-timeout-ms');
     const envBatch = parseInt(process.env.MIGRATE_BATCH_SIZE || '', 10);
     const cliBatch = bsi >= 0 ? parseInt(argv[bsi + 1] || '', 10) : NaN;
+    const envReviewMaxRounds = parseInt(process.env.MIGRATE_REVIEW_MAX_ROUNDS || '', 10);
+    const cliReviewMaxRounds = rmsi >= 0 ? parseInt(argv[rmsi + 1] || '', 10) : NaN;
+    const envReviewTimeoutMs = parseInt(process.env.MIGRATE_REVIEW_TIMEOUT_MS || '', 10);
+    const cliReviewTimeoutMs = rtsi >= 0 ? parseInt(argv[rtsi + 1] || '', 10) : NaN;
     return {
         batchSize: Number.isFinite(cliBatch) && cliBatch > 0 ? cliBatch
             : Number.isFinite(envBatch) && envBatch > 0 ? envBatch : 3,
+        reviewMaxRounds: Number.isFinite(cliReviewMaxRounds) && cliReviewMaxRounds > 0
+            ? cliReviewMaxRounds
+            : Number.isFinite(envReviewMaxRounds) && envReviewMaxRounds > 0
+                ? envReviewMaxRounds
+                : 2,
+        reviewTimeoutMs: Number.isFinite(cliReviewTimeoutMs) && cliReviewTimeoutMs > 0
+            ? cliReviewTimeoutMs
+            : Number.isFinite(envReviewTimeoutMs) && envReviewTimeoutMs > 0
+                ? envReviewTimeoutMs
+                : 600_000,
         newsOnly: argv.includes('--news-only'),
         wikiOnly: argv.includes('--wiki-only'),
         projectsOnly: argv.includes('--projects-only'),
+        reviewOnly: argv.includes('--review-only'),
+        bumpOnly: argv.includes('--bump-only'),
+        rewriteOnly: argv.includes('--rewrite-only'),
+        draftOnFail: argv.includes('--draft-on-fail'),
         rewrite: argv.includes('--rewrite'),
         dryRun: argv.includes('--dry-run'),
     };
@@ -181,6 +201,12 @@ function scanFiles(dir, type) {
         .filter(f => f.needsMigration && !f.fm.draft);
 }
 
+function isReviewMigrationComplete(file) {
+    const raw = fs.readFileSync(file.absPath, 'utf8');
+    const { data: fm } = matter(raw);
+    return !fm.draft && !isGuideStale(fm, file.type) && !isFormatStale(fm);
+}
+
 // ── Actions ───────────────────────────────────────────────────────────────────
 
 function bumpFormatVersion(file, dryRun) {
@@ -190,7 +216,7 @@ function bumpFormatVersion(file, dryRun) {
     fs.writeFileSync(file.absPath, output, 'utf8');
 }
 
-function runReviewPanel(targets, dryRun) {
+function runReviewPanel(targets, opts) {
     // targets: [{type, term, ...}]
     // wiki, news, projects 를 분리해서 각각 review panel 실행
     const byType = { wiki: [], news: [], projects: [] };
@@ -202,13 +228,15 @@ function runReviewPanel(targets, dryRun) {
             'scripts/aiki-review-panel.cjs',
             '--target', type,
             '--only', terms.join(','),
+            '--max-rounds', String(opts.reviewMaxRounds),
         ];
+        if (!opts.draftOnFail) args.push('--no-draft');
         console.log(`  review-panel [${type}]: ${terms.join(', ')}`);
-        if (!dryRun) {
+        if (!opts.dryRun) {
             cp.execFileSync(process.execPath, args, {
                 cwd: REPO_ROOT,
                 stdio: 'inherit',
-                timeout: 300_000,
+                timeout: opts.reviewTimeoutMs,
             });
         }
     }
@@ -242,7 +270,11 @@ async function main() {
     if (!opts.wikiOnly && !opts.projectsOnly) candidates.push(...scanFiles(NEWS_DIR, 'news'));
     if (!opts.newsOnly && !opts.wikiOnly) candidates.push(...scanFiles(PROJECTS_DIR, 'projects'));
 
-    const pending = candidates.filter(f => !done.has(f.relPath));
+    let pending = candidates.filter(f => !done.has(f.relPath));
+
+    if (opts.reviewOnly) pending = pending.filter((f) => f.action === 'review-panel');
+    if (opts.bumpOnly) pending = pending.filter((f) => f.action === 'bump-format');
+    if (opts.rewriteOnly) pending = pending.filter((f) => f.action === 'rewrite-only');
 
     // 정렬: review-panel 먼저 (가이드 불일치 = 내용 문제), bump-format 다음, rewrite-only 마지막
     const order = { 'review-panel': 0, 'bump-format': 1, 'rewrite-only': 2 };
@@ -274,10 +306,14 @@ async function main() {
     if (reviewTargets.length > 0) {
         console.log(`\n[review-panel] ${reviewTargets.length}개:`);
         try {
-            runReviewPanel(reviewTargets, opts.dryRun);
+            runReviewPanel(reviewTargets, opts);
             for (const f of reviewTargets) {
-                done.add(f.relPath);
-                processed++;
+                if (isReviewMigrationComplete(f)) {
+                    done.add(f.relPath);
+                    processed++;
+                } else {
+                    console.log(`  still pending after review: ${f.relPath}`);
+                }
             }
         } catch (err) {
             console.error(`review-panel 실패: ${err.message}`);
