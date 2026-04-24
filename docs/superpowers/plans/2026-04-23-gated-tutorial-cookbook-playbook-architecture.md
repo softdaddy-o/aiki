@@ -289,6 +289,7 @@ Avoid in phase 1:
 
 - Multiple prerequisites can unlock one node
 - One tutorial can branch into multiple next nodes
+- Several parallel tracks can later merge into a shared node
 
 **Pros**
 
@@ -306,6 +307,54 @@ Model the system internally as a **directed graph**, even if phase 1 presents a 
 That avoids painting the data model into a corner.
 
 The graph model also naturally supports a stage-map UI.
+
+This is not optional anymore. The product already needs branch and merge behavior such as:
+
+- foundation node
+- choose one of `antigravity`, `claude-code`, or `codex`
+- later rejoin into a shared advanced node
+
+So the graph model should be treated as a phase-1 requirement, not a future enhancement.
+
+## Branching and merging rule model
+
+The unlock system needs to support at least these semantics:
+
+### Rule A: `ANY`
+
+Unlock target node if the learner has completed **at least one** qualifying prerequisite.
+
+Examples:
+
+- take either `antigravity-01` or `claude-code-01`
+- either path unlocks `agent-workflows-01`
+
+### Rule B: `ALL`
+
+Unlock target node only if the learner has completed **all** prerequisite nodes.
+
+Examples:
+
+- complete both `prompt-basics-01` and `tool-use-01`
+- both are required before `automation-01`
+
+### Rule C: grouped alternatives
+
+Support branch groups without hardcoding path names into application logic.
+
+Examples:
+
+- one of `antigravity-01`, `claude-code-01`, `codex-01`
+- any one of them unlocks `coding-agents-common-ground`
+
+### Recommendation
+
+Phase 1 should support:
+
+- target node prerequisite mode: `any` or `all`
+- multiple inbound edges per node
+
+That is enough for the first real branching system without building an overly abstract rule engine.
 
 ## Stage map index brainstorm
 
@@ -342,6 +391,7 @@ This makes the gating feel like progression rather than denial.
 **Cons**
 
 - Less expressive for branching content later
+- can mis-train users into expecting only one correct path
 
 ### Option 2: world map with branches
 
@@ -385,6 +435,11 @@ Use a **hybrid map**:
 - the data model should support branchable world-map behavior later
 
 Do not treat the index page as a generic card grid.
+
+Important nuance:
+
+- the first shipped UI may still look mostly linear for clarity
+- but it should include at least one visible branch or optional lane early, so users understand the system is path-based rather than chapter-list based
 
 ## Architecture option matrix
 
@@ -611,7 +666,9 @@ access: member
 challengeType: seeded-short-answer
 challengeVersion: 1
 unlocks:
-  - tutorial-02
+  - antigravity-01
+  - claude-code-01
+  - codex-01
 ---
 
 <!-- teaser:start -->
@@ -744,6 +801,16 @@ The map view will likely need separate presentation metadata in addition to prog
 - whether the node is mandatory or optional
 
 This data can live partly in repo-authored metadata and partly in derived user-state queries.
+
+### Branch/merge progression metadata
+
+To support non-linear paths cleanly, nodes also need progression metadata such as:
+
+- `prerequisite_mode`: `any` or `all`
+- optional `track_id` such as `antigravity`, `claude-code`, `codex`
+- optional `chapter_id` or `world_id` for grouping merged content
+
+This keeps branching logic declarative instead of hardcoded in route handlers.
 
 ## Unlock UX brainstorm
 
@@ -976,6 +1043,7 @@ If we optimize for AIKI's actual strengths, the best phase-1 cut is:
 - Supabase Auth magic-link sign-in
 - site-wide `member` tier first
 - deterministic seeded challenges per account
+- branch-capable learning graph from day one
 - account-bound unlock records with visible personalized keys
 - a dedicated `/ko/learn/` stage-map hub as the main progression index
 - no second dynamic backend beyond Cloudflare request handlers
@@ -1060,7 +1128,7 @@ Notes:
 - Retry policies should prevent brute-force guessing on short answers.
 - Audit logs should keep attempt history for debugging and abuse review.
 
-## Vertical slice: tutorial-01 -> tutorial-02
+## Vertical slice: foundation -> branch -> merge
 
 The first implementation should prove the whole loop with the smallest possible surface area.
 
@@ -1068,11 +1136,12 @@ The first implementation should prove the whole loop with the smallest possible 
 
 - User can sign in
 - User can open `/ko/learn/`
-- User can access `tutorial-01`
-- User gets a personalized challenge at the end of `tutorial-01`
+- User can access `foundation-01`
+- User gets a personalized challenge at the end of `foundation-01`
 - User submits an answer
 - Server evaluates it
-- Passing unlocks `tutorial-02` for that account
+- Passing unlocks one or more branch nodes for that account
+- Completing one branch can unlock a merged shared node
 - `/ko/learn/` updates node state accordingly
 
 ### What the slice should not include
@@ -1127,8 +1196,8 @@ Purpose:
 
 Minimal columns:
 
-- `id` text primary key, ex. `tutorial-01`
-- `slug` text, ex. `tutorials/tutorial-01`
+- `id` text primary key, ex. `foundation-01`
+- `slug` text, ex. `tutorials/foundation-01`
 - `category` text
 - `title`
 - `access_tier_required`
@@ -1136,12 +1205,15 @@ Minimal columns:
 - `challenge_version`
 - `map_order` integer
 - `world_id` text default `core`
+- `track_id` nullable
+- `prerequisite_mode` text default `any`
 - `is_optional` boolean default false
 
 For the slice:
 
-- one row for `tutorial-01`
-- one row for `tutorial-02`
+- one row for `foundation-01`
+- one row each for `antigravity-01`, `claude-code-01`, `codex-01`
+- one row for `coding-agents-common-ground`
 
 ### `learning_edges`
 
@@ -1154,10 +1226,24 @@ Minimal columns:
 - `from_node_id`
 - `to_node_id`
 - `unlock_type` text default `pass-challenge`
+- `edge_group` nullable
+
+Interpretation:
+
+- if target node uses `prerequisite_mode = any`, one satisfied inbound edge is enough
+- if target node uses `prerequisite_mode = all`, all required inbound edges must be satisfied
+- `edge_group` is reserved for richer grouped logic later, but does not need to be used in the first slice
 
 For the slice:
 
-- one row: `tutorial-01 -> tutorial-02`
+- three branch rows:
+  - `foundation-01 -> antigravity-01`
+  - `foundation-01 -> claude-code-01`
+  - `foundation-01 -> codex-01`
+- three merge rows:
+  - `antigravity-01 -> coding-agents-common-ground`
+  - `claude-code-01 -> coding-agents-common-ground`
+  - `codex-01 -> coding-agents-common-ground`
 
 ### `challenge_attempts`
 
@@ -1197,8 +1283,9 @@ Minimal columns:
 
 For the slice:
 
-- `tutorial-01` can be treated as unlocked by default for members
-- passing `tutorial-01` inserts unlock for `tutorial-02`
+- `foundation-01` can be treated as unlocked by default for members
+- passing `foundation-01` inserts unlocks for the branch nodes or marks them available
+- passing any one branch unlocks `coding-agents-common-ground`
 
 ## Minimal endpoint surface
 
@@ -1282,28 +1369,39 @@ Note:
 3. If signed in, client requests `GET /api/learn/map-state`
 4. Response paints node states and highlights the current node
 
-### Flow B: opening tutorial-01
+### Flow B: opening foundation-01
 
-1. User enters `tutorial-01`
+1. User enters `foundation-01`
 2. Static teaser shell can render first
-3. Client requests `GET /api/learn/node/tutorial-01`
+3. Client requests `GET /api/learn/node/foundation-01`
 4. Server returns gated body and personalized challenge metadata
 
 ### Flow C: submitting the challenge
 
-1. User submits answer to `POST /api/learn/node/tutorial-01/submit`
+1. User submits answer to `POST /api/learn/node/foundation-01/submit`
 2. Server grades answer from deterministic seed
 3. Attempt is recorded
-4. If correct, `tutorial-02` unlock is inserted
+4. If correct, branch availability is inserted or updated
 5. Response returns a personalized key phrase
 6. UI updates the completion state and points back to `/ko/learn/`
 
-### Flow D: opening tutorial-02
+### Flow D: opening a branch node
 
 1. User returns to `/ko/learn/`
-2. Map now shows `tutorial-02` as available or current
-3. User enters `tutorial-02`
+2. Map now shows one or more branch nodes as available
+3. User enters `claude-code-01` or another branch
 4. Protected fetch succeeds because unlock exists
+
+### Flow E: branch and merge example
+
+1. User completes `foundation-01`
+2. Map shows three available branches:
+   - `antigravity-01`
+   - `claude-code-01`
+   - `codex-01`
+3. User takes one branch
+4. Passing that branch unlocks a merged shared node such as `coding-agents-common-ground`
+5. Another user may take a different branch and still reach the same merged node
 
 ## How `/ko/learn/` stays cheap
 
@@ -1338,14 +1436,19 @@ This keeps `/ko/learn/` cheap even if it becomes a high-traffic landing page.
 ## Vertical-slice implementation order
 
 1. Add DB tables for `learning_nodes`, `learning_edges`, `challenge_attempts`, `node_unlocks`
-2. Seed `tutorial-01`, `tutorial-02`, and one edge
+2. Seed a tiny graph, not just a line:
+   - `foundation-01`
+   - `antigravity-01`
+   - `claude-code-01`
+   - `codex-01`
+   - `coding-agents-common-ground`
 3. Add Supabase login
 4. Build static `/ko/learn/` shell
 5. Implement `GET /api/learn/map-state`
 6. Implement `GET /api/learn/node/:id`
 7. Implement `POST /api/learn/node/:id/submit`
 8. Add personalized key phrase UX after a passing attempt
-9. Verify map state flips correctly for the same account
+9. Verify `ANY` prerequisite logic for the merged shared node
 10. Verify another account gets a different seeded challenge
 
 ## Rollout plan
@@ -1365,8 +1468,8 @@ This keeps `/ko/learn/` cheap even if it becomes a high-traffic landing page.
 - Add Supabase Auth integration with email magic link.
 - Add minimal member entitlement check.
 - Add challenge templates and seeded grading for tutorials.
-- Ship one gated pilot sequence, ideally `tutorial-01 -> tutorial-02`.
-- Show a personalized unlock key after passing tutorial 01.
+- Ship one gated pilot graph, ideally `foundation-01 -> {antigravity-01 | claude-code-01 | codex-01} -> coding-agents-common-ground`.
+- Show a personalized unlock key after passing the foundation node and after passing a branch node.
 - Ship `/ko/learn/` as the canonical progression index with at least locked / current / cleared states.
 
 ### Phase 2: authoring ergonomics
@@ -1398,7 +1501,7 @@ This keeps `/ko/learn/` cheap even if it becomes a high-traffic landing page.
 9. What the retry policy should be for challenge attempts.
 10. Whether any homework types should require human approval in the first release.
 11. Whether `/ko/learn/` should be the primary entry point while category indexes remain secondary taxonomy pages.
-12. Whether the first map should be linear-only or include one optional branch from day one.
+12. Whether the first map should include a single visible branch or a full three-branch choice from day one.
 
 ## Immediate next steps
 
@@ -1407,5 +1510,5 @@ This keeps `/ko/learn/` cheap even if it becomes a high-traffic landing page.
 - Define the Supabase tables needed for entitlements and access checks.
 - Decide the storage format for full gated content before implementation starts.
 - Prototype one vertical slice page with a deliberately expressive layout so the access model is tested against real UI ambition rather than a placeholder page.
-- Write one concrete example challenge template and unlocking flow for `tutorial-01 -> tutorial-02`.
+- Write one concrete example challenge template and unlocking flow for `foundation-01 -> branch -> merge`.
 - Sketch one concrete `/ko/learn/` stage-map layout for desktop and mobile.
