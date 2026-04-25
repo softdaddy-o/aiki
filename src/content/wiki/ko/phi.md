@@ -21,6 +21,10 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Microsoft
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Phi (파이)
 relatedTerms:
@@ -79,26 +83,22 @@ factCheck:
         - '실무에서 주로 붙는 자리는 요약, 분류, 보조 챗, 로컬 실행 같은 영역이라고 범위를 남겼어.'
       findings:
         - Phi를 성능 과장 대신 운영 전략의 맥락에서 읽게 만들었어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "cd4680ad0f65f506"
-  reviewedAt: "2026-04-25T09:55:57Z"
+  contentHash: 17cdd4f21a9e2234
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Phi는 Microsoft가 만든 [소형 언어 모델](/ko/wiki/small-language-model/) 시리즈야. 오픈 웨이트로 공개된 계열이어서 클라우드 API만 보는 모델이라기보다, [로컬](/ko/wiki/local-llm/) 장치나 제한된 하드웨어에도 올려 쓰는 방향까지 같이 떠오르는 이름이야.

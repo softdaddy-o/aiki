@@ -19,6 +19,10 @@ modelProfile:
     돼.
   weightsOpen: 오픈 웨이트. 이렇게 보면 돼.
   vendor: Mistral AI
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Mistral(미스트랄 모델 계열)
 relatedTerms:
@@ -86,26 +90,22 @@ factCheck:
         - 브랜드 이름과 세부 모델 이름을 섞어 쓰는 기사 문법도 경계하도록 설명했어.
       findings:
         - 오픈 웨이트와 상용 API가 같이 있는 회사라는 점을 남겨야 왜 자주 헷갈리는지 설명됐어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "e6fa531cb9491391"
-  reviewedAt: "2026-04-25T09:55:57Z"
+  contentHash: 5b87a7fbdd0e7b20
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Mistral은 특정 버전 하나보다 Mistral AI 쪽 모델 군을 넓게 가리키는 이름이야. 그래서 이 단어를 들었을 때는 먼저 회사와 라인업, 배포 방식이 같이 묶여 있는 우산 이름인지부터 보는 게 맞아.
