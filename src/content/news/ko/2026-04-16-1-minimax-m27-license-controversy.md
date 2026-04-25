@@ -55,12 +55,34 @@ factCheck:
         - "파인튜닝 파생물과 생성 결과물에 대한 상업적 제한 범위가 불명확"
 tags: ["minimax", "open-source", "license", "m2.7", "mixture-of-experts"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "26c24d380fa24b89"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 MiniMax가 자사 최강 [에이전트](/ko/wiki/agent/) 모델 [MiniMax M2.7](https://huggingface.co/MiniMaxAI/MiniMax-M2.7/commit/edf8030bc287b531e4c9af83df92f96489d910c0)의 가중치를 [Hugging Face](/ko/wiki/hugging-face/)에 올린 뒤, 라이선스를 슬쩍 비상업용으로 바꿨어. 3월 18일 발표 당시 "오픈소스"라고 했는데, 정작 상업적 사용에는 사전 서면 승인이 필요하고 "Built with MiniMax M2.7" 표기까지 의무화했거든. 오픈소스가 아니라 source-available 라이선스인 셈이야.
 
+## 왜 중요할까
+
 성능 자체는 인상 깊어. [SWE-Pro](https://www.marktechpost.com/2026/04/12/minimax-just-open-sourced-minimax-m2-7-a-self-evolving-agent-model-that-scores-56-22-on-swe-pro-and-57-0-on-terminal-bench-2/) 56.22%, Terminal Bench 2 57.0%, SWE Multilingual 76.5%를 찍었고, [MoE](/ko/wiki/mixture-of-experts/) 아키텍처 덕분에 [추론](/ko/wiki/inference/) 비용도 낮은 편이야. 자체 최적화 라운드 100회 이상을 돌려 내부 [평가](/ko/wiki/eval/) 세트에서 30% 성능 향상을 달성한 "자가 진화(self-evolving)" 메커니즘도 독특하고.
+
+## 앞으로 볼 점
 
 문제는 커뮤니티 반응이야. [Hugging Face](/ko/wiki/hugging-face/) 토론방에서는 ["오픈소스라고 부르지 마라"](https://huggingface.co/MiniMaxAI/MiniMax-M2.7/discussions/12)는 비판이 바로 터졌어. 파인튜닝한 파생 모델이나 생성된 결과물에도 상업적 제한이 걸리는지가 불명확해서, 스타트업이나 [추론](/ko/wiki/inference/) API 제공업체 입장에서는 법적 리스크가 커. M2.7을 프로덕션에 넣으려면 라이선스 전문을 먼저 읽고, 상업 승인 절차를 확인하는 게 순서야.

@@ -52,14 +52,36 @@ factCheck:
         - "Bloomberg 보도는 이메일 내용 기반이나 이메일 원문은 공개되지 않음 — 단일 출처 주의"
 tags: ["anthropic", "mythos", "us-government", "cybersecurity", "federal"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "110e063ce8b476dc"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 백악관 예산관리국(OMB)의 연방 최고정보책임자(CIO) Gregory Barbaccia가 여러 장관급 부처에 이메일을 보냈다. Anthropic의 Mythos 모델을 연방 기관에서 쓸 수 있도록 보안 프레임워크를 구축하겠다는 내용이야. 이메일을 받은 부처는 국방부(DOD), 재무부, 상무부, 국토안보부(DHS), 법무부, 국무부 등이야.
 
 Mythos가 뭔지부터 짧게 — Anthropic이 공개 배포하지 않고 "Project Glasswing" 이름으로 제한적으로 운영 중인 [Claude](/ko/wiki/claude/) 계열 모델이야. 방어적 사이버보안 목적으로만 특정 기관에 접근을 허용하는 방식이고, 지금까지 OS와 웹브라우저에서 수천 건의 보안 취약점을 찾아냈다고 해. 정확한 수치가 아니라 "thousands"라는 표현을 씀 — 그만큼 규모를 강조하는 거지.
 
+## 왜 중요할까
+
 타이밍이 복잡해. 몇 주 전에 CNBC가 Vance 부통령과 Bessent 재무장관이 AI 회사들을 불러 보안 우려를 직접 물었다는 내용을 보도했거든. 백악관이 Mythos의 사이버보안 리스크에 신중한 입장이었다는 거고, 지금은 그 우려를 프레임워크로 관리하면서 실용적 배포 쪽으로 방향을 잡은 것처럼 보여.
+
+## 앞으로 볼 점
 
 이메일은 "몇 주 안에 추가 정보를 공유하겠다"는 선에서 끝났어 — 언제부터, 어떻게 쓸지는 아직 확정이 아니야. 다만 DOD부터 법무부까지 6개 이상 핵심 부처가 수신자에 포함됐다는 건, 이게 특정 부처의 파일럿이 아니라 범정부 차원 배포를 준비 중이라는 신호로 읽혀.

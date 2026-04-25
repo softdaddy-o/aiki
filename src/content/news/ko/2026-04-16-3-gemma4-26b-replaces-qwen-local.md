@@ -55,12 +55,34 @@ factCheck:
         - "커뮤니티에서 큰 호응을 얻은 사용자 보고이지만 개인 경험 기반"
 tags: ["gemma", "local-llm", "qwen", "mixture-of-experts", "benchmark"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "22c2d467716726db"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Google의 [Gemma 4](https://www.reddit.com/r/LocalLLaMA/comments/1smh0ny/gemma4_26b_e4b_are_crazy_good_and_replaced_qwen/) 26B [MoE](/ko/wiki/mixture-of-experts/) 모델이 로컬 LLM 커뮤니티에서 빠르게 자리를 잡고 있어. RTX 3090 2장과 시스템 [메모리](/ko/wiki/memory/) 128GB 세팅에서 Qwen 3.5 시리즈를 전부 Gemma 4로 교체했다는 보고가 커뮤니티에서 큰 호응을 얻고 있거든.
 
+## 왜 중요할까
+
 수치로 보면 이유가 명확해. [Gemma 4 26B-A4B](https://www.mindstudio.ai/blog/gemma-4-vs-qwen-3-5-open-weight-comparison)는 전체 26B 파라미터 중 3.8B만 활성화하는 MoE 구조인데, AIME 2026에서 88.3%를 기록했어. 같은 규모의 Qwen 3.5-27B가 AIME 2025에서 약 49%를 찍은 것과 비교하면 격차가 크지. E4B(4.5B 활성)는 16GB GPU에서도 돌아가니까 RTX 4080이나 노트북에서도 쓸 수 있고.
+
+## 앞으로 볼 점
 
 다만 맥락이 있어. Qwen 3.5는 대규모 스케일에서 여전히 강하고, [Llama](/ko/wiki/llama/) 4는 1000만 [토큰](/ko/wiki/token/) 컨텍스트라는 고유 장점이 있거든. 로컬 세팅을 바꾸려면 자기 하드웨어에서 실제로 돌려보고 판단하는 게 맞아. [Apache 2.0](/ko/wiki/apache/) 라이선스라 상업 사용에도 제한이 없다는 건 확실한 장점이야.

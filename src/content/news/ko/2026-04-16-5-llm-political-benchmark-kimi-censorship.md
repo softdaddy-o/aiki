@@ -53,12 +53,34 @@ factCheck:
         - "arXiv 대만 논문은 Kimi K2.5 대상이고, Reddit 벤치마크는 KIMI K2 ���상 — 버전 차이 있음"
 tags: ["llm-benchmark", "censorship", "kimi-k2", "political-bias", "gpt-5.3"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "7cb10ee39bbacee8"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 누군가가 프론티어 [LLM](/ko/wiki/llm/)의 정치적 편향을 체계적으로 [측정하는 벤치마크](https://www.reddit.com/r/MachineLearning/comments/1smqsbu/built_an_political_benchmark_for_llms_kimi_k2/)를 만들었어. 14개 정책 영역에서 98개 질문을 던져 경제 좌/우, 사회 진보/보수 2차원 정치 지도에 모델을 배치하는 방식이야. 테스트 대상은 GPT-5.3, [Claude Opus 4.6](/ko/wiki/claude-opus-4-6/), KIMI K2 등이고.
 
+## 왜 중요할까
+
 눈에 띄는 결과가 두 가지야. KIMI K2는 대만 관련 질문에 아예 답을 내놓지 못했어. [별도 연구](https://arxiv.org/html/2602.06371v1)에서도 중국 출신 모델들이 대만 주권 관련 질문에서 심각한 검열을 보인다는 걸 확인한 바 있거든 — Kimi K2.5가 10점 만점에 1점을 기록한 사례도 있어. GPT-5.3는 다른 방향인데, opt-out 옵션을 주면 정치적 질문 100%를 거부했어. 모델마다 "답하지 않는 방식"이 다른 셈이야.
+
+## 앞으로 볼 점
 
 프로덕션에서 LLM을 쓸 때 이게 중요한 이유가 있어. 글로벌 서비스라면 특정 지역에서 모델이 갑자기 침묵하거나 편향된 답을 내놓을 수 있거든. 중국 시장 대상 서비스에 KIMI K2를 쓰든, 정치 민감 콘텐츠에 GPT-5.3를 쓰든, 어떤 주제에서 모델이 작동하지 않는지 미리 테스트하는 게 필수야.

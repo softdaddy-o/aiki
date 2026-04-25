@@ -51,14 +51,36 @@ factCheck:
       findings: []
 tags: ["anthropic", "london", "expansion", "openai", "uk"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "d61c942b76a6dd16"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 Anthropic이 런던 Knowledge Quarter에 158,000평방피트 규모의 새 오피스를 확보했다. 800명을 수용할 수 있는 공간이고, 현재 런던에 있는 Anthropic 직원이 200명 조금 넘는다는 걸 감안하면 4배 정도 여유를 잡은 거야. 위치는 Regent's Place — AI 회사들이 몰려 있는 구역으로, [Google DeepMind](/ko/wiki/google-deepmind/), Meta, Synthesia, Wayve도 같은 일대에 있어.
 
 타이밍이 재미있어. OpenAI가 런던 첫 영구 오피스로 544석 규모 허브를 이번 주에 발표했거든. Anthropic이 며칠 뒤에 더 큰 규모로 맞받은 거야. 두 회사 모두 같은 Knowledge Quarter 안에 자리를 잡는 셈이어서, 이 구역이 사실상 유럽 AI 허브가 되고 있다는 신호로 읽혀.
 
+## 왜 중요할까
+
 [Claude](/ko/wiki/claude/)를 만드는 회사가 왜 굳이 런던을 이렇게 키우는 거냐면 — [영국 정부가 AI 기업 유치에 적극적](https://www.cnbc.com/2026/04/16/anthropic-london-office-800-staff-openai-expansion.html)이고, 유럽 시장 진입점으로 런던이 가장 규제 환경이 우호적이라는 판단이 있어. 오피스가 커지면 유럽 기업·정부 고객을 직접 담당하는 세일즈·정책 팀을 현지에 두게 되고, 그게 계약 체결 속도를 높이는 방식이거든.
+
+## 앞으로 볼 점
 
 실제로 어느 정도 속도로 채워질지는 아직 불명확해. 800석 공간을 확보했다는 거지 당장 800명을 채운다는 얘기는 아니고. 다만 현재 200명에서 출발해서 유럽 사업이 본격화되면 빠르게 채울 여지가 있다는 신호로 봐야 할 것 같아.
