@@ -21,10 +21,6 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: xAI
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - Grok (그록)
 relatedTerms:
@@ -90,22 +86,26 @@ factCheck:
         - >-
           Grok은 같은 이름이 모델 가족, 앱, API 브랜드를 같이 가리키기 쉬워서 기사 제목만 보면 실제로 무엇이 발표된 건지
           헷갈리기 쉬워.
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: edb28fc3ca272a3b
-  reviewedAt: '2026-04-25T09:55:57Z'
-formatVersion: 2
+  contentHash: "55c6eca622dcd0cd"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Grok은 xAI가 만든 생성형 AI 모델 가족을 가리키는 이름이야. 동시에 웹과 모바일에서 쓰는 챗봇 제품명으로도 같이 쓰여서, 기사에선 모델명과 서비스명이 겹쳐 보이는 경우가 많아. 이 점은 [xAI 블로그](https://x.ai/blog)와 [위키백과 정리](https://en.wikipedia.org/wiki/Grok_(chatbot))를 같이 보면 바로 드러나.

@@ -63,11 +63,11 @@ factCheck:
         - "Inference 최적화가 모델 자체를 더 똑똑하게 만드는 일이라고 오해하기 쉽지만, 보통은 더 싸고 빠르게 돌리는 문제에 가까워."
       findings:
         - "추론은 모델의 사고 방식보다 실행 비용과 응답 경로를 이해하는 데 더 가까운 개념이야."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -81,7 +81,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "84a763444b74e07d"
+  contentHash: "92462ef85e3210fd"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

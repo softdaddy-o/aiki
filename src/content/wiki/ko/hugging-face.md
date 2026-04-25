@@ -54,11 +54,11 @@ factCheck:
       findings:
         - "Hugging Face는 회사 이름이면서 동시에 플랫폼과 도구 체계를 가리켜서 층위를 섞기 쉬워."
         - "커뮤니티 성격만 강조하면 실제 배포와 유통 기능을 놓치고, 허브만 강조하면 협업 맥락을 놓치기 쉬워."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "e40c5bd00c5d5b80"
+  contentHash: "37946dd810de1424"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

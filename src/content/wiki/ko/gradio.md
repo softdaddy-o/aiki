@@ -58,11 +58,11 @@ factCheck:
         - "웹 UI를 만든다는 말만 보고 Django나 Next.js 같은 범용 웹 프레임워크와 같은 층위로 놓으면 맥락이 틀어져."
       findings:
         - "Gradio는 모델 경험을 보여 주는 앞단 도구라는 점을 분리해서 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "271231e740b35472"
+  contentHash: "57c7a94cdc46bf17"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

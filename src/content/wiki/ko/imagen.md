@@ -21,10 +21,6 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Google DeepMind
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - Imagen (이마젠)
 relatedTerms:
@@ -85,22 +81,26 @@ factCheck:
           발휘해.
       findings:
         - Imagen은 구글 라인업 안의 이미지 생성 모델 축이라는 점을 남겼어.
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: d6dc3cf04d4ad018
-  reviewedAt: '2026-04-25T09:55:57Z'
-formatVersion: 2
+  contentHash: "b30e472f3a94ceab"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Imagen은 [Google DeepMind](/ko/wiki/google-deepmind/)가 만든 텍스트-이미지 생성 모델 계열이야. 질문에 답하는 대화 모델이 아니라, 프롬프트를 받아 시각 결과물을 만들어 내는 창작 모델이라고 보면 돼.

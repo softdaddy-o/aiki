@@ -74,11 +74,11 @@ factCheck:
         - 또 모델 자체가 좋아진 것과 검색층이 좋아진 걸 헷갈리기 쉬워서 둘을 구분해 적었어.
       findings:
         - 근거 기반 답변과 진실 보증을 같은 말로 읽지 않게 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -92,7 +92,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "ebb46bb600388f87"
+  contentHash: "e31e9ae6607aa2a5"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

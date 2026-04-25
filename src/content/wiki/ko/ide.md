@@ -71,11 +71,11 @@ factCheck:
       findings:
         - IDE의 핵심은 편집기 그 자체보다 실행과 디버깅을 끊기지 않게 묶는 데 있어.
         - AI 보조 흐름은 일부 제품 사례로 보는 편이 현재 소스 범위와 맞아.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -89,7 +89,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "7ad0c72e0f484971"
+  contentHash: "7fb610c684aad795"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

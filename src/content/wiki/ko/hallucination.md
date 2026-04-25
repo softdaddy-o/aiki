@@ -61,11 +61,11 @@ factCheck:
       findings:
         - "'정확도 상승 기사면 hallucination도 자동으로 해결됐다'는 오해 가능성을 점검했지만 본문에서 분리해서 막았어."
         - "'환각은 최신 모델에서는 거의 사라졌다'는 과신을 부를 표현이 없는지 확인했고, 완전 제거 표현은 쓰지 않았어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "40cd6c6dcd6715ca"
+  contentHash: "92d40ed3e188eee2"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

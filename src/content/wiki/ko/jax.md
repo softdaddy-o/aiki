@@ -61,11 +61,11 @@ factCheck:
         - "또 JAX 하나로 서비스 운영까지 끝난다고 읽기 쉬운데, 실제론 계산과 학습 코드 쪽이 중심이야."
       findings:
         - "JAX는 연구 코드와 고성능 계산을 위한 기반 도구라는 점을 분명하게 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "161c364636e68d44"
+  contentHash: "e560bd77359e9362"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -69,11 +69,11 @@ factCheck:
         - 안전 규칙이 고정값이 아니라 지속적으로 조정되는 운영 대상이라는 점도 남겼어.
       findings:
         - 만능 필터처럼 읽는 오해를 빼야 실제 운영 감각이 살아났어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -87,7 +87,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "09758086ffa84ab2"
+  contentHash: "e78facaf02df3a50"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
