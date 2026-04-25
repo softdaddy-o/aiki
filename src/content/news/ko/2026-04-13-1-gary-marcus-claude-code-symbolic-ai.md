@@ -57,14 +57,36 @@ factCheck:
         - "print.ts라는 파일명은 출력 포맷팅 용도일 가능성이 있으며, 핵심 추론 로직이 아닐 수 있다"
 tags: ["anthropic", "claude-code", "neurosymbolic-ai", "gary-marcus", "소스유출"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "de67690260f1fdc2"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Gary Marcus가 Claude Code 소스 유출을 분석하면서 한마디 던졌어 — "이건 고전 심볼릭 AI 그 자체다." 3월 31일에 npm에 잘못 올라간 512,000줄, 1,906개 TypeScript 파일 중 핵심은 3,167줄짜리 커널 `print.ts`인데, 486개 분기점과 12단계 중첩이 들어있는 거대한 IF-THEN 조건문이거든.
 
 Marcus의 핵심 주장은 이거야. Claude Code가 잘 작동하는 이유가 [LLM](/ko/wiki/llm/) 때문이 아니라, LLM 위에 얹은 결정론적 심볼릭 루프 덕분이라는 거야. John McCarthy나 Marvin Minsky 같은 AI 초기 연구자들이 바로 알아볼 만한 구조라는 게 그의 표현이야. ML 커뮤니티에서 큰 반응과 함께 뜨거운 논쟁이 벌어졌어.
 
+## 왜 중요할까
+
 반론도 있어. 486개 분기가 많아 보이지만, 복잡한 CLI 도구에서 분기 처리는 흔한 엔지니어링 패턴이야. "심볼릭 AI 복귀"라고 부르기엔 과장이라는 시각도 있거든. 하지만 [VentureBeat](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know)과 [CNBC](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html)까지 이걸 다룬 걸 보면, AI 에이전트가 순수 신경망만으로는 안 된다는 인식이 퍼지고 있는 건 확실해.
+
+## 앞으로 볼 점
 
 실무에서 의미 있는 포인트는 하나야. 코딩 에이전트를 만들 때 LLM 호출만으로 끝내지 말고, 결정론적 로직으로 감싸는 하이브리드 설계를 고려해야 한다는 거야. [Anthropic](/ko/wiki/anthropic/)이 512,000줄을 쏟아부은 이유가 바로 거기에 있으니까.

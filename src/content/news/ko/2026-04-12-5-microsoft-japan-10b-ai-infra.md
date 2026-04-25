@@ -53,12 +53,34 @@ factCheck:
         - "3년간 $100억 약정이므로 연간 집행 규모는 확인 필요"
 tags: ["microsoft", "일본", "ai-인프라", "투자", "데이터센터"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "4b485b4a058d010c"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Microsoft가 일본에 [$100억(약 ¥1.6조)을 투자한다고 발표했어](https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/). 2026년부터 2029년까지 3년간 집행하는 건데, 서방 기업이 아시아에 단일 AI 인프라로 투자하는 금액 중 최대 규모야.
 
+## 왜 중요할까
+
 세 가지 축이 있어. 첫째는 데이터센터 — SoftBank, Sakura Internet이랑 손잡고 GPU 인프라를 공동 구축해. [Sakura Internet 주가가 발표 당일 20% 뛰었거든](https://www.cnbc.com/2026/04/03/sakura-internet-microsoft-ai-japan-softbank-investment.html). 둘째는 사이버보안 — 일본 정부 기관과 공공-민간 보안 파트너십을 확대해. 셋째는 인력 — 2030년까지 100만 명 엔지니어, 개발자, 현업 종사자를 AI 교육시키겠다는 거야.
+
+## 앞으로 볼 점
 
 2024년에 일본에 $29억 투자한 게 시작이었는데, 이번에 3배 이상 키운 거지. 일본이 AI 인프라 허브로 급부상하고 있다는 신호인데, 한국 입장에서도 아시아 AI 인프라 투자 경쟁이 어떻게 흘러가는지 눈여겨볼 필요가 있어.

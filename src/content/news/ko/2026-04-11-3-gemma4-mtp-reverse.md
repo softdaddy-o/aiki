@@ -51,14 +51,36 @@ factCheck:
         - "Google이 의도적으로 숨긴 건지, 아직 준비 중인 기능인지는 불명확"
 tags: ["gemma", "google", "mtp", "multi-token-prediction", "reverse-engineering", "open-source"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "604297cad4879622"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Google이 Gemma 4를 발표할 때 언급하지 않은 기능이 있었어 — **MTP(Multi-[Token](/ko/wiki/token/) Prediction)** 드래프터가 모델 내부에 숨어 있었던 거야. 커뮤니티 개발자가 LiteRT-LM 포맷을 역공학해서 꺼냈어.
 
 추출 방법은 이래. Google의 `litertlm_peek_main` CLI로 `.litertlm` 파일 내부를 열면 `Section11_TFLiteModel_tf_lite_mtp_drafter.tflite`라는 파일이 있어. 이 파일이 MTP 드래프터야. C++ 구현체(`llm_litert_mtp_drafter`)가 딸려 있고, "end-to-end 드래프팅"에 쓰이는 구조다.
 
+## 왜 중요할까
+
 MTP는 [추론](/ko/wiki/inference/) 속도를 높이는 기술이야. 다음 [토큰](/ko/wiki/token/) **1개**만 예측하는 대신, 여러 토큰을 동시에 예측해서 디코딩 단계를 줄여. [DeepSeek](/ko/wiki/deepseek/) V3에서 **[토큰](/ko/wiki/token/)/초 기준 최대 2배** 향상을 보여줬던 방식인데, Gemma 4에도 같은 구조가 심겨 있었던 거야.
+
+## 앞으로 볼 점
 
 지금은 TFLite 파일 추출까지만 됐고, [PyTorch](/ko/wiki/pytorch/)로 변환하는 작업이 커뮤니티에서 진행 중이야. Google이 언제 이걸 공식 지원할지는 미발표 상태야. [역공학 진행 상황](https://huggingface.co/shadowlilac/gemma-4-e4b-mtp-extraction-effort)은 HuggingFace에서 볼 수 있어.

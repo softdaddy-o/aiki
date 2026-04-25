@@ -52,12 +52,34 @@ factCheck:
         - "ARR 계산 방식상 단월 급등이 과대 반영될 수 있음 — 독자에게 맥락 제공"
 tags: ["perplexity", "ai-agent", "revenue", "검색", "비즈니스"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8ff5b61a0001b767"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Perplexity AI의 매출이 한 달 만에 50% 뛰었어. ARR(연간 반복 매출) 기준 [$450M을 찍었다는 게 Financial Times 보도야](https://www.pymnts.com/artificial-intelligence-2/2026/perplexitys-shift-to-ai-agents-boosts-revenue-50/). 월간 활성 사용자도 1억 명을 넘겼어.
 
+## 왜 중요할까
+
 뭐가 바뀌었냐면 — 2월에 출시한 'Computer'라는 에이전트 도구가 결정적이었거든. 쇼핑, 이메일 정리, SNS 요약 같은 멀티스텝 작업을 19개 프론티어 모델로 오케스트레이션해서 처리해. 동시에 과금 모델도 구독에서 사용량 기반으로 바꿨어. 이 두 가지가 맞물리면서 매출이 급등한 거야. 이전 ARR이 $305M 수준이었으니까 $145M이 한 달 사이에 붙은 셈이지.
+
+## 앞으로 볼 점
 
 AI 검색 회사가 에이전트 회사로 피벗하면서 수익 구조가 바뀌는 걸 실시간으로 보여주는 사례야. 다만 ARR은 최근 한 달 매출을 연환산한 수치라서, 이 성장세가 분기 단위로 유지되는지는 지켜봐야 해. 구독 $20-$200 사이에 사용량 기반이 얹어지는 모델이 다른 AI 서비스에도 퍼질 수 있어.

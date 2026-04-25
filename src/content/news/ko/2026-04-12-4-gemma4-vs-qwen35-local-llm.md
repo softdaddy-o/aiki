@@ -49,12 +49,34 @@ factCheck:
         - "Gemma 4가 높은 퀀트로 시스템 RAM까지 사용해 0.6-3 tok/s로 느려질 수 있음"
 tags: ["gemma4", "qwen35", "로컬llm", "24gb-gpu", "장문컨텍스트"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "81e69bd9104b8541"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 24GB GPU 하나로 로컬 LLM 돌리는 사람들이 가장 궁금해하는 매치업이 나왔어. [Gemma 4 31B vs Qwen 3.5 27B, 장문 컨텍스트 실전 비교야](https://www.reddit.com/r/LocalLLaMA/comments/1si8mn1/gemma_4_31b_vs_qwen_35_27b_which_is_best_for_long/).
 
+## 왜 중요할까
+
 테스트 환경은 RTX 3090 Ti + 96GB RAM. 50K [토큰](/ko/wiki/token/) 데이터를 넣고 분석 질문을 던지는 방식으로 비교했어. 결론부터 말하면, Gemma 4는 의도를 잘 잡아내고, Qwen 3.5는 정보를 알아서 많이 던져줘. Gemma 쪽이 프롬프트 엔지니어링에 잘 반응하는 편이라 원하는 출력을 뽑아내기 쉽다고 해. 반면 Qwen은 별도 지시 없이도 관련 정보를 풍부하게 줘서 빠르게 훑어보기엔 더 편하고.
+
+## 앞으로 볼 점
 
 단점도 있어. Gemma 4 31B을 Q4 퀀트로 돌리면 VRAM이 부족해서 시스템 RAM까지 쓰게 되거든. 그러면 속도가 0.6-3 tok/s까지 떨어져. Qwen 3.5는 가벼워서 RTX PRO 4500 32GB에서도 115K 컨텍스트를 잡을 수 있다는 댓글도 있었어. 속도가 중요하면 Qwen, [추론](/ko/wiki/inference/) 정밀도가 중요하면 Gemma — 이런 식으로 갈리는 거야.

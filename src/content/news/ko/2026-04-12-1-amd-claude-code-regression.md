@@ -54,12 +54,34 @@ factCheck:
         - "Anthropic이 이후 수정 배포할 가능성이 있으므로 독자는 최신 상태 확인 필요"
 tags: ["anthropic", "claude-code", "amd", "성능하락", "개발도구"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8c2e66df70a41698"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 AMD AI 디렉터 Stella Laurenzo가 Claude Code 성능 하락을 데이터로 증명해서 화제야. 6,852개 세션, 234,760건 도구 호출, 17,871개 thinking block을 분석한 결과 — [thinking depth가 67% 떨어졌어](https://www.theregister.com/2026/04/06/anthropic_claude_code_dumber_lazier_amd_ai_director/).
 
+## 왜 중요할까
+
 구체적으로 뭐가 달라졌냐면, 예전에는 코드 편집 전 파일을 평균 6.6번 읽었거든. 관련 파일 확인하고, grep 돌리고, 테스트 코드 보고 나서 수정했다는 거야. 근데 하락 구간에서는 이게 2.0회로 줄었어. 편집의 3분의 1은 파일을 한 번도 안 읽고 바로 수정한 거지. 이 시점이 3월 초 thinking content redaction 배포(v2.1.69)와 겹쳐.
+
+## 앞으로 볼 점
 
 Laurenzo 팀은 이미 다른 코딩 도구로 전환했어. [GitHub issue #42796](https://github.com/anthropics/claude-code/issues/42796)에는 87개 넘는 댓글이 달렸는데, 비슷한 경험을 보고하는 엔터프라이즈 사용자가 많아. [Anthropic](/ko/wiki/anthropic/) 쪽 공식 대응은 아직 없어. Claude Code를 실무에 쓰고 있다면 최근 세션 품질을 직접 체크해보는 게 좋겠어.

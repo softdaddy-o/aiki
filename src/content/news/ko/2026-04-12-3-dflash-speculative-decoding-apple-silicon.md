@@ -50,12 +50,34 @@ factCheck:
         - "greedy exact argmax match로 출력 품질은 동일하다고 주장하나, 독립 검증은 아직 없음"
 tags: ["로컬llm", "apple-silicon", "추론가속", "mlx", "speculative-decoding"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "13128fe10d4371a2"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Apple Silicon에서 [로컬 LLM](/ko/wiki/local-llm/) [추론](/ko/wiki/inference/) 속도를 3배 이상 올리는 [DFlash 구현체가 공개됐어](https://www.reddit.com/r/LocalLLaMA/comments/1simszl/dflash_speculative_decoding_on_apple_silicon_85/). M5 Max 64GB에서 Qwen3.5-9B 기준, 기존 26 tok/s가 85 tok/s로 올라갔어. 3.3배 가속이야.
 
+## 왜 중요할까
+
 원리는 speculative decoding의 변형인데, 소형 드래프트 모델이 [block diffusion 방식](https://arxiv.org/abs/2602.06036)으로 16개 토큰을 한 번에 병렬 생성하고, 타겟 모델이 1회 forward pass로 전부 검증해. 출력은 baseline과 bit-for-bit 동일하다고 하니까 품질 저하는 없다는 거지. Qwen3.5-4B에서는 2048 [토큰](/ko/wiki/token/) 생성 시 133 tok/s까지 나왔어 — 모델이 작을수록 드래프트-검증 밸런스가 좋아져서 긴 생성에서 오히려 빨라지는 패턴이야.
+
+## 앞으로 볼 점
 
 아직 공개 repo는 없고 MLX 전용이라 CUDA 환경에서는 안 돼. 그래도 Mac으로 [로컬 LLM](/ko/wiki/local-llm/) 돌리는 사람한테는 속도 병목을 크게 줄일 수 있는 방법이 생긴 거야. [llama.cpp](/ko/wiki/llama.cpp/) 쪽 구현을 기다리는 커뮤니티 반응도 뜨거워.
