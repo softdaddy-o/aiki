@@ -28,10 +28,6 @@ modelProfile:
   pricing: API 토큰표보다 하드웨어 비용과 배포 경로가 핵심이야. 오픈 웨이트라 직접 서빙 기준 GPU 메모리와 양자화 전략을 먼저 계산하게 돼.
   weightsOpen: 오픈 웨이트 공개. 이렇게 보면 돼.
   vendor: Google DeepMind
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - gemma 4
   - gemma4
@@ -96,22 +92,26 @@ factCheck:
         - 오픈 모델이라는 말이 곧 저사양 전용이라는 오해를 막으려고 하드웨어 범위를 같이 적었어.
       findings:
         - Gemma 4를 기기별 제품군으로 읽게 해서 과도한 단순화를 막았어.
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: bce91f09a8945a49
-  reviewedAt: '2026-04-25T09:55:56Z'
-formatVersion: 2
+  contentHash: "24aecc847c80b2ad"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Gemma 4는 [Google DeepMind](/ko/wiki/google-deepmind/)가 만든 오픈 모델 계열이야. 같은 회사의 [Gemini](/ko/wiki/gemini/)가 클라우드 서비스 쪽 중심이라면, Gemma 4는 가중치를 내려받아 [로컬](/ko/wiki/local-llm/) 장비나 엣지 기기에서도 굴릴 수 있게 설계된 쪽에 더 가까워. 공식 발표 기준 [Apache 2.0](/ko/wiki/apache/) 라이선스고 E2B, E4B, 26B A4B, 31B처럼 하드웨어별 크기로 나뉘어 있어.

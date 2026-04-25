@@ -79,11 +79,11 @@ factCheck:
       findings:
         - 'GPT라는 이름만 보고 서비스, 회사, 모델 구조를 한꺼번에 뜻한다고 읽으면 거의 항상 문맥이 흐려져.'
         - 최근 제품 문맥이 넓어졌어도 기본 정의는 모델 계열 이름으로 잡는 편이 맞아.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -97,7 +97,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "6e9cf2aa13c18a56"
+  contentHash: "23737a0d54c913fe"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

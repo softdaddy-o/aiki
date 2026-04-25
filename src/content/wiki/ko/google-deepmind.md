@@ -57,11 +57,11 @@ factCheck:
       findings:
         - "가장 흔한 착각은 'Google DeepMind = 챗봇 이름'처럼 읽는 거야."
         - "그다음 착각은 Google DeepMind, Gemini, JAX를 같은 층위의 이름으로 놓고 보는 거야."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "c5277e1741268f18"
+  contentHash: "b75078c2a5cf044f"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

@@ -53,11 +53,11 @@ factCheck:
       items:
         - "흔한 오해 점검: AI Studio가 실제 배포와 운영까지 전부 해결해 준다고 생각하면 책임 범위를 잘못 잡기 쉬워."
         - "반례 점검: 실험 화면과 운영 환경은 다른 층위라는 점을 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "27fbda4fdbe9c275"
+  contentHash: "55db0a80f40cb04c"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

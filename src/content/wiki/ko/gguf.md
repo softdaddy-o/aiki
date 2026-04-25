@@ -70,11 +70,11 @@ factCheck:
         - 포맷 설명을 하면서 특정 앱 하나의 전용 규격처럼 들리는 표현도 막았어.
       findings:
         - GGUF를 모델명처럼 받아들이는 오해가 제일 흔해서 그 지점을 먼저 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -88,7 +88,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "ee03538e1f8663c2"
+  contentHash: "c932d6c8d8439f28"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
