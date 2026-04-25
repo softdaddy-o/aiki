@@ -51,12 +51,34 @@ factCheck:
         - "오디오 기능은 아직 개발 중 — llama.cpp Gemma 4 지원 중 오디오 부분은 별도 작업이 진행 중이라 완전한 멀티모달 지원은 아님"
 tags: ["gemma", "google", "llama-cpp", "local-llm", "open-source", "quantization"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "7f86e3a405da01a9"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Gemma 4를 로컬에서 돌리다 오류를 겪었다면 이제 해결됐어. llama.cpp의 [PR #21534](https://github.com/ggml-org/llama.cpp/pull/21534)가 머지되면서 출시 이후 쌓여 있던 Gemma 4 관련 이슈들이 전부 정리됐거든.
 
+## 왜 중요할까
+
 4월 2일 출시 직후 llama.cpp에서 [토크나이저](/ko/wiki/tokenizer/) 오류, 템플릿 문제 등 여러 버그가 보고됐어. 커뮤니티에서 31B Q5 퀀트 기준으로 테스트해봤더니 지금은 문제없이 돌아간다고 해. [런타임](/ko/wiki/runtime/) 힌트도 함께 공개됐어 — 컨텍스트 길이, 배치 사이즈 등 성능에 영향을 주는 설정 값 가이드야.
+
+## 앞으로 볼 점
 
 텍스트와 이미지 추론은 지금 상태에서 안정적이야. 오디오 지원은 아직 별도 작업이 진행 중이라 [멀티모달](/ko/wiki/multimodal/) 전체가 다 되는 건 아니야. [로컬](/ko/wiki/local-llm/) Gemma 4 실험을 미뤘다면 지금 최신 빌드를 받아서 바로 시도해볼 수 있어. [원본 스레드](https://www.reddit.com/r/LocalLLaMA/comments/1sgl3qz/gemma_4_on_llamacpp_should_be_stable_now/)에 [런타임](/ko/wiki/runtime/) 힌트 전문이 있어.

@@ -57,12 +57,34 @@ tags:
   - codex
   - ai-business
 guideVersion:
-  common: 1.0.0
-  news: 1.0.0
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "58841bde6ae05e47"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 OpenAI의 엔터프라이즈 매출이 전체의 40%를 넘겼어. 연말까지 소비자 매출과 동률을 맞추겠다는 목표인데, 이 속도면 충분히 가능해 보여. 월 매출은 20억 달러를 찍었고, [1220억 달러 펀딩](https://openai.com/index/accelerating-the-next-phase-ai/)으로 밸류에이션이 8520억 달러까지 올랐다.
 
+## 왜 중요할까
+
 눈에 띄는 건 [Codex](https://openai.com/index/codex-flexible-pricing-for-teams/)야. 주간 활성 사용자가 300만 명인데, 분기 초엔 거의 0에 가까웠거든. 가격도 바뀌었어 — 기존 시트당 $25에서 $20으로 내리면서 종량제(pay-as-you-go) 옵션을 추가했다. 워크스페이스당 최대 5명에게 $500 크레딧도 주고 있어.
+
+## 앞으로 볼 점
 
 [Frontier 플랫폼](https://openai.com/index/next-phase-of-enterprise-ai/)도 주목할 부분이야. Oracle, Uber, State Farm 같은 기업이 여기서 에이전트를 만들어 전사적으로 배포하고 있다. 단일 제품에 에이전트를 끼워넣는 게 아니라 회사 전체 시스템을 넘나들면서 작동하는 구조거든. McKinsey, BCG, Accenture 같은 컨설팅 파트너까지 붙어서 기업 도입을 밀어주고 있어. B2B AI 시장이 본격적으로 열리고 있다는 신호야.

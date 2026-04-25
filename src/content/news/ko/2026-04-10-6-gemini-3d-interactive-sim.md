@@ -47,14 +47,36 @@ factCheck:
         - "Deep Research의 시뮬레이션 기능은 Google AI Ultra 구독 필요 — 모든 사용자에게 즉시 열리는 기능이 아님"
 tags: ["google", "gemini", "ai", "3d-model", "interactive", "deep-research"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "750158419d3aa579"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Gemini 앱에서 채팅 중에 3D 모델과 인터랙티브 시뮬레이션을 바로 만들 수 있게 됐어. 복잡한 주제를 물어보면 텍스트 답변 대신, 직접 조작할 수 있는 시각화 도구가 채팅 창 안에 생성되는 방식이야.
 
 Deep Research 보고서에도 이 기능이 들어왔어. Google AI Ultra 구독자 기준, 이미지·차트·인터랙티브 시뮬레이션 3가지 형태의 시각화가 보고서에 자동으로 붙어. 변수를 바꿔가면서 결과를 예측할 수 있어서, 기존 보고서가 "읽는 것"이었다면 이건 "실험하는 것"에 가까워졌어.
 
+## 왜 중요할까
+
 Google Search의 AI Mode도 Gemini 3 기반 동일 엔진을 쓰고 있어. 인터랙티브 도구가 답변에 더 유용하다고 판단되면, AI가 실시간으로 커스텀 시뮬레이션 코드를 생성해서 검색 결과 안에 직접 삽입해. 사용자가 따로 도구를 열 필요 없이, 검색 결과 자체가 실행 가능한 모델이 되는 거야.
+
+## 앞으로 볼 점
 
 아직 Ultra 구독 없이는 일부 기능에 제한이 있어. 하지만 기본 채팅에서의 3D 모델 생성과 인터랙티브 차트는 [공식 블로그](https://blog.google/innovation-and-ai/products/gemini-app/3d-models-charts/)에서 바로 확인할 수 있어.

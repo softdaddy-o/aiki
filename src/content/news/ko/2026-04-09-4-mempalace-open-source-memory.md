@@ -54,10 +54,35 @@ tags:
   - AI메모리
   - MemPalace
   - 로컬AI
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "540a7b05956e3c3b"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 4월 6일에 나온 [MemPalace](https://github.com/milla-jovovich/mempalace)가 3일 만에 GitHub 스타 23,000개를 넘겼어. 만든 사람이 좀 특이한데 — 영화 바이오하자드로 유명한 배우 밀라 요보비치와 개발자 Ben Sigman이야. LongMemEval 벤치마크에서 96.6%(raw 기준)를 달성했고, 월 $19~249짜리 Mem0나 $25+짜리 Zep보다 점수가 높아.
 
+## 왜 중요할까
+
 작동 방식은 심플해. 대화 내용을 AI가 요약하는 게 아니라 전부 그대로 저장하고, 벡터 검색으로 꺼내 쓰는 구조거든. ChromaDB와 SQLite로 로컬에서 돌리니까 API 비용이 0원이야. AI 요약이 맥락을 날리는 문제를 원천 차단한 셈.
+
+## 앞으로 볼 점
 
 LLM에 기억을 붙이고 싶었던 사람들한테는 당장 시도해볼 만한 선택지야. 유료 서비스 쓰기 전에 로컬에서 먼저 테스트해보는 것도 방법이거든.

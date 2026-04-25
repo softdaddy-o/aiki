@@ -57,12 +57,34 @@ tags:
   - open-source
   - developer-tools
 guideVersion:
-  common: 1.0.0
-  news: 1.0.0
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a03bd24280df708f"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 로컬에서 LLM을 돌리는 게 기술 덕후의 취미에서 실무 도구로 바뀌고 있어. [r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/) 커뮤니티가 26만 6500명을 넘겼는데, 이 사람들이 공유하는 사용 패턴을 보면 단순 호기심이 아니라 실제 업무 적용이야. API 비용 제로, 완전한 데이터 프라이버시, 속도 제한 없음 — 이 세 가지가 핵심 동기거든.
 
+## 왜 중요할까
+
 가장 많이 쓰는 영역은 코딩 보조야. 코드 완성, 리팩토링, 테스트 코드 생성을 [Ollama](https://ollama.com/)로 로컬에서 돌리면 [ChatGPT](/ko/wiki/chatgpt/)나 [Claude](/ko/wiki/claude/) 구독 없이도 일상 코딩의 상당 부분을 커버할 수 있어. 그 다음이 민감 문서 처리 — 회사 기밀 코드나 개인정보가 포함된 문서를 외부 서버에 보내지 않아도 되니까. 문서 생성(코드 주석, API 문서)도 자주 나오는 사용처야.
+
+## 앞으로 볼 점
 
 시작점은 생각보다 낮아. [Llama](/ko/wiki/llama/) 3.1 8B를 [Ollama](/ko/wiki/ollama/)로 깔면 8GB RAM이면 충분하고, 토큰당 비용은 말 그대로 $0이야. 부족하면 Qwen3 14B(16GB RAM 필요)나 코딩 전용 모델로 올리면 돼. 다만 솔직히 말하면, 복잡한 추론이나 긴 맥락이 필요한 작업에선 아직 클라우드 API가 낫다. RTX 4060 Ti 기준 40-50만 원의 GPU 구매 비용도 고려해야 하고. 로컬 LLM은 "전부 대체"가 아니라 "일부 작업을 빠르고 싸게" 처리하는 도구로 보는 게 현실적이야.

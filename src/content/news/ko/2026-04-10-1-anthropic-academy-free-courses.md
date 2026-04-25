@@ -57,12 +57,34 @@ tags:
   - ai-education
   - free-courses
 guideVersion:
-  common: 1.0.0
-  news: 1.0.0
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "4da134ff3aaf2904"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Anthropic이 [Anthropic Academy](https://www.anthropic.com/learn)를 통해 13개 AI 과정을 전부 무료로 열었어. [Claude](/ko/wiki/claude/) 101 기초부터 API 개발, [MCP](/ko/wiki/mcp/) 프로토콜, [Claude Code](/ko/wiki/claude-code/) 활용까지 — 이메일 가입만 하면 바로 들을 수 있고, 수료하면 LinkedIn에 올릴 수 있는 공식 수료증도 받을 수 있다.
 
+## 왜 중요할까
+
 과정은 3개 트랙으로 나뉘어. AI Fluency는 비개발자도 AI를 제대로 이해하고 쓸 수 있게 잡아주는 기초 트랙이고, Product [Training](/ko/wiki/training/)은 업무에 [Claude](/ko/wiki/claude/)를 녹이는 실무 트랙이야. Developer Deep-Dives가 제일 빡센데, API 과정만 84강에 8시간 분량이거든. 시스템 프롬프트 설계부터 [도구 사용](/ko/wiki/tool-use/), [컨텍스트 윈도우](/ko/wiki/context-window/) 관리, 아키텍처 패턴까지 다룬다.
+
+## 앞으로 볼 점
 
 왜 이걸 무료로 푸는 걸까? [Claude](/ko/wiki/claude/) 생태계를 키우려는 전략이야. 개발자가 [Claude](/ko/wiki/claude/) API에 익숙해지면 자연스럽게 프로덕션에서도 [Claude](/ko/wiki/claude/)를 쓰게 되거든. AI 도구를 배우고 싶은데 어디서 시작할지 모르겠다면, [anthropic.skilljar.com](https://anthropic.skilljar.com/)에서 [Claude](/ko/wiki/claude/) 101부터 시작해보는 게 가장 빠른 길이야.

@@ -54,10 +54,35 @@ tags:
   - Gemini
   - NotebookLM
   - AI도구
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "15dc91040cbf8a18"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 [Gemini 앱에 Notebooks 기능](https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/)이 4월 8일 추가됐어. 핵심은 Gemini에서 나눈 대화가 NotebookLM과 자동 동기화된다는 거야. Gemini에서 정보를 모으고 대화하다가 그 맥락 그대로 NotebookLM으로 넘겨서 Video Overview나 인포그래픽을 뽑을 수 있는 구조거든.
 
+## 왜 중요할까
+
 소스는 최대 300개까지 묶을 수 있고, 커스텀 지시사항이나 파일도 노트북 단위로 관리할 수 있어. 지금은 Gemini AI Ultra·Pro·Plus 구독자 대상 웹 버전부터 시작하고, 모바일과 무료 사용자에게는 순차적으로 확대된대.
+
+## 앞으로 볼 점
 
 Gemini와 NotebookLM을 따로 쓰고 있었다면 이제 굳이 앱을 왔다갔다 할 필요가 없어졌어. 리서치 시작은 Gemini, 정리와 시각화는 NotebookLM — 이 흐름을 한 번 써보는 것도 나쁘지 않을 거야.
