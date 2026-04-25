@@ -53,11 +53,11 @@ tags:
   - prompting
   - o3
   - llm
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "75bb6d15bdc925e9"
+  contentHash: "dfad411bade64dff"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 무슨 일이 있었나

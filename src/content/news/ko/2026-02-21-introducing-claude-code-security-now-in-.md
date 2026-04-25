@@ -52,11 +52,11 @@ factCheck:
 tags:
   - claude-code
   - claude
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "e03e83b19cb7a888"
+  contentHash: "e742ffa2b76d6418"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 무슨 일이 있었나
