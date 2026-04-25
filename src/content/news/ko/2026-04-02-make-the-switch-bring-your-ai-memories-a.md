@@ -50,10 +50,35 @@ tags:
   - google
   - memory
   - migration
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "98683bf374009ced"
+  reviewedAt: "2026-04-25T09:55:58Z"
 ---
+## 무슨 일이 있었나
 
 Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다 [원문](https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/)은 Make the switch: Bring your [AI memories](/ko/wiki/memory/) and chat history to Gemini 기준으로 확인한 내용이야. 이 이슈는 Gemini 앱을 사용하면 처음부터 시작할 필요 없이 다른 AI 채팅 앱에서 더 쉽게 전환할 수 있습니다가 실제 시장과 개발 흐름에서 왜 중요한지 빠르게 파악하게 해준 쪽에서 읽어야 맥락이 빨리 잡혀.
 
+## 왜 중요할까
+
 AI 추억과 채팅 기록을 Gemini로 가져오세요, Gemini 앱을 사용하면 처음부터 시작할 필요…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
+
+## 앞으로 볼 점
 
 실무에서는 이 업데이트를 바로 도입할지보다 먼저 지금 쓰는 모델, 도구, 배포 흐름과 붙일 수 있는지를 체크하면 돼. 그렇게 봐야 이 변화가 단순 화제인지, 다음 분기 우선순위를 바꿀 수준인지 판단하기 쉬워져.
