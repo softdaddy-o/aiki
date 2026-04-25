@@ -1,8 +1,8 @@
 # AIKI Content Guide — Common Composition
 
 > **Guide ID**: `common`
-> **Version**: `2.2.0`
-> **Last Updated**: 2026-04-23
+> **Version**: `2.3.0`
+> **Last Updated**: 2026-04-25
 > **Applies to**: News, Wiki, Projects 모든 콘텐츠
 
 이 문서는 AIKI 전체의 공통 콘텐츠 구성 문서다. tone은 `docs/tone-guide-common.md`가 맡고, 타입별 구조는 `docs/content-guide-news.md`, `docs/content-guide-wiki.md`, `docs/content-guide-projects.md`가 맡는다.
@@ -26,23 +26,23 @@
 ```yaml
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.0"
+  common: "2.3.0"
+  news: "3.1.1"
 ```
 
 **위키 페이지:**
 ```yaml
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  wiki: "3.1.0"
+  common: "2.3.0"
+  wiki: "3.1.1"
 ```
 
 **프로젝트 페이지:**
 ```yaml
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
+  common: "2.3.0"
   projects: "4.1.0"
 ```
 
@@ -70,8 +70,8 @@ guideVersion:
 # tone 2.0.0 이전 버전으로 생성된 뉴스 기사 찾기
 grep -Erl "tone: \"(0|1)\\." D:/srcp/aiki/src/content/news/ko/
 
-# common 2.2.0 이전 위키 페이지 찾기
-grep -Erl "common: \"(0|1|2\\.[01])\\." D:/srcp/aiki/src/content/wiki/ko/
+# common 2.3.0 이전 위키 페이지 찾기
+grep -Erl "common: \"(0|1|2\\.[0-2])\\." D:/srcp/aiki/src/content/wiki/ko/
 
 # guideVersion 필드가 아예 없는 레거시 콘텐츠 찾기
 grep -rL "guideVersion" D:/srcp/aiki/src/content/news/ko/
@@ -106,6 +106,11 @@ grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 - 네니엘이 읽고 "그래서 나한테 뭐가 달라지는데?"라는 질문에 답이 없으면 실패
 - 기술 깊이보다 실무 감각 우선
 - 전문 용어는 쓰되 맥락으로 이해 가능하게
+
+**공개 카피 금지:**
+- `네니엘`, `네니얼`, `내니엘`, `내니얼`은 내부 페르소나 이름이다.
+- 뉴스, 위키, 프로젝트의 title, summary, readerValue, 본문, factCheck, showcase 카피에 직접 쓰지 않는다.
+- 공개 글에서는 `독자`, `사용자`, `IT 업무자동화에 관심 있는 사람`, `개발자`처럼 문맥형 표현으로 바꾼다.
 
 ---
 
@@ -243,6 +248,7 @@ factCheck:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.3.0 | 2026-04-25 | 내부 독자 페르소나 이름을 공개 카피에 직접 쓰지 못하도록 금지 규칙을 추가했다. |
 | 2.2.0 | 2026-04-23 | `readerValue` 예시에서 tone을 유도하는 템플릿 문장을 걷고, 구조 문서답게 역할 설명만 남겼다. |
 | 2.1.0 | 2026-04-23 | 공통 구성 문서의 예시 `guideVersion`과 레거시 탐색 예시를 최신 tone 정본(`tone-guide-common.md` v2.0.0) 기준으로 갱신. |
 | 2.0.0 | 2026-04-23 | tone 규칙을 `docs/tone-guide-common.md`로 분리하고, 이 문서를 공통 구성 문서로 재정의. `guideVersion.tone` 추가. |

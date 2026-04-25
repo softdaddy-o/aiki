@@ -55,6 +55,8 @@ const FORBIDDEN_COPY_PATTERNS = [
     /^이 글에서 해결하는 독자의 문제는\s*/u,
 ];
 
+const FORBIDDEN_PERSONA_NAME_PATTERN = /(?:네니엘|네니얼|내니엘|내니얼)/u;
+
 const BAD_WIKI_MODEL_SUMMARY_PATTERNS = [
     /반복해서 등장하는 AI 모델/u,
     /맥락에서 반복해서 등장하는 AI 모델/u,
@@ -267,6 +269,10 @@ function extractFirstParagraph(text) {
 }
 
 function collectWikiFactCheckText(frontmatter) {
+    return collectFactCheckText(frontmatter);
+}
+
+function collectFactCheckText(frontmatter) {
     const checks = Array.isArray(frontmatter && frontmatter.factCheck && frontmatter.factCheck.checks)
         ? frontmatter.factCheck.checks
         : [];
@@ -276,6 +282,21 @@ function collectWikiFactCheckText(frontmatter) {
         ...(Array.isArray(check && check.items) ? check.items.map((item) => String(item || '')) : []),
         ...(Array.isArray(check && check.findings) ? check.findings.map((item) => String(item || '')) : []),
     ]).join('\n');
+}
+
+function collectRenderedCopyText(frontmatter, body, showcaseText = '') {
+    return [
+        String(frontmatter && frontmatter.title || ''),
+        String(frontmatter && frontmatter.summary || ''),
+        String(frontmatter && frontmatter.readerValue || ''),
+        String(body || ''),
+        String(showcaseText || ''),
+        collectFactCheckText(frontmatter),
+    ].join('\n');
+}
+
+function containsForbiddenPersonaName(text) {
+    return FORBIDDEN_PERSONA_NAME_PATTERN.test(String(text || ''));
 }
 
 function containsHonorificTone(text) {
@@ -715,6 +736,7 @@ function collectFileFindings(filepath, contentType) {
     const showcaseToneText = getShowcaseToneText(fm, targetName);
     const toneTargetText = buildToneTargetText(fm, body, targetName, showcaseToneText);
     const toneResults = getToneResults(toneTargetText, targetName);
+    const renderedCopyText = collectRenderedCopyText(fm, body, showcaseToneText);
 
     const push = (severity, rule, message) => findings.push(toFinding('pre-publish', severity, rule, `${targetName}/${filename}: ${message}`));
 
@@ -738,6 +760,10 @@ function collectFileFindings(filepath, contentType) {
 
     if (FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(String(fm.readerValue || '')))) {
         push('fail', 'forbidden-reader-value-copy', 'readerValue uses forbidden copy phrasing');
+    }
+
+    if (containsForbiddenPersonaName(renderedCopyText)) {
+        push('fail', 'forbidden-persona-name', 'content copy mentions the internal reader persona name; use generic reader phrasing instead');
     }
 
     if (targetName === 'news' && isRedditMediaUrl(fm.sourceUrl) && findPostByUrl(fm.sourceUrl)) {
@@ -847,6 +873,7 @@ for (const target of CONTENT_TARGETS) {
         const showcaseToneText = getShowcaseToneText(fm, target.name);
         const toneTargetText = buildToneTargetText(fm, body, target.name, showcaseToneText);
         const toneResults = getToneResults(toneTargetText, target.name);
+        const renderedCopyText = collectRenderedCopyText(fm, body, showcaseToneText);
 
         for (const field of target.requiredFields) {
             if (!fm[field]) {
@@ -877,6 +904,10 @@ for (const target of CONTENT_TARGETS) {
 
         if (FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(String(fm.readerValue || '')))) {
             errors.push(`${target.name}/${filename}: readerValue uses forbidden "값" phrasing`);
+        }
+
+        if (containsForbiddenPersonaName(renderedCopyText)) {
+            errors.push(`${target.name}/${filename}: content copy mentions the internal reader persona name; use generic reader phrasing instead`);
         }
 
         if (target.name === 'news' && isRedditMediaUrl(fm.sourceUrl) && findPostByUrl(fm.sourceUrl)) {

@@ -41,4 +41,14 @@ describe('script-findings', () => {
             fs.rmSync(dir, { recursive: true, force: true });
         }
     });
+
+    it('flags direct mentions of the internal reader persona in published copy', () => {
+        const file = path.join(__dirname, 'fixtures', 'forbidden-persona-news.md');
+        const findings = collectFindings(file, 'news');
+
+        assert.ok(
+            findings.some((finding) => finding.rule === 'forbidden-persona-name'),
+            'expected a forbidden-persona-name finding',
+        );
+    });
 });
