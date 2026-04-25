@@ -56,8 +56,27 @@ tags:
   - 보안
   - anthropic
   - 취약점
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "5fd200ce1bce345b"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
-
 ## 명령어 50개 넘기면 보안 체크가 꺼져
 
 [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)에서 사용자가 설정한 deny 규칙이 특정 조건에서 무시되는 취약점이 나왔어. 셸 명령어를 `&&`나 `||`로 50개 이상 연결하면, Claude Code가 개별 명령어 보안 분석을 건너뛰고 전체를 한꺼번에 승인 요청해버리거든.

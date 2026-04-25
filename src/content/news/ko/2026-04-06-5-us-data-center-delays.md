@@ -55,8 +55,27 @@ tags:
   - 전력
   - 중국-부품
   - 공급망
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "1ac96c82438170f2"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
-
 ## 6500억 달러 투자인데 절반이 막혔대
 
 Alphabet, Amazon, Meta, Microsoft가 2026년 AI 인프라에 6,500억 달러 이상을 투입할 계획이거든. 근데 [Sightline Climate 분석](https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers)에 따르면, 미국에서 올해 예정된 데이터센터 건설의 30~50%가 지연 또는 취소될 전망이래.

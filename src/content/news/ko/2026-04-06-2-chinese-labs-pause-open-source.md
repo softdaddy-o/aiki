@@ -54,8 +54,27 @@ tags:
   - LocalLLaMA
   - MiniMax
   - Qwen
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8b7ba07e1ba1cda7"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
-
 ## 4개 랩이 동시에 멈췄어
 
 MiniMax-m2.7, [GLM-5](/ko/wiki/glm-5/) 시리즈, Qwen3.6, Mimo-v2-pro — 중국 주요 AI 랩들이 최신 모델 웨이트를 동시에 공개하지 않고 있어. [r/LocalLLaMA](/ko/wiki/localllama/)에서 [화제](https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/)가 됐는데, 이게 좀 이례적이거든.

@@ -52,8 +52,27 @@ tags:
   - USC
   - 창의성
   - 다양성
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "ae7a72bbc51e9f00"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
-
 ## "이제 다들 비슷하게 들려"
 
 CNN이 ["Everyone now kind of sounds the same"](https://www.cnn.com/2026/04/04/health/ai-impact-college-student-thinking-wellness)이라는 제목으로 이 연구를 다뤘어. USC Dornsife의 Morteza Dehghani 교수 팀이 학술지 Trends in Cognitive Sciences(2026년 3월)에 발표한 건데, Reddit에서도 [화제](https://www.reddit.com/r/singularity/comments/1sd4crj/)가 됐어.

@@ -59,17 +59,42 @@ tags:
   - agi
   - economics
   - regulation
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c980bc3cf09328ae"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 OpenAI가 "[Intelligence Age를 위한 산업 정책](https://openai.com/index/industrial-policy-for-the-intelligence-age/)"을 공개했어. 핵심은 한 줄이야. AI가 경제 구조를 바꿀 만큼 커질 테니, 그 충격을 시장에만 맡기지 말자는 거야.
 
 문서에서 밀고 있는 축은 세 개야. 발표일은 `4월 6일`, 분량은 `32페이지`고, 적어도 OpenAI가 이걸 임시 블로그 포스트가 아니라 정책 패키지로 다루고 있다는 건 분명해.
+
+## 왜 중요할까
 
 - 공공 자산 펀드: AI 경제 이익 일부를 국민 전체가 공유하자는 제안
 - 사회 안전망: 재교육, 소득 지원, 노동 전환 대책 강화
 - 인프라와 특구: 데이터센터, 전력망, 인허가를 국가 단위로 밀어주자는 그림
 
 이게 왜 의미 있냐면, 지금까지 AI 기업들은 보통 “생산성 향상”만 말했지 “일자리 충격”은 흐렸거든. 그런데 이번엔 OpenAI가 그 부분을 정면으로 인정했어. Sam Altman이 뉴딜급 사회 계약을 언급한 것도 같은 맥락이고.
+
+## 앞으로 볼 점
 
 물론 비판도 바로 붙었어. [Fortune](https://fortune.com/2026/04/06/sam-altman-says-ai-superintelligence-is-so-big-that-we-need-a-new-deal-critics-say-openais-policy-ideas-are-a-cover-for-regulatory-nihilism/)과 다른 매체들은 “규제 완화는 원하면서 비용은 공공이 떠안게 하는 설계 아니냐”고 보고 있어. 실제로 문서는 방향 제시는 많지만, 펀드를 어떻게 조성하고 누구에게 얼마를 나눌지는 아직 비어 있어.
 

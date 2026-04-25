@@ -55,8 +55,27 @@ tags:
   - RAG
   - Obsidian
   - LLM
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "d6b4d28ed54001b0"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
-
 ## RAG도 벡터 DB도 안 쓴대
 
 Andrej Karpathy가 4월 3일 GitHub Gist에 ['LLM Knowledge Bases'](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)라는 글을 올렸어. 방법이 생각보다 단순해. 원본 문서를 LLM한테 주고, 구조화된 마크다운 위키로 컴파일시키는 거야. 백링크도 자동 생성되고. 프론트엔드는 [Obsidian](https://obsidian.md/).
