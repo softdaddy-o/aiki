@@ -5,9 +5,6 @@ lang: ko
 summary: 'CLI는 텍스트 명령으로 프로그램을 움직이는 인터페이스야. 반복 작업, 원격 운영, 자동화가 핵심인 순간엔 GUI보다 훨씬 강해.'
 readerValue: 이 페이지를 보면 CLI를 배워야 하는 상황과 오히려 피해야 하는 상황을 금방 가를 수 있어.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: "3.0.0"
 aliases:
   - CLI
   - Command Line Interface
@@ -93,16 +90,26 @@ factCheck:
       findings:
         - '오입력, 권한 상승, 자동화 실패 확산을 구체 사례로 남겼어.'
         - 도입 기준과 회피 기준을 둘 다 적어서 한쪽으로 몰리지 않게 했어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "6293d2d92bef3c0e"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 CLI는 버튼 대신 명령문을 쳐서 프로그램을 움직이는 작업 방식이야. 사람이 한 번 친 절차를 그대로 다시 실행하거나 스크립트로 묶기 쉬워서, 서버 운영과 개발 자동화의 기본 축으로 자주 쓰여. 같은 작업을 자주 반복하고 결과를 텍스트 로그로 남겨야 할수록 CLI 쪽 이점이 커져.

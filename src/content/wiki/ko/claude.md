@@ -24,8 +24,9 @@ modelProfile:
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Anthropic
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Claude(클로드)
 relatedTerms:
@@ -92,6 +93,22 @@ factCheck:
         - 제품 간판과 모델 버전을 분리해야 비교가 성립한다는 점을 관련 항목까지 이어서 설명했어.
       findings:
         - Claude라는 한 단어만으로는 실제 선택 정보가 부족해.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: 5290cfd0a0f62dc1
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Claude는 [Anthropic](/ko/wiki/anthropic/)이 만드는 대형 언어 모델 계열 이름이자, 그 모델을 전면에 세운 사용자용 AI 서비스 이름이야. 그래서 Claude라는 말만으로는 특정 버전 하나를 찍는 게 아니라 모델 가족과 제품 간판이 겹친 상태라고 보는 게 맞아.

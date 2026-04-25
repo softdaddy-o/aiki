@@ -23,8 +23,9 @@ modelProfile:
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Anthropic
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Claude Sonnet (클로드 소넷)
 relatedTerms:
@@ -86,6 +87,22 @@ factCheck:
         - >-
           기사 문맥에서 Claude Sonnet은 최신 Sonnet 버전을 느슨하게 부르는 표현일 수 있어서 실제 도입 판단은 구체
           버전까지 내려가야 해.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: b8f1505f7c2ad65e
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Claude Sonnet은 [Anthropic](/ko/wiki/anthropic/)이 Claude 안에서 주력 범용 모델선으로 내세우는 계열 이름이야. 특정 버전 하나를 가리킬 때도 있지만, 기사에서는 보통 코딩과 실무 자동화에 넓게 쓰는 Sonnet 라인 전체를 뜻하는 경우가 많아.

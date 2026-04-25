@@ -9,9 +9,6 @@ readerValue: >-
   보조 기능 하나인지, 팀의 수정·테스트·리뷰 흐름까지 바꾸는 도구인지 빠르게 가르는 데 도움돼. 모델 이름과 제품 이름을 섞어 읽는 실수도
   줄여줘.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: "3.0.0"
 aliases:
   - claude code
 relatedTerms:
@@ -76,16 +73,26 @@ factCheck:
         - 모델 성능 비교 기사와 개발 운영 도구 기사 사이의 문맥 차이도 분리해 뒀어.
       findings:
         - 에이전트형 코딩 도구는 성능보다 권한 설계가 더 큰 변수일 때가 많아.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "3138c6f4b5281d78"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Claude Code는 [Anthropic](/ko/wiki/anthropic/)이 만든 에이전트형 코딩 도구야. 단순히 답만 주는 모델이 아니라 프로젝트를 읽고 수정하고 실행까지 이어서 처리하는 제품으로 이해하는 게 맞아.

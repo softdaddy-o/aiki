@@ -31,8 +31,9 @@ modelProfile:
   weightsOpen: '오픈 웨이트 미공개, API 제공 중심. 이렇게 보면 돼.'
   vendor: Anthropic
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - claude sonnet 4.5
 relatedTerms:
@@ -100,6 +101,22 @@ factCheck:
           붙였어.
       findings:
         - 버전 페이지는 항상 날짜와 발표 문맥까지 같이 읽어야 안전해.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: e412dc36aeaf42f9
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Claude Sonnet 4.5는 [Anthropic](/ko/wiki/anthropic/)이 Claude 계열 안에서 따로 이름 붙여 발표한 구체 버전명이야. Claude라는 큰 브랜드 아래에서 실제 선택과 비교의 단위가 되는 모델 이름이라고 보면 돼.

@@ -5,9 +5,6 @@ lang: ko
 summary: "Cline은 VS Code 계열 IDE 안에서 파일 수정, 명령 실행, 브라우저 작업까지 잇는 코딩 에이전트야."
 readerValue: "이 이름이 단순 코드 추천기가 아니라, 권한 승인 아래 실제 작업을 수행하는 IDE 에이전트라는 걸 빠르게 이해하는 데 도움이 돼."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "클라인"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
         - "또 Cline을 그냥 VS Code 추천 확장처럼 읽지 않게, 실제 작업 실행까지 간다는 점을 분명히 했어."
       findings:
         - "승인과 안전을 동일시하는 오해를 줄였어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "026a19e3ed13ac86"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Cline은 편집기 안에서 코드를 읽고, 파일을 고치고, 터미널 명령까지 이어서 다룰 수 있게 만든 AI 코딩 에이전트야. 핵심은 추천 문장 몇 개를 보여 주는 수준이 아니라, 실제 작업 단계를 사용자의 승인 아래 실행한다는 점이야.

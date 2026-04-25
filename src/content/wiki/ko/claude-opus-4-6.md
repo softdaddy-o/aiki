@@ -31,8 +31,9 @@ modelProfile:
   weightsOpen: '오픈 웨이트 미공개, 서비스형 제공 중심. 이렇게 보면 돼.'
   vendor: Anthropic
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - claude opus 4.6
   - opus 4.6
@@ -97,6 +98,22 @@ factCheck:
           뒀어.
       findings:
         - '4.6은 계열 최초 1M 컨텍스트라는 점이 워낙 강해서, 버전 구분보다 무조건 긴 문맥 모델로만 기억되는 위험이 남아 있어.'
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: 30744a9517fbf077
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Claude Opus 4.6은 [Anthropic](/ko/wiki/anthropic/)이 2026년 2월 5일 발표한 Opus 버전 모델이야. Claude API와 클라우드 채널에서 장기 코딩, 리서치, 업무 자동화를 맡기는 고성능 라인 버전으로 보면 돼.
