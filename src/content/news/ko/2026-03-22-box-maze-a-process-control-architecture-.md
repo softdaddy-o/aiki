@@ -54,11 +54,11 @@ tags:
   - llm
   - api
   - reasoning
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "e8166a37657945d2"
+  contentHash: "2893cb4fb8b43687"
   reviewedAt: "2026-04-25T09:55:58Z"
 ---
 ## 무슨 일이 있었나
