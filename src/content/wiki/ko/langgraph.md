@@ -58,11 +58,11 @@ factCheck:
         - "또 LangChain과 완전히 같은 것으로 읽지 않게, 낮은 레벨 오케스트레이션이라는 성격을 분리해서 적었어."
       findings:
         - "프레임워크 역할과 모델 능력을 섞는 오해를 막았어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "a52fae7a3055cdcf"
+  contentHash: "e2e8e8d57dbabbf3"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

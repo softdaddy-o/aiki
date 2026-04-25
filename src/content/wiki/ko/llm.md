@@ -57,11 +57,11 @@ factCheck:
         - "그래서 말이 자연스럽다고 해서 항상 사실 판단이나 계산이 정확한 건 아니야."
       findings:
         - "LLM을 이해할 때는 앱보다 모델, 정답보다 확률적 생성이라는 축을 먼저 잡는 게 중요해."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "9f932a233b3515b0"
+  contentHash: "5a884a4bba65c8ee"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

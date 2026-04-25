@@ -29,10 +29,6 @@ modelProfile:
     고정하면 안 돼.
   weightsOpen: 서비스형 제공 중심. 이렇게 보면 돼.
   vendor: Moonshot AI / Kimi
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - kimi k2
   - kimi-k2
@@ -116,22 +112,26 @@ factCheck:
         - '과장 방지: 최고 성능 같은 단정 대신 코딩 에이전트, 툴 호출, 긴 작업 흐름에 강하다는 실사용 설명으로 눌렀어.'
       findings:
         - 독자가 오픈 모델 하나와 호스팅 API 별칭을 같은 층위로 읽는 혼선을 줄였어.
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: eb6a3f24c6b6c987
-  reviewedAt: '2026-04-25T09:55:57Z'
-formatVersion: 2
+  contentHash: "38dfce399ab1345e"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Kimi K2는 Moonshot AI가 만든 [에이전트](/ko/wiki/agent/) 지향 MoE 언어모델 계열이야. 그냥 말을 잘하는 챗봇보다 코드 작성, 툴 호출, 여러 단계 작업 실행에 맞춘 모델이라고 보면 감이 빨리 와. 지금 Kimi 플랫폼에서 `kimi-k2`라고 부를 때는 보통 0905 계열 API를 가리킨다고 봐도 돼.

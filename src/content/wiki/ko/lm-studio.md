@@ -57,11 +57,11 @@ factCheck:
       findings:
         - 로컬 앱 소개를 보면 모델 품질과 실행 환경이 한 덩어리처럼 보이기 쉬워.
         - 실제로는 앱보다 포맷 호환성과 장비 스펙이 체감 차이를 크게 만든다.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "22ff99eae09b6a90"
+  contentHash: "039e0d6f57644815"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

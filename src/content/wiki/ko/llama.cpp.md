@@ -58,11 +58,11 @@ factCheck:
       findings:
         - "llama.cpp는 모델 자체가 아니라 모델을 실행하는 런타임이야."
         - "Ollama와 같은 상위 배포 도구와 겹치는 부분은 있어도 같은 층위는 아니야. llama.cpp 쪽이 더 아래에서 포맷 호환과 추론 실행을 직접 다뤄."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "845cc6729e8a262e"
+  contentHash: "04642bb753d4d8be"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

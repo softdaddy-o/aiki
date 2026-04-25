@@ -60,11 +60,11 @@ factCheck:
         - "표현 점검: 새 모델을 학습시키는 도구라는 인상을 주는 문장은 빼고 검색 연결 역할을 강조했어."
       findings:
         - "개념 경계가 흐려지지 않게 도구의 위치를 먼저 설명했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -78,7 +78,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "a0edd47d694d1632"
+  contentHash: "993d52d0f6d15970"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

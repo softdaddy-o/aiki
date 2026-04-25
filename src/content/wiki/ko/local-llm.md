@@ -63,11 +63,11 @@ factCheck:
         - "또 로컬 실행이 곧 완전한 프라이버시 보장을 뜻하는 것도 아니고, 주변 도구와 로그 설정까지 같이 봐야 해."
       findings:
         - "local LLM의 핵심은 모델 능력보다 실행 위치와 통제권의 이동에 있어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -81,7 +81,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "3c3ca1bc5629ab70"
+  contentHash: "d1cd08803f1769ed"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

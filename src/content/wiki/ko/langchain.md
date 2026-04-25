@@ -55,11 +55,11 @@ factCheck:
       findings:
         - "최근 공식 마케팅 문구에 'platform' 표현이 커졌지만, 본문 설명은 README와 제품 페이지의 공통분모인 오픈소스 프레임워크 축에 맞췄다."
         - "LangChain과 LangGraph의 경계는 점점 더 촘촘해지고 있어서, 이후 문서 갱신 때는 런타임 역할 구분을 다시 확인할 필요가 있다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -73,7 +73,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "83d0536eb48d0d09"
+  contentHash: "5bb5b3160eee1012"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
