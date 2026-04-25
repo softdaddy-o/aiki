@@ -5,9 +5,6 @@ lang: ko
 summary: "Tool Use는 모델이 검색, 코드 실행, API 같은 바깥 기능을 호출하고 그 결과를 다시 받아 다음 판단과 답변에 반영하는 실행 방식이야. 핵심은 답변 스타일이 아니라 실행 루프와 시스템 연결에 있어."
 readerValue: "이 표현이 단순 답변 생성 기법이 아니라 외부 시스템 호출과 결과 연결 구조를 가리킨다는 점을 빨리 구분하게 해줘."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "tool use"
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
       findings:
         - "Tool Use는 만능 자동화가 아니라 도구 호출과 결과 반영을 묶는 실행 패턴이야."
         - "에이전트, 함수 호출, 오케스트레이션 프레임워크를 같은 층위로 섞지 않게 정리했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e3e75a0137b11b27"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Tool Use는 모델이 외부 도구를 골라 호출하고, 그 결과를 다시 받아 다음 행동이나 답변에 반영하는 실행 방식이야. 그래서 이 말은 문장을 그럴듯하게 만드는 기술보다 검색, 계산, 파일 작업, API 호출 같은 바깥 일을 연결하는 구조를 뜻해.

@@ -5,9 +5,6 @@ lang: ko
 summary: "Text to Speech(음성 합성)는 글을 사람이 말하듯 들리는 소리로 바꿔서 읽어주기와 음성 인터페이스를 만드는 기술이야."
 readerValue: "이 말을 보면 단순 낭독 기능인지, 제품 톤과 반응성을 좌우하는 출력 계층인지 가르기 쉬워져."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "tts"
 relatedTerms:
@@ -55,6 +52,26 @@ factCheck:
       items:
         - "흔한 오해 점검: TTS는 목소리 톤만 좋으면 된다고 생각하기 쉬운데 실제론 지연과 긴 문장 안정성도 중요해."
         - "반례 점검: 화자 모사 기능은 품질 문제가 아니라 정책과 저작권 문제까지 같이 따라온다는 점을 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "9919f9a66217256d"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Text to Speech는 글을 소리로 읽어 주는 기술이야. 화면에 있는 텍스트를 귀로 들을 수 있는 출력으로 바꾸는 계층이라고 보면 돼.

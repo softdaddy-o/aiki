@@ -22,8 +22,9 @@ modelProfile:
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Google DeepMind
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Veo (비오)
 relatedTerms:
@@ -86,6 +87,22 @@ factCheck:
         - '또 완성형 영화 제작기처럼 기대하기 쉽지만, 실무에서는 콘셉트 검증과 시안 생성부터 보는 게 더 정확해.'
       findings:
         - Veo는 구글 창작 모델 라인업 안의 영상 전문 모델이라는 점을 남겼어.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: 2a2674b9f3673dd3
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Veo는 [Google DeepMind](/ko/wiki/google-deepmind/)의 영상 생성 모델 계열이야. 대화형 범용 모델이 아니라, 프롬프트를 받아 영화 같은 짧은 영상 결과물을 만드는 창작용 모델로 보면 돼.

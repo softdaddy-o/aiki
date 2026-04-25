@@ -7,9 +7,6 @@ summary: >-
   중심 저장소야. RAG에서는 문서 조각을 넣어 두고 질문과 관련 있는 내용을 꺼내 오는 핵심 계층으로 많이 쓰여.
 readerValue: RAG에서 문서를 어디에 저장하고 어떤 방식으로 꺼낼지 판단할 때 벡터 DB가 정확히 어떤 역할을 하는지 바로 잡을 수 있어.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - vector database
 relatedTerms:
@@ -69,6 +66,26 @@ factCheck:
         - 정확한 문자열 검색까지 전부 대체할 수 있다는 식의 오해를 막았어.
       findings:
         - 벡터 DB를 넣었는데도 검색 품질이 안 오르면 저장소보다 임베딩과 문서 분할 설계를 먼저 다시 봐야 해.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a0f3ba7f79dfcdb8"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Vector Database는 텍스트, 이미지, 코드 같은 데이터를 [임베딩](/ko/wiki/embedding/) 벡터로 저장하고 질의와 가까운 항목을 유사도 기준으로 찾아주는 데이터베이스야. 정확히 같은 값보다 뜻이 비슷한 대상을 찾는 데 강해서 의미 검색 계층에서 많이 쓰여.

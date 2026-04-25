@@ -5,9 +5,6 @@ lang: ko
 summary: "Training(학습)은 모델이 데이터를 보면서 내부 가중치를 바꾸는 과정이야. 이 개념을 잡아두면 성능 향상, 비용 증가, training-free 같은 말이 각각 어디를 가리키는지 바로 읽을 수 있어."
 readerValue: "이 말을 알면 어떤 변화가 진짜 학습인지, 아니면 프롬프트 요령이나 추론 최적화인지 빠르게 가를 수 있어."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "training"
   - "Training"
@@ -68,6 +65,26 @@ factCheck:
         - "오해 점검: 사용자가 서비스에 질문했다고 그 대화가 자동으로 학습에 들어간다고 단정하지 않게 정책 분리 맥락을 넣었어."
       findings:
         - "training을 너무 넓게 쓰면 비용, 성능, 개인정보 이슈를 전부 같은 문제로 읽게 되는 위험이 남아 있어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "42ff18c7cebcb588"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Training(학습)은 모델이 데이터 예시를 보면서 내부 가중치를 바꾸는 과정이야. 가중치는 모델이 어떤 패턴을 더 중요하게 볼지 정하는 숫자들이고, training은 그 숫자들을 반복해서 조정하는 일이야.

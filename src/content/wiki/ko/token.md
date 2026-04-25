@@ -9,9 +9,6 @@ readerValue: >-
   컨텍스트 창이 얼마나 큰지, 답변이 어디서 끊길 수 있는지, 비용이 입력과 출력 중 어디에서 커지는지를 숫자만 보고도 바로 판단할 수 있게
   해줘.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - tokenization
 relatedTerms:
@@ -71,6 +68,26 @@ factCheck:
         - 큰 컨텍스트 숫자가 곧 좋은 성능이라는 식으로 점프하지 않게 입력 한도와 출력 한도를 분리해서 보게 했어.
       findings:
         - 글자 수 감각으로 토큰을 짐작하면 실제 비용과 제한을 자주 잘못 읽게 돼.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "315d0bef24f7588a"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Token은 모델이 텍스트를 받아들일 때 바로 세는 처리 단위야. 사람이 보는 글자 수나 단어 수와 같지 않을 수 있고, 한 단어가 여러 조각으로 나뉘거나 짧은 묶음이 하나로 잡히기도 해.

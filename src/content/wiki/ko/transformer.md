@@ -5,9 +5,6 @@ lang: ko
 summary: "Transformer는 토큰 사이의 관계를 attention으로 계산해 문맥을 다루는 신경망 아키텍처다. GPT 계열을 포함한 현대 언어 모델의 공통 바탕으로 널리 쓰였고, 새 모델 이름이라기보다 모델 내부 설계 방식을 가리키는 말로 이해하는 편이 맞아."
 readerValue: "Transformer가 제품명이나 브랜드명이 아니라 모델 안쪽 계산 구조를 뜻한다는 점부터 잡아두면, 기사에서 말하는 '아키텍처 변화'와 '모델 출시'를 헷갈리지 않고 읽을 수 있어."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Transformer (트랜스포머)"
 relatedTerms:
@@ -60,6 +57,26 @@ factCheck:
       findings:
         - "Transformer는 브랜드명이 아니라 아키텍처라는 점을 흐리면 기사 해석이 바로 틀어질 수 있어."
         - "Attention을 설명했다고 Transformer 전체를 설명한 셈은 아니라는 점을 따로 구분해야 해."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "ddbc1821097babbf"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Transformer는 문장이나 입력 안에 있는 토큰들이 서로 어떤 부분을 참고해야 하는지 [attention](/ko/wiki/attention/)으로 계산하는 신경망 아키텍처야. 중요한 점은 이게 새 모델 이름이 아니라, 여러 모델이 공통으로 깔고 가는 내부 구조라는 거야.

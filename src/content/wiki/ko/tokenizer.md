@@ -5,9 +5,6 @@ lang: ko
 summary: Tokenizer는 텍스트를 토큰으로 쪼개고 숫자 ID로 바꾸는 규칙과 도구를 말해.
 readerValue: 'tokenizer가 나오면 모델 품질 얘기보다 비용, 길이 제한, 입력 처리 방식부터 읽는 데 도움 돼.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - tokenizer
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
       findings:
         - tokenizer를 모르면 토큰 한도 기사에서 왜 비용 얘기가 같이 붙는지 읽기 어려워져.
         - 반대로 tokenizer만 보고 모델 성능까지 단정하면 해석이 과해지기 쉬워.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "0356082613d08560"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Tokenizer는 사람이 읽는 문장을 모델이 다루는 [토큰](/ko/wiki/token/) 묶음으로 바꾸는 규칙과 도구야. 모델은 문장을 통째로 받는 게 아니라 tokenizer가 잘게 나눈 조각과 그 조각의 숫자 표현을 입력으로 받아.

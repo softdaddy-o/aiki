@@ -5,9 +5,6 @@ lang: ko
 summary: "Vercel AI SDK(버셀 AI SDK)는 여러 AI API를 앱 코드에 붙이고 스트리밍 UI까지 연결하기 쉽게 만든 TypeScript 툴킷이야."
 readerValue: "이 이름을 보면 모델이 아니라, 여러 제공자 API를 앱 안에서 묶어 다루는 통합 레이어라는 걸 빨리 이해할 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "ai sdk"
 relatedTerms:
@@ -56,6 +53,26 @@ factCheck:
       items:
         - "흔한 오해 점검: Vercel AI SDK를 OpenAI나 Anthropic 같은 제공자와 같은 층위로 읽으면 역할이 섞여."
         - "반례 점검: 실제 모델 API와 그 위를 감싸는 SDK 레이어를 분리해서 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "85ade94e2d9c9275"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Vercel AI SDK는 여러 AI API를 앱 코드에 붙이는 일을 단순하게 해 주는 TypeScript 툴킷이야. 모델 자체를 만드는 게 아니라 채팅, 스트리밍 응답, 도구 호출 같은 기능을 앱 안에 묶는 공통 레이어에 가까워.

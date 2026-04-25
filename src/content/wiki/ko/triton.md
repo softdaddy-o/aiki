@@ -7,9 +7,6 @@ summary: >-
   더 만드는 도구가 아니라, 이미 만든 모델을 운영 환경에서 안정적으로 서빙하는 계층이야.
 readerValue: '이 이름이 나오면 새 모델 얘기인지, 아니면 모델을 API 뒤에서 굴리는 운영 스택 얘기인지 바로 구분할 수 있어.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - triton inference server
 relatedTerms:
@@ -67,6 +64,26 @@ factCheck:
         - '오해 점검: Triton을 올렸다고 자동으로 모든 추론 병목이 해결되는 것도 아니야.'
       findings:
         - 독자가 모델 품질 문제와 운영 계층 문제를 헷갈리지 않게 정리했어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "556eb40931d8f438"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Triton Inference Server는 AI 모델을 HTTP나 gRPC 같은 공통 인터페이스 뒤에 올려서 서비스용으로 배포하는 서버야. 핵심은 모델을 학습하는 게 아니라, 다양한 모델 형식을 한 운영 계층에서 다루게 해 준다는 점이야.
