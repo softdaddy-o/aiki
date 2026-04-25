@@ -69,11 +69,11 @@ factCheck:
       findings:
         - 편의성 도구와 성능 최적화 도구를 구분하게 만들었어.
         - 도입 효과를 과장해서 읽는 위험도 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -87,7 +87,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "e8258f3a6d56970a"
+  contentHash: "cf3760e3ad8c71d8"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

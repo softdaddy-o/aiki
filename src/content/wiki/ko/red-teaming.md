@@ -72,11 +72,11 @@ factCheck:
         - '반대로 체크리스트 몇 개 돌리는 일처럼 가볍게 보이지 않게, 공격 시나리오와 재시험 루프를 남겼어.'
       findings:
         - 용어의 공격성은 살리고 무책임한 해석은 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -90,7 +90,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "f879287e30bab313"
+  contentHash: "f1fa4b7979e57ed4"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

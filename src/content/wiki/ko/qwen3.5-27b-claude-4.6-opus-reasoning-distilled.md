@@ -130,11 +130,11 @@ factCheck:
       findings:
         - 가장 흔한 오해인 `Claude 무료판` 식 번역을 차단했어.
         - 실험용 로컬 체크포인트와 서비스용 공급자 모델의 경계를 분명히 남겼어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -148,7 +148,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "1a40231f465c261c"
+  contentHash: "8d29db3a655d0be6"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

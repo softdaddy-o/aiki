@@ -59,11 +59,11 @@ factCheck:
         - "그래서 reasoning이라는 단어를 성능 과장 문구처럼 읽지 말고, 작업 적합성 기준으로 읽는 게 맞아."
       findings:
         - "이 개념의 핵심은 절대 성능 자랑보다, 어떤 문제를 어떤 비용으로 풀게 할지에 있어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "8342edc97c2944d8"
+  contentHash: "29510a7bf9f6113b"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

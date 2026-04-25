@@ -70,11 +70,11 @@ factCheck:
         - 반대로 작은 모델이라는 이유만으로 로컬 배포가 자동으로 쉬워지는 것도 아니라는 점을 분리해 뒀어.
       findings:
         - 독자가 파라미터 수만 보고 실용성을 단정하지 않게 설계했어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -88,7 +88,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "42282cdbc847fda5"
+  contentHash: "2731eeb283580b54"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

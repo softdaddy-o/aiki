@@ -57,11 +57,11 @@ factCheck:
       items:
         - "흔한 오해 점검: 런타임을 배포 플랫폼 전체와 같은 말로 쓰면 도구 선택 기준이 흐려지기 쉬워."
         - "반례 점검: 어떤 도구는 실행 엔진에 가깝고 어떤 도구는 운영 레이어까지 포함한다는 구분을 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "ef675a7fce607d30"
+  contentHash: "da7cea5619c755d5"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

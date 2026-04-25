@@ -60,11 +60,11 @@ factCheck:
         - "그래서 'RAG 적용'이라는 말은 모델 교체보다 데이터 연결 방식을 바꿨다는 뜻일 때가 많아."
       findings:
         - "RAG의 핵심은 더 똑똑한 모델이 아니라, 답하기 전에 바깥 지식을 가져오는 흐름에 있어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -78,7 +78,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "27dff88b355d4feb"
+  contentHash: "72591f3046f7bba2"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

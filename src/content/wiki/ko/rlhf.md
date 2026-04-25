@@ -67,11 +67,11 @@ factCheck:
         - 사람 피드백이 들어간다고 해서 편향이 자동으로 없어지는 건 아니라는 점도 남겼어.
       findings:
         - RLHF를 안전 보증서처럼 읽는 오해를 제일 먼저 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -85,7 +85,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "71f28856d26d877c"
+  contentHash: "5c6b5f62869c2de0"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

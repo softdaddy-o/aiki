@@ -67,11 +67,11 @@ factCheck:
       findings:
         - 데모 속도와 운영 통제권을 같은 값으로 보지 않게 했어.
         - managed 서비스의 편의성과 제약을 같이 보게 만들었어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -85,7 +85,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "6beb2a1046021ef8"
+  contentHash: "1e7aa59be723e5bf"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

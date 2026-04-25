@@ -80,11 +80,11 @@ factCheck:
         - "멀티모달 지원이 곧 모든 배포 환경에서 같은 입력 파이프라인을 보장하는 뜻도 아니다."
       findings:
         - "이 페이지는 모델 성격과 도입 판단 기준을 정리하는 가이드다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -98,7 +98,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "2c548d60f786a14b"
+  contentHash: "7cb9b689574a8e13"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
