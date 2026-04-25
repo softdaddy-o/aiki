@@ -21,6 +21,10 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: OpenAI
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Whisper (위스퍼)
 relatedTerms:
@@ -77,26 +81,22 @@ factCheck:
         - '또 텍스트를 음성으로 읽어 주는 TTS 모델과도 반대 방향이라서, 음성 관련 기능이라고 한데 묶어 읽으면 헷갈려.'
       findings:
         - Whisper는 오디오 입력을 텍스트로 바꾸는 공개 STT 모델이라는 점을 남겼어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "47dc81b29584b004"
-  reviewedAt: "2026-04-25T09:55:57Z"
+  contentHash: f387774d69de4dc5
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Whisper는 [OpenAI](/ko/wiki/openai/)가 공개한 자동 [음성 인식](/ko/wiki/speech-to-text/) 모델이야. 채팅을 잘하는 모델이 아니라, 사람 목소리나 녹음 파일을 받아 텍스트로 옮기는 데 초점이 있는 모델로 보면 돼.
