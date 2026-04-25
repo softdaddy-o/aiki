@@ -14,44 +14,44 @@ const { profile } = Astro.props as { profile: ModelProfile };
 
 const rows = [
     {
-        label: '이 모델이 버티는 길이',
+        label: '컨텍스트·메모리',
         value: profile.memoryUsage,
-        description: '긴 문서, 긴 대화, 긴 출력이 가능한지 먼저 읽는 칸이다. 실제 호출비와 실패 패턴도 여기서 같이 갈린다.',
+        description: '컨텍스트는 이 모델이 한 번에 버티는 길이야. 서비스형은 입력·출력 한도, 직접 돌리는 모델은 VRAM과 KV 캐시 부담까지 같이 봐.',
     },
     {
-        label: '무슨 문제를 풀라고 만든 모델인가',
+        label: '잘하는 일',
         value: profile.implementation,
-        description: '벤치마크 숫자보다 먼저 봐야 할 줄이다. 코딩용인지, 추론용인지, 멀티모달 작업용인지가 여기서 드러난다.',
+        description: '이 모델을 어디에 쓰라고 밀고 있는지 보는 칸이야. 코딩, 추론, 멀티모달, 에이전트 작업처럼 쓰임새를 먼저 잡아.',
     },
     {
-        label: '크기와 구조를 읽는 단서',
+        label: '크기와 구조',
         value: profile.activeParameters,
-        description: '파라미터를 공개하지 않아도 운영 옵션, 계열 구분, 공개된 숫자에서 모델 성격을 읽을 수 있다.',
+        description: '파라미터가 공개됐으면 규모를, 비공개면 계열명·버전·운영 옵션을 단서로 삼아.',
     },
     {
-        label: '입력과 출력 범위',
+        label: '입출력 범위',
         value: profile.multimodalSupport,
-        description: '텍스트만 받는지, 이미지까지 읽는지, 출력이 어디까지 열려 있는지 이 줄에서 확인하면 된다.',
+        description: '텍스트만 받는지, 이미지·음성·영상까지 다루는지, 출력은 어디까지 열려 있는지 확인해.',
     },
     {
-        label: '어디에 바로 붙일 수 있나',
+        label: '붙이는 경로',
         value: profile.access,
-        description: 'API, 제품, 특정 클라우드 채널 가운데 어디로 들어가는지 보여준다. 실제 도입 경로를 고를 때 가장 먼저 쓰인다.',
+        description: 'API, 제품 화면, 클라우드, 다운로드 중 어디로 붙는지 보는 칸이야. 실제 도입 경로를 고를 때 가장 먼저 쓰여.',
     },
     {
-        label: '운영비 감각',
+        label: '비용 감각',
         value: profile.pricing,
-        description: '성능이 아니라 예산 기준으로 모델을 걸러낼 때 보는 줄이다. 호출 단가와 캐시 정책 차이도 여기서 읽는다.',
+        description: '성능보다 예산으로 걸러야 할 때 보는 칸이야. 토큰 단가, 캐시, 자체 서빙 비용을 분리해서 읽어.',
     },
     {
-        label: '직접 돌릴 수 있는가',
+        label: '웨이트 공개',
         value: profile.weightsOpen,
-        description: '자체 호스팅이 가능한지, 아니면 API로만 써야 하는지 판단하는 자리다.',
+        description: '가중치를 내려받아 직접 돌릴 수 있는지, API로만 써야 하는지 확인하는 칸이야.',
     },
     {
         label: '만든 곳',
         value: profile.vendor,
-        description: '같은 계열명처럼 보여도 실제 벤더가 다르면 접근 방식과 가격표가 완전히 달라질 수 있다.',
+        description: '같은 계열명처럼 보여도 만든 곳이 다르면 가격표, 접근 경로, 운영 조건이 달라질 수 있어.',
     },
 ];
 ---
@@ -59,7 +59,7 @@ const rows = [
 <section class="model-profile">
     <div class="model-profile-head">
         <h3>모델 프로필</h3>
-        <p>이 페이지를 읽을 때 자주 헷갈리는 운영 정보만 먼저 모아뒀어. 아래 카드만 읽어도 어떤 모델인지 큰 윤곽이 바로 잡힌다.</p>
+        <p>스펙표에서 먼저 헷갈리는 운영 단서만 모았어. 컨텍스트는 한 번에 붙잡고 볼 수 있는 길이, 메모리는 실제로 굴릴 때 필요한 자리로 나눠 읽으면 돼.</p>
     </div>
     <div class="model-profile-grid">
         {rows.map((row) => (
@@ -77,7 +77,7 @@ const rows = [
         margin: 8px 0 20px;
         padding: 18px;
         border: 1px solid color-mix(in srgb, var(--color-wiki) 24%, transparent);
-        border-radius: 14px;
+        border-radius: 8px;
         background: color-mix(in srgb, var(--color-wiki) 6%, var(--color-surface));
     }
     .model-profile-head {
@@ -102,7 +102,7 @@ const rows = [
     }
     .model-profile-card {
         padding: 12px;
-        border-radius: 10px;
+        border-radius: 8px;
         background: var(--color-surface);
         border: 1px solid color-mix(in srgb, var(--color-wiki) 14%, transparent);
         display: grid;
@@ -112,8 +112,7 @@ const rows = [
         display: inline-block;
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+        letter-spacing: 0;
         color: var(--color-wiki);
     }
     .model-profile-value,
