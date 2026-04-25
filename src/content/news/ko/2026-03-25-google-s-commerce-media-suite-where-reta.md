@@ -54,10 +54,35 @@ tags:
   - claude
   - anthropic
   - perplexity
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "7718c7c52fade3e1"
+  reviewedAt: "2026-04-25T09:55:58Z"
 ---
+## 무슨 일이 있었나
 
 Google이 Kroger의 리테일 데이터를 붙여 광고와 커머스 운영을 한 흐름으로 묶겠다는 발표야. [원문](https://blog.google/products/marketingplatform/360/googles-commerce-media-suite-where-retailer-insights-meet-the-power-of-youtube/)은 Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube 기준으로 확인한 내용이야. 이 이슈는 리테일 미디어가 단순 광고 집행이 아니라 데이터 연결 구조를 누가 쥐느냐의 문제라는 점을 빠르게 파악하게 해준 쪽에서 읽어야 해. 이걸 그렇게 봐야 왜 구글이 리테일 데이터에 집착하는지 바로 읽히거든.
 
+## 왜 중요할까
+
 Google의 상거래 미디어 제품군: 소매업체의 통찰력과 YouTube의 힘이 만나는 곳, Kroger의 쇼핑객…에서 진짜 봐야 하는 건 이름 자체보다 실무 우선순위와 적용 범위가 어디를 바꾸는지야. 공개 범위, 숫자, 적용 대상, 제약 조건이 같이 움직이는지 봐야 발표 문구와 실전 신호를 구분할 수 있어.
+
+## 앞으로 볼 점
 
 실무에서는 이 업데이트를 바로 도입할지보다 먼저 지금 쓰는 모델, 도구, 배포 흐름과 붙일 수 있는지를 체크하면 돼. 그렇게 봐야 이 변화가 단순 화제인지, 다음 분기 우선순위를 바꿀 수준인지 판단하기 쉬워져.
