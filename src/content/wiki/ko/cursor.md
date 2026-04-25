@@ -9,9 +9,6 @@ readerValue: >-
   Cursor가 모델이 아니라 편집기라는 점만 먼저 잡아도 기사와 도입 검토를 훨씬 빨리 읽을 수 있어. 작업 흐름이 어디서 바뀌는지도 같이
   보여 줘.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - Cursor(커서)
 relatedTerms:
@@ -78,6 +75,26 @@ factCheck:
         - 도입 효과를 개인 취향이 아니라 팀 운영 변화까지 포함해 보게 만들었어.
       findings:
         - Cursor는 툴 교체라기보다 작업 표면을 바꾸는 일에 가까워.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "d54f19a6694a7026"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Cursor는 AI 기능을 얹은 코드 편집기이자, AI 작업 흐름을 전면에 둔 에디터 제품이야. 특정 모델 한 개의 이름이 아니라 개발자가 코드를 읽고 고치고 질문하는 자리를 다시 짠 도구로 보는 게 맞아.

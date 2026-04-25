@@ -5,9 +5,6 @@ lang: ko
 summary: "DeepSpeed(딥스피드)는 큰 모델의 학습과 추론을 더 적은 메모리와 더 많은 병렬화로 굴리게 도와주는 최적화 라이브러리야. 새 모델 이름이 아니라 분산 학습 인프라를 붙이는 도구라고 이해해야 맥락이 맞아."
 readerValue: "DeepSpeed가 보이면 모델 성능보다 그 모델을 실제 하드웨어 위에서 어떻게 학습시키고 추론시키는지 읽는 데 도움이 돼."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "DeepSpeed(딥스피드)"
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
       findings:
         - "모델 아님"
         - "인프라 도구 강조"
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "42c6431e295c9f64"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 DeepSpeed는 대규모 딥러닝 모델의 분산 학습과 추론을 더 효율적으로 돌리게 도와주는 최적화 라이브러리야. 새 모델을 발명하는 도구라기보다 이미 있는 모델을 더 큰 규모에서 굴리는 시스템 층으로 보면 이해가 쉬워.

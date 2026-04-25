@@ -5,9 +5,6 @@ lang: ko
 summary: "모델이 한 번의 요청과 응답 동안 실제로 참고할 수 있는 전체 토큰 범위를 뜻해."
 readerValue: "기사나 제품 문서에서 128K, 200K, 1M 같은 숫자가 보일 때 그게 품질 보장이 아니라 입력·출력 상한이라는 점, 그리고 비용·지연·실사용 문서 길이를 따로 봐야 한다는 기준을 잡을 수 있어."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "context length"
   - "컨텍스트 윈도우"
@@ -61,6 +58,26 @@ factCheck:
       findings:
         - "'1M 컨텍스트면 모델이 모든 내용을 끝까지 정확히 기억한다'는 오해를 배제했어."
         - "'컨텍스트 윈도우가 크면 학습량도 더 많다'는 혼동을 분리했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "0a4730ca4d93dc6d"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Context Window는 모델이 답을 만들 때 눈앞에 두고 참고하는 전체 [토큰](/ko/wiki/token/) 범위야. 프롬프트, 이전 대화, 붙인 문서, 도구 호출 결과, 그리고 이번에 생성할 답변까지 전부 이 범위 안에서 같이 계산돼.

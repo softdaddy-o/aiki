@@ -5,9 +5,6 @@ lang: ko
 summary: "CrewAI (크루에이아이)는 여러 AI 에이전트에게 역할을 나눠 주고 협업 흐름을 묶는 오케스트레이션 프레임워크야."
 readerValue: "CrewAI가 그냥 LLM 호출 래퍼가 아니라 역할 분담, 순서, 도구 권한까지 설계하는 워크플로 도구라는 걸 구분해 볼 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "CrewAI (크루에이아이)"
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
         - "또 CrewAI를 LangChain의 별칭처럼 읽으면 틀려. 겹치는 부분은 있어도 역할 중심 협업 설계에 더 초점을 둬."
       findings:
         - "멀티에이전트라는 말보다 오케스트레이션 레이어라는 점을 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "6f0a4bc1c3feb624"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 CrewAI는 여러 에이전트가 팀처럼 협업하게 만드는 프레임워크야. 한 번의 프롬프트로 끝내기보다, 조사 담당과 작성 담당처럼 역할을 나눠서 작업 흐름을 짜는 데 초점이 있어.

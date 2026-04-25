@@ -5,9 +5,6 @@ lang: ko
 summary: "ComfyUI(컴피유아이)는 이미지나 비디오 생성 파이프라인을 노드 그래프로 조립해서 실행하는 시각적 워크플로 도구야. 버튼 몇 개로 끝나는 생성 UI보다 과정 자체를 설계하고 다시 재현하고 싶은 사람한테 더 잘 맞아."
 readerValue: "ComfyUI가 보이면 예쁜 생성 앱 이야기라기보다 생성 공정을 세밀하게 제어하는 워크플로 엔진 이야기로 읽으면 돼."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "ComfyUI(컴피유아이)"
 relatedTerms:
@@ -66,6 +63,26 @@ factCheck:
       findings:
         - "단순 프롬프트 UI 아님"
         - "재현성 강조"
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "5f878b081d3ed6e6"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 ComfyUI는 생성형 AI 작업을 노드 단위로 연결해서 실행하는 시각적 워크플로 도구야. 단순히 프롬프트를 넣고 결과 한 장 받는 UI라기보다 생성 공정을 분해해서 조립하는 캔버스에 가까워.

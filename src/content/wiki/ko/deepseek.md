@@ -15,9 +15,6 @@ modelProfile:
   pricing: "API 과금과 자체 서빙 비용을 같은 축으로 보면 안 돼. 서비스형 가격과 오픈 웨이트 운영비를 나눠 봐야 해."
   weightsOpen: "핵심 공개 계열과 distill checkpoints가 함께 존재"
   vendor: "DeepSeek"
-guideVersion:
-  common: "1.0.0"
-  wiki: "3.0.0"
 aliases:
   - "DeepSeek"
 relatedTerms:
@@ -83,18 +80,27 @@ factCheck:
         - "OpenAI 호환 API 문맥을 모델 버전 번호로 오해하지 않게 서비스 층위를 따로 적었어."
       findings:
         - "동일 이름 다층 구조 때문에 생기는 해석 오류를 초반에 차단했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "a2c3c2f56edea8e6"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
-
 ## 한 줄 정의
 
 DeepSeek는 중국 AI 회사 DeepSeek가 쓰는 브랜드 이름이야. 회사 이름이기도 하고, 공개 모델 계열 이름이기도 하고, [OpenAI](/ko/wiki/openai/) 호환 [API](/ko/wiki/api/) 서비스 이름처럼 읽히기도 해서 기사에서 이 단어가 나오면 먼저 어떤 층위를 말하는지 나눠 보는 게 중요해.

@@ -5,9 +5,6 @@ lang: ko
 summary: "GitHub Copilot은 에디터 안에서 코드 문맥을 보고 다음 코드나 함수 초안을 제안하는 GitHub의 AI 코딩 도구야. 이름은 하나지만, 실제로는 자동완성 하나보다 넓게 개발 습관과 리뷰 흐름까지 건드리는 제품 축으로 보는 편이 맞아."
 readerValue: "Copilot이 단순 자동완성인지, 아니면 팀의 개발 흐름과 운영 규칙까지 바꾸는 축인지 빠르게 구분할 수 있어."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "GitHub Copilot (깃허브 코파일럿)"
 relatedTerms:
@@ -66,6 +63,26 @@ factCheck:
         - "자동완성만 하는 얇은 기능으로 축소되지 않게 팀 운영 변화까지 함께 적었어."
       findings:
         - "도구 자체보다 팀 리뷰 규칙과 검증 흐름이 더 크게 바뀔 수 있다는 점을 놓치면 도입 효과와 리스크를 같이 오해하게 돼."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "9b7dab58fa1f2449"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 GitHub Copilot은 에디터 안에서 현재 코드와 주변 문맥을 보고 다음 줄이나 함수 초안을 제안하는 AI 코딩 도구야. 모델 이름 하나라기보다 개발자가 코드를 쓰는 자리 바로 옆에 붙는 제품 경험이라고 보는 편이 더 정확해.

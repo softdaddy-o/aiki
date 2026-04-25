@@ -7,9 +7,6 @@ summary: >-
   짜게 만드는 쪽에 더 가까워.
 readerValue: 'Codex를 단순한 코딩 도구 이름으로 읽을지, 팀의 개발 흐름과 배포 전후 자동화까지 묶는 작업 축으로 읽을지 가르는 기준을 줘.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - openai codex
 relatedTerms:
@@ -68,6 +65,26 @@ factCheck:
       findings:
         - 'Codex는 도구이면서 동시에 일부 모델 이름에도 붙어서, 문맥을 안 나누면 기사 해석이 쉽게 틀어져.'
         - 팀용 가격 정책이 붙었다는 건 개인 보조 도구 소개보다 운영 단위 도입 신호에 더 가까워.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8b8a0f1d3ee72a49"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Codex는 [OpenAI](/ko/wiki/openai/)가 만든 코딩 에이전트야. 사람 대신 전부 알아서 끝내는 자동화 봇이라기보다, 코드베이스를 읽고 파일을 고치고 명령을 실행하면서 개발자가 맡기거나 같이 끌고 가는 작업 표면에 가까워.

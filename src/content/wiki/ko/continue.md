@@ -5,9 +5,6 @@ lang: ko
 summary: "Continue는 IDE 보조 경험과 저장소용 AI 체크 흐름을 함께 제공하는 오픈소스 코딩 도구 계열이야."
 readerValue: "이 이름이 단순 채팅 확장인지, 아니면 저장소 규칙을 파일로 관리하면서 로컬과 CI에서 같은 AI 체크를 돌리는 흐름까지 포함하는지 구분하는 데 도움이 돼."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "컨티뉴"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
         - "반대로 AI 체크가 만능 심판처럼 읽히지 않게, 사람 리뷰 경계를 따로 세워야 한다는 점도 넣었어."
       findings:
         - "현재 제품 초점과 한계를 같이 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "39b7b962e34a1f86"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Continue는 코딩 보조 IDE 확장과, 저장소 안에 AI 체크 규칙을 넣어 로컬과 CI에서 돌리는 흐름을 함께 다루는 오픈소스 도구야. 그래서 지금 이 이름을 읽을 때는 채팅 확장 하나보다 저장소 워크플로까지 포함한 제품 방향으로 보는 게 맞아.
