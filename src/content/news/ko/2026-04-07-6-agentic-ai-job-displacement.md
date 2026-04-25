@@ -54,11 +54,11 @@ tags:
   - 직업대체
   - 에이전트AI
   - 연구
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "3ee509804ad13402"
+  contentHash: "304f43c76a181aab"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

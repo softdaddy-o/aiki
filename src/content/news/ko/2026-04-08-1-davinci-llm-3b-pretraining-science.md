@@ -53,11 +53,11 @@ tags:
   - open-model
   - hugging-face
   - research
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "0fcbdbe8f80b2c65"
+  contentHash: "10dc558ba504c9a6"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

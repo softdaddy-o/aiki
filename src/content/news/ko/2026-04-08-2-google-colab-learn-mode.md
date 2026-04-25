@@ -50,11 +50,11 @@ tags:
   - Colab
   - Gemini
   - AI코딩교육
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -68,7 +68,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "1e3271a94e64bfb5"
+  contentHash: "d9d62335ead1301b"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나
