@@ -59,11 +59,11 @@ factCheck:
         - "또 Cline을 그냥 VS Code 추천 확장처럼 읽지 않게, 실제 작업 실행까지 간다는 점을 분명히 했어."
       findings:
         - "승인과 안전을 동일시하는 오해를 줄였어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "026a19e3ed13ac86"
+  contentHash: "6efa0ceaa325e1ce"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

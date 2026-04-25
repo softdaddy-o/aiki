@@ -58,11 +58,11 @@ factCheck:
       findings:
         - "'1M 컨텍스트면 모델이 모든 내용을 끝까지 정확히 기억한다'는 오해를 배제했어."
         - "'컨텍스트 윈도우가 크면 학습량도 더 많다'는 혼동을 분리했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "0a4730ca4d93dc6d"
+  contentHash: "811e5448b83c7225"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

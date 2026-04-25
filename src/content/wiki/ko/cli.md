@@ -90,11 +90,11 @@ factCheck:
       findings:
         - '오입력, 권한 상승, 자동화 실패 확산을 구체 사례로 남겼어.'
         - 도입 기준과 회피 기준을 둘 다 적어서 한쪽으로 몰리지 않게 했어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -108,7 +108,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "6293d2d92bef3c0e"
+  contentHash: "76dd6364ebb11868"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

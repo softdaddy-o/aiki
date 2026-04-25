@@ -22,10 +22,6 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Anthropic
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - Claude Opus (클로드 오퍼스)
 relatedTerms:
@@ -86,22 +82,26 @@ factCheck:
         - 최상위 티어라는 말이 곧 모든 작업의 기본 선택지라는 뜻으로 읽히지 않게 했어.
       findings:
         - '기사에서 그냥 Claude Opus라고만 쓰면 최신 특정 버전인지, 라인 전체를 느슨하게 부르는 말인지부터 다시 확인해야 해.'
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: 62bc65c8b77b06db
-  reviewedAt: '2026-04-25T09:55:56Z'
-formatVersion: 2
+  contentHash: "ab2929647b3a7008"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Claude Opus는 [Anthropic](/ko/wiki/anthropic/)이 Claude 제품군 안에서 최상위 성능 라인으로 내세우는 이름이야. 보통 기사에 찍히는 건 특정 버전이고, Claude Opus 자체는 그 버전들을 묶는 상위 라벨에 더 가까워.

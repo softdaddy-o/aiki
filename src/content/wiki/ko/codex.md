@@ -65,11 +65,11 @@ factCheck:
       findings:
         - 'Codex는 도구이면서 동시에 일부 모델 이름에도 붙어서, 문맥을 안 나누면 기사 해석이 쉽게 틀어져.'
         - 팀용 가격 정책이 붙었다는 건 개인 보조 도구 소개보다 운영 단위 도입 신호에 더 가까워.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -83,7 +83,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "8b8a0f1d3ee72a49"
+  contentHash: "c0568c055670599d"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

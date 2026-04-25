@@ -63,11 +63,11 @@ factCheck:
       findings:
         - "단순 프롬프트 UI 아님"
         - "재현성 강조"
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -81,7 +81,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "5f878b081d3ed6e6"
+  contentHash: "6f77debb35b1bd1e"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
