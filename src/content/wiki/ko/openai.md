@@ -9,9 +9,6 @@ readerValue: >-
   OpenAI를 모델명으로 착각하지 않게 해 주고, 회사 전략과 모델 발표와 서비스 업데이트를 분리해서 읽는 데 도움돼. 그래서 뉴스 문맥이
   훨씬 빨리 정리돼.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - OpenAI(오픈에이아이)
 relatedTerms:
@@ -74,6 +71,26 @@ factCheck:
         - 관련 용어를 회사 단위 비교축으로만 묶어서 제품 대 제품 비교와 섞이지 않게 했어.
       findings:
         - 회사명과 제품명을 섞는 순간 뉴스 해석이 바로 무너져.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "125f1077fb1e2858"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 OpenAI는 생성형 AI 모델과 서비스를 연구하고 만들고 운영하는 회사이자 연구 조직이야. GPT나 [ChatGPT](/ko/wiki/chatgpt/) 같은 개별 결과물 이름이 아니라, 그런 라인업을 내놓는 쪽 전체를 가리키는 말이야.

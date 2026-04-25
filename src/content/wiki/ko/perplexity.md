@@ -5,9 +5,6 @@ lang: ko
 summary: "Perplexity는 웹 검색 결과와 출처를 묶어 답으로 정리해 주는 답변형 검색 제품이야. 모델 이름이라기보다 검색, 요약, 출처 제시를 한데 묶은 서비스로 보는 게 더 정확해."
 readerValue: "답변형 검색 제품을 볼 때 모델 자체보다 검색·출처 합성이 핵심인지 읽게 해 줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Perplexity (퍼플렉시티)"
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
         - "실시간 정보 강점만 강조하다가 문서 선택 편향과 요약 오독 가능성이 빠지지 않게 균형을 잡았어."
       findings:
         - "Perplexity는 인터페이스가 워낙 매끄러워서 답이 곧 사실처럼 느껴지기 쉬워. 실제론 검색 결과 선택과 요약이라는 두 단계가 더 끼어 있으니까 출처까지 같이 읽어야 해."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "014daeed49ddab39"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Perplexity는 질문을 웹에서 찾고 그 결과를 묶어 답으로 정리해 주는 AI 검색 서비스야. [공식 허브](https://www.perplexity.ai/hub)와 [도움말 문서](https://www.perplexity.ai/help-center/en/articles/10354919-what-is-perplexity)는 둘 다 이걸 answer engine 쪽 서비스로 설명해.

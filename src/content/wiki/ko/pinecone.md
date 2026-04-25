@@ -9,9 +9,6 @@ readerValue: >-
   Pinecone이 모델 이름이 아니라 검색 인프라 선택지라는 점을 바로 구분하는 데 도움돼. 특히 벡터 DB를 직접 운영할지, 관리형으로
   맡길지 판단할 때 감이 잡혀.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - Pinecone (파인콘)
 relatedTerms:
@@ -78,6 +75,26 @@ factCheck:
         - '또 다른 오해는 일반 관계형 DB와 똑같이 보면 된다는 건데, 유사도 검색 중심 구조라는 점을 남겼어.'
       findings:
         - 도구의 범위와 한계를 같이 적어서 과장 해석을 줄였어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "3e197581f07271f0"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Pinecone은 문서나 이미지에서 만든 [임베딩](/ko/wiki/embedding/) 벡터를 저장해 두고, 질문과 가장 가까운 벡터를 빠르게 찾아주는 서비스야. 쉽게 말하면 LLM이 답하기 전에 관련 자료를 먼저 꺼내오게 만드는 검색용 백엔드라고 보면 돼.

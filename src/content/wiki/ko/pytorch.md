@@ -5,9 +5,6 @@ lang: ko
 summary: "PyTorch는 딥러닝 모델을 정의하고 학습하고 추론하는 데 쓰는 오픈소스 프레임워크야. 이름만 보면 단순한 개발 도구처럼 보이지만, 실제로는 팀의 실험 코드 구조, GPU 학습 방식, 체크포인트 관리, 배포 전환 방식까지 함께 묶는 기반이 되기도 해."
 readerValue: "PyTorch가 단순한 라이브러리 이름인지, 아니면 학습 파이프라인과 실험 운영 방식까지 바꾸는 개발 축인지 빠르게 가늠하게 해 줘. 기술 문서에서 'PyTorch 기반'이라는 표현이 나오면 모델 이름이 아니라 연구와 엔지니어링이 돌아가는 바닥 선택을 말한다는 점도 바로 잡을 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "PyTorch(파이토치)"
 relatedTerms:
@@ -59,6 +56,26 @@ factCheck:
         - "PyTorch 자체를 특정 AI 모델 이름으로 읽는 오해를 피하려고 프레임워크라는 점을 첫 문단에서 못 박았어."
         - "학습용 기반과 운영용 추론 스택이 항상 같다고 받아들이지 않도록 배포 단계의 분리를 명확히 적었어."
         - "프레임워크 선택만으로 성능이 자동 결정된다는 단순화도 경계했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "91de29a0a8e37d96"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 PyTorch는 딥러닝 모델을 코드로 만들고 학습시키고 실행하는 오픈소스 프레임워크야. 모델 하나의 이름이 아니라, 텐서 연산부터 자동 미분, GPU [학습](/ko/wiki/training/), [추론](/ko/wiki/inference/) 실행까지 묶어서 다루는 소프트웨어 기반이라고 보면 돼.

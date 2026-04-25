@@ -5,9 +5,6 @@ lang: ko
 summary: "OpenAI API는 OpenAI 플랫폼의 모델과 기능을 코드로 호출해 네 서비스 안에 붙이는 개발 인터페이스야. 모델 이름 하나가 아니라 인증, 호출 방식, 비용 통제, 장애 대응까지 묶인 운영 경계에 더 가까워."
 readerValue: "이 이름이 단순 기능 호출 도구인지, 아니면 팀의 개발 흐름과 배포 방식까지 바꾸는 축인지 빨리 구분하게 해줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "OpenAI API(오픈에이아이 API)"
 relatedTerms:
@@ -59,6 +56,26 @@ factCheck:
       findings:
         - "OpenAI API는 제품 경험 그 자체보다 제품 안에 기능을 붙이는 통합 계층이야."
         - "ChatGPT, 특정 모델 이름, API를 같은 층위로 읽으면 설계 판단이 꼬이기 쉬워."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "89819897ff612399"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 OpenAI API는 OpenAI 플랫폼의 모델과 기능을 앱, 서버, 자동화 흐름에서 코드로 호출하게 해 주는 개발 인터페이스야. 사람이 바로 쓰는 완성형 앱 이름이 아니라, 네 서비스가 요청을 보내고 응답을 받아 기능으로 묶는 연결 경계라고 이해하면 돼.

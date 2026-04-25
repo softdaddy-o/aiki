@@ -5,9 +5,6 @@ lang: ko
 summary: OpenClaw는 공식 API 대신 기존 AI 계정이나 구독을 비공식 클라이언트에 붙여 쓰게 만드는 연결 도구 계열이야.
 readerValue: 'OpenClaw가 보이면 새 모델 얘기보다 인증, 우회, 보안 리스크 얘기인지 먼저 읽는 데 도움 돼.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - OpenClaw(오픈클로)
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
       findings:
         - 계정 우회 도구는 한번 사고가 나면 사용자의 계정 피해로 바로 이어지기 쉬워.
         - 모델 이름과 래퍼 이름을 같은 층위로 읽으면 기사 핵심이 기능 비교로 잘못 흘러가기 쉬워.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e50882a7b05bdea8"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 OpenClaw는 새 모델을 만든 쪽이라기보다 이미 있는 AI 서비스 계정이나 구독을 다른 인터페이스에 붙여 쓰게 만드는 비공식 연결 도구 쪽 이름이야. 그래서 핵심은 모델 성능보다 인증, 프록시, 권한 처리 같은 연결 구조에 있어.

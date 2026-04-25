@@ -7,9 +7,6 @@ summary: >-
   원하는 방향으로 맞추는 기법이야. 입력 설계 문제인지 모델 선택 문제인지 가르는 데 특히 중요해.
 readerValue: 이 말이 모델 교체가 아니라 입력 설계와 출력 제어를 다루는 기법이라는 점을 바로 잡아 줘. 그래서 실패 원인을 더 빨리 가를 수 있어.
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - prompt engineering
 relatedTerms:
@@ -69,6 +66,26 @@ factCheck:
         - 체인 오브 소트 같은 하위 기법을 전체 개념과 같은 말처럼 읽지 않게 분리했어.
       findings:
         - '프롬프트 엔지니어링은 강하지만, 문제 종류를 잘못 읽으면 바로 한계가 보여.'
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "cb9f28264eddf63d"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Prompt Engineering은 생성형 AI 모델에 넣는 입력을 설계해서 원하는 출력 방향과 형식을 조정하는 방법이야. 모델 가중치를 바꾸는 재학습과는 다르고, 어떤 지시와 예시와 제약을 묶어 넣느냐를 다루는 일에 더 가까워.

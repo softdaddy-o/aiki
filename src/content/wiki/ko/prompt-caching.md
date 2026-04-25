@@ -5,9 +5,6 @@ lang: ko
 summary: Prompt Caching은 반복되는 프롬프트 앞부분 계산을 재사용해서 지연과 입력 비용을 줄이는 서빙 기법이야.
 readerValue: '이 말을 보면 모델 성능 향상인지, 운영비와 응답 속도 최적화인지 바로 가르는 데 도움 돼.'
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - cache reuse
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
       findings:
         - 서빙 최적화와 모델 자체 개선을 섞어 읽으면 기사 핵심이 어긋나기 쉬워.
         - 캐시가 있다고 해도 작은 프롬프트나 자주 바뀌는 접두부에는 체감 이득이 약할 수 있어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "2edccc6638bffddb"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Prompt Caching은 매번 똑같이 붙는 프롬프트 앞부분을 다시 계산하지 않게 해서 속도와 비용을 줄이는 운영 기법이야. 모델을 더 똑똑하게 만드는 방법이라기보다 같은 모델을 더 싸고 빠르게 쓰게 만드는 서빙 최적화에 가까워.

@@ -5,9 +5,6 @@ lang: ko
 summary: "OpenRouter는 여러 AI 모델 회사를 한 API 창구로 묶어 주는 라우팅 서비스야."
 readerValue: "이 이름이 모델 자체인지, 아니면 팀의 모델 선택과 배포 흐름을 바꾸는 중간 계층인지 빨리 가르는 데 도움이 돼."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "오픈라우터"
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
         - "라우터를 쓴다고 품질 책임이 한곳으로 모인다고 오해하지 않게, 최종 모델 제공사를 따로 봐야 한다는 점도 넣었어."
       findings:
         - "모델과 라우터를 구분하게 만들었어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "73538e6a126fa71d"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 OpenRouter는 여러 회사의 LLM을 한 API 형태로 불러오게 해 주는 중간 라우터야. 그래서 [OpenAI](/ko/wiki/openai/) 스타일 호출에 익숙한 팀이라면 앱 코드를 크게 뒤흔들지 않고 모델 선택지를 넓혀 볼 수 있어.
