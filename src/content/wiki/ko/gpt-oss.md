@@ -29,6 +29,10 @@ modelProfile:
     선택에서 갈린다. 이렇게 보면 돼.
   weightsOpen: Apache 2.0 기반 오픈 웨이트 공개. 이렇게 보면 돼.
   vendor: OpenAI
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - gpt oss
 relatedTerms:
@@ -97,26 +101,22 @@ factCheck:
         - >-
           gpt-oss는 이름만 보면 GPT API 변형처럼 보이지만, 실제로는 배포·라이선스 판단이 먼저 필요한 계열이라서 그 차이를
           따로 남겼어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "a30850cb3a29c468"
-  reviewedAt: "2026-04-25T09:55:57Z"
+  contentHash: 73721ab0400f7b1c
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 gpt-oss는 [OpenAI](/ko/wiki/openai/)가 공개한 오픈 [웨이트](/ko/wiki/weight/) [추론](/ko/wiki/inference/) 모델 계열이야. 하나의 단일 모델 이름이라기보다 gpt-oss-120b와 gpt-oss-20b를 묶어 부르는 이름으로 보면 돼.

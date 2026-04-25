@@ -19,6 +19,10 @@ modelProfile:
     돼.
   weightsOpen: 오픈 모델 계열이지만 실제 웨이트 공개 범위와 라이선스 조건은 별도 확인이 필요해.
   vendor: Google DeepMind
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - google gemma
 relatedTerms:
@@ -79,26 +83,22 @@ factCheck:
         - '표현 점검: 완전 오픈소스 단정 대신 공개형 모델 계열이라는 표현으로 수위를 맞췄어.'
       findings:
         - 브랜드 혼동을 줄이도록 비교 대상을 의도적으로 분리했어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "0f2e38e0f9b8bb34"
-  reviewedAt: "2026-04-25T09:55:56Z"
+  contentHash: ff94d18dc62cd2ef
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Gemma는 [Google DeepMind](/ko/wiki/google-deepmind/)가 공개형으로 내놓는 대형 언어 모델 계열이야. [Gemini](/ko/wiki/gemini/)와 완전히 다른 회사 제품이라기보다, Google이 개발자에게 직접 배포하는 모델 라인이라고 보면 돼.

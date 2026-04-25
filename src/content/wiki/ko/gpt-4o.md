@@ -25,6 +25,10 @@ modelProfile:
   pricing: 'OpenAI API 기준 1M 토큰당 입력 $2.50, 캐시 입력 $1.25, 출력 $10.00이야.'
   weightsOpen: '오픈 웨이트 미공개, API 제공 중심. 이렇게 보면 돼.'
   vendor: OpenAI
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - GPT-4o(지피티-4o)
 relatedTerms:
@@ -80,26 +84,22 @@ factCheck:
       findings:
         - GPT-4o를 무조건 OpenAI 최고 모델로 읽으면 실제 기사에서 말하는 제품 포지션을 놓치기 쉬워.
         - 'GPT-4o를 텍스트 챗봇의 새 이름 정도로 축소하면 음성, 이미지 경험을 묶으려는 전략이 빠져.'
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "fcdfa91ae1488161"
-  reviewedAt: "2026-04-25T09:55:56Z"
+  contentHash: 0e6907a3040428e9
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 GPT-4o는 [OpenAI](/ko/wiki/openai/)가 만든 범용 [멀티모달](/ko/wiki/multimodal/) 모델이야. [OpenAI API](/ko/wiki/openai-api/)와 [ChatGPT](/ko/wiki/chatgpt/) 음성·비전 흐름에서 텍스트, 이미지, 음성을 한 엔진으로 묶어 쓰게 하려는 기본 모델로 보면 돼.

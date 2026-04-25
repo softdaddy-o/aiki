@@ -29,6 +29,10 @@ modelProfile:
     확인하는 편이 안전하다. 이렇게 보면 돼.
   weightsOpen: 핵심 GLM 5 계열은 서비스형 제공 중심. 이렇게 보면 돼.
   vendor: Z.AI
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - glm 5
   - glm5
@@ -91,26 +95,22 @@ factCheck:
         - 오픈 가중치 모델처럼 보이게 만드는 표현은 빼고 API 운용 중심 문맥으로 맞췄어.
       findings:
         - 독자가 GLM 5를 벤치마크 표의 한 줄로만 읽지 않게 문장 중심을 바꿨어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "3e181ba172834187"
-  reviewedAt: "2026-04-25T09:55:56Z"
+  contentHash: 469c07538ad3d21e
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 GLM 5는 Z.AI의 플래그십 파운데이션 모델이야. 짧은 답변을 빠르게 만드는 챗봇보다는 복잡한 시스템 설계, 여러 단계짜리 [에이전트](/ko/wiki/agent/) 작업, 긴 코드베이스 처리 쪽을 노리고 나온 모델이라고 보면 돼. 공식 문서 기준 텍스트 입출력 모델이고 컨텍스트 200K, 최대 출력 128K를 지원해.
