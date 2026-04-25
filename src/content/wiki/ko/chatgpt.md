@@ -5,16 +5,16 @@ lang: ko
 summary: "ChatGPT는 OpenAI가 운영하는 대화형 AI 서비스 이름이야. 단일 모델명이라기보다 여러 GPT 계열 모델, 대화 인터페이스, 안전장치, 보조 기능을 묶은 제품으로 봐야 실무 판단과 기사 해석이 덜 꼬여."
 readerValue: "ChatGPT를 그냥 챗봇 이름으로 볼지, 팀의 탐색·문서·코딩 흐름까지 바꾸는 작업 표면으로 볼지 구분할 수 있어. 특히 제품명과 모델명을 섞어 읽을 때 생기는 오해를 줄이는 데 쓸모가 있어."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "3.0.0"
+formatVersion: 2
 aliases:
   - "ChatGPT(챗지피티)"
 relatedTerms:
   - claude
   - claude-sonnet-4-5
   - codex
+  - gpt
   - gpt-4o
+  - openai
 firstMentioned: "2022-11-30"
 mentionCount: 3
 draft: false
@@ -24,67 +24,85 @@ tags:
   - application
 factCheck:
   status: passed
-  date: "2026-04-13"
+  date: "2026-04-25"
   sources:
-    - url: "https://en.wikipedia.org/wiki/ChatGPT"
-      title: "ChatGPT"
     - url: "https://openai.com/index/chatgpt/"
       title: "Introducing ChatGPT"
+    - url: "https://chatgpt.com/pricing/"
+      title: "ChatGPT Plans | Free, Go, Plus, Pro, Business, and Enterprise"
+    - url: "https://help.openai.com/en/articles/9237897-chatgpt-search"
+      title: "ChatGPT search"
+    - url: "https://help.openai.com/en/articles/8590148-memory-faq"
+      title: "Memory FAQ"
+    - url: "https://help.openai.com/en/articles/20001051"
+      title: "Retiring GPT-4o and other ChatGPT models"
   checks:
     - type: source_match
       result: pass
-      summary: "독자 초점과 제공된 출처 요약, 기존 문서 맥락이 어긋나지 않게 맞춰봤어."
+      summary: "본문의 제품명·모델명·기능 구분을 OpenAI 공식 문서와 다시 맞췄어."
       items:
-        - "독자 문제 대조: ChatGPT를 단순 도구 이름으로 볼지, 팀의 작업 흐름과 배포 판단까지 건드리는 제품 축으로 볼지 구분하도록 본문을 짰어."
-        - "출처 요약에 있던 대화형 상호작용, 후속 질문 대응, 실수 인정, 잘못된 전제 반박, 부적절 요청 거부를 작동 방식 설명에 반영했어."
-        - "기존 문서의 핵심이던 '모델처럼 보이지만 실제로는 제품 층위가 더 크다'는 포인트는 살리고, API 통합 문구를 과하게 끌어오지 않게 정리했어."
+        - "2022-11-30 공개 시점과 대화형 상호작용 설명은 `Introducing ChatGPT` 본문과 맞춰 확인했어."
+        - "`ChatGPT search`와 `Memory FAQ`를 기준으로 검색과 메모리를 ChatGPT 안의 기능으로 설명했고, 플랜별 차이가 있을 수 있다는 조건도 함께 남겼어."
+        - "`GPT-4o`는 ChatGPT 전체 이름이 아니라 시점에 따라 제공되거나 빠질 수 있는 모델 예시로만 서술해서 2026년 공식 공지와 맞췄어."
     - type: web_cross_check
       result: pass
-      sources: 2
-      summary: "공식 소개문과 Wikipedia를 서로 대조해서 서비스/모델 구분과 공개 시점을 다시 봤어."
+      sources: 5
+      summary: "2026-04-25 기준 OpenAI의 소개문, pricing, Help Center 문서를 교차 확인했어."
       items:
-        - "비교 기준: OpenAI 소개문은 ChatGPT를 대화형 상호작용 방식과 안전 응답 특성으로 설명하고, Wikipedia는 ChatGPT를 OpenAI의 생성형 AI 챗봇이자 서비스로 설명해."
-        - "OpenAI 문서의 RLHF, 후속 질문 대응, 실수 인정, 잘못된 전제 반박, 부적절 요청 거부 설명이 '어떻게 작동하나' 문단의 핵심과 맞아."
-        - "Wikipedia의 모델 버전 변화 설명을 기준으로, ChatGPT를 GPT-4o 같은 단일 모델명으로 고정해서 쓰지 않았어."
+        - "`Introducing ChatGPT`는 ChatGPT를 대화형 상호작용 제품으로 설명하고, 후속 질문 대응·실수 인정·잘못된 전제 반박·부적절 요청 거부를 명시해."
+        - "`ChatGPT search` 문서는 검색이 ChatGPT Free, Plus, Team, Edu, Enterprise에서 제공되고 `chatgpt.com`과 앱에서 접근된다고 적어."
+        - "`Memory FAQ`는 메모리 설정이 플랜에 따라 조금 달라질 수 있다고 적고, `ChatGPT Plans` 페이지는 Free·Go·Plus·Pro·Business·Enterprise별 메모리·컨텍스트 범위를 따로 안내해."
     - type: number_verify
       result: pass
-      summary: "문서에 들어간 날짜와 수치가 과장되지 않았는지 한 번 더 봤어."
+      summary: "시점이 민감한 날짜와 현재형 문장을 공식 문서로 다시 제한했어."
       items:
-        - "공개 시점은 2022년 11월 30일로만 썼고, 확인한 출처와 맞아."
-        - "변동이 큰 사용자 수, 요금제 세부 수치, 최신 활성 모델 정보는 본문 핵심 설명에서 뺐어."
-        - "mentionCount 3 같은 메타 정보는 용어 설명에 필요하지 않아서 서술에 섞지 않았어."
+        - "확정 날짜는 2022-11-30 공개 시점과 2026-02-13, 2026-04-03 GPT-4o 은퇴 일정처럼 공식 문서에서 직접 확인되는 것만 근거로 삼았어."
+        - "변동이 큰 사용자 수나 특정 모델 우열 평가는 빼고, 플랜·기능 차이가 있다는 수준만 남겼어."
+        - "`2026년 4월` 현재형 문장은 pricing, search, memory 문서로 확인 가능한 범위로만 다시 썼어."
     - type: adversarial
       result: pass
-      summary: "헷갈리기 쉬운 반례와 과장 포인트를 다시 봤어."
+      summary: "독자가 ChatGPT, 모델명, API를 같은 층위로 오해하지 않게 다시 점검했어."
       items:
-        - "ChatGPT를 GPT-4o 같은 단일 모델과 같은 층위로 써도 되는지 공격적으로 점검했어."
-        - "ChatGPT를 곧바로 API나 배포 단위로 오해하게 쓰지 않았는지 점검했어."
-        - "항상 최신 사실을 보장하는 만능 도구처럼 읽히지 않는지 점검했어."
+        - "`ChatGPT에서 된다`와 `API로 바로 넣는다`를 다른 판단 문제로 분리해 썼어."
+        - "`GPT-4o`를 현재 기본 구성처럼 쓰지 않고, 바뀔 수 있는 모델 예시로만 낮췄어."
+        - "검색과 메모리를 만능성 근거로 쓰지 않고, 출처 품질과 플랜 차이 제약을 함께 남겼어."
       findings:
-        - "제품명과 모델명을 분리해서 서술했고, 내부 모델이 바뀔 수 있다는 점을 넣었어."
-        - "실무 문단에서 'ChatGPT를 쓴다'와 '우리 서비스에 통합한다'를 다른 문제로 갈라 놨어."
-        - "환각, 최신성, 요금제·기능 차이 같은 현실 제약을 넣어서 만능 도구처럼 보이지 않게 했어."
+        - "본문과 `factCheck` 모두 ChatGPT를 제품명으로, [GPT-4o](/ko/wiki/gpt-4o/)를 시점 따라 달라질 수 있는 모델명으로 다루는 방향에 맞췄어."
+        - "현재형 제품 차이는 2026-04-25에 확인한 공식 pricing·search·memory 문서 범위 안에서만 남겼어."
+        - "검색, 최신성, 요금제 차이를 한계와 함께 적어서 만능 도구처럼 읽히지 않게 했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "45b335ece700bc11"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
-ChatGPT는 [OpenAI](/ko/wiki/openai/)가 운영하는 대화형 AI 서비스야. 많은 사람이 모델 이름처럼 부르지만, 실제로는 여러 GPT 계열 모델을 대화 인터페이스와 도구, 안전장치 위에 얹어 제공하는 제품에 더 가깝다. 그래서 "ChatGPT에서 된다"와 "우리 서비스에 바로 넣을 수 있다"는 같은 말이 아니야.
-## 어떻게 작동하나
-기본 뼈대는 GPT 계열 언어 모델이고, 대화에 맞게 미세조정돼서 후속 질문에 이어서 답하고, 잘못된 전제를 바로잡거나 부적절한 요청을 거절하도록 설계됐다. 사용자는 텍스트, 음성, 이미지 같은 입력을 대화 흐름으로 던지고, ChatGPT는 앞선 맥락을 이어받아 다음 응답을 만든다. 시간이 지나면서 안에서 쓰이는 모델은 바뀔 수 있고, 웹 검색이나 [메모리](/ko/wiki/memory/) 같은 기능이 붙으면서 같은 이름 아래 경험도 계속 달라진다.
+ChatGPT는 [OpenAI](/ko/wiki/openai/)가 운영하는 대화형 AI 서비스야. 2022-11-30에 처음 공개됐고, 많은 사람이 모델 이름처럼 부르지만 실제로는 [GPT](/ko/wiki/gpt/) 계열 모델들을 대화 인터페이스, 도구, 안전장치 위에 얹어 제공하는 제품에 더 가까워. 그래서 "ChatGPT에서 된다"와 "우리 서비스에 바로 넣을 수 있다"는 같은 말이 아니야.
+## 실제로 무엇을 하나
+ChatGPT는 사용자가 텍스트, 음성, 이미지 같은 입력을 대화창에 넣으면 답변, 요약, 초안, 설명 같은 출력을 돌려주는 제품이야. 기본에는 [GPT](/ko/wiki/gpt/) 계열 모델이 있고, 대화 맥락 유지와 안전 응답 규칙, 검색과 [메모리](/ko/wiki/memory/) 같은 보조 기능이 조합돼 경험이 만들어져. 여기서 [GPT-4o](/ko/wiki/gpt-4o/) 같은 이름은 ChatGPT 전체 이름이 아니라, 시점에 따라 쓰이거나 빠질 수 있는 개별 모델 예시로 보는 편이 정확해.
 ## 왜 중요한가
-실무에서는 ChatGPT가 아이디어 정리, 문서 초안, 고객응대 문안, 코드 설명 같은 일을 빠르게 돌리는 작업면이 되기 쉽다. 하지만 배포 관점에서는 ChatGPT 자체를 네 서비스 안에 심는 게 아니라, [OpenAI](/ko/wiki/openai/)가 운영하는 제품을 쓰는 것과 별도로 API나 다른 통합 경로를 설계하는 문제를 따로 봐야 해. 기사나 발표에서 "ChatGPT가 지원한다"고 말할 때도 그게 특정 모델 성능 얘기인지, 채팅 앱 기능 얘기인지, 아니면 검색·[메모리](/ko/wiki/memory/)·도구 호출까지 포함한 제품 경험 얘기인지 갈라서 읽어야 판단이 틀어지지 않아.
+- 아이디어를 빠르게 정리하고 방향을 잡는 첫 초안 도구로 많이 쓰여.
+- 문서 초안이나 고객응대 문안을 짧은 왕복으로 다듬을 때 효율이 커.
+- 코드 설명, 로그 해석, 배포 전 체크리스트 정리처럼 "바로 읽히는 설명"이 필요한 순간에도 자주 붙어.
+
+하지만 배포 관점에서는 ChatGPT 자체를 네 서비스 안에 심는 문제와, [OpenAI](/ko/wiki/openai/) API나 다른 통합 경로를 설계하는 문제를 분리해서 봐야 해. [Claude](/ko/wiki/claude/)나 [Codex](/ko/wiki/codex/) 같은 다른 제품과 비교할 때도 "어느 모델이 더 세냐"보다 제품 경험, 정책, 연결 가능한 도구가 어떻게 다른지부터 보는 편이 실무 판단에 더 도움이 돼.
 ## 주의해서 볼 점
-말을 그럴듯하게 해도 틀릴 수 있다는 점은 여전히 중요해. 최신 정보는 웹 검색 같은 보조 기능이 없으면 비어 있을 수 있고, 검색이 붙어도 가져온 출처가 부실하면 답도 흔들린다. 또 무료·유료 요금제, 접속 경로, 시점에 따라 쓸 수 있는 모델과 기능이 달라져서, 누가 "ChatGPT로 해봤다"고 말해도 네가 같은 환경을 보고 있는 건 아닐 수 있어.
-## 관련 용어
-- [Claude(클로드)](/ko/wiki/claude/) — 둘 다 대화형 AI 제품으로 자주 비교되지만, 비교 포인트는 단순 성능표보다 서비스 경험과 정책, 작업 흐름 차이에 더 가까워.
-- [Claude Sonnet 4.5(클로드 소네트 4.5)](/ko/wiki/claude-sonnet-4-5/) — 이쪽은 제품 안에 들어가는 개별 모델 이름에 가깝다. ChatGPT와 나란히 놓으면 서비스 이름과 모델 이름을 같은 층위로 말하면 왜 헷갈리는지 드러나.
-- [Codex(코덱스)](/ko/wiki/codex/) — Codex는 코딩 작업에 더 직접 묶여 있는 이름으로 읽는 편이 맞다. 반면 ChatGPT는 코딩도 하지만 범용 대화 제품이라서, 개발 흐름에 들어오는 방식과 범위가 더 넓다.
-- [GPT-4o(지피티-4오)](/ko/wiki/gpt-4o/) — GPT-4o는 ChatGPT 안에 들어갈 수 있는 모델 계열 중 하나로 보는 편이 정확하다. 그래서 "GPT-4o가 좋다"는 말은 주로 모델 특성 얘기이고, "ChatGPT가 편하다"는 말은 인터페이스와 도구 묶음까지 포함한 제품 얘기다.
+말을 그럴듯하게 해도 틀릴 수 있다는 점은 여전히 중요해. 최신 정보는 검색이 없으면 비어 있을 수 있고, 검색이 있어도 끌어온 출처가 부실하면 답도 흔들려.
+
+2026년 4월 25일에 확인한 OpenAI 공식 pricing/help 문서를 기준으로 보면, ChatGPT는 무료·유료 플랜과 접속 환경에 따라 쓸 수 있는 모델, 메모리 범위, 도구 구성이 달라질 수 있어. 검색은 여러 플랜과 앱에서 제공되지만, [메모리](/ko/wiki/memory/) 설정과 범위는 플랜에 따라 차이가 날 수 있고, [GPT-4o](/ko/wiki/gpt-4o/) 같은 모델 이름도 고정 구성이 아니라 공지에 따라 은퇴하거나 바뀔 수 있어. 그래서 누가 "ChatGPT로 해봤다"고 말해도 네가 같은 환경을 보고 있는 건 아닐 수 있어.
+
+특히 [Codex](/ko/wiki/codex/)처럼 특정 작업 맥락이 더 선명한 이름과 달리, ChatGPT는 범용 제품 이름이야. 비교할 때는 모델명, 앱 기능, API 경로를 먼저 분리해서 읽어야 판단이 덜 틀어져.

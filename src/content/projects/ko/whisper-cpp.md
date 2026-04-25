@@ -85,21 +85,25 @@ factCheck:
         - '그래서 첫 비교 축도 offline and self-hosted STT runtime에 두고 잡았다.'
 guideVersion:
   tone: "2.0.0"
-  common: "2.1.0"
-  projects: "4.1.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.1.0"
+  panelVersion: 1.1.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
     skeptical-critic: "1.1.0"
     tone-editor: "1.6.0"
     structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "deef9b33a58ff5be"
-  reviewedAt: "2026-04-23"
+  contentHash: "67e1b7e2462b2741"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 한 줄 판단
 
 whisper.cpp를 볼 때 첫 질문은 "[Whisper](/ko/wiki/whisper/)를 로컬에서 직접 쥘 건가"야. 2026년 4월 21일 기준 공식 README도 plain C/C++ implementation, CPU-only, Metal, Core ML, CUDA, Vulkan, OpenVINO, WASM, Docker, server example까지 한 repo 안에 묶어 두거든. 그래서 이 프로젝트는 단순 정확도보다 오프라인, [온디바이스](/ko/wiki/on-device/), self-hosted 제어권이 필요한지부터 보는 편이 맞아.

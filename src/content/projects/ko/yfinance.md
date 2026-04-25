@@ -45,8 +45,27 @@ factCheck:
       items:
         - "이 페이지의 stars 표시는 카탈로그 시점 스냅샷이므로 배포 전 다시 확인하는 전제가 붙어."
         - "핵심 판단은 숫자보다 기능 범위와 법적 주의사항 쪽에 두는 편이 안전해."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.1.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
+  panelVerdict: pass
+  contentHash: "bf988bd9ba2b6b52"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 뭘 해볼 수 있나
 
 - 관심 종목의 최근 가격, 거래량, 52주 범위, 시가총액 같은 기본 시장 데이터를 빨리 확인할 수 있어.
