@@ -50,13 +50,27 @@ factCheck:
         - "오픈웨이트 논거는 커뮤니티 해석이지 Anthropic 공식 입장 아님 — 구분 표기"
       findings: []
 tags: ["anthropic", "claude", "claude-code", "reasoning", "open-weight"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
-formatVersion: 2
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "fac3e9c4b623eca3"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 Anthropic이 올해 3월 4일, Claude Code의 기본 추론 수준을 `high`에서 `medium`으로 낮췄어. 이유는 명확했어 — `high` 모드에서 응답이 너무 오래 걸려서 UI가 멈춘 것처럼 보이는 사례가 있었거든. 그런데 이게 잘못된 트레이드오프였다고 Anthropic이 직접 인정했고, 4월 7일 원래대로 되돌렸어. [공식 포스트모템 문서](https://www.anthropic.com/engineering/april-23-postmortem)에 날짜까지 적혀 있어.

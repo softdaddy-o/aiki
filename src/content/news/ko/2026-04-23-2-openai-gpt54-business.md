@@ -55,10 +55,25 @@ factCheck:
 tags: ["openai", "gpt", "gpt-5", "enterprise", "computer-use"]
 formatVersion: 2
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "dbac31fe2548ce69"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 OpenAI가 기업 시장에서 [GPT-5.4](https://openai.com/business/)를 중심으로 포지셔닝을 강화하고 있어. 올해 3월 출시된 GPT-5.4는 세 가지 벤치마크에서 뚜렷한 숫자를 냈는데 — SWE-bench Pro(코딩) 57.7%, OSWorld(컴퓨터 사용) 75%, GDPval(지식 업무) 83%야. 특히 컴퓨터 사용 75%는 화면을 직접 읽고 클릭하는 작업을 자동화할 수 있다는 뜻이거든.
 
 ## 1M 컨텍스트 + 5단계 추론 강도가 포인트야

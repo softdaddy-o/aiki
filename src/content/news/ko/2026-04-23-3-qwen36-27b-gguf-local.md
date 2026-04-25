@@ -54,10 +54,25 @@ factCheck:
 tags: ["qwen", "local-llm", "gguf", "alibaba", "open-source"]
 formatVersion: 2
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "07843a7789b18e17"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 로컬 LLM 커뮤니티에서 요즘 제일 많이 얘기되는 게 Qwen3.6-27B야. 알리바바 Qwen 팀이 4월 22일에 출시했고, [unsloth](https://huggingface.co/unsloth/Qwen3.6-27B-GGUF)가 같은 날 바로 GGUF 버전을 만들어서 HuggingFace에 올렸어. 로컬 LLM 커뮤니티에서 390명이 공감했는데 — 신규 모델 기준으로 꽤 높은 편이야.
 
 ## 18GB RAM이면 돌아간다는 게 포인트야

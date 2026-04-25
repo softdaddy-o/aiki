@@ -53,10 +53,24 @@ tags: ["qwen", "local-llm", "vibe-coding", "claude-code", "reddit"]
 formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "f1d3dc2c6c8dc054"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 r/LocalLLaMA에 올라온 [한 포스트](https://www.reddit.com/r/LocalLLaMA/comments/1st3m8y/qwen_36_is_actually_useful_for_vibecoding_and_way/)가 커뮤니티에서 크게 반응을 받았어. 듀얼 RTX 3090 리그에 [Qwen 3.6](/ko/wiki/qwen/) 27B를 Q8로 올리고, [Claude Code](/ko/wiki/claude-code/)를 그쪽으로 붙여서 [vibe-coding](/ko/wiki/vibe-coding/)을 돌린 후기야. 결론은 "그냥 잘 된다" — 로컬 모델이 API 모델과 같은 툴체인에서 실제로 쓸만한 수준이 됐다는 거야.
 
 ## 어떻게 붙였나

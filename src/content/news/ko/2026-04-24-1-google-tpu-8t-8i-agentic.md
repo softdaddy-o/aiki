@@ -53,10 +53,24 @@ tags: ["google", "tpu", "agent", "cloud", "infrastructure"]
 formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "4b9c3dfc66ee0931"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 구글이 Cloud Next '26에서 8세대 TPU를 [공개했어](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/). 이번엔 한 칩으로 다 하지 않고, 훈련용 TPU 8t와 추론용 TPU 8i 두 개로 쪼갰어. 에이전트 시대에 맞춰 워크로드 성격이 완전히 갈린다는 판단이야.
 
 ## 두 칩으로 역할을 나눈 이유

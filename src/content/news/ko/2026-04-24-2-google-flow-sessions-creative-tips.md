@@ -52,10 +52,24 @@ tags: ["google", "flow", "video", "creative", "ai-art"]
 formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "06c2552fb9c0929b"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 구글이 [Flow Sessions 3기 아티스트들의 작업 팁](https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-sessions-artists-lessons/)을 정리했어. Flow는 Google Labs의 AI 영상 생성 도구인데, 이번 3기에서는 5명의 창작자 — 패션 디자이너부터 다큐 감독까지 — 가 참여했어. 결국 추린 팁은 3가지야.
 
 ## 1. 결과물을 미리 정하지 말고 실험하라

@@ -53,10 +53,24 @@ tags: ["github", "self-hosting", "llm", "trending", "infrastructure"]
 formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "bbadd5e8f6e8a061"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 GitHub 트렌딩에 mikeroyal의 [Self-Hosting-Guide](https://github.com/mikeroyal/Self-Hosting-Guide)가 다시 올라왔어. 누적 19.5K 스타에 970 포크, 하루에만 44개 스타를 추가로 받고 있어. 셀프호스팅 주제 전반을 큐레이션한 리포인데, 특히 LLM 로컬 호스팅 섹션이 AI 쪽 사람들 유입을 끌어당기는 것 같아.
 
 ## 뭐가 담겨 있나

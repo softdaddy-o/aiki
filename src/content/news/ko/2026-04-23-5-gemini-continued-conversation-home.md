@@ -53,10 +53,25 @@ factCheck:
 tags: ["google", "gemini", "smart-home", "voice-assistant", "google-home"]
 formatVersion: 2
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "baddbbfb29a2c9fd"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 구글 스마트홈 기기를 쓰다 보면 매번 "Hey Google"을 다시 말해야 하는 게 은근히 번거로웠는데, 구글이 이 문제를 [Continued Conversation](https://blog.google/products-and-platforms/devices/how-to-use-gemini-continued-conversation/)으로 해결했어. 4월 21일부터 모든 지원 언어와 지역으로 롤아웃 중이야.
 
 ## 작동 방식: 응답 후 몇 초간 마이크가 계속 열려 있어

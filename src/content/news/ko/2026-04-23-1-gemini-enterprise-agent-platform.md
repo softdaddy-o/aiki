@@ -55,10 +55,25 @@ factCheck:
 tags: ["google", "gemini", "agent", "enterprise", "cloud"]
 formatVersion: 2
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e74928d1ec403123"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 Google Cloud Next '26에서 구글이 기업용 AI 에이전트 플랫폼을 완전히 새로 짰어. 이름은 [Gemini Enterprise Agent Platform](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-enterprise-agent-platform/) — 기존 Vertex AI를 흡수해서 에이전트를 빌드하고, 통제하고, 성능을 측정하는 3개 축을 하나의 플랫폼으로 묶은 거야.
 
 ## 3개 축: Build, Govern, Optimize

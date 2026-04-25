@@ -54,10 +54,25 @@ factCheck:
 tags: ["anthropic", "claude", "security", "mozilla", "firefox"]
 formatVersion: 2
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "df1996130dcab2be"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 AI가 실제로 보안 연구자 역할을 한 사례가 나왔어. [Mozilla Blog](https://blog.mozilla.org/en/privacy-security/ai-security-zero-day-vulnerabilities/)에 따르면, Anthropic의 Claude Mythos Preview를 써서 Firefox 코드베이스를 분석한 결과 271개의 보안 취약점을 발견했고, Firefox 150에서 전부 패치했어. 4월 21일에 공개된 내용이야.
 
 ## "엘리트 보안 연구자와 동급이야"
