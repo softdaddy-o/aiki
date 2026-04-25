@@ -61,11 +61,11 @@ factCheck:
         - "라우터를 쓴다고 품질 책임이 한곳으로 모인다고 오해하지 않게, 최종 모델 제공사를 따로 봐야 한다는 점도 넣었어."
       findings:
         - "모델과 라우터를 구분하게 만들었어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "73538e6a126fa71d"
+  contentHash: "3bc144c6a25a56d2"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

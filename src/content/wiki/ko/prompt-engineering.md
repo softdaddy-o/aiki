@@ -66,11 +66,11 @@ factCheck:
         - 체인 오브 소트 같은 하위 기법을 전체 개념과 같은 말처럼 읽지 않게 분리했어.
       findings:
         - '프롬프트 엔지니어링은 강하지만, 문제 종류를 잘못 읽으면 바로 한계가 보여.'
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -84,7 +84,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "cb9f28264eddf63d"
+  contentHash: "940b16f69916e8ae"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

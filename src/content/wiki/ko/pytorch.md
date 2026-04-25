@@ -56,11 +56,11 @@ factCheck:
         - "PyTorch 자체를 특정 AI 모델 이름으로 읽는 오해를 피하려고 프레임워크라는 점을 첫 문단에서 못 박았어."
         - "학습용 기반과 운영용 추론 스택이 항상 같다고 받아들이지 않도록 배포 단계의 분리를 명확히 적었어."
         - "프레임워크 선택만으로 성능이 자동 결정된다는 단순화도 경계했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "91de29a0a8e37d96"
+  contentHash: "6c57547bbb52aae1"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

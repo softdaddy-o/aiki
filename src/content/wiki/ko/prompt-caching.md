@@ -58,11 +58,11 @@ factCheck:
       findings:
         - 서빙 최적화와 모델 자체 개선을 섞어 읽으면 기사 핵심이 어긋나기 쉬워.
         - 캐시가 있다고 해도 작은 프롬프트나 자주 바뀌는 접두부에는 체감 이득이 약할 수 있어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "2edccc6638bffddb"
+  contentHash: "9b06750708ef2edc"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

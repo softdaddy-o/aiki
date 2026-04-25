@@ -75,11 +75,11 @@ factCheck:
         - '또 다른 오해는 일반 관계형 DB와 똑같이 보면 된다는 건데, 유사도 검색 중심 구조라는 점을 남겼어.'
       findings:
         - 도구의 범위와 한계를 같이 적어서 과장 해석을 줄였어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -93,7 +93,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "3e197581f07271f0"
+  contentHash: "83cb70d406352280"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

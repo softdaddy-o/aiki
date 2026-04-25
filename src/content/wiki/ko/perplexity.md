@@ -58,11 +58,11 @@ factCheck:
         - "실시간 정보 강점만 강조하다가 문서 선택 편향과 요약 오독 가능성이 빠지지 않게 균형을 잡았어."
       findings:
         - "Perplexity는 인터페이스가 워낙 매끄러워서 답이 곧 사실처럼 느껴지기 쉬워. 실제론 검색 결과 선택과 요약이라는 두 단계가 더 끼어 있으니까 출처까지 같이 읽어야 해."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "014daeed49ddab39"
+  contentHash: "1dcfb8781e5edf0e"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

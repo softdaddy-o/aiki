@@ -59,11 +59,11 @@ factCheck:
         - "검색 엔진 층과 생성형 모델 층을 섞어 읽지 않게 역할을 분리했어."
       findings:
         - "Qdrant는 홈페이지가 아주 강한 생산성 숫자와 사례를 같이 밀어서, 기사에선 마케팅 성과 수치와 제품 핵심 기능을 분리해서 읽는 게 안전해."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "9f4d19b516f8c7e5"
+  contentHash: "6dccd73cb9261a20"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

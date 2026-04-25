@@ -62,11 +62,11 @@ factCheck:
         - "그래서 양자화는 압축, 배포, 추론 비용 최적화 문맥에서 읽는 게 맞고, 모델 능력 향상 기술로 읽으면 어긋나."
       findings:
         - "양자화의 핵심은 성능 마법이 아니라 숫자 표현을 줄여 배포 조건을 바꾸는 데 있어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -80,7 +80,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "804c1a6257ccf391"
+  contentHash: "a372bdf56597d5c2"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
