@@ -75,11 +75,11 @@ factCheck:
         - 도입 효과를 개인 취향이 아니라 팀 운영 변화까지 포함해 보게 만들었어.
       findings:
         - Cursor는 툴 교체라기보다 작업 표면을 바꾸는 일에 가까워.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -93,7 +93,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "d54f19a6694a7026"
+  contentHash: "77d8fc59400bd1c0"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

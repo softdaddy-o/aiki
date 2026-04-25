@@ -61,11 +61,11 @@ factCheck:
         - "또 CrewAI를 LangChain의 별칭처럼 읽으면 틀려. 겹치는 부분은 있어도 역할 중심 협업 설계에 더 초점을 둬."
       findings:
         - "멀티에이전트라는 말보다 오케스트레이션 레이어라는 점을 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "6f0a4bc1c3feb624"
+  contentHash: "31f0c366102feb64"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

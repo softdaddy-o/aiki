@@ -59,11 +59,11 @@ factCheck:
         - "반대로 AI 체크가 만능 심판처럼 읽히지 않게, 사람 리뷰 경계를 따로 세워야 한다는 점도 넣었어."
       findings:
         - "현재 제품 초점과 한계를 같이 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "39b7b962e34a1f86"
+  contentHash: "f7874022da9a0671"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

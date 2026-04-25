@@ -80,11 +80,11 @@ factCheck:
         - "OpenAI 호환 API 문맥을 모델 버전 번호로 오해하지 않게 서비스 층위를 따로 적었어."
       findings:
         - "동일 이름 다층 구조 때문에 생기는 해석 오류를 초반에 차단했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -98,7 +98,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "a2c3c2f56edea8e6"
+  contentHash: "90d076b5eb62a1bd"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

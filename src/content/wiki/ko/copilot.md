@@ -63,11 +63,11 @@ factCheck:
         - "자동완성만 하는 얇은 기능으로 축소되지 않게 팀 운영 변화까지 함께 적었어."
       findings:
         - "도구 자체보다 팀 리뷰 규칙과 검증 흐름이 더 크게 바뀔 수 있다는 점을 놓치면 도입 효과와 리스크를 같이 오해하게 돼."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -81,7 +81,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "9b7dab58fa1f2449"
+  contentHash: "ec6ccb58fca70ed0"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

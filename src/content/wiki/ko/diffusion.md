@@ -72,11 +72,11 @@ factCheck:
         - 확산 모델이면 무조건 느리거나 무조건 고품질이라는 단정도 막았어.
       findings:
         - 브랜드명과 알고리즘명을 섞는 오해가 제일 흔해서 그 지점을 먼저 정리했어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -90,7 +90,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "80a0122784d6062a"
+  contentHash: "511e0ed3648f63ff"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

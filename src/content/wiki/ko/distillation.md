@@ -59,11 +59,11 @@ factCheck:
       findings:
         - "'작은 모델이 항상 큰 모델을 거의 그대로 재현한다'는 오해를 피하려고 성능 손실 가능성을 분명히 적었어."
         - "'비용 절감 기법이니 학습 없이 바로 적용된다'는 오해를 막으려고 distillation이 학습 파이프라인에 붙는다는 점을 분리해서 설명했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "377ebf7395ef3228"
+  contentHash: "08cbafbbb9851c3c"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

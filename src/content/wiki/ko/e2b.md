@@ -68,11 +68,11 @@ factCheck:
         - "E2B를 [quantization](/ko/wiki/quantization/) 같은 최적화 기법 이름으로 읽는 것도 틀리다."
       findings:
         - "이 숫자를 잘못 읽으면 [on-device](/ko/wiki/on-device/) 배포 기대치도 같이 어긋난다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -86,7 +86,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "148fb48e974a24bf"
+  contentHash: "412fbd4736a3810b"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
