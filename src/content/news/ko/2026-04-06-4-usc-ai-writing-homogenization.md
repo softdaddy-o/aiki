@@ -52,11 +52,11 @@ tags:
   - USC
   - 창의성
   - 다양성
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "ae7a72bbc51e9f00"
+  contentHash: "46d33d596d5f7822"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## "이제 다들 비슷하게 들려"

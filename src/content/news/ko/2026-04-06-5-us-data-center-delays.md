@@ -55,11 +55,11 @@ tags:
   - 전력
   - 중국-부품
   - 공급망
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -73,7 +73,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "1ac96c82438170f2"
+  contentHash: "e01331227af18507"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 6500억 달러 투자인데 절반이 막혔대

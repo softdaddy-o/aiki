@@ -54,11 +54,11 @@ tags:
   - LocalLLaMA
   - MiniMax
   - Qwen
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "8b7ba07e1ba1cda7"
+  contentHash: "2aee57cdb21e2326"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 4개 랩이 동시에 멈췄어
