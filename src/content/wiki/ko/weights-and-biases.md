@@ -7,9 +7,6 @@ summary: >-
   학습시키는 엔진이라기보다 실험 기록과 협업 흐름을 붙잡아 두는 쪽에 더 가까워.
 readerValue: '이 이름이 나오면 새 모델 자체 얘기인지, 아니면 실험 추적과 팀 협업 인프라 얘기인지 바로 구분할 수 있어.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - wandb
 relatedTerms:
@@ -68,6 +65,26 @@ factCheck:
       findings:
         - 도구 도입과 운영 성숙도를 같은 말로 보지 않게 선을 그었어.
         - 예쁜 UI가 곧 좋은 실험 운영이라는 착시도 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "2eb6a3d209689978"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Weights & Biases는 모델 실험에서 생기는 설정값, 로그, [평가](/ko/wiki/eval/) 결과를 모아 두고 비교하게 해 주는 플랫폼이야. [공식 사이트](https://wandb.ai/site)와 [문서](https://docs.wandb.ai/)를 같이 보면 실험 기록 플랫폼이라는 성격이 아주 분명해.

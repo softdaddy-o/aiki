@@ -7,9 +7,6 @@ summary: >-
   설명만 있는 것과 다르게, 웨이트가 있어야 같은 모델을 다시 불러와 실행할 수 있어.
 readerValue: '이 말을 알면 기사에서 모델 공개가 진짜 실행 가능한 공개인지, 아니면 구조 설명만 푼 건지 바로 가를 수 있어.'
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - 웨이트
   - weights
@@ -72,6 +69,26 @@ factCheck:
         - '오해 점검: 웨이트 파일이 있어도 토크나이저나 추론 스택이 빠지면 바로 실행되지 않을 수 있어.'
       findings:
         - 독자가 웨이트 공개와 완전한 오픈소스를 같은 말로 받아들이지 않게 막아 뒀어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "47708aec5d5ca7dc"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Model Weights는 [학습](/ko/wiki/training/) 과정에서 조정된 숫자 파라미터 집합이야. [Hugging Face 업로드 문서](https://huggingface.co/docs/hub/models-uploading)를 보면 config와 weight 파일이 실제 배포 단위로 함께 움직인다는 점이 바로 보여.

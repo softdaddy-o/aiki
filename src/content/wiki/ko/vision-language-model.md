@@ -9,9 +9,6 @@ readerValue: >-
   이 용어를 알면 이미지를 읽는 모델과 이미지를 만드는 모델을 헷갈리지 않게 돼. 기사에서 멀티모달 얘기가 나와도 입력 이해 쪽인지 생성
   쪽인지 더 빨리 구분할 수 있어.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - vlm
 relatedTerms:
@@ -70,6 +67,26 @@ factCheck:
         - '또 멀티모달이란 말 하나로 모든 기능을 다 포함시키지 않게, 범위를 시각 입력 이해로 고정했어.'
       findings:
         - 독자가 기사 문맥에서 입력 이해 모델을 더 빨리 알아보게 만들었어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "33cf292a25571ff9"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Vision-Language Model은 이미지와 텍스트를 같이 받아서, 장면을 이해하고 그 의미를 말로 풀어내는 모델이야. 핵심은 그림을 그리는 게 아니라 그림이나 화면을 읽고 언어와 연결하는 데 있다는 점이야.

@@ -5,9 +5,6 @@ lang: ko
 summary: "vLLM은 이미 있는 대규모 언어 모델을 빠르게 돌리고 서비스하기 위한 추론 엔진이자 서빙 계층이야. 모델 자체보다 운영 구조를 바꾸는 런타임 선택지에 더 가까운 편이야."
 readerValue: "vLLM이 단순 실행 도구인지, 아니면 팀의 추론 서버 구조와 배포 전략을 바꾸는 선택지인지 빨리 가르게 해줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "vLLM(브이엘엘엠)"
 relatedTerms:
@@ -60,6 +57,26 @@ factCheck:
       findings:
         - "vLLM은 모델 자체가 아니라 추론 엔진이야."
         - "학습 프레임워크, 모델 이름, 서빙 엔진을 한데 묶어 읽지 않게 정리했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "62bfbf373ac7a01c"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 vLLM은 대규모 언어 모델을 실제 서비스나 배치 작업에서 돌릴 때 쓰는 [추론](/ko/wiki/inference/)·서빙 엔진이야. 모델을 새로 학습시키는 도구가 아니라, 이미 준비된 모델을 API 서버나 프로그램 내부 엔진으로 붙여서 응답하게 만드는 실행 계층이라고 보면 돼.

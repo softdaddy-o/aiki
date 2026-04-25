@@ -5,9 +5,6 @@ lang: ko
 summary: "Windsurf는 AI를 편집기 한가운데에 넣어서 코딩 흐름을 이어 주려는 IDE 계열 도구야."
 readerValue: "이 이름이 그냥 보조 플러그인인지, 아니면 편집기 안의 작업 흐름 자체를 바꾸려는 제품인지 구분하는 데 도움이 돼."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "윈드서프"
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
         - "반대로 모든 개발 단계가 자동화된다는 과장도 경계하려고 권한과 모델 의존성을 주의점에 넣었어."
       findings:
         - "자동완성 도구와 AI IDE를 구분하게 만들었어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c3b9a363e62d872e"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Windsurf는 AI 채팅, 코드 수정, 편집기 맥락 읽기를 한 덩어리로 묶은 AI 코딩 환경이야. 단순 자동완성 하나보다, IDE 안에서 일을 계속 이어 가게 설계한 제품으로 보는 쪽이 맞아.

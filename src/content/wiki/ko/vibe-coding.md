@@ -5,9 +5,6 @@ lang: ko
 summary: "Vibe Coding은 AI에게 방향을 말로 던지고 결과를 보면서 계속 조정하는 코딩 방식이야."
 readerValue: "이 말이 성능 트릭이 아니라 작업 방식 이름이라는 걸 빠르게 이해하고, 실무에서 어디까지 허용할지 기준을 세우는 데 도움이 돼."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "바이브 코딩"
   - "vibe coding"
@@ -63,6 +60,26 @@ factCheck:
         - "또 성능 향상법이나 비용 절감법처럼 좁게 읽지 않게, 작업 방식이라는 프레임을 앞세웠어."
       findings:
         - "개념 범위를 넓게 읽되 핵심 오해는 막았어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "3f90b1a37aefdca2"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Vibe Coding은 구현 세부를 먼저 짜기보다, 목표와 느낌을 말로 던진 뒤 AI가 만든 코드를 결과 중심으로 조정해 가는 개발 방식이야. 그래서 특정 모델 이름이나 기능이 아니라, AI 코딩을 다루는 태도와 워크플로를 가리키는 표현으로 보면 돼.

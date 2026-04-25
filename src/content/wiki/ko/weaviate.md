@@ -5,9 +5,6 @@ lang: ko
 summary: "Weaviate(위비에이트)는 벡터와 원본 데이터를 함께 저장하면서 의미 검색을 해 주는 오픈소스 벡터 데이터베이스야. RAG나 추천, 검색 보강처럼 retrieval 품질이 중요한 앱에서 검색 계층 자체를 설계할 때 많이 거론돼."
 readerValue: "Weaviate가 보이면 단순 저장소가 아니라 벡터 검색, 필터링, 스키마를 같이 다루는 retrieval 인프라 이야기로 읽으면 돼."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Weaviate(위비에이트)"
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
       findings:
         - "임베딩 품질 중요"
         - "자동 해결 아님"
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "dbe148d70148ef8a"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Weaviate는 데이터 객체와 그 객체의 벡터 표현을 같이 저장하고 검색하는 벡터 데이터베이스야. 키워드 검색을 조금 보강한 정도가 아니라 의미 검색과 필터링을 함께 다루는 검색 엔진 층이라고 보면 돼.
