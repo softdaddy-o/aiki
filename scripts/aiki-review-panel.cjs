@@ -539,6 +539,7 @@ ${filePaths.map((filePath) => `- ${filePath}`).join('\n')}
 Requirements:
 - Apply the must-fix items from the review to the actual file content.
 - Keep valid frontmatter and markdown structure.
+- In frontmatter YAML, quote any list item or scalar string that contains markdown link syntax like [Term](/path/).
 - Preserve factual claims unless the review explicitly says the claim is weak or unclear.
 - Use Korean prose for user-facing sentences.
 - Add inline links when the review says links are missing and the candidate list below is relevant.
@@ -583,6 +584,35 @@ function executeRevision(target, result, reviewInput, model) {
         input: prompt,
         maxBuffer: 1024 * 1024 * 20,
     });
+}
+
+function quoteYamlString(value) {
+    return `'${String(value).replace(/'/g, "''")}'`;
+}
+
+function repairMarkdownLinksInFrontmatter(filepath) {
+    const raw = fs.readFileSync(filepath, 'utf8');
+    const match = raw.match(/^(---\r?\n)([\s\S]*?)(\r?\n---)(\r?\n[\s\S]*)$/);
+    if (!match) return;
+
+    const newline = raw.includes('\r\n') ? '\r\n' : '\n';
+    const lines = match[2].split(/\r?\n/).map((line) => {
+        const listMatch = line.match(/^(\s*-\s+)(.*)$/);
+        if (!listMatch) return line;
+
+        const value = listMatch[2].trim();
+        if (!value.includes('](/')) return line;
+        if (/^['"]/.test(value)) return line;
+
+        return `${listMatch[1]}${quoteYamlString(value)}`;
+    });
+
+    const repaired = `${match[1]}${lines.join(newline)}${match[3]}${match[4]}`;
+    if (repaired !== raw) {
+        fs.writeFileSync(filepath, repaired, 'utf8');
+    }
+
+    matter(fs.readFileSync(filepath, 'utf8'));
 }
 
 function writeReviewStamp(filepath, panelResult, panel) {
@@ -752,6 +782,7 @@ async function main() {
             console.log('\nApplying revisions to failing pages...');
             for (const item of failedTargets) {
                 executeRevision(item.target, item.result, item.reviewInput, options.model);
+                repairMarkdownLinksInFrontmatter(item.target.filepath);
                 refreshTarget(item.target);
                 console.log(`- ${item.result.term}: revised`);
             }
