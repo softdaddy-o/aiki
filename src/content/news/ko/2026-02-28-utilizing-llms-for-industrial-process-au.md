@@ -52,11 +52,11 @@ factCheck:
         - 논문 수치는 재현 환경과 후속 구현에 따라 체감값이 크게 달라질 수 있어.
 tags:
   - llm
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "aa0dee393d9e7aef"
+  contentHash: "955f9dab24ae3d92"
   reviewedAt: "2026-04-25T09:55:58Z"
 ---
 ## 무슨 일이 있었나
