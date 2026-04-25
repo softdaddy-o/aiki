@@ -53,11 +53,11 @@ factCheck:
 tags:
   - llm
   - reasoning
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "a765590b279b18ab"
+  contentHash: "a46f531a2077f482"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 무슨 일이 있었나
