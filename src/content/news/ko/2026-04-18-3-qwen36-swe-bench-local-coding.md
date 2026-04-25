@@ -56,11 +56,11 @@ factCheck:
         - "공개 수치는 대부분 Qwen 팀 벤치마크 기반 — 써드파티 독립 재현은 일부 태스크만"
         - "Gemma 4-31B와 비교는 우호적, Opus/GPT-5.4 대비는 부분적"
 tags: ["qwen", "open-source", "mixture-of-experts", "swe-bench", "agentic-coding"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "803a323bd814e5f0"
+  contentHash: "49502644300ea96d"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

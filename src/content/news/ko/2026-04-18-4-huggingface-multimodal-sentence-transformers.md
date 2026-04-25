@@ -54,11 +54,11 @@ factCheck:
         - "벤치마크 수치가 공식 블로그에 거의 없어 실무 도입 전 자체 평가 필요"
         - "CrossEncoder의 멀티모달 쌍 처리 속도·메모리 프로파일은 아직 커뮤니티 리포트 부족"
 tags: ["huggingface", "embedding", "multimodal", "rag", "sentence-transformers"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "edbf4531ba523d34"
+  contentHash: "24e725f2c8374bdb"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

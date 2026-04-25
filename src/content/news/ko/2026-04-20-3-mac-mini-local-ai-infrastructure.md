@@ -54,11 +54,11 @@ factCheck:
         - "8B 모델 기준 수치 — 더 큰 모델에서는 속도 절반 이하"
         - "전기료 계산은 상시 가동 기준 — 실제 AI 추론만 사용 시 더 저렴"
 tags: ["apple-silicon", "local-llm", "mac-mini", "inference"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "8bca326f7e344d8b"
+  contentHash: "fbb2d56c584265c0"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

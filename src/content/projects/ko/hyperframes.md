@@ -81,11 +81,11 @@ factCheck:
         - '장면 구조를 직접 만지는 흐름이라, 결과만 빨리 받는 hosted API와는 결이 달라.'
         - '렌더가 깨지면 FFmpeg, 코덱, 폰트, 에셋 경로를 팀이 직접 잡아야 해.'
         - 브랜드 최종본을 픽셀 단위로 마감하는 일이 중심이면 기존 영상 툴체인이 더 나아.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -99,7 +99,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "716b22225f9aa61a"
+  contentHash: "9536adb1af3af6cc"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 한 줄 판단

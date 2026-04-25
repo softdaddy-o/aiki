@@ -54,11 +54,11 @@ factCheck:
         - "인간과 동일 조건의 레이스가 아님 — 병렬 코스, 원격 제어 포함"
         - "Honor 로봇 다리 길이 37인치로 특별 설계된 스프린터형 구조"
 tags: ["robotics", "humanoid", "china", "benchmark"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "73b778ccd325dfc3"
+  contentHash: "634cba184679d497"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

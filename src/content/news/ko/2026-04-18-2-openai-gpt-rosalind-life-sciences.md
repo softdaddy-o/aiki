@@ -56,11 +56,11 @@ factCheck:
         - "11개 중 5개는 GPT-5.4와 비슷하거나 뒤처진다는 점 기사에 반영 필요"
         - "초기 파트너가 모두 OpenAI 기존 고객사라 독립 평가 수치는 아직 없음"
 tags: ["openai", "gpt-rosalind", "life-sciences", "drug-discovery", "codex"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "cd5d4ede09ba5929"
+  contentHash: "774b2d9191f62d3f"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

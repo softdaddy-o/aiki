@@ -55,11 +55,11 @@ factCheck:
         - "정체 추측(Mistral, Llama 등)은 커뮤니티 추측 — 본문에서 '의견이 오가는 중'으로 불확실성 표현"
         - "상업용 사용 전 라이선스 확인 권장 — 독자에게 위험 요소 명시"
 tags: ["openrouter", "무료모델", "스텔스모델", "추론", "코딩"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -73,7 +73,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "1ce6ec5847bce30b"
+  contentHash: "351d46f8e0c6c3a6"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

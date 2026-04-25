@@ -54,11 +54,11 @@ factCheck:
         - "V4 출시와 연결짓는 해석은 공식 근거 없음 — 인프라 최적화 릴리스로만 볼 것"
         - "실제 성능 이득 수치(토큰/초, 메모리 절감)는 아직 공개되지 않음"
 tags: ["deepseek", "deepgemm", "mixture-of-experts", "fp8", "gpu-optimization"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "f8e21094f40ced42"
+  contentHash: "fc54d52b8bf9a24f"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

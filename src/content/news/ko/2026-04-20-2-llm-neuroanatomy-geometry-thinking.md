@@ -54,11 +54,11 @@ factCheck:
         - "동료 검토 없는 개인 블로그 분석 — 학술 논문 수준의 검증은 아님"
         - "4개 연구소 이름을 원문에서 명시하지 않아 재현 검증 어려움"
 tags: ["llm", "research", "mechanistic-interpretability", "multilingual"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "cf82ff31d4dae038"
+  contentHash: "7eec857b54f3d8e4"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

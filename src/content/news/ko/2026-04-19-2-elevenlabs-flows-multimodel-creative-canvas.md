@@ -52,11 +52,11 @@ factCheck:
         - "CMS 연결 자동화 파이프라인 — '아직 구상 단계'로 명시해 과장 방지"
         - "API 미지원 현황 명시 — 상업 활용 전 확인 권장으로 독자에게 실질 정보 제공"
 tags: ["elevenlabs", "멀티모달", "워크플로우", "콘텐츠제작", "alpha"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "c73cad173802f0e4"
+  contentHash: "618394cfaf5b83e7"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나
