@@ -61,11 +61,11 @@ tags:
   - alphago
   - deepmind
   - reinforcement-learning
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "9047c5ecd3cc72b2"
+  contentHash: "f04af3f3f7fae18b"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 사건 설명

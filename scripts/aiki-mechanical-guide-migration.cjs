@@ -96,7 +96,7 @@ function setGuideVersion(frontmatter, type) {
     return `${without.trimEnd()}\n${block}`;
 }
 
-function getPanelStamp(type, filepath, rawWithoutStamp) {
+function getPanelStamp(type, filepath, rawWithoutStamp, existingStamp = null) {
     const target = TARGETS.find((entry) => entry.type === type);
     const panel = loadPanel(target.panel);
     const guideVersions = {
@@ -105,7 +105,9 @@ function getPanelStamp(type, filepath, rawWithoutStamp) {
         [type]: CURRENT_GUIDE[type],
     };
     const hash = getReviewContentHashFromRaw(rawWithoutStamp, filepath);
-    const reviewedAt = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+    const reviewedAt = existingStamp && existingStamp.reviewedAt
+        ? existingStamp.reviewedAt
+        : new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 
     return [
         'reviewStamp:',
@@ -175,7 +177,7 @@ function migrateFile(target, filepath, dryRun) {
     nextFrontmatter = setScalar(nextFrontmatter, 'formatVersion', String(TARGET_FORMAT_VERSION));
 
     const rawWithoutStamp = `---\n${nextFrontmatter.trimEnd()}\n---\n${nextBody.trim()}\n`;
-    nextFrontmatter = `${nextFrontmatter.trimEnd()}\n${getPanelStamp(target.type, filepath, rawWithoutStamp)}`;
+    nextFrontmatter = `${nextFrontmatter.trimEnd()}\n${getPanelStamp(target.type, filepath, rawWithoutStamp, parsed.data && parsed.data.reviewStamp)}`;
     const nextRaw = `---\n${nextFrontmatter.trimEnd()}\n---\n${nextBody.trim()}\n`;
 
     if (nextRaw === raw.replace(/\r\n/g, '\n')) return { changed: false };
