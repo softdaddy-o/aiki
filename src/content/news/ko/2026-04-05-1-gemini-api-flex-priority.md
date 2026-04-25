@@ -51,12 +51,37 @@ tags:
   - google
   - api
   - pricing
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "711f4dc6396d0e69"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Google이 Gemini API에 [추론](/ko/wiki/inference/) 티어를 두 개 넣었어. 4월 2일 발표.
 
 **Flex 티어**는 비용 최적화용이야. 표준 대비 50% 저렴한 대신 응답 지연이 생길 수 있어. 기존 Batch API랑 다르게 동기식 API라서 별도 파일 관리나 폴링 없이 같은 엔드포인트를 그대로 써. CRM 일괄 업데이트, 대규모 리서치 시뮬레이션, 에이전트가 백그라운드에서 탐색하는 워크플로우에 적합해.
 
+## 왜 중요할까
+
 **Priority 티어**는 정반대야. 75-100% 프리미엄을 내고 최우선 컴퓨팅 큐에 라우팅돼. 트래픽이 동적 한도를 초과하면 서버가 자동으로 표준 처리로 다운그레이드하는 방식이야. Tier 2/3 유료 프로젝트에서만 쓸 수 있어.
+
+## 앞으로 볼 점
 
 둘 다 `service_tier` 파라미터 하나로 전환해. 코드 변경이 거의 없어서 기존 프로젝트에 바로 적용할 수 있어. AI 에이전트를 만드는 입장에서는? 사용자 대면 요청은 Priority, 백그라운드 작업은 Flex로 나누면 비용을 상당히 줄일 수 있어.

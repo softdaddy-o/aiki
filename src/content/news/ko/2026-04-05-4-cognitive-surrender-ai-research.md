@@ -54,10 +54,35 @@ tags:
   - cognitive-surrender
   - wharton
   - ai-safety
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "6c1b54bec0de8478"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 AI가 정답을 주면 따르는 건 합리적이야. 근데 AI가 오답을 줘도 거의 같은 비율로 따른다면? 와튼스쿨의 Steven Shaw랑 Gideon Nave 연구팀이 1,372명 대상 3건의 사전등록 실험(총 9,593 시행)에서 이걸 확인했어.
 
+## 왜 중요할까
+
 실험 참가자의 절반 이상이 AI 조언을 요청했고, AI가 정답을 줬을 때 수용률은 92.7%였어. 문제는 AI가 **틀린 답**을 줬을 때도 수용률이 79.8%나 됐다는 거야. 연구팀은 사람들이 AI 앞에서 직관(시스템 1)이랑 숙고(시스템 2)를 모두 내려놓는 현상을 ["인지 항복(cognitive surrender)"](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646)이라고 명명했어. 기존 이중 처리 이론에 AI를 "시스템 3"으로 추가하는 삼중 시스템 이론(Tri-System Theory)도 제안했고.
+
+## 앞으로 볼 점
 
 다만 연구팀은 인지 항복이 무조건 비합리적인 건 아니라고 짚었어. 통계적으로 우월한 시스템에 판단을 맡기는 건 확률적 의사결정이나 리스크 평가에서는 오히려 나을 수 있거든. 뭐, 결국 "언제 AI를 믿고, 언제 직접 생각할지"를 구분하는 메타인지 능력이 중요한 거야. AI 도구를 쓰면서 비판적 사고까지 같이 넘겨주고 있는 건 아닌지, 한 번쯤 점검해볼 타이밍이야.

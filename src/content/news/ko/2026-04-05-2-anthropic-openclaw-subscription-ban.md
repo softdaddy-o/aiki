@@ -54,12 +54,37 @@ tags:
   - claude
   - openclaw
   - pricing
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e96c1486e6dc67df"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Anthropic이 4월 4일(미국 시간 정오)부터 Claude Pro랑 Max 구독을 서드파티 에이전트 도구에서 못 쓰게 막았어. OpenClaw를 포함한 외부 AI 에이전트에서 구독 인증이 더 이상 작동 안 해.
 
 이게 뭐가 문제냐면, 비용 구조가 안 맞았거든. 당시 13.5만 개 이상의 OpenClaw 인스턴스가 돌아가고 있었는데, 월정액 구독자가 API 요금 대비 5배 이상 싸게 대규모 에이전트 작업을 돌리고 있었어. Anthropic 입장에선 구독 사업이 에이전트 사용량을 사실상 보조금 지급하는 꼴이었던 거야.
 
+## 왜 중요할까
+
 앞으로 OpenClaw에서 Claude를 쓰려면 종량제("extra usage") 결제나 직접 API를 써야 해. 일부 헤비 유저는 월 비용이 최대 50배까지 뛸 수 있어. Anthropic은 구독료 1개월 상당의 일회성 크레딧이랑 선결제 시 최대 30% 할인을 제공 중이야(4월 17일까지).
+
+## 앞으로 볼 점
 
 근데 타이밍이 묘해. OpenClaw 제작자 Peter Steinberger가 2월에 [OpenAI](/ko/wiki/openai/)로 이직한 직후 나온 조치거든. Claude 구독으로 에이전트를 돌리고 있었다면 API 키 전환이랑 비용 재산정을 당장 시작해야 해.
