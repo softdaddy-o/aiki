@@ -57,11 +57,11 @@ factCheck:
         - "도구 호출 형식과 겹치는 부분은 있어도, MCP는 도구를 발견하고 연결하는 더 넓은 계약이라는 점이 달라."
       findings:
         - "MCP의 핵심은 모델 성능이 아니라, 도구 연결을 같은 방식으로 다루게 만드는 데 있어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "9deeec9feb981218"
+  contentHash: "540b1b533e9cb36b"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

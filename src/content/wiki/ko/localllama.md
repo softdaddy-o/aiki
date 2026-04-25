@@ -74,11 +74,11 @@ factCheck:
         - '또 커뮤니티 신호와 공식 지원 범위를 혼동하지 않게, 참고 용도라는 느낌을 남겼어.'
       findings:
         - 생생한 후기와 검증된 요구사항을 분리해서 읽게 만들었어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -92,7 +92,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "7fafbfd14152289f"
+  contentHash: "7704fd2feba8a60f"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -60,11 +60,11 @@ factCheck:
       findings:
         - 'memory라는 단어가 너무 넓어서 기사마다 저장소, 회수, 개인화가 뒤섞여 보이기 쉬워.'
         - 제품 홍보 문구만 보면 기억력 향상처럼 들리지만 실제론 설계와 운영 책임 문제가 더 커.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -78,7 +78,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "06249327375565e9"
+  contentHash: "f40ae53d5666b2f2"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -69,11 +69,11 @@ factCheck:
       findings:
         - 실험 추적 도구와 전체 운영 플랫폼을 같은 말로 섞지 않게 했어.
         - 문맥별 쓰임새 차이를 남겨서 과장을 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -87,7 +87,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "d3f9ad3d46368246"
+  contentHash: "d14aef8eda5db099"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

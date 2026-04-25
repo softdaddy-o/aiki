@@ -60,11 +60,11 @@ factCheck:
       findings:
         - "'전문가'라는 말이 사람 같은 지능 모듈을 뜻한다고 읽힐 수 있어서, 전문가 모듈은 학습된 네트워크 조각이라는 뜻으로 서술을 제한했어."
         - "'효율적'이라는 표현이 언제나 속도 향상을 보장하는 것처럼 들릴 수 있어서, 학습 균형 문제와 운영상 변수도 함께 적었어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -78,7 +78,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "6cbd63ce96a92953"
+  contentHash: "aadbbbbeff0b087e"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

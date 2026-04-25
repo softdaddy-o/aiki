@@ -20,10 +20,6 @@ modelProfile:
   pricing: 직접 호스팅이면 GPU 비용이 핵심이야. API 재판매 채널을 쓸 때만 별도 토큰 단가를 비교하면 돼.
   weightsOpen: 오픈 웨이트 공개. 이렇게 보면 돼.
   vendor: Mistral AI
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - Mixtral(믹스트랄)
 relatedTerms:
@@ -76,22 +72,26 @@ factCheck:
       findings:
         - Mixtral을 그냥 또 하나의 채팅 모델 이름으로만 읽으면 Mistral AI의 아키텍처 전략을 놓치기 쉬워.
         - 오픈 웨이트라는 점을 빼면 API 전용 모델처럼 오해하기 쉬워.
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: 83d545d21b141daa
-  reviewedAt: '2026-04-25T09:55:57Z'
-formatVersion: 2
+  contentHash: "6b00e79cdf8afa66"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Mixtral은 [Mistral](/ko/wiki/mistral/) AI가 만든 sparse [mixture-of-experts](/ko/wiki/mixture-of-experts/) 구조 언어 모델이야. 모든 파라미터를 매번 다 쓰지 않고 필요한 expert 일부만 켜서 큰 모델급 품질과 [추론](/ko/wiki/inference/) 효율을 같이 노리는 점이 중요해.

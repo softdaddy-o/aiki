@@ -66,11 +66,11 @@ factCheck:
         - 큰 context window가 곧 고품질 추론이라는 식의 과장을 피했어.
       findings:
         - 긴 문맥 소개는 검색 보강이나 압축 전략을 숨기고 말할 수 있어서 숫자만 보면 해석이 틀어질 수 있어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -84,7 +84,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "fe9eb79eba577636"
+  contentHash: "5385cee5782cccf4"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
