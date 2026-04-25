@@ -56,11 +56,11 @@ factCheck:
       findings:
         - "OpenAI API는 제품 경험 그 자체보다 제품 안에 기능을 붙이는 통합 계층이야."
         - "ChatGPT, 특정 모델 이름, API를 같은 층위로 읽으면 설계 판단이 꼬이기 쉬워."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "89819897ff612399"
+  contentHash: "8052ffd2e487247f"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

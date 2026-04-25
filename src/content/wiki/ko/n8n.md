@@ -58,11 +58,11 @@ factCheck:
       findings:
         - 자동화 도구 소개를 제품 전체 백엔드 대체 이야기로 키우면 기대치가 과해지기 쉬워.
         - AI 기능을 붙일 수 있다는 말만 보고 n8n 자체를 모델로 읽는 오해도 생기기 쉬워.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "a1b9e0b924a9ffe2"
+  contentHash: "d5bc2cbe4bfc6d01"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

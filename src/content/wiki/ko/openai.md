@@ -71,11 +71,11 @@ factCheck:
         - 관련 용어를 회사 단위 비교축으로만 묶어서 제품 대 제품 비교와 섞이지 않게 했어.
       findings:
         - 회사명과 제품명을 섞는 순간 뉴스 해석이 바로 무너져.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -89,7 +89,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "125f1077fb1e2858"
+  contentHash: "6c35ebe49cf6bea3"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

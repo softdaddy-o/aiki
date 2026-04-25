@@ -73,11 +73,11 @@ factCheck:
         - 모달 개수만 보고 성능이나 제품 완성도를 추정하지 말라는 경계도 남겼어.
       findings:
         - 멀티모달은 넓은 말이라 세부 지원 범위를 꼭 따져 봐야 해.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -91,7 +91,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "01e49ced6233304b"
+  contentHash: "3cb61e11bc31909e"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

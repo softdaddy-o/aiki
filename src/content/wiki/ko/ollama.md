@@ -59,11 +59,11 @@ factCheck:
       findings:
         - "Ollama는 로컬 모델을 다루는 경험 전체를 단순화하지만, 그 자체가 모든 로컬 AI 도구를 뜻하진 않아."
         - "로컬 편의성과 서버형 고처리량 서빙을 같은 기준으로 평가하면 판단이 꼬이기 쉬워."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "c5b6211858603409"
+  contentHash: "8685c4940bfd6918"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

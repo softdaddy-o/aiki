@@ -65,11 +65,11 @@ factCheck:
       findings:
         - "완전 오프라인과 구분"
         - "하이브리드 가능성 명시"
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -83,7 +83,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "a4a0a449da0c442f"
+  contentHash: "73b2a9f4ea52e7ab"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

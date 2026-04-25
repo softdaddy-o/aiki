@@ -61,11 +61,11 @@ factCheck:
       findings:
         - 계정 우회 도구는 한번 사고가 나면 사용자의 계정 피해로 바로 이어지기 쉬워.
         - 모델 이름과 래퍼 이름을 같은 층위로 읽으면 기사 핵심이 기능 비교로 잘못 흘러가기 쉬워.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "e50882a7b05bdea8"
+  contentHash: "4b6986396a81a2eb"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

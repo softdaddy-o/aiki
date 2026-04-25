@@ -53,11 +53,11 @@ factCheck:
       items:
         - "흔한 오해 점검: ONNX만 있으면 어떤 모델이든 아무 문제 없이 어디서나 돈다고 생각하기 쉬워."
         - "반례 점검: 변환이 깨지거나 성능이 달라질 수 있다는 한계를 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "de984565ae6cbeb4"
+  contentHash: "72c2076849856456"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
