@@ -5,9 +5,6 @@ lang: ko
 summary: "Modal(모달)은 Python 코드와 의존성을 컨테이너처럼 감싸서 클라우드 CPU나 GPU에 서버리스로 올려 주는 AI 인프라 플랫폼이야. 모델을 만드는 도구라기보다 추론, 배치 작업, 학습 잡, 샌드박스 실행을 어디서 어떻게 굴릴지 정하는 운영 레이어에 가까워."
 readerValue: "Modal이 보이면 새 모델 이름보다 GPU 운영과 배포 속도를 줄여 주는 플랫폼 이야기인지 먼저 읽어볼 수 있어."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Modal(모달)"
 relatedTerms:
@@ -66,6 +63,26 @@ factCheck:
       findings:
         - "모델 아님"
         - "배포 플랫폼 명확화"
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "f52b94a72d39730d"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Modal은 AI와 데이터 작업을 서버리스 방식으로 올릴 수 있게 해 주는 클라우드 실행 플랫폼이야. 개발자가 쿠버네티스나 GPU 인프라를 직접 만지기보다 코드 중심으로 실행 환경을 선언해서 쓰는 쪽에 더 가까워.

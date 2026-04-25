@@ -5,9 +5,6 @@ lang: ko
 summary: "On-device AI(온디바이스)는 모델 추론을 서버가 아니라 사용자 기기 안에서 직접 돌리는 배포 방식이야. 속도, 개인정보, 오프라인 동작 같은 조건을 같이 바꾸기 때문에 기술 이름보다 제품 전략에 가까운 말로 읽는 게 좋아."
 readerValue: "이 용어가 나오면 단순히 로컬에서 돈다보다 데이터가 어디서 처리되고 네트워크에 얼마나 덜 묶이는지 같이 보면 도움이 돼."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "온디바이스"
   - "on device"
@@ -68,6 +65,26 @@ factCheck:
       findings:
         - "완전 오프라인과 구분"
         - "하이브리드 가능성 명시"
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a4a0a449da0c442f"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 On-device AI는 모델 추론이나 핵심 AI 기능을 서버가 아니라 사용자의 폰, 노트북, 태블릿 같은 기기 안에서 직접 실행하는 방식이야. 쉽게 말해 기기 자체가 AI 계산의 주 무대가 되는 배포 전략이라고 보면 돼.

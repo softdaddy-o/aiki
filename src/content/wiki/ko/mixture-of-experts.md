@@ -5,9 +5,6 @@ lang: ko
 summary: "Mixture of Experts(MoE)는 하나의 거대한 계산 덩어리로 모든 입력을 처리하지 않고, 여러 전문가 모듈 가운데 일부만 골라 쓰는 모델 구조야. 그래서 새 모델 이름이라기보다 계산을 나누는 내부 설계 방식으로 이해하는 게 맞아."
 readerValue: "기사나 모델 소개에서 MoE가 보이면 새로운 브랜드 이름이 아니라, 같은 모델 안에서 어떤 부분을 선택적으로 활성화하는 구조 변화라고 읽을 수 있어."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "MoE"
   - "moe"
@@ -63,6 +60,26 @@ factCheck:
       findings:
         - "'전문가'라는 말이 사람 같은 지능 모듈을 뜻한다고 읽힐 수 있어서, 전문가 모듈은 학습된 네트워크 조각이라는 뜻으로 서술을 제한했어."
         - "'효율적'이라는 표현이 언제나 속도 향상을 보장하는 것처럼 들릴 수 있어서, 학습 균형 문제와 운영상 변수도 함께 적었어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "6cbd63ce96a92953"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Mixture of Experts는 입력마다 여러 전문가 네트워크 중 일부만 선택해 계산하는 모델 구조야. 이름만 보면 새 모델 계열처럼 들리지만, 실제로는 모델 내부에서 일을 나눠 처리하는 설계 방식이라고 보는 게 맞아.

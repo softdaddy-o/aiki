@@ -9,9 +9,6 @@ readerValue: >-
   텍스트 모델 뉴스인지, 입력과 출력 범위가 넓어진 변화인지 빠르게 가르는 데 도움돼. 그래서 제품 설명에서 실제로 뭐가 달라지는지 감이
   빨라져.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - multimodal ai
 relatedTerms:
@@ -76,6 +73,26 @@ factCheck:
         - 모달 개수만 보고 성능이나 제품 완성도를 추정하지 말라는 경계도 남겼어.
       findings:
         - 멀티모달은 넓은 말이라 세부 지원 범위를 꼭 따져 봐야 해.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "01e49ced6233304b"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Multimodal AI는 텍스트, 이미지, 음성, 영상처럼 형식이 다른 정보를 한 시스템 안에서 함께 다루는 AI를 말해. 중요한 건 입력 종류가 많다는 사실만이 아니라, 그 여러 형식을 하나의 작업 흐름으로 연결해서 이해하거나 만들어 낸다는 점이야.

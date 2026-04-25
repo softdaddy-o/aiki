@@ -5,9 +5,6 @@ lang: ko
 summary: "ONNX(오닉스)는 한 프레임워크에서 만든 모델을 다른 런타임과 배포 환경으로 옮기기 쉽게 만든 공통 포맷이야."
 readerValue: "이 이름을 보면 모델 자체인지 실행 엔진인지 헷갈리지 않고, 중간 표현 형식이라는 걸 바로 잡을 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "ONNX(오닉스)"
 relatedTerms:
@@ -56,6 +53,26 @@ factCheck:
       items:
         - "흔한 오해 점검: ONNX만 있으면 어떤 모델이든 아무 문제 없이 어디서나 돈다고 생각하기 쉬워."
         - "반례 점검: 변환이 깨지거나 성능이 달라질 수 있다는 한계를 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "de984565ae6cbeb4"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 ONNX는 머신러닝 모델을 표현하는 공통 포맷이야. 한 프레임워크에서 만든 모델을 다른 런타임이나 배포 환경으로 넘기기 쉽게 하려고 쓰는 중간 표준이라고 보면 돼.

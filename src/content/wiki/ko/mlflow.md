@@ -7,9 +7,6 @@ summary: >-
   추적 도구 이미지가 강했지만 지금은 LLM과 에이전트 평가, 모니터링 쪽까지 범위를 넓히고 있어.
 readerValue: '이 용어를 알면 모델 성능 얘기와 별개로, 실험과 배포 기록을 관리하는 계층을 가리키는 말인지 바로 구분할 수 있어.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - MLflow(엠엘플로우)
 relatedTerms:
@@ -72,6 +69,26 @@ factCheck:
       findings:
         - 실험 추적 도구와 전체 운영 플랫폼을 같은 말로 섞지 않게 했어.
         - 문맥별 쓰임새 차이를 남겨서 과장을 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "d3f9ad3d46368246"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 MLflow는 머신러닝과 생성형 AI 개발 과정에서 생기는 실험 기록, 모델 버전, [평가](/ko/wiki/eval/) 결과를 연결해서 관리하는 오픈소스 플랫폼이야. [공식 사이트](https://mlflow.org/)와 [GitHub 저장소](https://github.com/mlflow/mlflow) 모두 이걸 tracking을 넘는 AI engineering platform으로 설명해.

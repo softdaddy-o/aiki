@@ -5,9 +5,6 @@ lang: ko
 summary: "Ollama는 로컬 컴퓨터에서 언어 모델을 실행하고, 그 결과를 API로 꺼내 쓸 수 있게 해 주는 도구야. 채팅 앱이라기보다 로컬 모델 런타임과 호출 인터페이스를 같이 내주는 층에 가까워."
 readerValue: "로컬 AI에서 채팅 화면이 필요한지, 아니면 모델을 띄우고 프로그램에서 호출할 API 계층이 필요한지 먼저 가르게 해줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Ollama(올라마)"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
       findings:
         - "Ollama는 로컬 모델을 다루는 경험 전체를 단순화하지만, 그 자체가 모든 로컬 AI 도구를 뜻하진 않아."
         - "로컬 편의성과 서버형 고처리량 서빙을 같은 기준으로 평가하면 판단이 꼬이기 쉬워."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c5b6211858603409"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Ollama는 [로컬](/ko/wiki/local-llm/) 컴퓨터에서 언어 모델을 실행하고, 그 결과를 API로 꺼내 쓸 수 있게 해 주는 도구야. 핵심은 채팅 앱을 만드는 데 있지 않고, 모델 파일 관리와 실행, 호출 지점을 한 묶음으로 제공한다는 데 있어.

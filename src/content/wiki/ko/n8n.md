@@ -5,9 +5,6 @@ lang: ko
 summary: 'n8n은 앱, API, AI 단계를 노드로 엮어 반복 업무를 자동화하는 워크플로 도구야.'
 readerValue: 'n8n이 나오면 단순 자동화 앱인지, 팀 운영 흐름까지 묶는 오케스트레이션 축인지 빨리 가르는 데 도움 돼.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - n8n(엔에잇엔)
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
       findings:
         - 자동화 도구 소개를 제품 전체 백엔드 대체 이야기로 키우면 기대치가 과해지기 쉬워.
         - AI 기능을 붙일 수 있다는 말만 보고 n8n 자체를 모델로 읽는 오해도 생기기 쉬워.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a1b9e0b924a9ffe2"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 n8n은 앱과 API를 노드로 이어 자동화 흐름을 만드는 워크플로 도구야. 드래그 앤 드롭으로 시작할 수 있지만 필요하면 코드와 커스텀 노드까지 섞을 수 있어서 가벼운 노코드 툴보다 범위가 넓어.
