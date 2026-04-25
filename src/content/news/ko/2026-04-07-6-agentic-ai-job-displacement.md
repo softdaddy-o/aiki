@@ -54,10 +54,35 @@ tags:
   - 직업대체
   - 에이전트AI
   - 연구
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "3ee509804ad13402"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 AI가 '단순 반복 업무'를 대체한다는 건 이제 익숙한 얘기인데, 이번에 나온 [arXiv 논문](https://arxiv.org/abs/2604.00186)은 거기서 한 발 더 나갔어. 에이전트형 AI — 단순 작업 하나가 아니라 업무 전체 흐름을 처음부터 끝까지 완결하는 시스템 — 이 직업 대체에 미치는 충격을 실증적으로 분석했거든.
 
+## 왜 중요할까
+
 연구팀은 경제학의 Acemoglu-Restrepo 직업 대체 모형을 [에이전트](/ko/wiki/agent/) AI에 맞게 확장하고, 미국 SF Bay, Seattle, Austin, Boston, NYC 5개 기술 도시의 236개 직종을 돌렸어. 단순 자동화보다 에이전트형 AI의 파급력이 훨씬 넓게 퍼진다는 결과가 나왔다고.
+
+## 앞으로 볼 점
 
 도구를 쓸 줄 아는 AI와 프로세스를 대신 설계하는 AI는 완전히 다른 위협 수준이야. 내 업무가 워크플로우 단위로 위임될 수 있는지 없는지 — 이게 앞으로 직무 안전성을 판단하는 새로운 기준이 될 거야.

@@ -55,10 +55,35 @@ tags:
   - Muse Spark
   - AI모델
   - 오픈소스
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "bb08acd84f825a4a"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Meta Superintelligence Labs의 첫 모델 [Muse Spark](https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/)가 나왔어. 9개월 전 영입한 Alexandr Wang이 이끄는 팀의 작품이고, 코드명은 Avocado였다고. 그런데 이번 출시에서 눈에 띄는 게 있어 — 지금까지 [Llama](/ko/wiki/llama/) 시리즈로 오픈소스 전략을 밀어온 Meta가 이번엔 클로즈드 모델로 출시했거든. "향후 버전에서 오픈소스화를 희망한다"는 말을 남기면서.
 
+## 왜 중요할까
+
 모델은 속도 모드와 깊은 추론을 위한 Contemplating mode를 이중으로 갖췄고, 의사 1,000명과 협력해 건강 관련 [추론](/ko/wiki/inference/) 능력을 키웠대. Facebook, Instagram, WhatsApp, Messenger는 물론 Ray-Ban Meta 스마트 안경에도 탑재될 예정이야 — 전 세계 30억 명이 쓰는 앱들이잖아.
+
+## 앞으로 볼 점
 
 AI 경쟁에서 오픈소스는 생태계 확보 전략이었는데, Meta가 그걸 접었다는 건 이제 경쟁이 성능 전쟁으로 옮겨갔다는 신호야. [Llama](/ko/wiki/llama/)를 쓰던 개발자들 입장에선 다음 오픈소스 Muse가 언제 나올지 지켜볼 수밖에.

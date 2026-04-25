@@ -53,10 +53,35 @@ tags:
   - Gmail
   - Gemini
   - AI프라이버시
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "023a5ffb69ac8446"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 Gmail에서 Gemini를 쓰면 내 이메일이 AI 학습에 쓰이는 거 아닐까 — 많이들 갖는 의문이야. Google이 [공식 블로그](https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/)에서 직접 답을 냈어. 개인 이메일로 Gemini 기초 모델을 학습하지 않고, Gemini in Gmail이 처리하는 내용은 요청된 작업을 끝낸 직후 인박스에서 나가버린다고 밝혔거든.
 
+## 왜 중요할까
+
 작동 방식을 보면 Gemini는 이메일 요약 같은 특정 요청에만 접근하고, 그 요청이 끝나면 데이터를 보유하지 않아. "인박스 안에서만 안전하게 처리한다"는 게 Google의 설명이야.
+
+## 앞으로 볼 점
 
 다만 이건 Google의 자체 발표이고, 외부에서 독립적으로 감사할 수단은 아직 없다는 점은 알아두는 게 좋아. Gemini를 Gmail에 연동해서 쓰는 사람이라면 [Privacy Hub 공식 문서](https://support.google.com/mail/answer/14615114)를 한 번 읽어보는 것도 나쁘지 않을 거야.

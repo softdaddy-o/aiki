@@ -60,10 +60,35 @@ tags:
   - ollama
   - qwen
   - llama
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a8d123eeeb9892ac"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 지난 며칠 동안 내 RTX 3090 LM 스튜디오에서 다양한 모델과 퀀트를 시도했지만 모든 모델마다 항상 도구 호출, 멈추지 않는 무한 루프에 결함이 있습니다 [원문](https://www.reddit.com/r/LocalLLaMA/comments/1segstx/gemma_4_26b_a3b_is_mindblowingly_good_if/)은 Gemma 4 26b A3B is mindblowingly good , if configured right 기준으로 다시 확인한 내용이야. 독자 입장에선 오픈 모델을 볼 때 순위표만 볼지, 실제 설정 난도와 비용 대비 효율까지 같이 봐야 할지 빠르게 판단하는 데 도움이 된다.
 
+## 왜 중요할까
+
 Gemma 4 26b A3B is mindblowingly good , if configured right 공개에서 봐야 하는 포인트는 발표 문장 자체보다 실무 우선순위와 적용 범위 쪽 변화야. 공개 범위, 숫자, 가격, 실제 적용 조건을 같이 봐야 과장된 문구와 실질 신호를 구분할 수 있어.
+
+## 앞으로 볼 점
 
 바로 도입할지보다 먼저 체크할 건 이 변화가 지금 쓰는 모델, 도구, 배포 흐름에 어떤 마찰이나 기회를 만들었는지야. 그렇게 읽어야 이 뉴스가 단순 화제가 아니라 다음 우선순위를 바꾸는 신호인지 판단이 쉬워져.
