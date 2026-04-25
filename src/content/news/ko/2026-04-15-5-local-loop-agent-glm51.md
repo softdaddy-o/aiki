@@ -55,12 +55,34 @@ factCheck:
         - "루프 에이전트 성공은 태스크 난이도에 크게 의존 — 파쿠르 게임은 비교적 단순한 태스크"
 tags: ["local-llm", "agentic-coding", "glm-5", "vibe-coding"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "b162a6717ffa630e"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 로컬 LLM으로 [에이전틱](/ko/wiki/agentic-ai/) 코딩이 어디까지 되는지 궁금했다면, 이 실험이 꽤 참고가 돼. [GLM 5.1](https://huggingface.co/zai-org/GLM-5.1)을 IQ2_XXS — 그러니까 2비트 극한 양자화로 돌린 루프 에이전트가 파쿠르 게임을 만들어냈거든.
 
+## 왜 중요할까
+
 구조가 단순한데 결과물이 꽤 나와. 첫 프롬프트로 "웹페이지 하나에 파쿠르 게임을 만들어라"를 주고, 두 번째 프롬프트로 결과를 검토하고 개선하라고 루프를 걸었어. 모델이 코드 작성 → 에러 확인 → 수정을 자율적으로 반복한 거야. [GLM 5.1](/ko/wiki/glm-5.1/)이 원래 [754B MoE에 8시간 자율 실행](https://venturebeat.com/technology/ai-joins-the-8-hour-work-day-as-glm-ships-5-1-open-source-llm-beating-opus-4)이 가능한 모델이긴 한데, 2비트 양자화에서도 이런 루프가 돌아간다는 게 포인트야.
+
+## 앞으로 볼 점
 
 물론 2비트니까 품질 한계는 분명해. 풀 정밀도 754B 모델이 SWE-Bench Pro 58.4를 찍는 것과는 차원이 다르거든. 그래도 클라우드 API 비용 없이 자기 머신에서 프로토타입을 돌려보고 싶은 개발자라면, 루프 에이전트 패턴 자체를 배워두면 좋아.

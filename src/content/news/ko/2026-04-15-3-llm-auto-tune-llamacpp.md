@@ -53,12 +53,34 @@ factCheck:
         - "원작자 자체 측정이라 독립 검증 미확인"
 tags: ["llama-cpp", "local-llm", "qwen", "optimization"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8c8a7ee01359ffd6"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 llama.cpp 사용자라면 이거 한번 볼 만해. [llm-server](https://github.com/raketenkater/llm-server)라는 도구에 `--ai-tune` 플래그가 추가됐는데, 이게 하는 일이 재밌어 — LLM이 자기 자신의 [추론](/ko/wiki/inference/) 플래그를 루프 돌면서 직접 최적화하는 거야.
 
+## 왜 중요할까
+
 원리는 간단해. 모델이 llama.cpp의 다양한 플래그 조합을 시도하고, 속도를 측정한 다음, 가장 빠른 설정을 캐싱해두거든. [Qwen3.5-27B](/ko/wiki/qwen3.5-27b/) 기준으로 기본 설정 대비 54% tok/s 향상을 달성했다고 해. 사람이 하나하나 플래그 바꿔가며 [벤치마크](/ko/wiki/benchmark/) 돌릴 필요가 없어진 거야.
+
+## 앞으로 볼 점
 
 [로컬 LLM](/ko/wiki/local-llm/) 돌리는 사람들한테는 꽤 실용적인 접근이야. 하드웨어마다, 모델마다 최적 설정이 다르거든. 예를 들어 GPU VRAM 24GB짜리에서 배치 크기, 스레드 수, 컨텍스트 길이를 바꾸면 같은 모델이라도 속도가 2배 가까이 달라질 수 있어. 매번 수동으로 찾는 게 귀찮았는데, 이제 모델이 알아서 자기 환경에 맞는 최적값을 찾아주니까. [GitHub 레포](https://github.com/raketenkater/llm-server)에서 바로 써볼 수 있어.

@@ -57,14 +57,36 @@ factCheck:
         - "Meta의 $135B 수치는 자본지출 계획이며 실제 집행액과 다를 수 있다"
 tags: ["openai", "meta", "stargate", "데이터센터", "인프라"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "00f9157e7fea2889"
+  reviewedAt: "2026-04-25T09:55:59Z"
 ---
+## 무슨 일이 있었나
 
 OpenAI의 야심작 [Stargate](/ko/wiki/stargate/) 데이터센터를 이끌던 핵심 인물 3명이 한꺼번에 빠졌어. [The Information 보도](https://www.theinformation.com/articles/openai-stargate-leaders-depart-latest-shakeup-data-center-strategy)에 따르면 Peter Hoeschele는 이미 떠났고, Shamez Hemani와 Anuj Saharan도 수일 내 합류 예정이야. 행선지는 Meta의 Superintelligence Labs야.
 
 배경이 중요해. OpenAI는 최근 자체 데이터센터 건설에서 클라우드 임대 모델로 전략을 크게 틀었어. 텍사스 Abilene Stargate 사이트는 원래 2GW까지 확장할 계획이었는데 1.2GW로 축소됐고, 영국 Stargate 프로젝트는 IPO를 앞두고 [일시 중단된 상태](https://www.datacenterdynamics.com/en/news/openai-reorganizes-leadership-amid-data-center-strategy-readjustment/)야. 이 와중에 핵심 인프라 인력이 빠진 거거든.
 
+## 왜 중요할까
+
 반면 Meta는 완전히 반대 방향으로 가고 있어. 2026년 AI 인프라에 1,350억 달러(약 186조 원)를 쏟아붓겠다고 선언했고, 이 세 사람은 그 자금이 실제로 데이터센터로 전환되는 일을 맡게 돼. [Seeking Alpha 보도](https://seekingalpha.com/news/4573915-openai-stargate-leaders-including-peter-hoeschele-depart-in-latest-shakeup-to-data-center-strategy-report)에서도 "Meta의 공격적 채용"이라고 표현했어.
+
+## 앞으로 볼 점
 
 [OpenAI API](/ko/wiki/openai-api/)를 쓰고 있다면 눈여겨볼 포인트야. 자체 인프라 축소가 곧 컴퓨팅 비용 구조 변화로 이어질 수 있고, 그건 결국 API 가격에 반영될 수 있거든.
