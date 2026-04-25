@@ -50,11 +50,11 @@ factCheck:
         - "MTP가 실제 추론 속도 향상으로 이어지는지는 아직 검증 전 — 드래프터 추출만 됐고 실제 활성화 여부는 미확인"
         - "Google이 의도적으로 숨긴 건지, 아직 준비 중인 기능인지는 불명확"
 tags: ["gemma", "google", "mtp", "multi-token-prediction", "reverse-engineering", "open-source"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -68,7 +68,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "604297cad4879622"
+  contentHash: "9ed9f42caf7b8877"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

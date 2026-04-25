@@ -53,11 +53,11 @@ factCheck:
       findings:
         - "Anthropic이 이후 수정 배포할 가능성이 있으므로 독자는 최신 상태 확인 필요"
 tags: ["anthropic", "claude-code", "amd", "성능하락", "개발도구"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "8c2e66df70a41698"
+  contentHash: "52d9b4b0eb2b409d"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

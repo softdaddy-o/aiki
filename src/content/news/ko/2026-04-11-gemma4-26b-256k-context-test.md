@@ -56,11 +56,11 @@ factCheck:
         - "한 사람의 비공식 테스트라 재현 가능성이 보장되지 않는다"
         - "코드 디버깅 외 요약, 번역 등 다른 태스크에서 동일 성능은 미확인이다"
 tags: ["gemma", "moe", "컨텍스트윈도우", "local-llm", "벤치마크"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "9d8adca3cf431cf1"
+  contentHash: "885d8e4c4467c39f"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

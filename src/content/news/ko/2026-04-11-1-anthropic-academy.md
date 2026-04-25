@@ -46,11 +46,11 @@ factCheck:
       findings:
         - "일부 강좌가 유료일 가능성 있음 — 독자는 직접 접속해서 확인 필요"
 tags: ["anthropic", "claude", "education", "mcp", "claude-code"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -64,7 +64,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "8a71297411f80dfe"
+  contentHash: "b375d544b890b0f1"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

@@ -56,11 +56,11 @@ factCheck:
         - "Marcus는 뉴로심볼릭 AI 옹호자로 알려져 있어 자신의 주장에 유리한 해석일 수 있다"
         - "print.ts라는 파일명은 출력 포맷팅 용도일 가능성이 있으며, 핵심 추론 로직이 아닐 수 있다"
 tags: ["anthropic", "claude-code", "neurosymbolic-ai", "gary-marcus", "소스유출"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "de67690260f1fdc2"
+  contentHash: "e33818a9aa3e3dea"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

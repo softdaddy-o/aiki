@@ -52,11 +52,11 @@ factCheck:
       findings:
         - "3년간 $100억 약정이므로 연간 집행 규모는 확인 필요"
 tags: ["microsoft", "일본", "ai-인프라", "투자", "데이터센터"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "4b485b4a058d010c"
+  contentHash: "4ab147fb03f2c483"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

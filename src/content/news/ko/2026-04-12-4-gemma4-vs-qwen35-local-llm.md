@@ -48,11 +48,11 @@ factCheck:
       findings:
         - "Gemma 4가 높은 퀀트로 시스템 RAM까지 사용해 0.6-3 tok/s로 느려질 수 있음"
 tags: ["gemma4", "qwen35", "로컬llm", "24gb-gpu", "장문컨텍스트"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -66,7 +66,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "81e69bd9104b8541"
+  contentHash: "eba867cc82960089"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

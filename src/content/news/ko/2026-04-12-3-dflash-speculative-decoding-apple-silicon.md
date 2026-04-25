@@ -49,11 +49,11 @@ factCheck:
       findings:
         - "greedy exact argmax match로 출력 품질은 동일하다고 주장하나, 독립 검증은 아직 없음"
 tags: ["로컬llm", "apple-silicon", "추론가속", "mlx", "speculative-decoding"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -67,7 +67,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "13128fe10d4371a2"
+  contentHash: "85e2ab56af21ba9a"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

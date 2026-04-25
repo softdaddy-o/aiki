@@ -51,11 +51,11 @@ factCheck:
       findings:
         - "ARR 계산 방식상 단월 급등이 과대 반영될 수 있음 — 독자에게 맥락 제공"
 tags: ["perplexity", "ai-agent", "revenue", "검색", "비즈니스"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -69,7 +69,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "8ff5b61a0001b767"
+  contentHash: "73abcdf2977c2a2c"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나
