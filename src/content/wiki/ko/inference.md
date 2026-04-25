@@ -5,9 +5,6 @@ lang: ko
 summary: "Inference는 학습이 끝난 모델이 실제 입력을 받아 답을 만드는 실행 단계야. AI 서비스를 읽을 때 비용, 지연 시간, 처리량이 왜 계속 같이 언급되는지 이해하려면 이 개념부터 먼저 잡아두면 돼."
 readerValue: "추론을 학습이나 추론 모델과 헷갈리지 않고, 실제 서비스 운영에서 왜 GPU 비용과 응답 속도 문제가 함께 따라오는지 바로 연결해서 이해할 수 있어."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "3.0.0"
 aliases:
   - "model inference"
   - "추론"
@@ -66,18 +63,27 @@ factCheck:
         - "Inference 최적화가 모델 자체를 더 똑똑하게 만드는 일이라고 오해하기 쉽지만, 보통은 더 싸고 빠르게 돌리는 문제에 가까워."
       findings:
         - "추론은 모델의 사고 방식보다 실행 비용과 응답 경로를 이해하는 데 더 가까운 개념이야."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-16"
+  contentHash: "84a763444b74e07d"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 Inference는 학습이 끝난 모델을 실제로 돌려 답을 만드는 단계야. 사용자가 질문을 보내고 모델이 답을 돌려주는 순간, 이미지 생성 모델이 프롬프트를 받아 결과물을 만드는 순간, 음성 모델이 소리를 텍스트로 바꾸는 순간이 모두 추론에 해당해.

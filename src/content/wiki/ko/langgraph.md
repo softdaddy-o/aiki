@@ -5,9 +5,6 @@ lang: ko
 summary: "LangGraph는 상태를 들고 가는 AI 에이전트 워크플로를 그래프 형태로 짜게 해 주는 오케스트레이션 프레임워크야."
 readerValue: "이 이름이 그냥 챗봇 라이브러리인지, 아니면 여러 단계와 상태 전이를 직접 설계하는 에이전트 런타임인지 구분하는 데 도움이 돼."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "랭그래프"
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
         - "또 LangChain과 완전히 같은 것으로 읽지 않게, 낮은 레벨 오케스트레이션이라는 성격을 분리해서 적었어."
       findings:
         - "프레임워크 역할과 모델 능력을 섞는 오해를 막았어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a52fae7a3055cdcf"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 LangGraph는 [에이전트](/ko/wiki/agent/) 작업 단계를 노드와 엣지로 나눠서 설계하게 해 주는 프레임워크야. 핵심은 답 한 번 뽑는 체인이 아니라, 중간 상태를 기억하고 다음 단계로 넘기는 실행 흐름을 직접 다루는 데 있어.

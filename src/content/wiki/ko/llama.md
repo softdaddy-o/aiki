@@ -20,8 +20,9 @@ modelProfile:
   weightsOpen: 오픈 모델 계열이지만 실제 웨이트 공개 범위와 라이선스 조건은 별도 확인이 필요해.
   vendor: Meta
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Llama (라마)
 relatedTerms:
@@ -80,6 +81,22 @@ factCheck:
         - '표현 점검: 라이선스 논쟁을 단정하지 않으려고 공개형이라는 넓은 표현으로 묶었어.'
       findings:
         - 과한 단정 대신 독자가 실제 기사 문맥을 읽는 데 필요한 수준만 남겼어.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: 79e9d3dcb0461c05
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Llama는 Meta가 만드는 대형 언어 모델 가족이야. 한 개의 고정된 모델 이름이라기보다 여러 세대와 파생 모델을 묶는 브랜드로 보면 이해가 쉬워.

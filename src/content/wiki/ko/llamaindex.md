@@ -5,9 +5,6 @@ lang: ko
 summary: "LlamaIndex는 LLM이 외부 문서와 데이터를 찾아 쓰게 연결하는 프레임워크야. 모델 자체를 만드는 도구라기보다 RAG, 검색, 문서 에이전트 흐름을 조립하는 층에 가까워."
 readerValue: "이 이름이 나오면 모델 성능 이야기보다 문서 파싱, 인덱싱, 검색, 에이전트 워크플로를 어떻게 붙였는지 보는 데 도움 돼."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "LlamaIndex (라마인덱스)"
 relatedTerms:
@@ -63,6 +60,26 @@ factCheck:
         - "표현 점검: 새 모델을 학습시키는 도구라는 인상을 주는 문장은 빼고 검색 연결 역할을 강조했어."
       findings:
         - "개념 경계가 흐려지지 않게 도구의 위치를 먼저 설명했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "a0edd47d694d1632"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 LlamaIndex는 문서, 데이터베이스, API 같은 바깥 지식을 LLM에 연결하는 프레임워크야. 새 모델을 학습시키는 도구라기보다 이미 있는 모델이 필요한 정보를 더 잘 찾아오게 만드는 연결층이라고 보면 돼.

@@ -5,9 +5,6 @@ lang: ko
 summary: "JAX (잭스)는 NumPy 같은 파이썬 계산 코드에 자동미분이랑 JIT 컴파일을 붙여 GPU나 TPU에서 빠르게 돌리게 해 주는 라이브러리야."
 readerValue: "JAX가 모델 이름이 아니라 연구용 학습 코드를 고성능 계산 그래프로 바꾸는 도구라는 걸 빠르게 잡아볼 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "JAX (잭스)"
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
         - "또 JAX 하나로 서비스 운영까지 끝난다고 읽기 쉬운데, 실제론 계산과 학습 코드 쪽이 중심이야."
       findings:
         - "JAX는 연구 코드와 고성능 계산을 위한 기반 도구라는 점을 분명하게 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "161c364636e68d44"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 JAX는 배열 계산을 빠르게 돌리고 미분까지 자동으로 해 주는 파이썬 라이브러리야. 이름만 보면 모델처럼 들리지만, 실제로는 모델을 구현하는 계산 도구 쪽이야.

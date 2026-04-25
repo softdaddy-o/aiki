@@ -5,9 +5,6 @@ lang: ko
 summary: "LangChain은 대형 언어 모델 앱과 에이전트를 만들 때 모델, 도구, 검색, 상태 흐름을 묶어주는 오픈소스 프레임워크야. 이름이 커 보여도 혼자서 팀의 배포 체계 전체를 뜻하는 말은 아니고, 관측·평가·배포까지 포함하려면 보통 LangGraph나 LangSmith 같은 주변 제품까지 같이 봐야 맞아."
 readerValue: "기사, 채용 공고, 기술 문서에서 LangChain이 나오면 코드 프레임워크를 말하는지, 아니면 LangGraph·LangSmith까지 포함한 운영 스택을 말하는지 갈라서 읽을 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "LangChain (랭체인)"
 relatedTerms:
@@ -58,6 +55,26 @@ factCheck:
       findings:
         - "최근 공식 마케팅 문구에 'platform' 표현이 커졌지만, 본문 설명은 README와 제품 페이지의 공통분모인 오픈소스 프레임워크 축에 맞췄다."
         - "LangChain과 LangGraph의 경계는 점점 더 촘촘해지고 있어서, 이후 문서 갱신 때는 런타임 역할 구분을 다시 확인할 필요가 있다."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "83d0536eb48d0d09"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 LangChain은 대형 언어 모델 앱과 에이전트를 만들 때 모델 호출, 프롬프트, 도구 연결, 검색, 출력 처리 같은 조각을 한 틀 안에서 조립하게 해주는 오픈소스 프레임워크야. 그래서 이름만 보면 거대한 플랫폼처럼 들리지만, 본체는 개발용 라이브러리와 프레임워크에 가깝고, 운영과 배포는 다른 제품과 붙여 쓰는 경우가 많아.

@@ -7,9 +7,6 @@ summary: >-
   만드는 기술이라기보다 학습, 파이프라인, 서빙, 운영 규칙을 쿠버네티스 방식으로 묶는 쪽에 더 가까워.
 readerValue: 이 이름이 나오면 새 모델 얘기보다 ML 팀의 쿠버네티스 운영 체계와 파이프라인 자동화 얘기라는 걸 바로 잡을 수 있어.
 category: framework
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - Kubeflow(쿠브플로우)
 relatedTerms:
@@ -72,6 +69,26 @@ factCheck:
       findings:
         - 플랫폼 규모와 팀 역량을 같이 보게 만들었어.
         - 대형 프레임워크 도입을 무조건 정답처럼 읽는 과장도 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "fffcf189ca2d2be1"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Kubeflow는 Kubernetes 위에서 머신러닝 작업 흐름을 체계적으로 굴리게 해 주는 오픈소스 프레임워크야. [공식 사이트](https://www.kubeflow.org/)와 [GitHub 저장소](https://github.com/kubeflow/kubeflow) 2곳 모두 이걸 Kubernetes용 ML toolkit으로 설명해.

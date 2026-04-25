@@ -5,9 +5,6 @@ lang: ko
 summary: "llama.cpp는 오픈 가중치 모델을 로컬 장비나 자체 인프라에서 직접 추론하게 해주는 실행 엔진이자 CLI·서버 도구 묶음이야. 모델 이름이라기보다 GGUF 포맷, 양자화, 하드웨어 백엔드, API 노출 방식을 실제 운영에 연결하는 층으로 보는 게 맞아."
 readerValue: "llama.cpp를 그냥 실행 도구로 볼지, 로컬 추론과 배포 책임을 팀이 직접 가져오는 기반으로 볼지 구분할 수 있어."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "llamacpp"
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
       findings:
         - "llama.cpp는 모델 자체가 아니라 모델을 실행하는 런타임이야."
         - "Ollama와 같은 상위 배포 도구와 겹치는 부분은 있어도 같은 층위는 아니야. llama.cpp 쪽이 더 아래에서 포맷 호환과 추론 실행을 직접 다뤄."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "845cc6729e8a262e"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 llama.cpp는 오픈 [가중치](/ko/wiki/weight/) LLM을 CPU나 GPU에서 직접 돌리게 해주는 C/C++ 기반 추론 엔진이야. 이름은 특정 모델 계열에서 출발했지만, 지금은 여러 [GGUF](/ko/wiki/gguf/) 모델을 실행하는 공용 런타임에 더 가깝고 CLI와 서버까지 함께 제공해 실제 배포 경로에 바로 닿아 있어.
