@@ -66,11 +66,11 @@ factCheck:
         - 정확한 문자열 검색까지 전부 대체할 수 있다는 식의 오해를 막았어.
       findings:
         - 벡터 DB를 넣었는데도 검색 품질이 안 오르면 저장소보다 임베딩과 문서 분할 설계를 먼저 다시 봐야 해.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -84,7 +84,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "a0f3ba7f79dfcdb8"
+  contentHash: "5c9827466b7587a2"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

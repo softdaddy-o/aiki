@@ -57,11 +57,11 @@ factCheck:
       findings:
         - "vLLM은 모델 자체가 아니라 추론 엔진이야."
         - "학습 프레임워크, 모델 이름, 서빙 엔진을 한데 묶어 읽지 않게 정리했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "62bfbf373ac7a01c"
+  contentHash: "b38fc9b881b7f58c"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

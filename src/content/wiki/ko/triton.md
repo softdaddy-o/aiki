@@ -64,11 +64,11 @@ factCheck:
         - '오해 점검: Triton을 올렸다고 자동으로 모든 추론 병목이 해결되는 것도 아니야.'
       findings:
         - 독자가 모델 품질 문제와 운영 계층 문제를 헷갈리지 않게 정리했어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -82,7 +82,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "556eb40931d8f438"
+  contentHash: "13c8287f09fe27ad"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

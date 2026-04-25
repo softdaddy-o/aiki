@@ -58,11 +58,11 @@ factCheck:
       findings:
         - "Tool Use는 만능 자동화가 아니라 도구 호출과 결과 반영을 묶는 실행 패턴이야."
         - "에이전트, 함수 호출, 오케스트레이션 프레임워크를 같은 층위로 섞지 않게 정리했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "e3e75a0137b11b27"
+  contentHash: "13677ec1e37e15d4"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

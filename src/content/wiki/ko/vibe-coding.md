@@ -60,11 +60,11 @@ factCheck:
         - "또 성능 향상법이나 비용 절감법처럼 좁게 읽지 않게, 작업 방식이라는 프레임을 앞세웠어."
       findings:
         - "개념 범위를 넓게 읽되 핵심 오해는 막았어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -78,7 +78,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "3f90b1a37aefdca2"
+  contentHash: "5f4df9586261ae13"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

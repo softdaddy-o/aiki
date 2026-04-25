@@ -65,11 +65,11 @@ factCheck:
         - "오해 점검: 사용자가 서비스에 질문했다고 그 대화가 자동으로 학습에 들어간다고 단정하지 않게 정책 분리 맥락을 넣었어."
       findings:
         - "training을 너무 넓게 쓰면 비용, 성능, 개인정보 이슈를 전부 같은 문제로 읽게 되는 위험이 남아 있어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -83,7 +83,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "42ff18c7cebcb588"
+  contentHash: "3e0e490d4b8d9666"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

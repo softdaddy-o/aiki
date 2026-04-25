@@ -67,11 +67,11 @@ factCheck:
         - '또 멀티모달이란 말 하나로 모든 기능을 다 포함시키지 않게, 범위를 시각 입력 이해로 고정했어.'
       findings:
         - 독자가 기사 문맥에서 입력 이해 모델을 더 빨리 알아보게 만들었어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -85,7 +85,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "33cf292a25571ff9"
+  contentHash: "f63b3c738f18daa1"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -57,11 +57,11 @@ factCheck:
       findings:
         - "Transformer는 브랜드명이 아니라 아키텍처라는 점을 흐리면 기사 해석이 바로 틀어질 수 있어."
         - "Attention을 설명했다고 Transformer 전체를 설명한 셈은 아니라는 점을 따로 구분해야 해."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "ddbc1821097babbf"
+  contentHash: "b7a8188f5eaa44ed"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -53,11 +53,11 @@ factCheck:
       items:
         - "흔한 오해 점검: Vercel AI SDK를 OpenAI나 Anthropic 같은 제공자와 같은 층위로 읽으면 역할이 섞여."
         - "반례 점검: 실제 모델 API와 그 위를 감싸는 SDK 레이어를 분리해서 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "85ade94e2d9c9275"
+  contentHash: "151cd97a915ecef8"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
