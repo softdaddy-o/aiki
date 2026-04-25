@@ -5,9 +5,6 @@ lang: ko
 summary: "Runtime(런타임)은 저장된 모델을 실제 하드웨어에서 돌려서 응답을 뽑아내는 실행 계층이야."
 readerValue: "이 말을 보면 모델 이름이 아니라, 모델을 실제로 돌리는 엔진 쪽 이야기라는 걸 바로 잡을 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "런타임"
   - "inference runtime"
@@ -60,6 +57,26 @@ factCheck:
       items:
         - "흔한 오해 점검: 런타임을 배포 플랫폼 전체와 같은 말로 쓰면 도구 선택 기준이 흐려지기 쉬워."
         - "반례 점검: 어떤 도구는 실행 엔진에 가깝고 어떤 도구는 운영 레이어까지 포함한다는 구분을 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "ef675a7fce607d30"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Runtime은 저장된 모델 파일을 실제 하드웨어에서 돌려서 [추론](/ko/wiki/inference/) 결과를 내는 실행 계층이야. 모델 자체가 아니라 모델을 먹여서 응답을 꺼내는 엔진 쪽이라고 보면 돼.

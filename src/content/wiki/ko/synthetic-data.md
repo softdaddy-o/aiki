@@ -5,9 +5,6 @@ lang: ko
 summary: "Synthetic Data(합성 데이터)는 실제 데이터를 바로 쓰기 어려울 때, 비슷한 특성을 흉내 낸 데이터를 만들어 학습과 테스트에 쓰는 방식이야."
 readerValue: "이 말을 보면 성능 꼼수인지, 데이터 부족과 개인정보 문제를 푸는 실무 카드인지 빨리 가를 수 있어."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "synthetic data"
 relatedTerms:
@@ -53,6 +50,26 @@ factCheck:
       items:
         - "흔한 오해 점검: Synthetic Data만 있으면 현실 데이터 없이도 충분하다고 읽기 쉬운 부분을 경계했어."
         - "반례 점검: 현실 분포를 못 닮으면 모델이 배포 후에 무너질 수 있다는 한계를 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "3b287752447f3e2b"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Synthetic Data는 실제 기록을 그대로 모은 데이터가 아니라, 실제 데이터의 패턴을 흉내 내서 만든 인공 데이터야. 핵심은 가짜라는 말보다 [학습](/ko/wiki/training/), 테스트, 평가에 쓸 대체 재료라는 점이야.

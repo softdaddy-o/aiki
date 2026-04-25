@@ -5,9 +5,6 @@ lang: ko
 summary: "Speech to Text(음성 인식)는 사람 목소리를 글로 바꿔서 검색, 자막, 명령 처리로 넘기는 입력 기술이야."
 readerValue: "이 말을 들으면 그냥 받아쓰기인지, 음성 제품의 핵심 입력 파이프라인인지 빨리 구분할 수 있어."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "asr"
 relatedTerms:
@@ -56,6 +53,26 @@ factCheck:
       items:
         - "흔한 오해 점검: STT를 받아쓰기 정확도 경쟁으로만 보면 화자 분리나 지연 문제를 놓치기 쉬워."
         - "반례 점검: 실시간 통화와 배치 전사는 요구 조건이 크게 다르다는 점을 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "f32b979d84acbcb2"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Speech to Text는 사람 목소리를 컴퓨터가 다룰 수 있는 글로 바꾸는 기술이야. 음성 입력을 검색, 자막, 요약, 명령 처리로 넘기기 전에 거치는 첫 변환층이라고 보면 돼.

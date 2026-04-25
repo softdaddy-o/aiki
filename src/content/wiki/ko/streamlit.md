@@ -5,9 +5,6 @@ lang: ko
 summary: "Streamlit(스트림릿)은 파이썬 코드만으로 데이터 앱과 모델 데모 화면을 빨리 띄우게 해 주는 프레임워크야."
 readerValue: "이 이름을 보면 위젯 모음 정도가 아니라, 파이썬 실험을 바로 공유용 앱으로 넘기는 도구라는 감이 빨리 와."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Streamlit(스트림릿)"
 relatedTerms:
@@ -53,6 +50,26 @@ factCheck:
       items:
         - "흔한 오해 점검: Streamlit만으로 모든 제품형 웹앱 요구사항을 무리 없이 다 풀 수 있다고 읽기 쉬워."
         - "반례 점검: 권한 체계와 상태 관리가 복잡한 앱에선 한계가 있다는 점을 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "67f808a13def9a7c"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Streamlit은 파이썬 스크립트를 거의 그대로 웹 앱처럼 띄워 주는 프레임워크야. 데이터 결과, 실험 화면, 모델 데모를 빠르게 공유할 때 특히 잘 맞아.

@@ -7,9 +7,6 @@ summary: >-
   때 자주 거론돼.
 readerValue: '이 말을 보면 단순한 모델 크기 얘기인지, 아니면 온디바이스 배포나 저비용 추론 전략 얘기인지 바로 구분할 수 있어.'
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - slm
 relatedTerms:
@@ -73,6 +70,26 @@ factCheck:
         - 반대로 작은 모델이라는 이유만으로 로컬 배포가 자동으로 쉬워지는 것도 아니라는 점을 분리해 뒀어.
       findings:
         - 독자가 파라미터 수만 보고 실용성을 단정하지 않게 설계했어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "42282cdbc847fda5"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Small Language Model은 큰 언어 모델보다 훨씬 적은 파라미터와 자원으로 굴리도록 만든 언어 모델이야. [Azure 설명](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-small-language-model)과 [SmolLM 소개](https://huggingface.co/blog/smollm)를 같이 보면, 그냥 작다는 말보다 제한된 하드웨어에서 빠르고 싸게 쓰려는 전략이라는 점이 더 잘 보여.

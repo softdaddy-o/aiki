@@ -5,9 +5,6 @@ lang: ko
 summary: "TensorFlow (텐서플로)는 머신러닝 모델을 만들고 학습시키고 서비스까지 이어 붙이는 프레임워크야."
 readerValue: "TensorFlow가 모델 이름이 아니라 학습, 배포, 모바일 추론까지 묶는 플랫폼 축이라는 걸 빠르게 잡아볼 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "TensorFlow (텐서플로)"
 relatedTerms:
@@ -64,6 +61,26 @@ factCheck:
         - "반대로 오래된 프레임워크라서 쓸모없다고 단정하는 것도 과해. 배포와 모바일 쪽에서는 여전히 실무 맥락이 살아 있어."
       findings:
         - "TensorFlow는 모델이 아니라 개발과 배포 스택이라는 점을 중심에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "4f501c1031c780c5"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 TensorFlow는 신경망 모델을 정의하고 학습하고 추론까지 돌리는 소프트웨어 프레임워크야. 특정 모델 하나의 이름이 아니라, 모델 개발 전체 흐름을 묶는 기반 스택에 가까워.

@@ -7,9 +7,6 @@ summary: >-
   실제로는 GPU 자원을 더 효율적으로 쓰게 해 주는 서버 쪽 소프트웨어에 더 가까워.
 readerValue: 이 이름이 보이면 프롬프트 문법 얘기가 아니라 대형 모델 서빙 성능과 운영 효율 얘기라는 걸 빨리 잡을 수 있어.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - SGLang(에스지랭)
 relatedTerms:
@@ -72,6 +69,26 @@ factCheck:
       findings:
         - 편의성 도구와 성능 최적화 도구를 구분하게 만들었어.
         - 도입 효과를 과장해서 읽는 위험도 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e8258f3a6d56970a"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 SGLang은 큰 언어 모델과 [멀티모달](/ko/wiki/multimodal/) 모델을 빠르고 효율적으로 서빙하려고 만든 프레임워크야. [공식 문서](https://docs.sglang.ai/)와 [GitHub 저장소](https://github.com/sgl-project/sglang) 둘 다 low-latency, high-throughput serving framework라는 표현을 직접 써.

@@ -5,9 +5,6 @@ lang: ko
 summary: "Supabase(수파베이스)는 Postgres를 중심에 두고 인증, 스토리지, 실시간 기능까지 묶어 주는 백엔드 플랫폼이야. 앱 뒷단을 빨리 세우고 싶은 팀이 데이터 구조는 SQL답게 가져가고 싶을 때 특히 잘 맞아."
 readerValue: "Supabase가 보이면 그냥 DB 서비스가 아니라 제품 백엔드를 한 묶음으로 줄여 주는 선택지로 읽어볼 수 있어."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Supabase(수파베이스)"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
       findings:
         - "완전 자동화 아님"
         - "설계 책임은 남음"
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e0f636b68b429145"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Supabase는 Postgres 위에 인증, 파일 저장, 자동 API, 실시간 업데이트를 얹어서 앱 백엔드를 빠르게 만드는 플랫폼이야. 데이터베이스 한 조각만 파는 서비스라기보다 개발팀이 바로 붙일 수 있는 백엔드 기본 세트를 준다고 보면 돼.
