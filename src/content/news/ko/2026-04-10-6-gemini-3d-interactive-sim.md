@@ -46,11 +46,11 @@ factCheck:
       findings:
         - "Deep Research의 시뮬레이션 기능은 Google AI Ultra 구독 필요 — 모든 사용자에게 즉시 열리는 기능이 아님"
 tags: ["google", "gemini", "ai", "3d-model", "interactive", "deep-research"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -64,7 +64,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "750158419d3aa579"
+  contentHash: "221b683fefbb7608"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

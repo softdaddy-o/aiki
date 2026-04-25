@@ -50,11 +50,11 @@ factCheck:
       findings:
         - "오디오 기능은 아직 개발 중 — llama.cpp Gemma 4 지원 중 오디오 부분은 별도 작업이 진행 중이라 완전한 멀티모달 지원은 아님"
 tags: ["gemma", "google", "llama-cpp", "local-llm", "open-source", "quantization"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -68,7 +68,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "7f86e3a405da01a9"
+  contentHash: "2e0f0e4135e8ee64"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나
