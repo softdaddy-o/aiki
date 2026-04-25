@@ -54,11 +54,11 @@ factCheck:
         - "Alconost는 번역 서비스 회사로 자체 벤치마크 이해관계 가능성 있음"
         - "사람 QA 결과의 구체적 수치는 Reddit 원문에 미공개 — 정성적 평가만 확인"
 tags: ["translategemma", "translation", "benchmark", "google"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "1997b4496ee04492"
+  contentHash: "d01c96841920aefa"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

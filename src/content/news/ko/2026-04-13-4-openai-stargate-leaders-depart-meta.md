@@ -56,11 +56,11 @@ factCheck:
         - "클라우드 임대 전환이 비용 절감 효과를 가져올 수도 있어 API 가격 영향은 양방향이다"
         - "Meta의 $135B 수치는 자본지출 계획이며 실제 집행액과 다를 수 있다"
 tags: ["openai", "meta", "stargate", "데이터센터", "인프라"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "00f9157e7fea2889"
+  contentHash: "8575110e11a6ee5b"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

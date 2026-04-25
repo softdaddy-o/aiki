@@ -52,11 +52,11 @@ factCheck:
         - "54% 향상은 특정 하드웨어+모델 조합의 결과이며, 모든 환경에서 재현 보장 없음"
         - "원작자 자체 측정이라 독립 검증 미확인"
 tags: ["llama-cpp", "local-llm", "qwen", "optimization"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "8c8a7ee01359ffd6"
+  contentHash: "6c7d72e69d154152"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

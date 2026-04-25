@@ -57,11 +57,11 @@ factCheck:
         - "OpenRouter 점유율이 전체 AI API 시장을 대표하지는 않는다"
         - "DeepSeek 비용 비교(GPT-4의 1/70)는 특정 벤치마크 조건 하의 추정치다"
 tags: ["중국-ai", "오픈소스", "토큰경제", "minimax", "deepseek"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "31de25d98175bf1d"
+  contentHash: "19c913bc4e79e16d"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

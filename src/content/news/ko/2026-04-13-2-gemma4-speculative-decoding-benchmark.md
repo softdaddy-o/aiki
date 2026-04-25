@@ -54,11 +54,11 @@ factCheck:
         - "RTX 5090 기준 벤치마크라 RTX 4070~4090에서 동일 비율을 보장하지 않는다"
         - "TurboQuant는 커뮤니티 포크로, 공식 llama.cpp 대비 안정성 차이가 있을 수 있다"
 tags: ["gemma", "speculative-decoding", "local-llm", "llama-cpp", "벤치마크"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "b392eb67b14878c0"
+  contentHash: "aca6a556de356eba"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

@@ -54,11 +54,11 @@ factCheck:
         - "2비트 양자화에서의 실제 출력 품질은 스크린샷만으로 검증 불가"
         - "루프 에이전트 성공은 태스크 난이도에 크게 의존 — 파쿠르 게임은 비교적 단순한 태스크"
 tags: ["local-llm", "agentic-coding", "glm-5", "vibe-coding"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "b162a6717ffa630e"
+  contentHash: "3aa4398454b38356"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

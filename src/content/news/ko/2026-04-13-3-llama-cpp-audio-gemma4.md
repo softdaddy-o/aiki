@@ -54,11 +54,11 @@ factCheck:
         - "Whisper 대비 STT 정확도 비교 벤치마크가 아직 공개되지 않았다"
         - "8GB VRAM으로 충분한지는 양자화 방식에 따라 달라질 수 있다"
 tags: ["llama-cpp", "gemma", "음성인식", "local-llm", "멀티모달"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "79ae9216a336641c"
+  contentHash: "637897ec5bb7ebdb"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

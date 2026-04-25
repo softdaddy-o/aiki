@@ -53,11 +53,11 @@ factCheck:
         - "사람 연구원 2명은 '두 저자'로, 대규모 연구팀과의 비교가 아님"
         - "비용에 GPU 추론 비용만 포함 — 인프라 세팅, 감독 비용 미포함 가능성"
 tags: ["anthropic", "ai-agent", "alignment", "weak-to-strong"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "e81f768c0110a740"
+  contentHash: "1c1a124bd9144d21"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

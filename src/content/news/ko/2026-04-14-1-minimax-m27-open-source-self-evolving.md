@@ -56,11 +56,11 @@ factCheck:
         - "SWE-Pro, Terminal Bench 2는 비교적 새로운 벤치마크로 독립 검증이 제한적"
         - "230B 모델의 로컬 실행은 고사양 하드웨어 필요 — 본문에서 언급"
 tags: ["minimax", "open-source", "mixture-of-experts", "agentic-coding", "local-llm"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "edbabd423d2044bb"
+  contentHash: "5a48beecade3fb33"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

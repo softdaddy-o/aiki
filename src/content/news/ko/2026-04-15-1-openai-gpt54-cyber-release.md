@@ -54,11 +54,11 @@ factCheck:
         - "GPT-5.4-Cyber의 실제 취약점 탐지 성능은 독립 벤치마크 미공개"
         - "Anthropic Mythos와의 직접 성능 비교 데이터 없음 — 전략 차이만 언급"
 tags: ["openai", "cybersecurity", "gpt-5.4-cyber", "anthropic-mythos"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "d373f3f22cb1ec73"
+  contentHash: "7c765237ee673651"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나
