@@ -58,11 +58,11 @@ factCheck:
         - "반대로 모든 개발 단계가 자동화된다는 과장도 경계하려고 권한과 모델 의존성을 주의점에 넣었어."
       findings:
         - "자동완성 도구와 AI IDE를 구분하게 만들었어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "c3b9a363e62d872e"
+  contentHash: "43d81fcf898c13f7"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

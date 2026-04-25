@@ -69,11 +69,11 @@ factCheck:
         - '오해 점검: 웨이트 파일이 있어도 토크나이저나 추론 스택이 빠지면 바로 실행되지 않을 수 있어.'
       findings:
         - 독자가 웨이트 공개와 완전한 오픈소스를 같은 말로 받아들이지 않게 막아 뒀어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -87,7 +87,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "47708aec5d5ca7dc"
+  contentHash: "88fc0bf6aee3098d"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -65,11 +65,11 @@ factCheck:
       findings:
         - 도구 도입과 운영 성숙도를 같은 말로 보지 않게 선을 그었어.
         - 예쁜 UI가 곧 좋은 실험 운영이라는 착시도 막았어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -83,7 +83,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "2eb6a3d209689978"
+  contentHash: "e8dc1cd7cd50beee"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
