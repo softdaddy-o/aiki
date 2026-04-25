@@ -57,11 +57,11 @@ factCheck:
       findings:
         - "Function Calling은 실행 그 자체보다 호출 계약과 실행 루프를 뜻한다는 해석으로 유지했어."
         - "단순 구조화 출력과 실제 도구 연결을 같은 말처럼 섞지 않도록 문장을 정리했어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -75,7 +75,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "c108bf7539713cdb"
+  contentHash: "15a8da140bcf0672"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

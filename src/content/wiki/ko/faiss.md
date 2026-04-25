@@ -59,11 +59,11 @@ factCheck:
         - "검색 속도, 메모리, 정확도 사이의 타협이 있다는 점을 적어서 무조건 최고 성능 도구처럼 보이지 않게 했어."
       findings:
         - "FAISS는 검색 엔진 코어로는 강하지만, 실서비스에 바로 필요한 운영 기능까지 다 준다고 생각하면 설계가 꼬이기 쉬워."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "e7225001ad233174"
+  contentHash: "495afd3c3aa2873a"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

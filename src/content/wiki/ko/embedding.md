@@ -64,11 +64,11 @@ factCheck:
       findings:
         - "임베딩을 '숫자화'만으로 축소하면 의미 보존이라는 핵심이 빠지기 쉬워서 그 부분을 보강했어."
         - "임베딩이 좋으면 검색이 자동으로 해결된다는 오해를 막기 위해 청킹, 필터, 검색 설정 문제를 따로 짚었어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -82,7 +82,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "bcae7d7553883e36"
+  contentHash: "9f5445618689d213"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

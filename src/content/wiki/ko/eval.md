@@ -54,11 +54,11 @@ factCheck:
       findings:
         - "Eval은 모델을 더 빠르게 만드는 기능이 아니야. 바꾼 뒤 무엇이 좋아졌고 무엇이 망가졌는지 확인하는 절차에 더 가깝다."
         - "Red Teaming과 Eval을 같은 말처럼 쓰면 안 돼. 하나는 기준 충족 여부를 재고, 다른 하나는 실패와 취약점을 일부러 드러내는 데 초점이 있다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "805105824c5185e0"
+  contentHash: "cbc6be736acdb82b"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의

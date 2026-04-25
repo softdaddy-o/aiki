@@ -21,10 +21,6 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: Google DeepMind
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - google gemini
 relatedTerms:
@@ -91,22 +87,26 @@ factCheck:
         - Google 제품 전략 신호라는 맥락을 넣어서 단순 성능 기사로만 읽는 과장도 줄였어.
       findings:
         - Gemini는 큰 간판이어서 하위 버전까지 내려가야 실제 선택 정보가 보여.
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: a8e42a9a20267e88
-  reviewedAt: '2026-04-25T09:55:56Z'
-formatVersion: 2
+  contentHash: "9606a061f0eae2af"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Gemini는 [Google DeepMind](/ko/wiki/google-deepmind/)가 내놓는 AI 모델 계열 이름이야. 특정 챗봇 한 개를 가리키는 말이라기보다 여러 하위 모델과 서비스 표지를 한데 묶는 큰 브랜드로 보는 게 맞아.

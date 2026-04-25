@@ -75,11 +75,11 @@ factCheck:
         - 도구 호출과 JSON 출력이 된다고 해서 모든 모델이 같은 기능을 지원한다는 오해도 막았어.
       findings:
         - 브랜드 이름과 API 이름이 겹쳐 보여서 층위 구분을 더 세게 넣었어.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -93,7 +93,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "258294b2eec0e3d0"
+  contentHash: "83ad64d623bfae00"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
