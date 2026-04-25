@@ -56,10 +56,25 @@ factCheck:
         - "3명이 자발적 퇴사인지 구조조정 퇴사인지 명확하지 않음 — 'side quest 정리'는 OpenAI 기조를 인용한 표현"
 tags: ["openai", "경영", "sora", "구조조정", "임원"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "bc40f923ecad2248"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 하루 만에 3명, 누가 떠났나
 
 4월 17일 하루에 수장급 임원 3명이 동시에 나갔다. Kevin Weil(OpenAI for Science VP), Bill Peebles(Sora 책임자), Srinivas Narayanan(엔터프라이즈 CTO) — 각자 LinkedIn과 X에 퇴사 소감을 올리면서 알려졌다.

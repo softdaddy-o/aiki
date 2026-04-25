@@ -53,16 +53,38 @@ factCheck:
         - "API 미지원 현황 명시 — 상업 활용 전 확인 권장으로 독자에게 실질 정보 제공"
 tags: ["elevenlabs", "멀티모달", "워크플로우", "콘텐츠제작", "alpha"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c73cad173802f0e4"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 ElevenLabs가 3월 11일 Flows를 공개했어. [ElevenCreative](https://elevenlabs.io/blog/introducing-flows-in-elevencreative) 안에 들어간 노드 기반 캔버스인데, 이미지 생성 · 영상 생성 · TTS · 립싱크 · 음향 효과 · BGM 생성의 6가지 창작 유형을 한 화면에서 연결할 수 있어.
 
 핵심은 50개 이상 AI 모델을 한 파이프라인에 묶는다는 거야. 지금까지 영상 하나 만들 때 Midjourney로 이미지 따고, Kling에서 영상 뽑고, ElevenLabs에서 성우 입히고, Suno로 BGM 만들던 작업이 있잖아 — 각 툴 사이를 수동으로 파일 넘기는 게 사실 제일 귀찮은 부분이었거든. Flows는 그 연결선을 드래그로 잇는 식으로 처리해.
 
+## 왜 중요할까
+
 비파괴 방식(non-destructive)으로 동작하는 게 특징이야. 영상은 그대로 두고 성우 목소리만 바꾸고 싶으면 TTS 노드만 다시 실행하면 돼. 그 노드 이후 경로만 재계산되거든. 반복 수정이 많은 광고 제작 같은 데서 실질적으로 도움이 되는 구조야.
 
 지금은 Alpha야. [ElevenLabs 공식 문서](https://elevenlabs.io/docs/eleven-creative/products/flows)에 따르면 API 기반 프로그래매틱 실행은 향후 버전에서 지원 예정이야. 지금은 UI 캔버스로만 쓸 수 있어. 콘텐츠 팀이 반복적인 영상 배치 제작에 활용하려면 API가 나오는 시점을 봐야 해.
+
+## 앞으로 볼 점
 
 Flows에서 재미있는 건, 하나의 캔버스가 CMS와 연결되면 콘텐츠 자동 생산 파이프라인이 된다는 거야. 블로그 글 하나가 들어오면 → 영상 요약 → 성우 → 숏폼 클립까지 자동으로. 아직 구상 단계지만, Alpha 단계에 있다는 건 그 방향으로 가고 있다는 거지.

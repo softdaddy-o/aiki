@@ -55,14 +55,36 @@ factCheck:
         - "CrossEncoder의 멀티모달 쌍 처리 속도·메모리 프로파일은 아직 커뮤니티 리포트 부족"
 tags: ["huggingface", "embedding", "multimodal", "rag", "sentence-transformers"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "edbf4531ba523d34"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 HuggingFace가 [Sentence Transformers v5.4](https://newreleases.io/project/github/huggingface/sentence-transformers/release/v5.4.0)를 공개하면서 이 라이브러리가 처음으로 정식 [멀티모달](/ko/wiki/multimodal/) 지원에 들어갔어. 텍스트, 이미지, 오디오, 영상 네 가지 모달리티를 같은 API로 인코딩하고 비교할 수 있게 된 거거든.
 
 [핵심](https://huggingface.co/blog/train-multimodal-sentence-transformers)은 두 가지야. 첫째, [멀티모달](/ko/wiki/multimodal/) [임베딩](/ko/wiki/embedding/) 모델이 서로 다른 모달리티를 공통 [임베딩](/ko/wiki/embedding/) 공간에 매핑해준다. 둘째, 리랭커 역할을 하는 CrossEncoder도 [멀티모달](/ko/wiki/multimodal/) 쌍을 받을 수 있게 됐어. 즉 "이 질문 텍스트에 가장 잘 맞는 이미지 상위 5개 골라 줘" 같은 요청을 별도 모델 파이프라인 없이 한 라이브러리로 짤 수 있다는 뜻이야.
 
+## 왜 중요할까
+
 실무 관점에서 제일 직접 영향이 큰 분야는 [RAG](https://aiki.softdaddy-o.com/wiki/rag) 파이프라인이다. 지금까지 [멀티모달](/ko/wiki/multimodal/) RAG를 짜려면 CLIP, ImageBind, 텍스트 인코더 같은 걸 3개 이상 별도 조합해야 했는데, 이번 업데이트부터는 Sentence Transformers 하나로 visual document retrieval, cross-[modal](/ko/wiki/modal/) search, [멀티모달](/ko/wiki/multimodal/) RAG를 다 덮을 수 있거든. PDF 매뉴얼에 이미지·도표·텍스트가 섞여 있는 경우 특히 작업량이 크게 줄어.
+
+## 앞으로 볼 점
 
 한 가지 조심할 건 공식 블로그에 [벤치마크](/ko/wiki/benchmark/) 수치가 거의 없다는 점이야. CLIP이나 Cohere Embed v4 같은 기존 대안 대비 정확도·속도 비교표가 없어서, 실무 도입 전에 본인 데이터로 A/B 평가하는 단계는 건너뛰면 안 돼. 오디오·영상 [임베딩](/ko/wiki/embedding/) 품질이 [Whisper](/ko/wiki/whisper/) [임베딩](/ko/wiki/embedding/) 같은 전용 모델 대비 어느 수준인지도 아직 커뮤니티 리포트가 부족하고.

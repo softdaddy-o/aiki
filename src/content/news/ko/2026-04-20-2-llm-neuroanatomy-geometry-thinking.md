@@ -55,14 +55,36 @@ factCheck:
         - "4개 연구소 이름을 원문에서 명시하지 않아 재현 검증 어려움"
 tags: ["llm", "research", "mechanistic-interpretability", "multilingual"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "cf82ff31d4dae038"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 [트랜스포머](/ko/wiki/transformer/) 기반 LLM이 내부에서 어떻게 '생각'하는지를 해부한 [LLM Neuroanatomy III 분석](https://dnhkng.github.io/posts/sapir-whorf/)이 최근 AI 커뮤니티에서 주목받고 있어. 핵심 주장은 하나야 — 모델 중간 레이어에서 언어 정체성이 사라지고 의미(semantic content)가 내부 표현의 지배 구조가 된다는 거거든.
 
 구체적으로 보면, 같은 언어로 작성된 서로 다른 샘플들의 코사인 유사도가 중간 레이어에서 약 0까지 수렴해. 언어라는 좌표가 무의미해지는 거야. 대신 무슨 의미인지가 내부 공간을 정렬하는 기준이 된다는 게 연구자의 결론이고, 이 결과가 4개 주요 AI 연구소의 서로 다른 아키텍처 모델에서 동일하게 재현됐어. LLM Neuroanatomy 시리즈 3편째 분석이야.
 
+## 왜 중요할까
+
 실무적으로 의미 있는 시사점도 있어. 다국어 입력이나 번역 품질이 크게 차이 나지 않는 이유, 그리고 언어를 바꿔서 프롬프팅할 때 결과가 의외로 일관되게 나오는 이유가 이 구조와 관련 있을 수 있어. 다만 이 연구는 동료 검토를 거치지 않은 독립 연구자의 분석이라 학술 논문 수준의 엄밀성과는 다르다는 점은 감안해야 해.
+
+## 앞으로 볼 점
 
 AI가 언어를 '이해'한다기보다 언어를 통해 의미 공간에 접근한다는 관점이 점점 더 설득력 있게 쌓이고 있어.

@@ -57,14 +57,36 @@ factCheck:
         - "초기 파트너가 모두 OpenAI 기존 고객사라 독립 평가 수치는 아직 없음"
 tags: ["openai", "gpt-rosalind", "life-sciences", "drug-discovery", "codex"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "cd5d4ede09ba5929"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 OpenAI가 생명과학·신약 개발용 추론 모델 [GPT-Rosalind](https://openai.com/index/introducing-gpt-rosalind/)를 리서치 프리뷰로 공개했다. 이름은 DNA 이중나선 구조 발견에 결정적 기여를 한 화학자 Rosalind Franklin에서 따왔고, 일반 범용 LLM이 아니라 분자 클로닝, 실험 설계, 문헌 합성 같은 도메인 태스크에 특화된 모델이야.
 
 수치를 보면 포인트가 두 개 있어. 첫 번째는 [LABBench2](https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github) 11개 태스크 중 6개에서 GPT-5.4를 앞섰다는 점. 두 번째는 [Codex](/ko/wiki/codex/) 환경에서 예측 태스크는 인간 전문가 상위 5%(95 퍼센타일), 시퀀스 생성은 상위 16%(84 퍼센타일) 구간에 들어갔다는 점이거든. 6/11이라는 숫자는 뒤집으면 나머지 5개는 GPT-5.4와 비슷하거나 뒤진다는 뜻이라, "무조건 더 낫다"가 아니라 "특정 태스크에서 확실히 낫다"로 읽는 게 맞아.
 
+## 왜 중요할까
+
 같이 공개된 [Codex](/ko/wiki/codex/)용 Life Sciences 플러그인도 실무 쪽에 더 가깝다. 50개 이상의 과학 도구와 데이터베이스에 프로그래매틱하게 접근할 수 있어서, 바이오 분야 개발자라면 익숙한 개발자 UX로 실험 파이프라인을 설계할 수 있게 된다. 초기 파트너는 Amgen, Moderna, Allen Institute, Thermo Fisher Scientific 네 곳이고.
+
+## 앞으로 볼 점
 
 문제는 접근이 제한적이라는 거야. 리서치 프리뷰는 미국 Enterprise 고객만 받을 수 있고, 초기 파트너는 모두 기존 OpenAI 큰손이라 독립 [평가](/ko/wiki/eval/) 수치는 아직 안 나왔거든. 일반 개발자가 "업무 파이프라인에 바로 붙일 수 있는 도구"냐는 질문엔 지금 답이 "아직"이지만, 도메인 특화 모델이 벤치마크에서 범용 플래그십을 이기는 구조가 하나 더 확인됐다는 신호로 볼 만해.

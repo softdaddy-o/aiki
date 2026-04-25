@@ -55,14 +55,36 @@ factCheck:
         - "Honor 로봇 다리 길이 37인치로 특별 설계된 스프린터형 구조"
 tags: ["robotics", "humanoid", "china", "benchmark"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "73b778ccd325dfc3"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 2026년 4월 19일 베이징에서 열린 세계 최초 휴머노이드 로봇 하프마라톤에서 Honor가 개발한 로봇이 50분 26초로 21km를 완주하며 [인간 세계기록 57분 20초](https://techcrunch.com/2026/04/19/robots-beat-human-records-at-beijing-half-marathon/)를 뛰어넘었다. 우간다의 Jacob Kiplimo가 지난달 세운 인간 한계를 7분 가까이 앞당긴 거야.
 
 눈에 띄는 건 개선 속도야. 지난해 같은 대회에서 최고 기록이 2시간 40분 이상이었는데 올해 50분대로 줄어든 거야. 참가 로봇 수도 20대에서 100여 대로 늘어났고, 약 1만 2천 명의 인간 주자와 함께 병렬 코스를 달렸는데, 그중 절반 정도가 원격 제어 없이 자율 주행으로 완주했어.
 
+## 왜 중요할까
+
 다만 조건 차이는 있어. Honor 로봇은 다리 길이 37인치의 스프린터형 구조로 장시간 달리기에 최적화됐고, 인간과 완전히 같은 코스가 아닌 분리된 트랙을 이용한 거야. 그렇다고 기록의 의미가 줄어드는 건 아냐 — 1년 만에 3배 이상 속도가 빨라진 개선 폭이 중요한 거거든.
+
+## 앞으로 볼 점
 
 로봇 신체 능력의 발전이 AI 연산 능력만큼이나 빠른 속도로 진행 중이라는 걸 이번 대회가 보여줬어.

@@ -55,14 +55,36 @@ factCheck:
         - "실제 성능 이득 수치(토큰/초, 메모리 절감)는 아직 공개되지 않음"
 tags: ["deepseek", "deepgemm", "mixture-of-experts", "fp8", "gpu-optimization"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "f8e21094f40ced42"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 DeepSeek이 자체 FP8 GEMM 라이브러리 [DeepGEMM](https://github.com/deepseek-ai/DeepGEMM)에 큰 업데이트를 예고하고 나섰어. 'Public release 26/04'라는 머지 리퀘스트를 [공개](https://www.panewslab.com/en/articles/019d9605-414a-727c-8f9a-75d01ca4b436)하면서 Mega MoE, FP4 Indexer, FP8×FP4 하이브리드 연산 같은 무거운 변경들이 한꺼번에 들어갔거든.
 
 핵심은 Mega MoE 쪽이야. 기존 [MoE](https://aiki.softdaddy-o.com/wiki/mixture-of-experts) 추론은 dispatch([토큰](/ko/wiki/token/) 분배), linear1/SwiGLU/linear2(전문가 연산), combine(결과 결합) 4단계를 따로 돌렸는데, 이걸 하나의 메가 커널로 합쳤다. NVLink 통신과 텐서 코어 연산 사이의 오버랩까지 같이 튜닝했고. MoE 서빙에서 커널 런치 오버헤드와 [메모리](/ko/wiki/memory/) 이동 비용이 병목이던 팀에는 직접 영향이 큰 변화야. FP8 기반에서 FP4로 한 단계 더 내려가는 방향이라, 같은 H100 8장 서버 기준으로 [메모리](/ko/wiki/memory/) 여유를 더 뽑을 수 있게 설계된 거거든.
 
+## 왜 중요할까
+
 추가로 들어간 FP4 Indexer는 MQA(Multi-Query [Attention](/ko/wiki/attention/)) logits를 FP4로 처리해서 더 큰 MTP(Multi-[Token](/ko/wiki/token/) Prediction)를 지원하고, FP8×FP4 하이브리드 연산과 NVIDIA Blackwell 최적화도 포함된다. HyperConnection과 DeepEPv2 MoE GEMM 레이아웃도 같이 들어갔어. 정리하면 차세대 GPU + 저비트 정밀도 + MoE라는 조합에 맞춰 인프라를 다시 짠 업데이트야.
+
+## 앞으로 볼 점
 
 커뮤니티가 이걸 DeepSeek V4 출시 루머와 엮어서 해석하고 있는데, PANews는 "이번 릴리스는 내부 모델 릴리스와는 무관하다"고 못을 박았어. 실제 성능 이득 수치([토큰](/ko/wiki/token/)/초, [메모리](/ko/wiki/memory/) 절감)는 아직 공개 안 됐고, Blackwell이 아닌 H100 세대를 쓰는 팀한테는 직접 체감 이득이 제한적일 수 있다는 점도 같이 봐둘 만해.

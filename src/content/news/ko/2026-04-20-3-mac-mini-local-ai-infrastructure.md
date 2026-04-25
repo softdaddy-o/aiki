@@ -55,14 +55,36 @@ factCheck:
         - "전기료 계산은 상시 가동 기준 — 실제 AI 추론만 사용 시 더 저렴"
 tags: ["apple-silicon", "local-llm", "mac-mini", "inference"]
 guideVersion:
-  common: "1.0.0"
-  news: "1.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8bca326f7e344d8b"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
+## 무슨 일이 있었나
 
 2026년 들어 Mac Mini M4 Pro가 개인과 소규모 팀의 로컬 AI 인프라로 자리 잡고 있어. [TechSpot의 분석](https://www.techspot.com/news/112114-mac-mini-no-longer-niche-product-local-ai.html)에 따르면 이 기기가 더 이상 틈새 제품이 아니라는 평가가 설득력 있게 나오고 있는 거야.
 
 숫자가 이유를 설명해 줘. 4비트 양자화된 8B 모델 기준으로 초당 18-22 [토큰](/ko/wiki/token/) 속도가 나오고, AI [추론](/ko/wiki/inference/) 중 소비전력은 30-40W야. 연간 전기료로 계산하면 약 14달러인데, RTX GPU 기반 셋업이 같은 기간 160-210달러 수준이라는 걸 감안하면 비용 차이가 10배 이상이야. 팀 환경이라면 [Ollama](/ko/wiki/ollama/)를 공유 서버로 띄워두고 Open WebUI로 여러 명이 연결하는 방식이 가장 많이 쓰이고 있어.
 
+## 왜 중요할까
+
 대부분의 실용적인 작업에서 최적 구성으로 꼽히는 건 64GB 통합 [메모리](/ko/wiki/memory/) M4 Pro 모델이야. 14B까지는 여유 있게 돌릴 수 있고, OS와 앱 메모리를 감안해도 공간이 남거든. 다만 14B 이상으로 넘어가면 속도가 초당 10 [토큰](/ko/wiki/token/) 이하로 내려가기 때문에 사용 목적에 따라 선택이 달라져.
+
+## 앞으로 볼 점
 
 M5 Mac Mini는 2026년 6월 WWDC에서 발표될 예정이라 지금 살 것인지 기다릴 것인지는 각자의 판단이야 — 배포 시점은 발표 후 1-2주 뒤가 될 것으로 보여.
