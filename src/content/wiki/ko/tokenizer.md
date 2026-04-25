@@ -59,11 +59,11 @@ factCheck:
       findings:
         - tokenizer를 모르면 토큰 한도 기사에서 왜 비용 얘기가 같이 붙는지 읽기 어려워져.
         - 반대로 tokenizer만 보고 모델 성능까지 단정하면 해석이 과해지기 쉬워.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "0356082613d08560"
+  contentHash: "08ec538f4c893409"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

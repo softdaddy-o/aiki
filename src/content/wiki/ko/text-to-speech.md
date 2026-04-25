@@ -52,11 +52,11 @@ factCheck:
       items:
         - "흔한 오해 점검: TTS는 목소리 톤만 좋으면 된다고 생각하기 쉬운데 실제론 지연과 긴 문장 안정성도 중요해."
         - "반례 점검: 화자 모사 기능은 품질 문제가 아니라 정책과 저작권 문제까지 같이 따라온다는 점을 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "9919f9a66217256d"
+  contentHash: "501755759296eb8b"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -21,10 +21,6 @@ modelProfile:
     돼.
   weightsOpen: 비공개 또는 서비스/API 제공 중심. 이렇게 보면 돼.
   vendor: OpenAI
-guideVersion:
-  tone: 2.0.0
-  common: 2.3.0
-  wiki: 3.1.2
 aliases:
   - Sora (소라)
 relatedTerms:
@@ -83,22 +79,26 @@ factCheck:
         - 모든 편집 기능이 모든 플랫폼에서 똑같이 된다는 식의 일반화를 피했어.
       findings:
         - '독자가 기사 문장 하나만 봐도 모델, 앱, 구독 문맥을 분리해 따라가게 만들었어.'
+formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.3.0
-    wiki: 3.1.2
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: f744fed3e5f30a10
-  reviewedAt: '2026-04-25T09:55:57Z'
-formatVersion: 2
+  contentHash: "dfb21c94742d584e"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Sora는 [OpenAI](/ko/wiki/openai/)가 만든 텍스트·이미지 기반 영상 생성 모델이야. 동시에 `sora.com`과 앱으로 이어지는 영상 제작 경험 전체를 가리키기도 해서, 모델명만으로 읽으면 서비스 문맥을 놓치기 쉬워.

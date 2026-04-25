@@ -61,11 +61,11 @@ factCheck:
         - "반대로 오래된 프레임워크라서 쓸모없다고 단정하는 것도 과해. 배포와 모바일 쪽에서는 여전히 실무 맥락이 살아 있어."
       findings:
         - "TensorFlow는 모델이 아니라 개발과 배포 스택이라는 점을 중심에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "4f501c1031c780c5"
+  contentHash: "eda85ff27e9a4e51"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

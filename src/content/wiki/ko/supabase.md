@@ -59,11 +59,11 @@ factCheck:
       findings:
         - "완전 자동화 아님"
         - "설계 책임은 남음"
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -77,7 +77,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "e0f636b68b429145"
+  contentHash: "6cb61325f39c5b36"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

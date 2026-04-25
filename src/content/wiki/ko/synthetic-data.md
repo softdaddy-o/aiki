@@ -50,11 +50,11 @@ factCheck:
       items:
         - "흔한 오해 점검: Synthetic Data만 있으면 현실 데이터 없이도 충분하다고 읽기 쉬운 부분을 경계했어."
         - "반례 점검: 현실 분포를 못 닮으면 모델이 배포 후에 무너질 수 있다는 한계를 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -68,7 +68,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "3b287752447f3e2b"
+  contentHash: "33d50a3a53f496e7"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

@@ -68,11 +68,11 @@ factCheck:
         - 큰 컨텍스트 숫자가 곧 좋은 성능이라는 식으로 점프하지 않게 입력 한도와 출력 한도를 분리해서 보게 했어.
       findings:
         - 글자 수 감각으로 토큰을 짐작하면 실제 비용과 제한을 자주 잘못 읽게 돼.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -86,7 +86,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "315d0bef24f7588a"
+  contentHash: "2196de4f14f67522"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의

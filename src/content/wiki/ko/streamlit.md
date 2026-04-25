@@ -50,11 +50,11 @@ factCheck:
       items:
         - "흔한 오해 점검: Streamlit만으로 모든 제품형 웹앱 요구사항을 무리 없이 다 풀 수 있다고 읽기 쉬워."
         - "반례 점검: 권한 체계와 상태 관리가 복잡한 앱에선 한계가 있다는 점을 본문에 남겼어."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -68,7 +68,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "67f808a13def9a7c"
+  contentHash: "da1335374c87696e"
   reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
