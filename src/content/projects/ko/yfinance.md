@@ -45,11 +45,11 @@ factCheck:
       items:
         - "이 페이지의 stars 표시는 카탈로그 시점 스냅샷이므로 배포 전 다시 확인하는 전제가 붙어."
         - "핵심 판단은 숫자보다 기능 범위와 법적 주의사항 쪽에 두는 편이 안전해."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -63,7 +63,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "bf988bd9ba2b6b52"
+  contentHash: "33e16047b1a0cdd5"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 뭘 해볼 수 있나

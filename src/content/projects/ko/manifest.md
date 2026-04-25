@@ -103,11 +103,11 @@ factCheck:
         - >-
           로컬 scorer 예시는 body와 showcase에서 참고용 관찰값으로만 다루고, repo 문서 기반 검증과 같은 무게로
           두지 않는다.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -121,7 +121,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "be808eb2c28d72d6"
+  contentHash: "cc08299572f1ba75"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 한 줄 판단

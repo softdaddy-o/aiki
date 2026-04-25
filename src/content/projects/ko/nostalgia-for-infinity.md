@@ -53,11 +53,11 @@ factCheck:
       summary: "이 페이지는 전략 성과를 보증하지 않는 드래프트입니다."
       items:
         - "쇼케이스의 signal weight와 전략 계보 설명은 운용 이해를 돕는 큐레이션이며 투자 조언이나 실거래 추천이 아닙니다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -71,7 +71,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "4a9f05f64d436f72"
+  contentHash: "107ff58b323e36ba"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## NostalgiaForInfinity란?

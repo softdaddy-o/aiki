@@ -63,11 +63,11 @@ factCheck:
         - "그래프가 얽히는 문서군이 아니면 LightRAG의 장점보다 인덱싱 비용과 운영 복잡도가 먼저 보일 수 있어."
         - "코어를 직접 끼워 넣으면 빨라 보이지만, 저장소가 권하는 건 서버 API 경로다. 여기서 방향을 잘못 잡으면 통합 비용이 커질 수 있어."
         - "README의 비교표는 재현 조건 안에서 읽어야 한다. 데이터셋과 모델 구성이 달라지면 체감 우위는 쉽게 바뀐다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -81,7 +81,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "8ff64108b738cb90"
+  contentHash: "ffba8aec99de96eb"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## LightRAG가 뭐냐

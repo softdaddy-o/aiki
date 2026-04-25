@@ -83,11 +83,11 @@ factCheck:
         - "CPU-only 환경이나 Mac 로컬 개발 머신 중심 팀이면 바로 쓰기 어렵다."
         - "언어별 경량 OCR만 필요하면 더 단순한 OCR 스택이 운영상 편할 수 있다."
         - "이 모델은 OCR 결과를 구조적으로 다루는 쪽에 강하고, 설치 부담은 그만큼 크다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -101,7 +101,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "b37557073a4a05b3"
+  contentHash: "78b1749d743386b7"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 모델 정체성

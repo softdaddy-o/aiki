@@ -61,11 +61,11 @@ factCheck:
         - "단일 거래소 연구용이면 venue SDK나 더 가벼운 백테스트 스택으로도 충분할 수 있다."
         - "Beta 릴리스와 어댑터 완성도 차이를 무시하고 production-grade 문구만 믿으면 운영 리스크를 과소평가할 수 있다."
         - "공식 사이트 하단 면책처럼 이 소프트웨어는 브로커나 자문 서비스가 아니다. 규제, 주문 실패, 손실 책임은 그대로 사용자 쪽에 남는다."
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -79,7 +79,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "8a3d2a62d7800e8e"
+  contentHash: "055dda83aef4a921"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## NautilusTrader가 뭐냐

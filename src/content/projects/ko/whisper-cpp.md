@@ -83,11 +83,11 @@ factCheck:
         - '모델 다운로드, build flags, audio 전처리, backend 선택을 팀이 직접 쥐고 갈 생각이 있어야 whisper.cpp의 이점이 산다.'
         - 'managed speech API처럼 diarization, 저장, 모니터링, SLA를 통째로 기대하면 이 repo의 책임 범위보다 바깥이다.'
         - '그래서 첫 비교 축도 offline and self-hosted STT runtime에 두고 잡았다.'
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   projects: "4.2.0"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.1.0
   agentVersions:
@@ -101,7 +101,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "67e1b7e2462b2741"
+  contentHash: "e5481e17691885fe"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 한 줄 판단

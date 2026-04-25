@@ -73,11 +73,11 @@ factCheck:
         - 모델 성능 비교 기사와 개발 운영 도구 기사 사이의 문맥 차이도 분리해 뒀어.
       findings:
         - 에이전트형 코딩 도구는 성능보다 권한 설계가 더 큰 변수일 때가 많아.
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   wiki: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -91,7 +91,7 @@ reviewStamp:
     common: "2.3.0"
     wiki: "3.1.2"
   panelVerdict: pass
-  contentHash: "3138c6f4b5281d78"
+  contentHash: "4835506a75d0621a"
   reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
