@@ -105,21 +105,25 @@ factCheck:
           두지 않는다.
 guideVersion:
   tone: "2.0.0"
-  common: "2.1.0"
-  projects: "4.1.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.1.0"
+  panelVersion: 1.1.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
     skeptical-critic: "1.1.0"
     tone-editor: "1.6.0"
     structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "a7bc1f3b52d8ee75"
-  reviewedAt: "2026-04-23"
+  contentHash: "be808eb2c28d72d6"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 한 줄 판단
 
 Manifest는 프롬프트를 점수화해 tier와 specificity별 모델 슬롯으로 보내는 라우터야. 여기서 slot은 `simple`, `coding`처럼 실제로 모델과 fallback을 붙여 두는 운영 묶음이고, tier는 `simple`, `standard`, `complex`, [`reasoning`](/ko/wiki/reasoning/)처럼 요청의 난도와 비용대를 가르는 단계야. specificity는 `coding`, `calendar_management`처럼 업무 성격을 한 번 더 붙이는 꼬리표라고 보면 돼. 예를 들면 버그 수정 요청은 complex tier로 읽히더라도 coding specificity가 붙으면 coding 슬롯으로 보내는 식이야.

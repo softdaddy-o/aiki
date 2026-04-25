@@ -64,21 +64,26 @@ factCheck:
         - "코어를 직접 끼워 넣으면 빨라 보이지만, 저장소가 권하는 건 서버 API 경로다. 여기서 방향을 잘못 잡으면 통합 비용이 커질 수 있어."
         - "README의 비교표는 재현 조건 안에서 읽어야 한다. 데이터셋과 모델 구성이 달라지면 체감 우위는 쉽게 바뀐다."
 guideVersion:
-  common: "3.0.0"
-  projects: "3.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.1.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.1.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "3c0ae01b8f8b11bc"
-  reviewedAt: "2026-04-18"
+  contentHash: "8ff64108b738cb90"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## LightRAG가 뭐냐
 
 LightRAG는 [RAG](/ko/wiki/rag/)에서 문서를 잘게 나눠 [embedding](/ko/wiki/embedding/)으로만 찾는 쪽에서 한 발 더 나가, 문서 안의 엔터티와 관계를 뽑아 지식 그래프를 같이 타는 프레임워크야. 질문이 들어오면 그래프와 벡터 검색을 함께 써서 답할 조각을 고르는 식이라고 보면 돼.

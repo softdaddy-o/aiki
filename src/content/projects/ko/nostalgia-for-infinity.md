@@ -53,8 +53,27 @@ factCheck:
       summary: "이 페이지는 전략 성과를 보증하지 않는 드래프트입니다."
       items:
         - "쇼케이스의 signal weight와 전략 계보 설명은 운용 이해를 돕는 큐레이션이며 투자 조언이나 실거래 추천이 아닙니다."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.1.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
+  panelVerdict: pass
+  contentHash: "4a9f05f64d436f72"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## NostalgiaForInfinity란?
 
 NostalgiaForInfinity, 줄여서 NFI는 오픈소스 암호화폐 트레이딩 봇 Freqtrade에서 실행하는 전략 저장소입니다. 단일 매매 아이디어라기보다는 여러 세대의 전략 파일과 설정, 블랙리스트, 문서, 테스트 보조 도구를 함께 관리하는 프로젝트에 가깝습니다.

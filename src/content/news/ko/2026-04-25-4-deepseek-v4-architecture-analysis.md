@@ -48,13 +48,27 @@ factCheck:
         - "V3 대비 우위가 모든 태스크에서 성립하는지 미검증"
       findings: []
 tags: ["deepseek", "architecture", "llm", "attention", "open-weight"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
-formatVersion: 2
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "3134fed3754129e6"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 [r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/)에서 DeepSeek-V4 기술 보고서를 직접 읽고 정리한 분석 글이 114개 좋아요, 70개 댓글을 받았어. 벤치마크 숫자가 화제가 되는 사이에, 실제로 보고서를 뜯어본 사람이 "아키텍처도 볼 만하다"고 정리한 거야. V3 대비 변화 중 하이브리드 어텐션이 핵심 변경 사항으로 언급됐어.

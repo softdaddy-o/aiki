@@ -49,13 +49,27 @@ factCheck:
       findings:
         - "무료 정책이 지속되는지 여부는 공식 발표에 명시되지 않음"
 tags: ["openai", "chatgpt", "healthcare", "ai-tools"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "579631d4c326a845"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 OpenAI가 4월 22일, 미국 내 인증된 임상의(clinician)를 대상으로 ChatGPT for Clinicians를 무료로 내놨어. 일반 ChatGPT와 다르게 임상 워크플로우 — 차트 리뷰, 환자 설명 초안, 의학 문헌 요약 같은 작업에 맞게 조정됐고, OpenAI가 의료 AI 성능 기준으로 쓰는 [HealthBench](https://openai.com/index/healthbench/) Professional 검증을 거쳤다고 해.

@@ -51,13 +51,27 @@ factCheck:
       findings:
         - "소개된 수치들은 커뮤니티 테스트 기반 — 독립적인 공식 벤치마크 미확인"
 tags: ["deepseek", "agent", "open-weight", "tool-use", "llm"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
-formatVersion: 2
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "42f063b347d09523"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 [DeepSeek-V4](https://huggingface.co/blog/deepseekv4)가 100만 개 토큰 컨텍스트와 최대 384,000개 토큰 출력을 지원하는 오픈웨이트 모델로 나왔어. HuggingFace 블로그에서 실제 에이전트 작업 테스트 결과를 공유했는데, 멀티 툴 호출에서 혼동 없이 100개 이상 연속 작업을 처리했다는 보고가 올라왔어. "지금까지 테스트한 오픈웨이트 모델 중 복잡한 툴 정의에서 헷갈리지 않은 몇 안 되는 모델"이라는 평이야.

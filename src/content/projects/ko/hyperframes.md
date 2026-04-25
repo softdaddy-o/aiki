@@ -83,10 +83,11 @@ factCheck:
         - 브랜드 최종본을 픽셀 단위로 마감하는 일이 중심이면 기존 영상 툴체인이 더 나아.
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
+  common: "2.3.0"
   projects: "4.2.0"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.1.0"
+  panelVersion: 1.1.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
@@ -95,13 +96,12 @@ reviewStamp:
     structure-editor: "1.1.0"
   guideVersions:
     tone: "2.0.0"
-    common: "2.2.0"
+    common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "e9e6eaa21711611d"
-  reviewedAt: "2026-04-23"
+  contentHash: "716b22225f9aa61a"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 한 줄 판단
 
 HyperFrames는 "프롬프트 한 줄로 영상이 자동 완성돼" 쪽 도구가 아니야. 공식 [README](https://github.com/heygen-com/hyperframes/blob/main/README.md) 첫 줄 그대로, HTML 장면을 직접 잡고 `preview`와 `render`를 반복하는 프레임워크로 보는 게 맞아. 장면을 코드로 들고 갈 팀이면 볼 이유가 있고, 최종 마감 툴을 찾는 거면 여기서 멈추면 돼.

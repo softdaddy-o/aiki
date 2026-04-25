@@ -62,21 +62,26 @@ factCheck:
         - "Beta 릴리스와 어댑터 완성도 차이를 무시하고 production-grade 문구만 믿으면 운영 리스크를 과소평가할 수 있다."
         - "공식 사이트 하단 면책처럼 이 소프트웨어는 브로커나 자문 서비스가 아니다. 규제, 주문 실패, 손실 책임은 그대로 사용자 쪽에 남는다."
 guideVersion:
-  common: "3.0.0"
-  projects: "3.0.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.1.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.1.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "b9be2a96099cf029"
-  reviewedAt: "2026-04-18"
+  contentHash: "8a3d2a62d7800e8e"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## NautilusTrader가 뭐냐
 
 NautilusTrader는 Rust 코어와 Python [API](/ko/wiki/api/)를 묶어, 백테스트와 라이브 실행을 같은 엔진 흐름으로 가져가려는 팀을 위한 트레이딩 프레임워크야. 요지는 단순해. 여러 자산과 venue를 한 엔진에 태우고, 백테스트에서 굴리던 전략 코드를 실거래 쪽으로 최대한 같은 결로 옮기려는 시스템이다.

@@ -49,13 +49,27 @@ factCheck:
       findings:
         - "Google 자체 제작 콘텐츠로, 제품 홍보 의도가 있음을 고려"
 tags: ["gemini", "google", "productivity", "ai-tools"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
-formatVersion: 2
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c18cd596af5027b6"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 [Google이 Gemini를 활용한 봄 정리 팁 8가지](https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/)를 공식 블로그에 올렸어. 집과 디지털 공간을 함께 정리하는 방향으로, 청소 일정 만들기, 받은 편지함 정리, 계절별 집안일 목록 자동화 같은 예시를 담았어. Gmail과 Google Calendar 연동으로 2026년 4월 기준 바로 써볼 수 있어.

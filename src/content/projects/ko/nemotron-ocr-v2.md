@@ -84,21 +84,26 @@ factCheck:
         - "언어별 경량 OCR만 필요하면 더 단순한 OCR 스택이 운영상 편할 수 있다."
         - "이 모델은 OCR 결과를 구조적으로 다루는 쪽에 강하고, 설치 부담은 그만큼 크다."
 guideVersion:
-  common: "1.0.0"
-  projects: "3.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  projects: "4.2.0"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.1.0"
+  panelVersion: 1.1.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
     skeptical-critic: "1.1.0"
-    tone-editor: "1.5.0"
+    tone-editor: "1.6.0"
     structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "68868532191fdc22"
-  reviewedAt: "2026-04-22"
+  contentHash: "b37557073a4a05b3"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 모델 정체성
 
 Nemotron OCR v2는 문서와 이미지에서 텍스트를 읽고, 읽기 순서와 문단 관계까지 함께 정리하는 OCR 모델이야. GPU 서버에서 구조 보존 OCR을 돌릴 계획이 있으면 볼 가치가 있고, CPU 로컬이나 단순 텍스트 추출이 목적이면 여기서 멈춰도 된다.
