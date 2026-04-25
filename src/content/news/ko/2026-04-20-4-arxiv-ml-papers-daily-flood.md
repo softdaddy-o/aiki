@@ -54,10 +54,25 @@ factCheck:
 tags: ["arxiv", "machine-learning", "research", "ai-papers", "research-culture"]
 formatVersion: 2
 guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "1303858bf434953b"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 arXiv에서 ML 논문이 폭발적으로 늘고 있어. [r/MachineLearning](https://www.reddit.com/r/MachineLearning/comments/1sqi69n/d_it_seems_that_every_day_there_are_around_100/) 커뮤니티에서 매일 cs.LG 하나만 세도 100-200개 새 논문이 올라온다는 얘기가 나왔고, 153명이 공감했어. cs.AI나 math.OC 같은 다른 하위 카테고리까지 합치면 숫자는 훨씬 더 커지거든.
 
 ## 예전엔 아침에 전부 읽었는데 이젠 불가능해

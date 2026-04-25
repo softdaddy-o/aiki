@@ -83,28 +83,27 @@ tags:
   - local-llm
   - edge-ai
   - quantization
-guideVersion:
-  tone: 2.0.0
-  common: 2.2.0
-  news: 3.1.1
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: 1.0.0
-    fact-checker: 1.0.0
-    skeptical-critic: 1.1.0
-    tone-editor: 1.6.0
-    structure-editor: 1.1.0
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
   guideVersions:
-    tone: 2.0.0
-    common: 2.2.0
-    news: 3.1.1
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
   panelVerdict: pass
-  contentHash: fddada973e78ab16
-  reviewedAt: '2026-04-23'
+  contentHash: "ba946e51fc6cea99"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 구글이 [Gemma 4](/ko/wiki/gemma-4/)를 공개하면서 [E2B](/ko/wiki/e2b/)와 E4B를 같이 내놨어. 이 엣지 모델은 클라우드 [API](/ko/wiki/api/) 대신 기기 안에서 직접 [추론](/ko/wiki/inference/)하도록 줄인 버전이야. Google Blog는 2026-04-02 공개와 [Apache 2.0](/ko/wiki/apache/) 라이선스를, DeepMind는 E2B=phone·E4B=edge 포지션을 확인해.

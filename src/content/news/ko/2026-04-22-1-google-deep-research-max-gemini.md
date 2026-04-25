@@ -54,12 +54,27 @@ factCheck:
         - "벤치마크는 Google 자체 선정 — 독립 기관 비교 아직 없음"
         - "API 유료 티어 한정 — 일반 무료 사용자 접근 불가"
 tags: ["gemini", "deep-research", "mcp", "google", "agentic"]
-guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "80eb3c1160749aa6"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 구글이 4월 21일 Gemini API에 자율 리서치 에이전트 두 가지를 공개했어. Deep Research는 빠른 응답이 필요한 실시간 인터페이스용이고, Deep Research Max는 방대한 정보를 깊게 파고들어야 하는 비동기 워크플로용이야. 두 버전 모두 Gemini 3.1 Pro 기반이고, [MCP](/ko/wiki/mcp/)를 통해 기업 내부 문서와 외부 웹 데이터를 단일 API 호출로 연결할 수 있어.

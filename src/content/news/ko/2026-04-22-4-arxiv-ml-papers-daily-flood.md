@@ -51,12 +51,27 @@ factCheck:
       findings:
         - "논문 수 자체보다 신호 필터링 도구의 품질이 핵심 — 절대 수치는 과장된 공포일 수 있음"
 tags: ["arxiv", "machine-learning", "research", "ai-research"]
-guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "5c3c7bb6c7f566bb"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 r/MachineLearning에서 "arXiv에 매일 100~200편의 ML 논문이 올라오는데 어떻게 따라가나"라는 질문이 146 추천을 받았어. 댓글에서 실무자와 연구자들이 각자의 필터링 전략을 공유했거든. 같은 날 Chaperone-Thinking-LQ1.0이라는 4bit GPTQ 양자화 1B 이하 모델도 오픈소스로 공개됐는데, 이런 소규모 연구 발표가 매일 수십 건 쏟아진다는 게 배경이야.

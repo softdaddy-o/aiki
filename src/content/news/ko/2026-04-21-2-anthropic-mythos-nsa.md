@@ -54,12 +54,27 @@ factCheck:
         - "NSA 사용 근거는 Axios 익명 소스 1건 — 다른 매체는 Axios 인용. 독립 검증 불가 상태"
         - "Mythos의 '공격적 사이버 능력' 기술은 Anthropic 내부 설명이며 공개 기술 문서 없음"
 tags: ["anthropic", "mythos", "ai-safety", "government-ai", "cybersecurity"]
-guideVersion:
-  common: "1.0.0"
-  news: "2.0.0"
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c95b3fc6603568cf"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 [Axios 보도](https://www.axios.com/2026/04/19/nsa-anthropic-mythos-pentagon)에 따르면 NSA가 Anthropic의 비공개 모델 Mythos Preview를 사용 중이야. 문제는 국방부(DoD)가 지난 2월 Anthropic을 '공급망 위협'으로 규정하고 벤더들에 사용 중단을 요구한 상태라는 점이거든.
 
 ## 얼마나 모순적인 상황인가

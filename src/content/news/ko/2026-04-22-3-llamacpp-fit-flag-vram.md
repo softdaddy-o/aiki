@@ -51,12 +51,27 @@ factCheck:
       findings:
         - "CPU 오프로드 속도 페널티 수치가 없음 — 실용성 판단 데이터 부족"
 tags: ["llama-cpp", "local-llm", "vram", "qwen", "quantization"]
-guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "05e888ae7189ced0"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 로컬 LLM 커뮤니티에서 32GB VRAM GPU로 Qwen3.6 35B Q8 모델을 256K 컨텍스트로 돌렸다는 경험이 올라왔어. 키는 [llama.cpp](/ko/wiki/llama-cpp/)의 `--fit` 플래그야. 이 플래그를 켜면 모델 가중치가 VRAM을 초과하는 부분을 자동으로 CPU RAM으로 오프로드해주거든. 기존에 이 유저는 "32GB VRAM이면 20GB 이하 모델, 즉 Qwen3.5 27B Q4나 Q6가 한계"라고 생각했대.

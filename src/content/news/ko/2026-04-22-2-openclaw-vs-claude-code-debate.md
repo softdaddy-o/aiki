@@ -53,12 +53,27 @@ factCheck:
       findings:
         - "커뮤니티 표본이 CLI 숙련자 쪽으로 편향됨 — 비개발자 실무자 시각은 다를 수 있음"
 tags: ["openclaw", "claude-code", "vibe-coding", "agent", "anthropic"]
-guideVersion:
-  common: "1.0.0"
-  news: "2.1.0"
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "65e3d9f735acf9f6"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 ## 무슨 일이 일어났나
 
 4월 21일 r/LocalLLaMA에서 "OpenClaw과 그 복제품들은 CLI를 제대로 써본 적 없는 사람에게나 쓸 만한 도구야"라는 글이 485 추천을 받았어. 포스트는 [Claude Code](/ko/wiki/claude-code/), Codex, n8n처럼 기존 워크플로 도구를 다룰 줄 아는 사람에게 OpenClaw의 추가 가치가 거의 없다고 주장해. Anthropic이 4월 4일부로 Claude Pro/Max 구독에서 OpenClaw 접근을 차단한 직후에 나온 반응이라 더 눈에 띄어.

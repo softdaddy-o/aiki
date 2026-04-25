@@ -53,12 +53,27 @@ factCheck:
       findings:
         - "한국 버전 세부 수치(직업 카테고리 수 등)는 HuggingFace 블로그 원문에서만 확인 가능하며 독립 검증 필요"
 tags: ["nvidia", "ai-agent", "synthetic-data", "korean-ai", "sovereign-ai"]
-guideVersion:
-  common: "1.0.0"
-  news: "2.0.0"
 formatVersion: 2
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "719277c48855023c"
+  reviewedAt: "2026-04-25T09:56:00Z"
 ---
-
 NVIDIA가 2026년 4월 21일 [HuggingFace 블로그](https://huggingface.co/blog/nvidia/build-korean-agents-with-nemotron-personas)에 한국형 AI 에이전트 구축 가이드를 공개했어. 핵심 도구는 Nemotron-Personas — 실제 인구통계 분포에 정렬된 합성 페르소나 데이터셋이야.
 
 ## 뭘 만든 건데
