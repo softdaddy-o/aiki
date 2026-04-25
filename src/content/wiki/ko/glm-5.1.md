@@ -29,8 +29,9 @@ modelProfile:
   weightsOpen: 서비스형 제공 중심. 이렇게 보면 돼.
   vendor: Z.AI
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - glm 5.1
   - glm5.1
@@ -95,6 +96,22 @@ factCheck:
         - 벤치마크 우열보다 실무 운영 포인트를 먼저 읽게 문장 순서를 바꿨어.
       findings:
         - 독자가 GLM 5.1을 이름만 다른 동일 모델로 오해할 가능성을 줄였어.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: c4a1eee1f42ad480
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 GLM 5.1은 Z.AI가 내놓은 최신 코딩 중심 대형 언어모델이야. 그냥 채팅용 모델이라기보다 계획 세우기, 코드 수정, 툴 호출, 결과 검토까지 길게 이어지는 [에이전트](/ko/wiki/agent/) 작업을 버티도록 나온 버전이라고 보면 돼. 공식 문서 기준 API 모델 ID는 `glm-5.1`이고 최대 컨텍스트 200K, 최대 출력 128K를 지원해.

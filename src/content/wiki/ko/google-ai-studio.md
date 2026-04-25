@@ -5,9 +5,6 @@ lang: ko
 summary: "Google AI Studio(구글 AI 스튜디오)는 Gemini를 브라우저에서 시험해 보고, 괜찮은 프롬프트를 바로 코드 호출로 이어 보는 실험 공간이야."
 readerValue: "이 이름을 보면 API 제공자 자체인지, Gemini를 만져보는 앞단 작업 공간인지 바로 가를 수 있어."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Google AI Studio(구글 AI 스튜디오)"
 relatedTerms:
@@ -56,6 +53,26 @@ factCheck:
       items:
         - "흔한 오해 점검: AI Studio가 실제 배포와 운영까지 전부 해결해 준다고 생각하면 책임 범위를 잘못 잡기 쉬워."
         - "반례 점검: 실험 화면과 운영 환경은 다른 층위라는 점을 본문에 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "27fbda4fdbe9c275"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Google AI Studio는 [Gemini](/ko/wiki/gemini/) 모델을 브라우저에서 시험해 보고 그 결과를 코드 사용으로 이어 가게 해 주는 개발 도구야. 완성형 서비스라기보다 프롬프트 실험과 초기 통합을 위한 작업 공간에 가까워.

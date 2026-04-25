@@ -7,9 +7,6 @@ summary: >-
   멀티모달 입력, 구조화 출력, 도구 연결을 붙이는 접점에 가까워.
 readerValue: 'Gemini API를 알면 제품 데모 얘기인지, 개발자가 실제로 붙일 수 있는 기능과 과금 구조 얘기인지 바로 구분할 수 있어.'
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - Gemini API(제미니 API)
 relatedTerms:
@@ -78,6 +75,26 @@ factCheck:
         - 도구 호출과 JSON 출력이 된다고 해서 모든 모델이 같은 기능을 지원한다는 오해도 막았어.
       findings:
         - 브랜드 이름과 API 이름이 겹쳐 보여서 층위 구분을 더 세게 넣었어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "258294b2eec0e3d0"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Gemini API는 Google이 Gemini 모델을 앱과 서비스에 붙이도록 열어 둔 개발자용 통로야. 소비자용 챗 서비스 이름이 아니라, 모델 호출과 응답 처리를 코드로 다루는 인터페이스라고 보면 돼.

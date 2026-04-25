@@ -21,8 +21,9 @@ modelProfile:
   weightsOpen: 오픈 웨이트 공개. 이렇게 보면 돼.
   vendor: Google DeepMind
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Gemma 3(젬마 3)
 relatedTerms:
@@ -82,6 +83,22 @@ factCheck:
       findings:
         - Gemini와 구분
         - 오픈 모델 맥락 유지
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: d5c5cc7446776350
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Gemma 3는 [Google DeepMind](/ko/wiki/google-deepmind/)가 내놓은 오픈 모델 시리즈의 한 세대야. 거대한 전용 클라우드만 노리는 닫힌 모델이라기보다 개발자가 직접 내려받아 다양한 장치에서 돌릴 수 있게 만든 배포형 모델로 보면 돼.

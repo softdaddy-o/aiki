@@ -7,9 +7,6 @@ summary: >-
   중요해.
 readerValue: 'GGUF를 알면 기사에서 모델 성능 얘기인지, 로컬 실행과 배포 호환성 얘기인지 바로 가를 수 있어.'
 category: framework
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - GGUF(GGUF 모델 파일 형식)
 relatedTerms:
@@ -73,6 +70,26 @@ factCheck:
         - 포맷 설명을 하면서 특정 앱 하나의 전용 규격처럼 들리는 표현도 막았어.
       findings:
         - GGUF를 모델명처럼 받아들이는 오해가 제일 흔해서 그 지점을 먼저 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "ee03538e1f8663c2"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 GGUF는 모델 이름이 아니라 [로컬](/ko/wiki/local-llm/) 실행용 파일 포맷이야. 같은 베이스 모델이라도 GGUF로 배포되면 [llama.cpp](/ko/wiki/llama.cpp/)나 [LM Studio](/ko/wiki/lm-studio/) 같은 실행기에서 바로 불러오기 쉬워져.

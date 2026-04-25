@@ -5,9 +5,6 @@ lang: ko
 summary: "Google DeepMind는 Gemini 같은 모델 하나의 이름이 아니라, 구글 안에서 AI 연구와 모델 개발을 이끄는 조직 이름이야. 기사나 문서에서 이 이름이 나오면 개별 모델 성능보다 연구 방향, 제품 묶음, 회사 전략을 함께 읽어야 할 때가 많아."
 readerValue: "Google DeepMind가 단일 모델명이 아니라 연구 조직이라는 점을 먼저 잡아두면, Gemini·Veo·Imagen·Gemma 같은 이름이 어떤 관계인지 덜 헷갈려."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Google DeepMind (구글 딥마인드)"
 relatedTerms:
@@ -60,6 +57,26 @@ factCheck:
       findings:
         - "가장 흔한 착각은 'Google DeepMind = 챗봇 이름'처럼 읽는 거야."
         - "그다음 착각은 Google DeepMind, Gemini, JAX를 같은 층위의 이름으로 놓고 보는 거야."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c5277e1741268f18"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Google DeepMind(구글 딥마인드)는 [Gemini](/ko/wiki/gemini/) 같은 개별 모델 하나가 아니라, 구글 안에서 AI 연구와 모델 개발을 맡는 조직 이름이야. 원래 DeepMind와 Google Brain이라는 두 흐름이 있었고, 2023년에 지금 이름 아래로 합쳐지면서 회사 차원의 AI 묶음을 설명할 때 더 자주 쓰이게 됐어.
