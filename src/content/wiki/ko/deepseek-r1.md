@@ -22,6 +22,10 @@ modelProfile:
   pricing: API 채널 가격은 시점별로 바뀔 수 있어. 자체 호스팅 관점에서는 토큰 단가보다 GPU 시간과 메모리 비용이 더 중요해.
   weightsOpen: 오픈 웨이트 공개 계열이야. 허깅페이스와 GitHub 배포 경로를 함께 확인하는 편이 안전하다. 이렇게 보면 돼.
   vendor: DeepSeek
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - DeepSeek R1(딥시크 R1)
 relatedTerms:
@@ -82,26 +86,22 @@ factCheck:
       findings:
         - 'R1은 하나의 이름 아래에 본체, 증류형, API 경로가 겹쳐 있어서 문맥을 안 보면 쉽게 오해돼.'
         - 오픈 웨이트라는 말만 보고 바로 개인 장비에서 본체를 돌릴 수 있다고 생각하면 판단이 크게 어긋날 수 있어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "6b464685b1b4e7cd"
-  reviewedAt: "2026-04-25T09:55:56Z"
+  contentHash: c4c10a8df833a5ed
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 DeepSeek R1은 DeepSeek가 공개한 [추론](/ko/wiki/inference/) 중심 모델이야. 그냥 성능 좋은 챗봇 이름이 아니라, API에서는 `deepseek-reasoner`로 쓰고 모델 가중치는 MIT 라이선스로 공개하며 작은 증류형까지 같이 푸는 제품 축이라고 보면 돼.

@@ -31,6 +31,10 @@ modelProfile:
     가격이 완전히 같다고 보면 안 돼.
   weightsOpen: '오픈 웨이트 미공개, 서비스형 제공 중심. 이렇게 보면 돼.'
   vendor: Anthropic
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - claude opus 4.5
   - opus 4.5
@@ -90,26 +94,22 @@ factCheck:
         - '가격이 좋아졌다는 문장만 보고 가벼운 보급형 모델처럼 읽는 것도 틀려서, 상위 Opus 모델이라는 점을 같이 남겼어.'
       findings:
         - 4.5는 가격 문장이 강해서 성능보다 저가형 이미지로 오해될 수 있다는 점을 따로 남겼어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "5947248b74513826"
-  reviewedAt: "2026-04-25T09:55:56Z"
+  contentHash: 621c96220d46289f
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Claude Opus 4.5는 [Anthropic](/ko/wiki/anthropic/)이 2025년 11월 24일 공개한 Opus 버전 모델이야. Claude 앱, API, 주요 클라우드에서 코딩과 [에이전트](/ko/wiki/agent/) 작업을 오래 맡기기 위한 고성능 라인 이름이야.

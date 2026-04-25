@@ -32,6 +32,10 @@ modelProfile:
     보면 돼.
   weightsOpen: '오픈 웨이트 미공개, 서비스형 제공 중심. 이렇게 보면 돼.'
   vendor: Anthropic
+guideVersion:
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - claude opus 4.7
   - opus 4.7
@@ -97,26 +101,22 @@ factCheck:
         - >-
           계열 최상위 Opus 버전과 Anthropic 전체 최고 capability 모델을 같은 말로 적으면 틀릴 수 있어서 그
           표현은 남기지 않았어.
-formatVersion: 2
-guideVersion:
-  tone: "2.0.0"
-  common: "2.3.0"
-  wiki: "3.1.2"
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
-    beginner-editor: "1.0.0"
-    fact-checker: "1.0.0"
-    skeptical-critic: "1.1.0"
-    tone-editor: "1.6.0"
-    structure-editor: "1.1.0"
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
   guideVersions:
-    tone: "2.0.0"
-    common: "2.3.0"
-    wiki: "3.1.2"
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
   panelVerdict: pass
-  contentHash: "858232391ba44868"
-  reviewedAt: "2026-04-25T09:55:56Z"
+  contentHash: 83cc5823087dfab3
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Claude Opus 4.7은 [Anthropic](/ko/wiki/anthropic/)이 내놓은 Opus 계열의 2026년 4월 버전 모델이야. Claude 제품군 안에서 가장 무거운 고성능 코딩·[에이전트](/ko/wiki/agent/) 라인에 붙는 버전 이름이라고 보면 돼.
