@@ -20,8 +20,9 @@ modelProfile:
   weightsOpen: 오픈 모델 계열이지만 실제 웨이트 공개 범위와 라이선스 조건은 별도 확인이 필요해.
   vendor: Alibaba / Qwen
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Qwen (큐원)
 relatedTerms:
@@ -80,6 +81,22 @@ factCheck:
         - 모든 Qwen이 똑같은 라이선스나 배포 경로를 가진 것처럼 읽히지 않게 범위를 좁혀 적었어.
       findings:
         - '독자가 기사 한 줄만 보고도 브랜드, 모델, 서비스 레이어를 분리해 읽게 만들었어.'
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: b4aa88fc9c6eb1a9
+  reviewedAt: '2026-04-25T09:55:57Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Qwen은 모델 한 개 이름이라기보다 Alibaba Cloud가 묶어서 내놓는 생성형 AI 계열 이름이야. 그래서 `Qwen`이 보이면 먼저 어떤 버전인지와 [로컬](/ko/wiki/local-llm/) 배포인지 클라우드 API인지부터 같이 확인해야 해.

@@ -7,9 +7,6 @@ summary: >-
   이미지, 음성, 비전, 언어 모델을 빠르게 붙여 볼 때 많이 써.
 readerValue: 이 이름을 보면 모델 이름이 아니라 모델 실행을 대신해 주는 호스티드 API 계층이라는 걸 바로 잡을 수 있어.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - Replicate(레플리케이트)
 relatedTerms:
@@ -70,6 +67,26 @@ factCheck:
       findings:
         - 데모 속도와 운영 통제권을 같은 값으로 보지 않게 했어.
         - managed 서비스의 편의성과 제약을 같이 보게 만들었어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "6beb2a1046021ef8"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Replicate는 여러 AI 모델을 클라우드에서 대신 실행해 주고, 그 결과를 API로 꺼내 쓰게 하는 서비스야. [공식 사이트](https://replicate.com/)와 [문서](https://replicate.com/docs) 모두 이걸 Run AI with an API 쪽 서비스로 밀고 있어.

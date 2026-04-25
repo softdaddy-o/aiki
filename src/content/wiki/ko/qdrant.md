@@ -5,9 +5,6 @@ lang: ko
 summary: "Qdrant는 임베딩을 넣어 두는 단순 보관함이 아니라, 벡터 검색을 실제 서비스로 돌리기 위한 검색 엔진이자 데이터베이스야. 필터링, 하이브리드 검색, 운영 배포 선택지까지 포함한 retrieval 인프라로 이해하면 맞아."
 readerValue: "임베딩 저장소 하나면 되는지, 운영 가능한 retrieval 엔진이 필요한지 판단하게 해 줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Qdrant (큐드런트)"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
         - "검색 엔진 층과 생성형 모델 층을 섞어 읽지 않게 역할을 분리했어."
       findings:
         - "Qdrant는 홈페이지가 아주 강한 생산성 숫자와 사례를 같이 밀어서, 기사에선 마케팅 성과 수치와 제품 핵심 기능을 분리해서 읽는 게 안전해."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "9f4d19b516f8c7e5"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Qdrant는 [임베딩](/ko/wiki/embedding/) 벡터를 저장하고 비슷한 항목을 빠르게 찾게 해 주는 벡터 검색 엔진이야. 단순 저장소가 아니라 필터링, 검색 API, 배포 선택지까지 갖춘 검색 계층으로 보는 게 맞아.

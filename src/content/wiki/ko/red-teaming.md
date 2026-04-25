@@ -9,9 +9,6 @@ readerValue: >-
   이 말을 알면 단순한 평가와 레드팀 테스트를 헷갈리지 않게 돼. 특히 AI 안전 문맥에서 왜 일부러 우회와 악용 시나리오를 만드는지 이해하는
   데 도움돼.
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - red teaming
 relatedTerms:
@@ -75,6 +72,26 @@ factCheck:
         - '반대로 체크리스트 몇 개 돌리는 일처럼 가볍게 보이지 않게, 공격 시나리오와 재시험 루프를 남겼어.'
       findings:
         - 용어의 공격성은 살리고 무책임한 해석은 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "f879287e30bab313"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Red Teaming은 시스템을 잘 보이게 만드는 테스트가 아니라, 실제 공격자처럼 흔들어 보면서 어디서 무너지는지 찾는 방식이야. 사이버보안에서 출발한 말이지만, 지금은 AI 모델의 유해 응답, 우회 가능성, 정책 붕괴를 찾는 안전 테스트로도 넓게 쓰여.

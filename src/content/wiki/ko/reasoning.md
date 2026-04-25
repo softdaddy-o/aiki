@@ -5,9 +5,6 @@ lang: ko
 summary: "추론형 모델은 답을 바로 내기보다 중간 사고 과정을 더 많이 쓰면서 어려운 문제를 풀도록 설계된 계열이야. 보통 속도보다 복잡한 문제 해결에 더 초점을 둬."
 readerValue: "이 용어를 알면 새 모델이 단순히 더 크거나 더 빠른 건지, 아니면 더 오래 생각해서 어려운 문제를 풀도록 튜닝된 건지 구분하기 쉬워져."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "reasoning model"
   - "reasoning"
@@ -62,8 +59,27 @@ factCheck:
         - "그래서 reasoning이라는 단어를 성능 과장 문구처럼 읽지 말고, 작업 적합성 기준으로 읽는 게 맞아."
       findings:
         - "이 개념의 핵심은 절대 성능 자랑보다, 어떤 문제를 어떤 비용으로 풀게 할지에 있어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8342edc97c2944d8"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 이 계열은 답을 바로 내기보다 중간 사고 과정을 더 많이 쓰면서 어려운 문제를 풀게 만든 모델이야. 쉽게 말해 빠르게 대답하는 일반 LLM보다, 수학이나 계획 같은 복잡한 문제에서 더 오래 생각하도록 설계된 쪽이라고 보면 돼.

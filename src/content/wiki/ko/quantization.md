@@ -5,9 +5,6 @@ lang: ko
 summary: "양자화는 모델 안의 숫자를 더 적은 비트로 바꿔서 메모리 사용량과 계산 비용을 줄이는 방법이야. 쉽게 말해 16비트나 32비트로 들고 있던 값을 8비트나 4비트처럼 더 가볍게 저장하는 쪽이야."
 readerValue: "양자화는 새 모델 이름이 아니라, 같은 모델을 더 작은 장비에서 돌리기 위해 숫자 표현을 줄이는 배포 기법이라는 점부터 잡고 보면 헷갈림이 많이 줄어."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "model quantization"
   - "양자화"
@@ -65,8 +62,27 @@ factCheck:
         - "그래서 양자화는 압축, 배포, 추론 비용 최적화 문맥에서 읽는 게 맞고, 모델 능력 향상 기술로 읽으면 어긋나."
       findings:
         - "양자화의 핵심은 성능 마법이 아니라 숫자 표현을 줄여 배포 조건을 바꾸는 데 있어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "804c1a6257ccf391"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 양자화는 모델이 들고 있는 가중치와 계산값을 더 적은 비트로 표현하는 방법이야. 원래 32비트나 16비트로 저장하던 수를 8비트나 4비트처럼 더 작은 형식으로 바꿔서 모델을 가볍게 만든다고 보면 돼.

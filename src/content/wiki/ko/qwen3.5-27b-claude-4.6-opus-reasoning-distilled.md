@@ -29,9 +29,6 @@ modelProfile:
   pricing: 서비스형 토큰 과금이 아니라 직접 돌리는 체크포인트라 GPU·메모리 비용으로 계산하는 편이 맞아.
   weightsOpen: 커뮤니티 배포 weights 공개. 이렇게 보면 돼.
   vendor: Community checkpoint on Qwen base
-guideVersion:
-  common: 1.0.0
-  wiki: "3.0.0"
 aliases:
   - Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled
   - Qwopus
@@ -133,16 +130,26 @@ factCheck:
       findings:
         - 가장 흔한 오해인 `Claude 무료판` 식 번역을 차단했어.
         - 실험용 로컬 체크포인트와 서비스용 공급자 모델의 경계를 분명히 남겼어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "1a40231f465c261c"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 이 모델은 Alibaba의 [Qwen3.5-27B](/ko/wiki/qwen3.5-27b/) 위에 Jackrong이 파인튜닝해서 올린 커뮤니티 체크포인트야. 이름에 [Claude](/ko/wiki/claude/)가 들어가지만 [Anthropic](/ko/wiki/anthropic/) 공식 모델이나 [Anthropic API](/ko/wiki/anthropic-api/)가 아니라, 특정 [Reasoning](/ko/wiki/reasoning/) 스타일을 [Distillation](/ko/wiki/distillation/)로 흉내 낸 [로컬](/ko/wiki/local-llm/) 실험용 [웨이트](/ko/wiki/weight/)라고 읽는 게 맞아. [Hugging Face](/ko/wiki/hugging-face/) [training](/ko/wiki/training/) pipeline overview도 최종 모델을 `text-only`로 적어 놔서, 기반 [Qwen](/ko/wiki/qwen/)의 [멀티모달](/ko/wiki/multimodal/) 인상을 그대로 가져오면 안 돼.

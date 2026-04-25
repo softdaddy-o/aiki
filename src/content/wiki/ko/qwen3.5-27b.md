@@ -16,9 +16,6 @@ modelProfile:
   pricing: "정해진 API 요금표보다 자체 서빙 비용과 GPU 예산으로 계산하는 편이 자연스러워."
   weightsOpen: "Apache-2.0 기반 오픈 웨이트"
   vendor: "Alibaba / Qwen"
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Qwen3.5-27B"
   - "Qwen 3.5 27B"
@@ -83,8 +80,27 @@ factCheck:
         - "멀티모달 지원이 곧 모든 배포 환경에서 같은 입력 파이프라인을 보장하는 뜻도 아니다."
       findings:
         - "이 페이지는 모델 성격과 도입 판단 기준을 정리하는 가이드다."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "2c548d60f786a14b"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 Qwen3.5-27B (큐웬3.5-27B)는 Alibaba의 [Qwen](/ko/wiki/qwen/) 계열에 포함된 27B급 오픈 [웨이트](/ko/wiki/weight/) [멀티모달](/ko/wiki/multimodal/) 모델이야. 텍스트 전용 모델로만 보면 안 되고, [weight](/ko/wiki/weight/)를 직접 받아 [inference](/ko/wiki/inference/) 경로를 설계하는 후보로 읽는 편이 정확해.

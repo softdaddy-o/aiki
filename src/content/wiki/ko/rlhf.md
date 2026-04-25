@@ -7,9 +7,6 @@ summary: >-
   모델을 정렬하는 과정에 가까워.
 readerValue: 'RLHF를 알면 기사에서 새 모델 성능 얘기인지, 모델 말투와 거절 방식, 안전성 같은 정렬 공정 얘기인지 빨리 가를 수 있어.'
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - reinforcement learning from human feedback
 relatedTerms:
@@ -70,6 +67,26 @@ factCheck:
         - 사람 피드백이 들어간다고 해서 편향이 자동으로 없어지는 건 아니라는 점도 남겼어.
       findings:
         - RLHF를 안전 보증서처럼 읽는 오해를 제일 먼저 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "71f28856d26d877c"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 RLHF는 사람이 선호하는 응답을 기준으로 모델 행동을 조정하는 [학습](/ko/wiki/training/) 방식이야. 모델을 처음부터 다시 만드는 말이라기보다, 이미 학습된 모델을 사람 기준에 더 맞게 다듬는 후반 [정렬](/ko/wiki/alignment/) 공정이라고 보면 돼.

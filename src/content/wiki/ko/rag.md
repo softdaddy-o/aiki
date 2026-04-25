@@ -5,9 +5,6 @@ lang: ko
 summary: "RAG는 모델이 답을 만들기 전에 외부 문서부터 찾아보고, 그 내용을 바탕으로 답하게 만드는 방식이야. 모델을 다시 학습시키지 않고도 최신 정보나 사내 문서를 붙일 수 있어."
 readerValue: "RAG를 모델 성능 향상 마법처럼 읽지 않고, 검색과 문서 연결 구조로 보면 기사에서 무엇이 바뀌는지 훨씬 분명하게 보이게 돼."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "retrieval augmented generation"
 relatedTerms:
@@ -63,8 +60,27 @@ factCheck:
         - "그래서 'RAG 적용'이라는 말은 모델 교체보다 데이터 연결 방식을 바꿨다는 뜻일 때가 많아."
       findings:
         - "RAG의 핵심은 더 똑똑한 모델이 아니라, 답하기 전에 바깥 지식을 가져오는 흐름에 있어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "27dff88b355d4feb"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 RAG는 모델이 답을 만들기 전에 관련 문서를 먼저 찾아보고, 그 문서를 참고해서 답하게 만드는 방법이야. 쉽게 말해 모델 머릿속 지식만 믿지 말고, 필요한 자료를 옆에 펼쳐 놓고 답하게 만드는 방식이라고 보면 돼.
