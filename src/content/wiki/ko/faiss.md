@@ -5,9 +5,6 @@ lang: ko
 summary: "FAISS는 Meta가 만드는 dense vector 유사도 검색 라이브러리야. 완성형 벡터 데이터베이스라기보다, 벡터 인덱스를 만들고 nearest neighbor 검색을 빠르게 돌리는 저수준 엔진 쪽에 더 가깝지."
 readerValue: "FAISS가 모델 이야기가 아니라 검색 엔진 계층 이야기라는 걸 빨리 잡게 해 주고, 벡터 DB와의 차이도 정리하게 해 줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "FAISS (페이스)"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
         - "검색 속도, 메모리, 정확도 사이의 타협이 있다는 점을 적어서 무조건 최고 성능 도구처럼 보이지 않게 했어."
       findings:
         - "FAISS는 검색 엔진 코어로는 강하지만, 실서비스에 바로 필요한 운영 기능까지 다 준다고 생각하면 설계가 꼬이기 쉬워."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e7225001ad233174"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 FAISS는 dense vector의 유사도 검색과 클러스터링을 빠르게 처리하는 라이브러리야. 검색 앱에서 바로 쓰는 완성형 데이터베이스라기보다, 벡터 인덱스를 [메모리](/ko/wiki/memory/) 안에 만들고 근접 이웃 탐색을 효율적으로 수행하는 코어 엔진으로 이해하면 돼.

@@ -5,9 +5,6 @@ lang: ko
 summary: "Distillation은 큰 모델이 내놓는 답변 패턴을 작은 모델이 배우게 해서, 품질을 최대한 유지하면서 비용과 지연 시간을 줄이려는 학습 기법이야."
 readerValue: "이 용어는 단순한 성능 꼼수가 아니라, 큰 모델의 행동을 작은 모델로 옮겨 운영비와 응답 속도를 낮추는 학습 단계의 기법이라는 점을 구분하게 해줘."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "knowledge distillation"
 relatedTerms:
@@ -62,6 +59,26 @@ factCheck:
       findings:
         - "'작은 모델이 항상 큰 모델을 거의 그대로 재현한다'는 오해를 피하려고 성능 손실 가능성을 분명히 적었어."
         - "'비용 절감 기법이니 학습 없이 바로 적용된다'는 오해를 막으려고 distillation이 학습 파이프라인에 붙는다는 점을 분리해서 설명했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "377ebf7395ef3228"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Distillation은 큰 모델의 출력 방식이나 판단 경향을 더 작은 모델에 학습시켜, 비슷한 일을 더 싸고 가볍게 하게 만드는 기법이야. 핵심은 모델을 그냥 줄이는 게 아니라, 큰 모델이 이미 배운 행동을 작은 모델에 옮긴다는 데 있어.

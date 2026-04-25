@@ -5,9 +5,6 @@ lang: ko
 summary: "Eval(평가)는 모델이나 AI 기능의 출력을 기준에 따라 시험해서 품질을 재는 작업이야. 새 모델 이름이라기보다 프롬프트, 워크플로, 에이전트가 제대로 동작하는지 확인하는 평가 기법으로 이해하면 맞아."
 readerValue: "Eval이 성능 트릭이나 비용 절감 꼼수가 아니라, 모델과 애플리케이션 변경 뒤 품질을 재는 테스트 층이라는 점을 구분할 수 있게 해줘."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "evaluation"
 relatedTerms:
@@ -57,6 +54,26 @@ factCheck:
       findings:
         - "Eval은 모델을 더 빠르게 만드는 기능이 아니야. 바꾼 뒤 무엇이 좋아졌고 무엇이 망가졌는지 확인하는 절차에 더 가깝다."
         - "Red Teaming과 Eval을 같은 말처럼 쓰면 안 돼. 하나는 기준 충족 여부를 재고, 다른 하나는 실패와 취약점을 일부러 드러내는 데 초점이 있다."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "805105824c5185e0"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Eval(평가)는 모델이나 AI 기능이 원하는 답을 내는지, 미리 정한 기준으로 시험해 보는 작업이야. 성능을 뻥튀기하는 트릭도 아니고 비용을 직접 줄이는 요령도 아니고, 프롬프트, 워크플로, 에이전트가 실제 요구를 만족하는지 재는 테스트 층이라고 보면 돼.

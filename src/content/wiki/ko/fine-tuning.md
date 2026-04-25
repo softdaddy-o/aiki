@@ -7,9 +7,6 @@ summary: >-
   말투, 형식, 분류 규칙을 모델 습관 차원에서 맞출 때 떠올리면 돼.
 readerValue: '이게 성능 트릭인지 진짜 운영 기법인지 헷갈릴 때, 언제 쓰고 언제 안 쓰는지 빠르게 가를 수 있어.'
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - fine tuning
 relatedTerms:
@@ -66,6 +63,26 @@ factCheck:
         - 데이터 품질이 낮을 때 성능이 흔들릴 수 있다는 경고를 남겨 과신을 막았어.
       findings:
         - 언제 효과적이고 언제 위험한지 경계선을 분명히 남겼어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "d3b6233ae53a569a"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 파인튜닝은 이미 큰 데이터로 학습된 모델을 특정 목적에 맞게 다시 훈련하는 방법이야. 새 모델을 처음부터 만드는 게 아니라 기존 모델의 반응 습관을 좁은 방향으로 조정한다고 보면 돼.

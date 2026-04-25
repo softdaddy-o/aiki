@@ -5,9 +5,6 @@ lang: ko
 summary: "E2B는 Gemma 문서군에서 쓰는 E 표기야. 쉽게 말해 모델을 실제 기기에 올렸을 때 체감 부담을 어느 정도로 읽어야 하는지 알려 주는 숫자라고 보면 돼."
 readerValue: "E2B를 보면 total parameters, 활성 파라미터, 효율 표기가 왜 서로 다른 숫자인지 비교할 수 있고, 그 차이가 온디바이스 배포 판단에 어떤 힌트를 주는지도 빠르게 정리할 수 있어."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "E2B"
 relatedTerms:
@@ -71,8 +68,27 @@ factCheck:
         - "E2B를 [quantization](/ko/wiki/quantization/) 같은 최적화 기법 이름으로 읽는 것도 틀리다."
       findings:
         - "이 숫자를 잘못 읽으면 [on-device](/ko/wiki/on-device/) 배포 기대치도 같이 어긋난다."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "148fb48e974a24bf"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
-
 ## 한 줄 정의
 
 E2B는 [Gemma](/ko/wiki/gemma/) 문서군에서 쓰는 E 표기야. 초심자 기준으로 풀면 "이 모델을 실제 기기에 올렸을 때 체감 부담을 어느 정도로 봐야 하냐"에 답하려는 숫자라고 보면 돼.

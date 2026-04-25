@@ -5,9 +5,6 @@ lang: ko
 summary: "Function Calling(함수 호출)은 모델이 답변만 쓰는 대신, 바깥 함수나 API를 어떤 인자로 부를지 구조화된 요청을 만드는 방식이야. 핵심은 문장 생성보다 외부 시스템과 연결되는 호출 계약에 있어."
 readerValue: "이 말이 답변 생성 얘기가 아니라 외부 도구 실행과 연결 구조 얘기인지 빨리 구분하게 해줘."
 category: technique
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "tool calling"
 relatedTerms:
@@ -60,6 +57,26 @@ factCheck:
       findings:
         - "Function Calling은 실행 그 자체보다 호출 계약과 실행 루프를 뜻한다는 해석으로 유지했어."
         - "단순 구조화 출력과 실제 도구 연결을 같은 말처럼 섞지 않도록 문장을 정리했어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "c108bf7539713cdb"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Function Calling은 모델이 자연어 답변 대신 함수 이름과 인자를 갖춘 호출 요청을 내보내는 방식이야. 그래서 이 말은 글을 더 그럴듯하게 쓰는 기술보다, 바깥 시스템을 연결하는 실행 인터페이스를 뜻한다고 보면 돼.

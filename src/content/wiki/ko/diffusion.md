@@ -7,9 +7,6 @@ summary: >-
   특히 유명하지만, 핵심은 제품명이 아니라 생성 방식 자체야.
 readerValue: Diffusion Model을 알면 이미지 AI 기사에서 회사 이름보다 샘플링 방식과 배포 형태 차이가 왜 중요한지 먼저 볼 수 있어.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - diffusion model
 relatedTerms:
@@ -75,6 +72,26 @@ factCheck:
         - 확산 모델이면 무조건 느리거나 무조건 고품질이라는 단정도 막았어.
       findings:
         - 브랜드명과 알고리즘명을 섞는 오해가 제일 흔해서 그 지점을 먼저 정리했어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "80a0122784d6062a"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Diffusion Model은 무작위 잡음에 가까운 상태에서 출발해서 점차 노이즈를 걷어내며 새 데이터를 만드는 생성 모델이야. 한 장의 이미지를 바로 뽑아내기보다, 여러 스텝을 거쳐 점점 또렷한 결과로 복원해 가는 방식이라고 보면 돼.

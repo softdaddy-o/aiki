@@ -26,8 +26,9 @@ modelProfile:
   weightsOpen: 'Dev와 Schnell은 오픈 웨이트, Pro는 폐쇄형 API. 이렇게 보면 돼.'
   vendor: Black Forest Labs
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - FLUX.1 (플럭스 원)
 relatedTerms:
@@ -92,6 +93,22 @@ factCheck:
         - '품질 이야기만 앞세우면 운영 조건이 가려져서, 실무에서 중요한 배포 선택지를 먼저 보이게 했어.'
       findings:
         - 이름 하나 아래 여러 운영 경로가 있다는 점을 남겨서 과잉 단순화를 막았어.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: e08cf158f520754c
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 FLUX.1은 Black Forest Labs가 만든 텍스트-이미지 생성 모델 시리즈야. 한 이름 아래에 API 중심 상용 버전과, [Hugging Face](/ko/wiki/hugging-face/)나 Diffusers, [ComfyUI](/ko/wiki/comfyui/) 같은 [로컬](/ko/wiki/local-llm/) 워크플로에 붙는 공개 버전이 같이 있어 배포 선택지가 넓은 편이야.

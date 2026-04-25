@@ -5,9 +5,6 @@ lang: ko
 summary: "Embedding은 텍스트나 이미지 같은 데이터를 의미가 비슷할수록 가까워지게 만든 숫자 벡터 표현이야. 검색, 추천, 군집화, RAG의 검색 단계가 이 표현 품질에 크게 좌우돼."
 readerValue: "검색이 약한데 생성 모델만 바꾸고 있는지 구분하려면 임베딩부터 봐야 해. 같은 질문인데도 엉뚱한 문서가 먼저 올라오면 답변 모델보다 임베딩과 검색 인덱스 쪽이 병목일 가능성이 크다는 점을 이해하는 데 쓸 수 있어."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "vector embedding"
   - "임베딩"
@@ -67,6 +64,26 @@ factCheck:
       findings:
         - "임베딩을 '숫자화'만으로 축소하면 의미 보존이라는 핵심이 빠지기 쉬워서 그 부분을 보강했어."
         - "임베딩이 좋으면 검색이 자동으로 해결된다는 오해를 막기 위해 청킹, 필터, 검색 설정 문제를 따로 짚었어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "bcae7d7553883e36"
+  reviewedAt: "2026-04-25T09:55:56Z"
 ---
 ## 한 줄 정의
 Embedding은 문장, 문서, 이미지 같은 데이터를 모델이 비교할 수 있는 숫자 벡터로 바꾼 결과야. 핵심은 원본을 그냥 숫자로 치환하는 게 아니라, 의미가 비슷한 것끼리 벡터 공간에서도 가깝게 놓이도록 만든다는 점이야.

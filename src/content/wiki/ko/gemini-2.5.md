@@ -27,8 +27,9 @@ modelProfile:
   weightsOpen: '오픈 웨이트 미공개, API 제공 중심. 이렇게 보면 돼.'
   vendor: Google DeepMind
 guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
+  tone: 2.0.0
+  common: 2.3.0
+  wiki: 3.1.2
 aliases:
   - Gemini 2.5 (제미나이 2.5)
 relatedTerms:
@@ -90,6 +91,22 @@ factCheck:
         - 멀티모달이라는 말을 곧 이미지 생성기처럼 받아들이지 않게 입력 이해 중심으로 표현했어.
       findings:
         - 변형 이름이 빠진 기사나 발표는 실제 도입 판단에 필요한 가격과 속도와 품질 차이를 감춰 버릴 수 있어.
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: 1.0.0
+    fact-checker: 1.0.0
+    skeptical-critic: 1.1.0
+    tone-editor: 1.6.0
+    structure-editor: 1.1.0
+  guideVersions:
+    tone: 2.0.0
+    common: 2.3.0
+    wiki: 3.1.2
+  panelVerdict: pass
+  contentHash: d88e6aaf53962f86
+  reviewedAt: '2026-04-25T09:55:56Z'
+formatVersion: 2
 ---
 ## 한 줄 정의
 Gemini 2.5는 Google이 API와 제품에서 쓴 [멀티모달](/ko/wiki/multimodal/) [추론 모델](/ko/wiki/reasoning/) 세대 이름이야. 이름만 보면 모델 하나처럼 들리지만, 실제로는 Pro, Flash, Flash-Lite처럼 역할과 가격대가 갈라진 라인업으로 보는 편이 맞아.
