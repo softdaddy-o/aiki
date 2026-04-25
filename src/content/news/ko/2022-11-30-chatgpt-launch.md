@@ -54,10 +54,35 @@ tags:
   - chatgpt
   - openai
   - assistant
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "2828f7de61428cd2"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
+## 무슨 일이 있었나
 
 [공식 발표](https://openai.com/index/chatgpt/)와 [보조 자료](https://en.wikipedia.org/wiki/ChatGPT)를 같이 보면 ChatGPT의 핵심은 우리는 대화 방식으로 상호 작용하는 ChatGPT라는 모델을 훈련했습니다 쪽이야. 연간 뉴스로 남길 만한 이유도 이 발표가 실제 제품 흐름과 경쟁 구도를 바꾼 기준점이기 때문이야.
 
+## 왜 중요할까
+
 ChatGPT 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야. AIKI에서는 이런 마일스톤을 단순 출시 소식이 아니라 다음 분기 전략을 읽는 기준점으로 다뤄.
+
+## 앞으로 볼 점
 
 나중에 다시 볼 때는 성능 주장, 공개 범위, 가격 정책, 배포 채널을 공식 문서 기준으로 같이 확인하면 돼. 그래야 과장된 회고가 아니라 실제 변화로 읽을 수 있지.

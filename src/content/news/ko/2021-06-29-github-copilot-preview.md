@@ -53,10 +53,35 @@ tags:
   - copilot
   - coding-agent
   - github
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "8efaf9718cb5a65f"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
+## 무슨 일이 있었나
 
 [공식 발표](https://github.blog/news-insights/product-news/github-copilot-your-ai-pair-programmer/)와 [보조 자료](https://en.wikipedia.org/wiki/GitHub_Copilot)를 같이 보면 GitHub Copilot의 핵심은 GitHub Copilot GitHub Copilot은 GitHub 및 [OpenAI](/ko/wiki/openai/)가 개발한 코드 완성 및 프로그래밍 AI 도우미로, 코드 자동 완성을 통해 Visual Studio Code, Visual Studio, Neovim, Eclipse 및…
 
+## 왜 중요할까
+
 GitHub Copilot 자체보다 더 중요한 건 이후에 어떤 사용자 경험, 비용 구조, 생태계 반응이 따라붙었는지야. AIKI에서는 이런 마일스톤을 단순 출시 소식이 아니라 다음 분기 전략을 읽는 기준점으로 다뤄.
+
+## 앞으로 볼 점
 
 나중에 다시 볼 때는 성능 주장, 공개 범위, 가격 정책, 배포 채널을 공식 문서 기준으로 같이 확인하면 돼. 그래야 과장된 회고가 아니라 실제 변화로 읽을 수 있지.

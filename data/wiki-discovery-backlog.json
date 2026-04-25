@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-24T00:22:04.810Z",
+  "updatedAt": "2026-04-25T09:57:07.065Z",
   "quota": 5,
   "items": [
     {
@@ -86,7 +86,7 @@
       "priority": 96,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -176,7 +176,7 @@
       "priority": 90,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -366,7 +366,7 @@
       "priority": 80,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -466,7 +466,7 @@
       "priority": 74,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -561,7 +561,7 @@
       "priority": 74,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -642,7 +642,7 @@
       "priority": 72,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -737,7 +737,7 @@
       "priority": 70,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -798,7 +798,7 @@
       "priority": 70,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -869,7 +869,7 @@
       "priority": 68,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -927,7 +927,102 @@
       "priority": 65,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Microsoft",
+      "slug": "microsoft",
+      "occurrences": 7,
+      "distinctSourceCount": 7,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-06-5-us-data-center-delays",
+        "2026-04-09-1-claude-mythos-glasswing",
+        "2026-04-12-5-microsoft-japan-10b-ai-infra",
+        "2026-04-23-4-anthropic-mythos-firefox-271"
+      ],
+      "wikiSourceTerms": [
+        "autogen",
+        "ide",
+        "phi"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "ai-인프라",
+        "ai보안",
+        "anthropic",
+        "autogen",
+        "claude",
+        "claude-code"
+      ],
+      "sourceTitles": [
+        "Anthropic Mythos, Firefox에서 보안 취약점 271개 발견 — Mozilla가 전부 패치했어",
+        "AutoGen(오토젠)",
+        "IDE (통합 개발 환경)",
+        "Microsoft, 일본에 $100억 AI 인프라 투자 — 아시아 최대 규모",
+        "Phi (파이)",
+        "공개 거부된 AI — Claude Mythos와 Project Glasswing",
+        "미국 데이터센터 절반이 지연 또는 취소 — 전력 인프라가 병목"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers",
+          "title": "Tom's Hardware"
+        },
+        {
+          "url": "https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports",
+          "title": "Bloomberg 보도"
+        },
+        {
+          "url": "https://futurism.com/science-energy/data-centers-construction-supply",
+          "title": "Futurism 보도"
+        },
+        {
+          "url": "https://www.anthropic.com/glasswing",
+          "title": "Anthropic Project Glasswing"
+        },
+        {
+          "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
+          "title": "TechCrunch: Anthropic Mythos"
+        },
+        {
+          "url": "https://www.theguardian.com/technology/2026/apr/08/anthropic-ai-cybersecurity-software",
+          "title": "The Guardian"
+        },
+        {
+          "url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
+          "title": "Microsoft Source Asia"
+        },
+        {
+          "url": "https://www.bloomberg.com/news/articles/2026-04-03/microsoft-drafts-10-billion-investment-plan-in-ai-hungry-japan",
+          "title": "Bloomberg — Microsoft Drafts $10 Billion Investment Plan"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-06-5-us-data-center-delays",
+        "news:2026-04-09-1-claude-mythos-glasswing",
+        "news:2026-04-12-5-microsoft-japan-10b-ai-infra"
+      ],
+      "firstMentioned": "2021-06-29",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 64,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1017,7 +1112,7 @@
       "priority": 64,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1099,7 +1194,92 @@
       "priority": 64,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "SWE-bench Verified",
+      "slug": "swe-bench-verified",
+      "occurrences": 3,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "inline_code",
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-18-3-qwen36-swe-bench-local-coding"
+      ],
+      "wikiSourceTerms": [
+        "benchmark"
+      ],
+      "knownTermHints": [
+        "agentic-coding",
+        "benchmark",
+        "concept",
+        "evaluation",
+        "measurement",
+        "mixture-of-experts",
+        "open-source",
+        "qwen"
+      ],
+      "sourceTitles": [
+        "Benchmark (벤치마크)",
+        "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding",
+          "title": "Pandaily"
+        },
+        {
+          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
+          "title": "Officechai — 벤치마크 비교"
+        },
+        {
+          "url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review",
+          "title": "BuildFastWithAI — SWE-bench 73.4"
+        },
+        {
+          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
+          "title": "Simon Willison — Qwen beats Opus"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Benchmark_(computing)",
+          "title": "Benchmark (computing)"
+        },
+        {
+          "url": "https://huggingface.co/docs/evaluate/index",
+          "title": "Evaluate on the Hub · Hugging Face"
+        },
+        {
+          "url": "https://arxiv.org/abs/2009.03300",
+          "title": "Measuring Massive Multitask Language Understanding"
+        },
+        {
+          "url": "https://github.com/openai/human-eval",
+          "title": "HumanEval: Hand-Written Evaluation Set"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-18-3-qwen36-swe-bench-local-coding",
+        "wiki:benchmark"
+      ],
+      "firstMentioned": "2026-02-20",
+      "lastMentioned": "2026-04-18T10:00:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 64,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1174,7 +1354,7 @@
       "priority": 63,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1280,7 +1460,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1383,7 +1563,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1474,7 +1654,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1564,7 +1744,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1633,7 +1813,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1718,7 +1898,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1786,7 +1966,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1879,100 +2059,7 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Microsoft",
-      "slug": "microsoft",
-      "occurrences": 6,
-      "distinctSourceCount": 6,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "news",
-        "wiki"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-06-5-us-data-center-delays",
-        "2026-04-09-1-claude-mythos-glasswing",
-        "2026-04-12-5-microsoft-japan-10b-ai-infra",
-        "2026-04-23-4-anthropic-mythos-firefox-271"
-      ],
-      "wikiSourceTerms": [
-        "ide",
-        "phi"
-      ],
-      "knownTermHints": [
-        "ai-인프라",
-        "ai보안",
-        "anthropic",
-        "claude",
-        "claude-code",
-        "codex",
-        "coding-agent",
-        "continue"
-      ],
-      "sourceTitles": [
-        "Anthropic Mythos, Firefox에서 보안 취약점 271개 발견 — Mozilla가 전부 패치했어",
-        "IDE (통합 개발 환경)",
-        "Microsoft, 일본에 $100억 AI 인프라 투자 — 아시아 최대 규모",
-        "Phi (파이)",
-        "공개 거부된 AI — Claude Mythos와 Project Glasswing",
-        "미국 데이터센터 절반이 지연 또는 취소 — 전력 인프라가 병목"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers",
-          "title": "Tom's Hardware"
-        },
-        {
-          "url": "https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports",
-          "title": "Bloomberg 보도"
-        },
-        {
-          "url": "https://futurism.com/science-energy/data-centers-construction-supply",
-          "title": "Futurism 보도"
-        },
-        {
-          "url": "https://www.anthropic.com/glasswing",
-          "title": "Anthropic Project Glasswing"
-        },
-        {
-          "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
-          "title": "TechCrunch: Anthropic Mythos"
-        },
-        {
-          "url": "https://www.theguardian.com/technology/2026/apr/08/anthropic-ai-cybersecurity-software",
-          "title": "The Guardian"
-        },
-        {
-          "url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
-          "title": "Microsoft Source Asia"
-        },
-        {
-          "url": "https://www.bloomberg.com/news/articles/2026-04-03/microsoft-drafts-10-billion-investment-plan-in-ai-hungry-japan",
-          "title": "Bloomberg — Microsoft Drafts $10 Billion Investment Plan"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-06-5-us-data-center-delays",
-        "news:2026-04-09-1-claude-mythos-glasswing",
-        "news:2026-04-12-5-microsoft-japan-10b-ai-infra"
-      ],
-      "firstMentioned": "2021-06-29",
-      "lastMentioned": "2026-04-23T09:30:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 60,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2062,7 +2149,71 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "DeepSeek-V4",
+      "slug": "deepseek-v4",
+      "occurrences": 5,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "markdown_link",
+        "phrase",
+        "versioned_phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-25-3-deepseek-v4-million-token-agents",
+        "2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agent",
+        "architecture",
+        "attention",
+        "deepseek",
+        "llm",
+        "open-weight",
+        "tool-use"
+      ],
+      "sourceTitles": [
+        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나",
+        "DeepSeek-V4, 100만 토큰 컨텍스트로 에이전트 작업에 실제로 쓸 수 있어"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/blog/deepseekv4",
+          "title": "HuggingFace Blog"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1su9iio/deepseekv4_has_a_comical_384k_max_output/",
+          "title": "r/LocalLLaMA — DeepSeek-V4 384K max output discussion"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/",
+          "title": "r/LocalLLaMA"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-25-3-deepseek-v4-million-token-agents",
+        "news:2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "firstMentioned": "2026-04-25T09:20:00+09:00",
+      "lastMentioned": "2026-04-25T09:30:00+09:00",
+      "categoryGuess": "model",
+      "modelType": "family",
+      "priority": 60,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2138,7 +2289,7 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2209,7 +2360,7 @@
       "priority": 58,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2281,7 +2432,7 @@
       "priority": 58,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2363,7 +2514,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2423,7 +2574,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2475,7 +2626,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2527,7 +2678,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2629,7 +2780,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2728,7 +2879,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2827,7 +2978,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2922,7 +3073,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3019,7 +3170,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3109,7 +3260,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3163,7 +3314,7 @@
       "priority": 55,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3252,7 +3403,7 @@
       "priority": 54,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3324,7 +3475,7 @@
       "priority": 54,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3422,7 +3573,102 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "open-weight",
+      "slug": "open-weight",
+      "occurrences": 7,
+      "distinctSourceCount": 7,
+      "kinds": [
+        "tag"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-21-3-kimi-k26-gguf",
+        "2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
+        "2026-04-25-3-deepseek-v4-million-token-agents",
+        "2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "wikiSourceTerms": [
+        "flux",
+        "gpt-oss",
+        "mistral"
+      ],
+      "knownTermHints": [
+        "agent",
+        "anthropic",
+        "architecture",
+        "attention",
+        "chain-of-thought",
+        "chatgpt",
+        "claude",
+        "claude-code"
+      ],
+      "sourceTitles": [
+        "Anthropic, Claude Code 추론 성능 임의 하향 인정 — 4월 7일 되돌렸다",
+        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나",
+        "DeepSeek-V4, 100만 토큰 컨텍스트로 에이전트 작업에 실제로 쓸 수 있어",
+        "FLUX.1 (플럭스 원)",
+        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
+        "Mistral(미스트랄 모델 계열)",
+        "gpt-oss(지피티 오에스에스)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
+          "title": "HuggingFace (ubergarm)"
+        },
+        {
+          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
+          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
+        },
+        {
+          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
+          "title": "ofox.ai — Kimi K2.6 release guide"
+        },
+        {
+          "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+          "title": "Anthropic Engineering"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/",
+          "title": "r/LocalLLaMA community discussion"
+        },
+        {
+          "url": "https://huggingface.co/blog/deepseekv4",
+          "title": "HuggingFace Blog"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1su9iio/deepseekv4_has_a_comical_384k_max_output/",
+          "title": "r/LocalLLaMA — DeepSeek-V4 384K max output discussion"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/",
+          "title": "r/LocalLLaMA"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-21-3-kimi-k26-gguf",
+        "news:2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
+        "news:2026-04-25-3-deepseek-v4-million-token-agents"
+      ],
+      "firstMentioned": "2026-03-16",
+      "lastMentioned": "2026-04-25T09:30:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 52,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3501,8 +3747,8 @@
           "title": "Migrate from Google AI Studio to Vertex AI"
         },
         {
-          "url": "https://en.wikipedia.org/wiki/Prompt_engineering",
-          "title": "Prompt engineering"
+          "url": "https://research.google/blog/language-models-perform-reasoning-via-chain-of-thought/",
+          "title": "Language Models Perform Reasoning via Chain of Thought"
         }
       ],
       "sampleRefs": [
@@ -3516,7 +3762,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3611,7 +3857,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3679,7 +3925,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3743,7 +3989,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3829,7 +4075,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3915,7 +4161,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3966,7 +4212,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4022,7 +4268,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4109,7 +4355,7 @@
       "priority": 50,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4279,7 +4525,7 @@
       "priority": 49,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4336,7 +4582,7 @@
       "priority": 49,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4413,7 +4659,163 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Python",
+      "slug": "python",
+      "occurrences": 4,
+      "distinctSourceCount": 4,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-08-2-google-colab-learn-mode"
+      ],
+      "wikiSourceTerms": [
+        "autogen",
+        "gpt-oss",
+        "modal"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "ai코딩교육",
+        "autogen",
+        "chain-of-thought",
+        "chatgpt",
+        "codex",
+        "colab"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)",
+        "Colab이 코딩 과외 선생님이 됐다 — Learn Mode 출시",
+        "Modal(모달)",
+        "gpt-oss(지피티 오에스에스)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/",
+          "title": "Google Blog: Colab Learn Mode"
+        },
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-08-2-google-colab-learn-mode",
+        "wiki:autogen",
+        "wiki:gpt-oss"
+      ],
+      "firstMentioned": "2023-03-14",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 48,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "DeepSeek V4",
+      "slug": "deepseek-v4",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
+        "2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "architecture",
+        "attention",
+        "deepgemm",
+        "deepseek",
+        "fp8",
+        "gpu-optimization",
+        "llm",
+        "mixture-of-experts"
+      ],
+      "sourceTitles": [
+        "DeepSeek DeepGEMM, Mega MoE와 FP4 Indexer로 대규모 업데이트",
+        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.panewslab.com/en/articles/019d9605-414a-727c-8f9a-75d01ca4b436",
+          "title": "PANews"
+        },
+        {
+          "url": "https://github.com/deepseek-ai/DeepGEMM",
+          "title": "GitHub deepseek-ai/DeepGEMM"
+        },
+        {
+          "url": "https://finance.sina.com.cn/tech/roll/2026-04-17/doc-inhuupte2263261.shtml",
+          "title": "Sina Tech — DeepGEMM 업데이트"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/",
+          "title": "r/LocalLLaMA"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
+        "news:2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "firstMentioned": "2026-04-18T11:00:00+09:00",
+      "lastMentioned": "2026-04-25T09:30:00+09:00",
+      "categoryGuess": "model",
+      "modelType": "family",
+      "priority": 48,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4488,7 +4890,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4559,7 +4961,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4617,7 +5019,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4674,7 +5076,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4726,7 +5128,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4778,7 +5180,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4842,7 +5244,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4906,7 +5308,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4917,8 +5319,8 @@
     {
       "term": "HuggingFace",
       "slug": "huggingface",
-      "occurrences": 10,
-      "distinctSourceCount": 10,
+      "occurrences": 11,
+      "distinctSourceCount": 11,
       "kinds": [
         "phrase"
       ],
@@ -4937,24 +5339,24 @@
       ],
       "wikiSourceTerms": [],
       "knownTermHints": [
+        "agent",
         "agentic-coding",
         "ai-agent",
         "alibaba",
         "claude",
+        "deepseek",
         "distillation",
-        "embedding",
-        "gemma",
-        "gguf"
+        "embedding"
       ],
       "sourceTitles": [
         "18GB RAM으로 27B 모델 — Qwen3.6-27B GGUF 출시",
         "Claude Opus 4.6 추론 능력, 27B 오픈소스로 증류됐어",
+        "DeepSeek-V4, 100만 토큰 컨텍스트로 에이전트 작업에 실제로 쓸 수 있어",
         "Gemma 4, MTP 드래프터 숨겨져 있었어 — 커뮤니티가 역공학으로 꺼냈다",
         "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
         "MiniMax M2.7 오픈소스 공개, 230B MoE로 자기 진화하는 에이전트 모델",
         "NVIDIA, 합성 페르소나로 한국 AI 에이전트에 실제 인구통계를 입히다",
-        "Qwen3.5-27B에 Claude Opus 4.6 추론을 증류한 모델, 56만 다운로드",
-        "Sentence Transformers v5.4, 텍스트·이미지·오디오·영상까지 같은 API로"
+        "Qwen3.5-27B에 Claude Opus 4.6 추론을 증류한 모델, 56만 다운로드"
       ],
       "sourceUrls": [
         {
@@ -4996,12 +5398,12 @@
         "news:2026-04-11-2-qwen35-claude-opus-distill"
       ],
       "firstMentioned": "2026-04-06T11:00:00+09:00",
-      "lastMentioned": "2026-04-23T09:20:00+09:00",
+      "lastMentioned": "2026-04-25T09:20:00+09:00",
       "categoryGuess": "concept",
       "priority": 46,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5091,7 +5493,7 @@
       "priority": 46,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5147,7 +5549,7 @@
       "priority": 45,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5203,7 +5605,193 @@
       "priority": 45,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Experts",
+      "slug": "experts",
+      "occurrences": 6,
+      "distinctSourceCount": 6,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-05-5-google-gemma-4-open-model",
+        "2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "wikiSourceTerms": [
+        "attention",
+        "e2b",
+        "mixture-of-experts",
+        "transformer"
+      ],
+      "knownTermHints": [
+        "architecture",
+        "attention",
+        "concept",
+        "deepmind",
+        "deepseek",
+        "e2b",
+        "gemma",
+        "gemma-4"
+      ],
+      "sourceTitles": [
+        "Attention (어텐션)",
+        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나",
+        "E2B (이투비)",
+        "Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스",
+        "Mixture of Experts(전문가 혼합)",
+        "Transformer (트랜스포머)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+          "title": "Google Blog"
+        },
+        {
+          "url": "https://deepmind.google/models/gemma/gemma-4/",
+          "title": "Google DeepMind — Gemma 4 model page"
+        },
+        {
+          "url": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/",
+          "title": "Google Developers Blog — Gemma 4 on edge"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/",
+          "title": "r/LocalLLaMA"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Attention_(machine_learning)",
+          "title": "Attention (machine learning)"
+        },
+        {
+          "url": "https://research.google/pubs/attention-is-all-you-need/",
+          "title": "Attention is All You Need"
+        },
+        {
+          "url": "https://www.ibm.com/think/topics/attention-mechanism",
+          "title": "What is an attention mechanism?"
+        },
+        {
+          "url": "https://ai.google.dev/gemma/docs/gemma-3n",
+          "title": "Gemma 3n model overview"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-05-5-google-gemma-4-open-model",
+        "news:2026-04-25-4-deepseek-v4-architecture-analysis",
+        "wiki:attention"
+      ],
+      "firstMentioned": "2018-10-11",
+      "lastMentioned": "2026-04-25T09:30:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 44,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Mixture",
+      "slug": "mixture",
+      "occurrences": 6,
+      "distinctSourceCount": 6,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-05-5-google-gemma-4-open-model",
+        "2026-04-25-4-deepseek-v4-architecture-analysis"
+      ],
+      "wikiSourceTerms": [
+        "attention",
+        "e2b",
+        "mixture-of-experts",
+        "transformer"
+      ],
+      "knownTermHints": [
+        "architecture",
+        "attention",
+        "concept",
+        "deepmind",
+        "deepseek",
+        "e2b",
+        "gemma",
+        "gemma-4"
+      ],
+      "sourceTitles": [
+        "Attention (어텐션)",
+        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나",
+        "E2B (이투비)",
+        "Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스",
+        "Mixture of Experts(전문가 혼합)",
+        "Transformer (트랜스포머)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+          "title": "Google Blog"
+        },
+        {
+          "url": "https://deepmind.google/models/gemma/gemma-4/",
+          "title": "Google DeepMind — Gemma 4 model page"
+        },
+        {
+          "url": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/",
+          "title": "Google Developers Blog — Gemma 4 on edge"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/",
+          "title": "r/LocalLLaMA"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Attention_(machine_learning)",
+          "title": "Attention (machine learning)"
+        },
+        {
+          "url": "https://research.google/pubs/attention-is-all-you-need/",
+          "title": "Attention is All You Need"
+        },
+        {
+          "url": "https://www.ibm.com/think/topics/attention-mechanism",
+          "title": "What is an attention mechanism?"
+        },
+        {
+          "url": "https://ai.google.dev/gemma/docs/gemma-3n",
+          "title": "Gemma 3n model overview"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-05-5-google-gemma-4-open-model",
+        "news:2026-04-25-4-deepseek-v4-architecture-analysis",
+        "wiki:attention"
+      ],
+      "firstMentioned": "2018-10-11",
+      "lastMentioned": "2026-04-25T09:30:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 44,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5268,7 +5856,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5330,7 +5918,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5396,7 +5984,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5452,7 +6040,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5625,7 +6213,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5680,7 +6268,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5737,7 +6325,7 @@
       "status": "pending",
       "firstSeenAt": "2026-04-17",
       "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
+      "seenInCurrentRun": false,
       "generatedAt": null,
       "generatedFile": null,
       "lastQueuedAt": null,
@@ -5800,7 +6388,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5852,7 +6440,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5907,7 +6495,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5963,7 +6551,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6018,7 +6606,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6135,7 +6723,7 @@
       "priority": 42,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6205,7 +6793,7 @@
       "priority": 42,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6288,7 +6876,7 @@
       "priority": 42,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6411,7 +6999,7 @@
       "priority": 41,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6466,7 +7054,7 @@
       "priority": 41,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6522,7 +7110,7 @@
       "status": "pending",
       "firstSeenAt": "2026-04-18",
       "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
+      "seenInCurrentRun": false,
       "generatedAt": null,
       "generatedFile": null,
       "lastQueuedAt": null,
@@ -6572,189 +7160,7 @@
       "priority": 41,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Experts",
-      "slug": "experts",
-      "occurrences": 5,
-      "distinctSourceCount": 5,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "news",
-        "wiki"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-05-5-google-gemma-4-open-model"
-      ],
-      "wikiSourceTerms": [
-        "attention",
-        "e2b",
-        "mixture-of-experts",
-        "transformer"
-      ],
-      "knownTermHints": [
-        "architecture",
-        "attention",
-        "concept",
-        "deepmind",
-        "e2b",
-        "gemma",
-        "gemma-4",
-        "google"
-      ],
-      "sourceTitles": [
-        "Attention (어텐션)",
-        "E2B (이투비)",
-        "Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스",
-        "Mixture of Experts(전문가 혼합)",
-        "Transformer (트랜스포머)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
-          "title": "Google Blog"
-        },
-        {
-          "url": "https://deepmind.google/models/gemma/gemma-4/",
-          "title": "Google DeepMind — Gemma 4 model page"
-        },
-        {
-          "url": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/",
-          "title": "Google Developers Blog — Gemma 4 on edge"
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Attention_(machine_learning)",
-          "title": "Attention (machine learning)"
-        },
-        {
-          "url": "https://research.google/pubs/attention-is-all-you-need/",
-          "title": "Attention is All You Need"
-        },
-        {
-          "url": "https://ai.google.dev/gemma/docs/gemma-3n",
-          "title": "Gemma 3n model overview"
-        },
-        {
-          "url": "https://ai.google.dev/gemma/docs/releases",
-          "title": "Gemma releases"
-        },
-        {
-          "url": "https://ai.google.dev/gemma/docs/core/model_card_4",
-          "title": "Gemma 4 model card"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-05-5-google-gemma-4-open-model",
-        "wiki:attention",
-        "wiki:e2b"
-      ],
-      "firstMentioned": "2018-10-11",
-      "lastMentioned": "2026-04-05T13:00:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 40,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Mixture",
-      "slug": "mixture",
-      "occurrences": 5,
-      "distinctSourceCount": 5,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "news",
-        "wiki"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-05-5-google-gemma-4-open-model"
-      ],
-      "wikiSourceTerms": [
-        "attention",
-        "e2b",
-        "mixture-of-experts",
-        "transformer"
-      ],
-      "knownTermHints": [
-        "architecture",
-        "attention",
-        "concept",
-        "deepmind",
-        "e2b",
-        "gemma",
-        "gemma-4",
-        "google"
-      ],
-      "sourceTitles": [
-        "Attention (어텐션)",
-        "E2B (이투비)",
-        "Google Gemma 4 나왔어 — 오픈 모델 세계 3위, Apache 2.0 라이선스",
-        "Mixture of Experts(전문가 혼합)",
-        "Transformer (트랜스포머)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
-          "title": "Google Blog"
-        },
-        {
-          "url": "https://deepmind.google/models/gemma/gemma-4/",
-          "title": "Google DeepMind — Gemma 4 model page"
-        },
-        {
-          "url": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/",
-          "title": "Google Developers Blog — Gemma 4 on edge"
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Attention_(machine_learning)",
-          "title": "Attention (machine learning)"
-        },
-        {
-          "url": "https://research.google/pubs/attention-is-all-you-need/",
-          "title": "Attention is All You Need"
-        },
-        {
-          "url": "https://ai.google.dev/gemma/docs/gemma-3n",
-          "title": "Gemma 3n model overview"
-        },
-        {
-          "url": "https://ai.google.dev/gemma/docs/releases",
-          "title": "Gemma releases"
-        },
-        {
-          "url": "https://ai.google.dev/gemma/docs/core/model_card_4",
-          "title": "Gemma 4 model card"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-05-5-google-gemma-4-open-model",
-        "wiki:attention",
-        "wiki:e2b"
-      ],
-      "firstMentioned": "2018-10-11",
-      "lastMentioned": "2026-04-05T13:00:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 40,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6785,11 +7191,11 @@
         "apache",
         "gemma-4",
         "gpt-oss",
+        "local-llm",
         "m2.7",
         "minimax",
         "mixture-of-experts",
-        "open-source",
-        "qwen-3.5"
+        "open-source"
       ],
       "sourceTitles": [
         "Apache 2.0(아파치 2.0 라이선스)",
@@ -6827,7 +7233,7 @@
       "priority": 40,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6899,7 +7305,7 @@
       "priority": 40,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6972,7 +7378,7 @@
       "priority": 40,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7059,7 +7465,7 @@
       "priority": 39,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7138,7 +7544,7 @@
       "priority": 39,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7222,8 +7628,8 @@
       "lastError": null
     },
     {
-      "term": "Python",
-      "slug": "python",
+      "term": "README",
+      "slug": "readme",
       "occurrences": 3,
       "distinctSourceCount": 3,
       "kinds": [
@@ -7234,61 +7640,73 @@
         "wiki"
       ],
       "newsSourceSlugs": [
-        "2026-04-08-2-google-colab-learn-mode"
+        "2026-04-24-4-self-hosting-guide-trending"
       ],
       "wikiSourceTerms": [
-        "gpt-oss",
-        "modal"
+        "autogen",
+        "chroma"
       ],
       "knownTermHints": [
-        "ai코딩교육",
-        "chain-of-thought",
-        "chatgpt",
-        "codex",
-        "colab",
-        "deployment",
-        "gemini",
-        "google"
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "chroma",
+        "github",
+        "infrastructure",
+        "langchain",
+        "llamaindex"
       ],
       "sourceTitles": [
-        "Colab이 코딩 과외 선생님이 됐다 — Learn Mode 출시",
-        "Modal(모달)",
-        "gpt-oss(지피티 오에스에스)"
+        "AutoGen(오토젠)",
+        "Chroma(크로마)",
+        "Self-Hosting-Guide 19.5K 스타, LLM 로컬 호스팅 가이드가 다시 트렌딩"
       ],
       "sourceUrls": [
         {
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/colab-updates/",
-          "title": "Google Blog: Colab Learn Mode"
+          "url": "https://github.com/mikeroyal/Self-Hosting-Guide",
+          "title": "GitHub Trending"
         },
         {
-          "url": "https://openai.com/index/introducing-gpt-oss",
-          "title": "Introducing gpt-oss"
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
         },
         {
-          "url": "https://openai.com/index/gpt-oss-model-card/",
-          "title": "gpt-oss-120b &amp; gpt-oss-20b Model Card"
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
         },
         {
-          "url": "https://modal.com/",
-          "title": "Modal: High-performance AI infrastructure"
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
         },
         {
-          "url": "https://modal.com/docs/guide",
-          "title": "Introduction"
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
         }
       ],
       "sampleRefs": [
-        "news:2026-04-08-2-google-colab-learn-mode",
-        "wiki:gpt-oss",
-        "wiki:modal"
+        "news:2026-04-24-4-self-hosting-guide-trending",
+        "wiki:autogen",
+        "wiki:chroma"
       ],
-      "firstMentioned": "2023-03-14",
-      "lastMentioned": "2026-04-17",
+      "firstMentioned": "2026-04-09",
+      "lastMentioned": "2026-04-25",
       "categoryGuess": "concept",
       "priority": 39,
       "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7361,7 +7779,7 @@
       "priority": 38,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7429,7 +7847,7 @@
       "priority": 38,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7514,7 +7932,7 @@
       "priority": 37,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7570,7 +7988,7 @@
       "priority": 37,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7622,7 +8040,7 @@
       "priority": 37,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7711,96 +8129,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "open-weight",
-      "slug": "open-weight",
-      "occurrences": 4,
-      "distinctSourceCount": 4,
-      "kinds": [
-        "tag"
-      ],
-      "sourceKinds": [
-        "news",
-        "wiki"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-21-3-kimi-k26-gguf"
-      ],
-      "wikiSourceTerms": [
-        "flux",
-        "gpt-oss",
-        "mistral"
-      ],
-      "knownTermHints": [
-        "chain-of-thought",
-        "chatgpt",
-        "codex",
-        "dall-e",
-        "diffusion",
-        "flux",
-        "gguf",
-        "gpt-4o"
-      ],
-      "sourceTitles": [
-        "FLUX.1 (플럭스 원)",
-        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
-        "Mistral(미스트랄 모델 계열)",
-        "gpt-oss(지피티 오에스에스)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
-          "title": "HuggingFace (ubergarm)"
-        },
-        {
-          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
-          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
-        },
-        {
-          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
-          "title": "ofox.ai — Kimi K2.6 release guide"
-        },
-        {
-          "url": "https://blackforestlabs.ai/announcing-black-forest-labs/",
-          "title": "Announcing Black Forest Labs"
-        },
-        {
-          "url": "https://huggingface.co/black-forest-labs",
-          "title": "black-forest-labs (Black Forest Labs)"
-        },
-        {
-          "url": "https://openai.com/index/introducing-gpt-oss",
-          "title": "Introducing gpt-oss"
-        },
-        {
-          "url": "https://openai.com/index/gpt-oss-model-card/",
-          "title": "gpt-oss-120b &amp; gpt-oss-20b Model Card"
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Mistral_AI",
-          "title": "Mistral AI"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-21-3-kimi-k26-gguf",
-        "wiki:flux",
-        "wiki:gpt-oss"
-      ],
-      "firstMentioned": "2026-03-16",
-      "lastMentioned": "2026-04-21T09:20:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 36,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7889,7 +8218,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7974,7 +8303,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8040,7 +8369,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8108,7 +8437,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8185,7 +8514,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8266,7 +8595,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8321,7 +8650,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8376,7 +8705,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8430,7 +8759,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8485,7 +8814,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8540,7 +8869,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8592,7 +8921,86 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "AutoGen Studio",
+      "slug": "autogen-studio",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "tool",
+      "priority": 35,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8647,7 +9055,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8701,7 +9109,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8759,7 +9167,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8814,7 +9222,86 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Microsoft Agent Framework",
+      "slug": "microsoft-agent-framework",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "framework",
+      "priority": 35,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8987,7 +9474,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9041,7 +9528,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9095,7 +9582,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9150,7 +9637,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9245,7 +9732,96 @@
       "priority": 34,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Gmail",
+      "slug": "gmail",
+      "occurrences": 5,
+      "distinctSourceCount": 5,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-07-5-gmail-gemini-privacy",
+        "2026-04-15-6-gemini-app-native-mac",
+        "2026-04-18-1-gemini-nano-banana-personal-intelligence",
+        "2026-04-21-4-gemini-chrome-korea",
+        "2026-04-25-5-gemini-spring-cleaning-tips"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "ai-tools",
+        "ai프라이버시",
+        "browser-ai",
+        "chrome",
+        "desktop-app",
+        "gemini",
+        "google",
+        "image-generation"
+      ],
+      "sourceTitles": [
+        "Gemini Nano Banana 2, 내 구글 포토를 보고 이미지를 그린다",
+        "Gemini 앱, Mac 네이티브로 — Option+Space 단축키 기본 장착",
+        "Gemini가 내 이메일을 학습하지 않는다 — Google의 해명",
+        "Google, Gemini로 봄맞이 정리 8가지 방법 공개",
+        "Google, 한국 포함 7개국에 Gemini in Chrome 출시"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/",
+          "title": "Google Blog: Gmail Privacy with Gemini"
+        },
+        {
+          "url": "https://betanews.com/article/google-insists-it-does-not-train-gemini-with-your-emails/",
+          "title": "BetaNews"
+        },
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/",
+          "title": "The Keyword (Google)"
+        },
+        {
+          "url": "https://techcrunch.com/2026/04/15/google-rolls-out-a-native-gemini-app-for-mac/",
+          "title": "TechCrunch — Gemini native Mac app"
+        },
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/04/now-available-gemini-app-for-mac.html",
+          "title": "Google Workspace Updates — Gemini for Mac"
+        },
+        {
+          "url": "https://www.bloomberg.com/news/articles/2026-04-15/google-debuts-standalone-gemini-app-for-apple-s-macos",
+          "title": "Bloomberg — Standalone Gemini app for macOS"
+        },
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/",
+          "title": "The Keyword (Google)"
+        },
+        {
+          "url": "https://techcrunch.com/2026/04/16/google-adds-nano-banana-powered-image-generation-to-geminis-personal-intelligence/",
+          "title": "TechCrunch — Nano Banana x Personal Intelligence"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-07-5-gmail-gemini-privacy",
+        "news:2026-04-15-6-gemini-app-native-mac",
+        "news:2026-04-18-1-gemini-nano-banana-personal-intelligence"
+      ],
+      "firstMentioned": "2026-04-07T16:00:00+09:00",
+      "lastMentioned": "2026-04-25T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 34,
+      "status": "pending",
+      "firstSeenAt": "2026-04-18",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9357,7 +9933,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9470,7 +10046,86 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "LLM(거대 언어 모델",
+      "slug": "llm-거대-언어-모델",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "markdown_link"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 33,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9522,7 +10177,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9576,7 +10231,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9643,6 +10298,85 @@
       "lastError": null
     },
     {
+      "term": "RAG(검색 증강 생성",
+      "slug": "rag-검색-증강-생성",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "markdown_link"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 33,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
       "term": "SmolLM 소개",
       "slug": "smollm-소개",
       "occurrences": 1,
@@ -9688,7 +10422,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9741,7 +10475,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9830,7 +10564,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9895,7 +10629,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9956,7 +10690,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10020,7 +10754,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10098,7 +10832,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10172,7 +10906,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10246,7 +10980,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10327,7 +11061,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10393,7 +11127,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10462,7 +11196,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10519,7 +11253,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10587,7 +11321,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10655,7 +11389,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10724,7 +11458,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10786,7 +11520,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10842,7 +11576,7 @@
       "priority": 31,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10910,7 +11644,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10978,7 +11712,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11042,7 +11776,91 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "HumanEval",
+      "slug": "humaneval",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+      ],
+      "wikiSourceTerms": [
+        "benchmark"
+      ],
+      "knownTermHints": [
+        "benchmark",
+        "claude",
+        "concept",
+        "distillation",
+        "evaluation",
+        "local-llm",
+        "measurement",
+        "open-source"
+      ],
+      "sourceTitles": [
+        "Benchmark (벤치마크)",
+        "Qwen3.5-27B에 Claude Opus 4.6 추론을 증류한 모델, 56만 다운로드"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
+          "title": "HuggingFace - Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled"
+        },
+        {
+          "url": "https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled-v2",
+          "title": "HuggingFace v2 모델 카드"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Benchmark_(computing)",
+          "title": "Benchmark (computing)"
+        },
+        {
+          "url": "https://huggingface.co/docs/evaluate/index",
+          "title": "Evaluate on the Hub · Hugging Face"
+        },
+        {
+          "url": "https://arxiv.org/abs/2009.03300",
+          "title": "Measuring Massive Multitask Language Understanding"
+        },
+        {
+          "url": "https://github.com/openai/human-eval",
+          "title": "HumanEval: Hand-Written Evaluation Set"
+        },
+        {
+          "url": "https://arxiv.org/abs/2107.03374",
+          "title": "Evaluating Large Language Models Trained on Code"
+        },
+        {
+          "url": "https://www.swebench.com/verified.html",
+          "title": "SWE-bench Verified"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-10-3-qwen35-27b-claude-opus-distilled",
+        "wiki:benchmark"
+      ],
+      "firstMentioned": "2026-02-20",
+      "lastMentioned": "2026-04-10T10:00:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 30,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11114,7 +11932,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11190,7 +12008,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11266,7 +12084,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11348,7 +12166,92 @@
       "priority": 29,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "MMLU",
+      "slug": "mmlu",
+      "occurrences": 3,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "inline_code",
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-10-3-qwen35-27b-claude-opus-distilled"
+      ],
+      "wikiSourceTerms": [
+        "benchmark"
+      ],
+      "knownTermHints": [
+        "benchmark",
+        "claude",
+        "concept",
+        "distillation",
+        "evaluation",
+        "local-llm",
+        "measurement",
+        "open-source"
+      ],
+      "sourceTitles": [
+        "Benchmark (벤치마크)",
+        "Qwen3.5-27B에 Claude Opus 4.6 추론을 증류한 모델, 56만 다운로드"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
+          "title": "HuggingFace - Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled"
+        },
+        {
+          "url": "https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled-v2",
+          "title": "HuggingFace v2 모델 카드"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Benchmark_(computing)",
+          "title": "Benchmark (computing)"
+        },
+        {
+          "url": "https://huggingface.co/docs/evaluate/index",
+          "title": "Evaluate on the Hub · Hugging Face"
+        },
+        {
+          "url": "https://arxiv.org/abs/2009.03300",
+          "title": "Measuring Massive Multitask Language Understanding"
+        },
+        {
+          "url": "https://github.com/openai/human-eval",
+          "title": "HumanEval: Hand-Written Evaluation Set"
+        },
+        {
+          "url": "https://arxiv.org/abs/2107.03374",
+          "title": "Evaluating Large Language Models Trained on Code"
+        },
+        {
+          "url": "https://www.swebench.com/verified.html",
+          "title": "SWE-bench Verified"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-10-3-qwen35-27b-claude-opus-distilled",
+        "wiki:benchmark"
+      ],
+      "firstMentioned": "2026-02-20",
+      "lastMentioned": "2026-04-10T10:00:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 28,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11502,7 +12405,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11585,7 +12488,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11639,7 +12542,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11694,7 +12597,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11761,6 +12664,61 @@
       "lastError": null
     },
     {
+      "term": "Apache License",
+      "slug": "apache-license",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "apache"
+      ],
+      "knownTermHints": [
+        "apache",
+        "gemma-4",
+        "gpt-oss",
+        "license",
+        "local-llm",
+        "open-source",
+        "qwen",
+        "weight"
+      ],
+      "sourceTitles": [
+        "Apache 2.0(아파치 2.0 라이선스)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.apache.org/licenses/LICENSE-2.0",
+          "title": "Apache License, Version 2.0"
+        },
+        {
+          "url": "https://www.apache.org/legal/apply-license",
+          "title": "Applying the Apache License, Version 2.0"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:apache"
+      ],
+      "firstMentioned": "2026-03-16",
+      "lastMentioned": "2026-03-16",
+      "categoryGuess": "concept",
+      "priority": 27,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
       "term": "Apple Silicon Mac",
       "slug": "apple-silicon-mac",
       "occurrences": 1,
@@ -11811,7 +12769,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11865,7 +12823,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11919,7 +12877,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11973,7 +12931,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12026,7 +12984,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12081,7 +13039,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12135,7 +13093,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12187,7 +13145,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12242,7 +13200,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12293,7 +13251,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12348,7 +13306,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12402,7 +13360,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12457,7 +13415,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12512,7 +13470,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12567,7 +13525,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12622,7 +13580,83 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "pass@1",
+      "slug": "pass-1",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "inline_code"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "benchmark"
+      ],
+      "knownTermHints": [
+        "benchmark",
+        "concept",
+        "evaluation",
+        "measurement",
+        "synthetic-data"
+      ],
+      "sourceTitles": [
+        "Benchmark (벤치마크)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Benchmark_(computing)",
+          "title": "Benchmark (computing)"
+        },
+        {
+          "url": "https://huggingface.co/docs/evaluate/index",
+          "title": "Evaluate on the Hub · Hugging Face"
+        },
+        {
+          "url": "https://arxiv.org/abs/2009.03300",
+          "title": "Measuring Massive Multitask Language Understanding"
+        },
+        {
+          "url": "https://github.com/openai/human-eval",
+          "title": "HumanEval: Hand-Written Evaluation Set"
+        },
+        {
+          "url": "https://arxiv.org/abs/2107.03374",
+          "title": "Evaluating Large Language Models Trained on Code"
+        },
+        {
+          "url": "https://www.swebench.com/verified.html",
+          "title": "SWE-bench Verified"
+        },
+        {
+          "url": "https://arxiv.org/abs/2406.01574",
+          "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark"
+        },
+        {
+          "url": "https://arxiv.org/abs/2005.14165",
+          "title": "Language Models are Few-Shot Learners"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:benchmark"
+      ],
+      "firstMentioned": "2026-02-20",
+      "lastMentioned": "2026-02-20",
+      "categoryGuess": "concept",
+      "priority": 27,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12673,7 +13707,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12727,7 +13761,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12781,7 +13815,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12835,7 +13869,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12889,7 +13923,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12944,7 +13978,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12999,7 +14033,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13088,94 +14122,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Gmail",
-      "slug": "gmail",
-      "occurrences": 4,
-      "distinctSourceCount": 4,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "news"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-07-5-gmail-gemini-privacy",
-        "2026-04-15-6-gemini-app-native-mac",
-        "2026-04-18-1-gemini-nano-banana-personal-intelligence",
-        "2026-04-21-4-gemini-chrome-korea"
-      ],
-      "wikiSourceTerms": [],
-      "knownTermHints": [
-        "ai프라이버시",
-        "browser-ai",
-        "chrome",
-        "desktop-app",
-        "gemini",
-        "google",
-        "image-generation",
-        "macos"
-      ],
-      "sourceTitles": [
-        "Gemini Nano Banana 2, 내 구글 포토를 보고 이미지를 그린다",
-        "Gemini 앱, Mac 네이티브로 — Option+Space 단축키 기본 장착",
-        "Gemini가 내 이메일을 학습하지 않는다 — Google의 해명",
-        "Google, 한국 포함 7개국에 Gemini in Chrome 출시"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://blog.google/products-and-platforms/products/gmail/privacy-in-gmail-with-gemini/",
-          "title": "Google Blog: Gmail Privacy with Gemini"
-        },
-        {
-          "url": "https://betanews.com/article/google-insists-it-does-not-train-gemini-with-your-emails/",
-          "title": "BetaNews"
-        },
-        {
-          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/",
-          "title": "The Keyword (Google)"
-        },
-        {
-          "url": "https://techcrunch.com/2026/04/15/google-rolls-out-a-native-gemini-app-for-mac/",
-          "title": "TechCrunch — Gemini native Mac app"
-        },
-        {
-          "url": "https://workspaceupdates.googleblog.com/2026/04/now-available-gemini-app-for-mac.html",
-          "title": "Google Workspace Updates — Gemini for Mac"
-        },
-        {
-          "url": "https://www.bloomberg.com/news/articles/2026-04-15/google-debuts-standalone-gemini-app-for-apple-s-macos",
-          "title": "Bloomberg — Standalone Gemini app for macOS"
-        },
-        {
-          "url": "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/",
-          "title": "The Keyword (Google)"
-        },
-        {
-          "url": "https://techcrunch.com/2026/04/16/google-adds-nano-banana-powered-image-generation-to-geminis-personal-intelligence/",
-          "title": "TechCrunch — Nano Banana x Personal Intelligence"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-07-5-gmail-gemini-privacy",
-        "news:2026-04-15-6-gemini-app-native-mac",
-        "news:2026-04-18-1-gemini-nano-banana-personal-intelligence"
-      ],
-      "firstMentioned": "2026-04-07T16:00:00+09:00",
-      "lastMentioned": "2026-04-21T09:30:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 26,
-      "status": "pending",
-      "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13262,7 +14209,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13349,7 +14296,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13425,7 +14372,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13495,7 +14442,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13564,7 +14511,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13634,7 +14581,7 @@
       "priority": 22,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13704,7 +14651,7 @@
       "priority": 22,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13790,7 +14737,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13866,7 +14813,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13942,7 +14889,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13996,7 +14943,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14049,7 +14996,165 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "RoundRobinGroupChat",
+      "slug": "roundrobingroupchat",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 21,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "TerminationCondition",
+      "slug": "terminationcondition",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 21,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14133,7 +15238,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14201,7 +15306,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14265,7 +15370,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14333,7 +15438,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14397,7 +15502,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14477,7 +15582,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14558,7 +15663,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14643,7 +15748,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14728,7 +15833,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14782,7 +15887,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14832,7 +15937,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14885,7 +15990,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14967,7 +16072,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15040,7 +16145,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15109,7 +16214,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15174,7 +16279,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15237,7 +16342,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15302,7 +16407,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15374,7 +16479,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15446,7 +16551,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15501,7 +16606,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15560,7 +16665,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15615,7 +16720,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15674,7 +16779,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15729,7 +16834,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15780,7 +16885,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15846,7 +16951,73 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Docker",
+      "slug": "docker",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "apache",
+        "n8n"
+      ],
+      "knownTermHints": [
+        "agent",
+        "agentic-ai",
+        "apache",
+        "automation",
+        "gemma-4",
+        "gpt-oss",
+        "langchain",
+        "langgraph"
+      ],
+      "sourceTitles": [
+        "Apache 2.0(아파치 2.0 라이선스)",
+        "n8n(엔에잇엔)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.apache.org/licenses/LICENSE-2.0",
+          "title": "Apache License, Version 2.0"
+        },
+        {
+          "url": "https://www.apache.org/legal/apply-license",
+          "title": "Applying the Apache License, Version 2.0"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/N8n",
+          "title": "N8n"
+        },
+        {
+          "url": "https://docs.n8n.io/",
+          "title": "Explore n8n Docs: Your Resource for Workflow Automation and Integrations | n8n Docs"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:apache",
+        "wiki:n8n"
+      ],
+      "firstMentioned": "2026-03-16",
+      "lastMentioned": "2026-04-14",
+      "categoryGuess": "concept",
+      "priority": 12,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15912,7 +17083,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16045,7 +17216,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16111,7 +17282,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16177,7 +17348,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16254,7 +17425,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16331,7 +17502,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16412,7 +17583,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16462,7 +17633,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16515,7 +17686,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16565,7 +17736,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16624,7 +17795,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16679,7 +17850,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16730,7 +17901,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16789,7 +17960,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16842,7 +18013,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16912,7 +18083,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16981,7 +18152,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17059,7 +18230,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17125,7 +18296,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17199,7 +18370,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-19",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17281,7 +18452,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17351,7 +18522,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17411,7 +18582,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17489,7 +18660,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-19",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17551,7 +18722,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17628,7 +18799,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17684,7 +18855,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17753,7 +18924,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17822,7 +18993,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17892,7 +19063,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17966,7 +19137,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18031,7 +19202,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18101,7 +19272,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18173,7 +19344,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18241,7 +19412,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18315,7 +19486,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18393,7 +19564,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18467,7 +19638,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18545,7 +19716,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18605,7 +19776,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18661,7 +19832,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18716,7 +19887,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18771,7 +19942,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18826,7 +19997,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18882,7 +20053,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18961,7 +20132,7 @@
       "priority": 6,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19046,7 +20217,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19131,7 +20302,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19182,7 +20353,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19232,7 +20403,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19286,7 +20457,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19340,7 +20511,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19394,7 +20565,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19448,7 +20619,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19502,7 +20673,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19558,7 +20729,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19613,7 +20784,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19659,7 +20830,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19709,7 +20880,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19763,7 +20934,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19818,7 +20989,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19872,7 +21043,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19931,7 +21102,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19985,7 +21156,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20040,7 +21211,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20095,7 +21266,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20150,7 +21321,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20204,7 +21375,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20263,7 +21434,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20317,7 +21488,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20369,7 +21540,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20428,7 +21599,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20487,7 +21658,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20538,7 +21709,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20589,7 +21760,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20635,7 +21806,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20687,7 +21858,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20742,7 +21913,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20797,7 +21968,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20848,7 +22019,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20898,7 +22069,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20948,7 +22119,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20978,7 +22149,8 @@
         "langchain",
         "llamaindex",
         "multi-agent",
-        "tool-use"
+        "rag",
+        "runtime"
       ],
       "sourceTitles": [
         "AutoGen(오토젠)"
@@ -20986,23 +22158,47 @@
       "sourceUrls": [
         {
           "url": "https://github.com/microsoft/autogen",
-          "title": "microsoft/autogen"
+          "title": "microsoft/autogen README"
         },
         {
-          "url": "https://microsoft.github.io/autogen/stable/",
-          "title": "AutoGen &#8212; AutoGen"
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
         }
       ],
       "sampleRefs": [
         "wiki:autogen"
       ],
-      "firstMentioned": "2026-04-14",
-      "lastMentioned": "2026-04-14",
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
       "categoryGuess": "concept",
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21056,7 +22252,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21110,7 +22306,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21161,7 +22357,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21216,7 +22412,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21267,7 +22463,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21322,7 +22518,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21374,7 +22570,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21425,7 +22621,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21479,7 +22675,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21592,7 +22788,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21647,7 +22843,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21701,61 +22897,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Docker",
-      "slug": "docker",
-      "occurrences": 1,
-      "distinctSourceCount": 1,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "wiki"
-      ],
-      "newsSourceSlugs": [],
-      "wikiSourceTerms": [
-        "n8n"
-      ],
-      "knownTermHints": [
-        "agent",
-        "agentic-ai",
-        "automation",
-        "langchain",
-        "langgraph",
-        "n8n",
-        "workflow"
-      ],
-      "sourceTitles": [
-        "n8n(엔에잇엔)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://en.wikipedia.org/wiki/N8n",
-          "title": "N8n"
-        },
-        {
-          "url": "https://docs.n8n.io/",
-          "title": "Explore n8n Docs: Your Resource for Workflow Automation and Integrations | n8n Docs"
-        }
-      ],
-      "sampleRefs": [
-        "wiki:n8n"
-      ],
-      "firstMentioned": "2026-04-14",
-      "lastMentioned": "2026-04-14",
-      "categoryGuess": "concept",
-      "priority": 3,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21806,7 +22948,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21860,7 +23002,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21977,7 +23119,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22028,7 +23170,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22082,7 +23224,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22133,7 +23275,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22188,7 +23330,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22239,7 +23381,83 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "MMLU-Pro",
+      "slug": "mmlu-pro",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "benchmark"
+      ],
+      "knownTermHints": [
+        "benchmark",
+        "concept",
+        "evaluation",
+        "measurement",
+        "synthetic-data"
+      ],
+      "sourceTitles": [
+        "Benchmark (벤치마크)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Benchmark_(computing)",
+          "title": "Benchmark (computing)"
+        },
+        {
+          "url": "https://huggingface.co/docs/evaluate/index",
+          "title": "Evaluate on the Hub · Hugging Face"
+        },
+        {
+          "url": "https://arxiv.org/abs/2009.03300",
+          "title": "Measuring Massive Multitask Language Understanding"
+        },
+        {
+          "url": "https://github.com/openai/human-eval",
+          "title": "HumanEval: Hand-Written Evaluation Set"
+        },
+        {
+          "url": "https://arxiv.org/abs/2107.03374",
+          "title": "Evaluating Large Language Models Trained on Code"
+        },
+        {
+          "url": "https://www.swebench.com/verified.html",
+          "title": "SWE-bench Verified"
+        },
+        {
+          "url": "https://arxiv.org/abs/2406.01574",
+          "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark"
+        },
+        {
+          "url": "https://arxiv.org/abs/2005.14165",
+          "title": "Language Models are Few-Shot Learners"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:benchmark"
+      ],
+      "firstMentioned": "2026-02-20",
+      "lastMentioned": "2026-02-20",
+      "categoryGuess": "concept",
+      "priority": 3,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22293,7 +23511,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22321,8 +23539,9 @@
         "gemma-4",
         "gpt-oss",
         "license",
+        "local-llm",
         "open-source",
-        "qwen-3.5",
+        "qwen",
         "weight"
       ],
       "sourceTitles": [
@@ -22347,7 +23566,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22401,7 +23620,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22452,7 +23671,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22507,7 +23726,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22561,7 +23780,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22612,7 +23831,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22667,7 +23886,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22726,7 +23945,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22780,7 +23999,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22947,7 +24166,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23001,7 +24220,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23052,7 +24271,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23106,7 +24325,86 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Team",
+      "slug": "team",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": 3,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23159,7 +24457,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23214,7 +24512,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23434,7 +24732,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23485,7 +24783,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23539,7 +24837,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23593,7 +24891,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23713,7 +25011,73 @@
       "priority": 0,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "REST",
+      "slug": "rest",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "bentoml",
+        "gemini-api"
+      ],
+      "knownTermHints": [
+        "anthropic-api",
+        "api",
+        "application",
+        "bentoml",
+        "chatgpt",
+        "deployment",
+        "gemini",
+        "gemini-api"
+      ],
+      "sourceTitles": [
+        "BentoML(벤토엠엘)",
+        "Gemini API(제미니 API)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/bentoml/BentoML",
+          "title": "bentoml/BentoML"
+        },
+        {
+          "url": "https://www.bentoml.com/",
+          "title": "Bento: Run Inference at Scale"
+        },
+        {
+          "url": "https://ai.google.dev/gemini-api/docs",
+          "title": "Gemini API &nbsp;|&nbsp; Google AI for Developers"
+        },
+        {
+          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "title": "মডেল &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:bentoml",
+        "wiki:gemini-api"
+      ],
+      "firstMentioned": "2026-03-23",
+      "lastMentioned": "2026-04-14",
+      "categoryGuess": "concept",
+      "priority": 0,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23779,7 +25143,7 @@
       "priority": 0,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23835,7 +25199,7 @@
       "priority": -3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23891,7 +25255,7 @@
       "priority": -3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23943,7 +25307,7 @@
       "priority": -3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24025,7 +25389,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-19",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24098,7 +25462,63 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "ai-tools",
+      "slug": "ai-tools",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "tag"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-25-2-chatgpt-for-clinicians",
+        "2026-04-25-5-gemini-spring-cleaning-tips"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "chatgpt",
+        "gemini",
+        "google",
+        "healthcare",
+        "openai",
+        "productivity"
+      ],
+      "sourceTitles": [
+        "Google, Gemini로 봄맞이 정리 8가지 방법 공개",
+        "OpenAI, 미국 의사 대상 ChatGPT For Clinicians 무료 공개"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://openai.com/index/making-chatgpt-better-for-clinicians/",
+          "title": "OpenAI Blog"
+        },
+        {
+          "url": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/",
+          "title": "Google Blog"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-25-2-chatgpt-for-clinicians",
+        "news:2026-04-25-5-gemini-spring-cleaning-tips"
+      ],
+      "firstMentioned": "2026-04-25T09:10:00+09:00",
+      "lastMentioned": "2026-04-25T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": -4,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24171,7 +25591,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24231,7 +25651,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24301,7 +25721,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24364,7 +25784,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24429,7 +25849,69 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "ADR",
+      "slug": "adr",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "chroma"
+      ],
+      "knownTermHints": [
+        "chroma",
+        "pinecone",
+        "qdrant",
+        "rag",
+        "retrieval",
+        "vector-db",
+        "weaviate"
+      ],
+      "sourceTitles": [
+        "Chroma(크로마)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/chroma-core/chroma",
+          "title": "chroma-core/chroma"
+        },
+        {
+          "url": "https://docs.trychroma.com/",
+          "title": "Introduction - Chroma Docs"
+        },
+        {
+          "url": "https://docs.langchain.com/oss/python/integrations/vectorstores/chroma",
+          "title": "Chroma integration - Docs by LangChain"
+        },
+        {
+          "url": "https://qdrant.tech/",
+          "title": "Qdrant - Vector Search Engine"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:chroma"
+      ],
+      "firstMentioned": "2026-04-09",
+      "lastMentioned": "2026-04-09",
+      "categoryGuess": "concept",
+      "priority": -9,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24482,7 +25964,69 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "FAQ",
+      "slug": "faq",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "chroma"
+      ],
+      "knownTermHints": [
+        "chroma",
+        "pinecone",
+        "qdrant",
+        "rag",
+        "retrieval",
+        "vector-db",
+        "weaviate"
+      ],
+      "sourceTitles": [
+        "Chroma(크로마)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/chroma-core/chroma",
+          "title": "chroma-core/chroma"
+        },
+        {
+          "url": "https://docs.trychroma.com/",
+          "title": "Introduction - Chroma Docs"
+        },
+        {
+          "url": "https://docs.langchain.com/oss/python/integrations/vectorstores/chroma",
+          "title": "Chroma integration - Docs by LangChain"
+        },
+        {
+          "url": "https://qdrant.tech/",
+          "title": "Qdrant - Vector Search Engine"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:chroma"
+      ],
+      "firstMentioned": "2026-04-09",
+      "lastMentioned": "2026-04-09",
+      "categoryGuess": "concept",
+      "priority": -9,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24541,7 +26085,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24595,7 +26139,86 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "MAF",
+      "slug": "maf",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "autogen"
+      ],
+      "knownTermHints": [
+        "agentic-ai",
+        "agents",
+        "autogen",
+        "langchain",
+        "llamaindex",
+        "multi-agent",
+        "rag",
+        "runtime"
+      ],
+      "sourceTitles": [
+        "AutoGen(오토젠)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://github.com/microsoft/autogen",
+          "title": "microsoft/autogen README"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:autogen"
+      ],
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
+      "categoryGuess": "concept",
+      "priority": -9,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24649,7 +26272,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24702,7 +26325,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24752,7 +26375,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24811,7 +26434,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24840,6 +26463,8 @@
         "autogen",
         "langchain",
         "llamaindex",
+        "rag",
+        "runtime",
         "tool-use"
       ],
       "sourceTitles": [
@@ -24848,23 +26473,47 @@
       "sourceUrls": [
         {
           "url": "https://github.com/microsoft/autogen",
-          "title": "microsoft/autogen"
+          "title": "microsoft/autogen README"
         },
         {
-          "url": "https://microsoft.github.io/autogen/stable/",
-          "title": "AutoGen &#8212; AutoGen"
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html",
+          "title": "AgentChat - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html",
+          "title": "Teams - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/termination.html",
+          "title": "Termination - AutoGen"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html",
+          "title": "Installation - AutoGen Studio"
+        },
+        {
+          "url": "https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/index.html",
+          "title": "AutoGen Studio - AutoGen"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+          "title": "MAF overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+          "title": "AutoGen migration guide to MAF"
         }
       ],
       "sampleRefs": [
         "wiki:autogen"
       ],
-      "firstMentioned": "2026-04-14",
-      "lastMentioned": "2026-04-14",
+      "firstMentioned": "2026-04-25",
+      "lastMentioned": "2026-04-25",
       "categoryGuess": "concept",
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24919,62 +26568,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "REST",
-      "slug": "rest",
-      "occurrences": 1,
-      "distinctSourceCount": 1,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "wiki"
-      ],
-      "newsSourceSlugs": [],
-      "wikiSourceTerms": [
-        "gemini-api"
-      ],
-      "knownTermHints": [
-        "anthropic-api",
-        "api",
-        "application",
-        "chatgpt",
-        "gemini",
-        "gemini-api",
-        "google",
-        "openai-api"
-      ],
-      "sourceTitles": [
-        "Gemini API(제미니 API)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://ai.google.dev/gemini-api/docs",
-          "title": "Gemini API &nbsp;|&nbsp; Google AI for Developers"
-        },
-        {
-          "url": "https://ai.google.dev/gemini-api/docs/models",
-          "title": "মডেল &nbsp;|&nbsp; Gemini API &nbsp;|&nbsp; Google AI for Developers"
-        }
-      ],
-      "sampleRefs": [
-        "wiki:gemini-api"
-      ],
-      "firstMentioned": "2026-03-23",
-      "lastMentioned": "2026-03-23",
-      "categoryGuess": "concept",
-      "priority": -9,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25027,7 +26621,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25081,7 +26675,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25134,7 +26728,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25188,7 +26782,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25247,7 +26841,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25298,7 +26892,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25352,7 +26946,62 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "ZIP",
+      "slug": "zip",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "wiki"
+      ],
+      "newsSourceSlugs": [],
+      "wikiSourceTerms": [
+        "apache"
+      ],
+      "knownTermHints": [
+        "apache",
+        "gemma-4",
+        "gpt-oss",
+        "license",
+        "local-llm",
+        "open-source",
+        "qwen",
+        "weight"
+      ],
+      "sourceTitles": [
+        "Apache 2.0(아파치 2.0 라이선스)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.apache.org/licenses/LICENSE-2.0",
+          "title": "Apache License, Version 2.0"
+        },
+        {
+          "url": "https://www.apache.org/legal/apply-license",
+          "title": "Applying the Apache License, Version 2.0"
+        }
+      ],
+      "sampleRefs": [
+        "wiki:apache"
+      ],
+      "firstMentioned": "2026-03-16",
+      "lastMentioned": "2026-03-16",
+      "categoryGuess": "concept",
+      "priority": -9,
+      "status": "pending",
+      "firstSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25403,7 +27052,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25451,7 +27100,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25498,7 +27147,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25552,7 +27201,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25603,7 +27252,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25657,7 +27306,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25703,7 +27352,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25754,7 +27403,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25804,7 +27453,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25853,7 +27502,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25907,7 +27556,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25970,7 +27619,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26025,7 +27674,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26071,7 +27720,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26125,7 +27774,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26184,7 +27833,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26235,7 +27884,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26290,7 +27939,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26345,7 +27994,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26399,7 +28048,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26454,7 +28103,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26513,7 +28162,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26564,7 +28213,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26615,7 +28264,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26662,7 +28311,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26718,7 +28367,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26769,7 +28418,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26824,7 +28473,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26883,7 +28532,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26929,7 +28578,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-24",
+      "lastSeenAt": "2026-04-25",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,

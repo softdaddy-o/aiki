@@ -63,10 +63,11 @@ tags:
   - reinforcement-learning
 guideVersion:
   tone: "2.0.0"
-  common: "2.2.0"
-  news: "3.1.1"
+  common: "2.3.0"
+  news: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
@@ -75,13 +76,12 @@ reviewStamp:
     structure-editor: "1.1.0"
   guideVersions:
     tone: "2.0.0"
-    common: "2.2.0"
-    news: "3.1.1"
+    common: "2.3.0"
+    news: "3.1.2"
   panelVerdict: pass
-  contentHash: "2a8973994494e471"
-  reviewedAt: "2026-04-24"
+  contentHash: "9047c5ecd3cc72b2"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 사건 설명
 
 2016년 3월 9일부터 15일까지 서울에서 열린 이세돌 9단과 AlphaGo의 5번기에서 AlphaGo가 4대1로 이겼어. 1·2·3·5국은 AlphaGo, 4국은 이세돌이 가져갔지. 핵심은 추상적인 AI 선언이 아니라, 규칙이 닫힌 바둑에서 학습 기반 시스템이 최고 수준 기사에게 실제로 이겼다는 데 있어.
