@@ -5,9 +5,6 @@ lang: ko
 summary: "LLM은 엄청 많은 텍스트를 학습해서 다음 단어를 예측하는 방식으로 작동하는 거대 언어 모델이야. 채팅, 요약, 번역, 코드 생성 같은 작업이 여기서 나와."
 readerValue: "LLM을 제품 이름으로만 보지 않고, 채팅 앱과 검색 보조, 코딩 도구 아래에 깔린 공통 모델 계층으로 보면 기사 해석이 훨씬 쉬워져."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "large language model"
 relatedTerms:
@@ -60,8 +57,27 @@ factCheck:
         - "그래서 말이 자연스럽다고 해서 항상 사실 판단이나 계산이 정확한 건 아니야."
       findings:
         - "LLM을 이해할 때는 앱보다 모델, 정답보다 확률적 생성이라는 축을 먼저 잡는 게 중요해."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "9f932a233b3515b0"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 LLM은 아주 많은 텍스트를 학습해서 다음 단어나 토큰을 예측하는 방식으로 문장을 이해하고 만들어 내는 모델이야. 쉽게 말해 사람이 쓴 언어 패턴을 엄청 많이 익혀서, 이어질 말을 그럴듯하게 만들어 내는 거대 언어 모델이라고 보면 돼.

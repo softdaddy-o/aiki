@@ -5,9 +5,6 @@ lang: ko
 summary: 'Memory는 에이전트가 이전 대화, 선호, 작업 결과를 저장했다가 다음 행동에 다시 쓰는 기억 구조야.'
 readerValue: 'memory가 나오면 긴 문맥 얘기인지, 저장하고 다시 꺼내 쓰는 운영 설계인지 구분하는 데 도움 돼.'
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - agent memory
   - ai memory
@@ -63,6 +60,26 @@ factCheck:
       findings:
         - 'memory라는 단어가 너무 넓어서 기사마다 저장소, 회수, 개인화가 뒤섞여 보이기 쉬워.'
         - 제품 홍보 문구만 보면 기억력 향상처럼 들리지만 실제론 설계와 운영 책임 문제가 더 커.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "06249327375565e9"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Memory는 에이전트가 이전 대화, 사용자 선호, 작업 결과를 저장했다가 필요할 때 다시 꺼내 쓰는 기억 구조야. 그냥 입력창에 긴 문장을 더 붙이는 게 아니라 다음 판단에 쓸 정보를 별도 저장소에 남겨 두는 방식이라고 보면 돼.

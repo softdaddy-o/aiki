@@ -5,9 +5,6 @@ lang: ko
 summary: LM Studio는 PC에서 로컬 LLM을 내려받아 실행하고 API처럼 열어 볼 수 있게 해 주는 데스크톱 앱이야.
 readerValue: LM Studio가 나오면 모델 자체보다 로컬 실행 환경과 테스트 워크벤치 얘기라는 걸 빨리 잡는 데 도움 돼.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - LM Studio(엘엠 스튜디오)
 relatedTerms:
@@ -60,6 +57,26 @@ factCheck:
       findings:
         - 로컬 앱 소개를 보면 모델 품질과 실행 환경이 한 덩어리처럼 보이기 쉬워.
         - 실제로는 앱보다 포맷 호환성과 장비 스펙이 체감 차이를 크게 만든다.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "22ff99eae09b6a90"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 LM Studio는 [로컬](/ko/wiki/local-llm/) AI 모델을 컴퓨터에 내려받아 직접 실행하게 해 주는 데스크톱 도구야. 모델 자체라기보다 [로컬](/ko/wiki/local-llm/) 모델 사용 경험을 묶어서 제공하는 실행 환경이자 관리 앱이라고 보면 돼.

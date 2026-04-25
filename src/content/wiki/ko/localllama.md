@@ -9,9 +9,6 @@ readerValue: >-
   LocalLLaMA를 알면 기사나 대화에서 이게 제품 이름인지 커뮤니티 신호인지 바로 구분할 수 있어. 로컬 AI 쪽 실사용자 분위기와 추천
   흐름을 읽을 때 특히 도움돼.
 category: tool
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - r/localllama
   - local llama
@@ -77,6 +74,26 @@ factCheck:
         - '또 커뮤니티 신호와 공식 지원 범위를 혼동하지 않게, 참고 용도라는 느낌을 남겼어.'
       findings:
         - 생생한 후기와 검증된 요구사항을 분리해서 읽게 만들었어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "7fafbfd14152289f"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 LocalLLaMA는 Reddit의 `r/LocalLLaMA`를 중심으로 형성된 [로컬 LLM](/ko/wiki/local-llm/) 커뮤니티 이름이야. 모델 자체나 프레임워크 이름이라기보다, 어떤 모델이 어떤 하드웨어에서 잘 돌아가는지 경험담과 추천이 모이는 장소라고 보면 돼.

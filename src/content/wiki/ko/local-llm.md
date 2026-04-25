@@ -5,9 +5,6 @@ lang: ko
 summary: "Local LLM은 모델을 클라우드 API 대신 내 PC나 서버에서 직접 돌리는 방식을 말해. 보통 오픈 웨이트 모델을 내려받아 Ollama, LM Studio, llama.cpp 같은 도구로 실행하는 흐름이 여기에 들어가."
 readerValue: "로컬 LLM을 제품 이름이 아니라 배포 방식으로 보면, 기사에서 프라이버시 이야기인지 비용 절감 이야기인지, 아니면 취미용 셋업 이야기인지 구분하기 쉬워져."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "local llm"
   - "local llms"
@@ -66,8 +63,27 @@ factCheck:
         - "또 로컬 실행이 곧 완전한 프라이버시 보장을 뜻하는 것도 아니고, 주변 도구와 로그 설정까지 같이 봐야 해."
       findings:
         - "local LLM의 핵심은 모델 능력보다 실행 위치와 통제권의 이동에 있어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "3c3ca1bc5629ab70"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 Local LLM은 거대 언어 모델을 클라우드 API 대신 내 컴퓨터나 내 서버에서 직접 돌리는 방식을 말해. 쉽게 말해 모델을 남의 서버에 보내서 쓰는 게 아니라, 내가 가진 장비 안에서 실행하는 형태라고 보면 돼.

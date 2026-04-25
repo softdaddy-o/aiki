@@ -7,9 +7,6 @@ summary: >-
   최대 길이 숫자만 보지 말고, 그 긴 정보를 실제로 끝까지 써먹는지도 같이 봐야 해.
 readerValue: 'Long Context가 숫자 자랑인지, 아니면 긴 문서나 큰 코드베이스 작업에 진짜 도움되는 주장인지 빨리 가를 수 있어.'
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - long context
 relatedTerms:
@@ -69,6 +66,26 @@ factCheck:
         - 큰 context window가 곧 고품질 추론이라는 식의 과장을 피했어.
       findings:
         - 긴 문맥 소개는 검색 보강이나 압축 전략을 숨기고 말할 수 있어서 숫자만 보면 해석이 틀어질 수 있어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "fe9eb79eba577636"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Long Context는 긴 문서, 여러 파일, 긴 대화를 한 요청 안에 같이 올려 두고 처리하는 능력이야. 다만 많이 넣을 수 있다는 뜻이지, 모든 구간을 똑같이 잘 이해한다는 뜻은 아니야.

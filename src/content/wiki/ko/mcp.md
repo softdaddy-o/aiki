@@ -5,9 +5,6 @@ lang: ko
 summary: "MCP는 AI 앱이 파일, 데이터베이스, 검색, 실행 도구 같은 바깥 자원을 같은 규격으로 연결하게 하려는 프로토콜이야. 모델 성능을 높이는 기술이라기보다 연결 방식을 표준화하는 쪽에 가까워."
 readerValue: "MCP를 모델 기능이 아니라 도구 연결 표준으로 보면 기사에서 무엇이 바뀌는지 훨씬 정확하게 읽을 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "model context protocol"
 relatedTerms:
@@ -60,8 +57,27 @@ factCheck:
         - "도구 호출 형식과 겹치는 부분은 있어도, MCP는 도구를 발견하고 연결하는 더 넓은 계약이라는 점이 달라."
       findings:
         - "MCP의 핵심은 모델 성능이 아니라, 도구 연결을 같은 방식으로 다루게 만드는 데 있어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "9deeec9feb981218"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
-
 ## 한 줄 정의
 
 MCP는 AI 앱이 바깥 도구나 데이터에 붙을 때 공통 규격을 쓰게 만드는 프로토콜이야. 쉽게 말해 모델이 파일, 검색, 데이터베이스, 코드 실행 같은 외부 자원을 만나는 방식을 표준화하려는 약속이라고 보면 돼.
