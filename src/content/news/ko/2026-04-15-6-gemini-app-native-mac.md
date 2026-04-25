@@ -58,11 +58,11 @@ factCheck:
         - "화면 공유·데이터 전송 범위 세부 공개는 제한적 — 엔터프라이즈 환경에선 정책 확인 필요"
         - "ChatGPT 데스크톱 앱과 기능 차별점이 크지 않음 — 기존 유저의 전환 유인은 Google 생태계 연결"
 tags: ["google", "gemini", "macos", "desktop-app", "productivity"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -76,7 +76,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "2d5b7db36a1c59ba"
+  contentHash: "a0fec87e1397bd63"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

@@ -54,11 +54,11 @@ factCheck:
         - "93% 정확도는 DeepMind 내부 테스트 결과이며 독립 재현 데이터 없음"
         - "Spot 로봇 실배포 고객 수와 현장 규모가 구체적으로 미공개"
 tags: ["google-deepmind", "robotics", "gemini", "boston-dynamics", "embodied-reasoning"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "945d345058b008ec"
+  contentHash: "d7536a2457079873"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

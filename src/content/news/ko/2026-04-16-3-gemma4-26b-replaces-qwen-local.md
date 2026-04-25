@@ -54,11 +54,11 @@ factCheck:
         - "AIME 2026과 AIME 2025는 다른 문제셋이라 Gemma 88.3% vs Qwen 49% 직접 비교에 한계 있음"
         - "커뮤니티에서 큰 호응을 얻은 사용자 보고이지만 개인 경험 기반"
 tags: ["gemma", "local-llm", "qwen", "mixture-of-experts", "benchmark"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "22c2d467716726db"
+  contentHash: "2920bb8b93a02148"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

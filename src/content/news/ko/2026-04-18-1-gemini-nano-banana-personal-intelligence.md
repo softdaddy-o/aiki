@@ -56,11 +56,11 @@ factCheck:
         - "프라이버시 주장은 Google 자체 선언이라 독립 검증 필요"
         - "Personal Intelligence가 어떤 개인 데이터까지 읽는지(검색 기록, 지메일 등) 공개 범위 불명확"
 tags: ["google", "gemini", "nano-banana", "image-generation", "personal-intelligence"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -74,7 +74,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "88eca15df78b1008"
+  contentHash: "6b3d5beba689d3aa"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

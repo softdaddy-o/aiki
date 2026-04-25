@@ -50,11 +50,11 @@ factCheck:
         - "544석(OpenAI)은 Regent Quarter (Regent's Place 인근 별개 건물, 같은 Knowledge Quarter) — Endurance Land 확인"
       findings: []
 tags: ["anthropic", "london", "expansion", "openai", "uk"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -68,7 +68,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "d61c942b76a6dd16"
+  contentHash: "36a82e51a956af3a"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

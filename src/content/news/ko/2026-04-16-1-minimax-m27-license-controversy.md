@@ -54,11 +54,11 @@ factCheck:
         - "MiniMax가 라이선스를 변경한 구체적 사유를 공개하지 않았음"
         - "파인튜닝 파생물과 생성 결과물에 대한 상업적 제한 범위가 불명확"
 tags: ["minimax", "open-source", "license", "m2.7", "mixture-of-experts"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "26c24d380fa24b89"
+  contentHash: "b8e4b31bff0b2a3f"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

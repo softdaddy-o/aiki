@@ -51,11 +51,11 @@ factCheck:
       findings:
         - "Bloomberg 보도는 이메일 내용 기반이나 이메일 원문은 공개되지 않음 — 단일 출처 주의"
 tags: ["anthropic", "mythos", "us-government", "cybersecurity", "federal"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -69,7 +69,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "110e063ce8b476dc"
+  contentHash: "9cb18431c12d6cc9"
   reviewedAt: "2026-04-25T09:56:00Z"
 ---
 ## 무슨 일이 있었나

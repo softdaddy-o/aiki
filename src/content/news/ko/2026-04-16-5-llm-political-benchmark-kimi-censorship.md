@@ -52,11 +52,11 @@ factCheck:
         - "피어 리뷰되지 않은 개인 벤치마크이며, 질문 설계 방법론의 객관성 검증 안 됨"
         - "arXiv 대만 논문은 Kimi K2.5 대상이고, Reddit 벤치마크는 KIMI K2 ���상 — 버전 차이 있음"
 tags: ["llm-benchmark", "censorship", "kimi-k2", "political-bias", "gpt-5.3"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -70,7 +70,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "7cb10ee39bbacee8"
+  contentHash: "d9645c2811ef29cd"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나

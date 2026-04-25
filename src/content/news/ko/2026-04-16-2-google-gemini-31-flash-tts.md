@@ -54,11 +54,11 @@ factCheck:
         - "리더보드 2위이며, 1위 Inworld TTS 1.5 Max와 Elo 차이가 4점으로 근소함"
         - "API 가격이 미공개라 ElevenLabs 대비 비용 비교가 아직 불가능"
 tags: ["google", "gemini", "text-to-speech", "audio-tags"]
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -72,7 +72,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "ab6827c8613e588d"
+  contentHash: "c26a5ae0f419abf8"
   reviewedAt: "2026-04-25T09:55:59Z"
 ---
 ## 무슨 일이 있었나
