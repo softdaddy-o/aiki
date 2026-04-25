@@ -55,11 +55,11 @@ tags:
   - speech-to-text
   - vllm
   - qwen
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -73,7 +73,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "c6e5a8e6b976c39a"
+  contentHash: "f8fad90120011434"
   reviewedAt: "2026-04-25T09:55:58Z"
 ---
 ## 무슨 일이 있었나
