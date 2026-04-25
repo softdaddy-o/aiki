@@ -55,11 +55,11 @@ tags:
   - long-context
   - claude
   - openai
+formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
-formatVersion: 2
 reviewStamp:
   panelVersion: 1.0.0
   agentVersions:
@@ -73,7 +73,7 @@ reviewStamp:
     common: "2.3.0"
     news: "3.1.2"
   panelVerdict: pass
-  contentHash: "9a9807c48c6ff73a"
+  contentHash: "6b153161cdb42621"
   reviewedAt: "2026-04-25T09:55:58Z"
 ---
 ## 무슨 일이 있었나
