@@ -9,9 +9,6 @@ readerValue: >-
   Grounding을 알면 모델이 똑똑한 건지, 검색과 근거 붙이기가 잘 된 건지 구분하는 데 도움돼. 최신 정보나 사내 문서를 다루는 제품을
   볼 때 특히 유용해.
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - retrieval grounding
 relatedTerms:
@@ -77,6 +74,26 @@ factCheck:
         - 또 모델 자체가 좋아진 것과 검색층이 좋아진 걸 헷갈리기 쉬워서 둘을 구분해 적었어.
       findings:
         - 근거 기반 답변과 진실 보증을 같은 말로 읽지 않게 막았어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "ebb46bb600388f87"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Grounding은 모델이 허공에서 답을 짓지 않게, 검색 결과나 데이터베이스, 문서 같은 외부 근거에 답변을 연결하는 방식이야. 쉽게 말하면 모델 자체를 다시 훈련하는 게 아니라, 답변 직전에 발밑에 근거를 깔아 주는 절차라고 보면 돼.

@@ -7,9 +7,6 @@ summary: >-
   검사, 정책 검증, 모니터링을 묶는 층으로 보는 편이 맞아.
 readerValue: 'Guardrail을 알면 성능 향상 얘기와 안전 운영 얘기를 섞지 않고, 어디에 필터와 검증이 들어가는지 바로 파악할 수 있어.'
 category: technique
-guideVersion:
-  common: 1.0.0
-  wiki: 2.0.0
 aliases:
   - guardrails
 relatedTerms:
@@ -72,6 +69,26 @@ factCheck:
         - 안전 규칙이 고정값이 아니라 지속적으로 조정되는 운영 대상이라는 점도 남겼어.
       findings:
         - 만능 필터처럼 읽는 오해를 빼야 실제 운영 감각이 살아났어.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "09758086ffa84ab2"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Guardrail은 AI 시스템이 정해 둔 안전 경계 안에서 움직이게 만드는 보호 장치야. 모델이 똑똑한지와는 다른 문제고, 입력 차단과 출력 검사 같은 운영 규칙 묶음을 가리키는 말에 더 가까워.

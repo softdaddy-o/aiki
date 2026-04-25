@@ -5,9 +5,6 @@ lang: ko
 summary: "Hallucination은 AI가 근거 없거나 틀린 내용을 사실처럼 만들어 내는 현상을 말해. 핵심은 단순한 오답이 아니라, 틀린데도 그럴듯하게 말한다는 데 있어."
 readerValue: "이 개념을 알고 있으면 모델이 더 똑똑해졌다는 말과, 오류 위험이 줄었다는 말을 구분해서 볼 수 있어. Hallucination 대응은 보통 성능 과시보다 안전 장치와 검증 비용의 문제에 더 가깝다."
 category: concept
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "ai hallucination"
   - "AI hallucination"
@@ -64,6 +61,26 @@ factCheck:
       findings:
         - "'정확도 상승 기사면 hallucination도 자동으로 해결됐다'는 오해 가능성을 점검했지만 본문에서 분리해서 막았어."
         - "'환각은 최신 모델에서는 거의 사라졌다'는 과신을 부를 표현이 없는지 확인했고, 완전 제거 표현은 쓰지 않았어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "40cd6c6dcd6715ca"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Hallucination은 AI가 실제 근거가 없거나 사실과 다른 내용을 마치 맞는 말처럼 내놓는 현상이야. 사람이 질문을 들으면 모르면 멈추거나 확인할 수 있지만, 생성형 모델은 종종 가장 그럴듯한 문장을 이어 쓰려 해서 없는 출처, 잘못된 숫자, 존재하지 않는 기능 설명까지 만들어 낼 수 있어.

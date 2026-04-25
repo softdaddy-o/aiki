@@ -9,9 +9,6 @@ readerValue: >-
   이 말을 보면 그냥 텍스트 에디터 이야기인지, 큰 프로젝트를 다루는 작업 허브 이야기인지 바로 가를 수 있어. AI 보조 기능이 붙어도
   본체는 개발 흐름을 묶는 도구라는 점을 잡게 해.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: "3.0.0"
 aliases:
   - IDE
   - Integrated Development Environment
@@ -74,16 +71,26 @@ factCheck:
       findings:
         - IDE의 핵심은 편집기 그 자체보다 실행과 디버깅을 끊기지 않게 묶는 데 있어.
         - AI 보조 흐름은 일부 제품 사례로 보는 편이 현재 소스 범위와 맞아.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "7ad0c72e0f484971"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 IDE는 코드만 적는 창이 아니라, 실행, 디버깅, 테스트, 프로젝트 탐색을 한곳에 묶은 개발 작업 공간이야. 파일 한두 개만 고칠 땐 과해 보일 수 있지만, 프로젝트 규모가 커질수록 왜 편집기와 따로 부르는지 금방 느껴져.

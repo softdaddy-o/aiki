@@ -9,9 +9,6 @@ readerValue: >-
   GPT가 새 앱 이름이 아니라 모델 계열 이름이라는 걸 먼저 잡게 해. 기사에서 구조 얘기인지, ChatGPT 같은 서비스 얘기인지 헷갈릴
   때 특히 도움 돼.
 category: concept
-guideVersion:
-  common: 1.0.0
-  wiki: "3.0.0"
 aliases:
   - GPT
   - Generative Pre-trained Transformer
@@ -82,16 +79,26 @@ factCheck:
       findings:
         - 'GPT라는 이름만 보고 서비스, 회사, 모델 구조를 한꺼번에 뜻한다고 읽으면 거의 항상 문맥이 흐려져.'
         - 최근 제품 문맥이 넓어졌어도 기본 정의는 모델 계열 이름으로 잡는 편이 맞아.
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
 reviewStamp:
-  panelVersion: "1.0.0"
+  panelVersion: 1.0.0
   agentVersions:
     beginner-editor: "1.0.0"
     fact-checker: "1.0.0"
-    skeptical-critic: "1.0.0"
-    tone-editor: "1.0.0"
-    structure-editor: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
   panelVerdict: pass
-  reviewedAt: "2026-04-17"
+  contentHash: "6e9cf2aa13c18a56"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 GPT는 [OpenAI](/ko/wiki/openai/)가 붙인 Generative Pre-trained [Transformer](/ko/wiki/transformer/) 계열 이름이야. 서비스 이름이라기보다, 큰 텍스트로 먼저 배우고 다음 토큰을 예측하는 디코더형 [transformer](/ko/wiki/transformer/) 모델 묶음을 가리키는 말에 더 가까워.

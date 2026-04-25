@@ -5,9 +5,6 @@ lang: ko
 summary: "Gradio (그라디오)는 파이썬 함수나 머신러닝 모델을 바로 만져보는 웹 UI로 바꿔 주는 프레임워크야."
 readerValue: "Gradio가 그냥 예쁜 데모 툴인지, 아니면 모델 검증과 공유 흐름을 빠르게 붙이는 도구인지 구분해서 볼 수 있어."
 category: framework
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Gradio (그라디오)"
 relatedTerms:
@@ -61,6 +58,26 @@ factCheck:
         - "웹 UI를 만든다는 말만 보고 Django나 Next.js 같은 범용 웹 프레임워크와 같은 층위로 놓으면 맥락이 틀어져."
       findings:
         - "Gradio는 모델 경험을 보여 주는 앞단 도구라는 점을 분리해서 남겼어."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "271231e740b35472"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Gradio는 파이썬 함수나 머신러닝 모델을 바로 만져보는 웹 UI로 바꿔 주는 프레임워크야. 모델이나 함수를 브라우저에서 눌러 보게 만들어서, 결과를 말로 설명하는 대신 직접 체험하게 해.

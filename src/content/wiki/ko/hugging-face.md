@@ -5,9 +5,6 @@ lang: ko
 summary: "Hugging Face는 모델 저장소, 배포 경로, 라이브러리, 커뮤니티가 한데 묶인 생태계에 가까워. 그래서 모델 하나의 이름으로 읽기보다, 팀이 모델을 찾고 공유하고 배포하는 기반으로 보는 편이 맞아."
 readerValue: "이 이름이 단순 모델 사이트인지, 아니면 팀의 개발 흐름과 배포 방식까지 바꾸는 기반인지 구분하게 해줘."
 category: tool
-guideVersion:
-  common: "1.0.0"
-  wiki: "2.0.0"
 aliases:
   - "Hugging Face(허깅 페이스)"
 relatedTerms:
@@ -57,6 +54,26 @@ factCheck:
       findings:
         - "Hugging Face는 회사 이름이면서 동시에 플랫폼과 도구 체계를 가리켜서 층위를 섞기 쉬워."
         - "커뮤니티 성격만 강조하면 실제 배포와 유통 기능을 놓치고, 허브만 강조하면 협업 맥락을 놓치기 쉬워."
+guideVersion:
+  tone: "2.0.0"
+  common: "2.3.0"
+  wiki: "3.1.2"
+formatVersion: 2
+reviewStamp:
+  panelVersion: 1.0.0
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    wiki: "3.1.2"
+  panelVerdict: pass
+  contentHash: "e40c5bd00c5d5b80"
+  reviewedAt: "2026-04-25T09:55:57Z"
 ---
 ## 한 줄 정의
 Hugging Face는 오픈소스 머신러닝 모델과 데이터셋을 올리고, 찾아 쓰고, 공유하고, 배포하는 플랫폼이야. 그냥 모델 하나를 제공하는 서비스라기보다 허브와 라이브러리, 커뮤니티가 같이 움직이는 생태계에 더 가까워.
