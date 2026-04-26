@@ -213,7 +213,7 @@ const ALL_RULES = [
         desc: '기사/포스트에 구체적 수치가 부족',
         platforms: ['blog', 'short'],
         check(body, sentences, profile) {
-            const numbers = body.match(/\d[\d,.]*\s*(?:%|퍼센트|달러|원|건|개|명|배|GW|GB|TB|년|월|일|시간|분|억)/g);
+            const numbers = body.match(/\d[\d,.]*\s*(?:%|퍼센트|달러|원|건|개|명|배|점|k|K|GW|GB|TB|년|월|일|시간|분|억)/g);
             const count = numbers ? numbers.length : 0;
             const minNumbers = profile.minNumbers || 2;
             if (count < minNumbers) {

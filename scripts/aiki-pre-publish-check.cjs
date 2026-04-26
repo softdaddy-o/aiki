@@ -119,6 +119,9 @@ const HONORIFIC_WIKI_PATTERNS = [
     /하셔야/u,
 ];
 
+const FORMAL_REPORT_ENDING_PATTERN = /[가-힣](?:다|니다)\s*[.!?]?\s*$/u;
+const FRONTMATTER_TONE_SKIP_PATH_PATTERN = /(?:^|\.)(?:url|date|lang|draft|score|sourceCount|formatVersion|guideVersion|status|result|type|category)$/i;
+
 const VERSION_MODEL_CONTRADICTION_PATTERNS = [
     /여러 버전을 묶어 부르는 상위 계열명/u,
     /개별 버전 대신 묶음 이름/u,
@@ -305,6 +308,58 @@ function containsHonorificTone(text) {
 
 function containsHonorificWikiTone(text) {
     return containsHonorificTone(text);
+}
+
+function getFormalFrontmatterEndingExamples(text) {
+    const sentences = splitToneSentences(text);
+    const candidates = sentences.length > 0
+        ? sentences
+        : String(text || '').split(/\n+/).map((entry) => entry.trim()).filter(Boolean);
+
+    return candidates
+        .filter((sentence) => FORMAL_REPORT_ENDING_PATTERN.test(sentence.trim()))
+        .map((sentence) => sentence.trim())
+        .slice(0, 3);
+}
+
+function collectFrontmatterToneEntries(value, prefix = 'frontmatter') {
+    if (typeof value === 'string') {
+        if (FRONTMATTER_TONE_SKIP_PATH_PATTERN.test(prefix)) {
+            return [];
+        }
+
+        return [{ path: prefix, value }];
+    }
+
+    if (Array.isArray(value)) {
+        return value.flatMap((item, index) => collectFrontmatterToneEntries(item, `${prefix}[${index}]`));
+    }
+
+    if (value && typeof value === 'object') {
+        return Object.entries(value).flatMap(([key, child]) => collectFrontmatterToneEntries(child, `${prefix}.${key}`));
+    }
+
+    return [];
+}
+
+function validateFrontmatterTone(targetName, frontmatter) {
+    const examples = [];
+
+    for (const entry of collectFrontmatterToneEntries(frontmatter)) {
+        const fieldExamples = getFormalFrontmatterEndingExamples(entry.value);
+        for (const example of fieldExamples) {
+            examples.push(`${entry.path}: ${example}`);
+        }
+    }
+
+    if (examples.length === 0) {
+        return [];
+    }
+
+    return [{
+        rule: `${targetName}-frontmatter-tone`,
+        message: `frontmatter copy uses formal report-tone sentence endings; rewrite visible frontmatter copy with the current AIKI tone guide (${examples.slice(0, 3).join(' / ')})`,
+    }];
 }
 
 function validateProjectTone(frontmatter, body, showcaseText = '') {
@@ -788,6 +843,12 @@ function collectFileFindings(filepath, contentType) {
         push('fail', 'forbidden-persona-name', 'content copy mentions the internal reader persona name; use generic reader phrasing instead');
     }
 
+    if (!isDraft) {
+        for (const failure of validateFrontmatterTone(targetName, fm)) {
+            push('fail', failure.rule, failure.message);
+        }
+    }
+
     if (targetName === 'news' && isRedditMediaUrl(fm.sourceUrl) && findPostByUrl(fm.sourceUrl)) {
         push('fail', 'reddit-media-source', 'reddit media URL used as sourceUrl; use the scraper postUrl instead');
     }
@@ -930,6 +991,14 @@ for (const target of CONTENT_TARGETS) {
 
         if (containsForbiddenPersonaName(renderedCopyText)) {
             errors.push(`${target.name}/${filename}: content copy mentions the internal reader persona name; use generic reader phrasing instead`);
+        }
+
+        if (!isDraft) {
+            for (const failure of validateFrontmatterTone(target.name, fm)) {
+                const message = `${target.name}/${filename}: ${failure.message}`;
+                if (checkAll) warnings.push(message);
+                else errors.push(message);
+            }
         }
 
         if (target.name === 'news' && isRedditMediaUrl(fm.sourceUrl) && findPostByUrl(fm.sourceUrl)) {

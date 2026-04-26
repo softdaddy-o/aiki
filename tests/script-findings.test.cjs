@@ -51,4 +51,14 @@ describe('script-findings', () => {
             'expected a forbidden-persona-name finding',
         );
     });
+
+    it('flags formal report tone in nested news frontmatter copy', () => {
+        const file = path.join(__dirname, 'fixtures', 'formal-news-frontmatter.md');
+        const findings = collectFindings(file, 'news');
+
+        assert.ok(
+            findings.some((finding) => finding.rule === 'news-frontmatter-tone'),
+            'expected a news-frontmatter-tone finding',
+        );
+    });
 });
