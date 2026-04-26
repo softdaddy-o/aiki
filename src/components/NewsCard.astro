@@ -130,6 +130,7 @@ const thumbSrc = fs.existsSync(externalThumbPath)
     }
     .card-copy {
         min-width: 0;
+        padding: 2px;
     }
     .card-header {
         display: flex;
@@ -180,12 +181,20 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         color: var(--color-text-muted);
     }
     .featured .card {
-        grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+        grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
         align-items: stretch;
+        gap: 30px;
         padding: 16px;
         background:
             linear-gradient(130deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46)),
             color-mix(in srgb, var(--color-aiki-blue) 8%, var(--color-surface-elevated) 92%);
+    }
+    .featured .card-media {
+        align-self: start;
+        min-height: 0;
+    }
+    .featured .card-copy {
+        padding: 10px 18px 10px 0;
     }
     .featured .card-title {
         font-size: 32px;
@@ -197,6 +206,14 @@ const thumbSrc = fs.existsSync(externalThumbPath)
     .featured .dot {
         transform: scale(1.25);
     }
+    @media (max-width: 900px) {
+        .featured .card {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        .featured .card-copy {
+            padding: 4px 6px 8px;
+        }
+    }
     @media (max-width: 640px) {
         .card {
             grid-template-columns: minmax(0, 1fr);
@@ -204,9 +221,6 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         }
         .card-media {
             min-height: 170px;
-        }
-        .featured .card {
-            grid-template-columns: minmax(0, 1fr);
         }
         .card-title {
             font-size: 19px;

@@ -629,8 +629,10 @@ const navItems = lang === 'en'
         transform: translateY(-0.5px);
     }
     main { max-width: 1000px; margin: 0 auto; padding: 42px 20px 56px; }
+    main:has(.aiki-landing) { max-width: none; padding: 34px 0 56px; }
     main:has(.project-page--showcase-native) { max-width: none; padding: 34px 0 32px; }
     @media (max-width: 900px) {
+        main:has(.aiki-landing) { padding: 24px 0 48px; }
         main:has(.project-page--showcase-native) { padding: 24px 0 32px; }
     }
     :global(.prose) {
@@ -756,8 +758,9 @@ const navItems = lang === 'en'
         .nav-links { display: none !important; }
         .lang-switch { display: none; }
         .nav-divider { display: none; }
+        .nav-social { display: none; }
         .site-nav {
-            grid-template-columns: auto minmax(0, 1fr) auto auto;
+            grid-template-columns: auto minmax(0, 1fr) auto;
             justify-content: space-between;
             margin-top: 10px;
         }

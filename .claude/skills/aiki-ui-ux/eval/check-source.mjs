@@ -221,6 +221,25 @@ function checkProjectNoProse(file, src) {
   }
 }
 
+// R13: visible UI copy must not reintroduce formal/report-tone Korean endings.
+// Project showcase copy is checked by the content pre-publish gate with project context;
+// this rule covers hardcoded page/layout/common-component copy that used to bypass tone checks.
+function checkUiFormalCopy(file, src) {
+  if (/src[\/\\]components[\/\\]projects[\/\\]showcases[\/\\]/.test(file)) return;
+  if (!/\.(astro|tsx|jsx)$/.test(file)) return;
+
+  const formalEnding = /(?:합니다|습니다|입니다|드립니다|하세요|이다|한다|된다|있다|없다|읽는다|만든다|잡는다|엮는다|전달합니다|필요하다|중요하다|가능하다|설명한다|확인한다|정리한다|사용한다|보인다|드러난다)(?:[.!?。]|(?=\s*[<"'`}]))/u;
+  const lines = src.split('\n');
+  lines.forEach((line, i) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('//') || trimmed.startsWith('*')) return;
+    if (!/[가-힣]/u.test(line)) return;
+    if (!formalEnding.test(line)) return;
+    record('FAIL', 'R13-ui-formal-copy', file, i + 1,
+      'Hardcoded UI copy uses formal/report-tone endings. Follow docs/tone-guide-common.md: use friendly conversational endings like ~해/~이야.');
+  });
+}
+
 // R10: every project showcase component must expose at least one TermHint.
 // Applies only to src/components/projects/showcases/*/index.tsx.
 function checkShowcaseTermHint(file, src) {
@@ -279,6 +298,7 @@ for (const f of files) {
   checkBackdropFilter(f, src);
   checkProjectShowcaseNative(f, src);
   checkProjectNoProse(f, src);
+  checkUiFormalCopy(f, src);
   checkShowcaseTermHint(f, src);
   checkShowcaseIntroSection(f, src);
   checkShowcaseHeroContract(f, src);

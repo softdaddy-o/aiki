@@ -254,7 +254,7 @@ export default function TechStackMap({ activeTerm, terms }: Props) {
                                         }}
                                     >
                                         {layerTerms.length === 0 && (
-                                            <span style={styles.emptyState}>아직 연결된 용어가 없습니다.</span>
+                                            <span style={styles.emptyState}>아직 연결된 용어가 없어.</span>
                                         )}
                                         {layerTerms.map((term) => {
                                             const isActive = term.slug === activeTerm;
