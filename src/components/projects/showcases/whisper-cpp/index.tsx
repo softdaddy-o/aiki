@@ -661,7 +661,7 @@ ${createSharedShowcaseChromeCss({
 })}
 .wc-main{grid-column:2;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
 .wc-hero,.wc-panel{scroll-margin-top:100px}
-.wc-hero-copy h1{font-size:clamp(2.2rem,5.4vw,4.9rem);line-height:.94;letter-spacing:-.03em}
+.wc-hero-copy h1{font-size:clamp(2.2rem,5.4vw,4.9rem);line-height:.94;letter-spacing:0}
 .wc-hero-copy p{color:var(--color-text);font-size:clamp(1rem,1.28vw,1.12rem)}
 .wc-panel{display:grid;gap:0}
 .wc-panel-head{display:grid;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid color-mix(in srgb,var(--color-border) 84%,transparent)}

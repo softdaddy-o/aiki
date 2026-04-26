@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-04-25T09:57:07.065Z",
+  "updatedAt": "2026-04-26T00:55:27.455Z",
   "quota": 5,
   "items": [
     {
       "term": "gpt-5",
       "slug": "gpt-5",
-      "occurrences": 6,
-      "distinctSourceCount": 4,
+      "occurrences": 8,
+      "distinctSourceCount": 5,
       "kinds": [
         "phrase",
         "tag",
@@ -18,7 +18,8 @@
       ],
       "newsSourceSlugs": [
         "2026-04-03-codex-prompting-guide",
-        "2026-04-23-2-openai-gpt54-business"
+        "2026-04-23-2-openai-gpt54-business",
+        "2026-04-26-2-chatgpt-for-excel-gpt54"
       ],
       "wikiSourceTerms": [
         "gpt",
@@ -31,10 +32,11 @@
         "computer-use",
         "deepseek-r1",
         "enterprise",
-        "gpt",
-        "gpt-oss"
+        "excel",
+        "gpt"
       ],
       "sourceTitles": [
+        "ChatGPT for Excel 출시 — GPT-5.4 탑재, 금융 데이터 통합 5종 추가",
         "GPT (생성형 사전학습 트랜스포머)",
         "OpenAI, GPT-5.4로 기업 시장 공략 — 컴퓨터 사용 75%, 1M 토큰 컨텍스트",
         "o3 (오쓰리)",
@@ -58,35 +60,35 @@
           "title": "NxCode — GPT-5.4 Complete Guide 2026"
         },
         {
+          "url": "https://openai.com/index/chatgpt-for-excel/",
+          "title": "OpenAI — ChatGPT for Excel"
+        },
+        {
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-0/",
+          "title": "OpenAI — 같은 시기 다른 발표 (관련 컨텍스트)"
+        },
+        {
           "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
           "title": "Improving Language Understanding by Generative Pre-Training"
         },
         {
           "url": "https://openai.com/so-DJ/index/introducing-gpt-5/",
           "title": "Introducing GPT-5"
-        },
-        {
-          "url": "https://platform.openai.com/docs/models/o3",
-          "title": "o3 Model | OpenAI API"
-        },
-        {
-          "url": "https://platform.openai.com/docs/pricing",
-          "title": "Pricing | OpenAI API"
         }
       ],
       "sampleRefs": [
         "news:2026-04-03-codex-prompting-guide",
         "news:2026-04-23-2-openai-gpt54-business",
-        "wiki:gpt"
+        "news:2026-04-26-2-chatgpt-for-excel-gpt54"
       ],
       "firstMentioned": "2018-10-11",
-      "lastMentioned": "2026-04-23T09:10:00+09:00",
+      "lastMentioned": "2026-04-26T09:10:00+09:00",
       "categoryGuess": "model",
       "modelType": "family",
-      "priority": 96,
+      "priority": 100,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -97,8 +99,8 @@
     {
       "term": "GPT-5.4",
       "slug": "gpt-5.4",
-      "occurrences": 9,
-      "distinctSourceCount": 4,
+      "occurrences": 13,
+      "distinctSourceCount": 6,
       "kinds": [
         "markdown_link",
         "phrase",
@@ -111,20 +113,24 @@
         "2026-04-15-4-translategemma-beats-frontier-llms",
         "2026-04-18-2-openai-gpt-rosalind-life-sciences",
         "2026-04-18-3-qwen36-swe-bench-local-coding",
-        "2026-04-23-2-openai-gpt54-business"
+        "2026-04-23-2-openai-gpt54-business",
+        "2026-04-26-2-chatgpt-for-excel-gpt54",
+        "2026-04-26-5-kimi-k26-swe-bench"
       ],
       "wikiSourceTerms": [],
       "knownTermHints": [
+        "agent",
         "agentic-coding",
         "benchmark",
+        "chatgpt",
         "codex",
         "computer-use",
         "drug-discovery",
-        "enterprise",
-        "google",
-        "gpt"
+        "enterprise"
       ],
       "sourceTitles": [
+        "ChatGPT for Excel 출시 — GPT-5.4 탑재, 금융 데이터 통합 5종 추가",
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개",
         "OpenAI GPT-Rosalind 공개 — 생명과학 전용 추론 모델",
         "OpenAI, GPT-5.4로 기업 시장 공략 — 컴퓨터 사용 75%, 1M 토큰 컨텍스트",
         "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다",
@@ -170,13 +176,13 @@
         "news:2026-04-18-3-qwen36-swe-bench-local-coding"
       ],
       "firstMentioned": "2026-04-15T09:30:00+09:00",
-      "lastMentioned": "2026-04-23T09:10:00+09:00",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
       "categoryGuess": "model",
       "modelType": "version",
-      "priority": 90,
+      "priority": 94,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -284,6 +290,94 @@
       "seenInCurrentRun": false
     },
     {
+      "term": "Qwen3.6-35B-A3B",
+      "slug": "qwen3.6-35b-a3b",
+      "occurrences": 7,
+      "distinctSourceCount": 3,
+      "kinds": [
+        "markdown_link",
+        "phrase",
+        "versioned_phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-17-1-qwen36-35b-a3b-open-weight",
+        "2026-04-18-3-qwen36-swe-bench-local-coding",
+        "2026-04-26-1-darwin-36b-moe-evolutionary"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agentic-coding",
+        "alibaba",
+        "claude",
+        "evolutionary",
+        "mixture-of-experts",
+        "moe",
+        "open-source",
+        "open-weight"
+      ],
+      "sourceTitles": [
+        "Darwin-36B-Opus 등장 — 진화 알고리즘으로 만든 36B MoE 오픈모델",
+        "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다",
+        "알리바바 Qwen3.6-35B-A3B 공개 — 3B만 켜서 코딩 51.5점"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
+          "title": "Officechai"
+        },
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+          "title": "HuggingFace — Qwen3.6-35B-A3B"
+        },
+        {
+          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
+          "title": "Simon Willison 블로그"
+        },
+        {
+          "url": "https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding",
+          "title": "Pandaily"
+        },
+        {
+          "url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review",
+          "title": "BuildFastWithAI — SWE-bench 73.4"
+        },
+        {
+          "url": "https://huggingface.co/FINAL-Bench/Darwin-36B-Opus",
+          "title": "Hugging Face — FINAL-Bench/Darwin-36B-Opus"
+        },
+        {
+          "url": "https://huggingface.co/bartowski/FINAL-Bench_Darwin-36B-Opus-GGUF",
+          "title": "bartowski GGUF 양자화 변환본"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svl1wr/finalbenchdarwin36bopus_hugging_face/",
+          "title": "r/LocalLLaMA 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-17-1-qwen36-35b-a3b-open-weight",
+        "news:2026-04-18-3-qwen36-swe-bench-local-coding",
+        "news:2026-04-26-1-darwin-36b-moe-evolutionary"
+      ],
+      "firstMentioned": "2026-04-17T09:00:00+09:00",
+      "lastMentioned": "2026-04-26T09:00:00+09:00",
+      "categoryGuess": "model",
+      "modelType": "version",
+      "priority": 81,
+      "status": "pending",
+      "firstSeenAt": "2026-04-18",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
       "term": "Vertex AI",
       "slug": "vertex-ai",
       "occurrences": 5,
@@ -366,7 +460,7 @@
       "priority": 80,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -466,7 +560,7 @@
       "priority": 74,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -561,7 +655,7 @@
       "priority": 74,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -642,7 +736,7 @@
       "priority": 72,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -737,7 +831,7 @@
       "priority": 70,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -798,7 +892,7 @@
       "priority": 70,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -807,69 +901,81 @@
       "lastError": null
     },
     {
-      "term": "Qwen3.6-35B-A3B",
-      "slug": "qwen3.6-35b-a3b",
-      "occurrences": 5,
-      "distinctSourceCount": 2,
+      "term": "Kimi K2.6",
+      "slug": "kimi-k2.6",
+      "occurrences": 4,
+      "distinctSourceCount": 3,
       "kinds": [
         "markdown_link",
-        "phrase",
-        "versioned_phrase"
+        "phrase"
       ],
       "sourceKinds": [
         "news"
       ],
       "newsSourceSlugs": [
-        "2026-04-17-1-qwen36-35b-a3b-open-weight",
-        "2026-04-18-3-qwen36-swe-bench-local-coding"
+        "2026-04-21-3-kimi-k26-gguf",
+        "2026-04-21-5-claude-ban-alternatives",
+        "2026-04-26-5-kimi-k26-swe-bench"
       ],
       "wikiSourceTerms": [],
       "knownTermHints": [
-        "agentic-coding",
-        "alibaba",
-        "mixture-of-experts",
-        "open-source",
-        "qwen",
-        "swe-bench"
+        "agent",
+        "ai-coding",
+        "claude",
+        "claude-code",
+        "developer-tools",
+        "gguf",
+        "kimi",
+        "kimi-k2"
       ],
       "sourceTitles": [
-        "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다",
-        "알리바바 Qwen3.6-35B-A3B 공개 — 3B만 켜서 코딩 51.5점"
+        "Claude Code 계정 밴 후폭풍 — 개발자들이 실제 선택한 대안 스택",
+        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개"
       ],
       "sourceUrls": [
         {
-          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
-          "title": "Officechai"
+          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
+          "title": "HuggingFace (ubergarm)"
         },
         {
-          "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
-          "title": "HuggingFace — Qwen3.6-35B-A3B"
+          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
+          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
         },
         {
-          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
-          "title": "Simon Willison 블로그"
+          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
+          "title": "ofox.ai — Kimi K2.6 release guide"
         },
         {
-          "url": "https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding",
-          "title": "Pandaily"
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sqelfp/closest_replacement_for_claude_claude_code_got/",
+          "title": "r/LocalLLaMA"
         },
         {
-          "url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review",
-          "title": "BuildFastWithAI — SWE-bench 73.4"
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sr8p49/kimi_k26_is_a_legit_opus_47_replacement/",
+          "title": "r/LocalLLaMA — Kimi K2.6 as Opus 4.7 replacement"
+        },
+        {
+          "url": "https://moonshot.cn/kimi-k26",
+          "title": "Moonshot AI — Kimi K2.6 발표"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svji8q/kimi_k26_release/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
         }
       ],
       "sampleRefs": [
-        "news:2026-04-17-1-qwen36-35b-a3b-open-weight",
-        "news:2026-04-18-3-qwen36-swe-bench-local-coding"
+        "news:2026-04-21-3-kimi-k26-gguf",
+        "news:2026-04-21-5-claude-ban-alternatives",
+        "news:2026-04-26-5-kimi-k26-swe-bench"
       ],
-      "firstMentioned": "2026-04-17T09:00:00+09:00",
-      "lastMentioned": "2026-04-18T10:00:00+09:00",
+      "firstMentioned": "2026-04-21T09:20:00+09:00",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
       "categoryGuess": "model",
-      "modelType": "version",
-      "priority": 68,
+      "modelType": "family",
+      "priority": 67,
       "status": "pending",
-      "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "firstSeenAt": "2026-04-21",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -927,7 +1033,7 @@
       "priority": 65,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1022,7 +1128,7 @@
       "priority": 64,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1112,7 +1218,7 @@
       "priority": 64,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1194,7 +1300,7 @@
       "priority": 64,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1279,7 +1385,7 @@
       "priority": 64,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1354,7 +1460,7 @@
       "priority": 63,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1365,8 +1471,8 @@
     {
       "term": "GPU",
       "slug": "gpu",
-      "occurrences": 38,
-      "distinctSourceCount": 38,
+      "occurrences": 40,
+      "distinctSourceCount": 40,
       "kinds": [
         "phrase",
         "tag"
@@ -1407,13 +1513,13 @@
       ],
       "sourceTitles": [
         "16GB VRAM으로 돌리는 로컬 LLM, 2026년 판도가 바뀌었다",
+        "Darwin-36B-Opus 등장 — 진화 알고리즘으로 만든 36B MoE 오픈모델",
         "DeepSeek DeepGEMM, Mega MoE와 FP4 Indexer로 대규모 업데이트",
+        "DeepSeek가 직접 인정한 토큰 효율 격차 — V3.2 논문 한 줄에서 시작된 토론",
         "FAISS (페이스)",
         "GGUF(GGUF 모델 파일 형식)",
         "Gemma 3(젬마 3)",
-        "Gemma 4 26B, 로컬 LLM 사용자들 사이에서 Qwen 3.5를 밀어내고 있다",
-        "Gemma 4 31B vs Qwen 3.5 27B — 24GB GPU 로컬 LLM 실전 비교",
-        "Gemma 4(젬마 4)"
+        "Gemma 4 26B, 로컬 LLM 사용자들 사이에서 Qwen 3.5를 밀어내고 있다"
       ],
       "sourceUrls": [
         {
@@ -1455,12 +1561,12 @@
         "news:2026-04-10-4-16gb-vram-local-llm-landscape"
       ],
       "firstMentioned": "2018-10-11",
-      "lastMentioned": "2026-04-22T10:00:00+09:00",
+      "lastMentioned": "2026-04-26T09:20:00+09:00",
       "categoryGuess": "concept",
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1563,7 +1669,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1654,7 +1760,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1744,7 +1850,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1813,7 +1919,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1898,7 +2004,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -1966,7 +2072,7 @@
       "priority": 62,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2059,7 +2165,7 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2149,7 +2255,95 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "SWE-Bench Pro",
+      "slug": "swe-bench-pro",
+      "occurrences": 5,
+      "distinctSourceCount": 4,
+      "kinds": [
+        "markdown_link",
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-15-5-local-loop-agent-glm51",
+        "2026-04-17-1-qwen36-35b-a3b-open-weight",
+        "2026-04-23-2-openai-gpt54-business",
+        "2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agent",
+        "agentic-coding",
+        "alibaba",
+        "computer-use",
+        "enterprise",
+        "glm-5",
+        "gpt",
+        "gpt-5"
+      ],
+      "sourceTitles": [
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개",
+        "OpenAI, GPT-5.4로 기업 시장 공략 — 컴퓨터 사용 75%, 1M 토큰 컨텍스트",
+        "로컬 LLM 루프 에이전트, 2비트 양자화로도 게임을 만든다",
+        "알리바바 Qwen3.6-35B-A3B 공개 — 3B만 켜서 코딩 51.5점"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1slb0hz/",
+          "title": "r/LocalLLaMA"
+        },
+        {
+          "url": "https://huggingface.co/zai-org/GLM-5.1",
+          "title": "HuggingFace - GLM 5.1"
+        },
+        {
+          "url": "https://venturebeat.com/technology/ai-joins-the-8-hour-work-day-as-glm-ships-5-1-open-source-llm-beating-opus-4",
+          "title": "VentureBeat - GLM 5.1 announcement"
+        },
+        {
+          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
+          "title": "Officechai"
+        },
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+          "title": "HuggingFace — Qwen3.6-35B-A3B"
+        },
+        {
+          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
+          "title": "Simon Willison 블로그"
+        },
+        {
+          "url": "https://openai.com/business/",
+          "title": "OpenAI"
+        },
+        {
+          "url": "https://openai.com/index/introducing-gpt-5-2/",
+          "title": "OpenAI — Introducing GPT-5.2"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-15-5-local-loop-agent-glm51",
+        "news:2026-04-17-1-qwen36-35b-a3b-open-weight",
+        "news:2026-04-23-2-openai-gpt54-business"
+      ],
+      "firstMentioned": "2026-04-15T09:40:00+09:00",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 60,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2213,7 +2407,7 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2289,7 +2483,7 @@
       "priority": 60,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2360,7 +2554,7 @@
       "priority": 58,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2432,7 +2626,79 @@
       "priority": 58,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "V3.2",
+      "slug": "v3.2",
+      "occurrences": 4,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase",
+        "versioned_phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-15-4-translategemma-beats-frontier-llms",
+        "2026-04-26-3-deepseek-token-efficiency-gap"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "benchmark",
+        "deepseek",
+        "gemini",
+        "google",
+        "open-weight",
+        "token-efficiency",
+        "translategemma",
+        "translation"
+      ],
+      "sourceTitles": [
+        "DeepSeek가 직접 인정한 토큰 효율 격차 — V3.2 논문 한 줄에서 시작된 토론",
+        "TranslateGemma-12B, 자막 번역에서 프론티어 LLM 5개를 이겼다 — 단 한 가지 함정"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sl5k6d/we_benchmarked_translategemma12b_against_5/",
+          "title": "r/LocalLLaMA"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2601.09012",
+          "title": "TranslateGemma Technical Report (Google)"
+        },
+        {
+          "url": "https://aicybr.com/blog/translategemma-guide",
+          "title": "AiCybr - TranslateGemma Guide"
+        },
+        {
+          "url": "https://arxiv.org/abs/2509.18671",
+          "title": "DeepSeek-V3.2 Technical Report (arXiv)"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svbmnc/decreased_intelligence_density_in_deepseek_v4_pro/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-15-4-translategemma-beats-frontier-llms",
+        "news:2026-04-26-3-deepseek-token-efficiency-gap"
+      ],
+      "firstMentioned": "2026-04-15T09:30:00+09:00",
+      "lastMentioned": "2026-04-26T09:20:00+09:00",
+      "categoryGuess": "model",
+      "modelType": "version",
+      "priority": 58,
+      "status": "pending",
+      "firstSeenAt": "2026-04-26",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2514,7 +2780,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2574,7 +2840,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2626,7 +2892,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2678,7 +2944,7 @@
       "priority": 57,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2780,7 +3046,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2879,7 +3145,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -2978,7 +3244,106 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "open-weight",
+      "slug": "open-weight",
+      "occurrences": 10,
+      "distinctSourceCount": 10,
+      "kinds": [
+        "tag"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-21-3-kimi-k26-gguf",
+        "2026-04-23-1-xiaomi-mimo-v25-asr",
+        "2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
+        "2026-04-25-3-deepseek-v4-million-token-agents",
+        "2026-04-25-4-deepseek-v4-architecture-analysis",
+        "2026-04-26-1-darwin-36b-moe-evolutionary",
+        "2026-04-26-3-deepseek-token-efficiency-gap"
+      ],
+      "wikiSourceTerms": [
+        "flux",
+        "gpt-oss",
+        "mistral"
+      ],
+      "knownTermHints": [
+        "agent",
+        "anthropic",
+        "architecture",
+        "asr",
+        "attention",
+        "benchmark",
+        "chain-of-thought",
+        "chatgpt"
+      ],
+      "sourceTitles": [
+        "Anthropic, Claude Code 추론 성능 임의 하향 인정 — 4월 7일 되돌렸다",
+        "Darwin-36B-Opus 등장 — 진화 알고리즘으로 만든 36B MoE 오픈모델",
+        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나",
+        "DeepSeek-V4, 100만 토큰 컨텍스트로 에이전트 작업에 실제로 쓸 수 있어",
+        "DeepSeek가 직접 인정한 토큰 효율 격차 — V3.2 논문 한 줄에서 시작된 토론",
+        "FLUX.1 (플럭스 원)",
+        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
+        "Mistral(미스트랄 모델 계열)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
+          "title": "HuggingFace (ubergarm)"
+        },
+        {
+          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
+          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
+        },
+        {
+          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
+          "title": "ofox.ai — Kimi K2.6 release guide"
+        },
+        {
+          "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-ASR",
+          "title": "Hugging Face — XiaomiMiMo/MiMo-V2.5-ASR"
+        },
+        {
+          "url": "https://mimo.xiaomi.com/mimo-v2-5-asr",
+          "title": "Xiaomi MiMo 공식 블로그"
+        },
+        {
+          "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+          "title": "Anthropic Engineering"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/",
+          "title": "r/LocalLLaMA community discussion"
+        },
+        {
+          "url": "https://huggingface.co/blog/deepseekv4",
+          "title": "HuggingFace Blog"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-21-3-kimi-k26-gguf",
+        "news:2026-04-23-1-xiaomi-mimo-v25-asr",
+        "news:2026-04-25-1-anthropic-claude-code-reasoning-downgrade"
+      ],
+      "firstMentioned": "2026-03-16",
+      "lastMentioned": "2026-04-26T09:20:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 56,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3073,7 +3438,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3170,7 +3535,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3260,7 +3625,7 @@
       "priority": 56,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3314,7 +3679,7 @@
       "priority": 55,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3403,7 +3768,75 @@
       "priority": 54,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Moonshot AI",
+      "slug": "moonshot-ai",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "wikiSourceTerms": [
+        "kimi-k2"
+      ],
+      "knownTermHints": [
+        "agent",
+        "agentic-coding",
+        "chain-of-thought",
+        "gpt-oss",
+        "kimi",
+        "kimi-k2",
+        "long-context",
+        "moonshot"
+      ],
+      "sourceTitles": [
+        "Kimi K2 (키미 K2)",
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://moonshot.cn/kimi-k26",
+          "title": "Moonshot AI — Kimi K2.6 발표"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svji8q/kimi_k26_release/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
+        },
+        {
+          "url": "https://platform.kimi.ai/docs/models",
+          "title": "Model List - Kimi API Platform"
+        },
+        {
+          "url": "https://platform.kimi.ai/",
+          "title": "Kimi API Platform"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-26-5-kimi-k26-swe-bench",
+        "wiki:kimi-k2"
+      ],
+      "firstMentioned": "2026-04-17",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 54,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3475,7 +3908,7 @@
       "priority": 54,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3486,8 +3919,8 @@
     {
       "term": "Pro",
       "slug": "pro",
-      "occurrences": 9,
-      "distinctSourceCount": 9,
+      "occurrences": 10,
+      "distinctSourceCount": 10,
       "kinds": [
         "phrase"
       ],
@@ -3502,7 +3935,8 @@
         "2026-04-18-1-gemini-nano-banana-personal-intelligence",
         "2026-04-22-1-google-deep-research-max-gemini",
         "2026-04-23-1-gemini-enterprise-agent-platform",
-        "2026-04-23-2-openai-gpt54-business"
+        "2026-04-23-2-openai-gpt54-business",
+        "2026-04-26-3-deepseek-token-efficiency-gap"
       ],
       "wikiSourceTerms": [
         "gemini",
@@ -3516,17 +3950,17 @@
         "cloud",
         "computer-use",
         "deep-research",
-        "deepseek-r1"
+        "deepseek"
       ],
       "sourceTitles": [
+        "DeepSeek가 직접 인정한 토큰 효율 격차 — V3.2 논문 한 줄에서 시작된 토론",
         "Gemini 2.5 (제미나이 2.5)",
         "Gemini 2.5 Pro, AI Studio 기본값으로 올라왔다",
         "Gemini Nano Banana 2, 내 구글 포토를 보고 이미지를 그린다",
         "Gemini 채팅이 NotebookLM으로 자동 연결된다",
         "Gemini(제미니)",
         "Gemma 4 31B가 $0.20 비용으로 상위 모델들을 앞섰다는 주장",
-        "Google, Deep Research Max 공개 — MCP 연결로 기업 내부 데이터까지 분석",
-        "OpenAI, GPT-5.4로 기업 시장 공략 — 컴퓨터 사용 75%, 1M 토큰 컨텍스트"
+        "Google, Deep Research Max 공개 — MCP 연결로 기업 내부 데이터까지 분석"
       ],
       "sourceUrls": [
         {
@@ -3568,107 +4002,12 @@
         "news:2026-04-09-5-gemini-notebooks-notebooklm"
       ],
       "firstMentioned": "2026-02-18",
-      "lastMentioned": "2026-04-23T09:10:00+09:00",
+      "lastMentioned": "2026-04-26T09:20:00+09:00",
       "categoryGuess": "concept",
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "open-weight",
-      "slug": "open-weight",
-      "occurrences": 7,
-      "distinctSourceCount": 7,
-      "kinds": [
-        "tag"
-      ],
-      "sourceKinds": [
-        "news",
-        "wiki"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-21-3-kimi-k26-gguf",
-        "2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
-        "2026-04-25-3-deepseek-v4-million-token-agents",
-        "2026-04-25-4-deepseek-v4-architecture-analysis"
-      ],
-      "wikiSourceTerms": [
-        "flux",
-        "gpt-oss",
-        "mistral"
-      ],
-      "knownTermHints": [
-        "agent",
-        "anthropic",
-        "architecture",
-        "attention",
-        "chain-of-thought",
-        "chatgpt",
-        "claude",
-        "claude-code"
-      ],
-      "sourceTitles": [
-        "Anthropic, Claude Code 추론 성능 임의 하향 인정 — 4월 7일 되돌렸다",
-        "DeepSeek-V4 아키텍처 분석 — V3 대비 뭐가 달라졌나",
-        "DeepSeek-V4, 100만 토큰 컨텍스트로 에이전트 작업에 실제로 쓸 수 있어",
-        "FLUX.1 (플럭스 원)",
-        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
-        "Mistral(미스트랄 모델 계열)",
-        "gpt-oss(지피티 오에스에스)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
-          "title": "HuggingFace (ubergarm)"
-        },
-        {
-          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
-          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
-        },
-        {
-          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
-          "title": "ofox.ai — Kimi K2.6 release guide"
-        },
-        {
-          "url": "https://www.anthropic.com/engineering/april-23-postmortem",
-          "title": "Anthropic Engineering"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/",
-          "title": "r/LocalLLaMA community discussion"
-        },
-        {
-          "url": "https://huggingface.co/blog/deepseekv4",
-          "title": "HuggingFace Blog"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1su9iio/deepseekv4_has_a_comical_384k_max_output/",
-          "title": "r/LocalLLaMA — DeepSeek-V4 384K max output discussion"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1subuve/takeaways_discussion_about_the_deepseek_v4/",
-          "title": "r/LocalLLaMA"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-21-3-kimi-k26-gguf",
-        "news:2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
-        "news:2026-04-25-3-deepseek-v4-million-token-agents"
-      ],
-      "firstMentioned": "2026-03-16",
-      "lastMentioned": "2026-04-25T09:30:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 52,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3762,7 +4101,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3857,7 +4196,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3925,7 +4264,7 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -3989,7 +4328,91 @@
       "priority": 52,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "H100",
+      "slug": "h100",
+      "occurrences": 6,
+      "distinctSourceCount": 3,
+      "kinds": [
+        "phrase",
+        "versioned_phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
+        "2026-04-26-4-ttt-e2e-test-time-training"
+      ],
+      "wikiSourceTerms": [
+        "gpt-oss"
+      ],
+      "knownTermHints": [
+        "chain-of-thought",
+        "chatgpt",
+        "codex",
+        "deepgemm",
+        "deepseek",
+        "fp8",
+        "gpt-4o",
+        "gpt-oss"
+      ],
+      "sourceTitles": [
+        "DeepSeek DeepGEMM, Mega MoE와 FP4 Indexer로 대규모 업데이트",
+        "TTT-E2E — 추론 중에 모델 가중치를 다시 학습시키는 방법",
+        "gpt-oss(지피티 오에스에스)"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.panewslab.com/en/articles/019d9605-414a-727c-8f9a-75d01ca4b436",
+          "title": "PANews"
+        },
+        {
+          "url": "https://github.com/deepseek-ai/DeepGEMM",
+          "title": "GitHub deepseek-ai/DeepGEMM"
+        },
+        {
+          "url": "https://finance.sina.com.cn/tech/roll/2026-04-17/doc-inhuupte2263261.shtml",
+          "title": "Sina Tech — DeepGEMM 업데이트"
+        },
+        {
+          "url": "https://arxiv.org/abs/2512.23675",
+          "title": "TTT-E2E (arXiv 2512.23675)"
+        },
+        {
+          "url": "https://www.deeplearning.ai/the-batch/tag/apr-03-2026/",
+          "title": "DeepLearning.AI The Batch — 4월 3일자"
+        },
+        {
+          "url": "https://openai.com/index/introducing-gpt-oss",
+          "title": "Introducing gpt-oss"
+        },
+        {
+          "url": "https://openai.com/index/gpt-oss-model-card/",
+          "title": "gpt-oss-120b &amp; gpt-oss-20b Model Card"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
+        "news:2026-04-26-4-ttt-e2e-test-time-training",
+        "wiki:gpt-oss"
+      ],
+      "firstMentioned": "2026-04-17",
+      "lastMentioned": "2026-04-26T09:30:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 51,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4075,93 +4498,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "SWE-Bench Pro",
-      "slug": "swe-bench-pro",
-      "occurrences": 4,
-      "distinctSourceCount": 3,
-      "kinds": [
-        "markdown_link",
-        "phrase"
-      ],
-      "sourceKinds": [
-        "news"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-15-5-local-loop-agent-glm51",
-        "2026-04-17-1-qwen36-35b-a3b-open-weight",
-        "2026-04-23-2-openai-gpt54-business"
-      ],
-      "wikiSourceTerms": [],
-      "knownTermHints": [
-        "agentic-coding",
-        "alibaba",
-        "computer-use",
-        "enterprise",
-        "glm-5",
-        "gpt",
-        "gpt-5",
-        "local-llm"
-      ],
-      "sourceTitles": [
-        "OpenAI, GPT-5.4로 기업 시장 공략 — 컴퓨터 사용 75%, 1M 토큰 컨텍스트",
-        "로컬 LLM 루프 에이전트, 2비트 양자화로도 게임을 만든다",
-        "알리바바 Qwen3.6-35B-A3B 공개 — 3B만 켜서 코딩 51.5점"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1slb0hz/",
-          "title": "r/LocalLLaMA"
-        },
-        {
-          "url": "https://huggingface.co/zai-org/GLM-5.1",
-          "title": "HuggingFace - GLM 5.1"
-        },
-        {
-          "url": "https://venturebeat.com/technology/ai-joins-the-8-hour-work-day-as-glm-ships-5-1-open-source-llm-beating-opus-4",
-          "title": "VentureBeat - GLM 5.1 announcement"
-        },
-        {
-          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
-          "title": "Officechai"
-        },
-        {
-          "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
-          "title": "HuggingFace — Qwen3.6-35B-A3B"
-        },
-        {
-          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
-          "title": "Simon Willison 블로그"
-        },
-        {
-          "url": "https://openai.com/business/",
-          "title": "OpenAI"
-        },
-        {
-          "url": "https://openai.com/index/introducing-gpt-5-2/",
-          "title": "OpenAI — Introducing GPT-5.2"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-15-5-local-loop-agent-glm51",
-        "news:2026-04-17-1-qwen36-35b-a3b-open-weight",
-        "news:2026-04-23-2-openai-gpt54-business"
-      ],
-      "firstMentioned": "2026-04-15T09:40:00+09:00",
-      "lastMentioned": "2026-04-23T09:10:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 51,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4212,7 +4549,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4268,7 +4605,7 @@
       "priority": 51,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4355,7 +4692,7 @@
       "priority": 50,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4525,7 +4862,7 @@
       "priority": 49,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4582,7 +4919,7 @@
       "priority": 49,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4659,7 +4996,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4748,7 +5085,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4815,7 +5152,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -4890,78 +5227,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Kimi K2.6",
-      "slug": "kimi-k2.6",
-      "occurrences": 2,
-      "distinctSourceCount": 2,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "news"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-21-3-kimi-k26-gguf",
-        "2026-04-21-5-claude-ban-alternatives"
-      ],
-      "wikiSourceTerms": [],
-      "knownTermHints": [
-        "ai-coding",
-        "claude",
-        "claude-code",
-        "developer-tools",
-        "gguf",
-        "kimi-k2",
-        "local-llm",
-        "moonshot-ai"
-      ],
-      "sourceTitles": [
-        "Claude Code 계정 밴 후폭풍 — 개발자들이 실제 선택한 대안 스택",
-        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
-          "title": "HuggingFace (ubergarm)"
-        },
-        {
-          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
-          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
-        },
-        {
-          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
-          "title": "ofox.ai — Kimi K2.6 release guide"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sqelfp/closest_replacement_for_claude_claude_code_got/",
-          "title": "r/LocalLLaMA"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sr8p49/kimi_k26_is_a_legit_opus_47_replacement/",
-          "title": "r/LocalLLaMA — Kimi K2.6 as Opus 4.7 replacement"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-21-3-kimi-k26-gguf",
-        "news:2026-04-21-5-claude-ban-alternatives"
-      ],
-      "firstMentioned": "2026-04-21T09:20:00+09:00",
-      "lastMentioned": "2026-04-21T09:40:00+09:00",
-      "categoryGuess": "model",
-      "modelType": "family",
-      "priority": 48,
-      "status": "pending",
-      "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5019,7 +5285,7 @@
       "priority": 48,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5076,7 +5342,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5128,7 +5394,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5180,7 +5446,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5244,7 +5510,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5308,7 +5574,7 @@
       "priority": 47,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5403,7 +5669,7 @@
       "priority": 46,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5493,7 +5759,7 @@
       "priority": 46,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5549,7 +5815,7 @@
       "priority": 45,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5605,7 +5871,7 @@
       "priority": 45,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5698,7 +5964,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5791,7 +6057,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5856,7 +6122,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5918,7 +6184,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -5984,7 +6250,7 @@
       "priority": 44,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6040,7 +6306,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6213,7 +6479,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6268,7 +6534,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6388,7 +6654,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6440,7 +6706,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6495,7 +6761,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6551,7 +6817,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6606,7 +6872,7 @@
       "priority": 43,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6723,7 +6989,7 @@
       "priority": 42,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6793,7 +7059,7 @@
       "priority": 42,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6876,7 +7142,7 @@
       "priority": 42,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -6999,7 +7265,7 @@
       "priority": 41,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7054,7 +7320,7 @@
       "priority": 41,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7160,7 +7426,7 @@
       "priority": 41,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7233,7 +7499,7 @@
       "priority": 40,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7305,7 +7571,7 @@
       "priority": 40,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7378,7 +7644,7 @@
       "priority": 40,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7465,7 +7731,7 @@
       "priority": 39,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7544,7 +7810,7 @@
       "priority": 39,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7706,80 +7972,7 @@
       "priority": 39,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "H100",
-      "slug": "h100",
-      "occurrences": 4,
-      "distinctSourceCount": 2,
-      "kinds": [
-        "phrase",
-        "versioned_phrase"
-      ],
-      "sourceKinds": [
-        "news",
-        "wiki"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
-      ],
-      "wikiSourceTerms": [
-        "gpt-oss"
-      ],
-      "knownTermHints": [
-        "chain-of-thought",
-        "chatgpt",
-        "codex",
-        "deepgemm",
-        "deepseek",
-        "fp8",
-        "gpt-4o",
-        "gpt-oss"
-      ],
-      "sourceTitles": [
-        "DeepSeek DeepGEMM, Mega MoE와 FP4 Indexer로 대규모 업데이트",
-        "gpt-oss(지피티 오에스에스)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://www.panewslab.com/en/articles/019d9605-414a-727c-8f9a-75d01ca4b436",
-          "title": "PANews"
-        },
-        {
-          "url": "https://github.com/deepseek-ai/DeepGEMM",
-          "title": "GitHub deepseek-ai/DeepGEMM"
-        },
-        {
-          "url": "https://finance.sina.com.cn/tech/roll/2026-04-17/doc-inhuupte2263261.shtml",
-          "title": "Sina Tech — DeepGEMM 업데이트"
-        },
-        {
-          "url": "https://openai.com/index/introducing-gpt-oss",
-          "title": "Introducing gpt-oss"
-        },
-        {
-          "url": "https://openai.com/index/gpt-oss-model-card/",
-          "title": "gpt-oss-120b &amp; gpt-oss-20b Model Card"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
-        "wiki:gpt-oss"
-      ],
-      "firstMentioned": "2026-04-17",
-      "lastMentioned": "2026-04-18T11:00:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 38,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7847,7 +8040,7 @@
       "priority": 38,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7932,7 +8125,7 @@
       "priority": 37,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -7988,7 +8181,7 @@
       "priority": 37,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8040,7 +8233,7 @@
       "priority": 37,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8129,7 +8322,96 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "MIT",
+      "slug": "mit",
+      "occurrences": 4,
+      "distinctSourceCount": 4,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news",
+        "wiki"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-23-1-xiaomi-mimo-v25-asr"
+      ],
+      "wikiSourceTerms": [
+        "apache",
+        "deepseek-r1",
+        "kimi-k2"
+      ],
+      "knownTermHints": [
+        "agentic-coding",
+        "apache",
+        "asr",
+        "chain-of-thought",
+        "deepseek-r1",
+        "gemma",
+        "gemma-4",
+        "gpt-oss"
+      ],
+      "sourceTitles": [
+        "Apache 2.0(아파치 2.0 라이선스)",
+        "DeepSeek R1(딥시크 R1)",
+        "Kimi K2 (키미 K2)",
+        "Xiaomi MiMo-V2.5-ASR 공개 — 8B 음성인식 모델, 중국어 5개 방언 지원"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-ASR",
+          "title": "Hugging Face — XiaomiMiMo/MiMo-V2.5-ASR"
+        },
+        {
+          "url": "https://mimo.xiaomi.com/mimo-v2-5-asr",
+          "title": "Xiaomi MiMo 공식 블로그"
+        },
+        {
+          "url": "https://www.apache.org/licenses/LICENSE-2.0",
+          "title": "Apache License, Version 2.0"
+        },
+        {
+          "url": "https://www.apache.org/legal/apply-license",
+          "title": "Applying the Apache License, Version 2.0"
+        },
+        {
+          "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+          "title": "deepseek-ai/DeepSeek-R1"
+        },
+        {
+          "url": "https://api-docs.deepseek.com/news/news250120",
+          "title": "DeepSeek-R1 Release | DeepSeek API Docs"
+        },
+        {
+          "url": "https://platform.kimi.ai/docs/models",
+          "title": "Model List - Kimi API Platform"
+        },
+        {
+          "url": "https://platform.kimi.ai/",
+          "title": "Kimi API Platform"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-23-1-xiaomi-mimo-v25-asr",
+        "wiki:apache",
+        "wiki:deepseek-r1"
+      ],
+      "firstMentioned": "2025-01-20",
+      "lastMentioned": "2026-04-23T17:46:04+09:00",
+      "categoryGuess": "concept",
+      "priority": 36,
+      "status": "pending",
+      "firstSeenAt": "2026-04-17",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8218,7 +8500,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8303,7 +8585,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8369,7 +8651,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8437,7 +8719,7 @@
       "priority": 36,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8514,7 +8796,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8595,7 +8877,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8650,7 +8932,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8705,7 +8987,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8759,7 +9041,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8814,7 +9096,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8869,7 +9151,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -8921,7 +9203,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9000,7 +9282,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9055,7 +9337,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9109,7 +9391,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9167,7 +9449,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9222,7 +9504,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9301,7 +9583,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9474,7 +9756,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9528,7 +9810,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9582,7 +9864,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9637,7 +9919,7 @@
       "priority": 35,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9732,7 +10014,7 @@
       "priority": 34,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9821,7 +10103,7 @@
       "priority": 34,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -9933,7 +10215,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10046,7 +10328,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10125,7 +10407,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10177,7 +10459,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10231,7 +10513,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10368,7 +10650,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10422,7 +10704,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10475,7 +10757,7 @@
       "priority": 33,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10564,7 +10846,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10629,7 +10911,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10690,7 +10972,151 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Google Sheets",
+      "slug": "google-sheets",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-03-12-gemini-in-google-sheets-just-achieved-st",
+        "2026-04-26-2-chatgpt-for-excel-gpt54"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "chatgpt",
+        "claude",
+        "claude-code",
+        "excel",
+        "gemini",
+        "gpt",
+        "openai",
+        "spreadsheet"
+      ],
+      "sourceTitles": [
+        "ChatGPT for Excel 출시 — GPT-5.4 탑재, 금융 데이터 통합 5종 추가",
+        "Google Sheets의 Gemini가 방금 최고 수준의 성능을 달성했습니다."
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/",
+          "title": "Gemini in Google Sheets just achieved state-of-the-art performance."
+        },
+        {
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026/",
+          "title": "Secondary source"
+        },
+        {
+          "url": "https://openai.com/index/chatgpt-for-excel/",
+          "title": "OpenAI — ChatGPT for Excel"
+        },
+        {
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-0/",
+          "title": "OpenAI — 같은 시기 다른 발표 (관련 컨텍스트)"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-03-12-gemini-in-google-sheets-just-achieved-st",
+        "news:2026-04-26-2-chatgpt-for-excel-gpt54"
+      ],
+      "firstMentioned": "2026-03-12T12:00:00+09:00",
+      "lastMentioned": "2026-04-26T09:10:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 32,
+      "status": "pending",
+      "firstSeenAt": "2026-04-26",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "GPQA Diamond",
+      "slug": "gpqa-diamond",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-18-3-qwen36-swe-bench-local-coding",
+        "2026-04-26-1-darwin-36b-moe-evolutionary"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agentic-coding",
+        "claude",
+        "evolutionary",
+        "mixture-of-experts",
+        "moe",
+        "open-source",
+        "open-weight",
+        "qwen"
+      ],
+      "sourceTitles": [
+        "Darwin-36B-Opus 등장 — 진화 알고리즘으로 만든 36B MoE 오픈모델",
+        "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding",
+          "title": "Pandaily"
+        },
+        {
+          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
+          "title": "Officechai — 벤치마크 비교"
+        },
+        {
+          "url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review",
+          "title": "BuildFastWithAI — SWE-bench 73.4"
+        },
+        {
+          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
+          "title": "Simon Willison — Qwen beats Opus"
+        },
+        {
+          "url": "https://huggingface.co/FINAL-Bench/Darwin-36B-Opus",
+          "title": "Hugging Face — FINAL-Bench/Darwin-36B-Opus"
+        },
+        {
+          "url": "https://huggingface.co/bartowski/FINAL-Bench_Darwin-36B-Opus-GGUF",
+          "title": "bartowski GGUF 양자화 변환본"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svl1wr/finalbenchdarwin36bopus_hugging_face/",
+          "title": "r/LocalLLaMA 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-18-3-qwen36-swe-bench-local-coding",
+        "news:2026-04-26-1-darwin-36b-moe-evolutionary"
+      ],
+      "firstMentioned": "2026-04-18T10:00:00+09:00",
+      "lastMentioned": "2026-04-26T09:00:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 32,
+      "status": "pending",
+      "firstSeenAt": "2026-04-26",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10754,7 +11180,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10832,7 +11258,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10906,7 +11332,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -10980,7 +11406,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11061,7 +11487,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11127,7 +11553,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11196,7 +11622,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11253,7 +11679,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11321,7 +11747,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11389,7 +11815,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11458,7 +11884,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11520,7 +11946,7 @@
       "priority": 32,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11576,7 +12002,7 @@
       "priority": 31,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11644,7 +12070,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11712,7 +12138,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11776,7 +12202,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11860,7 +12286,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -11932,7 +12358,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12008,7 +12434,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12084,7 +12510,7 @@
       "priority": 30,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12166,7 +12592,7 @@
       "priority": 29,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12251,7 +12677,7 @@
       "priority": 28,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12405,7 +12831,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12488,7 +12914,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12542,7 +12968,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12597,7 +13023,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12710,7 +13136,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12769,7 +13195,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12823,7 +13249,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12877,7 +13303,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12931,7 +13357,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -12984,7 +13410,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13039,7 +13465,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13093,7 +13519,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13145,7 +13571,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13200,7 +13626,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13251,7 +13677,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13306,7 +13732,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13360,7 +13786,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13415,7 +13841,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13470,7 +13896,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13525,62 +13951,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "Moonshot AI",
-      "slug": "moonshot-ai",
-      "occurrences": 1,
-      "distinctSourceCount": 1,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "wiki"
-      ],
-      "newsSourceSlugs": [],
-      "wikiSourceTerms": [
-        "kimi-k2"
-      ],
-      "knownTermHints": [
-        "agentic-coding",
-        "chain-of-thought",
-        "gpt-oss",
-        "kimi-k2",
-        "moonshot",
-        "o1",
-        "o3",
-        "reasoning"
-      ],
-      "sourceTitles": [
-        "Kimi K2 (키미 K2)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://platform.kimi.ai/docs/models",
-          "title": "Model List - Kimi API Platform"
-        },
-        {
-          "url": "https://platform.kimi.ai/",
-          "title": "Kimi API Platform"
-        }
-      ],
-      "sampleRefs": [
-        "wiki:kimi-k2"
-      ],
-      "firstMentioned": "2026-04-17",
-      "lastMentioned": "2026-04-17",
-      "categoryGuess": "concept",
-      "priority": 27,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13656,7 +14027,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13707,7 +14078,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13761,7 +14132,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13815,7 +14186,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13869,7 +14240,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13923,7 +14294,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -13978,7 +14349,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14033,7 +14404,7 @@
       "priority": 27,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14122,7 +14493,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14209,7 +14580,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14296,7 +14667,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14372,7 +14743,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14442,7 +14813,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14511,7 +14882,7 @@
       "priority": 26,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14581,7 +14952,7 @@
       "priority": 22,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14651,7 +15022,7 @@
       "priority": 22,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14737,7 +15108,89 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "K2.6",
+      "slug": "k2.6",
+      "occurrences": 4,
+      "distinctSourceCount": 3,
+      "kinds": [
+        "phrase",
+        "versioned_phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-21-3-kimi-k26-gguf",
+        "2026-04-21-5-claude-ban-alternatives",
+        "2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agent",
+        "ai-coding",
+        "claude",
+        "claude-code",
+        "developer-tools",
+        "gguf",
+        "kimi",
+        "kimi-k2"
+      ],
+      "sourceTitles": [
+        "Claude Code 계정 밴 후폭풍 — 개발자들이 실제 선택한 대안 스택",
+        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개",
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
+          "title": "HuggingFace (ubergarm)"
+        },
+        {
+          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
+          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
+        },
+        {
+          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
+          "title": "ofox.ai — Kimi K2.6 release guide"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sqelfp/closest_replacement_for_claude_claude_code_got/",
+          "title": "r/LocalLLaMA"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sr8p49/kimi_k26_is_a_legit_opus_47_replacement/",
+          "title": "r/LocalLLaMA — Kimi K2.6 as Opus 4.7 replacement"
+        },
+        {
+          "url": "https://moonshot.cn/kimi-k26",
+          "title": "Moonshot AI — Kimi K2.6 발표"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svji8q/kimi_k26_release/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-21-3-kimi-k26-gguf",
+        "news:2026-04-21-5-claude-ban-alternatives",
+        "news:2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "firstMentioned": "2026-04-21T09:20:00+09:00",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 21,
+      "status": "pending",
+      "firstSeenAt": "2026-04-21",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14813,7 +15266,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14889,7 +15342,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14943,7 +15396,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -14996,7 +15449,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15075,7 +15528,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15154,7 +15607,7 @@
       "priority": 21,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15238,7 +15691,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15306,7 +15759,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15370,7 +15823,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15438,7 +15891,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15502,7 +15955,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15582,7 +16035,7 @@
       "priority": 18,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15663,7 +16116,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15748,7 +16201,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15833,7 +16286,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15887,7 +16340,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15937,7 +16390,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -15990,7 +16443,7 @@
       "priority": 17,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16072,7 +16525,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16145,7 +16598,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16214,7 +16667,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16279,7 +16732,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16342,7 +16795,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16407,7 +16860,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16479,7 +16932,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16551,7 +17004,7 @@
       "priority": 14,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16606,7 +17059,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16665,7 +17118,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16720,7 +17173,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16779,7 +17232,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16834,7 +17287,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16885,7 +17338,7 @@
       "priority": 13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -16951,7 +17404,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17017,7 +17470,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17083,7 +17536,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17154,77 +17607,6 @@
       "lastError": null
     },
     {
-      "term": "K2.6",
-      "slug": "k2.6",
-      "occurrences": 3,
-      "distinctSourceCount": 2,
-      "kinds": [
-        "phrase",
-        "versioned_phrase"
-      ],
-      "sourceKinds": [
-        "news"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-21-3-kimi-k26-gguf",
-        "2026-04-21-5-claude-ban-alternatives"
-      ],
-      "wikiSourceTerms": [],
-      "knownTermHints": [
-        "ai-coding",
-        "claude",
-        "claude-code",
-        "developer-tools",
-        "gguf",
-        "kimi-k2",
-        "local-llm",
-        "moonshot-ai"
-      ],
-      "sourceTitles": [
-        "Claude Code 계정 밴 후폭풍 — 개발자들이 실제 선택한 대안 스택",
-        "Kimi K2.6 출시 — 256K 컨텍스트·네이티브 비디오, GGUF도 바로 공개"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://huggingface.co/ubergarm/Kimi-K2.6-GGUF",
-          "title": "HuggingFace (ubergarm)"
-        },
-        {
-          "url": "https://the-decoder.com/open-weight-kimi-k2-6-takes-on-gpt-5-4-and-claude-opus-4-6-with-agent-swarms/",
-          "title": "The Decoder — Kimi K2.6 vs GPT-5.4 and Claude Opus 4.6"
-        },
-        {
-          "url": "https://ofox.ai/blog/kimi-k2-6-release-guide-2026/",
-          "title": "ofox.ai — Kimi K2.6 release guide"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sqelfp/closest_replacement_for_claude_claude_code_got/",
-          "title": "r/LocalLLaMA"
-        },
-        {
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sr8p49/kimi_k26_is_a_legit_opus_47_replacement/",
-          "title": "r/LocalLLaMA — Kimi K2.6 as Opus 4.7 replacement"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-21-3-kimi-k26-gguf",
-        "news:2026-04-21-5-claude-ban-alternatives"
-      ],
-      "firstMentioned": "2026-04-21T09:20:00+09:00",
-      "lastMentioned": "2026-04-21T09:40:00+09:00",
-      "categoryGuess": "concept",
-      "priority": 12,
-      "status": "pending",
-      "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
       "term": "Node.js",
       "slug": "node.js",
       "occurrences": 2,
@@ -17282,7 +17664,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17348,7 +17730,7 @@
       "priority": 12,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17425,84 +17807,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "MIT",
-      "slug": "mit",
-      "occurrences": 3,
-      "distinctSourceCount": 3,
-      "kinds": [
-        "phrase"
-      ],
-      "sourceKinds": [
-        "wiki"
-      ],
-      "newsSourceSlugs": [],
-      "wikiSourceTerms": [
-        "apache",
-        "deepseek-r1",
-        "kimi-k2"
-      ],
-      "knownTermHints": [
-        "agentic-coding",
-        "apache",
-        "chain-of-thought",
-        "deepseek-r1",
-        "gemma",
-        "gemma-4",
-        "gpt-oss",
-        "kimi-k2"
-      ],
-      "sourceTitles": [
-        "Apache 2.0(아파치 2.0 라이선스)",
-        "DeepSeek R1(딥시크 R1)",
-        "Kimi K2 (키미 K2)"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://www.apache.org/licenses/LICENSE-2.0",
-          "title": "Apache License, Version 2.0"
-        },
-        {
-          "url": "https://www.apache.org/legal/apply-license",
-          "title": "Applying the Apache License, Version 2.0"
-        },
-        {
-          "url": "https://github.com/deepseek-ai/DeepSeek-R1",
-          "title": "deepseek-ai/DeepSeek-R1"
-        },
-        {
-          "url": "https://api-docs.deepseek.com/news/news250120",
-          "title": "DeepSeek-R1 Release | DeepSeek API Docs"
-        },
-        {
-          "url": "https://platform.kimi.ai/docs/models",
-          "title": "Model List - Kimi API Platform"
-        },
-        {
-          "url": "https://platform.kimi.ai/",
-          "title": "Kimi API Platform"
-        }
-      ],
-      "sampleRefs": [
-        "wiki:apache",
-        "wiki:deepseek-r1",
-        "wiki:kimi-k2"
-      ],
-      "firstMentioned": "2025-01-20",
-      "lastMentioned": "2026-04-17",
-      "categoryGuess": "concept",
-      "priority": 9,
-      "status": "pending",
-      "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17583,7 +17888,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17633,7 +17938,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17686,7 +17991,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17736,7 +18041,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17795,7 +18100,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17850,7 +18155,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17901,7 +18206,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -17960,7 +18265,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18013,7 +18318,7 @@
       "priority": 9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18083,7 +18388,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18152,7 +18457,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18230,7 +18535,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18296,7 +18601,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18370,7 +18675,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-19",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18452,7 +18757,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18522,7 +18827,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18582,7 +18887,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18660,7 +18965,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-19",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18722,7 +19027,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18799,7 +19104,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18855,7 +19160,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18924,7 +19229,73 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Mimo",
+      "slug": "mimo",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-06-2-chinese-labs-pause-open-source",
+        "2026-04-23-1-xiaomi-mimo-v25-asr"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "asr",
+        "localllama",
+        "minimax",
+        "multilingual",
+        "open-weight",
+        "qwen",
+        "speech-to-text",
+        "xiaomi"
+      ],
+      "sourceTitles": [
+        "Xiaomi MiMo-V2.5-ASR 공개 — 8B 음성인식 모델, 중국어 5개 방언 지원",
+        "중국 AI 랩들이 동시에 최신 모델 오픈소스를 멈췄다"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1sd22qy/anyone_else_find_it_weird_how_all_chinese_labs/",
+          "title": "r/LocalLLaMA"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1scpvz8/",
+          "title": "MiniMax 2.7 지연 관련 별도 글"
+        },
+        {
+          "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-ASR",
+          "title": "Hugging Face — XiaomiMiMo/MiMo-V2.5-ASR"
+        },
+        {
+          "url": "https://mimo.xiaomi.com/mimo-v2-5-asr",
+          "title": "Xiaomi MiMo 공식 블로그"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-06-2-chinese-labs-pause-open-source",
+        "news:2026-04-23-1-xiaomi-mimo-v25-asr"
+      ],
+      "firstMentioned": "2026-04-06T11:00:00+09:00",
+      "lastMentioned": "2026-04-23T17:46:04+09:00",
+      "categoryGuess": "concept",
+      "priority": 8,
+      "status": "pending",
+      "firstSeenAt": "2026-04-26",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -18993,7 +19364,81 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "Moonshot",
+      "slug": "moonshot",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "phrase"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-13-5-china-token-economy-ai-boom",
+        "2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agent",
+        "deepseek",
+        "kimi",
+        "long-context",
+        "minimax",
+        "swe-bench",
+        "오픈소스",
+        "중국-ai"
+      ],
+      "sourceTitles": [
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개",
+        "중국 AI 토큰 경제가 140조 건/일을 찍었다 — 오픈소스로 미국을 추격 중"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://fortune.com/2026/04/12/china-token-economy-ai-boom-big-tech-startups/",
+          "title": "Fortune"
+        },
+        {
+          "url": "https://english.news.cn/20260403/369daecfa1c248abb4e66a3f53213a47/c.html",
+          "title": "Xinhua — Chinese AI models harness token economy"
+        },
+        {
+          "url": "https://www.trendingtopics.eu/chinese-ai-models-overtake-us-rivals-in-global-token-consumption/",
+          "title": "Trending Topics — Chinese AI Models Overtake US Rivals"
+        },
+        {
+          "url": "https://chinai.substack.com/p/chinai-348-tokens-made-in-china",
+          "title": "ChinAI Newsletter — Tokens Made in China"
+        },
+        {
+          "url": "https://moonshot.cn/kimi-k26",
+          "title": "Moonshot AI — Kimi K2.6 발표"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svji8q/kimi_k26_release/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-13-5-china-token-economy-ai-boom",
+        "news:2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "firstMentioned": "2026-04-13T11:00:00+09:00",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 8,
+      "status": "pending",
+      "firstSeenAt": "2026-04-26",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19063,7 +19508,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19137,7 +19582,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19202,7 +19647,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19272,7 +19717,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19344,7 +19789,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19412,7 +19857,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19486,7 +19931,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19564,7 +20009,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19638,7 +20083,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19716,7 +20161,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19776,7 +20221,7 @@
       "priority": 8,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19832,7 +20277,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19887,7 +20332,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19942,7 +20387,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -19997,7 +20442,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20053,7 +20498,7 @@
       "priority": 7,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20132,7 +20577,7 @@
       "priority": 6,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20217,7 +20662,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20302,7 +20747,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20353,7 +20798,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20403,7 +20848,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20457,7 +20902,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20511,7 +20956,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20565,7 +21010,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20619,7 +21064,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20673,7 +21118,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20729,7 +21174,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20784,7 +21229,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20830,7 +21275,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20880,7 +21325,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20934,7 +21379,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -20989,7 +21434,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21043,7 +21488,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21102,7 +21547,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21156,7 +21601,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21211,7 +21656,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21266,7 +21711,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21321,7 +21766,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21375,7 +21820,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21434,7 +21879,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21488,7 +21933,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21540,7 +21985,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21599,7 +22044,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21658,7 +22103,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21709,7 +22154,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21760,7 +22205,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21806,7 +22251,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21858,7 +22303,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21913,7 +22358,58 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "token-efficiency",
+      "slug": "token-efficiency",
+      "occurrences": 1,
+      "distinctSourceCount": 1,
+      "kinds": [
+        "tag"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-26-3-deepseek-token-efficiency-gap"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "benchmark",
+        "deepseek",
+        "gemini",
+        "open-weight"
+      ],
+      "sourceTitles": [
+        "DeepSeek가 직접 인정한 토큰 효율 격차 — V3.2 논문 한 줄에서 시작된 토론"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://arxiv.org/abs/2509.18671",
+          "title": "DeepSeek-V3.2 Technical Report (arXiv)"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svbmnc/decreased_intelligence_density_in_deepseek_v4_pro/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-26-3-deepseek-token-efficiency-gap"
+      ],
+      "firstMentioned": "2026-04-26T09:20:00+09:00",
+      "lastMentioned": "2026-04-26T09:20:00+09:00",
+      "categoryGuess": "concept",
+      "priority": 5,
+      "status": "pending",
+      "firstSeenAt": "2026-04-26",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -21968,7 +22464,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22019,7 +22515,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22069,7 +22565,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22119,7 +22615,7 @@
       "priority": 5,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22198,7 +22694,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22252,7 +22748,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22306,7 +22802,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22357,7 +22853,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22412,7 +22908,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22463,7 +22959,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22518,7 +23014,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22570,7 +23066,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22621,7 +23117,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22675,7 +23171,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22788,7 +23284,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22843,7 +23339,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22897,7 +23393,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -22948,7 +23444,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23002,7 +23498,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23119,7 +23615,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23170,7 +23666,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23224,7 +23720,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23275,7 +23771,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23330,7 +23826,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23381,7 +23877,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23457,7 +23953,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23511,7 +24007,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23566,7 +24062,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23620,7 +24116,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23671,7 +24167,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23726,7 +24222,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23780,7 +24276,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23831,7 +24327,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23886,7 +24382,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23945,7 +24441,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -23999,7 +24495,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24166,7 +24662,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24220,7 +24716,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24271,7 +24767,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24325,7 +24821,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24404,7 +24900,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24457,7 +24953,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24512,7 +25008,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24732,7 +25228,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24783,7 +25279,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24837,7 +25333,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -24891,7 +25387,7 @@
       "priority": 3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25011,7 +25507,7 @@
       "priority": 0,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25077,7 +25573,7 @@
       "priority": 0,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25143,7 +25639,7 @@
       "priority": 0,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25199,7 +25695,7 @@
       "priority": -3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25255,7 +25751,7 @@
       "priority": -3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25307,7 +25803,7 @@
       "priority": -3,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25389,7 +25885,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-19",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25462,7 +25958,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25518,7 +26014,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25591,7 +26087,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25651,7 +26147,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25721,7 +26217,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25784,7 +26280,7 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25849,7 +26345,81 @@
       "priority": -4,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
+      "seenInCurrentRun": true,
+      "generatedAt": null,
+      "generatedFile": null,
+      "lastQueuedAt": null,
+      "generationCount": 0,
+      "lastError": null
+    },
+    {
+      "term": "swe-bench",
+      "slug": "swe-bench",
+      "occurrences": 2,
+      "distinctSourceCount": 2,
+      "kinds": [
+        "tag"
+      ],
+      "sourceKinds": [
+        "news"
+      ],
+      "newsSourceSlugs": [
+        "2026-04-18-3-qwen36-swe-bench-local-coding",
+        "2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "wikiSourceTerms": [],
+      "knownTermHints": [
+        "agent",
+        "agentic-coding",
+        "kimi",
+        "long-context",
+        "mixture-of-experts",
+        "moonshot",
+        "open-source",
+        "qwen"
+      ],
+      "sourceTitles": [
+        "Moonshot Kimi K2.6 — SWE-Bench Pro 58.6, 12시간 자율 실행 사례 공개",
+        "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding",
+          "title": "Pandaily"
+        },
+        {
+          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
+          "title": "Officechai — 벤치마크 비교"
+        },
+        {
+          "url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review",
+          "title": "BuildFastWithAI — SWE-bench 73.4"
+        },
+        {
+          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
+          "title": "Simon Willison — Qwen beats Opus"
+        },
+        {
+          "url": "https://moonshot.cn/kimi-k26",
+          "title": "Moonshot AI — Kimi K2.6 발표"
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1svji8q/kimi_k26_release/",
+          "title": "r/LocalLLaMA — 커뮤니티 토론"
+        }
+      ],
+      "sampleRefs": [
+        "news:2026-04-18-3-qwen36-swe-bench-local-coding",
+        "news:2026-04-26-5-kimi-k26-swe-bench"
+      ],
+      "firstMentioned": "2026-04-18T10:00:00+09:00",
+      "lastMentioned": "2026-04-26T09:40:00+09:00",
+      "categoryGuess": "concept",
+      "priority": -4,
+      "status": "pending",
+      "firstSeenAt": "2026-04-18",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25911,7 +26481,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -25964,7 +26534,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26026,7 +26596,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26085,7 +26655,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26139,7 +26709,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26218,7 +26788,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26272,7 +26842,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26325,7 +26895,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26375,7 +26945,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26434,7 +27004,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26513,7 +27083,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26568,7 +27138,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26621,7 +27191,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26675,7 +27245,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26728,7 +27298,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26782,7 +27352,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26841,7 +27411,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26892,7 +27462,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -26946,7 +27516,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27001,7 +27571,7 @@
       "priority": -9,
       "status": "pending",
       "firstSeenAt": "2026-04-25",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27052,7 +27622,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27100,7 +27670,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27147,7 +27717,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27201,7 +27771,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27252,7 +27822,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27306,7 +27876,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27352,7 +27922,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27403,7 +27973,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27453,7 +28023,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-22",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27502,7 +28072,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27556,7 +28126,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27619,7 +28189,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27674,7 +28244,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27720,7 +28290,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27774,7 +28344,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27833,7 +28403,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27884,7 +28454,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27939,7 +28509,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -27994,7 +28564,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28048,7 +28618,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-20",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28103,7 +28673,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28162,7 +28732,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28213,7 +28783,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28264,7 +28834,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28311,7 +28881,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-24",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28367,7 +28937,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28418,7 +28988,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-23",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28473,66 +29043,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-21",
-      "lastSeenAt": "2026-04-25",
-      "seenInCurrentRun": true,
-      "generatedAt": null,
-      "generatedFile": null,
-      "lastQueuedAt": null,
-      "generationCount": 0,
-      "lastError": null
-    },
-    {
-      "term": "swe-bench",
-      "slug": "swe-bench",
-      "occurrences": 1,
-      "distinctSourceCount": 1,
-      "kinds": [
-        "tag"
-      ],
-      "sourceKinds": [
-        "news"
-      ],
-      "newsSourceSlugs": [
-        "2026-04-18-3-qwen36-swe-bench-local-coding"
-      ],
-      "wikiSourceTerms": [],
-      "knownTermHints": [
-        "agentic-coding",
-        "mixture-of-experts",
-        "open-source",
-        "qwen"
-      ],
-      "sourceTitles": [
-        "Qwen3.6-35B-A3B, SWE-bench Verified 73.4점으로 로컬 코딩 판도 바꿨다"
-      ],
-      "sourceUrls": [
-        {
-          "url": "https://pandaily.com/alibaba-open-sources-qwen3-6-35-b-a3-b-with-just-3-b-active-parameters-targeting-top-tier-agent-coding",
-          "title": "Pandaily"
-        },
-        {
-          "url": "https://officechai.com/ai/qwen3-6-35b-a3b-benchmarks/",
-          "title": "Officechai — 벤치마크 비교"
-        },
-        {
-          "url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review",
-          "title": "BuildFastWithAI — SWE-bench 73.4"
-        },
-        {
-          "url": "https://simonwillison.net/2026/Apr/16/qwen-beats-opus/",
-          "title": "Simon Willison — Qwen beats Opus"
-        }
-      ],
-      "sampleRefs": [
-        "news:2026-04-18-3-qwen36-swe-bench-local-coding"
-      ],
-      "firstMentioned": "2026-04-18T10:00:00+09:00",
-      "lastMentioned": "2026-04-18T10:00:00+09:00",
-      "categoryGuess": "concept",
-      "priority": -13,
-      "status": "pending",
-      "firstSeenAt": "2026-04-18",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,
@@ -28578,7 +29089,7 @@
       "priority": -13,
       "status": "pending",
       "firstSeenAt": "2026-04-17",
-      "lastSeenAt": "2026-04-25",
+      "lastSeenAt": "2026-04-26",
       "seenInCurrentRun": true,
       "generatedAt": null,
       "generatedFile": null,

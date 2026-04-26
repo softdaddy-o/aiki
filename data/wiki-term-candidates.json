@@ -3,10 +3,10 @@
     "term": "gpt-5",
     "slug": "gpt-5",
     "status": "pending",
-    "priority": 96,
+    "priority": 100,
     "categoryGuess": "model",
-    "occurrences": 6,
-    "distinctSourceCount": 4,
+    "occurrences": 8,
+    "distinctSourceCount": 5,
     "kinds": [
       "phrase",
       "tag",
@@ -18,7 +18,8 @@
     ],
     "newsSourceSlugs": [
       "2026-04-03-codex-prompting-guide",
-      "2026-04-23-2-openai-gpt54-business"
+      "2026-04-23-2-openai-gpt54-business",
+      "2026-04-26-2-chatgpt-for-excel-gpt54"
     ],
     "wikiSourceTerms": [
       "gpt",
@@ -31,20 +32,20 @@
       "computer-use",
       "deepseek-r1",
       "enterprise",
-      "gpt",
-      "gpt-oss"
+      "excel",
+      "gpt"
     ],
     "firstMentioned": "2018-10-11",
-    "lastMentioned": "2026-04-23T09:10:00+09:00"
+    "lastMentioned": "2026-04-26T09:10:00+09:00"
   },
   {
     "term": "GPT-5.4",
     "slug": "gpt-5.4",
     "status": "pending",
-    "priority": 90,
+    "priority": 94,
     "categoryGuess": "model",
-    "occurrences": 9,
-    "distinctSourceCount": 4,
+    "occurrences": 13,
+    "distinctSourceCount": 6,
     "kinds": [
       "markdown_link",
       "phrase",
@@ -57,21 +58,23 @@
       "2026-04-15-4-translategemma-beats-frontier-llms",
       "2026-04-18-2-openai-gpt-rosalind-life-sciences",
       "2026-04-18-3-qwen36-swe-bench-local-coding",
-      "2026-04-23-2-openai-gpt54-business"
+      "2026-04-23-2-openai-gpt54-business",
+      "2026-04-26-2-chatgpt-for-excel-gpt54",
+      "2026-04-26-5-kimi-k26-swe-bench"
     ],
     "wikiSourceTerms": [],
     "knownTermHints": [
+      "agent",
       "agentic-coding",
       "benchmark",
+      "chatgpt",
       "codex",
       "computer-use",
       "drug-discovery",
-      "enterprise",
-      "google",
-      "gpt"
+      "enterprise"
     ],
     "firstMentioned": "2026-04-15T09:30:00+09:00",
-    "lastMentioned": "2026-04-23T09:10:00+09:00"
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
   },
   {
     "term": "GitHub",
@@ -114,6 +117,41 @@
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2026-04-15T09:20:00+09:00"
+  },
+  {
+    "term": "Qwen3.6-35B-A3B",
+    "slug": "qwen3.6-35b-a3b",
+    "status": "pending",
+    "priority": 81,
+    "categoryGuess": "model",
+    "occurrences": 7,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "markdown_link",
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-18-3-qwen36-swe-bench-local-coding",
+      "2026-04-26-1-darwin-36b-moe-evolutionary"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "alibaba",
+      "claude",
+      "evolutionary",
+      "mixture-of-experts",
+      "moe",
+      "open-source",
+      "open-weight"
+    ],
+    "firstMentioned": "2026-04-17T09:00:00+09:00",
+    "lastMentioned": "2026-04-26T09:00:00+09:00"
   },
   {
     "term": "Vertex AI",
@@ -345,36 +383,38 @@
     "lastMentioned": "2026-04-24T08:30:00+09:00"
   },
   {
-    "term": "Qwen3.6-35B-A3B",
-    "slug": "qwen3.6-35b-a3b",
+    "term": "Kimi K2.6",
+    "slug": "kimi-k2.6",
     "status": "pending",
-    "priority": 68,
+    "priority": 67,
     "categoryGuess": "model",
-    "occurrences": 5,
-    "distinctSourceCount": 2,
+    "occurrences": 4,
+    "distinctSourceCount": 3,
     "kinds": [
       "markdown_link",
-      "phrase",
-      "versioned_phrase"
+      "phrase"
     ],
     "sourceKinds": [
       "news"
     ],
     "newsSourceSlugs": [
-      "2026-04-17-1-qwen36-35b-a3b-open-weight",
-      "2026-04-18-3-qwen36-swe-bench-local-coding"
+      "2026-04-21-3-kimi-k26-gguf",
+      "2026-04-21-5-claude-ban-alternatives",
+      "2026-04-26-5-kimi-k26-swe-bench"
     ],
     "wikiSourceTerms": [],
     "knownTermHints": [
-      "agentic-coding",
-      "alibaba",
-      "mixture-of-experts",
-      "open-source",
-      "qwen",
-      "swe-bench"
+      "agent",
+      "ai-coding",
+      "claude",
+      "claude-code",
+      "developer-tools",
+      "gguf",
+      "kimi",
+      "kimi-k2"
     ],
-    "firstMentioned": "2026-04-17T09:00:00+09:00",
-    "lastMentioned": "2026-04-18T10:00:00+09:00"
+    "firstMentioned": "2026-04-21T09:20:00+09:00",
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
   },
   {
     "term": "gpt-5.4-cyber",
@@ -594,8 +634,8 @@
     "status": "pending",
     "priority": 62,
     "categoryGuess": "concept",
-    "occurrences": 38,
-    "distinctSourceCount": 38,
+    "occurrences": 40,
+    "distinctSourceCount": 40,
     "kinds": [
       "phrase",
       "tag"
@@ -635,7 +675,7 @@
       "attention"
     ],
     "firstMentioned": "2018-10-11",
-    "lastMentioned": "2026-04-22T10:00:00+09:00"
+    "lastMentioned": "2026-04-26T09:20:00+09:00"
   },
   {
     "term": "VRAM",
@@ -936,6 +976,41 @@
     "lastMentioned": "2026-04-24T08:30:00+09:00"
   },
   {
+    "term": "SWE-Bench Pro",
+    "slug": "swe-bench-pro",
+    "status": "pending",
+    "priority": 60,
+    "categoryGuess": "concept",
+    "occurrences": 5,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "markdown_link",
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-15-5-local-loop-agent-glm51",
+      "2026-04-17-1-qwen36-35b-a3b-open-weight",
+      "2026-04-23-2-openai-gpt54-business",
+      "2026-04-26-5-kimi-k26-swe-bench"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agent",
+      "agentic-coding",
+      "alibaba",
+      "computer-use",
+      "enterprise",
+      "glm-5",
+      "gpt",
+      "gpt-5"
+    ],
+    "firstMentioned": "2026-04-15T09:40:00+09:00",
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
+  },
+  {
     "term": "DeepSeek-V4",
     "slug": "deepseek-v4",
     "status": "pending",
@@ -1065,6 +1140,39 @@
     ],
     "firstMentioned": "2026-03-02T12:00:00+09:00",
     "lastMentioned": "2026-04-12T11:00:00+09:00"
+  },
+  {
+    "term": "V3.2",
+    "slug": "v3.2",
+    "status": "pending",
+    "priority": 58,
+    "categoryGuess": "model",
+    "occurrences": 4,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-15-4-translategemma-beats-frontier-llms",
+      "2026-04-26-3-deepseek-token-efficiency-gap"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "benchmark",
+      "deepseek",
+      "gemini",
+      "google",
+      "open-weight",
+      "token-efficiency",
+      "translategemma",
+      "translation"
+    ],
+    "firstMentioned": "2026-04-15T09:30:00+09:00",
+    "lastMentioned": "2026-04-26T09:20:00+09:00"
   },
   {
     "term": "Claude Pro",
@@ -1314,6 +1422,48 @@
     "lastMentioned": "2026-04-22T10:00:00+09:00"
   },
   {
+    "term": "open-weight",
+    "slug": "open-weight",
+    "status": "pending",
+    "priority": 56,
+    "categoryGuess": "concept",
+    "occurrences": 10,
+    "distinctSourceCount": 10,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-21-3-kimi-k26-gguf",
+      "2026-04-23-1-xiaomi-mimo-v25-asr",
+      "2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
+      "2026-04-25-3-deepseek-v4-million-token-agents",
+      "2026-04-25-4-deepseek-v4-architecture-analysis",
+      "2026-04-26-1-darwin-36b-moe-evolutionary",
+      "2026-04-26-3-deepseek-token-efficiency-gap"
+    ],
+    "wikiSourceTerms": [
+      "flux",
+      "gpt-oss",
+      "mistral"
+    ],
+    "knownTermHints": [
+      "agent",
+      "anthropic",
+      "architecture",
+      "asr",
+      "attention",
+      "benchmark",
+      "chain-of-thought",
+      "chatgpt"
+    ],
+    "firstMentioned": "2026-03-16",
+    "lastMentioned": "2026-04-26T09:20:00+09:00"
+  },
+  {
     "term": "SDK",
     "slug": "sdk",
     "status": "pending",
@@ -1492,6 +1642,40 @@
     "lastMentioned": "2026-04-17"
   },
   {
+    "term": "Moonshot AI",
+    "slug": "moonshot-ai",
+    "status": "pending",
+    "priority": 54,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-26-5-kimi-k26-swe-bench"
+    ],
+    "wikiSourceTerms": [
+      "kimi-k2"
+    ],
+    "knownTermHints": [
+      "agent",
+      "agentic-coding",
+      "chain-of-thought",
+      "gpt-oss",
+      "kimi",
+      "kimi-k2",
+      "long-context",
+      "moonshot"
+    ],
+    "firstMentioned": "2026-04-17",
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
+  },
+  {
     "term": "Open WebUI",
     "slug": "open-webui",
     "status": "pending",
@@ -1531,8 +1715,8 @@
     "status": "pending",
     "priority": 52,
     "categoryGuess": "concept",
-    "occurrences": 9,
-    "distinctSourceCount": 9,
+    "occurrences": 10,
+    "distinctSourceCount": 10,
     "kinds": [
       "phrase"
     ],
@@ -1547,7 +1731,8 @@
       "2026-04-18-1-gemini-nano-banana-personal-intelligence",
       "2026-04-22-1-google-deep-research-max-gemini",
       "2026-04-23-1-gemini-enterprise-agent-platform",
-      "2026-04-23-2-openai-gpt54-business"
+      "2026-04-23-2-openai-gpt54-business",
+      "2026-04-26-3-deepseek-token-efficiency-gap"
     ],
     "wikiSourceTerms": [
       "gemini",
@@ -1561,49 +1746,10 @@
       "cloud",
       "computer-use",
       "deep-research",
-      "deepseek-r1"
+      "deepseek"
     ],
     "firstMentioned": "2026-02-18",
-    "lastMentioned": "2026-04-23T09:10:00+09:00"
-  },
-  {
-    "term": "open-weight",
-    "slug": "open-weight",
-    "status": "pending",
-    "priority": 52,
-    "categoryGuess": "concept",
-    "occurrences": 7,
-    "distinctSourceCount": 7,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-21-3-kimi-k26-gguf",
-      "2026-04-25-1-anthropic-claude-code-reasoning-downgrade",
-      "2026-04-25-3-deepseek-v4-million-token-agents",
-      "2026-04-25-4-deepseek-v4-architecture-analysis"
-    ],
-    "wikiSourceTerms": [
-      "flux",
-      "gpt-oss",
-      "mistral"
-    ],
-    "knownTermHints": [
-      "agent",
-      "anthropic",
-      "architecture",
-      "attention",
-      "chain-of-thought",
-      "chatgpt",
-      "claude",
-      "claude-code"
-    ],
-    "firstMentioned": "2026-03-16",
-    "lastMentioned": "2026-04-25T09:30:00+09:00"
+    "lastMentioned": "2026-04-26T09:20:00+09:00"
   },
   {
     "term": "prompting",
@@ -1746,6 +1892,42 @@
     "lastMentioned": "2026-04-14"
   },
   {
+    "term": "H100",
+    "slug": "h100",
+    "status": "pending",
+    "priority": 51,
+    "categoryGuess": "concept",
+    "occurrences": 6,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4",
+      "2026-04-26-4-ttt-e2e-test-time-training"
+    ],
+    "wikiSourceTerms": [
+      "gpt-oss"
+    ],
+    "knownTermHints": [
+      "chain-of-thought",
+      "chatgpt",
+      "codex",
+      "deepgemm",
+      "deepseek",
+      "fp8",
+      "gpt-4o",
+      "gpt-oss"
+    ],
+    "firstMentioned": "2026-04-17",
+    "lastMentioned": "2026-04-26T09:30:00+09:00"
+  },
+  {
     "term": "Project Glasswing",
     "slug": "project-glasswing",
     "status": "pending",
@@ -1778,40 +1960,6 @@
     ],
     "firstMentioned": "2026-04-09T09:00:00+09:00",
     "lastMentioned": "2026-04-23T09:30:00+09:00"
-  },
-  {
-    "term": "SWE-Bench Pro",
-    "slug": "swe-bench-pro",
-    "status": "pending",
-    "priority": 51,
-    "categoryGuess": "concept",
-    "occurrences": 4,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "markdown_link",
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-15-5-local-loop-agent-glm51",
-      "2026-04-17-1-qwen36-35b-a3b-open-weight",
-      "2026-04-23-2-openai-gpt54-business"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "agentic-coding",
-      "alibaba",
-      "computer-use",
-      "enterprise",
-      "glm-5",
-      "gpt",
-      "gpt-5",
-      "local-llm"
-    ],
-    "firstMentioned": "2026-04-15T09:40:00+09:00",
-    "lastMentioned": "2026-04-23T09:10:00+09:00"
   },
   {
     "term": "mistralai/Mixtral-8x7B-v0.1",
@@ -2158,38 +2306,6 @@
     ],
     "firstMentioned": "2026-04-13T11:00:00+09:00",
     "lastMentioned": "2026-04-16T09:40:00+09:00"
-  },
-  {
-    "term": "Kimi K2.6",
-    "slug": "kimi-k2.6",
-    "status": "pending",
-    "priority": 48,
-    "categoryGuess": "model",
-    "occurrences": 2,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-21-3-kimi-k26-gguf",
-      "2026-04-21-5-claude-ban-alternatives"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "ai-coding",
-      "claude",
-      "claude-code",
-      "developer-tools",
-      "gguf",
-      "kimi-k2",
-      "local-llm",
-      "moonshot-ai"
-    ],
-    "firstMentioned": "2026-04-21T09:20:00+09:00",
-    "lastMentioned": "2026-04-21T09:40:00+09:00"
   },
   {
     "term": "Sora API",
@@ -3525,41 +3641,6 @@
     "lastMentioned": "2026-04-25"
   },
   {
-    "term": "H100",
-    "slug": "h100",
-    "status": "pending",
-    "priority": 38,
-    "categoryGuess": "concept",
-    "occurrences": 4,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase",
-      "versioned_phrase"
-    ],
-    "sourceKinds": [
-      "news",
-      "wiki"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-18-5-deepseek-deepgemm-mega-moe-fp4"
-    ],
-    "wikiSourceTerms": [
-      "gpt-oss"
-    ],
-    "knownTermHints": [
-      "chain-of-thought",
-      "chatgpt",
-      "codex",
-      "deepgemm",
-      "deepseek",
-      "fp8",
-      "gpt-4o",
-      "gpt-oss"
-    ],
-    "firstMentioned": "2026-04-17",
-    "lastMentioned": "2026-04-18T11:00:00+09:00"
-  },
-  {
     "term": "Sparse MoE(희소 혼합 전문가",
     "slug": "sparse-moe-희소-혼합-전문가",
     "status": "pending",
@@ -3716,6 +3797,42 @@
     ],
     "firstMentioned": "2021-06-29",
     "lastMentioned": "2026-04-22T09:30:00+09:00"
+  },
+  {
+    "term": "MIT",
+    "slug": "mit",
+    "status": "pending",
+    "priority": 36,
+    "categoryGuess": "concept",
+    "occurrences": 4,
+    "distinctSourceCount": 4,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news",
+      "wiki"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-23-1-xiaomi-mimo-v25-asr"
+    ],
+    "wikiSourceTerms": [
+      "apache",
+      "deepseek-r1",
+      "kimi-k2"
+    ],
+    "knownTermHints": [
+      "agentic-coding",
+      "apache",
+      "asr",
+      "chain-of-thought",
+      "deepseek-r1",
+      "gemma",
+      "gemma-4",
+      "gpt-oss"
+    ],
+    "firstMentioned": "2025-01-20",
+    "lastMentioned": "2026-04-23T17:46:04+09:00"
   },
   {
     "term": "STT",
@@ -4971,6 +5088,70 @@
     ],
     "firstMentioned": "2026-04-23T09:00:00+09:00",
     "lastMentioned": "2026-04-24T08:00:00+09:00"
+  },
+  {
+    "term": "Google Sheets",
+    "slug": "google-sheets",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-03-12-gemini-in-google-sheets-just-achieved-st",
+      "2026-04-26-2-chatgpt-for-excel-gpt54"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "chatgpt",
+      "claude",
+      "claude-code",
+      "excel",
+      "gemini",
+      "gpt",
+      "openai",
+      "spreadsheet"
+    ],
+    "firstMentioned": "2026-03-12T12:00:00+09:00",
+    "lastMentioned": "2026-04-26T09:10:00+09:00"
+  },
+  {
+    "term": "GPQA Diamond",
+    "slug": "gpqa-diamond",
+    "status": "pending",
+    "priority": 32,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-3-qwen36-swe-bench-local-coding",
+      "2026-04-26-1-darwin-36b-moe-evolutionary"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agentic-coding",
+      "claude",
+      "evolutionary",
+      "mixture-of-experts",
+      "moe",
+      "open-source",
+      "open-weight",
+      "qwen"
+    ],
+    "firstMentioned": "2026-04-18T10:00:00+09:00",
+    "lastMentioned": "2026-04-26T09:00:00+09:00"
   },
   {
     "term": "GPU VRAM",
@@ -6361,37 +6542,6 @@
     "lastMentioned": "2026-04-17"
   },
   {
-    "term": "Moonshot AI",
-    "slug": "moonshot-ai",
-    "status": "pending",
-    "priority": 27,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "kimi-k2"
-    ],
-    "knownTermHints": [
-      "agentic-coding",
-      "chain-of-thought",
-      "gpt-oss",
-      "kimi-k2",
-      "moonshot",
-      "o1",
-      "o3",
-      "reasoning"
-    ],
-    "firstMentioned": "2026-04-17",
-    "lastMentioned": "2026-04-17"
-  },
-  {
     "term": "pass@1",
     "slug": "pass-1",
     "status": "pending",
@@ -6925,6 +7075,40 @@
     ],
     "firstMentioned": "2026-04-13T11:00:00+09:00",
     "lastMentioned": "2026-04-21T09:20:00+09:00"
+  },
+  {
+    "term": "K2.6",
+    "slug": "k2.6",
+    "status": "pending",
+    "priority": 21,
+    "categoryGuess": "concept",
+    "occurrences": 4,
+    "distinctSourceCount": 3,
+    "kinds": [
+      "phrase",
+      "versioned_phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-21-3-kimi-k26-gguf",
+      "2026-04-21-5-claude-ban-alternatives",
+      "2026-04-26-5-kimi-k26-swe-bench"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agent",
+      "ai-coding",
+      "claude",
+      "claude-code",
+      "developer-tools",
+      "gguf",
+      "kimi",
+      "kimi-k2"
+    ],
+    "firstMentioned": "2026-04-21T09:20:00+09:00",
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
   },
   {
     "term": "Speech",
@@ -8027,39 +8211,6 @@
     "lastMentioned": "2026-04-05T13:00:00+09:00"
   },
   {
-    "term": "K2.6",
-    "slug": "k2.6",
-    "status": "pending",
-    "priority": 12,
-    "categoryGuess": "concept",
-    "occurrences": 3,
-    "distinctSourceCount": 2,
-    "kinds": [
-      "phrase",
-      "versioned_phrase"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-21-3-kimi-k26-gguf",
-      "2026-04-21-5-claude-ban-alternatives"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "ai-coding",
-      "claude",
-      "claude-code",
-      "developer-tools",
-      "gguf",
-      "kimi-k2",
-      "local-llm",
-      "moonshot-ai"
-    ],
-    "firstMentioned": "2026-04-21T09:20:00+09:00",
-    "lastMentioned": "2026-04-21T09:40:00+09:00"
-  },
-  {
     "term": "Node.js",
     "slug": "node.js",
     "status": "pending",
@@ -8155,39 +8306,6 @@
     ],
     "firstMentioned": "2026-03-23",
     "lastMentioned": "2026-04-14"
-  },
-  {
-    "term": "MIT",
-    "slug": "mit",
-    "status": "pending",
-    "priority": 9,
-    "categoryGuess": "concept",
-    "occurrences": 3,
-    "distinctSourceCount": 3,
-    "kinds": [
-      "phrase"
-    ],
-    "sourceKinds": [
-      "wiki"
-    ],
-    "newsSourceSlugs": [],
-    "wikiSourceTerms": [
-      "apache",
-      "deepseek-r1",
-      "kimi-k2"
-    ],
-    "knownTermHints": [
-      "agentic-coding",
-      "apache",
-      "chain-of-thought",
-      "deepseek-r1",
-      "gemma",
-      "gemma-4",
-      "gpt-oss",
-      "kimi-k2"
-    ],
-    "firstMentioned": "2025-01-20",
-    "lastMentioned": "2026-04-17"
   },
   {
     "term": "OCR",
@@ -8858,6 +8976,38 @@
     "lastMentioned": "2026-04-22T09:30:00+09:00"
   },
   {
+    "term": "Mimo",
+    "slug": "mimo",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-06-2-chinese-labs-pause-open-source",
+      "2026-04-23-1-xiaomi-mimo-v25-asr"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "asr",
+      "localllama",
+      "minimax",
+      "multilingual",
+      "open-weight",
+      "qwen",
+      "speech-to-text",
+      "xiaomi"
+    ],
+    "firstMentioned": "2026-04-06T11:00:00+09:00",
+    "lastMentioned": "2026-04-23T17:46:04+09:00"
+  },
+  {
     "term": "MiniMaxAI",
     "slug": "minimaxai",
     "status": "pending",
@@ -8887,6 +9037,38 @@
     ],
     "firstMentioned": "2026-04-14T09:00:00+09:00",
     "lastMentioned": "2026-04-16T09:00:00+09:00"
+  },
+  {
+    "term": "Moonshot",
+    "slug": "moonshot",
+    "status": "pending",
+    "priority": 8,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "phrase"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-13-5-china-token-economy-ai-boom",
+      "2026-04-26-5-kimi-k26-swe-bench"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agent",
+      "deepseek",
+      "kimi",
+      "long-context",
+      "minimax",
+      "swe-bench",
+      "오픈소스",
+      "중국-ai"
+    ],
+    "firstMentioned": "2026-04-13T11:00:00+09:00",
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
   },
   {
     "term": "Multi",
@@ -10287,6 +10469,33 @@
     ],
     "firstMentioned": "2026-04-18T10:30:00+09:00",
     "lastMentioned": "2026-04-18T10:30:00+09:00"
+  },
+  {
+    "term": "token-efficiency",
+    "slug": "token-efficiency",
+    "status": "pending",
+    "priority": 5,
+    "categoryGuess": "concept",
+    "occurrences": 1,
+    "distinctSourceCount": 1,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-26-3-deepseek-token-efficiency-gap"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "benchmark",
+      "deepseek",
+      "gemini",
+      "open-weight"
+    ],
+    "firstMentioned": "2026-04-26T09:20:00+09:00",
+    "lastMentioned": "2026-04-26T09:20:00+09:00"
   },
   {
     "term": "us-government",
@@ -12331,6 +12540,38 @@
     "lastMentioned": "2026-04-10T10:00:00+09:00"
   },
   {
+    "term": "swe-bench",
+    "slug": "swe-bench",
+    "status": "pending",
+    "priority": -4,
+    "categoryGuess": "concept",
+    "occurrences": 2,
+    "distinctSourceCount": 2,
+    "kinds": [
+      "tag"
+    ],
+    "sourceKinds": [
+      "news"
+    ],
+    "newsSourceSlugs": [
+      "2026-04-18-3-qwen36-swe-bench-local-coding",
+      "2026-04-26-5-kimi-k26-swe-bench"
+    ],
+    "wikiSourceTerms": [],
+    "knownTermHints": [
+      "agent",
+      "agentic-coding",
+      "kimi",
+      "long-context",
+      "mixture-of-experts",
+      "moonshot",
+      "open-source",
+      "qwen"
+    ],
+    "firstMentioned": "2026-04-18T10:00:00+09:00",
+    "lastMentioned": "2026-04-26T09:40:00+09:00"
+  },
+  {
     "term": "ADR",
     "slug": "adr",
     "status": "pending",
@@ -13673,33 +13914,6 @@
     ],
     "firstMentioned": "2026-04-21T09:00:00+09:00",
     "lastMentioned": "2026-04-21T09:00:00+09:00"
-  },
-  {
-    "term": "swe-bench",
-    "slug": "swe-bench",
-    "status": "pending",
-    "priority": -13,
-    "categoryGuess": "concept",
-    "occurrences": 1,
-    "distinctSourceCount": 1,
-    "kinds": [
-      "tag"
-    ],
-    "sourceKinds": [
-      "news"
-    ],
-    "newsSourceSlugs": [
-      "2026-04-18-3-qwen36-swe-bench-local-coding"
-    ],
-    "wikiSourceTerms": [],
-    "knownTermHints": [
-      "agentic-coding",
-      "mixture-of-experts",
-      "open-source",
-      "qwen"
-    ],
-    "firstMentioned": "2026-04-18T10:00:00+09:00",
-    "lastMentioned": "2026-04-18T10:00:00+09:00"
   },
   {
     "term": "tiny-model",

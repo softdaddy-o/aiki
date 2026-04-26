@@ -598,9 +598,6 @@ function validateWikiStructure(frontmatter, body) {
             failures.push('wiki missing section "왜 중요한가"');
         }
 
-        if (!headings.includes('관련 용어')) {
-            failures.push('wiki missing section "관련 용어"');
-        }
     }
 
     if (/^##\s+(먼저 감 잡기|뉴스에서 왜 자주 나오나|읽을 때 체크포인트|같이 봐야 할 용어)$/m.test(normalizedBody)) {

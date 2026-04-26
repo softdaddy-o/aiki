@@ -665,7 +665,7 @@ ${createSharedShowcaseChromeCss({
 })}
 .pb-main{grid-column:2;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
 .pb-hero,.pb-panel{scroll-margin-top:100px}
-.pb-hero-copy h1{font-size:clamp(2.3rem,5.6vw,4.8rem);line-height:.94;letter-spacing:-.03em}
+.pb-hero-copy h1{font-size:clamp(2.3rem,5.6vw,4.8rem);line-height:.94;letter-spacing:0}
 .pb-hero-copy p{color:var(--color-text);font-size:clamp(1rem,1.3vw,1.12rem)}
 .pb-panel{display:grid;gap:0}
 .pb-panel-head{display:grid;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid color-mix(in srgb,var(--color-border) 84%,transparent)}

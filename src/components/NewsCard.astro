@@ -74,14 +74,11 @@ const thumbSrc = fs.existsSync(externalThumbPath)
 
 <style>
     .timeline-item {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
+        display: block;
         position: relative;
-        margin-bottom: 16px;
-        padding-left: 4px;
-        opacity: 0;
-        transform: translateY(12px);
+        min-width: 0;
+        opacity: 1;
+        transform: none;
         transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
     .timeline-item.visible {
@@ -89,57 +86,41 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         transform: translateY(0);
     }
     .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        border: 2px solid var(--color-bg);
-        flex-shrink: 0;
-        margin-left: 8px;
-        margin-top: 20px;
-        position: relative;
-        z-index: 2;
+        display: none;
     }
     .connector {
         display: none;
     }
     .card {
         display: grid;
-        grid-template-columns: 172px minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
         gap: 14px;
-        flex: 1;
-        max-width: 720px;
-        background: var(--color-surface);
-        border-radius: 8px;
-        padding: 14px 16px;
+        height: 100%;
+        background: color-mix(in srgb, var(--color-surface-elevated) 76%, transparent);
+        border-radius: var(--radius-lg);
+        padding: 14px;
         text-decoration: none;
         color: inherit;
-        margin-left: 8px;
-        border-left: 3px solid;
-        border-top: 1px solid var(--color-border);
-        border-right: 1px solid var(--color-border);
-        border-bottom: 1px solid var(--color-border);
+        margin-left: 0;
+        border: 1px solid var(--color-border) !important;
         text-align: left;
-        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(18px) saturate(135%);
     }
     .card:hover {
-        background: var(--color-surface-alt);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-    }
-    html.dark .card {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
-    }
-    html.dark .card:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+        background: color-mix(in srgb, var(--color-surface-elevated) 88%, transparent);
+        box-shadow: var(--shadow-card-hover);
+        transform: translateY(-3px);
     }
     .card-media {
         position: relative;
         overflow: hidden;
-        min-height: 108px;
-        border-radius: 8px;
+        aspect-ratio: 16 / 9;
+        min-height: 150px;
+        border-radius: 18px;
         background: var(--color-surface-alt);
-        border: 1px solid var(--color-border);
+        border: 1px solid rgba(255, 255, 255, 0.58);
     }
     .card-media img {
         width: 100%;
@@ -152,30 +133,35 @@ const thumbSrc = fs.existsSync(externalThumbPath)
     }
     .card-header {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         margin-bottom: 10px;
         gap: 8px;
+        flex-wrap: wrap;
     }
     .badge {
-        color: #fff;
-        padding: 3px 10px;
-        border-radius: 4px;
+        color: var(--color-text);
+        padding: 3px 9px;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
         font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
+        font-weight: 800;
+        background: rgba(255, 255, 255, 0.5) !important;
+        text-transform: none;
+        letter-spacing: 0;
     }
     .card-title {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 6px;
-        line-height: 1.4;
+        font-family: var(--font-display);
+        font-size: 21px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        line-height: 1.34;
+        letter-spacing: 0;
     }
     .card-summary {
         font-size: 13px;
         color: var(--color-text-muted);
-        line-height: 1.5;
+        line-height: 1.58;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -194,13 +180,15 @@ const thumbSrc = fs.existsSync(externalThumbPath)
         color: var(--color-text-muted);
     }
     .featured .card {
-        grid-template-columns: 204px minmax(0, 1fr);
-        background: var(--color-surface-elevated);
-        border-color: var(--color-news);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+        align-items: stretch;
+        padding: 16px;
+        background:
+            linear-gradient(130deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46)),
+            color-mix(in srgb, var(--color-aiki-blue) 8%, var(--color-surface-elevated) 92%);
     }
     .featured .card-title {
-        font-size: 22px;
+        font-size: 32px;
     }
     .featured .card-summary {
         -webkit-line-clamp: 5;
@@ -211,16 +199,17 @@ const thumbSrc = fs.existsSync(externalThumbPath)
     }
     @media (max-width: 640px) {
         .card {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
+            padding: 12px;
         }
         .card-media {
             min-height: 170px;
         }
         .featured .card {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
         }
         .card-title {
-            font-size: 16px;
+            font-size: 19px;
         }
         .card-summary {
             -webkit-line-clamp: 2;

@@ -29,11 +29,11 @@ export function createSharedShowcaseChromeCss({
 }: SharedShowcaseChromeOptions): string {
     return `
 ${selector(rootClass)}{display:contents;color:var(--color-text)}
-${selector(heroClass)},${selector(panelClass)}{border:1px solid var(--color-border);background:var(--color-surface);border-radius:12px;padding:20px;min-width:0}
+${selector(heroClass)},${selector(panelClass)}{border:1px solid var(--color-border);background:var(--color-surface);border-radius:12px;padding:20px;min-width:0;box-shadow:var(--shadow-card)}
 ${selector(heroClass)}{display:grid;gap:16px}
-${selector(heroCopyClass)} h1{margin:0 0 10px;color:var(--color-text);font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:-.03em;text-transform:none;overflow-wrap:anywhere}
+${selector(heroCopyClass)} h1{margin:0 0 10px;color:var(--color-text);font-size:clamp(2rem,4vw,3.2rem);line-height:.98;letter-spacing:0;text-transform:none;overflow-wrap:anywhere}
 ${selector(heroCopyClass)} p{max-width:${heroCopyMaxWidth};margin:0;color:var(--color-text-muted);line-height:1.7}
-${selector(metaGridClass)}{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+${selector(metaGridClass)}{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:12px}
 ${selector(metaCardClass)}{display:grid;gap:10px;align-content:start;min-width:0;padding:14px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface-alt)}
 ${selector(metaSourceCardClass)}{grid-template-columns:auto minmax(0,1fr);align-items:center}
 ${selector(metaMarkClass)}{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:color-mix(in srgb,var(--color-projects) 14%,transparent);color:var(--color-projects);font-size:1.1rem;font-weight:900}

@@ -74,46 +74,76 @@ const rows = [
 
 <style>
     .model-profile {
-        margin: 8px 0 20px;
+        margin: 24px 0 30px;
         padding: 18px;
-        border: 1px solid color-mix(in srgb, var(--color-wiki) 24%, transparent);
-        border-radius: 8px;
-        background: color-mix(in srgb, var(--color-wiki) 6%, var(--color-surface));
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        background:
+            linear-gradient(140deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42)),
+            color-mix(in srgb, var(--color-model) 8%, var(--color-surface-elevated) 92%);
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(22px) saturate(145%);
     }
     .model-profile-head {
-        margin-bottom: 14px;
+        padding: 4px 4px 18px;
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: 16px;
         display: grid;
-        gap: 6px;
+        gap: 8px;
     }
     .model-profile h3 {
         margin: 0;
-        font-size: 16px;
+        color: var(--color-text);
+        font-family: var(--font-display);
+        font-size: var(--text-3xl);
+        line-height: 1.14;
     }
     .model-profile-head p {
         margin: 0;
+        max-width: 680px;
         font-size: 13px;
-        line-height: 1.65;
+        line-height: 1.72;
         color: var(--color-text-muted);
     }
     .model-profile-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
     }
     .model-profile-card {
-        padding: 12px;
-        border-radius: 8px;
-        background: var(--color-surface);
-        border: 1px solid color-mix(in srgb, var(--color-wiki) 14%, transparent);
+        min-width: 0;
+        padding: 15px;
+        border: 1px solid var(--color-border);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.42);
         display: grid;
         gap: 8px;
+    }
+    .model-profile-card:nth-child(even) {
+        padding-left: 15px;
+        border-right: 1px solid var(--color-border);
+    }
+    .model-profile-card:first-child {
+        grid-column: 1 / -1;
+        background:
+            linear-gradient(90deg, rgba(123, 216, 207, 0.16), rgba(185, 167, 255, 0.16)),
+            rgba(255, 255, 255, 0.5);
+    }
+    .model-profile-card:first-child::after {
+        content: '';
+        display: block;
+        height: 12px;
+        margin-top: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--color-aiki-cyan), var(--color-aiki-blue), var(--color-aiki-violet));
+        box-shadow: 0 10px 26px color-mix(in srgb, var(--color-aiki-blue) 24%, transparent);
     }
     .model-profile-label {
         display: inline-block;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 850;
         letter-spacing: 0;
-        color: var(--color-wiki);
+        color: var(--color-model);
     }
     .model-profile-value,
     .model-profile-description {
@@ -121,12 +151,23 @@ const rows = [
     }
     .model-profile-value {
         font-size: 13px;
-        line-height: 1.65;
+        line-height: 1.62;
         color: var(--color-text);
+        font-weight: 760;
     }
     .model-profile-description {
         font-size: 12px;
         line-height: 1.6;
         color: var(--color-text-muted);
+    }
+    @media (max-width: 640px) {
+        .model-profile-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        .model-profile-card,
+        .model-profile-card:nth-child(even) {
+            padding-left: 15px;
+            border-right: 1px solid var(--color-border);
+        }
     }
 </style>

@@ -436,16 +436,20 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
 </script>
 
 <style>
-    .hero { text-align: center; padding: 32px 0 28px; }
+    .hero {
+        display: grid;
+        gap: 8px;
+        padding: 28px 0 20px;
+    }
     .hero-title {
-        font-size: var(--text-4xl);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        background: linear-gradient(135deg, var(--color-news), var(--color-wiki));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 12px;
+        color: var(--color-text);
+        font-family: var(--font-display);
+        font-size: 4rem;
+        line-height: 1.02;
+        font-weight: 800;
+        letter-spacing: 0;
+        margin: 0;
+        overflow-wrap: anywhere;
         animation: fadeUp 0.6s ease-out;
     }
     .hero-subtitle {
@@ -456,9 +460,11 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
         to { opacity: 1; transform: translateY(0); }
     }
     .hero-subtitle {
-        font-size: var(--text-lg);
+        max-width: 560px;
+        font-size: var(--text-base);
+        font-weight: 650;
         color: var(--color-text-muted);
-        line-height: 1.5;
+        line-height: 1.7;
     }
     .load-more-container {
         text-align: center;
@@ -467,20 +473,21 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
         z-index: 5;
     }
     .load-more-btn {
-        background: var(--color-surface);
-        color: var(--color-news);
-        border: 1px solid rgba(79, 195, 247, 0.3);
-        padding: 12px 32px;
-        border-radius: 24px;
+        background: var(--color-text);
+        color: #fff;
+        border: 1px solid var(--color-text);
+        min-height: 44px;
+        padding: 0 32px;
+        border-radius: 999px;
         font-size: 14px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 12px 28px rgba(10, 20, 38, 0.14);
     }
     .load-more-btn:hover {
-        background: var(--color-surface-alt);
-        box-shadow: 0 4px 16px rgba(79, 195, 247, 0.2);
+        background: var(--color-aiki-blue);
+        color: #fff;
         transform: translateY(-1px);
     }
     .scroll-sentinel {
@@ -488,8 +495,8 @@ const itemsWithPeriods = itemsWithZoom.map(item => ({
         visibility: hidden;
     }
     @media (max-width: 640px) {
-        .hero { padding: 24px 0 16px; }
-        .hero-title { font-size: var(--text-3xl); }
-        .hero-subtitle { font-size: var(--text-base); }
+        .hero { padding: 24px 0 18px; }
+        .hero-title { font-size: 3.4rem; }
+        .hero-subtitle { font-size: var(--text-lg); }
     }
 </style>

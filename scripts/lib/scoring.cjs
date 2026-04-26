@@ -96,6 +96,89 @@ function isMajorAICompanyOfficial(url) {
     return MAJOR_AI_COMPANY_DOMAINS.some(domain => url.includes(domain));
 }
 
+function isGenericLandingUrl(url) {
+    const normalized = String(url || '').toLowerCase().replace(/\/+$/, '/');
+    if (!normalized) return false;
+
+    return [
+        'https://openai.com/',
+        'https://openai.com/index/',
+        'https://openai.com/news/',
+        'https://openai.com/news/product-releases/',
+        'https://openai.com/business/',
+        'https://openai.com/research/index/',
+        'https://openai.com/research/index/release/',
+    ].includes(normalized);
+}
+
+function isGenericLandingTitle(title) {
+    const normalized = String(title || '').trim().toLowerCase();
+    return [
+        'recent news',
+        'news',
+        'product releases',
+        'research',
+    ].includes(normalized);
+}
+
+function isSpecificReleaseUrl(url) {
+    const normalized = String(url || '').toLowerCase();
+    return /\/index\/(introducing|launching|announcing|openai-|gpt-|o\d)/.test(normalized);
+}
+
+function getPrimarySelectionScore(candidate) {
+    let score = candidate._score || 0;
+    const title = candidate._firstLine || candidate.text || '';
+    const url = candidate._url || '';
+
+    if (candidate._isOfficial) score += 35;
+    if (candidate._isMajorAICompanyOfficial) score += 10;
+    if (isGenericLandingUrl(url)) score -= 60;
+    if (isGenericLandingTitle(title)) score -= 40;
+    if (isSpecificReleaseUrl(url)) score += 20;
+    if ((candidate.text || '').length >= 20) score += 5;
+
+    return score;
+}
+
+function extractTopicAnchors(candidate) {
+    const stopwords = new Set([
+        'introducing', 'announcing', 'launching', 'release', 'releases',
+        'openai', 'anthropic', 'google', 'deepmind', 'meta', 'mistral',
+        'ai', 'gpt', 'claude', 'gemini', 'llm', 'model', 'models',
+        'agent', 'agents', 'rag', 'research', 'product', 'products',
+        'news', 'safety', 'prompt', 'prompts', 'token', 'tokens',
+        'benchmark', 'benchmarks', 'reasoning', 'multimodal', 'coding',
+        'code', 'developer', 'developers', 'https', 'http', 'www',
+        'com', 'index', 'blog',
+    ]);
+
+    const haystack = `${candidate._firstLine || ''} ${candidate._url || ''}`
+        .toLowerCase()
+        .replace(/[-_/]/g, ' ');
+    const tokens = haystack.match(/[a-z0-9.]+/g) || [];
+
+    return new Set(tokens.filter(token => {
+        if (stopwords.has(token)) return false;
+        if (token.includes('.') && !/^\d+\.\d+$/.test(token)) return false;
+        if (/^\d+$/.test(token)) return false;
+        if (token.length >= 3) return true;
+        return /^\d+\.\d+$/.test(token);
+    }));
+}
+
+function topicAnchorOverlap(a, b) {
+    const anchorsA = extractTopicAnchors(a);
+    const anchorsB = extractTopicAnchors(b);
+    if (anchorsA.size === 0 || anchorsB.size === 0) return 0;
+
+    let overlap = 0;
+    for (const token of anchorsA) {
+        if (anchorsB.has(token)) overlap++;
+    }
+    return overlap;
+}
+
 function filterAndScorePosts(posts, daysBack, themes, existing) {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - daysBack);
@@ -116,6 +199,7 @@ function filterAndScorePosts(posts, daysBack, themes, existing) {
             if (matchedKeywords.length === 0) return null;
             if (isClearlyOffTopic(text, url)) return null;
             if (!hasStrongAISignal(text, url, matchedKeywords)) return null;
+            if (isGenericLandingUrl(url) || isGenericLandingTitle(post.text || '')) return null;
 
             // Must be recent
             const publishedDate = post.publishedAt ? post.publishedAt.split('T')[0] : '';
@@ -201,8 +285,15 @@ function clusterPosts(candidates) {
     }
 
     function isSameTopic(a, b) {
-        if (titleSimilarity(a._firstLine, b._firstLine) > TITLE_SIM_THRESHOLD) return true;
-        if (keywordOverlap(a, b) > KEYWORD_OVERLAP_THRESHOLD) return true;
+        const anchorOverlap = topicAnchorOverlap(a, b);
+        const similarTitle = titleSimilarity(a._firstLine, b._firstLine) > TITLE_SIM_THRESHOLD;
+        const bothSpecificOfficial = isSpecificReleaseUrl(a._url) && isSpecificReleaseUrl(b._url);
+
+        if (similarTitle) {
+            if (bothSpecificOfficial && anchorOverlap === 0) return false;
+            return true;
+        }
+        if (anchorOverlap > 0 && keywordOverlap(a, b) > KEYWORD_OVERLAP_THRESHOLD) return true;
         return false;
     }
 
@@ -227,8 +318,14 @@ function clusterPosts(candidates) {
 
     // Merge each cluster into a single primary candidate
     const results = clusters.map(sources => {
-        // Pick highest-scored as primary
-        sources.sort((a, b) => b._score - a._score);
+        // Pick the best representative, not just the highest raw score.
+        // Generic landing pages (e.g. /business/, "Recent news") should not
+        // become the canonical source when a specific release URL exists.
+        sources.sort((a, b) => {
+            const scoreDiff = getPrimarySelectionScore(b) - getPrimarySelectionScore(a);
+            if (scoreDiff !== 0) return scoreDiff;
+            return (b._score || 0) - (a._score || 0);
+        });
         const primary = { ...sources[0] };
 
         // Multi-source bonus

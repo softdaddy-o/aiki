@@ -1,0 +1,20 @@
+{
+  "snapshot_date": "2026-04-25",
+  "project": "D:/srcp/aiki",
+  "soft_harness_version": "0.4.32",
+  "skills": {
+    "claude": ["aiki-ui-ux"],
+    "codex": ["aiki-ui-ux"]
+  },
+  "agents": {
+    "project_local": 12,
+    "account_codex_mirror": 12,
+    "registry": "agents/_registry.yaml"
+  },
+  "decisions": [
+    "aiki-ui-ux skill ported to .codex/skills/ on 2026-04-25",
+    "AGENTS.md skill ref updated from .claude/ to .codex/ on 2026-04-25",
+    "12 aiki agents mirrored to ~/.codex/agents/aiki-*.toml — re-sync needed on agent edits",
+    "soft-harness v0.4.32 synced to Codex on 2026-04-25: references embedded in SKILL.md (no sibling file dependency), agents/openai.yaml added for analyze and organize, descriptions quoted at install (plugin source still unquoted)"
+  ]
+}

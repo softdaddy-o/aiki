@@ -53,24 +53,27 @@ let globalIndex = 0;
 </div>
 
 <style is:global>
-    /* Always single-column with left-aligned timeline */
-    .timeline { position: relative; padding: 16px 0; }
+    .timeline {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        padding: 8px 0 24px;
+    }
     .timeline-line {
-        position: absolute; left: 16px; top: 0; bottom: 0;
-        width: 3px;
-        background: var(--color-border-strong);
-        opacity: 0.55;
+        display: none;
     }
     .date-header {
+        grid-column: 1 / -1;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        padding-left: 40px;
+        padding-left: 0;
         position: relative;
         z-index: 3;
-        margin: 24px 0 12px;
-        opacity: 0;
-        transform: translateY(8px);
+        margin: 16px 0 0;
+        opacity: 1;
+        transform: none;
         transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
     .date-header:first-child { margin-top: 0; }
@@ -79,25 +82,31 @@ let globalIndex = 0;
         transform: translateY(0);
     }
     .date-marker {
-        width: 16px; height: 16px;
-        border-radius: 50%;
-        background: var(--color-news);
-        border: 3px solid var(--color-bg);
-        position: absolute;
-        left: 16px;
-        transform: translateX(-50%);
+        display: none;
     }
     .date-label {
-        background: var(--color-surface);
-        padding: 6px 14px;
-        border: 1px solid rgba(79, 195, 247, 0.25);
-        border-radius: 20px;
+        background: color-mix(in srgb, var(--color-surface-elevated) 74%, transparent);
+        padding: 7px 12px;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
         font-size: 13px;
-        font-weight: 700;
-        color: var(--color-news);
-        letter-spacing: 0.02em;
+        font-weight: 800;
+        color: var(--color-text-muted);
+        letter-spacing: 0;
         font-family: var(--font-heading);
-        box-shadow: 0 0 12px rgba(79, 195, 247, 0.1);
+        box-shadow: 0 10px 26px rgba(40, 58, 90, 0.06);
+        backdrop-filter: blur(14px);
+    }
+    .timeline > .timeline-item.featured {
+        grid-column: span 2;
+    }
+    @media (max-width: 760px) {
+        .timeline {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        .timeline > .timeline-item.featured {
+            grid-column: auto;
+        }
     }
     @media (prefers-reduced-motion: reduce) {
         .date-header {

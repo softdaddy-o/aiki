@@ -41,13 +41,14 @@ const sorted = allNews
 
 <style>
     .backlinks {
-        border-top: 1px solid #333;
+        border-top: 3px solid var(--color-aiki-blue);
         margin-top: 32px;
         padding-top: 20px;
     }
     .backlinks h3 {
         font-size: 16px;
         margin-bottom: 12px;
+        color: var(--color-aiki-blue);
     }
     .backlinks ul {
         list-style: none;
@@ -57,18 +58,19 @@ const sorted = allNews
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 6px 0;
-        border-bottom: 1px solid #1e1e2e;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--color-border);
     }
     .backlinks a {
-        color: var(--color-news);
+        color: var(--color-text);
         text-decoration: none;
         font-size: 14px;
         flex: 1;
         margin-right: 12px;
     }
     .backlinks a:hover {
-        text-decoration: underline;
+        color: var(--color-aiki-blue);
+        text-decoration: none;
     }
     .bl-meta {
         display: flex;
