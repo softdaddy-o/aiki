@@ -1,5 +1,5 @@
 ---
-title: "구글 8세대 TPU, 훈련용 TPU 8t와 추론용 TPU 8i 두 칩으로 쪼갰다"
+title: "구글 8세대 TPU, 훈련용 TPU 8t와 추론용 TPU 8i 두 칩으로 쪼갰어"
 date: "2026-04-24T08:00:00+09:00"
 lang: ko
 category: news
