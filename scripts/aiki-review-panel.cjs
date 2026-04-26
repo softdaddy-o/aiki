@@ -49,6 +49,15 @@ function extractGuideSection(text, heading) {
     return rest.slice(0, heading.length + nextHeadingMatch.index).trim();
 }
 
+function extractGuideSectionAny(text, headings, label) {
+    for (const heading of headings) {
+        const section = extractGuideSection(text, heading);
+        if (section) return section;
+    }
+
+    throw new Error(`Guide section not found: ${label} (${headings.join(' | ')})`);
+}
+
 function getPanelContentType(panelName) {
     if (panelName === 'news-review') return 'news';
     if (panelName === 'project-review') return 'projects';
@@ -72,14 +81,14 @@ function buildGuideContext(contentType) {
             filePath: path.relative(REPO_ROOT, GUIDE_FILES.tone).replace(/\\/g, '/'),
             version: readGuideVersion(GUIDE_FILES.tone),
             body: [
-                '## 1. 화자의 위치',
-                '## 2. 말투 규칙',
-                '## 3. 구체화 방식',
-                '## 4. 하지 말아야 할 것',
-                '## 5. 톤 체크리스트',
+                [['## 1. 화자의 입장', '## 1. 화자의 위치'], 'speaker stance'],
+                [['## 2. 5초 순간을 만드는 3가지 방법', '## 3. 구체화 방식'], 'concrete reader moment'],
+                [['## 3. 나만의 목소리 — 여유 있는 선배'], 'voice'],
+                [['## 4. 말투 규칙', '## 2. 말투 규칙'], 'tone rules'],
+                [['## 5. 하지 말아야 할 것', '## 4. 하지 말아야 할 것'], 'avoid list'],
+                [['## 7. AI 상투어 제거 체크리스트', '## 5. 톤 체크리스트'], 'AI cliche checklist'],
             ]
-                .map((heading) => extractGuideSection(toneText, heading))
-                .filter(Boolean)
+                .map(([headings, label]) => extractGuideSectionAny(toneText, headings, label))
                 .join('\n\n'),
         },
         {
@@ -816,6 +825,7 @@ module.exports = {
     parseArgs,
     needsReview,
     listTargets,
+    buildGuideContext,
     buildReviewInput,
     composeReviewPrompt,
     buildRevisionPrompt,

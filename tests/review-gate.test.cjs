@@ -25,7 +25,7 @@ function buildStamp(overrides = {}) {
         agentVersions: Object.fromEntries(PANEL.agents.map((agent) => [agent.id, agent.version])),
         guideVersions: {
             tone: '2.0.0',
-            common: '2.2.0',
+            common: '2.3.0',
             projects: '4.2.0',
         },
         ...overrides,

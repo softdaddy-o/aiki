@@ -308,12 +308,19 @@ function containsHonorificWikiTone(text) {
 }
 
 function validateProjectTone(frontmatter, body, showcaseText = '') {
-    return [];
+    const failures = [];
+    const text = collectRenderedCopyText(frontmatter, body, showcaseText);
+
+    if (containsHonorificTone(text)) {
+        failures.push('project copy uses honorific/formal endings; rewrite visible frontmatter, body, factCheck, or showcase copy with the current AIKI tone guide');
+    }
+
+    return failures;
 }
 
 function getProjectDeclarativeEndingStats(text) {
     const sentences = splitToneSentences(text);
-    const declarativeEnding = /(?:있다|없다|된다|바뀐다|갈린다|맞다|낫다|강하다|약하다|중요하다|필요하다|끝난다|보인다|남는다|붙는다|잡힌다)\.?$/u;
+    const declarativeEnding = /(?:[가-힣]+(?:다|니다)|있다|없다|된다|바뀐다|갈린다|맞다|낫다|강하다|약하다|중요하다|필요하다|끝난다|보인다|남는다|붙는다|잡힌다)\.?$/u;
     const matches = sentences.filter((sentence) => declarativeEnding.test(sentence.trim()));
     return {
         total: sentences.length,
@@ -323,6 +330,20 @@ function getProjectDeclarativeEndingStats(text) {
 }
 
 function getProjectToneWarnings(frontmatter, body, showcaseText = '') {
+    const text = [
+        String(frontmatter && frontmatter.summary || ''),
+        String(frontmatter && frontmatter.readerValue || ''),
+        String(body || ''),
+        String(showcaseText || ''),
+    ].join('\n');
+    const stats = getProjectDeclarativeEndingStats(text);
+
+    if (stats.count >= 5 || (stats.total >= 8 && stats.ratio >= 0.18)) {
+        return [
+            `project copy still has report-tone declarative endings ${stats.count}/${stats.total} (${(stats.ratio * 100).toFixed(0)}%); include showcase TSX copy in the next tone migration`,
+        ];
+    }
+
     return [];
 }
 
@@ -684,7 +705,11 @@ function validateFactCheckDetails(targetName, frontmatter) {
 }
 
 function validateFactCheckTone(frontmatter) {
-    return [];
+    const text = collectFactCheckText(frontmatter);
+    if (!text.trim()) return [];
+    if (!containsHonorificTone(text)) return [];
+
+    return ['factCheck copy uses honorific/formal endings; keep verification notes short and aligned with the current AIKI tone guide'];
 }
 
 function validateModelProfileTone(frontmatter) {

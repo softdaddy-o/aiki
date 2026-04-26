@@ -5,6 +5,7 @@ const path = require('path');
 const matter = require('gray-matter');
 
 const { checkTone, printResults, PROFILES } = require('./lib/aiki-tone-rules.cjs');
+const { getProjectShowcaseInfo } = require('./lib/project-showcase.cjs');
 
 const NEWS_DIR = path.resolve(__dirname, '../src/content/news/ko');
 const PROJECTS_DIR = path.resolve(__dirname, '../src/content/projects/ko');
@@ -49,6 +50,19 @@ function extractMarkdownToneTarget(content) {
         .join('\n\n');
 }
 
+function extractProjectToneTarget(content) {
+    const parsed = matter(content);
+    const showcase = getProjectShowcaseInfo(parsed.data);
+    return [
+        String(parsed.data && parsed.data.summary || '').trim(),
+        String(parsed.data && parsed.data.readerValue || '').trim(),
+        String(parsed.content || '').trim(),
+        String(showcase && showcase.text || '').trim(),
+    ]
+        .filter(Boolean)
+        .join('\n\n');
+}
+
 function extractTqBody(content) {
     return content
         .split('\n')
@@ -77,7 +91,11 @@ function collectInputs() {
         }
 
         const content = fs.readFileSync(filepath, 'utf8');
-        const body = platform === 'short' ? extractTqBody(content) : extractMarkdownToneTarget(content);
+        const body = platform === 'short'
+            ? extractTqBody(content)
+            : platform === 'projects'
+                ? extractProjectToneTarget(content)
+                : extractMarkdownToneTarget(content);
         return [{ label: path.basename(filepath), body }];
     }
 
@@ -95,7 +113,12 @@ function collectInputs() {
             .sort()
             .map((filename) => {
                 const content = fs.readFileSync(path.join(contentDir, filename), 'utf8');
-                return { label: filename, body: extractMarkdownToneTarget(content) };
+                return {
+                    label: filename,
+                    body: platform === 'projects'
+                        ? extractProjectToneTarget(content)
+                        : extractMarkdownToneTarget(content),
+                };
             });
     }
 

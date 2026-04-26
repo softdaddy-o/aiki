@@ -45,7 +45,7 @@ const ALL_RULES = [
         desc: '~했다/~됐다/~이다 등 보도체가 과다하면 FAIL',
         platforms: ['blog', 'short'],
         check(body, sentences, profile) {
-            const endings = /(?:했다|됐다|이다|한다|있다|었다|였다|겠다|린다|온다|간다|준다|든다|난다|진다|운다)\s*[.!]?\s*$/;
+            const endings = /(?:했다|됐다|이다|한다|있다|없다|된다|었다|였다|겠다|린다|온다|간다|준다|든다|난다|진다|운다|바뀐다|갈린다|보인다|남는다|붙는다|잡힌다|필요하다|중요하다|강하다|약하다)\s*[.!]?\s*$/;
             const total = sentences.length;
             if (total === 0) return null;
             const formal = sentences.filter(s => endings.test(s.trim()));

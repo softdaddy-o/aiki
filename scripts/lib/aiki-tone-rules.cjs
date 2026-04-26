@@ -9,7 +9,7 @@ const PROFILES = {
     projects: {
         name: 'projects (AIKI showcase)',
         formalFailRatio: 0.35,
-        formalWarnRatio: 0.2,
+        formalWarnRatio: 0.15,
         colloquialMinRatio: 0.05,
         minNumbers: 1,
         factChainWarn: 3,

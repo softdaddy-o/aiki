@@ -24,6 +24,14 @@ describe('review-panel', () => {
         assert.equal(options.autoRevise, false);
     });
 
+    it('loads current tone guide sections into review prompts', () => {
+        const guideContext = reviewPanel.buildGuideContext('projects');
+
+        assert.match(guideContext, /화자의 입장/);
+        assert.match(guideContext, /5초 순간/);
+        assert.match(guideContext, /AI 상투어 제거 체크리스트/);
+    });
+
     it('builds a wiki revision prompt with file path and must-fix guidance', () => {
         const prompt = reviewPanel.buildRevisionPrompt(
             { filepath: 'D:\\srcp\\aiki\\src\\content\\wiki\\ko\\chain-of-thought.md' },
