@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -39,6 +41,15 @@ const trendingProjects = [...allProjects]
 
 function newsSlug(entry: (typeof allNews)[number]): string {
     return entry.id.replace(/^ko\//, '');
+}
+
+function newsThumbSrc(entry: (typeof allNews)[number]): string {
+    const slug = newsSlug(entry);
+    const externalThumbPath = path.join(process.cwd(), 'public', 'og', 'news', `${slug}.jpg`);
+    const fallbackThumbPath = path.join(process.cwd(), 'public', 'og', 'news-fallback', `${slug}.png`);
+    if (fs.existsSync(externalThumbPath)) return `/og/news/${slug}.jpg`;
+    if (fs.existsSync(fallbackThumbPath)) return `/og/news-fallback/${slug}.png`;
+    return '/og/site-default.png';
 }
 
 function wikiSlug(entry: (typeof allWiki)[number]): string {
@@ -150,13 +161,8 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
                         <div class="news-mosaic">
                             {featureNews && (
                                 <a class="lead-news-card" href={`/ko/news/${newsSlug(featureNews)}/`}>
-                                    <span class="news-visual news-visual--hero" aria-hidden="true">
-                                        <span class="android-head"></span>
-                                        <span class="network-line line-a"></span>
-                                        <span class="network-line line-b"></span>
-                                        <span class="network-dot dot-a"></span>
-                                        <span class="network-dot dot-b"></span>
-                                        <span class="network-dot dot-c"></span>
+                                    <span class="news-visual news-visual--hero">
+                                        <img src={newsThumbSrc(featureNews)} alt={featureNews.data.title} loading="eager" decoding="async" />
                                     </span>
                                     <span class="news-copy">
                                         <span class="pill">{newsLabel(featureNews, 0)}</span>
@@ -170,10 +176,8 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
                             <div class="side-news-list">
                                 {sideNews.map((entry, index) => (
                                     <a class="side-news-card" href={`/ko/news/${newsSlug(entry)}/`}>
-                                        <span class={`news-visual news-visual--side news-visual--${index + 1}`} aria-hidden="true">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
+                                        <span class={`news-visual news-visual--side news-visual--${index + 1}`}>
+                                            <img src={newsThumbSrc(entry)} alt={entry.data.title} loading="lazy" decoding="async" />
                                         </span>
                                         <span class="news-copy">
                                             <span class="pill">{newsLabel(entry, index + 1)}</span>
@@ -670,6 +674,14 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
             linear-gradient(108deg, #f7fbff 0%, #d7e8f7 53%, #edf5ff 100%);
     }
 
+    .news-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+    }
+
     .news-visual--hero::before {
         content: '';
         position: absolute;
@@ -680,7 +692,6 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.92) 86%, rgba(255, 255, 255, 1));
     }
 
-    .news-visual--hero::after,
     .news-visual--phone::after {
         content: '';
         position: absolute;
@@ -1053,8 +1064,8 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
 
     .value-strip {
         display: grid;
-        grid-template-columns: minmax(220px, 1.1fr) repeat(4, minmax(0, 1fr));
-        gap: 22px;
+        grid-template-columns: minmax(230px, 1.15fr) repeat(4, minmax(150px, 1fr));
+        gap: clamp(14px, 1.7vw, 22px);
         align-items: center;
         margin-top: 38px;
         border-radius: 14px;
@@ -1101,6 +1112,9 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
         font-size: 0.9rem;
         font-weight: 850;
         line-height: 1.25;
+        text-wrap: balance;
+        word-break: keep-all;
+        overflow-wrap: normal;
     }
 
     .value-strip a small {
@@ -1108,6 +1122,9 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
         font-size: 0.77rem;
         font-weight: 620;
         line-height: 1.35;
+        text-wrap: balance;
+        word-break: keep-all;
+        overflow-wrap: normal;
     }
 
     .phone-preview {
