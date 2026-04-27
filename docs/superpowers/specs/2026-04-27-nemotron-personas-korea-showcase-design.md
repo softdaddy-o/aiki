@@ -46,7 +46,7 @@ Facts to anchor in the showcase copy:
 - Blog/tutorial published on **April 21, 2026**
 - **7 million personas** total, structured as **1 million records x 7 persona variants**
 - **26 fields**
-- Coverage includes **17 Korean provinces** and **25 districts**
+- Coverage includes **17 Korean provinces** and **252 districts**
 - **2K+ occupation categories**
 - Persona types: **professional, family, sports, arts, travel, culinary, concise**
 - License: **CC BY 4.0**
@@ -149,7 +149,7 @@ Hero meta cards should include:
 
 - total personas: `7M`
 - fields: `26`
-- geography: `17 provinces + 25 districts`
+- geography: `17 provinces + 252 districts`
 - license: `CC BY 4.0`
 
 Hero takeaway signal:

@@ -91,7 +91,7 @@ type SectionId =
 const SECTION_PREFIX = 'npk-section-';
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
-    { id: 'hero', label: 'hero', description: 'Project-level framing for Korean synthetic persona operations.' },
+    { id: 'hero', label: '소개', description: 'Project-level framing for Korean synthetic persona operations.' },
     { id: 'takeaway', label: 'takeaway', description: 'Primary implications for synthetic workflows and governance.' },
     { id: 'decide', label: 'decide', description: 'Use/skip decision split with rollout constraints.' },
     { id: 'map', label: '데이터 맵', description: 'Data map in cards to show schema structure clearly.' },
