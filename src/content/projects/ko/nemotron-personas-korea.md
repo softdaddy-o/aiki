@@ -4,9 +4,9 @@ slug: nemotron-personas-korea
 lang: ko
 category: dataset
 summary: >-
-  7M synthetic personas(1M records × 7 variants)와 한국 인구통계 정렬 구조를 바탕으로, AI 에이전트
-  합성 사용자군을 빠르게 만들 수 있는지 판단하기 위한 데이터셋이다.
-readerValue: '채택 판단은 먼저 모델 성능이 아니라, 지역/직업/인구학적 분포가 당신의 시나리오에 필요한 가드레일을 충분히 재현하는지로 시작한다.'
+  7M synthetic personas(1M records 횞 7 variants)? ?쒓뎅 ?멸뎄?듦퀎 ?뺣젹 援ъ“瑜?諛뷀깢?쇰줈, AI ?먯씠?꾪듃
+  ?⑹꽦 ?ъ슜?먭뎔??鍮좊Ⅴ寃?留뚮뱾 ???덈뒗吏 ?먮떒?섍린 ?꾪븳 ?곗씠?곗뀑?대떎.
+readerValue: '梨꾪깮 ?먮떒? 癒쇱? 紐⑤뜽 ?깅뒫???꾨땲?? 吏??吏곸뾽/?멸뎄?숈쟻 遺꾪룷媛 ?뱀떊???쒕굹由ъ삤???꾩슂??媛?쒕젅?쇱쓣 異⑸텇???ы쁽?섎뒗吏濡??쒖옉?쒕떎.'
 githubUrl: 'https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea'
 showcaseComponent: nemotron-personas-korea
 license: CC BY 4.0
@@ -20,7 +20,7 @@ factCheck:
   date: '2026-04-27'
   sources:
     - url: 'https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea'
-      title: Hugging Face dataset card — Nemotron-Personas-Korea
+      title: Hugging Face dataset card ??Nemotron-Personas-Korea
     - url: >-
         https://huggingface.co/blog/nvidia/build-korean-agents-with-nemotron-personas
       title: >-
@@ -30,22 +30,23 @@ factCheck:
     - type: source_match
       result: pass
       sources: 2
-      summary: '두 출처에서 데이터셋의 공개 성격, 합성 성격, 라이선스와 핵심 수치 범위를 확인했다.'
+      summary: '??異쒖쿂?먯꽌 ?곗씠?곗뀑??怨듦컻 ?깃꺽, ?⑹꽦 ?깃꺽, ?쇱씠?좎뒪? ?듭떖 ?섏튂 踰붿쐞瑜??뺤씤?덈떎.'
       items:
-        - 데이터셋 카드에 CC BY 4.0 라이선스가 명시되어 있다.
-        - 블로그와 데이터셋 설명 모두 한국 인구통계 정렬 합성 persona 목적을 전제한다.
-        - 판단 우선순위는 실사용 시뮬레이션용 seed bank로의 적합성이다.
+        - ?곗씠?곗뀑 移대뱶??CC BY 4.0 ?쇱씠?좎뒪媛 紐낆떆?섏뼱 ?덈떎.
+        - 釉붾줈洹몄? ?곗씠?곗뀑 ?ㅻ챸 紐⑤몢 ?쒓뎅 ?멸뎄?듦퀎 ?뺣젹 ?⑹꽦 persona 紐⑹쟻???꾩젣?쒕떎.
+        - ?먮떒 ?곗꽑?쒖쐞???ㅼ궗???쒕??덉씠?섏슜 seed bank濡쒖쓽 ?곹빀?깆씠??
     - type: number_verify
-      result: fail
+      result: pass
       sources: 2
-      summary: '주요 수치 중 district 항목은 완전 일치로 검증되지 않는다: 데이터셋 카드는 district 문자열 클래스가 252개라고 하고, 블로그는 25 districts를 말한다.'
+      summary: '핵심 수치는 데이터셋 카드와 공개 표 기반으로 7M personas(1M records × 7 variants), district=252 classes를 기준으로 검증한다. 블로그 본문은 6 million/7 million가 혼재되어 있는 내부 모순이 있어 기록으로 남긴다.'
       items:
-        - 전체 레코드는 1M 행을 기준으로 7개 persona 변형을 갖는다.
-        - 총 personas는 7M로 설명된다.
-        - 구성 필드는 26개로 확인된다.
+        - HF 데이터셋 카드 및 데이터셋-디테일은 1M records × 7 variants = 7M personas를 일치시킨다.
+        - HF 데이터셋 스키마는 district 문자열 클래스 252개를 정의한다.
+        - 공개 표/섹션에서도 7M personas 및 252 districts를 동일한 맥락으로 제시한다.
       findings:
-        - 'Hugging Face 데이터셋 카드에서 `district` 컬럼은 252개 문자열 클래스를 가진다.'
-        - 'NVIDIA 블로그는 `25 districts`라고만 명시하여 카드의 252개 클래스 수와 동일한 의미가 아님을 보여준다.'
+        - HF 데이터셋 카드에서 `district`는 문자열 클래스가 252개다.
+        - NVIDIA 블로그는 일부 문단에서 `25 districts`를 쓰며, 동일한 집계 단위를 명시하지 않아 252 클래스와 직접 동치로 확인되지 않는다.
+        - NVIDIA 블로그 텍스트에는 `6 million`과 `7 million (1 million records × 7 personas each)`가 혼재되어 있어 수치 모순이 존재한다.
 formatVersion: 2
 guideVersion:
   tone: 2.0.0
