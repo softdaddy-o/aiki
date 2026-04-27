@@ -36,13 +36,16 @@ factCheck:
         - 블로그와 데이터셋 설명 모두 한국 인구통계 정렬 합성 persona 목적을 전제한다.
         - 판단 우선순위는 실사용 시뮬레이션용 seed bank로의 적합성이다.
     - type: number_verify
-      result: pass
+      result: fail
       sources: 2
-      summary: '주요 수치(7M personas, 26 fields, 17 provinces + 25 districts)는 공개 설명에 부합한다.'
+      summary: '주요 수치 중 district 항목은 완전 일치로 검증되지 않는다: 데이터셋 카드는 district 문자열 클래스가 252개라고 하고, 블로그는 25 districts를 말한다.'
       items:
         - 전체 레코드는 1M 행을 기준으로 7개 persona 변형을 갖는다.
         - 총 personas는 7M로 설명된다.
         - 구성 필드는 26개로 확인된다.
+      findings:
+        - 'Hugging Face 데이터셋 카드에서 `district` 컬럼은 252개 문자열 클래스를 가진다.'
+        - 'NVIDIA 블로그는 `25 districts`라고만 명시하여 카드의 252개 클래스 수와 동일한 의미가 아님을 보여준다.'
 formatVersion: 2
 guideVersion:
   tone: 2.0.0
