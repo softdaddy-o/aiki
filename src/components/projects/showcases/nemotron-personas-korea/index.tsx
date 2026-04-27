@@ -117,7 +117,6 @@ const FIELD_GROUPS: ReadonlyArray<FieldGroup> = [
             { name: 'locale', type: 'string', required: true, source: 'dataset', note: 'Locale code, e.g., ko-KR.' },
             { name: 'persona_version', type: 'string', required: true, source: 'dataset', note: 'Schema revision of persona record.' },
             { name: 'country', type: 'string', required: true, source: 'metadata', note: 'Geographic market label.' },
-            { name: 'created_at', type: 'string', required: false, source: 'metadata', note: 'ISO 8601 timestamp for creation.' },
         ],
     },
     {
@@ -452,9 +451,10 @@ ${createSharedShowcaseChromeCss({
 }
 
 .npk-split-panel {
-    padding: 18px;
-    border-radius: 18px;
-    background: var(--color-surface-alt);
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface);
     gap: 14px;
 }
 
