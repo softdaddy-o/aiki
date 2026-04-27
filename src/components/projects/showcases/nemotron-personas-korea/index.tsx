@@ -43,15 +43,62 @@ interface FieldGroup {
     fields: ReadonlyArray<FieldDescriptor>;
 }
 
-type SectionId = 'hero' | 'takeaway' | 'decide' | 'map';
+interface WorldSeed {
+    id: string;
+    groundedSeed: string;
+    fictionalAdaptation: string;
+    district: string;
+    adaptationNote: string;
+}
+
+interface RelationLink {
+    id: string;
+    from: string;
+    to: string;
+    arc: string;
+    link: string;
+}
+
+interface SliceVariant {
+    axis: string;
+    variants: ReadonlyArray<string>;
+    styleHint: string;
+}
+
+interface PipelineStep {
+    step: string;
+    action: string;
+    output: string;
+    styleHint: string;
+}
+
+interface LimitCard {
+    title: string;
+    body: string;
+    boundary: string;
+}
+
+type SectionId =
+    | 'hero'
+    | 'takeaway'
+    | 'decide'
+    | 'map'
+    | 'worldbuilding'
+    | 'slice'
+    | 'pipeline'
+    | 'limits';
 
 const SECTION_PREFIX = 'npk-section-';
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
-    { id: 'hero', label: '소개', description: '프로젝트의 핵심 요약을 빠르게 확인합니다.' },
-    { id: 'takeaway', label: 'takeaway', description: '핵심 결론과 권장 시나리오를 정리합니다.' },
-    { id: 'decide', label: '도입 판단', description: 'use/skip 판단 기준을 데이터 관점에서 분류합니다.' },
-    { id: 'map', label: '데이터 맵', description: '데이터 맵을 카드로 분해해 필드 구성을 표시합니다.' },
+    { id: 'hero', label: 'hero', description: 'Project-level framing for Korean synthetic persona operations.' },
+    { id: 'takeaway', label: 'takeaway', description: 'Primary implications for synthetic workflows and governance.' },
+    { id: 'decide', label: 'decide', description: 'Use/skip decision split with rollout constraints.' },
+    { id: 'map', label: '데이터 맵', description: 'Data map in cards to show schema structure clearly.' },
+    { id: 'worldbuilding', label: '월드빌딩 랩', description: 'Grounded seed -> fictional adaptation and relation arcs.' },
+    { id: 'slice', label: '슬라이스 보드', description: 'Region / occupation / age / family-type composition board.' },
+    { id: 'pipeline', label: 'pipeline', description: 'Row -> seed brief -> relation arc -> setting note -> prompt/sample style.' },
+    { id: 'limits', label: '한계', description: 'Synthetic provenance and simulation-vs-observation boundaries.' },
 ] as const;
 
 const TAKE_CARDS: ReadonlyArray<InsightCard> = [
@@ -108,6 +155,128 @@ const SKIP_CARDS: ReadonlyArray<InsightCard> = [
     },
 ];
 
+const WORLD_SEEDS: ReadonlyArray<WorldSeed> = [
+    {
+        id: 'npk-seed-seoul-office',
+        groundedSeed: '서울 수도권 거주, 30대 초반, 플랫폼 직장인, 1인 가구.',
+        fictionalAdaptation: '서울의 가상 자치구 "남촌-52"에서 새벽 출근 동선을 최적화하는 시뮬레이션 캐릭터로 재배치.',
+        district: 'Baseline district card: 252',
+        adaptationNote: '고밀도 교통-근무 패턴을 허구적 지오코드로 변환해 이동 스트레스 곡선을 제어한다.',
+    },
+    {
+        id: 'npk-seed-busan-care',
+        groundedSeed: '부산 중단거리권 거주, 20대 후반, 공공기관 직장인, 다자녀 가구 구성원.',
+        fictionalAdaptation: '가상의 해안 도시 "남해면 9구" 내 24시간 돌봄 허브 운영자 배경으로 확장.',
+        district: 'Baseline district card: 252',
+        adaptationNote: '가족 유형 기반 돌봄 간격 토폴로지를 허구화해 시간대별 의사결정을 고정한다.',
+    },
+    {
+        id: 'npk-seed-daegu-student',
+        groundedSeed: '대구 인근 도시권 거주, 40대 초반, 파트타임 강사, 1명 자녀.',
+        fictionalAdaptation: '영문구 3도 학습형 경제권의 교육 캐릭터로 전이해 수요-지출 반응성을 시뮬레이션.',
+        district: 'Baseline district card: 252',
+        adaptationNote: '월 단위 구매주기와 교육비 결정을 분리된 설정 레이어로 정렬한다.',
+    },
+];
+
+const RELATION_LINKS: ReadonlyArray<RelationLink> = [
+    {
+        id: 'npk-link-seoul-busan',
+        from: 'npk-seed-seoul-office',
+        to: 'npk-seed-busan-care',
+        arc: 'support loop',
+        link: '돌봄 비용 공유 장면에서 업무 루틴으로 정보가 연결되어 소비 압박을 유도한다.',
+    },
+    {
+        id: 'npk-link-busan-daegu',
+        from: 'npk-seed-busan-care',
+        to: 'npk-seed-daegu-student',
+        arc: 'mobility bridge',
+        link: '지역 교육 이동성 이벤트가 학습/근무 축으로 역류하며 가격 민감도를 동기화한다.',
+    },
+    {
+        id: 'npk-link-seoul-daegu',
+        from: 'npk-seed-seoul-office',
+        to: 'npk-seed-daegu-student',
+        arc: 'aspiration anchor',
+        link: '경력·소득 프레임이 동일 장면에서 서로 다른 대체 결정을 유도한다.',
+    },
+];
+
+const SLICE_VARIANTS: ReadonlyArray<SliceVariant> = [
+    {
+        axis: 'region',
+        variants: ['수도권 중심', '부산·경남 연안권', '내륙 교육권'],
+        styleHint: '지역 고유성보다 이동 패턴을 우선 축으로 지정.',
+    },
+    {
+        axis: 'occupation',
+        variants: ['정규직', '공공기관', '교육/강사'],
+        styleHint: '직종은 의사결정 타이밍을 바꾸는 프롬프트 축이다.',
+    },
+    {
+        axis: 'age',
+        variants: ['20대 후반', '30대 초반', '40대 초반'],
+        styleHint: '연령은 리스크 선호도와 메시지 위계를 분리한다.',
+    },
+    {
+        axis: 'family-type',
+        variants: ['1인 가구', '부부 가구', '다자녀 가구'],
+        styleHint: '가족 유형은 예산·시간 제약 우선순위를 제어한다.',
+    },
+];
+
+const PIPELINE_STEPS: ReadonlyArray<PipelineStep> = [
+    {
+        step: 'row',
+        action: '원본 레코드 1건을 선택한다.',
+        output: '핵심 정규화 필드(연령, 직군, 거주권, 가족형태) 추출.',
+        styleHint: '구조 신호 우선',
+    },
+    {
+        step: 'seed brief',
+        action: 'grounded seed 3줄 요약을 만든다.',
+        output: '세계관 이전용 seed brief 카드.',
+        styleHint: '현실적 맥락 + 충돌 없는 핵심 속성',
+    },
+    {
+        step: 'relation arc',
+        action: '인접 seed를 관계 링크로 연결한다.',
+        output: '관계 타입/장면 트리거/전이 규칙.',
+        styleHint: '관계 기반 장면 전이 제약',
+    },
+    {
+        step: 'setting note',
+        action: '허구 배경 메모를 작성한다.',
+        output: '지역, 활동지점, 시간축이 포함된 설정 레이어.',
+        styleHint: '지역-연령-직군 조합 정렬',
+    },
+    {
+        step: 'prompt/sample style',
+        action: '샘플 프롬프트 스택을 구성한다.',
+        output: '시뮬레이션 대화문과 테스트 케이스.',
+        styleHint: '단일 톤 + 실패 모드 주석',
+    },
+];
+
+const LIMIT_CARDS: ReadonlyArray<LimitCard> = [
+    {
+        title: 'Synthetic provenance',
+        body: '모든 페르소나는 합성 데이터 구성 요소이며, 실존 개인 정보나 실제 서사와 동치되지 않는다.',
+        boundary: '데이터를 실시간 개인 관찰 진실로 간주하지 않는다.',
+    },
+    {
+        title: 'Not real-person truth',
+        body: '연구/평가에선 유용하지만 특정 실재 인물의 성향 증거로 직접 단정할 수 없다.',
+        boundary: '개인 신상 복원, 동의 없는 프로파일링, 재식별 추론에 사용하지 않는다.',
+    },
+    {
+        title: 'Simulation-vs-observation',
+        body: '관찰 집계는 비교 프레임일 뿐, 최종 품질 판단은 시뮬레이션 응답군에서 분리 검증한다.',
+        boundary: '배포 전 샘플링 편향, 프롬프트 누수, 도메인 드리프트를 별도 점검한다.',
+    },
+];
+
 const FIELD_GROUPS: ReadonlyArray<FieldGroup> = [
     {
         title: 'Identity',
@@ -156,6 +325,10 @@ const FIELD_GROUPS: ReadonlyArray<FieldGroup> = [
         ],
     },
 ];
+
+function getSeedLabel(seedId: string): string {
+    return WORLD_SEEDS.find((seed) => seed.id === seedId)?.groundedSeed ?? seedId;
+}
 
 export default function NemotronPersonasKoreaShowcase({
     slug,
@@ -210,21 +383,20 @@ export default function NemotronPersonasKoreaShowcase({
 
                 <Panel
                     id={`${SECTION_PREFIX}decide`}
-                    title="도입 판단"
+                    title="decide"
                     description={(
                         <>
-                            <span>도입 판단 기준은 </span>
+                            <span>Use/skip decision split for deployment planning. </span>
                             <TermHint
                                 term="schema completeness"
-                                description="필수 필드 충족도, 검증 규칙, 데이터 거버넌스가 맞아야 실서비스 반영이 가능합니다."
+                                description="When required fields are missing, synthetic flow risks become unstable and hard to validate."
                             />
-                            <span>을 함께 확인한 뒤 USE/SKIP을 결정하세요.</span>
                         </>
                     )}
                 >
                     <div className="npk-split-grid">
                         <section className="npk-split-panel">
-                            <div className="npk-split-title">USE</div>
+                            <div className="npk-split-title">use</div>
                             <div className="npk-insight-grid">
                                 {USE_CARDS.map((item) => (
                                     <ShowcaseCard key={item.title} item={item} />
@@ -232,7 +404,7 @@ export default function NemotronPersonasKoreaShowcase({
                             </div>
                         </section>
                         <section className="npk-split-panel npk-split-panel--skip">
-                            <div className="npk-split-title">SKIP</div>
+                            <div className="npk-split-title">skip</div>
                             <div className="npk-insight-grid">
                                 {SKIP_CARDS.map((item) => (
                                     <ShowcaseCard key={item.title} item={item} />
@@ -262,6 +434,82 @@ export default function NemotronPersonasKoreaShowcase({
                                         </article>
                                     ))}
                                 </div>
+                            </article>
+                        ))}
+                    </div>
+                </Panel>
+
+                <Panel id={`${SECTION_PREFIX}worldbuilding`} title="월드빌딩 랩">
+                    <div className="npk-world-grid">
+                        {WORLD_SEEDS.map((seed) => (
+                            <article key={seed.id} className="npk-card npk-world-card">
+                                <span className="npk-card-kicker">grounded seed → fictional adaptation</span>
+                                <h3>{seed.id}</h3>
+                                <p>{seed.groundedSeed}</p>
+                                <p>{seed.fictionalAdaptation}</p>
+                                <div className="npk-chip-row">
+                                    <span>{seed.district}</span>
+                                    <span>{seed.adaptationNote}</span>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                    <div className="npk-relation-grid">
+                        {RELATION_LINKS.map((link) => (
+                            <article key={link.id} className="npk-card npk-relation-card">
+                                <div className="npk-link-meta">
+                                    <span className="npk-chip-row">
+                                        <span>{link.arc}</span>
+                                    </span>
+                                </div>
+                                <h3>{`${getSeedLabel(link.from)} → ${getSeedLabel(link.to)}`}</h3>
+                                <p>{link.link}</p>
+                            </article>
+                        ))}
+                    </div>
+                </Panel>
+
+                <Panel id={`${SECTION_PREFIX}slice`} title="슬라이스 보드">
+                    <div className="npk-slice-grid">
+                        {SLICE_VARIANTS.map((slice) => (
+                            <article key={slice.axis} className="npk-card">
+                                <h3>{slice.axis}</h3>
+                                <div className="npk-chip-row">
+                                    {slice.variants.map((variant) => (
+                                        <span key={variant}>{variant}</span>
+                                    ))}
+                                </div>
+                                <p>{slice.styleHint}</p>
+                            </article>
+                        ))}
+                    </div>
+                </Panel>
+
+                <Panel id={`${SECTION_PREFIX}pipeline`} title="pipeline">
+                    <div className="npk-pipeline-grid">
+                        {PIPELINE_STEPS.map((step, index) => (
+                            <article key={step.step} className="npk-card npk-step-card">
+                                <div className="npk-step-meta">
+                                    <span className="npk-chip-row">
+                                        <span>{`Step ${index + 1}`}</span>
+                                    </span>
+                                    <span>{step.styleHint}</span>
+                                </div>
+                                <h3>{step.step}</h3>
+                                <p>{step.action}</p>
+                                <p>{step.output}</p>
+                            </article>
+                        ))}
+                    </div>
+                </Panel>
+
+                <Panel id={`${SECTION_PREFIX}limits`} title="한계">
+                    <div className="npk-limits-grid">
+                        {LIMIT_CARDS.map((item) => (
+                            <article key={item.title} className="npk-card npk-limits-card">
+                                <h3>{item.title}</h3>
+                                <p>{item.body}</p>
+                                <p>{item.boundary}</p>
                             </article>
                         ))}
                     </div>
@@ -342,12 +590,19 @@ ${createSharedShowcaseChromeCss({
 .npk-map-grid,
 .npk-take-grid,
 .npk-split-grid,
-.npk-insight-grid {
+.npk-insight-grid,
+.npk-world-grid,
+.npk-relation-grid,
+.npk-slice-grid,
+.npk-pipeline-grid,
+.npk-limits-grid,
+.npk-step-card {
     min-width: 0;
 }
 
 .npk-hero,
 .npk-panel {
+    border-radius: 12px;
     scroll-margin-top: 100px;
 }
 
@@ -372,19 +627,29 @@ ${createSharedShowcaseChromeCss({
 .npk-insight-grid,
 .npk-split-grid,
 .npk-map-grid,
-.npk-field-grid {
+.npk-field-grid,
+.npk-world-grid,
+.npk-relation-grid,
+.npk-slice-grid,
+.npk-pipeline-grid,
+.npk-limits-grid {
     display: grid;
     min-width: 0;
     gap: 14px;
 }
 
 .npk-take-grid,
-.npk-insight-grid {
+.npk-insight-grid,
+.npk-world-grid,
+.npk-slice-grid,
+.npk-pipeline-grid,
+.npk-limits-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .npk-split-grid,
-.npk-map-grid {
+.npk-map-grid,
+.npk-relation-grid {
     grid-template-columns: minmax(0, 1fr);
 }
 
@@ -395,7 +660,11 @@ ${createSharedShowcaseChromeCss({
 .npk-card,
 .npk-group-card,
 .npk-field-card,
-.npk-split-panel {
+.npk-split-panel,
+.npk-world-card,
+.npk-relation-card,
+.npk-step-card,
+.npk-limits-card {
     display: grid;
     gap: 10px;
     padding: 16px;
@@ -414,11 +683,7 @@ ${createSharedShowcaseChromeCss({
     margin: 0;
 }
 
-.npk-card h3 {
-    margin: 0;
-    font-size: 1rem;
-}
-
+.npk-card h3,
 .npk-card p,
 .npk-field-card p {
     margin: 0;
@@ -426,7 +691,26 @@ ${createSharedShowcaseChromeCss({
     line-height: 1.6;
 }
 
-.npk-field-card__header {
+.npk-card h3 {
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+.npk-card-kicker {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    width: fit-content;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: var(--color-surface-alt);
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+}
+
+.npk-field-card__header,
+.npk-step-meta,
+.npk-link-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -473,7 +757,11 @@ ${createSharedShowcaseChromeCss({
 @media (max-width: 1200px) {
     .npk-take-grid,
     .npk-insight-grid,
-    .npk-field-grid {
+    .npk-field-grid,
+    .npk-world-grid,
+    .npk-slice-grid,
+    .npk-pipeline-grid,
+    .npk-limits-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 }
