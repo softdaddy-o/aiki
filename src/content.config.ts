@@ -99,7 +99,7 @@ const projects = defineCollection({
         title: z.string(),
         slug: z.string(),
         lang: z.enum(['ko', 'en']).default('ko'),
-        category: z.enum(['library', 'framework', 'agent', 'model', 'tool', 'bot']).default('library'),
+        category: z.enum(['library', 'framework', 'agent', 'model', 'tool', 'bot', 'dataset']).default('library'),
         summary: z.string(),
         readerValue: z.string().min(20),
         githubUrl: z.string(),

@@ -28,6 +28,7 @@
     "projects.category.model": "Model",
     "projects.category.tool": "Tool",
     "projects.category.bot": "Bot",
+    "projects.category.dataset": "Dataset",
     "projects.glossary": "Glossary",
     "projects.related": "Related Content",
     "factcheck.title": "Verification Info",

@@ -11,7 +11,7 @@ const projects = allProjects.sort((a, b) => {
     const bMetric = b.data.sourceMetric ?? b.data.stars;
     return bMetric - aMetric || a.data.title.localeCompare(b.data.title, 'en');
 });
-const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot'] as const;
+const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'dataset'] as const;
 ---
 
 <BaseLayout title={t(lang, 'projects.title')} description="직접 실행한 결과와 도입 판단 포인트를 함께 보여주는 AI 쇼케이스">

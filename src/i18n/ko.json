@@ -28,6 +28,7 @@
     "projects.category.model": "모델",
     "projects.category.tool": "도구",
     "projects.category.bot": "봇",
+    "projects.category.dataset": "데이터셋",
     "projects.glossary": "용어 가이드",
     "projects.related": "관련 콘텐츠",
     "factcheck.title": "검증 정보",
