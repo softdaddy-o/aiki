@@ -9,11 +9,13 @@ import NautilusShowcase from '../../../components/projects/showcases/nautilus-tr
 import LightRagShowcase from '../../../components/projects/showcases/lightrag/index.tsx';
 import HyperFramesShowcase from '../../../components/projects/showcases/hyperframes/index.tsx';
 import NemotronOcrShowcase from '../../../components/projects/showcases/nemotron-ocr-v2/index.tsx';
+import NemotronPersonasKoreaShowcase from '../../../components/projects/showcases/nemotron-personas-korea/index.tsx';
 import ManifestShowcase from '../../../components/projects/showcases/manifest/index.tsx';
 import WhisperCppShowcase from '../../../components/projects/showcases/whisper-cpp/index.tsx';
 import PocketBaseShowcase from '../../../components/projects/showcases/pocketbase/index.tsx';
 
 const categoryLabels: Record<string, string> = {
+    dataset: '데이터셋',
     library: '라이브러리',
     framework: '프레임워크',
     agent: '에이전트',
@@ -92,6 +94,7 @@ const SHOWCASE_NATIVE = new Set([
     'lightrag',
     'hyperframes',
     'nemotron-ocr-v2',
+    'nemotron-personas-korea',
     'manifest',
     'whisper-cpp',
     'pocketbase',
@@ -103,6 +106,7 @@ const SHOWCASE_NATIVE_NARRATIVE = new Set([
     'lightrag',
     'hyperframes',
     'nemotron-ocr-v2',
+    'nemotron-personas-korea',
     'manifest',
     'whisper-cpp',
     'pocketbase',
@@ -392,6 +396,36 @@ const shareUrl = Astro.url.href;
                         />
                         {factCheck && (
                             <div class="hf-fact-wrap" id="nm-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {showcaseComponent === 'nemotron-personas-korea' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav showcase-frame--npk hf-frame">
+                        <NemotronPersonasKoreaShowcase
+                            client:load
+                            slug={entry.data.slug}
+                            title={title}
+                            summary={summary}
+                            tags={tags}
+                            sourceMeta={sourceMeta}
+                            metricValue={formatStars(displayedMetric)}
+                            license={license}
+                        />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="npk-section-fact">
                                 <FactCheck
                                     status={factCheck.status}
                                     date={factCheck.date}
@@ -891,6 +925,7 @@ const shareUrl = Astro.url.href;
 
     .showcase-frame.hf-frame :global(.hf-main),
     .showcase-frame.hf-frame :global(.nm-main),
+    .showcase-frame.hf-frame :global(.npk-main),
     .showcase-frame.hf-frame :global(.yf-showcase-main),
     .showcase-frame.hf-frame :global(.nfi-showcase-main),
     .showcase-frame.hf-frame :global(.nt-showcase-main),
@@ -1046,6 +1081,10 @@ const shareUrl = Astro.url.href;
         row-gap: 18px;
     }
 
+    .showcase-frame--npk {
+        row-gap: 18px;
+    }
+
     .showcase-intro {
         grid-column: 1 / -1;
         margin: 0;
@@ -1137,6 +1176,7 @@ const shareUrl = Astro.url.href;
 
         .showcase-frame.hf-frame :global(.hf-main),
         .showcase-frame.hf-frame :global(.nm-main),
+        .showcase-frame.hf-frame :global(.npk-main),
         .showcase-frame.hf-frame :global(.yf-showcase-main),
         .showcase-frame.hf-frame :global(.nfi-showcase-main),
         .showcase-frame.hf-frame :global(.nt-showcase-main),
