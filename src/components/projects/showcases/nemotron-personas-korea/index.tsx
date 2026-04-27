@@ -138,7 +138,13 @@ const TAKE_CARDS: ReadonlyArray<InsightCard> = [
     },
     {
         title: '무엇이 들어 있나',
-        body: '1백만 행이고, Hugging Face의 행 미리보기(viewer)와 스키마 표 기준으로 uuid 포함 26개 필드가 보여. 같은 카드의 필드·토큰 수 표에는 25/28 표현도 함께 있어서, 구조를 읽을 때는 화면에서 검산되는 26개 필드만 기준으로 삼는 편이 안전해.',
+        body: (
+            <>
+                <span>1백만 행이고, Hugging Face의 행 미리보기(viewer)와 스키마 표 기준으로 uuid 포함 26개 필드가 보여. 같은 카드의 Field & Token Counts(</span>
+                <a href="/ko/wiki/token/">Token</a>
+                <span> 수 표)에는 25/28 표현도 함께 있어서, 구조를 읽을 때는 화면에서 검산되는 26개 필드만 기준으로 삼는 편이 안전해.</span>
+            </>
+        ),
         chips: ['1M rows', '미리보기 기준 26 fields', '252 districts'],
     },
     {

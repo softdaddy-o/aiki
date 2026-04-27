@@ -61,7 +61,7 @@ factCheck:
       items:
         - 데이터셋 행 미리보기(viewer)는 default/train 1M rows와 화면에 나열되는 필드 목록을 직접 보여 줘.
         - >-
-          dataset card의 스키마(schema) 문단은 26 fields를 말하지만, Field & Token Counts([Token](/ko/wiki/token/) 수 표) 문단은 영어로
+          dataset card의 스키마(schema) 문단은 26 fields를 말하지만, Field & Token Counts(Token 수 표) 문단은 영어로
           25 columns excluding identifier, 한국어로 UUID 제외 28가지 열이라고 써서 충돌해.
         - >-
           독자가 데이터 구조를 읽을 때는 행 미리보기(viewer)와 스키마(schema) 문단에서 검산되는 26개 화면 표시 필드를 기준으로 삼고,
@@ -79,7 +79,7 @@ factCheck:
         - 같은 블로그에 `25 districts`라는 표현도 있어 geography 수치는 dataset card 쪽이 더 안정적이야.
         - >-
           최종 채택 기준은 데이터셋 행 미리보기(viewer)와 스키마(schema) 문단에서 같이 확인되는 26개 화면 표시 필드야. 다만
-          Field & Token Counts([Token](/ko/wiki/token/) 수 표)의 25/28 충돌은 총 컬럼 수 확정 근거로 쓰지 않아.
+          Field & Token Counts(Token 수 표)의 25/28 충돌은 총 컬럼 수 확정 근거로 쓰지 않아.
         - >-
           2K+ 직업 분류(occupation categories)는 NVIDIA 블로그 표의 수치로만 다루고, Hugging Face 카드 직접
           검산값처럼 쓰지 않아.
@@ -126,7 +126,7 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "9d22db0a30851174"
+  contentHash: "cf8c7b7232e8f859"
   reviewedAt: "2026-04-27"
 ---
 
@@ -135,7 +135,7 @@ reviewStamp:
 이 데이터셋은 한국 맥락의 합성 페르소나를 모아 둔 공개 데이터셋이야. `uuid`, 7개 persona 본문, 배경·취향
 메모, 인구통계·지리 필드를 같이 보면서 유저 시뮬레이터 카드, 상담 질문, 기대 응답 기준, 실패 기준을 만들 수 있어. `district
 252`, `province 17`, `1백만 행`은 Hugging Face 데이터셋 카드와 행 미리보기(viewer)를 먼저 보는 쪽이 덜 흔들려.
-필드 수는 행 미리보기(viewer)와 스키마(schema) 표 기준 26개를 구조 읽기 기준으로 쓰되, 같은 카드의 Field & Token Counts([Token](/ko/wiki/token/) 수 표)에 25/28
+필드 수는 행 미리보기(viewer)와 스키마(schema) 표 기준 26개를 구조 읽기 기준으로 쓰되, 같은 카드의 Field & Token Counts(Token 수 표)에 25/28
 표현이 함께 있어 총 컬럼 수 확정값처럼 과하게 읽지는 않아.
 
 ## 어떻게 쓸 수 있나
