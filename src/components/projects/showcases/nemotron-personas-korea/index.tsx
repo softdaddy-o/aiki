@@ -89,9 +89,9 @@ interface DemoFlow {
     row: ReadonlyArray<string>;
     usedColumns: ReadonlyArray<string>;
     seedBrief: string;
-    systemPrompt: ReadonlyArray<string>;
-    sliceTask: ReadonlyArray<string>;
-    comparison: ReadonlyArray<string>;
+    characterCard: ReadonlyArray<string>;
+    relationSetup: ReadonlyArray<string>;
+    useCheck: ReadonlyArray<string>;
     proofFlow: ReadonlyArray<string>;
 }
 
@@ -103,55 +103,53 @@ interface MapReadingStep {
 type SectionId =
     | 'hero'
     | 'takeaway'
-    | 'decide'
     | 'map'
     | 'worldbuilding'
-    | 'slice'
     | 'pipeline'
+    | 'slice'
     | 'limits';
 
 const SECTION_PREFIX = 'npk-section-';
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
-    { id: 'hero', label: '소개', description: '먼저 믿을 숫자와 멈출 지점' },
-    { id: 'takeaway', label: '핵심 판단', description: '왜 보는지 바로 압축' },
-    { id: 'decide', label: '써도 되는가', description: '써도 되는 흐름과 멈출 흐름' },
-    { id: 'map', label: '데이터 맵', description: '26개 컬럼을 활용 관점으로 묶기' },
-    { id: 'worldbuilding', label: '월드빌딩 랩', description: '현실 단서를 가상 캐릭터로 바꾸기' },
-    { id: 'slice', label: '슬라이스 보드', description: '지역·직업·연령·가구형태 조합' },
-    { id: 'pipeline', label: '활용 파이프라인', description: '레코드 조각에서 슬라이스 결과까지' },
+    { id: 'hero', label: '소개', description: '데이터셋 정체와 범위' },
+    { id: 'takeaway', label: '개요', description: '무엇을 담은 합성 페르소나인가' },
+    { id: 'map', label: '데이터 구조', description: 'viewer 기준 26개 필드 읽기' },
+    { id: 'worldbuilding', label: '활용 예시', description: '가상 인물과 관계 설정' },
+    { id: 'pipeline', label: '제작 흐름', description: '레코드에서 세계관 카드까지' },
+    { id: 'slice', label: '사용처', description: '어디에 붙일 수 있는가' },
     { id: 'limits', label: '한계', description: '합성 데이터 경계선' },
 ] as const;
 
 const TAKE_CARDS: ReadonlyArray<InsightCard> = [
     {
-        title: '정의',
+        title: '무슨 데이터셋인가',
         body: (
             <>
-                <span>한국어 합성 페르소나 데이터셋이야. 한 레코드 안에 7개 페르소나 본문, 배경·취향 메모, 인구통계·지리 필드가 같이 들어 있어. </span>
+                <span>NVIDIA가 공개한 한국 맥락의 합성 페르소나 데이터셋이야. 한 레코드 안에 직업, 취미, 가족, 여행, 음식 같은 페르소나 본문과 인구통계·지리 필드가 같이 들어 있어. </span>
                 <a href="/ko/wiki/synthetic-data/">Synthetic Data</a>
-                <span> 성격을 먼저 보고 들어가면 덜 헷갈려.</span>
+                <span>라서 실제 개인을 모은 표본이 아니라 시나리오와 평가 단면을 만들기 위한 재료로 봐야 해.</span>
             </>
         ),
-        chips: ['한국 맥락', '합성 데이터', '시작 표본'],
+        chips: ['한국어', '합성 페르소나', '시나리오 재료'],
     },
     {
-        title: '써볼 때',
-        body: '7개 페르소나 본문군과 인구통계 지표가 같이 있어서, 단면 기준을 같은 구조로 묶은 채 대조 실험을 돌리기 편해.',
-        chips: ['26개 컬럼', '스키마 우선', '단면 설계'],
+        title: '무엇이 들어 있나',
+        body: '1백만 행이고, 데이터셋 viewer와 schema 섹션 기준으로 uuid 포함 26개 필드가 보여. 같은 카드의 Field & Token Counts에는 25/28 표현도 함께 있어서, 이 쇼케이스는 화면에서 검산되는 26개 필드만 구조 읽기 기준으로 삼아.',
+        chips: ['1M rows', 'viewer 기준 26 fields', '252 districts'],
     },
     {
-        title: '멈출 때',
-        body: '직업, 지역, 연령 축으로 평가 단면을 짜기 좋지만, 합성 페르소나는 실측 값 대체 근거는 아니야.',
-        chips: ['평가', '단면 비교', '실측 대체 아님'],
+        title: '처음 읽는 순서',
+        body: '먼저 persona 본문으로 인물의 말투와 생활 리듬을 잡고, 그 다음 배경·기술·취향으로 행동 근거를 보강해. 마지막에 지역·직업·연령·가구형태를 붙이면 실험 단면이 생겨.',
+        chips: ['persona 본문', '배경 메모', '단면 필드'],
     },
 ];
 
 const USE_CARDS: ReadonlyArray<InsightCard> = [
     {
         title: '에이전트 시작 표본을 만들 때',
-        body: '긴 시스템 프롬프트에 일관된 페르소나 신호를 넣고 싶다면 이 데이터셋이 출발점으로 잘 버텨.',
-        chips: ['프롬프트 초안', '시나리오 시뮬레이션', '에이전트 테스트'],
+        body: '대화 에이전트에 일관된 역할 카드와 생활 맥락을 넣고 싶다면 이 데이터셋이 출발점으로 잘 버텨.',
+        chips: ['역할 카드', '시나리오 시뮬레이션', '에이전트 테스트'],
     },
     {
         title: '한국어 제품 흐름을 가를 때',
@@ -184,35 +182,35 @@ const SKIP_CARDS: ReadonlyArray<InsightCard> = [
 ];
 
 const QUICK_TEST: InsightCard = {
-    title: '빠른 판별 테스트',
-    body: '같은 uuid를 고정한 채 district만 Suwon에서 Busan으로 바꿔 봐. 시스템 프롬프트는 그대로 두고 첫 두 문장만 비교했을 때 수원 단면은 통근·교육비가, 부산 다자녀 단면은 돌봄·생활비가 먼저 튀어나오면 이 데이터셋을 더 볼 이유가 생겨.',
-    chips: ['uuid 고정', '지역만 변경', '첫 두 문장 비교'],
+    title: '활용 전 점검',
+    body: '같은 세계관 규칙을 유지한 채 occupation이나 family_type만 바꿔 두 번째 캐릭터 카드를 만들어 봐. 장면 갈등이 직업 리듬, 이동 제약, 가족 책임 쪽으로 자연스럽게 갈리면 쓸 만하고, 지역·연령 고정관념만 반복되면 멈춰야 해.',
+    chips: ['세계관 규칙 고정', '단면만 변경', '고정관념 점검'],
 };
 
 const WORLD_SEEDS: ReadonlyArray<WorldSeed> = [
     {
         id: 'npk-seed-seoul-office',
-        label: '서울형 오피스',
-        groundedSeed: '서울 수도권 거주, 30대 초반, 플랫폼 직장인, 1인 가구.',
-        fictionalAdaptation: '서울의 가상 자치구 "남촌-52"에서 새벽 출근 동선을 최적화하는 시뮬레이션 캐릭터로 재배치.',
-        district: '행정구역 수 기준값: 252',
-        adaptationNote: '고밀도 교통-근무 패턴을 허구 지오코드로 바꿔 이동 스트레스 곡선을 붙잡아 둬.',
+        label: '원본 레코드 씨앗',
+        groundedSeed: '광주-서구, 74세, 하역 및 적재 관련 단순 종사원, 배우자와 거주.',
+        fictionalAdaptation: '가상 항만 도시 "황도항" 7부두에서 오래된 적재 동선을 기억하는 선임 작업자로 바꾼다.',
+        district: '사용 컬럼: district, age, occupation, family_type',
+        adaptationNote: '실제 지명과 이름은 버리고 직업 리듬, 이동 반경, 가족 책임만 남겨.',
     },
     {
         id: 'npk-seed-busan-care',
-        label: '부산 돌봄형',
-        groundedSeed: '부산 중단거리권 거주, 20대 후반, 공공기관 직장인, 다자녀 가구 구성원.',
-        fictionalAdaptation: '가상의 해안 도시 "남해면 9구" 내 24시간 돌봄 허브 운영자 배경으로 확장.',
-        district: '행정구역 수 기준값: 252',
-        adaptationNote: '가족 유형 기반 돌봄 간격을 허구 설정으로 바꿔 시간대별 의사결정을 고정해.',
+        label: '관계 인물 씨앗',
+        groundedSeed: '가족 페르소나와 취미 단서: 배우자와 단출한 생활, 시장·목욕탕·산책 루틴.',
+        fictionalAdaptation: '황도항 공동 목욕장과 시장 게시판을 관리하는 배우자 캐릭터로 확장한다.',
+        district: '사용 컬럼: family_persona, hobbies_and_interests',
+        adaptationNote: '생활 루틴을 관계의 접점으로 바꿔 장면이 개인 신상 복원처럼 보이지 않게 해.',
     },
     {
         id: 'npk-seed-daegu-student',
-        label: '대구 강사형',
-        groundedSeed: '대구 인근 도시권 거주, 40대 초반, 파트타임 강사, 1명 자녀.',
-        fictionalAdaptation: '영문구 3도 학습형 경제권의 교육 캐릭터로 전이해 수요-지출 반응성을 시뮬레이션.',
-        district: '행정구역 수 기준값: 252',
-        adaptationNote: '월 단위 구매주기와 교육비 결정을 따로 떼어 설정 레이어에 올려 둬.',
+        label: '갈등 인물 씨앗',
+        groundedSeed: '기술 단서: 적재물 무게 중심 파악, 자재 결속, 작업 동선 최적화.',
+        fictionalAdaptation: '자동화 장비를 도입하려는 젊은 정비사로 바꿔 세대·기술 갈등을 만든다.',
+        district: '사용 컬럼: skills_and_expertise_list',
+        adaptationNote: '능력 단서를 대립 축으로 옮기되 실제 작업장이나 개인 이력으로 읽히지 않게 해.',
     },
 ];
 
@@ -221,22 +219,22 @@ const RELATION_LINKS: ReadonlyArray<RelationLink> = [
         id: 'npk-link-seoul-busan',
         from: 'npk-seed-seoul-office',
         to: 'npk-seed-busan-care',
-        arc: '생활 지원 루프',
-        link: '돌봄 비용을 나누는 장면이 업무 루틴과 붙으면서 소비 압박이 같이 올라와.',
+        arc: '생활 루틴',
+        link: '새벽 작업 뒤 시장 게시판으로 돌아오는 루틴이 가족 책임과 체력 한계를 같은 장면에 묶어.',
     },
     {
         id: 'npk-link-busan-daegu',
         from: 'npk-seed-busan-care',
         to: 'npk-seed-daegu-student',
-        arc: '이동성 연결',
-        link: '지역 교육 이동 이벤트가 학습·근무 축으로 되돌아오면서 가격 민감도도 같이 흔들려.',
+        arc: '변화 압박',
+        link: '자동화 장비 도입이 시장 공동체의 생계 리듬을 흔들면서 갈등의 비용을 눈에 보이게 해.',
     },
     {
         id: 'npk-link-seoul-daegu',
         from: 'npk-seed-seoul-office',
         to: 'npk-seed-daegu-student',
-        arc: '목표 축 고정',
-        link: '경력·소득 프레임이 같은 장면에서 서로 다른 대체 결정을 끌어내.',
+        arc: '기술 승계',
+        link: '오래된 적재 감각과 새 장비의 계산 방식이 충돌하면서 협력 조건을 테스트할 수 있어.',
     },
 ];
 
@@ -297,47 +295,50 @@ const PIPELINE_STEPS: ReadonlyArray<PipelineStep> = [
         styleHint: '지역-연령-직군 조합 정렬',
     },
     {
-        step: '프롬프트와 출력 톤',
-        action: '샘플 프롬프트 스택을 짜.',
-        output: '시뮬레이션 대화문과 테스트 케이스.',
-        styleHint: '단일 톤 + 실패 모드 주석',
+        step: '장면 카드',
+        action: '인물 카드와 관계 링크를 장면 카드로 묶어.',
+        output: '세계관 설정, 대화 시드, 평가용 충돌 조건.',
+        styleHint: '허구화 + 실패 모드 주석',
     },
 ];
 
 const DEMO_FLOW: DemoFlow = {
     row: [
-        'occupation: secondary-school teacher',
-        'district: Suwon',
-        'province: Gyeonggi',
-        'age: 34',
-        'family_type: couple with one child',
-        'professional_persona: practical planner who tracks school-workload and commute time',
+        'occupation: 하역 및 적재 관련 단순 종사원',
+        'district: 광주-서구',
+        'province: 광주',
+        'age: 74',
+        'family_type: 배우자와 거주',
+        'professional_persona: 무게 중심과 작업 동선을 빠르게 읽는 베테랑',
     ],
     usedColumns: ['occupation', 'district', 'province', 'age', 'family_type', 'professional_persona'],
     seedBrief:
-        '수원 거주 34세 중등교사. 평일엔 수업 준비와 이동 시간을 먼저 따지고, 주말엔 가족 일정과 교육비를 같이 봐.',
-    systemPrompt: [
-        '시스템 프롬프트 초안',
-        '- 수원 거주 34세 중등교사 페르소나를 기준으로 답해.',
-        '- 통근 시간, 자녀 일정, 교육비 부담을 먼저 따져.',
-        '- 과장된 소비 제안은 피하고 실용적인 선택지만 남겨.',
+        '광주-서구 74세 하역 노동자라는 현실 단서를 가져오되 실제 지명과 이름은 쓰지 않는다. 허구 세계에서는 오래된 항만, 적재 기술, 가족 책임, 세대 갈등만 남긴다.',
+    characterCard: [
+        '가상 인물: 장태율',
+        '거주지: 가상 항만 도시 "황도항 7부두"',
+        '역할: 낡은 창고의 적재 순서를 기억하는 선임 작업자',
+        '핵심 욕구: 체력 한계, 배우자의 생활비, 부두 안전을 동시에 지키기',
+        '말투: 투박하지만 현장 판단은 빠르고, 새 장비 앞에서는 신중하다.',
     ],
-    sliceTask: [
-        '슬라이스 작업: district=Suwon, occupation=secondary-school teacher, age=34',
-        '비교 축: district=Busan, occupation=public-sector worker, family_type=multi-child household',
-        '판단 목표: 추천 답변에서 통근·교육비 우선과 돌봄·생활비 우선이 실제로 갈리는지 본다.',
+    relationSetup: [
+        '관계 1: 장태율 ↔ 시장 게시판을 관리하는 배우자',
+        '- 갈등: 장비 교체가 생활비를 아끼지만 장태율의 현장 역할을 줄인다.',
+        '관계 2: 장태율 ↔ 자동화 정비사',
+        '- 연결: 무게 중심을 몸으로 읽는 기술과 센서 계산 방식이 충돌한다.',
+        '관계 규칙: 실제 지명, 실명, 사업장은 쓰지 않고 역할과 제약만 남긴다.',
     ],
-    comparison: [
-        '출력 A: 통근 시간 40분 이하, 방과 후 일정 충돌 없음, 교육비 추가 지출 제한이 먼저 뜬다.',
-        '출력 B: 돌봄 공백 시간 최소화, 생활비 완충, 공공 혜택 연계가 먼저 뜬다.',
-        '비교 결과: 같은 생활지원 질문이어도 수원 교사 단면은 시간표·교육비가 앞에 나오고, 부산 다자녀 단면은 돌봄·예산 제안이 앞에 나온다.',
+    useCheck: [
+        '활용 점검: 이 설정은 실제 개인을 찾는 데 쓰는 자료가 아니라 캐릭터 다양성과 장면 충돌을 만드는 씨앗이다.',
+        '좋은 사용: 게임 NPC, 대화 에이전트 테스트, 추천 답변 평가 단면',
+        '나쁜 사용: 실제 지역 거주자의 성향 추정, 동의 없는 프로파일링, 민감 속성 타기팅',
     ],
     proofFlow: [
-        'row 입력: occupation=secondary-school teacher / district=Suwon / province=Gyeonggi / age=34 / family_type=couple with one child',
+        'row 입력: occupation=하역 및 적재 관련 단순 종사원 / district=광주-서구 / province=광주 / age=74 / family_type=배우자와 거주',
         '사용 컬럼: occupation, district, province, age, family_type, professional_persona',
-        'generated artifact: 수원 34세 중등교사 페르소나를 기준으로 통근 시간·가족 일정·교육비 우선순위를 먼저 반영한 시스템 프롬프트 초안',
-        'eval slice: district=Suwon teacher 단면과 district=Busan public-sector multi-child 단면을 비교해.',
-        'sample output: 수원 단면은 통근·교육비 제안이 먼저 나오고, 부산 다자녀 단면은 돌봄·생활비 제안이 먼저 나온다.',
+        'world artifact: 황도항 7부두의 선임 작업자 장태율과 시장 게시판 관리자를 만든다.',
+        'relation artifact: 적재 기술, 생활비, 자동화 장비 도입을 관계 갈등으로 연결한다.',
+        'guardrail: 실제 지명과 개인 식별 단서는 허구 설정으로 바꾼다.',
     ],
 };
 
@@ -381,7 +382,7 @@ const FIELD_GROUPS: ReadonlyArray<FieldGroup> = [
         title: '페르소나 본문',
         totalFields: 7,
         why: '같은 사람 설정을 상황별 서술로 어떻게 풀어 주는지 보는 묶음이야.',
-        useFor: '시스템 프롬프트 초안, 캐릭터 톤 분기, 시나리오 씨앗 텍스트 작성',
+        useFor: '역할 카드 초안, 캐릭터 톤 분기, 시나리오 씨앗 텍스트 작성',
         stopAt: '이 문장들을 실제 인터뷰 기록처럼 읽으면 안 돼',
         fields: [
             { name: 'professional_persona', type: 'string', required: true, source: 'dataset', note: '직업 맥락에서 읽히는 서술 본문.' },
@@ -423,7 +424,7 @@ const FIELD_GROUPS: ReadonlyArray<FieldGroup> = [
             { name: 'housing_type', type: 'string', required: true, source: 'dataset', note: '주거 형태를 자르는 분류 값.' },
             { name: 'education_level', type: 'string', required: true, source: 'dataset', note: '학력 수준을 자르는 분류 값.' },
             { name: 'bachelors_field', type: 'string', required: true, source: 'dataset', note: '전공 계열이나 비해당 값을 담는 필드.' },
-            { name: 'occupation', type: 'string', required: true, source: 'dataset', note: '2K+ 계열 기준 직업 축.' },
+            { name: 'occupation', type: 'string', required: true, source: 'dataset', note: '직업 축. 2K+ category 수치는 NVIDIA 블로그 표에서 따로 확인되는 vendor claim이야.' },
             { name: 'district', type: 'string', required: true, source: 'dataset', note: '카드 기준 252 district 축.' },
             { name: 'province', type: 'string', required: true, source: 'dataset', note: '카드 기준 17 province 축.' },
             { name: 'country', type: 'string', required: true, source: 'dataset', note: '공개 데이터 기준 한국으로 고정되는 필드.' },
@@ -432,7 +433,7 @@ const FIELD_GROUPS: ReadonlyArray<FieldGroup> = [
 ];
 
 function getSeedLabel(seedId: string): string {
-    return WORLD_SEEDS.find((seed) => seed.id === seedId)?.groundedSeed ?? seedId;
+    return WORLD_SEEDS.find((seed) => seed.id === seedId)?.label ?? seedId;
 }
 
 export default function NemotronPersonasKoreaShowcase({
@@ -478,7 +479,7 @@ export default function NemotronPersonasKoreaShowcase({
                     />
                 </section>
 
-                <Panel id={`${SECTION_PREFIX}takeaway`} title="핵심 판단">
+                <Panel id={`${SECTION_PREFIX}takeaway`} title="개요">
                     <div className="npk-take-grid">
                         {TAKE_CARDS.map((item) => (
                             <ShowcaseCard key={item.title} item={item} />
@@ -487,11 +488,11 @@ export default function NemotronPersonasKoreaShowcase({
                 </Panel>
 
                 <Panel
-                    id={`${SECTION_PREFIX}decide`}
-                    title="써도 되는가"
+                    id={`${SECTION_PREFIX}map`}
+                    title="데이터 구조"
                     description={(
                         <>
-                            <span>배포 전에 이 데이터셋을 바로 써도 되는지, 어디서 멈춰야 하는지 먼저 갈라 봐. </span>
+                            <span>원본 컬럼을 먼저 이해해야 활용 예시가 뜬금없지 않아. </span>
                             <TermHint
                                 term="스키마 완전성"
                                 description="필수 컬럼이 비면 합성 흐름이 흔들리고 검증도 어려워져."
@@ -499,39 +500,9 @@ export default function NemotronPersonasKoreaShowcase({
                         </>
                     )}
                 >
-                    <div className="npk-split-grid">
-                        <section className="npk-split-panel">
-                            <div className="npk-split-title">이럴 때 쓴다</div>
-                            <div className="npk-insight-grid">
-                                {USE_CARDS.map((item) => (
-                                    <ShowcaseCard key={item.title} item={item} />
-                                ))}
-                            </div>
-                        </section>
-                        <section className="npk-split-panel npk-split-panel--skip">
-                            <div className="npk-split-title">이럴 땐 멈춘다</div>
-                            <div className="npk-insight-grid">
-                                {SKIP_CARDS.map((item) => (
-                                    <ShowcaseCard key={item.title} item={item} />
-                                ))}
-                            </div>
-                        </section>
-                    </div>
-                    <article className="npk-card">
-                        <h3>{QUICK_TEST.title}</h3>
-                        <p>{QUICK_TEST.body}</p>
-                        <div className="npk-chip-row">
-                            {QUICK_TEST.chips?.map((chip) => (
-                                <span key={chip}>{chip}</span>
-                            ))}
-                        </div>
-                    </article>
-                </Panel>
-
-                <Panel id={`${SECTION_PREFIX}map`} title="데이터 맵">
                     <article className="npk-card npk-map-order-card">
                         <h3>레코드 읽는 순서</h3>
-                        <p>26개 컬럼은 이 순서로 보면 덜 헷갈려.</p>
+                        <p>이 페이지의 26개 필드는 Hugging Face viewer와 schema 섹션에서 보이는 컬럼 목록을 기준으로 읽어.</p>
                         <div className="npk-chip-row">
                             {MAP_READING_FLOW.map((step) => (
                                 <span key={step.label}>{`${step.label}. ${step.detail}`}</span>
@@ -563,7 +534,11 @@ export default function NemotronPersonasKoreaShowcase({
                     </div>
                 </Panel>
 
-                <Panel id={`${SECTION_PREFIX}worldbuilding`} title="월드빌딩 랩">
+                <Panel
+                    id={`${SECTION_PREFIX}worldbuilding`}
+                    title="활용 예시: 가상의 세계관 만들기"
+                    description="지역·직업·연령·가구형태는 현실 단서로만 쓰고, 지명과 사건은 허구로 바꿔서 실존 인물처럼 보이지 않게 설정한다."
+                >
                     <div className="npk-world-grid">
                         {WORLD_SEEDS.map((seed) => (
                             <article key={seed.id} className="npk-card npk-world-card">
@@ -593,26 +568,11 @@ export default function NemotronPersonasKoreaShowcase({
                     </div>
                 </Panel>
 
-                <Panel id={`${SECTION_PREFIX}slice`} title="슬라이스 보드">
-                    <div className="npk-slice-grid">
-                        {SLICE_VARIANTS.map((slice) => (
-                            <article key={slice.axis} className="npk-card">
-                                <h3>{slice.axisLabel}</h3>
-                                <div className="npk-chip-row">
-                                    <span>{`기준 컬럼: ${slice.axisField}`}</span>
-                                </div>
-                                <div className="npk-chip-row">
-                                    {slice.variants.map((variant) => (
-                                        <span key={variant}>{variant}</span>
-                                    ))}
-                                </div>
-                                <p>{slice.styleHint}</p>
-                            </article>
-                        ))}
-                    </div>
-                </Panel>
-
-                <Panel id={`${SECTION_PREFIX}pipeline`} title="활용 파이프라인">
+                <Panel
+                    id={`${SECTION_PREFIX}pipeline`}
+                    title="제작 흐름"
+                    description="데이터셋 레코드를 그대로 노출하지 않고, 씨앗 요약과 허구 설정을 거쳐 세계관 재료로 바꾸는 흐름이야."
+                >
                     <div className="npk-pipeline-grid">
                         {PIPELINE_STEPS.map((step, index) => (
                             <article key={step.step} className="npk-card npk-step-card">
@@ -630,8 +590,8 @@ export default function NemotronPersonasKoreaShowcase({
                     </div>
                     <article className="npk-card npk-demo-card">
                         <div className="npk-panel-head">
-                            <h3>예시용 합성 레코드 한 세트</h3>
-                            <p>아래 값은 원문 레코드를 그대로 옮긴 게 아니라 공개 스키마를 따라 만든 예시 입력이야. 레코드 입력에서 성격 요약으로 줄이고, 시스템 프롬프트 초안과 출력 톤만 바로 이어 봐.</p>
+                            <h3>공개 viewer 레코드 일부에서 세계관 카드까지</h3>
+                            <p>아래 값은 Hugging Face viewer에서 확인되는 공개 레코드의 일부 필드를 줄인 입력이야. 입력에서 씨앗 요약을 만들고, 가상 인물 카드와 관계 설정으로 끝까지 이어 봐.</p>
                         </div>
                         <section className="npk-demo-proof">
                             <h4>작동 증거 한 세트</h4>
@@ -639,32 +599,79 @@ export default function NemotronPersonasKoreaShowcase({
                         </section>
                         <div className="npk-demo-grid">
                             <section className="npk-demo-block">
-                                <h4>예시 레코드 입력</h4>
+                                <h4>Input: 공개 레코드 일부</h4>
                                 <pre>{DEMO_FLOW.row.join('\n')}</pre>
                             </section>
                             <section className="npk-demo-block">
-                                <h4>슬라이스 작업</h4>
+                                <h4>Transform: 씨앗 요약</h4>
                                 <p>{DEMO_FLOW.seedBrief}</p>
-                                <pre>{DEMO_FLOW.sliceTask.join('\n')}</pre>
                             </section>
                             <section className="npk-demo-block">
-                                <h4>생성된 시스템 프롬프트</h4>
-                                <pre>{DEMO_FLOW.systemPrompt.join('\n')}</pre>
+                                <h4>Artifact: 가상 인물 카드</h4>
+                                <pre>{DEMO_FLOW.characterCard.join('\n')}</pre>
                             </section>
                             <section className="npk-demo-block">
-                                <h4>평가 시나리오와 결과</h4>
-                                <pre>{DEMO_FLOW.sliceTask.join('\n')}</pre>
-                                <pre>{DEMO_FLOW.comparison.join('\n')}</pre>
+                                <h4>Artifact: 관계 설정</h4>
+                                <pre>{DEMO_FLOW.relationSetup.join('\n')}</pre>
                             </section>
                             <section className="npk-demo-block">
-                                <h4>출력 예시</h4>
-                                <pre>{DEMO_FLOW.comparison.join('\n')}</pre>
+                                <h4>Guardrail: 활용 점검</h4>
+                                <pre>{DEMO_FLOW.useCheck.join('\n')}</pre>
                             </section>
                         </div>
                     </article>
                 </Panel>
 
-                <Panel id={`${SECTION_PREFIX}limits`} title="한계">
+                <Panel
+                    id={`${SECTION_PREFIX}slice`}
+                    title="사용처"
+                    description="월드빌딩 예시는 한 가지 사용법이고, 같은 구조는 에이전트 시드와 평가 단면에도 붙일 수 있어."
+                >
+                    <div className="npk-split-grid">
+                        <section className="npk-split-panel">
+                            <div className="npk-split-title">어디에 쓰나</div>
+                            <div className="npk-insight-grid">
+                                {USE_CARDS.map((item) => (
+                                    <ShowcaseCard key={item.title} item={item} />
+                                ))}
+                            </div>
+                        </section>
+                        <section className="npk-split-panel">
+                            <div className="npk-split-title">어떤 축으로 자르나</div>
+                            <div className="npk-slice-grid">
+                                {SLICE_VARIANTS.map((slice) => (
+                                    <article key={slice.axis} className="npk-card">
+                                        <h3>{slice.axisLabel}</h3>
+                                        <div className="npk-chip-row">
+                                            <span>{`기준 컬럼: ${slice.axisField}`}</span>
+                                        </div>
+                                        <div className="npk-chip-row">
+                                            {slice.variants.map((variant) => (
+                                                <span key={variant}>{variant}</span>
+                                            ))}
+                                        </div>
+                                        <p>{slice.styleHint}</p>
+                                    </article>
+                                ))}
+                            </div>
+                        </section>
+                    </div>
+                    <article className="npk-card">
+                        <h3>{QUICK_TEST.title}</h3>
+                        <p>{QUICK_TEST.body}</p>
+                        <div className="npk-chip-row">
+                            {QUICK_TEST.chips?.map((chip) => (
+                                <span key={chip}>{chip}</span>
+                            ))}
+                        </div>
+                    </article>
+                </Panel>
+
+                <Panel
+                    id={`${SECTION_PREFIX}limits`}
+                    title="한계"
+                    description="합성 페르소나는 설정과 평가를 돕는 재료지만 실제 개인 관측치나 대표 통계가 아니야."
+                >
                     <div className="npk-limits-grid">
                         {LIMIT_CARDS.map((item) => (
                             <article key={item.title} className="npk-card npk-limits-card">
@@ -672,6 +679,11 @@ export default function NemotronPersonasKoreaShowcase({
                                 <p>{item.body}</p>
                                 <p>{item.boundary}</p>
                             </article>
+                        ))}
+                    </div>
+                    <div className="npk-insight-grid npk-limit-stop-grid">
+                        {SKIP_CARDS.map((item) => (
+                            <ShowcaseCard key={item.title} item={item} />
                         ))}
                     </div>
                 </Panel>
@@ -787,6 +799,10 @@ ${createSharedShowcaseChromeCss({
     margin-top: 14px;
     display: grid;
     gap: 14px;
+}
+
+.npk-limit-stop-grid {
+    margin-top: 14px;
 }
 
 .npk-demo-proof {

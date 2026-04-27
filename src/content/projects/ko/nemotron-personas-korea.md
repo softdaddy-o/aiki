@@ -3,10 +3,11 @@ title: Nemotron-Personas-Korea
 slug: nemotron-personas-korea
 lang: ko
 category: dataset
-summary: '한국어 에이전트나 평가셋에 지역·직업·연령 단면이 필요하면 볼 만하고, 실제 개인 관측치처럼 읽어야 하면 여기서 멈추는 데이터셋이야.'
+summary: NVIDIA가 공개한 한국어 합성 페르소나 데이터셋이야. 지역·직업·연령 단면을 가진 가상 인물과 관계 설정을 만들 때 재료로 쓸 수 있어.
 readerValue: >-
-  1백만 행, 26개 필드, 17개 province, 252개 district, 2K+ 직업 축이 한 번에 잡혀서 단면 실험엔 바로 붙여 보기
-  좋아. 대신 실제 개인 추정 작업이면 여기서 끊는 편이 맞아.
+  1백만 행, viewer 기준 26개 필드, 17개 province, 252개 district를 바탕으로 가상 인물 카드, 관계 설정,
+  에이전트 시드, 평가 단면을 만들 수 있어. 2K+ occupation categories는 NVIDIA 블로그 표의 별도 주장으로 다루고,
+  실제 개인 관측치처럼 쓰면 안 된다는 한계도 같이 봐야 해.
 tags:
   - synthetic-data
   - persona
@@ -14,7 +15,7 @@ tags:
   - agent
   - eval
 githubUrl: 'https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea'
-sourceMetric: 1000000
+sourceMetric: 280
 showcaseComponent: nemotron-personas-korea
 license: CC BY 4.0
 version: '2026-04-20'
@@ -52,37 +53,48 @@ factCheck:
       result: pass
       sources: 3
       summary: >-
-        핵심 수치는 Hugging Face dataset card를 1차 기준으로 두는 게 맞아. 2026년 4월 27일 기준으로
-        1M rows, 26 fields, 17 provinces, 252 districts를 우선 기준값으로 잡으면 돼.
+        핵심 수치는 Hugging Face dataset card와 viewer를 1차 기준으로 두되, 카드 안에서도 스키마 표기 충돌이
+        있어. 2026년 4월 27일 기준으로 이 페이지는 1M rows, viewer/schema 기준 uuid 포함 26 fields,
+        17 provinces, 252 districts를 구조 읽기 기준으로 채택해.
       items:
-        - dataset card와 dataset details는 1M rows와 26 fields를 직접 보여 줘.
+        - dataset viewer는 default/train 1M rows와 화면에 나열되는 필드 목록을 직접 보여 줘.
         - >-
-          dataset card는 7 million personas와 17 provinces + 252 districts를 함께
-          제시해.
+          dataset card의 schema 문단은 26 fields를 말하지만, Field & Token Counts 문단은 영어로 25
+          columns excluding identifier, 한국어로 UUID 제외 28가지 열이라고 써서 충돌해.
         - >-
-          dataset card는 2K+ occupation categories도 같이 적어 둬서, 이 페이지의 직업 축 설명 근거로
-          바로 쓸 수 있어.
+          이 페이지의 데이터 구조 표는 viewer와 schema 문단에서 검산되는 26개 visible fields를 기준으로 삼고,
+          25/28 표현은 별도 출처 충돌로 남겨 둬.
+        - >-
+          NVIDIA 블로그 표는 Occupations를 2K+ categories로 제시하지만, Hugging Face dataset viewer가
+          그 고유값 수를 직접 검산해 주지는 않아.
+        - >-
+          Hugging Face의 like 280은 2026년 4월 27일 확인 시점의 공개 반응 스냅샷이야. 데이터셋 규모나 품질
+          판단 근거가 아니라 hero 보조 지표로만 써.
         - 외부 기사도 7 million fully synthetic personas라는 큰 수치는 다시 확인해 줘.
       findings:
         - NVIDIA 블로그 본문에는 `6 million`과 `7 million` 표현이 같이 나와.
         - 같은 블로그에 `25 districts`라는 표현도 있어 geography 수치는 dataset card 쪽이 더 안정적이야.
         - >-
-          최종 채택 기준은 dataset card야. 26개 컬럼, 1M rows, 17 provinces, 252
-          districts처럼 스키마와 숫자를 한 화면에서 같이 검증할 수 있는 출처가 여기뿐이기 때문이야.
+          최종 채택 기준은 dataset viewer와 schema 문단에서 같이 확인되는 26개 visible fields야. 다만
+          Field & Token Counts의 25/28 충돌은 총 컬럼 수 확정 근거로 쓰지 않아.
+        - >-
+          2K+ occupation categories는 NVIDIA 블로그 표의 수치로만 다루고, dataset card 직접 검산값처럼
+          쓰지 않아.
     - type: web_cross_check
       result: pass
       sources: 3
       summary: >-
-        데이터셋 카드와 NVIDIA 블로그, 외부 보도를 같이 보면 목적은 일치하지만 실제 스키마와 시간민감 수치 판단은 dataset
-        card 쪽이 더 구체적이야.
+        데이터셋 카드와 NVIDIA 블로그, 외부 보도는 서로 다른 무게로 봐야 해. schema와 viewer 숫자는 Hugging
+        Face dataset card가 기준이고, occupation category 규모와 agent grounding 맥락은 NVIDIA 블로그
+        쪽 주장으로 분리해.
       items:
-        - dataset card는 26개 컬럼과 row viewer를 직접 보여 줘서 실제 스키마 확인 기준으로 쓰기 좋아.
+        - dataset card는 row viewer와 schema 문단을 보여 줘서 이 페이지의 필드 목록 확인 기준으로 쓰기 좋아.
         - >-
-          블로그는 persona variant와 agent grounding 예시를 읽는 데는 좋지만, `6M/7M`과
-          `25/252`처럼 수치 표현이 흔들려.
+          블로그는 persona variant, 2K+ occupation categories, agent grounding 예시를 읽는 데는 좋지만,
+          `6M/7M`, `25/252`처럼 수치 표현이 흔들려.
         - >-
-          외부 보도는 7 million synthetic personas와 no-PII 성격을 다시 확인해 주지만, 시점별 수치와 세부
-          컬럼 구조는 card를 따라가는 게 맞아.
+          외부 보도는 7 million synthetic personas와 no-PII 성격을 독립 보도 맥락에서 다시 확인해 주지만,
+          26/25/28 같은 세부 스키마 충돌을 풀어 주는 출처는 아니야.
     - type: adversarial
       result: pass
       sources: 3
@@ -111,24 +123,26 @@ reviewStamp:
     common: "2.3.0"
     projects: "4.2.0"
   panelVerdict: pass
-  contentHash: "4950ff3d0f4a612a"
+  contentHash: "94d9475137793388"
   reviewedAt: "2026-04-27"
 ---
 
-## 핵심 판단
+## 개요
 
-이 데이터셋은 한국어 에이전트나 평가셋에 지역·직업·연령 단면을 붙일 때 먼저 꺼내 볼 만해. 반대로 실제 개인
-관측치처럼 읽어야 하는 작업이면 여기서 멈추는 편이 맞아. 그다음에 `uuid`, 7개 persona 본문, 26개 원문 컬럼,
-`district 252`, `province 17`, `1백만 행`을 같이 확인하면 돼. `700만` 같은 큰 수치도 HF 데이터셋 카드를
-먼저 보는 쪽이 덜 흔들려.
+이 데이터셋은 한국 맥락의 합성 페르소나를 모아 둔 공개 데이터셋이야. `uuid`, 7개 persona 본문, 배경·취향
+메모, 인구통계·지리 필드를 같이 보면서 가상 인물, 관계 설정, 에이전트 시드, 평가 단면을 만들 수 있어. `district
+252`, `province 17`, `1백만 행`은 Hugging Face 데이터셋 카드와 viewer를 먼저 보는 쪽이 덜 흔들려.
+필드 수는 viewer/schema 기준 26개를 구조 읽기 기준으로 쓰되, 같은 카드의 Field & Token Counts에 25/28
+표현이 함께 있어 총 컬럼 수 확정값처럼 과하게 읽지는 않아.
 
-## 바로 쓰는 흐름
+## 어떻게 쓸 수 있나
 
-- 같은 레코드 안에서 페르소나 본문, 배경, 인구통계 축이 갈려 있어서 에이전트 시드셋이나 평가 단면 실험에 바로 붙여 보기 좋아.
-- 행 단위를 `uuid`로 고정한 뒤 직업, 지역, 연령 축으로 답변 톤이나 추천 결과를 비교해 보면 어디가 갈리는지 빨리 보여.
-- [Eval(평가)](/ko/wiki/eval/)나 [Inference](/ko/wiki/inference/) 흐름에서 단면 검증이 필요하다면, 레코드를 샘플→씬→테스트 시나리오로 펴 가면 돼.
+- 같은 레코드 안의 직업, 지역, 연령, 가족형태를 현실 단서로 삼고, 지명과 사건은 허구로 바꿔 세계관 캐릭터를 만들 수 있어.
+- 여러 캐릭터를 관계 링크로 묶으면 생활비, 이동, 기술 승계, 직업 리듬 같은 갈등 축을 설정할 수 있어.
+- [Eval(평가)](/ko/wiki/eval/) 흐름에서는 같은 질문을 지역·직업·가구형태 단면별로 나눠 응답이 어떻게 갈리는지 볼 수 있어.
 
-## 멈출 선
+## 사용처와 한계
 
 - 합성 페르소나는 실제 개인 관측치가 아니야. 동의 없는 프로파일링, 민감 속성 추정, [Inference](/ko/wiki/inference/) 단계의 재식별 추론으로 그대로 이어 붙이면 안 돼.
+- 게임 NPC, 대화 에이전트 테스트, 추천 답변 평가 단면에는 쓸 수 있지만 실제 한국 인구 대표 통계나 개인 성향 증거로 쓰면 안 돼.
 - 수치도 같이 맞춰 봐야 해. 블로그 본문은 `6 million/7 million`, `25 districts`가 같이 보이지만, 카드에서 바로 대조되는 값부터 잡는 편이 안전해.

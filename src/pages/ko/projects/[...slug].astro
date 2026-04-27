@@ -88,7 +88,7 @@ function getSourceMeta(url: string) {
 
 const sourceMeta = getSourceMeta(sourceUrl);
 if (category === 'dataset' && sourceUrl.includes('huggingface.co/')) {
-    sourceMeta.metricLabel = '행 수';
+    sourceMeta.metricLabel = '좋아요';
 }
 const SHOWCASE_NATIVE = new Set([
     'yfinance',
