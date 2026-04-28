@@ -65,10 +65,10 @@ const SECTION_PREFIX = 'ap-section-';
 
 const SECTIONS: ReadonlyArray<{ id: SectionId; label: string; description: string }> = [
     { id: 'hero', label: '소개', description: '자동화의 출발점' },
-    { id: 'takeaway', label: '첫 판단', description: '무엇을 묶나' },
-    { id: 'decide', label: '도입 판단', description: 'go / no-go' },
-    { id: 'cases', label: '검증 장면', description: 'flow / MCP / piece' },
-    { id: 'adopt', label: '붙이는 순서', description: 'demo to prod' },
+    { id: 'takeaway', label: '첫 판단', description: '무엇을 봐야 하나' },
+    { id: 'decide', label: '도입 판단', description: '맞는 팀 / 아닌 팀' },
+    { id: 'cases', label: '검증 장면', description: '흐름 / MCP / piece' },
+    { id: 'adopt', label: '붙이는 순서', description: '시험에서 운영까지' },
     { id: 'ops', label: '운영 전제', description: 'DB / queue / 보안' },
     { id: 'compare', label: '대안 비교', description: 'Zapier / n8n / code' },
 ] as const;
@@ -77,7 +77,7 @@ const CASES: ReadonlyArray<CaseStudy> = [
     {
         id: 'flow',
         label: 'Flow',
-        useCase: 'trigger + action',
+        useCase: '업무 흐름',
         commandTitle: '기본 실행 단위',
         command: `Trigger: webhook -> new lead
 Step 1: normalize fields
@@ -86,12 +86,12 @@ Step 3: branch -> Slack alert or review queue
 Output: run history + routed lead`,
         commandNote: (
             <>
-                공식 docs는 flow를 trigger와 action으로 나눠. 그래서 첫 테스트도 “webhook이 들어오면 어떤
-                run history가 남나”부터 보는 편이 빨라.
+                공식 문서는 flow를 trigger와 action으로 나눠. 그래서 첫 테스트도 “webhook이 들어오면
+                어떤 run history가 남나”부터 보는 편이 빨라.
             </>
         ),
         outcomeTitle: '손에 잡히는 결과',
-        outcome: '리드 한 건이 들어오고, AI 분류 뒤 Slack 알림이나 검토 queue로 갈라지는 장면을 보면 돼. run history에서 입력, branch, 실패 지점이 읽히면 현업 flow로 올릴 만해.',
+        outcome: '리드 한 건이 들어오고, AI 분류 뒤 Slack 알림이나 검토 queue로 나뉘는 장면을 보면 돼. run history에서 입력, branch, 실패한 단계가 읽히면 현업 flow로 올릴 만해.',
         checkTitle: '확인할 것',
         checkItems: [
             'trigger가 schedule, webhook, app event 중 어느 쪽인지',
@@ -108,7 +108,7 @@ Output: run history + routed lead`,
     {
         id: 'mcp',
         label: 'MCP',
-        useCase: 'assistant control',
+        useCase: 'AI 도구 연결',
         commandTitle: 'MCP 연결',
         command: `{
   "mcpServers": {
@@ -119,12 +119,12 @@ Output: run history + routed lead`,
 }`,
         commandNote: (
             <>
-                <a href="/ko/wiki/mcp/">MCP</a> docs는 Settings에서 server URL을 켜고, Claude Desktop,
-                Cursor, Windsurf 같은 client에 URL을 넣는 흐름을 보여 줘. 인증은 OAuth로 붙어.
+                <a href="/ko/wiki/mcp/">MCP</a> 문서는 Settings에서 server URL을 켜고, Claude Desktop,
+                Cursor, Windsurf 같은 client에 URL을 넣는 절차를 보여 줘. 인증은 OAuth로 붙어.
             </>
         ),
-        outcomeTitle: '가능해지는 일',
-        outcome: 'AI assistant가 flow를 만들고, table을 다루고, run을 점검하는 쪽까지 들어와. 사람이 누르던 builder를 agent가 조작하는 쪽으로 넓히는 지점이야.',
+        outcomeTitle: '붙이면 생기는 작업',
+        outcome: 'AI assistant가 flow를 만들고, table을 다루고, run을 점검하는 데까지 들어와. 사람이 누르던 builder를 agent가 조작하므로 권한을 좁혀야 해.',
         checkTitle: '확인할 것',
         checkItems: [
             'project-scoped MCP 권한 범위',
@@ -141,7 +141,7 @@ Output: run history + routed lead`,
     {
         id: 'piece',
         label: 'Piece',
-        useCase: 'TypeScript extension',
+        useCase: '앱 연결 추가',
         commandTitle: '새 piece 생성',
         command: `npm run cli pieces create
 ? Enter the piece name: gelato
@@ -149,12 +149,12 @@ Output: run history + routed lead`,
 ? Select the piece type: community`,
         commandNote: (
             <>
-                piece docs는 TypeScript package를 만들고 action과 trigger를 붙이는 길을 열어 둬.
+                piece 문서는 TypeScript package를 만들고 action과 trigger를 붙이는 길을 열어 둬.
                 사내 <a href="/ko/wiki/api/">API</a>를 자주 붙이면 여기서 차이가 나.
             </>
         ),
-        outcomeTitle: '개발자가 맡는 면',
-        outcome: '기존 integration으로 닿지 않는 API는 custom piece로 뺄 수 있어. builder 사용자는 같은 UI에서 쓰고, 개발자는 typed package와 hot reload로 유지보수해.',
+        outcomeTitle: '개발자가 맡는 작업',
+        outcome: '기본 앱 연결로 닿지 않는 API는 내부 piece로 뺄 수 있어. builder 사용자는 같은 UI에서 쓰고, 개발자는 typed package와 hot reload로 유지보수해.',
         checkTitle: '확인할 것',
         checkItems: [
             'community piece로 공유할지, custom piece로 내부에 둘지',
@@ -171,8 +171,8 @@ Output: run history + routed lead`,
     {
         id: 'docker',
         label: 'Docker',
-        useCase: 'self-host test',
-        commandTitle: '빠른 self-host',
+        useCase: '서버 시험',
+        commandTitle: '빠른 서버 실행',
         command: `docker run -d -p 8080:80 \\
   -v ~/.activepieces:/root/.activepieces \\
   -e AP_REDIS_TYPE=MEMORY \\
@@ -181,12 +181,12 @@ Output: run history + routed lead`,
   activepieces/activepieces:latest`,
         commandNote: (
             <>
-                Docker docs의 단일 image 경로야. PGLite와 memory queue라서 개인 테스트용이고,
+                Docker 문서의 단일 image 경로야. PGLite와 memory queue라서 개인 테스트용이고,
                 production과 multi-instance는 Docker Compose, PostgreSQL, Redis 쪽으로 넘어가야 해.
             </>
         ),
         outcomeTitle: '운영 판단',
-        outcome: 'self-host 가능 여부보다 어떤 저장소와 queue를 쓰는지가 먼저 갈려. 빠른 검토는 단일 image, 운영 검토는 Postgres와 Redis 기준으로 봐.',
+        outcome: '직접 띄울 수 있는지보다 어떤 저장소와 queue를 쓰는지가 먼저 갈려. 빠른 검토는 단일 image, 운영 검토는 Postgres와 Redis 기준으로 봐.',
         checkTitle: '확인할 것',
         checkItems: [
             'AP_FRONTEND_URL과 webhook URL이 외부에서 접근 가능한지',
@@ -198,7 +198,7 @@ Output: run history + routed lead`,
             'webhook이 많은 자동화는 localhost tunnel만으로 판단하지 마',
             'worker 분리, queue, DB backup이 운영 체크리스트로 올라와',
         ],
-        chips: ['Docker', 'PGLite', 'memory queue', 'Postgres later'],
+        chips: ['Docker', 'PGLite', 'memory queue', 'Postgres'],
     },
 ] as const;
 
@@ -207,25 +207,25 @@ const TAKE_CARDS: ReadonlyArray<ContentCard> = [
         title: '무엇인가',
         body: (
             <>
-                Zapier류 업무 자동화 builder에 AI, <a href="/ko/wiki/mcp/">MCP</a>, TypeScript piece framework를 붙인 open-source automation platform.
+                Zapier처럼 업무 자동화를 화면에서 만들고, 부족한 앱 연결은 TypeScript piece로 덧붙이는 오픈소스 도구.
             </>
         ),
     },
     {
-        title: '어디서 빛나나',
-        body: '운영팀은 flow builder로 반복 업무를 묶고, 개발자는 custom piece와 MCP 서버로 빈 integration을 채우는 팀 구조에 잘 맞아.',
+        title: '어디에 맞나',
+        body: '운영팀은 flow builder로 반복 업무를 묶고, 개발자는 내부 piece와 MCP 서버로 부족한 앱 연결을 채우는 팀에 잘 맞아.',
     },
     {
-        title: '먼저 볼 축',
-        body: '“자동화 SaaS 대체”보다 “비개발자 builder와 개발자 확장면을 같은 runtime에 둘 수 있나”를 먼저 봐.',
+        title: '먼저 확인할 항목',
+        body: '“자동화 SaaS 대체”보다 “비개발자 builder와 개발자용 확장을 같은 서버에 둘 수 있나”를 먼저 봐.',
         tone: 'accent',
     },
 ] as const;
 
 const FIT_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: '업무팀 주도 자동화',
-        body: 'marketing, sales, support, ops flow를 현업이 직접 고치고 개발자는 guardrail과 integration만 붙이는 조직.',
+        title: '현업이 고치는 반복 업무',
+        body: 'marketing, sales, support, ops flow를 현업이 직접 고치고 개발자는 guardrail과 앱 연결만 맡는 조직.',
         chips: ['no-code builder', 'run history'],
     },
     {
@@ -234,25 +234,25 @@ const FIT_CARDS: ReadonlyArray<ContentCard> = [
         chips: ['MCP', 'OAuth', 'project scope'],
     },
     {
-        title: 'custom integration 많은 팀',
+        title: '사내 API가 많은 팀',
         body: (
             <>
                 기성 connector만으로 끝나지 않고 사내 <a href="/ko/wiki/api/">API</a>와 SaaS를 TypeScript piece로 계속 붙여야 하는 팀.
             </>
         ),
-        chips: ['TypeScript pieces', 'custom API'],
+        chips: ['TypeScript pieces', 'internal API'],
     },
 ] as const;
 
 const SKIP_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: '순수 code-first orchestration',
-        body: '모든 workflow를 git, queue, typed code, CI 안에서만 관리해야 하면 visual builder가 오히려 중간 계층이 돼.',
+        title: '코드로만 관리하는 자동화',
+        body: '모든 workflow를 git, queue, typed code, CI 안에서만 관리해야 하면 visual builder가 오히려 관리할 화면 하나를 더 만들어.',
         chips: ['Temporal', 'custom workers'],
     },
     {
-        title: '완전 managed SaaS 선호',
-        body: 'DB, queue, webhook, upgrade를 직접 보지 않겠다면 self-host 장점보다 운영 부담이 먼저 보여.',
+        title: '운영을 맡기고 싶은 팀',
+        body: 'DB, queue, webhook, upgrade를 직접 보지 않겠다면 직접 운영하는 장점보다 운영 부담이 먼저 보여.',
         chips: ['SaaS only', 'hosted ops'],
     },
     {
@@ -269,22 +269,22 @@ const ADOPTION_STEPS: ReadonlyArray<StepCard> = [
         body: '자주 반복되는 수동 업무 하나를 trigger와 action으로 끝까지 태워 봐. 성공 여부는 builder 모양보다 run log가 읽히는지로 봐.',
     },
     {
-        title: '2. self-host smoke',
+        title: '2. 서버로 한번 띄우기',
         command: 'docker run ... AP_DB_TYPE=PGLITE',
         body: '단일 Docker image는 빠른 감각 확인용이야. webhook URL, data directory, upgrade backup을 같이 적어 둬.',
     },
     {
-        title: '3. MCP scope',
+        title: '3. MCP 권한',
         command: 'Settings -> MCP Server -> client config',
         body: 'assistant에게 읽기, flow build, publish, run retry 중 어디까지 맡길지 project 단위로 나눠.',
     },
     {
         title: '4. piece 확장',
         command: 'npm run cli pieces create',
-        body: '기존 integration 밖의 API만 custom piece로 뽑아. HTTP action으로 끝나는 것은 piece로 키우지 마.',
+        body: '기본 연결로 부족한 API만 custom piece로 뽑아. HTTP action으로 끝나는 것은 piece로 키우지 마.',
     },
     {
-        title: '5. prod 기준',
+        title: '5. 운영 기준',
         command: 'Docker Compose + PostgreSQL + Redis',
         body: 'production이나 multi-instance는 PGLite + memory queue가 아니라 Postgres와 Redis 기준으로 다시 산정해.',
     },
@@ -292,7 +292,7 @@ const ADOPTION_STEPS: ReadonlyArray<StepCard> = [
 
 const OPS_CARDS: ReadonlyArray<ContentCard> = [
     {
-        title: 'DB와 queue',
+        title: 'DB와 큐',
         body: '단일 Docker 경로는 PGLite와 memory queue를 써서 테스트용에 가까워. 운영 판단은 PostgreSQL, Redis, worker 분리에서 시작해.',
         chips: ['PGLite test', 'PostgreSQL prod', 'Redis'],
     },
@@ -303,11 +303,11 @@ const OPS_CARDS: ReadonlyArray<ContentCard> = [
     },
     {
         title: '라이선스 경계',
-        body: 'Community Edition은 MIT로 공개되고 enterprise 기능은 commercial license로 갈라져. self-host 비용만 보고 edition 경계를 놓치면 안 돼.',
+        body: 'Community Edition은 MIT로 공개되고 enterprise 기능은 commercial license로 갈라져. 직접 운영 비용만 보고 edition 경계를 놓치면 안 돼.',
         chips: ['MIT CE', 'commercial EE'],
     },
     {
-        title: 'piece lifecycle',
+        title: '내부 piece 관리',
         body: '공개 piece는 npm package와 repository source를 통해 흘러. 내부 custom piece는 build, sync, version pin 정책을 먼저 정해.',
         chips: ['npm packages', 'versioning', 'sync'],
     },
@@ -316,22 +316,22 @@ const OPS_CARDS: ReadonlyArray<ContentCard> = [
 const COMPARE_CARDS: ReadonlyArray<CompareCard> = [
     {
         title: 'Zapier / Make',
-        fit: '운영 부담 없는 hosted automation과 풍부한 기성 app marketplace가 최우선일 때.',
-        tradeoff: 'Activepieces는 self-host와 code extension에서 여지가 크지만 DB, queue, upgrade 책임을 팀이 더 많이 봐.',
+        fit: '서버 운영 없는 자동화와 풍부한 기성 앱 목록이 최우선일 때.',
+        tradeoff: 'Activepieces는 직접 운영과 코드 확장에서 여지가 크지만 DB, queue, upgrade 책임을 팀이 더 많이 봐.',
     },
     {
         title: 'n8n',
         fit: (
             <>
-                <a href="/ko/wiki/n8n/">n8n</a>처럼 self-host workflow automation을 보되 node-level builder와 넓은 community 생태계를 비교하고 싶을 때.
+                <a href="/ko/wiki/n8n/">n8n</a>처럼 직접 운영하는 자동화 도구를 보되 node-level builder와 넓은 community 생태계를 비교하고 싶을 때.
             </>
         ),
-        tradeoff: 'Activepieces는 MCP와 TypeScript piece framework를 전면에 둔 판단축이 더 강해.',
+        tradeoff: 'Activepieces는 MCP와 TypeScript piece를 앞에 둔 판단 기준이 더 뚜렷해.',
     },
     {
         title: 'Temporal / custom workers',
         fit: '긴 실행, compensation, typed workflow, strict CI/CD가 제품 핵심일 때.',
-        tradeoff: 'Activepieces는 현업 builder와 빠른 integration 조립이 장점이야. code-first workflow engine 대체재로 보면 빗나가.',
+        tradeoff: 'Activepieces는 현업 builder와 빠른 앱 연결 조립이 장점이야. 코드 중심 workflow engine 대체재로 보면 빗나가.',
     },
 ] as const;
 
@@ -411,16 +411,16 @@ export default function ActivepiecesShowcase(props: ActivepiecesShowcaseProps) {
                 <Panel
                     id={`${SECTION_PREFIX}cases`}
                     title="검증 장면"
-                    description={<>Activepieces는 <TermHint term="flow" description="trigger로 시작하고 action을 이어 붙이는 자동화 단위. run history와 versioning이 운영 판단의 핵심이야." /> 와 <TermHint term="piece" description="Activepieces integration 단위. TypeScript package로 작성되고 action, trigger, auth를 담아." /> 를 나눠 봐야 해. 여기에 <a href="/ko/wiki/mcp/">MCP</a>와 self-host 경로를 얹으면 팀의 책임선이 보여.</>}
+                    description={<>Activepieces는 <TermHint term="flow" description="trigger로 시작하고 action을 이어 붙이는 자동화 단위. run history와 versioning이 운영 판단의 핵심이야." /> 와 <TermHint term="piece" description="Activepieces 앱 연결 단위. TypeScript package로 작성되고 action, trigger, auth를 담아." /> 를 나눠 봐야 해. 여기에 <a href="/ko/wiki/mcp/">MCP</a>와 직접 운영 경로를 얹으면 팀의 책임선이 보여.</>}
                 >
                     <article className="ap-card ap-card--accent ap-overview-card">
-                        <CardHeader kicker="범위" title="이번 쇼케이스가 보는 네 장면" pill="docs first" />
+                        <CardHeader kicker="범위" title="이번 쇼케이스가 보는 네 장면" pill="문서 기준" />
                         <p>{summary}</p>
                         <div className="ap-chip-row">
                             <span>flow builder</span>
                             <span>MCP server</span>
                             <span>TypeScript pieces</span>
-                            <span>self-host path</span>
+                            <span>직접 운영</span>
                         </div>
                     </article>
 
@@ -465,7 +465,7 @@ export default function ActivepiecesShowcase(props: ActivepiecesShowcaseProps) {
                         </article>
 
                         <article className="ap-card">
-                            <CardHeader kicker="주의" title="갈리기 시작하는 지점" />
+                            <CardHeader kicker="주의" title="먼저 막히는 조건" />
                             <ul className="ap-list">
                                 {activeCase.watchFor.map((item) => (
                                     <li key={item}>{item}</li>
