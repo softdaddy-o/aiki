@@ -61,4 +61,14 @@ describe('script-findings', () => {
             'expected a news-frontmatter-tone finding',
         );
     });
+
+    it('flags unsupported Google I/O ticket prize claims in published news', () => {
+        const file = path.join(__dirname, 'fixtures', 'unsupported-event-prize-news.md');
+        const findings = collectFindings(file, 'news');
+
+        assert.ok(
+            findings.some((finding) => finding.rule === 'unsupported-event-prize-claim'),
+            'expected an unsupported-event-prize-claim finding',
+        );
+    });
 });

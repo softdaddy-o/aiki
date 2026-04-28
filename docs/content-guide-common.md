@@ -2,7 +2,7 @@
 
 > **Guide ID**: `common`
 > **Version**: `2.3.0`
-> **Last Updated**: 2026-04-25
+> **Last Updated**: 2026-04-28
 > **Applies to**: News, Wiki, Projects 모든 콘텐츠
 
 이 문서는 AIKI 전체의 공통 콘텐츠 구성 문서다. tone은 `docs/tone-guide-common.md`가 맡고, 타입별 구조는 `docs/content-guide-news.md`, `docs/content-guide-wiki.md`, `docs/content-guide-projects.md`가 맡는다.
@@ -153,6 +153,8 @@ grep -rL "guideVersion" D:/srcp/aiki/src/content/projects/ko/
 - 출처의 이해관계가 있는가? (자사 벤치마크, PR 자료)
 - 인과관계를 상관관계로 혼동하고 있는가?
 - 미검증 최상급 표현이 있는가? (`세계 최초`, `최대` 같은 말)
+- 이벤트 참가권, 티켓, 상금, 항공권, 숙박권 같은 보상 주장은 공식 규칙/약관/주최 측 공지에서 직접 확인된 경우에만 쓴다. 보상 조건을 못 찾으면 “캡스톤이 있다”까지만 쓰고 보상 내용은 생략한다.
+- 특정 보상 claim이 `factCheck.number_verify`에만 있고 원문 대조 항목이나 공식 규칙 출처가 없으면 FAIL로 본다.
 
 ### factCheck frontmatter 구조
 

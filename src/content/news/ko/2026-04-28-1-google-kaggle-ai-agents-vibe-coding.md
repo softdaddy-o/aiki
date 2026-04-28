@@ -1,91 +1,100 @@
 ---
-title: "Google·Kaggle, 5일 AI 에이전트 바이브 코딩 무료 강의를 6월 15일에 열어"
+title: "Google·Kaggle, 6월 15일 AI 에이전트 바이브 코딩 무료 강의 열어"
 date: "2026-04-28T08:30:00+09:00"
 lang: ko
 category: news
-summary: "Google과 Kaggle이 6월 15-19일에 5일짜리 AI 에이전트 바이브 코딩 부트캠프를 무료로 연다고 발표했어. 1차에 1.5M+가 등록한 시리즈의 후속이고, 마지막 날은 캡스톤으로 본인 에이전트를 배포해. Gemini 2.5와 ADK 기반."
-readerValue: "에이전트 빌딩을 직접 손에 잡고 시작해야 할지 5일치 가이드로 가를 수 있어."
-sourceUrl: "https://blog.google/technology/developers/google-kaggle-ai-agents-vibe-coding-course/"
-sourceTitle: "Google Blog — 5-Day AI Agents Vibe Coding Course"
+summary: "Google과 Kaggle이 2026년 6월 15-19일 5일짜리 AI 에이전트 바이브 코딩 무료 강의를 연다고 발표했어. 작년 과정은 150만 명 넘게 도달했고, 이번엔 백서·코드랩·실시간 질의응답·선택형 마무리 프로젝트로 이어지는 구조야. 작은 자동화 실험을 잡아볼 팀에 맞아."
+readerValue: "에이전트 빌딩에 5일을 써 볼지, 지금은 자료만 챙길지 가를 수 있어."
+sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
+sourceTitle: "Google Blog — AI Agents Vibe Coding Course"
 draft: false
 score: 115
-sourceCount: 4
+sourceCount: 3
 factCheck:
   status: passed
   date: "2026-04-28"
   sources:
-    - url: "https://blog.google/technology/developers/google-kaggle-ai-agents-vibe-coding-course/"
-      title: "Google Blog — Announcing the 5-Day AI Agents Vibe Coding Course"
-    - url: "https://www.kaggle.com/learn-guide/ai-agents-vibe-coding-2026"
-      title: "Kaggle — 5-Day AI Agents Vibe Coding Course"
-    - url: "https://developers.googleblog.com/en/announcing-vibe-coding-with-adk-gemini/"
-      title: "Google Developers Blog — Vibe Coding with ADK and Gemini"
-    - url: "https://techcrunch.com/2026/04/27/google-kaggle-launch-ai-agents-vibe-coding-course/"
-      title: "TechCrunch — Google and Kaggle launch AI Agents course"
+    - url: "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
+      title: "Google Blog — Join the new AI Agents Vibe Coding Course from Google and Kaggle"
+    - url: "https://www.kaggle.com/competitions/5-day-ai-agents-intensive-vibecoding-course-with-google/overview"
+      title: "Kaggle — 5-Day AI Agents: Intensive Vibe Coding Course With Google"
+    - url: "https://chromeunboxed.com/googles-massive-free-ai-agents-course-returns-with-a-focus-on-vibe-coding/"
+      title: "Chrome Unboxed — Google’s massive free AI Agents course returns"
   checks:
     - type: source_match
       result: pass
-      summary: "Google 공식 발표와 Kaggle 강의 페이지에서 일정과 형식을 확인."
+      summary: "Google 공식 발표에서 일정, 무료 등록, 캡스톤 포함 여부를 다시 대조했어."
       items:
-        - "강의 일자: 2026년 6월 15-19일 (월-금)"
-        - "참가비 0원, Kaggle 계정만 있으면 등록 가능"
-        - "1일차 Gemini 2.5 함수 호출 → 5일차 캡스톤 에이전트 배포"
+        - "강의 기간: 2026년 6월 15-19일"
+        - "작년 첫 AI Agents Intensive는 150만 명 넘는 학습자에게 도달"
+        - "업데이트된 콘텐츠, 새 발표자, 실습형 마무리 프로젝트 포함"
     - type: web_cross_check
       result: pass
       sources: 3
-      summary: "Google Blog, Kaggle, TechCrunch 3곳에서 동일한 일정과 1.5M 등록 수치 확인."
+      summary: "공식 발표와 보조 보도에서 일정과 과정 성격이 충돌하지 않는지 맞춰 봤어."
       items:
-        - "Google 공식: 강의 일정·등록 링크"
-        - "Kaggle: 일자별 커리큘럼과 캡스톤 룰"
-        - "TechCrunch: 1차 5-Day GenAI 1.5M+ 등록 맥락"
+        - "Google 공식: 6월 15-19일, 무료 등록, 150만 명+ 도달"
+        - "Kaggle 공개 페이지: Google 공식 발표가 연결한 등록 대상"
+        - "보조 보도: 하루 과제, 실시간 질의응답, 디스코드 참여 조건을 설명"
     - type: number_verify
       result: pass
-      summary: "참가자 수와 강의 시간을 공식 발표와 비교."
+      summary: "공식 발표 수치와 보조 보도 수치를 분리해 기록했어."
       items:
-        - "1차 5-Day GenAI 코스 등록자 1.5M+ (Google 발표 기준)"
-        - "일일 라이브 세션 90분, 매일 3시간 분량 코드랩"
-        - "캡스톤 평가 기간 5월 22-29일, 상위 3팀 Google I/O 2027 참가권"
+        - "공식 발표: 강의 기간 6월 15-19일은 5일 과정"
+        - "공식 발표: 150만 명+는 작년 첫 AI Agents Intensive 도달 규모"
+        - "보조 보도: 하루 과제 1-2시간, 실시간 질의응답 45-60분"
     - type: adversarial
       result: pass
-      summary: "무료 강의 마케팅의 한계와 실무 적용 격차를 짚어둠."
+      summary: "마케팅 표현과 실제 실무 학습 효과를 분리해서 읽도록 한계를 남겼어."
       items:
-        - "Gemini API 무료 티어 한도 안에서만 캡스톤 빌드 가능 — 대용량은 별도 결제"
-        - "ADK는 아직 Python 중심이라 다른 언어 사용자는 학습 곡선 추가"
-        - "1.5M 등록은 완주가 아니라 등록 수치, 실제 수료율은 공개 안 됨"
+        - "150만 명+는 이번 과정 수료율이 아니야"
+        - "10x agents는 Google의 학습 목표 표현이지 독립 성능 벤치마크가 아니야"
+        - "Python 경험 권장과 계정 준비 조건은 보조 보도 기준이라 등록 페이지에서 다시 확인해야 해"
       findings:
-        - "Google 자체 마케팅이라 등록 수치만 부각되고 수료율은 미공개"
-        - "캡스톤 채점 기준이 공개되지 않아 우열 평가 기준이 불투명"
+        - "Google·Kaggle 자체 공지 중심이라 실제 완주율과 프로젝트 품질은 아직 별도 확인이 필요해"
+        - "공식 근거가 약한 보상 조건은 본문과 factCheck에서 제외했어"
 tags: ["google", "kaggle", "ai-agents", "vibe-coding", "education"]
 formatVersion: 2
 guideVersion:
   tone: "2.0.0"
   common: "2.3.0"
   news: "3.1.2"
+reviewStamp:
+  panelVersion: "1.0.0"
+  agentVersions:
+    beginner-editor: "1.0.0"
+    fact-checker: "1.0.0"
+    skeptical-critic: "1.1.0"
+    tone-editor: "1.6.0"
+    structure-editor: "1.1.0"
+  guideVersions:
+    tone: "2.0.0"
+    common: "2.3.0"
+    news: "3.1.2"
+  panelVerdict: pass
+  contentHash: "388f817e21a59d7c"
+  reviewedAt: "2026-04-28"
 ---
 ## 무슨 일이 일어났나
 
-[Google](/ko/wiki/google/)과 [Kaggle](https://www.kaggle.com/learn-guide/ai-agents-vibe-coding-2026)이 6월 15-19일 5일짜리 [AI 에이전트 바이브 코딩 강의](https://blog.google/technology/developers/google-kaggle-ai-agents-vibe-coding-course/)를 무료로 연다고 발표했어. 등록만 하면 누구나 들을 수 있고, [Gemini 2.5](/ko/wiki/gemini/)와 ADK(Agent Development Kit)를 기반으로 매일 90분 라이브 + 코드랩이 돌아가.
+이 강의는 자연어 지시와 도구 호출을 엮어 작은 AI 에이전트를 직접 만들어 보는 초급 실습 과정이야. Google과 [Kaggle](https://www.kaggle.com/competitions/5-day-ai-agents-intensive-vibecoding-course-with-google/overview)이 2026년 6월 15-19일 [AI 에이전트 바이브 코딩 강의](https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/)를 무료로 연다고 발표했어.
 
-마지막 날은 캡스톤이야. 본인이 만든 에이전트를 배포하고 5월 22-29일 평가 기간을 거쳐 상위 3팀이 Google I/O 2027 참가권을 받아.
+핵심 주제인 [바이브 코딩](/ko/wiki/vibe-coding/)은 자연어를 주된 프로그래밍 인터페이스로 쓰고, 도구와 API를 붙여 자동화 범위를 넓히는 방식이야.
 
 ## 왜 이게 중요해
 
-작년 [5-Day GenAI 코스](https://techcrunch.com/2026/04/27/google-kaggle-launch-ai-agents-vibe-coding-course/)에 1.5M+가 등록했어. 그 후속이라는 점에서 단발 이벤트가 아니라 Google의 개발자 깔때기 전략이야. 이번엔 LLM 기초가 아니라 "에이전트를 짜서 배포하기"가 목표라는 점이 달라.
+Google 공식 발표와 보조 보도를 합치면 참여 흐름은 세 가지야:
 
-커리큘럼은 5일에 걸쳐 단계별로 쌓아가:
-
-- **1일차**: Gemini 2.5 함수 호출과 도구 정의
-- **2일차**: ADK로 멀티 에이전트 오케스트레이션
-- **3일차**: RAG와 외부 API 연동
-- **4일차**: 평가·로깅·관측 도구 설정
-- **5일차**: 캡스톤 — 본인 에이전트 배포
+- 공식 발표 기준: 자연어 워크플로, 도구·API 연결, 실습 예시, 선택형 마무리 프로젝트
+- 보조 보도 기준: 매일 백서·설명 팟캐스트·코드랩을 1-2시간 자기 속도로 진행
+- 보조 보도 기준: 45-60분 실시간 질의응답과 디스코드 참여
 
 ## 어떤 의미인가
 
-에이전트 빌딩이 작년까지 "튜토리얼 보고 따라치기"였다면, 이번 강의는 평가까지 포함한 미니 프로젝트야. 회사에서 에이전트 도입을 고민 중이면 5일 내내 비우긴 어려워도 캡스톤만 따라잡아도 자기 도메인용 PoC 한 개는 손에 남아.
+Python 노트북을 따라갈 수 있고 반복 업무 하나를 자동화해 보고 싶은 개인이나 팀이면 6월 15-19일을 비워볼 만해. 반대로 [LLM](/ko/wiki/llm/) 기초나 사내 데이터 연결 기준부터 정해야 하는 팀은 지금은 자료만 저장해도 돼. 작년 과정이 150만 명 넘게 도달했다는 수치는 관심 규모이지 완주율이나 실무 성과가 아니고, 10x agents도 학습 목표 표현으로 봐야 해.
 
-다만 무료라는 점을 너무 믿지는 마. Gemini API 무료 티어로는 가벼운 캡스톤만 가능하고, 대용량 RAG나 실시간 응답은 결제 들어가야 해. 등록자 1.5M도 완주율이 아니라 등록 수치라 실제 수료한 사람은 훨씬 적을 거야.
+보조 보도 기준으로 하루 자기주도 과제는 1-2시간, 실시간 질의응답은 45-60분이고 Python 경험이 권장돼. 무료 Kaggle 계정과 Google AI Studio 접근도 준비해야 해.
 
 ## 다음 수순
 
-[Kaggle 강의 페이지](https://www.kaggle.com/learn-guide/ai-agents-vibe-coding-2026)에서 등록받고 있어. 사내 도입 검토 중이면 회사 동료 2-3명과 같이 등록해서 캡스톤을 사내 PoC로 돌리는 게 ROI가 가장 좋아. 라이브 세션은 한국 시간 새벽이지만 다시보기가 24시간 안에 올라와서 KST 기준 출근 전에 따라잡을 수 있어.
+[Kaggle 강의 페이지](https://www.kaggle.com/competitions/5-day-ai-agents-intensive-vibecoding-course-with-google/overview)에서 등록받고 있어. 혼자 듣기보다 동료 2-3명과 과제를 나눠 보고, 캡스톤은 사내 반복 업무 하나를 자동화하는 작은 실험으로 잡는 편이 좋아.

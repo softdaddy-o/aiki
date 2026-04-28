@@ -148,6 +148,9 @@ const BLOCKED_SOURCE_PATTERNS = [
     /cloudflare/i,
 ];
 
+const GOOGLE_IO_TICKET_PATTERN = /Google\s*I\/O(?:\s*\d{4})?[^\n.。]{0,60}(?:참가권|티켓|초대권|입장권|pass|passes|ticket|tickets)|(?:참가권|티켓|초대권|입장권|pass|passes|ticket|tickets)[^\n.。]{0,60}Google\s*I\/O(?:\s*\d{4})?/iu;
+const PRIZE_CONTEXT_PATTERN = /(?:상위\s*\d+|우승|수상|당첨|보상|상품|상금|캡스톤|prize|winner|winners|reward|award)/iu;
+
 const args = process.argv.slice(2);
 const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
 const checkAll = args.includes('--all');
@@ -632,6 +635,11 @@ function containsBlockedSourceText(text) {
     return BLOCKED_SOURCE_PATTERNS.some((pattern) => pattern.test(String(text || '')));
 }
 
+function hasUnsupportedEventPrizeClaim(text) {
+    const value = String(text || '');
+    return GOOGLE_IO_TICKET_PATTERN.test(value) && PRIZE_CONTEXT_PATTERN.test(value);
+}
+
 function containsWeakWikiSourceCopy(text) {
     return WIKI_SOURCE_COPY_PATTERNS.some((pattern) => pattern.test(String(text || '')));
 }
@@ -841,6 +849,10 @@ function collectFileFindings(filepath, contentType) {
 
     if (containsForbiddenPersonaName(renderedCopyText)) {
         push('fail', 'forbidden-persona-name', 'content copy mentions the internal reader persona name; use generic reader phrasing instead');
+    }
+
+    if (!isDraft && targetName === 'news' && hasUnsupportedEventPrizeClaim(renderedCopyText)) {
+        push('fail', 'unsupported-event-prize-claim', 'Google I/O ticket/pass prize claims are high-risk; remove unless a new rule verifies direct official prize terms');
     }
 
     if (!isDraft) {
