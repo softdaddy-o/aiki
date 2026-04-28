@@ -3,6 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+    sortProjectsByPopular,
+    sortProjectsByRecent,
+    sortWikiByPopular,
+    sortWikiByRecent,
+} from '../../lib/catalogSort.js';
 
 const lang = 'ko';
 
@@ -23,21 +29,12 @@ const briefingNews = (sameDayNews.length >= 3 ? sameDayNews : sortedNews).slice(
 const featureNews = briefingNews[0];
 const sideNews = briefingNews.slice(1, 3);
 
-const trendingTerms = [...allWiki]
-    .sort((a, b) => {
-        const mentionDiff = (b.data.mentionCount ?? 0) - (a.data.mentionCount ?? 0);
-        return mentionDiff || a.data.title.localeCompare(b.data.title, 'ko');
-    })
-    .slice(0, 5);
+const trendingTerms = sortWikiByPopular(allWiki).slice(0, 5);
+const recentTerms = sortWikiByRecent(allWiki).slice(0, 5);
 
-const trendingProjects = [...allProjects]
-    .filter((project) => project.data.contentStatus === 'final')
-    .sort((a, b) => {
-        const aMetric = a.data.sourceMetric ?? a.data.stars ?? 0;
-        const bMetric = b.data.sourceMetric ?? b.data.stars ?? 0;
-        return bMetric - aMetric || a.data.title.localeCompare(b.data.title, 'ko');
-    })
-    .slice(0, 3);
+const finalProjects = allProjects.filter((project) => project.data.contentStatus === 'final');
+const trendingProjects = sortProjectsByPopular(finalProjects).slice(0, 3);
+const recentProjects = sortProjectsByRecent(finalProjects).slice(0, 3);
 
 function newsSlug(entry: (typeof allNews)[number]): string {
     return entry.id.replace(/^ko\//, '');
@@ -87,6 +84,18 @@ function newsLabel(entry: (typeof allNews)[number], index = 0): string {
 
 function projectMetric(project: (typeof allProjects)[number]): string {
     return formatNumber(project.data.sourceMetric ?? project.data.stars);
+}
+
+function termSignal(entry: (typeof allWiki)[number], mode: 'popular' | 'recent'): string {
+    if (mode === 'recent' && entry.data.firstMentioned) {
+        return `추가 ${formatShortDate(entry.data.firstMentioned)}`;
+    }
+    return `언급 ${entry.data.mentionCount}`;
+}
+
+function projectSignal(project: (typeof allProjects)[number], mode: 'popular' | 'recent'): string {
+    if (mode === 'recent') return formatShortDate(project.data.date);
+    return `★${projectMetric(project)}`;
 }
 
 function projectLogo(project: (typeof allProjects)[number]): string {
@@ -194,15 +203,30 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
                     <aside class="insight-zone" aria-label="트렌딩 위키와 프로젝트">
                         <section class="compact-panel terms-card" aria-labelledby="terms-title">
                             <div class="panel-head">
-                                <h2 id="terms-title">많이 찾는 위키 용어</h2>
+                                <div class="panel-title-stack">
+                                    <h2 id="terms-title">많이 찾는 위키 용어</h2>
+                                    <div class="mini-sort-tabs" data-home-sort-group="wiki" aria-label="홈 위키 정렬">
+                                        <button type="button" class="mini-sort-tab active" data-home-sort="popular" aria-pressed="true">인기순</button>
+                                        <button type="button" class="mini-sort-tab" data-home-sort="recent" aria-pressed="false">최근 추가</button>
+                                    </div>
+                                </div>
                                 <a href="/ko/wiki/">전체 보기</a>
                             </div>
-                            <div class="term-list">
+                            <div class="term-list" data-home-sort-list="wiki-popular">
                                 {trendingTerms.map((entry, index) => (
                                     <a class="term-row" href={`/ko/wiki/${wikiSlug(entry)}/`}>
                                         <span>{String(index + 1).padStart(2, '0')}</span>
                                         <strong>{entry.data.title}</strong>
-                                        <small>{entry.data.mentionCount >= 10 ? '▲' : '▼'} {entry.data.mentionCount}</small>
+                                        <small>{termSignal(entry, 'popular')}</small>
+                                    </a>
+                                ))}
+                            </div>
+                            <div class="term-list" data-home-sort-list="wiki-recent" hidden>
+                                {recentTerms.map((entry, index) => (
+                                    <a class="term-row" href={`/ko/wiki/${wikiSlug(entry)}/`}>
+                                        <span>{String(index + 1).padStart(2, '0')}</span>
+                                        <strong>{entry.data.title}</strong>
+                                        <small>{termSignal(entry, 'recent')}</small>
                                     </a>
                                 ))}
                             </div>
@@ -210,10 +234,16 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
 
                         <section class="compact-panel project-card" aria-labelledby="projects-title">
                             <div class="panel-head">
-                                <h2 id="projects-title">인기 프로젝트</h2>
+                                <div class="panel-title-stack">
+                                    <h2 id="projects-title">인기 프로젝트</h2>
+                                    <div class="mini-sort-tabs" data-home-sort-group="projects" aria-label="홈 쇼케이스 정렬">
+                                        <button type="button" class="mini-sort-tab active" data-home-sort="popular" aria-pressed="true">인기순</button>
+                                        <button type="button" class="mini-sort-tab" data-home-sort="recent" aria-pressed="false">최근 추가</button>
+                                    </div>
+                                </div>
                                 <a href="/ko/projects/">전체 보기</a>
                             </div>
-                            <div class="project-list">
+                            <div class="project-list" data-home-sort-list="projects-popular">
                                 {trendingProjects.map((project, index) => (
                                     <a class="project-row" href={`/ko/projects/${project.data.slug}/`}>
                                         <span class={`project-icon project-icon--${index + 1}`}>{projectLogo(project)}</span>
@@ -221,7 +251,19 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
                                             <strong>{project.data.title}</strong>
                                             <small>{project.data.summary}</small>
                                         </span>
-                                        <em>★ {projectMetric(project)}</em>
+                                        <em>{projectSignal(project, 'popular')}</em>
+                                    </a>
+                                ))}
+                            </div>
+                            <div class="project-list" data-home-sort-list="projects-recent" hidden>
+                                {recentProjects.map((project, index) => (
+                                    <a class="project-row" href={`/ko/projects/${project.data.slug}/`}>
+                                        <span class={`project-icon project-icon--${index + 1}`}>{projectLogo(project)}</span>
+                                        <span>
+                                            <strong>{project.data.title}</strong>
+                                            <small>{project.data.summary}</small>
+                                        </span>
+                                        <em>{projectSignal(project, 'recent')}</em>
                                     </a>
                                 ))}
                             </div>
@@ -273,6 +315,26 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
             const isDark = document.documentElement.classList.toggle('dark');
             const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
             document.cookie = `theme=${isDark ? 'dark' : 'light'};expires=${expires};path=/;SameSite=Lax`;
+        });
+    });
+
+    document.querySelectorAll('[data-home-sort-group]').forEach((group) => {
+        const key = group.getAttribute('data-home-sort-group');
+        const buttons = Array.from(group.querySelectorAll('[data-home-sort]'));
+        const lists = Array.from(document.querySelectorAll(`[data-home-sort-list^="${key}-"]`));
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const mode = button.getAttribute('data-home-sort') || 'popular';
+                buttons.forEach((item) => {
+                    const active = item === button;
+                    item.classList.toggle('active', active);
+                    item.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+                lists.forEach((list) => {
+                    list.hidden = list.getAttribute('data-home-sort-list') !== `${key}-${mode}`;
+                });
+            });
         });
     });
 </script>
@@ -605,6 +667,47 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
 
     .panel-head h2 {
         font-size: 1rem;
+    }
+
+    .panel-title-stack {
+        display: grid;
+        gap: 9px;
+        min-width: 0;
+    }
+
+    .mini-sort-tabs {
+        display: inline-flex;
+        width: fit-content;
+        max-width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.42);
+        padding: 3px;
+    }
+
+    .mini-sort-tab {
+        min-height: 26px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.72rem;
+        font-weight: 820;
+        line-height: 1;
+        padding: 0 9px;
+        white-space: nowrap;
+    }
+
+    .mini-sort-tab.active {
+        background: var(--ink);
+        color: #fff;
+    }
+
+    .term-list[hidden],
+    .project-list[hidden] {
+        display: none;
     }
 
     .section-head a,
@@ -1382,11 +1485,17 @@ const latestDayLabel = latestNewsDay ? formatBriefingDate(`${latestNewsDay}T12:0
         color: #8fb3ff;
     }
 
+    html.dark .mini-sort-tab.active {
+        background: #8fb3ff;
+        color: #071426;
+    }
+
     html.dark .brief-search,
     html.dark .phone-search,
     html.dark .landing-theme-toggle,
     html.dark .brief-lang,
     html.dark .phone-menu,
+    html.dark .mini-sort-tabs,
     html.dark .lead-news-card,
     html.dark .side-news-card,
     html.dark .compact-panel,

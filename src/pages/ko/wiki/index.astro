@@ -1,9 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { sortWikiByPopular, sortWikiByRecent } from '../../../lib/catalogSort.js';
 
 const lang = 'ko';
 const allWiki = await getCollection('wiki', ({ data }) => data.lang === lang && !data.draft);
+const popularWiki = sortWikiByPopular(allWiki);
+const recentWiki = sortWikiByRecent(allWiki);
 
 const categoryLabels: Record<string, string> = {
     concept: '개념',
@@ -16,14 +19,21 @@ const categoryLabels: Record<string, string> = {
 const categoryOrder = ['concept', 'model', 'technique', 'tool', 'framework'];
 
 const grouped: Record<string, typeof allWiki> = {};
-for (const entry of allWiki) {
+for (const entry of popularWiki) {
     const cat = entry.data.category;
     if (!grouped[cat]) grouped[cat] = [];
     grouped[cat].push(entry);
 }
 
-for (const cat of Object.keys(grouped)) {
-    grouped[cat].sort((a, b) => b.data.mentionCount - a.data.mentionCount);
+function wikiSlug(entry: (typeof allWiki)[number]): string {
+    return entry.id.replace(/^ko\//, '');
+}
+
+function formatWikiDate(value?: string): string {
+    if (!value) return '날짜 없음';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return new Intl.DateTimeFormat('ko-KR', { month: 'numeric', day: 'numeric' }).format(date);
 }
 ---
 
@@ -31,11 +41,17 @@ for (const cat of Object.keys(grouped)) {
     <h1 class="page-title">AI 용어 사전</h1>
     <p class="page-desc">너만 모르는 AI 용어</p>
 
-    <div class="wiki-filters" aria-label="위키 카테고리 필터">
-        <button type="button" class="wiki-filter active" data-filter="all">전체</button>
-        {categoryOrder.filter((cat) => grouped[cat]?.length).map((cat) => (
-            <button type="button" class="wiki-filter" data-filter={cat}>{categoryLabels[cat]}</button>
-        ))}
+    <div class="wiki-controls">
+        <div class="wiki-filters" aria-label="위키 카테고리 필터">
+            <button type="button" class="wiki-filter active" data-filter="all">전체</button>
+            {categoryOrder.filter((cat) => grouped[cat]?.length).map((cat) => (
+                <button type="button" class="wiki-filter" data-filter={cat}>{categoryLabels[cat]}</button>
+            ))}
+        </div>
+        <div class="wiki-sort-tabs" aria-label="위키 정렬">
+            <button type="button" class="wiki-sort-tab active" data-sort-mode="popular" aria-pressed="true">인기순</button>
+            <button type="button" class="wiki-sort-tab" data-sort-mode="recent" aria-pressed="false">최근 추가</button>
+        </div>
     </div>
 
     {categoryOrder.filter((cat) => grouped[cat]?.length).map((cat) => (
@@ -45,7 +61,7 @@ for (const cat of Object.keys(grouped)) {
             </h2>
             <div class="wiki-grid">
                 {grouped[cat].map((entry) => {
-                    const slug = entry.id.replace(/^ko\//, '');
+                    const slug = wikiSlug(entry);
                     return (
                         <a
                             href={`/ko/wiki/${slug}/`}
@@ -55,6 +71,7 @@ for (const cat of Object.keys(grouped)) {
                             data-summary={entry.data.summary}
                             data-aliases={(entry.data.aliases || []).join(' ')}
                             data-category={categoryLabels[cat]}
+                            data-category-key={cat}
                         >
                             <h3 class="wiki-card-title">{entry.data.title}</h3>
                             <p class="wiki-card-summary">{entry.data.summary}</p>
@@ -70,17 +87,54 @@ for (const cat of Object.keys(grouped)) {
             </div>
         </section>
     ))}
+
+    <section class="wiki-section" id="wiki-section-recent" data-wiki-recent-section hidden>
+        <h2 class="section-title">
+            <span class="section-badge">최근 추가</span>
+        </h2>
+        <div class="wiki-grid">
+            {recentWiki.map((entry) => {
+                const cat = entry.data.category;
+                const slug = wikiSlug(entry);
+                return (
+                    <a
+                        href={`/ko/wiki/${slug}/`}
+                        class="wiki-card"
+                        data-wiki-recent-card
+                        data-category-key={cat}
+                    >
+                        <h3 class="wiki-card-title">{entry.data.title}</h3>
+                        <p class="wiki-card-summary">{entry.data.summary}</p>
+                        <div class="wiki-card-meta">
+                            <span class="wiki-card-category">{categoryLabels[cat]}</span>
+                            <span class="mention-count">추가 {formatWikiDate(entry.data.firstMentioned)}</span>
+                        </div>
+                    </a>
+                );
+            })}
+        </div>
+    </section>
 </BaseLayout>
 
 <script is:inline>
     const tabs = Array.from(document.querySelectorAll('.wiki-filter'));
+    const sortTabs = Array.from(document.querySelectorAll('.wiki-sort-tab'));
     const sections = Array.from(document.querySelectorAll('[data-wiki-section]'));
+    const recentSection = document.querySelector('[data-wiki-recent-section]');
+    const recentCards = Array.from(document.querySelectorAll('[data-wiki-recent-card]'));
     let activeFilter = 'all';
+    let activeSort = 'popular';
 
     function applyWikiFilter() {
+        const showRecent = activeSort === 'recent';
         sections.forEach((section) => {
             const sectionKey = section.getAttribute('data-wiki-section');
-            section.hidden = activeFilter !== 'all' && sectionKey !== activeFilter;
+            section.hidden = showRecent || (activeFilter !== 'all' && sectionKey !== activeFilter);
+        });
+        if (recentSection) recentSection.hidden = !showRecent;
+        recentCards.forEach((card) => {
+            const matchCategory = activeFilter === 'all' || card.getAttribute('data-category-key') === activeFilter;
+            card.hidden = !showRecent || !matchCategory;
         });
     }
 
@@ -89,6 +143,18 @@ for (const cat of Object.keys(grouped)) {
             tabs.forEach((item) => item.classList.remove('active'));
             tab.classList.add('active');
             activeFilter = tab.getAttribute('data-filter') || 'all';
+            applyWikiFilter();
+        });
+    });
+
+    sortTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            sortTabs.forEach((item) => {
+                const active = item === tab;
+                item.classList.toggle('active', active);
+                item.setAttribute('aria-pressed', active ? 'true' : 'false');
+            });
+            activeSort = tab.getAttribute('data-sort-mode') || 'popular';
             applyWikiFilter();
         });
     });
@@ -115,17 +181,35 @@ for (const cat of Object.keys(grouped)) {
         margin: 0 0 26px;
     }
 
-    .wiki-filters {
+    .wiki-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+    }
+
+    .wiki-filters,
+    .wiki-sort-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         justify-content: flex-start;
-        margin-bottom: 28px;
         padding-bottom: 2px;
         overflow-x: auto;
     }
 
-    .wiki-filter {
+    .wiki-sort-tabs {
+        margin-left: auto;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-surface-elevated) 68%, transparent);
+        padding: 3px;
+    }
+
+    .wiki-filter,
+    .wiki-sort-tab {
         min-height: 38px;
         padding: 0 16px;
         border: 1px solid var(--color-border);
@@ -139,12 +223,21 @@ for (const cat of Object.keys(grouped)) {
         transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
-    .wiki-filter:hover {
+    .wiki-sort-tab {
+        min-height: 32px;
+        border-color: transparent;
+        background: transparent;
+        font-weight: 750;
+    }
+
+    .wiki-filter:hover,
+    .wiki-sort-tab:hover {
         background: rgba(255, 255, 255, 0.68);
         color: var(--color-text);
     }
 
-    .wiki-filter.active {
+    .wiki-filter.active,
+    .wiki-sort-tab.active {
         border-color: var(--color-text);
         background: var(--color-text);
         color: #fff;
@@ -248,6 +341,14 @@ for (const cat of Object.keys(grouped)) {
 
         .wiki-grid {
             grid-template-columns: minmax(0, 1fr);
+        }
+
+        .wiki-controls {
+            align-items: flex-start;
+        }
+
+        .wiki-sort-tabs {
+            margin-left: 0;
         }
 
         .wiki-card {

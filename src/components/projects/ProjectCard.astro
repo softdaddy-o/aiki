@@ -11,10 +11,13 @@ interface Props {
     metric: number;
     license: string;
     version: string;
+    date?: string;
+    popularity?: number;
+    recency?: number;
     lang: string;
 }
 
-const { title, slug, summary, category, tags, sourceUrl, metric, license, version, lang } = Astro.props;
+const { title, slug, summary, category, tags, sourceUrl, metric, license, version, date, popularity, recency, lang } = Astro.props;
 const categoryLabel = t(lang, `projects.category.${category}`);
 const metricTitle = sourceUrl.includes('huggingface.co/') ? 'Hugging Face Likes' : 'GitHub Stars';
 const metricPrefix = sourceUrl.includes('huggingface.co/') ? 'HF' : null;
@@ -36,6 +39,9 @@ function formatStars(value: number): string {
     data-summary={summary.toLowerCase()}
     data-tags={tags.join(' ').toLowerCase()}
     data-category={category}
+    data-popularity={popularity ?? metric ?? 0}
+    data-recency={recency ?? 0}
+    data-date={date ?? ''}
 >
     <div class="card-header">
         <h3 class="card-title">{title}</h3>

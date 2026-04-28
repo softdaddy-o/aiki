@@ -3,14 +3,11 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ProjectCard from '../../../components/projects/ProjectCard.astro';
 import { t } from '../../../i18n/utils';
+import { projectPopularity, projectRecency, sortProjectsByPopular } from '../../../lib/catalogSort.js';
 
 const lang = 'ko';
 const allProjects = await getCollection('projects', ({ data }) => data.lang === lang && !data.draft);
-const projects = allProjects.sort((a, b) => {
-    const aMetric = a.data.sourceMetric ?? a.data.stars;
-    const bMetric = b.data.sourceMetric ?? b.data.stars;
-    return bMetric - aMetric || a.data.title.localeCompare(b.data.title, 'en');
-});
+const projects = sortProjectsByPopular(allProjects);
 const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'dataset'] as const;
 ---
 
@@ -31,6 +28,10 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
                     ) : null;
                 })}
             </div>
+            <div class="sort-tabs" aria-label="쇼케이스 정렬">
+                <button type="button" class="sort-tab active" data-sort-mode="popular" aria-pressed="true">인기순</button>
+                <button type="button" class="sort-tab" data-sort-mode="recent" aria-pressed="false">최근 추가</button>
+            </div>
         </div>
 
         <div class="projects-grid" id="projects-grid">
@@ -45,6 +46,9 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
                     metric={project.data.sourceMetric ?? project.data.stars}
                     license={project.data.license}
                     version={project.data.version}
+                    date={project.data.date}
+                    popularity={projectPopularity(project)}
+                    recency={projectRecency(project)}
                     lang={lang}
                 />
             ))}
@@ -56,7 +60,10 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
 <script is:inline>
     const cards = Array.from(document.querySelectorAll('[data-project-card]'));
     const tabs = Array.from(document.querySelectorAll('.cat-tab'));
+    const sortTabs = Array.from(document.querySelectorAll('.sort-tab'));
+    const grid = document.querySelector('#projects-grid');
     let activeFilter = 'all';
+    let activeSort = 'popular';
 
     function filterCards() {
         cards.forEach((card) => {
@@ -66,11 +73,36 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
         });
     }
 
+    function sortCards() {
+        if (!grid) return;
+        const metric = activeSort === 'recent' ? 'recency' : 'popularity';
+        const sortedCards = [...cards].sort((left, right) => {
+            const leftValue = Number(left.getAttribute(`data-${metric}`) || 0);
+            const rightValue = Number(right.getAttribute(`data-${metric}`) || 0);
+            if (rightValue !== leftValue) return rightValue - leftValue;
+            return (left.getAttribute('data-title') || '').localeCompare(right.getAttribute('data-title') || '', 'ko');
+        });
+        sortedCards.forEach((card) => grid.appendChild(card));
+    }
+
     tabs.forEach((tab) => {
         tab.addEventListener('click', () => {
             tabs.forEach((item) => item.classList.remove('active'));
             tab.classList.add('active');
             activeFilter = tab.getAttribute('data-filter') || 'all';
+            filterCards();
+        });
+    });
+
+    sortTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            sortTabs.forEach((item) => {
+                const active = item === tab;
+                item.classList.toggle('active', active);
+                item.setAttribute('aria-pressed', active ? 'true' : 'false');
+            });
+            activeSort = tab.getAttribute('data-sort-mode') || 'popular';
+            sortCards();
             filterCards();
         });
     });
@@ -111,17 +143,29 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 32px;
     }
 
-    .category-tabs {
+    .category-tabs,
+    .sort-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        min-width: 0;
     }
 
-    .cat-tab {
+    .sort-tabs {
+        margin-left: auto;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-surface-elevated) 68%, transparent);
+        padding: 3px;
+    }
+
+    .cat-tab,
+    .sort-tab {
         min-height: 44px;
         padding: 0 16px;
         border: 1px solid var(--color-border);
@@ -135,12 +179,21 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
         transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
-    .cat-tab:hover {
+    .sort-tab {
+        min-height: 34px;
+        border-color: transparent;
+        background: transparent;
+        font-weight: 750;
+    }
+
+    .cat-tab:hover,
+    .sort-tab:hover {
         background: rgba(255, 255, 255, 0.68);
         color: var(--color-text);
     }
 
-    .cat-tab.active {
+    .cat-tab.active,
+    .sort-tab.active {
         border-color: var(--color-text);
         background: var(--color-text);
         color: #fff;
@@ -166,6 +219,14 @@ const categories = ['library', 'framework', 'agent', 'model', 'tool', 'bot', 'da
         .projects-grid {
             grid-template-columns: minmax(0, 1fr);
             border-left: 0;
+        }
+
+        .catalog-controls {
+            align-items: flex-start;
+        }
+
+        .sort-tabs {
+            margin-left: 0;
         }
     }
 </style>

@@ -13,6 +13,7 @@ import NemotronPersonasKoreaShowcase from '../../../components/projects/showcase
 import ManifestShowcase from '../../../components/projects/showcases/manifest/index.tsx';
 import WhisperCppShowcase from '../../../components/projects/showcases/whisper-cpp/index.tsx';
 import PocketBaseShowcase from '../../../components/projects/showcases/pocketbase/index.tsx';
+import ActivepiecesShowcase from '../../../components/projects/showcases/activepieces/index.tsx';
 
 const categoryLabels: Record<string, string> = {
     dataset: '데이터셋',
@@ -101,6 +102,7 @@ const SHOWCASE_NATIVE = new Set([
     'manifest',
     'whisper-cpp',
     'pocketbase',
+    'activepieces',
 ]);
 const SHOWCASE_NATIVE_NARRATIVE = new Set([
     'yfinance',
@@ -113,6 +115,7 @@ const SHOWCASE_NATIVE_NARRATIVE = new Set([
     'manifest',
     'whisper-cpp',
     'pocketbase',
+    'activepieces',
 ]);
 const usesShowcaseNarrative = showcaseComponent ? SHOWCASE_NATIVE_NARRATIVE.has(showcaseComponent) : false;
 
@@ -533,6 +536,36 @@ const shareUrl = Astro.url.href;
             </section>
         )}
 
+        {showcaseComponent === 'activepieces' && (
+            <section class:list={['showcase-area', 'showcase-area--lead']} aria-label={`${title} 인터랙티브 쇼케이스`} id="showcase">
+                <div class="showcase-shell hf-shell">
+                    <div class="showcase-frame showcase-frame-with-nav showcase-frame--activepieces hf-frame">
+                        <ActivepiecesShowcase
+                            client:load
+                            slug={entry.data.slug}
+                            title={title}
+                            summary={summary}
+                            tags={tags}
+                            sourceMeta={sourceMeta}
+                            metricValue={formatStars(displayedMetric)}
+                            license={license}
+                        />
+                        {factCheck && (
+                            <div class="hf-fact-wrap" id="ap-section-fact">
+                                <FactCheck
+                                    status={factCheck.status}
+                                    date={factCheck.date}
+                                    checks={factCheck.checks}
+                                    sources={factCheck.sources}
+                                    lang="ko"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )}
+
         {!usesShowcaseNarrative && (
             <section class="project-explainer" aria-labelledby="project-explainer-title">
                 <div class="project-explainer-head">
@@ -935,7 +968,8 @@ const shareUrl = Astro.url.href;
     .showcase-frame.hf-frame :global(.lr-main),
     .showcase-frame.hf-frame :global(.mf-main),
     .showcase-frame.hf-frame :global(.wc-main),
-    .showcase-frame.hf-frame :global(.pb-main) {
+    .showcase-frame.hf-frame :global(.pb-main),
+    .showcase-frame.hf-frame :global(.ap-main) {
         grid-column: 1;
         grid-row: 1;
     }
@@ -1187,6 +1221,7 @@ const shareUrl = Astro.url.href;
         .showcase-frame.hf-frame :global(.mf-main),
         .showcase-frame.hf-frame :global(.wc-main),
         .showcase-frame.hf-frame :global(.pb-main),
+        .showcase-frame.hf-frame :global(.ap-main),
         .hf-fact-wrap {
             grid-row: auto;
         }

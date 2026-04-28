@@ -7,6 +7,7 @@
   { "url": "/ko/projects/lightrag/", "type": "showcase-native", "note": "native showcase shell" },
   { "url": "/ko/projects/nemotron-ocr-v2/", "type": "showcase-native", "note": "floating nav + wide shell" },
   { "url": "/ko/projects/pocketbase/", "type": "showcase-native", "note": "PocketBase admin CRUD showcase" },
+  { "url": "/ko/projects/activepieces/", "type": "showcase-native", "note": "Activepieces workflow automation showcase" },
   { "url": "/ko/projects/whisper-cpp/", "type": "showcase-native", "note": "offline STT runtime showcase" },
   { "url": "/ko/news/", "type": "standard", "note": "news index" },
   { "url": "/ko/wiki/agent/", "type": "standard", "note": "wiki entry" }
